@@ -1,0 +1,82 @@
+# Mutt configuration
+#
+# UTF-8 Encoding on outbound messages
+set send_charset="utf-8"
+# Assume non-marked messages are windows-encoded
+set assumed_charset="iso-8859-1"
+
+# Tell vim that mutt is a mail client, sending UTF-8 messages.
+set editor="vim -c 'set syntax=mail ft=mail enc=utf-8"
+
+# Scroll line-at-a--time
+set menu_scroll=yes
+
+# By default, search To/CC/Subject fields
+set simple_search="~f %s | ~C %s | ~s %s"
+
+# Sort by threads
+set sort=threads
+set strict_threads=yes
+
+# Only show important headers
+ignore *
+unignore From To Cc Bcc Date Subject
+# Header ordering
+unhdr_order *
+hdr_order From: To: Cc: Bcc: Date: Subject:
+
+# Colorings
+color normal white black
+color hdrdefault green default
+color quoted green default
+color quoted1 yellow default
+color quoted2 red default
+color signature cyan default
+color indicator brightyellow red
+color error brightred default
+color status brightwhite blue
+color tree brightmagenta black
+color tilde blue default
+color attachment brightyellow default
+color markers brightred default
+color message white black
+color search brightwhite magenta
+color bold brightyellow default
+
+# Personality settings
+set realname =  "Benjamin J. Culkin"
+set from = "bjculkin@mix.wvu.edu"
+
+# Aliases (Address book)
+source ~/.aliases
+
+# IMAP settings
+set mail_check=60
+set imap_keepalive=30
+
+# IMAP Account settings
+set imap_user = "bjculkin@mix.wvu.edu"
+
+set folder = imaps://imap.gmail.com
+set spoolfile = +INBOX
+set record = "+[Gmail]/Sent Mail"
+set postponed = "+[Gmail]/Drafts"
+
+# Cache IMAP headers
+set header_cache=/var/tmp/.mutt
+
+# Prompt to archive read messages
+set mbox="imaps://imap.gmail.com/[Gmail]/All Mail"
+
+# SMTP settings
+set smtp_url = "smtps://bjculkin@smtp.gmail.com"
+set record=""
+
+# Show certain types of attachments inline
+# Use the format "auto_view <mime-type>"
+
+
+# Keybindings
+
+# Accept folders w/ spaces in their names
+bind editor <space> noop
