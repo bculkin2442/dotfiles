@@ -5,3 +5,7 @@
 	signcommits = true
 [credential "https://github.com"]
 	username = bculkin2442
+[core]
+	excludesfile = ~/.cvsignore
+[push]
+	default = matching

@@ -13,16 +13,40 @@ altscreen on
 
 # Status line
 # Included utilities
-backtick 1 30 30 upower --dump | grep percentage | head -1
+backtick 1 30 30 /home/ben/batstatus.sh
+backtick 2 30 30 pwd
 
 # Actual status line
-caption always "%3n %t %1`"
+caption always "Window: %t %= Time: %C %A, %M %d %Y%= Battery: %1`"
 
 # Enable hard-status
 hardstatus on
 # Use the first line of the screen for non-status aware terminals
 hardstatus firstline 
 
+# Autosave layouts
+layout autosave on
+
 # Keybindings
 #
 #bindkey ^K digraph
+# Reload screenrc
+bind R source ~/.screenrc
+
+# Vertical split
+bind V split -v
+
+# Layout keybindings
+#
+# Layout bindings
+bind -c layoutcoms c layout new
+bind -c layoutcoms r layout remove
+bind -c layoutcoms t layout title
+bind -c layoutcoms n layout next
+bind -c layoutcoms p layout prev
+bind -c layoutcoms s layout show
+bind -c layoutcoms S layout select
+
+# Unbind C-a l and bind it as prefix for layout bindings
+bind "l"
+bind "l" command -c layoutcoms 

@@ -14,13 +14,23 @@ if [[ $- != *i* ]] ; then
 	return
 fi
 
-
-# Put your fun stuff here.
-
 # Configure programs
 export EDITOR=vim
 export PAGER=less
-export BROWSER=links
+export BROWSER=lynx
+
+# Shell options
+# 	Make ** in a pathname expansion context to match all files and zero or more
+#	directories or subdirectories
+shopt -s globstar
 
 # Aliases
 alias stow=xstow
+
+# Completion
+# Complete based off of existing commands
+complete -c man
+complete -c which
+
+# Enable generic man-based completion
+source ~/generic-complete.sh
