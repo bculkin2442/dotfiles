@@ -7,3 +7,6 @@
 [submodule "vim/.vim/bundle/rainbow"]
 	path = vim/.vim/bundle/rainbow
 	url = https://github.com/luochen1990/rainbow.git
+[submodule "vim/.vim/bundle/setcolors.vim"]
+	path = vim/.vim/bundle/setcolors.vim
+	url = https://github.com/felixhummel/setcolors.vim.git
