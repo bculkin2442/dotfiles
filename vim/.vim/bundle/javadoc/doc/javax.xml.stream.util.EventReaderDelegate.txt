@@ -1,0 +1,153 @@
+*javax.xml.stream.util.EventReaderDelegate* *EventReaderDelegate* This is the ba
+
+public class EventReaderDelegate
+  extends    |java.lang.Object|
+  implements |javax.xml.stream.XMLEventReader|
+
+|javax.xml.stream.util.EventReaderDelegate_Description|
+|javax.xml.stream.util.EventReaderDelegate_Fields|
+|javax.xml.stream.util.EventReaderDelegate_Constructors|
+|javax.xml.stream.util.EventReaderDelegate_Methods|
+
+================================================================================
+
+*javax.xml.stream.util.EventReaderDelegate_Constructors*
+|javax.xml.stream.util.EventReaderDelegate()|Construct an empty filter with no 
+|javax.xml.stream.util.EventReaderDelegate(XMLEventReader)|Construct an filter 
+
+*javax.xml.stream.util.EventReaderDelegate_Methods*
+|javax.xml.stream.util.EventReaderDelegate.close()|
+|javax.xml.stream.util.EventReaderDelegate.getElementText()|
+|javax.xml.stream.util.EventReaderDelegate.getParent()|Get the parent of this i
+|javax.xml.stream.util.EventReaderDelegate.getProperty(String)|
+|javax.xml.stream.util.EventReaderDelegate.hasNext()|
+|javax.xml.stream.util.EventReaderDelegate.next()|
+|javax.xml.stream.util.EventReaderDelegate.nextEvent()|
+|javax.xml.stream.util.EventReaderDelegate.nextTag()|
+|javax.xml.stream.util.EventReaderDelegate.peek()|
+|javax.xml.stream.util.EventReaderDelegate.remove()|
+|javax.xml.stream.util.EventReaderDelegate.setParent(XMLEventReader)|Set the pa
+
+*javax.xml.stream.util.EventReaderDelegate_Description*
+
+This is the base class for deriving an XMLEventReader filter. 
+
+This class is designed to sit between an XMLEventReader and an application's 
+XMLEventReader. By default each method does nothing but call the corresponding 
+method on the parent interface. 
+
+
+
+*javax.xml.stream.util.EventReaderDelegate()*
+
+public EventReaderDelegate()
+
+Construct an empty filter with no parent. 
+
+
+*javax.xml.stream.util.EventReaderDelegate(XMLEventReader)*
+
+public EventReaderDelegate(javax.xml.stream.XMLEventReader reader)
+
+Construct an filter with the specified parent. 
+
+    reader - the parent 
+
+*javax.xml.stream.util.EventReaderDelegate.close()*
+
+public void close()
+  throws |javax.xml.stream.XMLStreamException|
+         
+
+
+
+
+*javax.xml.stream.util.EventReaderDelegate.getElementText()*
+
+public |java.lang.String| getElementText()
+  throws |javax.xml.stream.XMLStreamException|
+         
+
+
+
+
+*javax.xml.stream.util.EventReaderDelegate.getParent()*
+
+public |javax.xml.stream.XMLEventReader| getParent()
+
+Get the parent of this instance. 
+
+
+
+    Returns: the parent or null if none is set 
+
+*javax.xml.stream.util.EventReaderDelegate.getProperty(String)*
+
+public |java.lang.Object| getProperty(java.lang.String name)
+  throws |java.lang.IllegalArgumentException|
+         
+
+
+
+
+*javax.xml.stream.util.EventReaderDelegate.hasNext()*
+
+public boolean hasNext()
+
+
+
+
+
+*javax.xml.stream.util.EventReaderDelegate.next()*
+
+public |java.lang.Object| next()
+
+
+
+
+
+*javax.xml.stream.util.EventReaderDelegate.nextEvent()*
+
+public |javax.xml.stream.events.XMLEvent| nextEvent()
+  throws |javax.xml.stream.XMLStreamException|
+         
+
+
+
+
+*javax.xml.stream.util.EventReaderDelegate.nextTag()*
+
+public |javax.xml.stream.events.XMLEvent| nextTag()
+  throws |javax.xml.stream.XMLStreamException|
+         
+
+
+
+
+*javax.xml.stream.util.EventReaderDelegate.peek()*
+
+public |javax.xml.stream.events.XMLEvent| peek()
+  throws |javax.xml.stream.XMLStreamException|
+         
+
+
+
+
+*javax.xml.stream.util.EventReaderDelegate.remove()*
+
+public void remove()
+
+
+
+
+
+*javax.xml.stream.util.EventReaderDelegate.setParent(XMLEventReader)*
+
+public void setParent(javax.xml.stream.XMLEventReader reader)
+
+Set the parent of this instance. 
+
+
+    reader - the new parent 
+
+

@@ -1,0 +1,189 @@
+*javax.swing.plaf.synth.SynthViewportUI* *SynthViewportUI* Provides the Synth L 
+
+public class SynthViewportUI
+  extends    |javax.swing.plaf.ViewportUI|
+  implements |java.beans.PropertyChangeListener|
+             |javax.swing.plaf.synth.SynthUI|
+
+|javax.swing.plaf.synth.SynthViewportUI_Description|
+|javax.swing.plaf.synth.SynthViewportUI_Fields|
+|javax.swing.plaf.synth.SynthViewportUI_Constructors|
+|javax.swing.plaf.synth.SynthViewportUI_Methods|
+
+================================================================================
+
+*javax.swing.plaf.synth.SynthViewportUI_Constructors*
+|javax.swing.plaf.synth.SynthViewportUI()|
+
+*javax.swing.plaf.synth.SynthViewportUI_Methods*
+|javax.swing.plaf.synth.SynthViewportUI.createUI(JComponent)|Creates a new UI o
+|javax.swing.plaf.synth.SynthViewportUI.getContext(JComponent)|
+|javax.swing.plaf.synth.SynthViewportUI.installDefaults(JComponent)|Installs de
+|javax.swing.plaf.synth.SynthViewportUI.installListeners(JComponent)|Installs l
+|javax.swing.plaf.synth.SynthViewportUI.installUI(JComponent)|
+|javax.swing.plaf.synth.SynthViewportUI.paint(Graphics,JComponent)|Paints the s
+|javax.swing.plaf.synth.SynthViewportUI.paint(SynthContext,Graphics)|Paints the
+|javax.swing.plaf.synth.SynthViewportUI.paintBorder(SynthContext,Graphics,int,int,int,int)|
+|javax.swing.plaf.synth.SynthViewportUI.propertyChange(PropertyChangeEvent)|
+|javax.swing.plaf.synth.SynthViewportUI.uninstallDefaults(JComponent)|Uninstall
+|javax.swing.plaf.synth.SynthViewportUI.uninstallListeners(JComponent)|Uninstal
+|javax.swing.plaf.synth.SynthViewportUI.uninstallUI(JComponent)|
+|javax.swing.plaf.synth.SynthViewportUI.update(Graphics,JComponent)|Notifies th
+
+*javax.swing.plaf.synth.SynthViewportUI_Description*
+
+Provides the Synth L and F UI delegate for (|javax.swing.JViewport|) . 
+
+
+
+*javax.swing.plaf.synth.SynthViewportUI()*
+
+public SynthViewportUI()
+
+
+
+
+*javax.swing.plaf.synth.SynthViewportUI.createUI(JComponent)*
+
+public static |javax.swing.plaf.ComponentUI| createUI(javax.swing.JComponent c)
+
+Creates a new UI object for the given component. 
+
+
+    c - component to create UI object for 
+
+    Returns: the UI object 
+
+*javax.swing.plaf.synth.SynthViewportUI.getContext(JComponent)*
+
+public |javax.swing.plaf.synth.SynthContext| getContext(javax.swing.JComponent c)
+
+
+
+
+
+*javax.swing.plaf.synth.SynthViewportUI.installDefaults(JComponent)*
+
+protected void installDefaults(javax.swing.JComponent c)
+
+Installs defaults for a viewport. 
+
+
+    c - a {@code JViewport} object 
+
+*javax.swing.plaf.synth.SynthViewportUI.installListeners(JComponent)*
+
+protected void installListeners(javax.swing.JComponent c)
+
+Installs listeners into the viewport. 
+
+
+    c - a {@code JViewport} object 
+
+*javax.swing.plaf.synth.SynthViewportUI.installUI(JComponent)*
+
+public void installUI(javax.swing.JComponent c)
+
+
+
+
+
+*javax.swing.plaf.synth.SynthViewportUI.paint(Graphics,JComponent)*
+
+public void paint(
+  java.awt.Graphics g,
+  javax.swing.JComponent c)
+
+Paints the specified component according to the Look and Feel. This method is 
+not used by Synth Look and Feel. Painting is handled by the 
+(|javax.swing.plaf.synth.SynthViewportUI|) method. 
+
+
+    g - the {@code Graphics} object used for painting 
+    c - the component being painted 
+
+*javax.swing.plaf.synth.SynthViewportUI.paint(SynthContext,Graphics)*
+
+protected void paint(
+  javax.swing.plaf.synth.SynthContext context,
+  java.awt.Graphics g)
+
+Paints the specified component. This implementation does nothing. 
+
+
+    context - context for the component being painted 
+    g - the {@code Graphics} object used for painting 
+
+*javax.swing.plaf.synth.SynthViewportUI.paintBorder(SynthContext,Graphics,int,int,int,int)*
+
+public void paintBorder(
+  javax.swing.plaf.synth.SynthContext context,
+  java.awt.Graphics g,
+  int x,
+  int y,
+  int w,
+  int h)
+
+Paints the border. The method is never called, because theJViewportclass does 
+not support a border. This implementation does nothing. 
+
+
+    context - a component context 
+    g - the {@code Graphics} to paint on 
+    x - the X coordinate 
+    y - the Y coordinate 
+    w - width of the border 
+    h - height of the border 
+
+*javax.swing.plaf.synth.SynthViewportUI.propertyChange(PropertyChangeEvent)*
+
+public void propertyChange(java.beans.PropertyChangeEvent e)
+
+
+
+
+
+*javax.swing.plaf.synth.SynthViewportUI.uninstallDefaults(JComponent)*
+
+protected void uninstallDefaults(javax.swing.JComponent c)
+
+Uninstalls defaults from a viewport. 
+
+
+    c - a {@code JViewport} object 
+
+*javax.swing.plaf.synth.SynthViewportUI.uninstallListeners(JComponent)*
+
+protected void uninstallListeners(javax.swing.JComponent c)
+
+Uninstalls listeners from the viewport. 
+
+
+    c - a {@code JViewport} object 
+
+*javax.swing.plaf.synth.SynthViewportUI.uninstallUI(JComponent)*
+
+public void uninstallUI(javax.swing.JComponent c)
+
+
+
+
+
+*javax.swing.plaf.synth.SynthViewportUI.update(Graphics,JComponent)*
+
+public void update(
+  java.awt.Graphics g,
+  javax.swing.JComponent c)
+
+Notifies this UI delegate to repaint the specified component. This method 
+paints the component background, then calls the 
+(|javax.swing.plaf.synth.SynthViewportUI|) method. 
+
+In general, this method does not need to be overridden by subclasses. All Look 
+and Feel rendering code should reside in thepaintmethod. 
+
+
+    g - the {@code Graphics} object used for painting 
+    c - the component being painted 
+
+

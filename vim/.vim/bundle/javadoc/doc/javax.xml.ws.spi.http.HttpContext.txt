@@ -1,0 +1,104 @@
+*javax.xml.ws.spi.http.HttpContext* *HttpContext* HttpContext represents a mappi
+
+public abstract class HttpContext
+  extends    |java.lang.Object|
+
+|javax.xml.ws.spi.http.HttpContext_Description|
+|javax.xml.ws.spi.http.HttpContext_Fields|
+|javax.xml.ws.spi.http.HttpContext_Constructors|
+|javax.xml.ws.spi.http.HttpContext_Methods|
+
+================================================================================
+
+*javax.xml.ws.spi.http.HttpContext_Fields*
+|javax.xml.ws.spi.http.HttpHandler_javax.xml.ws.spi.http.HttpContext.handler|
+
+*javax.xml.ws.spi.http.HttpContext_Constructors*
+|javax.xml.ws.spi.http.HttpContext()|
+
+*javax.xml.ws.spi.http.HttpContext_Methods*
+|javax.xml.ws.spi.http.HttpContext.getAttribute(String)|Returns an attribute va
+|javax.xml.ws.spi.http.HttpContext.getAttributeNames()|Returns all attribute na
+|javax.xml.ws.spi.http.HttpContext.getPath()|Returns the path for this context.
+|javax.xml.ws.spi.http.HttpContext.setHandler(HttpHandler)|JAX-WS runtime sets 
+
+*javax.xml.ws.spi.http.HttpContext_Description*
+
+HttpContext represents a mapping between the root URI path of a web service to 
+a (|javax.xml.ws.spi.http.HttpHandler|) which is invoked to handle requests 
+destined for that path on the associated container. 
+
+Container provides the implementation for this and it matches web service 
+requests to corresponding HttpContext objects. 
+
+
+
+*javax.xml.ws.spi.http.HttpHandler_javax.xml.ws.spi.http.HttpContext.handler*
+
+
+
+
+
+*javax.xml.ws.spi.http.HttpContext()*
+
+public HttpContext()
+
+
+
+
+*javax.xml.ws.spi.http.HttpContext.getAttribute(String)*
+
+public abstract |java.lang.Object| getAttribute(java.lang.String name)
+
+Returns an attribute value for container's configuration and other data that 
+can be used by jax-ws runtime. 
+
+
+    name - attribute name 
+
+    Returns: attribute value 
+
+*javax.xml.ws.spi.http.HttpContext.getAttributeNames()*
+
+public abstract |java.util.Set|<String> getAttributeNames()
+
+Returns all attribute names for container's configuration and other data that 
+can be used by jax-ws runtime. 
+
+
+
+    Returns: set of all attribute names 
+
+*javax.xml.ws.spi.http.HttpContext.getPath()*
+
+public abstract |java.lang.String| getPath()
+
+Returns the path for this context. This path uniquely identifies an endpoint 
+inside an application and the path is relative to application's context path. 
+Container should give this path based on how it matches request URIs to this 
+HttpContext object. 
+
+For servlet container, this is typically a url-pattern for an endpoint. 
+
+Endpoint's address for this context can be computed as follows: 
+
+HttpExchange exch = ...; String endpointAddress = exch.getScheme() + "://" + 
+exch.getLocalAddress().getHostName() + ":" + exch.getLocalAddress().getPort() + 
+exch.getContextPath() + getPath(); 
+
+
+
+    Returns: this context's path 
+
+*javax.xml.ws.spi.http.HttpContext.setHandler(HttpHandler)*
+
+public void setHandler(javax.xml.ws.spi.http.HttpHandler handler)
+
+JAX-WS runtime sets its handler during (|javax.xml.ws.Endpoint|) to handle HTTP 
+requests for this context. Container or its extensions use this handler to 
+process the requests. 
+
+
+    handler - the handler to set for this context 
+
+

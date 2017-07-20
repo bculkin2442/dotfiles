@@ -1,0 +1,64 @@
+*java.util.spi.CalendarDataProvider* *CalendarDataProvider* An abstract class fo
+
+public abstract class CalendarDataProvider
+  extends    |java.util.spi.LocaleServiceProvider|
+
+|java.util.spi.CalendarDataProvider_Description|
+|java.util.spi.CalendarDataProvider_Fields|
+|java.util.spi.CalendarDataProvider_Constructors|
+|java.util.spi.CalendarDataProvider_Methods|
+
+================================================================================
+
+*java.util.spi.CalendarDataProvider_Constructors*
+|java.util.spi.CalendarDataProvider()|Sole constructor.
+
+*java.util.spi.CalendarDataProvider_Methods*
+|java.util.spi.CalendarDataProvider.getFirstDayOfWeek(Locale)|Returns the first
+|java.util.spi.CalendarDataProvider.getMinimalDaysInFirstWeek(Locale)|Returns t
+
+*java.util.spi.CalendarDataProvider_Description*
+
+An abstract class for service providers that provide locale-dependent 
+(|java.util.Calendar|) parameters. 
+
+
+
+*java.util.spi.CalendarDataProvider()*
+
+protected CalendarDataProvider()
+
+Sole constructor. (For invocation by subclass constructors, typically 
+implicit.) 
+
+
+*java.util.spi.CalendarDataProvider.getFirstDayOfWeek(Locale)*
+
+public abstract int getFirstDayOfWeek(java.util.Locale locale)
+
+Returns the first day of a week in the givenlocale. This information is 
+required by (|java.util.Calendar|) to support operations on the week-related 
+calendar fields. 
+
+
+    locale - the desired locale 
+
+    Returns: the first day of a week; one of {@link Calendar#SUNDAY} .. {@link 
+             Calendar#SATURDAY}, or 0 if the value isn't available for the 
+             {@code locale} 
+
+*java.util.spi.CalendarDataProvider.getMinimalDaysInFirstWeek(Locale)*
+
+public abstract int getMinimalDaysInFirstWeek(java.util.Locale locale)
+
+Returns the minimal number of days required in the first week of a year. This 
+information is required by (|java.util.Calendar|) to determine the first week 
+of a year. Refer to the description of howCalendardetermines the first week. 
+
+
+    locale - the desired locale 
+
+    Returns: the minimal number of days of the first week, or 0 if the value isn't available 
+             for the {@code locale} 
+
+

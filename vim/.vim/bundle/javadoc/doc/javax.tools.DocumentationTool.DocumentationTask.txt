@@ -1,0 +1,51 @@
+*javax.tools.DocumentationTool.DocumentationTask* *DocumentationTool.DocumentationTask* 
+
+public static interface interface DocumentationTool.DocumentationTask
+
+  implements |java.util.concurrent.Callable|
+
+|javax.tools.DocumentationTool.DocumentationTask_Description|
+|javax.tools.DocumentationTool.DocumentationTask_Fields|
+|javax.tools.DocumentationTool.DocumentationTask_Constructors|
+|javax.tools.DocumentationTool.DocumentationTask_Methods|
+
+================================================================================
+
+*javax.tools.DocumentationTool.DocumentationTask_Methods*
+|javax.tools.DocumentationTool.DocumentationTask.call()|Performs this documenta
+|javax.tools.DocumentationTool.DocumentationTask.setLocale(Locale)|Set the loca
+
+*javax.tools.DocumentationTool.DocumentationTask_Description*
+
+Interface representing a future for a documentation task. The task has not yet 
+started. To start the task, call the 
+call(|javax.tools.DocumentationTool.DocumentationTask|) method. 
+
+Before calling the call method, additional aspects of the task can be 
+configured, for example, by calling the 
+setLocale(|javax.tools.DocumentationTool.DocumentationTask|) method. 
+
+
+
+*javax.tools.DocumentationTool.DocumentationTask.call()*
+
+public |java.lang.Boolean| call()
+
+Performs this documentation task. The task may only be performed once. 
+Subsequent calls to this method throw IllegalStateException. 
+
+
+
+    Returns: true if and only all the files were processed without errors; false otherwise 
+
+*javax.tools.DocumentationTool.DocumentationTask.setLocale(Locale)*
+
+public void setLocale(java.util.Locale locale)
+
+Set the locale to be applied when formatting diagnostics and other localized 
+data. 
+
+
+    locale - the locale to apply; {@code null} means apply no locale 
+
+

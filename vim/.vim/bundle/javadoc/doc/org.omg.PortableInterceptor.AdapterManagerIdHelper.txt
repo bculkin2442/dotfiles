@@ -1,0 +1,93 @@
+*org.omg.PortableInterceptor.AdapterManagerIdHelper* *AdapterManagerIdHelper* Ad
+
+public abstract class AdapterManagerIdHelper
+  extends    |java.lang.Object|
+
+|org.omg.PortableInterceptor.AdapterManagerIdHelper_Description|
+|org.omg.PortableInterceptor.AdapterManagerIdHelper_Fields|
+|org.omg.PortableInterceptor.AdapterManagerIdHelper_Constructors|
+|org.omg.PortableInterceptor.AdapterManagerIdHelper_Methods|
+
+================================================================================
+
+*org.omg.PortableInterceptor.AdapterManagerIdHelper_Constructors*
+|org.omg.PortableInterceptor.AdapterManagerIdHelper()|
+
+*org.omg.PortableInterceptor.AdapterManagerIdHelper_Methods*
+|org.omg.PortableInterceptor.AdapterManagerIdHelper.extract(Any)|
+|org.omg.PortableInterceptor.AdapterManagerIdHelper.id()|
+|org.omg.PortableInterceptor.AdapterManagerIdHelper.insert(Any,int)|
+|org.omg.PortableInterceptor.AdapterManagerIdHelper.read(InputStream)|
+|org.omg.PortableInterceptor.AdapterManagerIdHelper.type()|
+|org.omg.PortableInterceptor.AdapterManagerIdHelper.write(OutputStream,int)|
+
+*org.omg.PortableInterceptor.AdapterManagerIdHelper_Description*
+
+Adapter manager identifier. Every object adapter has an adapter manager, 
+indicated in this API only through the ID. A group of object adapter instances 
+may share the same adapter manager, in which case state transitions reported 
+for the adapter manager are observed by all object adapters with the same 
+adapter manager ID. 
+
+
+
+*org.omg.PortableInterceptor.AdapterManagerIdHelper()*
+
+public AdapterManagerIdHelper()
+
+
+
+
+*org.omg.PortableInterceptor.AdapterManagerIdHelper.extract(Any)*
+
+public static int extract(org.omg.CORBA.Any a)
+
+
+
+
+
+*org.omg.PortableInterceptor.AdapterManagerIdHelper.id()*
+
+public static |java.lang.String| id()
+
+
+
+
+
+*org.omg.PortableInterceptor.AdapterManagerIdHelper.insert(Any,int)*
+
+public static void insert(
+  org.omg.CORBA.Any a,
+  int that)
+
+
+
+
+
+*org.omg.PortableInterceptor.AdapterManagerIdHelper.read(InputStream)*
+
+public static int read(org.omg.CORBA.portable.InputStream istream)
+
+
+
+
+
+*org.omg.PortableInterceptor.AdapterManagerIdHelper.type()*
+
+public static synchronized |org.omg.CORBA.TypeCode| type()
+
+
+
+
+
+*org.omg.PortableInterceptor.AdapterManagerIdHelper.write(OutputStream,int)*
+
+public static void write(
+  org.omg.CORBA.portable.OutputStream ostream,
+  int value)
+
+
+
+
+
+

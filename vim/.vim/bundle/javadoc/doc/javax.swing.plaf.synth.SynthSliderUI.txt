@@ -1,0 +1,325 @@
+*javax.swing.plaf.synth.SynthSliderUI* *SynthSliderUI* Provides the Synth L and 
+
+public class SynthSliderUI
+  extends    |javax.swing.plaf.basic.BasicSliderUI|
+  implements |java.beans.PropertyChangeListener|
+             |javax.swing.plaf.synth.SynthUI|
+
+|javax.swing.plaf.synth.SynthSliderUI_Description|
+|javax.swing.plaf.synth.SynthSliderUI_Fields|
+|javax.swing.plaf.synth.SynthSliderUI_Constructors|
+|javax.swing.plaf.synth.SynthSliderUI_Methods|
+
+================================================================================
+
+*javax.swing.plaf.synth.SynthSliderUI_Constructors*
+|javax.swing.plaf.synth.SynthSliderUI(JSlider)|
+
+*javax.swing.plaf.synth.SynthSliderUI_Methods*
+|javax.swing.plaf.synth.SynthSliderUI.calculateGeometry()|
+|javax.swing.plaf.synth.SynthSliderUI.calculateThumbLocation()|
+|javax.swing.plaf.synth.SynthSliderUI.createTrackListener(JSlider)|
+|javax.swing.plaf.synth.SynthSliderUI.createUI(JComponent)|Creates a new UI obj
+|javax.swing.plaf.synth.SynthSliderUI.getBaseline(JComponent,int,int)|
+|javax.swing.plaf.synth.SynthSliderUI.getContext(JComponent)|
+|javax.swing.plaf.synth.SynthSliderUI.getMinimumSize(JComponent)|
+|javax.swing.plaf.synth.SynthSliderUI.getPreferredSize(JComponent)|
+|javax.swing.plaf.synth.SynthSliderUI.getThumbSize()|
+|javax.swing.plaf.synth.SynthSliderUI.installDefaults(JSlider)|
+|javax.swing.plaf.synth.SynthSliderUI.installListeners(JSlider)|
+|javax.swing.plaf.synth.SynthSliderUI.layout()|Lays out the slider.
+|javax.swing.plaf.synth.SynthSliderUI.paint(Graphics,JComponent)|Paints the spe
+|javax.swing.plaf.synth.SynthSliderUI.paint(SynthContext,Graphics)|Paints the s
+|javax.swing.plaf.synth.SynthSliderUI.paintBorder(SynthContext,Graphics,int,int,int,int)|
+|javax.swing.plaf.synth.SynthSliderUI.paintThumb(SynthContext,Graphics,Rectangle)|
+|javax.swing.plaf.synth.SynthSliderUI.paintTrack(SynthContext,Graphics,Rectangle)|
+|javax.swing.plaf.synth.SynthSliderUI.propertyChange(PropertyChangeEvent)|
+|javax.swing.plaf.synth.SynthSliderUI.recalculateIfInsetsChanged()|
+|javax.swing.plaf.synth.SynthSliderUI.setThumbLocation(int,int)|
+|javax.swing.plaf.synth.SynthSliderUI.uninstallDefaults(JSlider)|Uninstalls def
+|javax.swing.plaf.synth.SynthSliderUI.uninstallListeners(JSlider)|
+|javax.swing.plaf.synth.SynthSliderUI.update(Graphics,JComponent)|Notifies this
+|javax.swing.plaf.synth.SynthSliderUI.valueForXPosition(int)|
+|javax.swing.plaf.synth.SynthSliderUI.valueForYPosition(int)|
+|javax.swing.plaf.synth.SynthSliderUI.xPositionForValue(int)|
+|javax.swing.plaf.synth.SynthSliderUI.yPositionForValue(int,int,int)|
+
+*javax.swing.plaf.synth.SynthSliderUI_Description*
+
+Provides the Synth L and F UI delegate for (|javax.swing.JSlider|) . 
+
+
+
+*javax.swing.plaf.synth.SynthSliderUI(JSlider)*
+
+protected SynthSliderUI(javax.swing.JSlider c)
+
+
+
+
+*javax.swing.plaf.synth.SynthSliderUI.calculateGeometry()*
+
+protected void calculateGeometry()
+
+
+
+
+
+*javax.swing.plaf.synth.SynthSliderUI.calculateThumbLocation()*
+
+protected void calculateThumbLocation()
+
+
+
+
+
+*javax.swing.plaf.synth.SynthSliderUI.createTrackListener(JSlider)*
+
+protected |javax.swing.plaf.basic.BasicSliderUI.TrackListener| createTrackListener(javax.swing.JSlider s)
+
+
+
+
+
+*javax.swing.plaf.synth.SynthSliderUI.createUI(JComponent)*
+
+public static |javax.swing.plaf.ComponentUI| createUI(javax.swing.JComponent c)
+
+Creates a new UI object for the given component. 
+
+
+    c - component to create UI object for 
+
+    Returns: the UI object 
+
+*javax.swing.plaf.synth.SynthSliderUI.getBaseline(JComponent,int,int)*
+
+public int getBaseline(
+  javax.swing.JComponent c,
+  int width,
+  int height)
+
+
+
+
+
+*javax.swing.plaf.synth.SynthSliderUI.getContext(JComponent)*
+
+public |javax.swing.plaf.synth.SynthContext| getContext(javax.swing.JComponent c)
+
+
+
+
+
+*javax.swing.plaf.synth.SynthSliderUI.getMinimumSize(JComponent)*
+
+public |java.awt.Dimension| getMinimumSize(javax.swing.JComponent c)
+
+
+
+
+
+*javax.swing.plaf.synth.SynthSliderUI.getPreferredSize(JComponent)*
+
+public |java.awt.Dimension| getPreferredSize(javax.swing.JComponent c)
+
+
+
+
+
+*javax.swing.plaf.synth.SynthSliderUI.getThumbSize()*
+
+protected |java.awt.Dimension| getThumbSize()
+
+
+
+
+
+*javax.swing.plaf.synth.SynthSliderUI.installDefaults(JSlider)*
+
+protected void installDefaults(javax.swing.JSlider slider)
+
+
+
+
+
+*javax.swing.plaf.synth.SynthSliderUI.installListeners(JSlider)*
+
+protected void installListeners(javax.swing.JSlider slider)
+
+
+
+
+
+*javax.swing.plaf.synth.SynthSliderUI.layout()*
+
+protected void layout()
+
+Lays out the slider. 
+
+
+
+*javax.swing.plaf.synth.SynthSliderUI.paint(Graphics,JComponent)*
+
+public void paint(
+  java.awt.Graphics g,
+  javax.swing.JComponent c)
+
+Paints the specified component according to the Look and Feel. This method is 
+not used by Synth Look and Feel. Painting is handled by the 
+(|javax.swing.plaf.synth.SynthSliderUI|) method. 
+
+
+    g - the {@code Graphics} object used for painting 
+    c - the component being painted 
+
+*javax.swing.plaf.synth.SynthSliderUI.paint(SynthContext,Graphics)*
+
+protected void paint(
+  javax.swing.plaf.synth.SynthContext context,
+  java.awt.Graphics g)
+
+Paints the specified component. 
+
+
+    context - context for the component being painted 
+    g - the {@code Graphics} object used for painting 
+
+*javax.swing.plaf.synth.SynthSliderUI.paintBorder(SynthContext,Graphics,int,int,int,int)*
+
+public void paintBorder(
+  javax.swing.plaf.synth.SynthContext context,
+  java.awt.Graphics g,
+  int x,
+  int y,
+  int w,
+  int h)
+
+
+
+
+
+*javax.swing.plaf.synth.SynthSliderUI.paintThumb(SynthContext,Graphics,Rectangle)*
+
+protected void paintThumb(
+  javax.swing.plaf.synth.SynthContext context,
+  java.awt.Graphics g,
+  java.awt.Rectangle thumbBounds)
+
+Paints the slider thumb. 
+
+
+    context - context for the component being painted 
+    g - {@code Graphics} object used for painting 
+    thumbBounds - bounding box for the thumb 
+
+*javax.swing.plaf.synth.SynthSliderUI.paintTrack(SynthContext,Graphics,Rectangle)*
+
+protected void paintTrack(
+  javax.swing.plaf.synth.SynthContext context,
+  java.awt.Graphics g,
+  java.awt.Rectangle trackBounds)
+
+Paints the slider track. 
+
+
+    context - context for the component being painted 
+    g - {@code Graphics} object used for painting 
+    trackBounds - bounding box for the track 
+
+*javax.swing.plaf.synth.SynthSliderUI.propertyChange(PropertyChangeEvent)*
+
+public void propertyChange(java.beans.PropertyChangeEvent e)
+
+
+
+
+
+*javax.swing.plaf.synth.SynthSliderUI.recalculateIfInsetsChanged()*
+
+protected void recalculateIfInsetsChanged()
+
+
+
+
+
+*javax.swing.plaf.synth.SynthSliderUI.setThumbLocation(int,int)*
+
+public void setThumbLocation(
+  int x,
+  int y)
+
+
+
+
+
+*javax.swing.plaf.synth.SynthSliderUI.uninstallDefaults(JSlider)*
+
+protected void uninstallDefaults(javax.swing.JSlider slider)
+
+Uninstalls default setting. This method is called when aLookAndFeelis 
+uninstalled. 
+
+
+
+*javax.swing.plaf.synth.SynthSliderUI.uninstallListeners(JSlider)*
+
+protected void uninstallListeners(javax.swing.JSlider slider)
+
+
+
+
+
+*javax.swing.plaf.synth.SynthSliderUI.update(Graphics,JComponent)*
+
+public void update(
+  java.awt.Graphics g,
+  javax.swing.JComponent c)
+
+Notifies this UI delegate to repaint the specified component. This method 
+paints the component background, then calls the 
+(|javax.swing.plaf.synth.SynthSliderUI|) method. 
+
+In general, this method does not need to be overridden by subclasses. All Look 
+and Feel rendering code should reside in thepaintmethod. 
+
+
+    g - the {@code Graphics} object used for painting 
+    c - the component being painted 
+
+*javax.swing.plaf.synth.SynthSliderUI.valueForXPosition(int)*
+
+public int valueForXPosition(int xPos)
+
+
+
+
+
+*javax.swing.plaf.synth.SynthSliderUI.valueForYPosition(int)*
+
+public int valueForYPosition(int yPos)
+
+
+
+
+
+*javax.swing.plaf.synth.SynthSliderUI.xPositionForValue(int)*
+
+protected int xPositionForValue(int value)
+
+
+
+
+
+*javax.swing.plaf.synth.SynthSliderUI.yPositionForValue(int,int,int)*
+
+protected int yPositionForValue(
+  int value,
+  int trackY,
+  int trackHeight)
+
+
+
+
+
+

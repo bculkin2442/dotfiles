@@ -1,0 +1,209 @@
+*javax.xml.bind.JAXBElement* *JAXBElement* JAXB representation of an Xml Element
+
+public class JAXBElement<T>
+  extends    |java.lang.Object|
+  implements |java.io.Serializable|
+
+|javax.xml.bind.JAXBElement_Description|
+|javax.xml.bind.JAXBElement_Fields|
+|javax.xml.bind.JAXBElement_Constructors|
+|javax.xml.bind.JAXBElement_Methods|
+
+================================================================================
+
+*javax.xml.bind.JAXBElement_Fields*
+|java.lang.Class<T>_javax.xml.bind.JAXBElement.declaredType|
+|javax.xml.namespace.QName_javax.xml.bind.JAXBElement.name|
+|boolean_javax.xml.bind.JAXBElement.nil|
+|java.lang.Class_javax.xml.bind.JAXBElement.scope|
+|T_javax.xml.bind.JAXBElement.value|
+
+*javax.xml.bind.JAXBElement_Constructors*
+|javax.xml.bind.JAXBElement(QName,Class<T>,Class,T)|Construct an xml element in
+|javax.xml.bind.JAXBElement(QName,Class<T>,T)|Construct an xml element instance
+
+*javax.xml.bind.JAXBElement_Methods*
+|javax.xml.bind.JAXBElement.getDeclaredType()|Returns the Java binding of the x
+|javax.xml.bind.JAXBElement.getName()|Returns the xml element tag name.
+|javax.xml.bind.JAXBElement.getScope()|Returns scope of xml element declaration
+|javax.xml.bind.JAXBElement.getValue()|Return the content model and attribute v
+|javax.xml.bind.JAXBElement.isGlobalScope()|Returns true iff this xml element d
+|javax.xml.bind.JAXBElement.isNil()|Returns true iff this element instance cont
+|javax.xml.bind.JAXBElement.isTypeSubstituted()|Returns true iff this xml eleme
+|javax.xml.bind.JAXBElement.setNil(boolean)|Set whether this element has nil co
+|javax.xml.bind.JAXBElement.setValue(T)|Set the content model and attributes of
+
+*javax.xml.bind.JAXBElement_Description*
+
+JAXB representation of an Xml Element. 
+
+This class represents information about an Xml Element from both the element 
+declaration within a schema and the element instance value within an xml 
+document with the following properties 
+
+element's xml tag name value represents the element instance's atttribute(s) 
+and content model element declaration's declaredType (xs:element @type 
+attribute) scope of element declaration boolean nil property. (element 
+instance's xsi:nil attribute) 
+
+The declaredType and scope property are the JAXB class binding for the xml type 
+definition. 
+
+Scope is either (|javax.xml.bind.JAXBElement.GlobalScope|) or the Java class 
+representing the complex type definition containing the schema element 
+declaration. 
+
+There is a property constraint that if value is null, then nil must be true. 
+The converse is not true to enable representing a nil element with 
+attribute(s). If nil is true, it is possible that value is non-null so it can 
+hold the value of the attributes associated with a nil element. 
+
+
+
+*java.lang.Class<T>_javax.xml.bind.JAXBElement.declaredType*
+
+Java datatype binding for xml element declaration's type. 
+
+
+*javax.xml.namespace.QName_javax.xml.bind.JAXBElement.name*
+
+xml element tag name 
+
+
+*boolean_javax.xml.bind.JAXBElement.nil*
+
+true iff the xml element instance has xsi:nil="true". 
+
+
+*java.lang.Class_javax.xml.bind.JAXBElement.scope*
+
+Scope of xml element declaration representing this xml element instance. Can be 
+one of the following values: - (|javax.xml.bind.JAXBElement.GlobalScope|) for 
+global xml element declaration. - local element declaration has a scope set to 
+the Java class representation of complex type defintion containing xml element 
+declaration. 
+
+
+*T_javax.xml.bind.JAXBElement.value*
+
+xml element value. Represents content model and attributes of an xml element 
+instance. 
+
+
+
+*javax.xml.bind.JAXBElement(QName,Class<T>,Class,T)*
+
+public JAXBElement(
+  javax.xml.namespace.QName name,
+  java.lang.Class<T> declaredType,
+  java.lang.Class scope,
+  T value)
+
+Construct an xml element instance. 
+
+    name - Java binding of xml element tag name 
+    declaredType - Java binding of xml element declaration's type 
+    scope - Java binding of scope of xml element declaration. Passing null is the same as 
+       passing GlobalScope.class 
+    value - Java instance representing xml element's value. 
+
+*javax.xml.bind.JAXBElement(QName,Class<T>,T)*
+
+public JAXBElement(
+  javax.xml.namespace.QName name,
+  java.lang.Class<T> declaredType,
+  T value)
+
+Construct an xml element instance. 
+
+This is just a convenience method for new 
+JAXBElement(name,declaredType,GlobalScope.class,value) 
+
+
+*javax.xml.bind.JAXBElement.getDeclaredType()*
+
+public |java.lang.Class|<T> getDeclaredType()
+
+Returns the Java binding of the xml element declaration's type attribute. 
+
+
+
+*javax.xml.bind.JAXBElement.getName()*
+
+public |javax.xml.namespace.QName| getName()
+
+Returns the xml element tag name. 
+
+
+
+*javax.xml.bind.JAXBElement.getScope()*
+
+public |java.lang.Class| getScope()
+
+Returns scope of xml element declaration. 
+
+
+
+    Returns: GlobalScope.class if this element is of global scope. 
+
+*javax.xml.bind.JAXBElement.getValue()*
+
+public |T| getValue()
+
+Return the content model and attribute values for this element. 
+
+See (|javax.xml.bind.JAXBElement|) for a description of a property constraint 
+when this value is null 
+
+
+
+*javax.xml.bind.JAXBElement.isGlobalScope()*
+
+public boolean isGlobalScope()
+
+Returns true iff this xml element declaration is global. 
+
+
+
+*javax.xml.bind.JAXBElement.isNil()*
+
+public boolean isNil()
+
+Returns true iff this element instance content model is nil. 
+
+This property always returns true when (|javax.xml.bind.JAXBElement|) is null. 
+Note that the converse is not true, when this property is true, 
+(|javax.xml.bind.JAXBElement|) can contain a non-null value for attribute(s). 
+It is valid for a nil xml element to have attribute(s). 
+
+
+
+*javax.xml.bind.JAXBElement.isTypeSubstituted()*
+
+public boolean isTypeSubstituted()
+
+Returns true iff this xml element instance's value has a different type than 
+xml element declaration's declared type. 
+
+
+
+*javax.xml.bind.JAXBElement.setNil(boolean)*
+
+public void setNil(boolean value)
+
+Set whether this element has nil content. 
+
+
+
+*javax.xml.bind.JAXBElement.setValue(T)*
+
+public void setValue(T t)
+
+Set the content model and attributes of this xml element. 
+
+When this property is set to null, isNil() must by true. Details of constraint 
+are described at (|javax.xml.bind.JAXBElement|) . 
+
+
+
+

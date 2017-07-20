@@ -1,0 +1,39 @@
+*java.security.PrivilegedAction* *PrivilegedAction* A computation to be performe
+
+public interface interface PrivilegedAction<T>
+
+
+|java.security.PrivilegedAction_Description|
+|java.security.PrivilegedAction_Fields|
+|java.security.PrivilegedAction_Constructors|
+|java.security.PrivilegedAction_Methods|
+
+================================================================================
+
+*java.security.PrivilegedAction_Methods*
+|java.security.PrivilegedAction.run()|Performs the computation.
+
+*java.security.PrivilegedAction_Description*
+
+A computation to be performed with privileges enabled. The computation is 
+performed by invokingAccessController.doPrivilegedon thePrivilegedActionobject. 
+This interface is used only for computations that do not throw checked 
+exceptions; computations that throw checked exceptions must 
+usePrivilegedExceptionActioninstead. 
+
+
+
+*java.security.PrivilegedAction.run()*
+
+public |T| run()
+
+Performs the computation. This method will be called 
+byAccessController.doPrivilegedafter enabling privileges. 
+
+
+
+    Returns: a class-dependent value that may represent the results of the computation. Each 
+             class that implements {@code PrivilegedAction} should document 
+             what (if anything) this value represents. 
+
+

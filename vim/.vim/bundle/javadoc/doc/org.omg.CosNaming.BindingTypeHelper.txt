@@ -1,0 +1,90 @@
+*org.omg.CosNaming.BindingTypeHelper* *BindingTypeHelper* Specifies whether the 
+
+public abstract class BindingTypeHelper
+  extends    |java.lang.Object|
+
+|org.omg.CosNaming.BindingTypeHelper_Description|
+|org.omg.CosNaming.BindingTypeHelper_Fields|
+|org.omg.CosNaming.BindingTypeHelper_Constructors|
+|org.omg.CosNaming.BindingTypeHelper_Methods|
+
+================================================================================
+
+*org.omg.CosNaming.BindingTypeHelper_Constructors*
+|org.omg.CosNaming.BindingTypeHelper()|
+
+*org.omg.CosNaming.BindingTypeHelper_Methods*
+|org.omg.CosNaming.BindingTypeHelper.extract(Any)|
+|org.omg.CosNaming.BindingTypeHelper.id()|
+|org.omg.CosNaming.BindingTypeHelper.insert(Any,BindingType)|
+|org.omg.CosNaming.BindingTypeHelper.read(InputStream)|
+|org.omg.CosNaming.BindingTypeHelper.type()|
+|org.omg.CosNaming.BindingTypeHelper.write(OutputStream,BindingType)|
+
+*org.omg.CosNaming.BindingTypeHelper_Description*
+
+Specifies whether the given binding is for a object (that is not a naming 
+context) or for a naming context. 
+
+
+
+*org.omg.CosNaming.BindingTypeHelper()*
+
+public BindingTypeHelper()
+
+
+
+
+*org.omg.CosNaming.BindingTypeHelper.extract(Any)*
+
+public static |org.omg.CosNaming.BindingType| extract(org.omg.CORBA.Any a)
+
+
+
+
+
+*org.omg.CosNaming.BindingTypeHelper.id()*
+
+public static |java.lang.String| id()
+
+
+
+
+
+*org.omg.CosNaming.BindingTypeHelper.insert(Any,BindingType)*
+
+public static void insert(
+  org.omg.CORBA.Any a,
+  org.omg.CosNaming.BindingType that)
+
+
+
+
+
+*org.omg.CosNaming.BindingTypeHelper.read(InputStream)*
+
+public static |org.omg.CosNaming.BindingType| read(org.omg.CORBA.portable.InputStream istream)
+
+
+
+
+
+*org.omg.CosNaming.BindingTypeHelper.type()*
+
+public static synchronized |org.omg.CORBA.TypeCode| type()
+
+
+
+
+
+*org.omg.CosNaming.BindingTypeHelper.write(OutputStream,BindingType)*
+
+public static void write(
+  org.omg.CORBA.portable.OutputStream ostream,
+  org.omg.CosNaming.BindingType value)
+
+
+
+
+
+

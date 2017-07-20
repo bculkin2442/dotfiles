@@ -1,0 +1,92 @@
+*org.omg.PortableServer.POAPackage.ServantAlreadyActiveHelper* *ServantAlreadyActiveHelper* 
+
+public abstract class ServantAlreadyActiveHelper
+  extends    |java.lang.Object|
+
+|org.omg.PortableServer.POAPackage.ServantAlreadyActiveHelper_Description|
+|org.omg.PortableServer.POAPackage.ServantAlreadyActiveHelper_Fields|
+|org.omg.PortableServer.POAPackage.ServantAlreadyActiveHelper_Constructors|
+|org.omg.PortableServer.POAPackage.ServantAlreadyActiveHelper_Methods|
+
+================================================================================
+
+*org.omg.PortableServer.POAPackage.ServantAlreadyActiveHelper_Constructors*
+|org.omg.PortableServer.POAPackage.ServantAlreadyActiveHelper()|
+
+*org.omg.PortableServer.POAPackage.ServantAlreadyActiveHelper_Methods*
+|org.omg.PortableServer.POAPackage.ServantAlreadyActiveHelper.extract(Any)|
+|org.omg.PortableServer.POAPackage.ServantAlreadyActiveHelper.id()|
+|org.omg.PortableServer.POAPackage.ServantAlreadyActiveHelper.insert(Any,ServantAlreadyActive)|
+|org.omg.PortableServer.POAPackage.ServantAlreadyActiveHelper.read(InputStream)|
+|org.omg.PortableServer.POAPackage.ServantAlreadyActiveHelper.type()|
+|org.omg.PortableServer.POAPackage.ServantAlreadyActiveHelper.write(OutputStream,ServantAlreadyActive)|
+
+*org.omg.PortableServer.POAPackage.ServantAlreadyActiveHelper_Description*
+
+org/omg/PortableServer/POAPackage/ServantAlreadyActiveHelper.java . Generated 
+by the IDL-to-Java compiler (portable), version "3.2" from 
+/HUDSON/workspace/8-2-build-macosx-x86_64/jdk8u5/2488/corba/src/share/classes/org/omg/PortableServer/poa.idl
+Tuesday, March 18, 2014 12:37:22 AM PDT 
+
+
+
+*org.omg.PortableServer.POAPackage.ServantAlreadyActiveHelper()*
+
+public ServantAlreadyActiveHelper()
+
+
+
+
+*org.omg.PortableServer.POAPackage.ServantAlreadyActiveHelper.extract(Any)*
+
+public static |org.omg.PortableServer.POAPackage.ServantAlreadyActive| extract(org.omg.CORBA.Any a)
+
+
+
+
+
+*org.omg.PortableServer.POAPackage.ServantAlreadyActiveHelper.id()*
+
+public static |java.lang.String| id()
+
+
+
+
+
+*org.omg.PortableServer.POAPackage.ServantAlreadyActiveHelper.insert(Any,ServantAlreadyActive)*
+
+public static void insert(
+  org.omg.CORBA.Any a,
+  org.omg.PortableServer.POAPackage.ServantAlreadyActive that)
+
+
+
+
+
+*org.omg.PortableServer.POAPackage.ServantAlreadyActiveHelper.read(InputStream)*
+
+public static |org.omg.PortableServer.POAPackage.ServantAlreadyActive| read(org.omg.CORBA.portable.InputStream istream)
+
+
+
+
+
+*org.omg.PortableServer.POAPackage.ServantAlreadyActiveHelper.type()*
+
+public static synchronized |org.omg.CORBA.TypeCode| type()
+
+
+
+
+
+*org.omg.PortableServer.POAPackage.ServantAlreadyActiveHelper.write(OutputStream,ServantAlreadyActive)*
+
+public static void write(
+  org.omg.CORBA.portable.OutputStream ostream,
+  org.omg.PortableServer.POAPackage.ServantAlreadyActive value)
+
+
+
+
+
+

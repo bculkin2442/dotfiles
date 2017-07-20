@@ -1,0 +1,41 @@
+*javax.xml.ws.handler.MessageContext.Scope* *MessageContext.Scope* Property scop
+
+public static final enumMessageContext.Scope
+  extends    |java.lang.Enum|
+
+|javax.xml.ws.handler.MessageContext.Scope_Description|
+|javax.xml.ws.handler.MessageContext.Scope_Fields|
+|javax.xml.ws.handler.MessageContext.Scope_Constructors|
+|javax.xml.ws.handler.MessageContext.Scope_Methods|
+
+================================================================================
+
+*javax.xml.ws.handler.MessageContext.Scope_Methods*
+|javax.xml.ws.handler.MessageContext.Scope.valueOf(String)|
+|javax.xml.ws.handler.MessageContext.Scope.values()|
+
+*javax.xml.ws.handler.MessageContext.Scope_Description*
+
+Property scope. Properties scoped as APPLICATION are visible to handlers, 
+client applications and service endpoints; properties scoped as HANDLER are 
+only normally visible to handlers. 
+
+
+
+*javax.xml.ws.handler.MessageContext.Scope.valueOf(String)*
+
+public static |javax.xml.ws.handler.MessageContext.Scope| valueOf(java.lang.String name)
+
+
+
+
+
+*javax.xml.ws.handler.MessageContext.Scope.values()*
+
+public static |javax.xml.ws.handler.MessageContext.Scope|[] values()
+
+
+
+
+
+

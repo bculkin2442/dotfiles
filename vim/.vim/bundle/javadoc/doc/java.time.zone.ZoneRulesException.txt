@@ -1,0 +1,44 @@
+*java.time.zone.ZoneRulesException* *ZoneRulesException* Thrown to indicate a pr
+
+public class ZoneRulesException
+  extends    |java.time.DateTimeException|
+
+|java.time.zone.ZoneRulesException_Description|
+|java.time.zone.ZoneRulesException_Fields|
+|java.time.zone.ZoneRulesException_Constructors|
+|java.time.zone.ZoneRulesException_Methods|
+
+================================================================================
+
+*java.time.zone.ZoneRulesException_Constructors*
+|java.time.zone.ZoneRulesException(String)|Constructs a new date-time exception
+|java.time.zone.ZoneRulesException(String,Throwable)|Constructs a new date-time
+
+*java.time.zone.ZoneRulesException_Description*
+
+Thrown to indicate a problem with time-zone configuration. 
+
+This exception is used to indicate a problems with the configured time-zone 
+rules. 
+
+
+
+*java.time.zone.ZoneRulesException(String)*
+
+public ZoneRulesException(java.lang.String message)
+
+Constructs a new date-time exception with the specified message. 
+
+    message - the message to use for this exception, may be null 
+
+*java.time.zone.ZoneRulesException(String,Throwable)*
+
+public ZoneRulesException(
+  java.lang.String message,
+  java.lang.Throwable cause)
+
+Constructs a new date-time exception with the specified message and cause. 
+
+    message - the message to use for this exception, may be null 
+    cause - the cause of the exception, may be null 
+

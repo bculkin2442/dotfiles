@@ -1,0 +1,676 @@
+*javax.xml.crypto.dsig.XMLSignatureFactory* *XMLSignatureFactory* A factory for 
+
+public abstract class XMLSignatureFactory
+  extends    |java.lang.Object|
+
+|javax.xml.crypto.dsig.XMLSignatureFactory_Description|
+|javax.xml.crypto.dsig.XMLSignatureFactory_Fields|
+|javax.xml.crypto.dsig.XMLSignatureFactory_Constructors|
+|javax.xml.crypto.dsig.XMLSignatureFactory_Methods|
+
+================================================================================
+
+*javax.xml.crypto.dsig.XMLSignatureFactory_Constructors*
+|javax.xml.crypto.dsig.XMLSignatureFactory()|Default constructor, for invocatio
+
+*javax.xml.crypto.dsig.XMLSignatureFactory_Methods*
+|javax.xml.crypto.dsig.XMLSignatureFactory.getInstance()|Returns an XMLSignatur
+|javax.xml.crypto.dsig.XMLSignatureFactory.getInstance(String)|Returns an XMLSi
+|javax.xml.crypto.dsig.XMLSignatureFactory.getInstance(String,Provider)|Returns
+|javax.xml.crypto.dsig.XMLSignatureFactory.getInstance(String,String)|Returns a
+|javax.xml.crypto.dsig.XMLSignatureFactory.getKeyInfoFactory()|Returns a KeyInf
+|javax.xml.crypto.dsig.XMLSignatureFactory.getMechanismType()|Returns the type 
+|javax.xml.crypto.dsig.XMLSignatureFactory.getProvider()|Returns the provider o
+|javax.xml.crypto.dsig.XMLSignatureFactory.getURIDereferencer()|Returns a refer
+|javax.xml.crypto.dsig.XMLSignatureFactory.isFeatureSupported(String)|Indicates
+|javax.xml.crypto.dsig.XMLSignatureFactory.newCanonicalizationMethod(String,C14NMethodParameterSpec)|
+|javax.xml.crypto.dsig.XMLSignatureFactory.newCanonicalizationMethod(String,XMLStructure)|
+|javax.xml.crypto.dsig.XMLSignatureFactory.newDigestMethod(String,DigestMethodParameterSpec)|
+|javax.xml.crypto.dsig.XMLSignatureFactory.newManifest(List)|Creates a Manifest
+|javax.xml.crypto.dsig.XMLSignatureFactory.newManifest(List,String)|Creates a M
+|javax.xml.crypto.dsig.XMLSignatureFactory.newReference(String,DigestMethod)|Cr
+|javax.xml.crypto.dsig.XMLSignatureFactory.newReference(String,DigestMethod,List,Data,List,String,String)|
+|javax.xml.crypto.dsig.XMLSignatureFactory.newReference(String,DigestMethod,List,String,String)|
+|javax.xml.crypto.dsig.XMLSignatureFactory.newReference(String,DigestMethod,List,String,String,byte[])|
+|javax.xml.crypto.dsig.XMLSignatureFactory.newSignatureMethod(String,SignatureMethodParameterSpec)|
+|javax.xml.crypto.dsig.XMLSignatureFactory.newSignatureProperties(List,String)|
+|javax.xml.crypto.dsig.XMLSignatureFactory.newSignatureProperty(List,String,String)|
+|javax.xml.crypto.dsig.XMLSignatureFactory.newSignedInfo(CanonicalizationMethod,SignatureMethod,List)|
+|javax.xml.crypto.dsig.XMLSignatureFactory.newSignedInfo(CanonicalizationMethod,SignatureMethod,List,String)|
+|javax.xml.crypto.dsig.XMLSignatureFactory.newTransform(String,TransformParameterSpec)|
+|javax.xml.crypto.dsig.XMLSignatureFactory.newTransform(String,XMLStructure)|Cr
+|javax.xml.crypto.dsig.XMLSignatureFactory.newXMLObject(List,String,String,String)|
+|javax.xml.crypto.dsig.XMLSignatureFactory.newXMLSignature(SignedInfo,KeyInfo)|
+|javax.xml.crypto.dsig.XMLSignatureFactory.newXMLSignature(SignedInfo,KeyInfo,List,String,String)|
+|javax.xml.crypto.dsig.XMLSignatureFactory.unmarshalXMLSignature(XMLStructure)|
+|javax.xml.crypto.dsig.XMLSignatureFactory.unmarshalXMLSignature(XMLValidateContext)|
+
+*javax.xml.crypto.dsig.XMLSignatureFactory_Description*
+
+A factory for creating (|javax.xml.crypto.dsig.XMLSignature|) objects from 
+scratch or for unmarshalling an XMLSignature object from a corresponding XML 
+representation. 
+
+XMLSignatureFactory Type 
+
+Each instance of XMLSignatureFactory supports a specific XML mechanism type. To 
+create an XMLSignatureFactory, call one of the static 
+getInstance(|javax.xml.crypto.dsig.XMLSignatureFactory|) methods, passing in 
+the XML mechanism type desired, for example: 
+
+XMLSignatureFactory factory = XMLSignatureFactory.getInstance("DOM"); 
+
+The objects that this factory produces will be based on DOM and abide by the 
+DOM interoperability requirements as defined in the 
+
+DOM Mechanism Requirements section of the API overview. See the 
+
+Service Providers section of the API overview for a list of standard mechanism 
+types. 
+
+XMLSignatureFactory implementations are registered and loaded using the 
+(|java.security.Provider|) mechanism. For example, a service provider that 
+supports the DOM mechanism would be specified in the Provider subclass as: 
+
+put("XMLSignatureFactory.DOM", "org.example.DOMXMLSignatureFactory"); 
+
+An implementation MUST minimally support the default mechanism type: DOM. 
+
+Note that a caller must use the same XMLSignatureFactory instance to create the 
+XMLStructures of a particular XMLSignature that is to be generated. The 
+behavior is undefined if XMLStructures from different providers or different 
+mechanism types are used together. 
+
+Also, the XMLStructures that are created by this factory may contain state 
+specific to the XMLSignature and are not intended to be reusable. 
+
+Creating XMLSignatures from scratch 
+
+Once the XMLSignatureFactory has been created, objects can be instantiated by 
+calling the appropriate method. For example, a 
+(|javax.xml.crypto.dsig.Reference|) instance may be created by invoking one of 
+the newReference(|javax.xml.crypto.dsig.XMLSignatureFactory|) methods. 
+
+Unmarshalling XMLSignatures from XML 
+
+Alternatively, an XMLSignature may be created from an existing XML 
+representation by invoking the 
+unmarshalXMLSignature(|javax.xml.crypto.dsig.XMLSignatureFactory|) method and 
+passing it a mechanism-specific (|javax.xml.crypto.dsig.XMLValidateContext|) 
+instance containing the XML content: 
+
+
+
+DOMValidateContext context = new DOMValidateContext(key, signatureElement); 
+XMLSignature signature = factory.unmarshalXMLSignature(context); 
+
+Each XMLSignatureFactory must support the required XMLValidateContext types for 
+that factory type, but may support others. A DOM XMLSignatureFactory must 
+support (|javax.xml.crypto.dsig.dom.DOMValidateContext|) objects. 
+
+Signing and marshalling XMLSignatures to XML 
+
+Each XMLSignature created by the factory can also be marshalled to an XML 
+representation and signed, by invoking the 
+sign(|javax.xml.crypto.dsig.XMLSignature|) method of the 
+(|javax.xml.crypto.dsig.XMLSignature|) object and passing it a 
+mechanism-specific (|javax.xml.crypto.dsig.XMLSignContext|) object containing 
+the signing key and marshalling parameters (see 
+(|javax.xml.crypto.dsig.dom.DOMSignContext|) ). For example: 
+
+
+
+DOMSignContext context = new DOMSignContext(privateKey, document); 
+signature.sign(context); 
+
+Concurrent Access The static methods of this class are guaranteed to be 
+thread-safe. Multiple threads may concurrently invoke the static methods 
+defined in this class with no ill effects. 
+
+However, this is not true for the non-static methods defined by this class. 
+Unless otherwise documented by a specific provider, threads that need to access 
+a single XMLSignatureFactory instance concurrently should synchronize amongst 
+themselves and provide the necessary locking. Multiple threads each 
+manipulating a different XMLSignatureFactory instance need not synchronize. 
+
+
+
+*javax.xml.crypto.dsig.XMLSignatureFactory()*
+
+protected XMLSignatureFactory()
+
+Default constructor, for invocation by subclasses. 
+
+
+*javax.xml.crypto.dsig.XMLSignatureFactory.getInstance()*
+
+public static |javax.xml.crypto.dsig.XMLSignatureFactory| getInstance()
+
+Returns an XMLSignatureFactory that supports the default XML processing 
+mechanism and representation type ("DOM"). 
+
+This method uses the standard JCA provider lookup mechanism to locate and 
+instantiate an XMLSignatureFactory implementation of the default mechanism 
+type. It traverses the list of registered security Providers, starting with the 
+most preferred Provider. A new XMLSignatureFactory object from the first 
+Provider that supports the DOM mechanism is returned. 
+
+Note that the list of registered providers may be retrieved via the 
+Security.getProviders()(|java.security.Security|) method. 
+
+
+
+    Returns: a new XMLSignatureFactory 
+
+*javax.xml.crypto.dsig.XMLSignatureFactory.getInstance(String)*
+
+public static |javax.xml.crypto.dsig.XMLSignatureFactory| getInstance(java.lang.String mechanismType)
+
+Returns an XMLSignatureFactory that supports the specified XML processing 
+mechanism and representation type (ex: "DOM"). 
+
+This method uses the standard JCA provider lookup mechanism to locate and 
+instantiate an XMLSignatureFactory implementation of the desired mechanism 
+type. It traverses the list of registered security Providers, starting with the 
+most preferred Provider. A new XMLSignatureFactory object from the first 
+Provider that supports the specified mechanism is returned. 
+
+Note that the list of registered providers may be retrieved via the 
+Security.getProviders()(|java.security.Security|) method. 
+
+
+    mechanismType - the type of the XML processing mechanism and representation. See the Service 
+       Providers section of the API overview for a list of standard mechanism 
+       types. 
+
+    Returns: a new XMLSignatureFactory 
+
+*javax.xml.crypto.dsig.XMLSignatureFactory.getInstance(String,Provider)*
+
+public static |javax.xml.crypto.dsig.XMLSignatureFactory| getInstance(
+  java.lang.String mechanismType,
+  java.security.Provider provider)
+
+Returns an XMLSignatureFactory that supports the requested XML processing 
+mechanism and representation type (ex: "DOM"), as supplied by the specified 
+provider. Note that the specified Provider object does not have to be 
+registered in the provider list. 
+
+
+    mechanismType - the type of the XML processing mechanism and representation. See the Service 
+       Providers section of the API overview for a list of standard mechanism 
+       types. 
+    provider - the Provider object 
+
+    Returns: a new XMLSignatureFactory 
+
+*javax.xml.crypto.dsig.XMLSignatureFactory.getInstance(String,String)*
+
+public static |javax.xml.crypto.dsig.XMLSignatureFactory| getInstance(
+  java.lang.String mechanismType,
+  java.lang.String provider)
+  throws |java.security.NoSuchProviderException|
+         
+Returns an XMLSignatureFactory that supports the requested XML processing 
+mechanism and representation type (ex: "DOM"), as supplied by the specified 
+provider. The specified provider must be registered in the security provider 
+list. 
+
+Note that the list of registered providers may be retrieved via the 
+Security.getProviders()(|java.security.Security|) method. 
+
+
+    mechanismType - the type of the XML processing mechanism and representation. See the Service 
+       Providers section of the API overview for a list of standard mechanism 
+       types. 
+    provider - the string name of the provider 
+
+    Returns: a new XMLSignatureFactory 
+
+*javax.xml.crypto.dsig.XMLSignatureFactory.getKeyInfoFactory()*
+
+public final |javax.xml.crypto.dsig.keyinfo.KeyInfoFactory| getKeyInfoFactory()
+
+Returns a KeyInfoFactory that creates KeyInfo objects. The returned 
+KeyInfoFactory has the same mechanism type and provider as this 
+XMLSignatureFactory. 
+
+
+
+    Returns: a KeyInfoFactory 
+
+*javax.xml.crypto.dsig.XMLSignatureFactory.getMechanismType()*
+
+public final |java.lang.String| getMechanismType()
+
+Returns the type of the XML processing mechanism and representation supported 
+by this XMLSignatureFactory (ex: "DOM"). 
+
+
+
+    Returns: the XML processing mechanism type supported by this XMLSignatureFactory 
+
+*javax.xml.crypto.dsig.XMLSignatureFactory.getProvider()*
+
+public final |java.security.Provider| getProvider()
+
+Returns the provider of this XMLSignatureFactory. 
+
+
+
+    Returns: the provider of this XMLSignatureFactory 
+
+*javax.xml.crypto.dsig.XMLSignatureFactory.getURIDereferencer()*
+
+public abstract |javax.xml.crypto.URIDereferencer| getURIDereferencer()
+
+Returns a reference to the URIDereferencer that is used by default to 
+dereference URIs in (|javax.xml.crypto.dsig.Reference|) objects. 
+
+
+
+    Returns: a reference to the default URIDereferencer (never null) 
+
+*javax.xml.crypto.dsig.XMLSignatureFactory.isFeatureSupported(String)*
+
+public abstract boolean isFeatureSupported(java.lang.String feature)
+
+Indicates whether a specified feature is supported. 
+
+
+    feature - the feature name (as an absolute URI) 
+
+    Returns: true if the specified feature is supported, false otherwise 
+
+*javax.xml.crypto.dsig.XMLSignatureFactory.newCanonicalizationMethod(String,C14NMethodParameterSpec)*
+
+public abstract |javax.xml.crypto.dsig.CanonicalizationMethod| newCanonicalizationMethod(
+  java.lang.String algorithm,
+  javax.xml.crypto.dsig.spec.C14NMethodParameterSpec params)
+  throws |java.security.InvalidAlgorithmParameterException|
+         |java.security.NoSuchAlgorithmException|
+         
+Creates a CanonicalizationMethod for the specified algorithm URI and 
+parameters. 
+
+
+    algorithm - the URI identifying the canonicalization algorithm 
+    params - algorithm-specific canonicalization parameters (may be null) 
+
+    Returns: the CanonicalizationMethod 
+
+*javax.xml.crypto.dsig.XMLSignatureFactory.newCanonicalizationMethod(String,XMLStructure)*
+
+public abstract |javax.xml.crypto.dsig.CanonicalizationMethod| newCanonicalizationMethod(
+  java.lang.String algorithm,
+  javax.xml.crypto.XMLStructure params)
+  throws |java.security.InvalidAlgorithmParameterException|
+         |java.security.NoSuchAlgorithmException|
+         
+Creates a CanonicalizationMethod for the specified algorithm URI and 
+parameters. The parameters are specified as a mechanism-specific XMLStructure 
+(ex: (|javax.xml.crypto.dom.DOMStructure|) ). This method is useful when the 
+parameters are in XML form or there is no standard class for specifying the 
+parameters. 
+
+
+    algorithm - the URI identifying the canonicalization algorithm 
+    params - a mechanism-specific XML structure from which to unmarshal the parameters from 
+       (may be null if not required or optional) 
+
+    Returns: the CanonicalizationMethod 
+
+*javax.xml.crypto.dsig.XMLSignatureFactory.newDigestMethod(String,DigestMethodParameterSpec)*
+
+public abstract |javax.xml.crypto.dsig.DigestMethod| newDigestMethod(
+  java.lang.String algorithm,
+  javax.xml.crypto.dsig.spec.DigestMethodParameterSpec params)
+  throws |java.security.InvalidAlgorithmParameterException|
+         |java.security.NoSuchAlgorithmException|
+         
+Creates a DigestMethod for the specified algorithm URI and parameters. 
+
+
+    algorithm - the URI identifying the digest algorithm 
+    params - algorithm-specific digest parameters (may be null) 
+
+    Returns: the DigestMethod 
+
+*javax.xml.crypto.dsig.XMLSignatureFactory.newManifest(List)*
+
+public abstract |javax.xml.crypto.dsig.Manifest| newManifest(java.util.List references)
+
+Creates a Manifest containing the specified list of 
+(|javax.xml.crypto.dsig.Reference|) s. 
+
+
+    references - a list of one or more References. The list is defensively copied to protect 
+       against subsequent modification. 
+
+    Returns: 
+
+*javax.xml.crypto.dsig.XMLSignatureFactory.newManifest(List,String)*
+
+public abstract |javax.xml.crypto.dsig.Manifest| newManifest(
+  java.util.List references,
+  java.lang.String id)
+
+Creates a Manifest containing the specified list of 
+(|javax.xml.crypto.dsig.Reference|) s and optional id. 
+
+
+    references - a list of one or more References. The list is defensively copied to protect 
+       against subsequent modification. 
+    id - the id (may be null) 
+
+    Returns: 
+
+*javax.xml.crypto.dsig.XMLSignatureFactory.newReference(String,DigestMethod)*
+
+public abstract |javax.xml.crypto.dsig.Reference| newReference(
+  java.lang.String uri,
+  javax.xml.crypto.dsig.DigestMethod dm)
+
+Creates a Reference with the specified URI and digest method. 
+
+
+    uri - the reference URI (may be null) 
+    dm - the digest method 
+
+    Returns: 
+
+*javax.xml.crypto.dsig.XMLSignatureFactory.newReference(String,DigestMethod,List,Data,List,String,String)*
+
+public abstract |javax.xml.crypto.dsig.Reference| newReference(
+  java.lang.String uri,
+  javax.xml.crypto.dsig.DigestMethod dm,
+  java.util.List appliedTransforms,
+  javax.xml.crypto.Data result,
+  java.util.List transforms,
+  java.lang.String type,
+  java.lang.String id)
+
+Creates a Reference with the specified parameters. 
+
+This method is useful when a list of transforms have already been applied to 
+the Reference. See for example, the 
+
+OASIS-DSS (Digital Signature Services) specification. 
+
+When an XMLSignature containing this reference is generated, the specified 
+transforms (if non-null) are applied to the specified result. The Transforms 
+element of the resulting Reference element is set to the concatenation of the 
+appliedTransforms and transforms. 
+
+
+    uri - the reference URI (may be null) 
+    dm - the digest method 
+    appliedTransforms - a list of {@link Transform}s that have already been applied. The list is 
+       defensively copied to protect against subsequent modification. The list 
+       must contain at least one entry. 
+    result - the result of processing the sequence of appliedTransforms 
+    transforms - a list of {@link Transform}s that are to be applied when generating the 
+       signature. The list is defensively copied to protect against subsequent 
+       modification. May be null or empty. 
+    type - the reference type, as a URI (may be null) 
+    id - the reference ID (may be null) 
+
+    Returns: 
+
+*javax.xml.crypto.dsig.XMLSignatureFactory.newReference(String,DigestMethod,List,String,String)*
+
+public abstract |javax.xml.crypto.dsig.Reference| newReference(
+  java.lang.String uri,
+  javax.xml.crypto.dsig.DigestMethod dm,
+  java.util.List transforms,
+  java.lang.String type,
+  java.lang.String id)
+
+Creates a Reference with the specified parameters. 
+
+
+    uri - the reference URI (may be null) 
+    dm - the digest method 
+    transforms - a list of {@link Transform}s. The list is defensively copied to protect against 
+       subsequent modification. May be null or empty. 
+    type - the reference type, as a URI (may be null) 
+    id - the reference ID (may be null) 
+
+    Returns: 
+
+*javax.xml.crypto.dsig.XMLSignatureFactory.newReference(String,DigestMethod,List,String,String,byte[])*
+
+public abstract |javax.xml.crypto.dsig.Reference| newReference(
+  java.lang.String uri,
+  javax.xml.crypto.dsig.DigestMethod dm,
+  java.util.List transforms,
+  java.lang.String type,
+  java.lang.String id,
+  byte[] digestValue)
+
+Creates a Reference with the specified parameters and pre-calculated digest 
+value. 
+
+This method is useful when the digest value of a Reference has been previously 
+computed. See for example, the 
+
+OASIS-DSS (Digital Signature Services) specification. 
+
+
+    uri - the reference URI (may be null) 
+    dm - the digest method 
+    transforms - a list of {@link Transform}s. The list is defensively copied to protect against 
+       subsequent modification. May be null or empty. 
+    type - the reference type, as a URI (may be null) 
+    id - the reference ID (may be null) 
+    digestValue - the digest value. The array is cloned to protect against subsequent 
+       modification. 
+
+    Returns: 
+
+*javax.xml.crypto.dsig.XMLSignatureFactory.newSignatureMethod(String,SignatureMethodParameterSpec)*
+
+public abstract |javax.xml.crypto.dsig.SignatureMethod| newSignatureMethod(
+  java.lang.String algorithm,
+  javax.xml.crypto.dsig.spec.SignatureMethodParameterSpec params)
+  throws |java.security.InvalidAlgorithmParameterException|
+         |java.security.NoSuchAlgorithmException|
+         
+Creates a SignatureMethod for the specified algorithm URI and parameters. 
+
+
+    algorithm - the URI identifying the signature algorithm 
+    params - algorithm-specific signature parameters (may be null) 
+
+    Returns: the SignatureMethod 
+
+*javax.xml.crypto.dsig.XMLSignatureFactory.newSignatureProperties(List,String)*
+
+public abstract |javax.xml.crypto.dsig.SignatureProperties| newSignatureProperties(
+  java.util.List properties,
+  java.lang.String id)
+
+Creates a SignatureProperties containing the specified list of 
+(|javax.xml.crypto.dsig.SignatureProperty|) s and optional id. 
+
+
+    properties - a list of one or more SignaturePropertys. The list is defensively copied to 
+       protect against subsequent modification. 
+    id - the id (may be null) 
+
+    Returns: a SignatureProperties 
+
+*javax.xml.crypto.dsig.XMLSignatureFactory.newSignatureProperty(List,String,String)*
+
+public abstract |javax.xml.crypto.dsig.SignatureProperty| newSignatureProperty(
+  java.util.List content,
+  java.lang.String target,
+  java.lang.String id)
+
+Creates a SignatureProperty containing the specified list of 
+(|javax.xml.crypto.XMLStructure|) s, target URI and optional id. 
+
+
+    content - a list of one or more XMLStructures. The list is defensively copied to protect 
+       against subsequent modification. 
+    target - the target URI of the Signature that this property applies to 
+    id - the id (may be null) 
+
+    Returns: a SignatureProperty 
+
+*javax.xml.crypto.dsig.XMLSignatureFactory.newSignedInfo(CanonicalizationMethod,SignatureMethod,List)*
+
+public abstract |javax.xml.crypto.dsig.SignedInfo| newSignedInfo(
+  javax.xml.crypto.dsig.CanonicalizationMethod cm,
+  javax.xml.crypto.dsig.SignatureMethod sm,
+  java.util.List references)
+
+Creates a SignedInfo with the specified canonicalization and signature methods, 
+and list of one or more references. 
+
+
+    cm - the canonicalization method 
+    sm - the signature method 
+    references - a list of one or more {@link Reference}s. The list is defensively copied to 
+       protect against subsequent modification. 
+
+    Returns: 
+
+*javax.xml.crypto.dsig.XMLSignatureFactory.newSignedInfo(CanonicalizationMethod,SignatureMethod,List,String)*
+
+public abstract |javax.xml.crypto.dsig.SignedInfo| newSignedInfo(
+  javax.xml.crypto.dsig.CanonicalizationMethod cm,
+  javax.xml.crypto.dsig.SignatureMethod sm,
+  java.util.List references,
+  java.lang.String id)
+
+Creates a SignedInfo with the specified parameters. 
+
+
+    cm - the canonicalization method 
+    sm - the signature method 
+    references - a list of one or more {@link Reference}s. The list is defensively copied to 
+       protect against subsequent modification. 
+    id - the id (may be null) 
+
+    Returns: 
+
+*javax.xml.crypto.dsig.XMLSignatureFactory.newTransform(String,TransformParameterSpec)*
+
+public abstract |javax.xml.crypto.dsig.Transform| newTransform(
+  java.lang.String algorithm,
+  javax.xml.crypto.dsig.spec.TransformParameterSpec params)
+  throws |java.security.InvalidAlgorithmParameterException|
+         |java.security.NoSuchAlgorithmException|
+         
+Creates a Transform for the specified algorithm URI and parameters. 
+
+
+    algorithm - the URI identifying the transform algorithm 
+    params - algorithm-specific transform parameters (may be null) 
+
+    Returns: the Transform 
+
+*javax.xml.crypto.dsig.XMLSignatureFactory.newTransform(String,XMLStructure)*
+
+public abstract |javax.xml.crypto.dsig.Transform| newTransform(
+  java.lang.String algorithm,
+  javax.xml.crypto.XMLStructure params)
+  throws |java.security.InvalidAlgorithmParameterException|
+         |java.security.NoSuchAlgorithmException|
+         
+Creates a Transform for the specified algorithm URI and parameters. The 
+parameters are specified as a mechanism-specific XMLStructure (ex: 
+(|javax.xml.crypto.dom.DOMStructure|) ). This method is useful when the 
+parameters are in XML form or there is no standard class for specifying the 
+parameters. 
+
+
+    algorithm - the URI identifying the transform algorithm 
+    params - a mechanism-specific XML structure from which to unmarshal the parameters from 
+       (may be null if not required or optional) 
+
+    Returns: the Transform 
+
+*javax.xml.crypto.dsig.XMLSignatureFactory.newXMLObject(List,String,String,String)*
+
+public abstract |javax.xml.crypto.dsig.XMLObject| newXMLObject(
+  java.util.List content,
+  java.lang.String id,
+  java.lang.String mimeType,
+  java.lang.String encoding)
+
+Creates an XMLObject from the specified parameters. 
+
+
+    content - a list of {@link XMLStructure}s. The list is defensively copied to protect 
+       against subsequent modification. May be null or empty. 
+    id - the Id (may be null) 
+    mimeType - the mime type (may be null) 
+    encoding - the encoding (may be null) 
+
+    Returns: 
+
+*javax.xml.crypto.dsig.XMLSignatureFactory.newXMLSignature(SignedInfo,KeyInfo)*
+
+public abstract |javax.xml.crypto.dsig.XMLSignature| newXMLSignature(
+  javax.xml.crypto.dsig.SignedInfo si,
+  javax.xml.crypto.dsig.keyinfo.KeyInfo ki)
+
+Creates an XMLSignature and initializes it with the contents of the specified 
+SignedInfo and KeyInfo objects. 
+
+
+    si - the signed info 
+    ki - the key info (may be null) 
+
+    Returns: an XMLSignature 
+
+*javax.xml.crypto.dsig.XMLSignatureFactory.newXMLSignature(SignedInfo,KeyInfo,List,String,String)*
+
+public abstract |javax.xml.crypto.dsig.XMLSignature| newXMLSignature(
+  javax.xml.crypto.dsig.SignedInfo si,
+  javax.xml.crypto.dsig.keyinfo.KeyInfo ki,
+  java.util.List objects,
+  java.lang.String id,
+  java.lang.String signatureValueId)
+
+Creates an XMLSignature and initializes it with the specified parameters. 
+
+
+    si - the signed info 
+    ki - the key info (may be null) 
+    objects - a list of {@link XMLObject}s (may be empty or null) 
+    id - the Id (may be null) 
+    signatureValueId - the SignatureValue Id (may be null) 
+
+    Returns: an XMLSignature 
+
+*javax.xml.crypto.dsig.XMLSignatureFactory.unmarshalXMLSignature(XMLStructure)*
+
+public abstract |javax.xml.crypto.dsig.XMLSignature| unmarshalXMLSignature(javax.xml.crypto.XMLStructure xmlStructure)
+  throws |javax.xml.crypto.MarshalException|
+         
+Unmarshals a new XMLSignature instance from a mechanism-specific XMLStructure 
+instance. This method is useful if you only want to unmarshal (and not 
+validate) an XMLSignature. 
+
+
+    xmlStructure - a mechanism-specific XML structure from which to unmarshal the signature from 
+
+    Returns: the XMLSignature 
+
+*javax.xml.crypto.dsig.XMLSignatureFactory.unmarshalXMLSignature(XMLValidateContext)*
+
+public abstract |javax.xml.crypto.dsig.XMLSignature| unmarshalXMLSignature(javax.xml.crypto.dsig.XMLValidateContext context)
+  throws |javax.xml.crypto.MarshalException|
+         
+Unmarshals a new XMLSignature instance from a mechanism-specific 
+XMLValidateContext instance. 
+
+
+    context - a mechanism-specific context from which to unmarshal the signature from 
+
+    Returns: the XMLSignature 
+
+

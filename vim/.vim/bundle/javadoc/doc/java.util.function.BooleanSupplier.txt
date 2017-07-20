@@ -1,0 +1,39 @@
+*java.util.function.BooleanSupplier* *BooleanSupplier* Represents a supplier ofb
+
+public interface interface BooleanSupplier
+
+
+|java.util.function.BooleanSupplier_Description|
+|java.util.function.BooleanSupplier_Fields|
+|java.util.function.BooleanSupplier_Constructors|
+|java.util.function.BooleanSupplier_Methods|
+
+================================================================================
+
+*java.util.function.BooleanSupplier_Methods*
+|java.util.function.BooleanSupplier.getAsBoolean()|Gets a result.
+
+*java.util.function.BooleanSupplier_Description*
+
+Represents a supplier ofboolean-valued results. This is theboolean-producing 
+primitive specialization of (|java.util.function.Supplier|) . 
+
+There is no requirement that a new or distinct result be returned each time the 
+supplier is invoked. 
+
+This is a functional interface whose functional method is 
+(|java.util.function.BooleanSupplier|) . 
+
+
+
+*java.util.function.BooleanSupplier.getAsBoolean()*
+
+public boolean getAsBoolean()
+
+Gets a result. 
+
+
+
+    Returns: 
+
+

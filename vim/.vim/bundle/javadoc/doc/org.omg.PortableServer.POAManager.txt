@@ -1,0 +1,23 @@
+*org.omg.PortableServer.POAManager* *POAManager* Each POA object has an associat
+
+public interface interface POAManager
+
+  implements |org.omg.PortableServer.POAManagerOperations|
+             |org.omg.CORBA.Object|
+             |org.omg.CORBA.portable.IDLEntity|
+
+|org.omg.PortableServer.POAManager_Description|
+|org.omg.PortableServer.POAManager_Fields|
+|org.omg.PortableServer.POAManager_Constructors|
+|org.omg.PortableServer.POAManager_Methods|
+
+================================================================================
+
+*org.omg.PortableServer.POAManager_Description*
+
+Each POA object has an associated POAManager object. A POA manager may be 
+associated with one or more POA objects. A POA manager encapsulates the 
+processing state of the POAs it is associated with. 
+
+
+

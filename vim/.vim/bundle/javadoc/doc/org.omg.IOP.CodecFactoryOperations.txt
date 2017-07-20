@@ -1,0 +1,35 @@
+*org.omg.IOP.CodecFactoryOperations* *CodecFactoryOperations* Codecs are obtaine
+
+public interface interface CodecFactoryOperations
+
+
+|org.omg.IOP.CodecFactoryOperations_Description|
+|org.omg.IOP.CodecFactoryOperations_Fields|
+|org.omg.IOP.CodecFactoryOperations_Constructors|
+|org.omg.IOP.CodecFactoryOperations_Methods|
+
+================================================================================
+
+*org.omg.IOP.CodecFactoryOperations_Methods*
+|org.omg.IOP.CodecFactoryOperations.create_codec(Encoding)|Create a Codec of th
+
+*org.omg.IOP.CodecFactoryOperations_Description*
+
+Codecs are obtained from the CodecFactory. The CodecFactory is obtained through 
+a call to ORB.resolve_initial_references( "CodecFactory" ). 
+
+
+
+*org.omg.IOP.CodecFactoryOperations.create_codec(Encoding)*
+
+public |org.omg.IOP.Codec| create_codec(org.omg.IOP.Encoding enc)
+  throws |org.omg.IOP.CodecFactoryPackage.UnknownEncoding|
+         
+Create a Codec of the given encoding. 
+
+
+    enc - The encoding for which to create a Codec. 
+
+    Returns: A Codec obtained with the given encoding. 
+
+

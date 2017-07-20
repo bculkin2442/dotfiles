@@ -1,0 +1,413 @@
+*java.io.DataInput* *DataInput* TheDataInputinterface provides
+ for reading byte
+
+public interface interface DataInput
+
+
+|java.io.DataInput_Description|
+|java.io.DataInput_Fields|
+|java.io.DataInput_Constructors|
+|java.io.DataInput_Methods|
+
+================================================================================
+
+*java.io.DataInput_Methods*
+|java.io.DataInput.readBoolean()|Reads one input byte and returnstrueif that by
+|java.io.DataInput.readByte()|Reads and returns one input byte.
+|java.io.DataInput.readChar()|Reads two input bytes and returns acharvalue.
+|java.io.DataInput.readDouble()|Reads eight input bytes and returns  adoubleval
+|java.io.DataInput.readFloat()|Reads four input bytes and returns  afloatvalue.
+|java.io.DataInput.readFully(byte[])|Reads some bytes from an input  stream and
+|java.io.DataInput.readFully(byte[],int,int)|Readslenbytes from  an input strea
+|java.io.DataInput.readInt()|Reads four input bytes and returns anintvalue.
+|java.io.DataInput.readLine()|Reads the next line of text from the input stream
+|java.io.DataInput.readLong()|Reads eight input bytes and returns  alongvalue.
+|java.io.DataInput.readShort()|Reads two input bytes and returns  ashortvalue.
+|java.io.DataInput.readUnsignedByte()|Reads one input byte, zero-extends  it to
+|java.io.DataInput.readUnsignedShort()|Reads two input bytes and returns  anint
+|java.io.DataInput.readUTF()|Reads in a string that has been encoded using a  m
+|java.io.DataInput.skipBytes(int)|Makes an attempt to skip overnbytes  of data 
+
+*java.io.DataInput_Description*
+
+TheDataInputinterface provides for reading bytes from a binary stream and 
+reconstructing from them data in any of the Java primitive types. There is also 
+a facility for reconstructing aStringfrom data in modified UTF-8 format. 
+
+It is generally true of all the reading routines in this interface that if end 
+of file is reached before the desired number of bytes has been read, 
+anEOFException(which is a kind ofIOException) is thrown. If any byte cannot be 
+read for any reason other than end of file, anIOExceptionother 
+thanEOFExceptionis thrown. In particular, anIOExceptionmay be thrown if the 
+input stream has been closed. 
+
+Modified UTF-8 
+
+Implementations of the DataInput and DataOutput interfaces represent Unicode 
+strings in a format that is a slight modification of UTF-8. (For information 
+regarding the standard UTF-8 format, see section 3.9 Unicode Encoding Forms of 
+The Unicode Standard, Version 4.0). Note that in the following table, the most 
+significant bit appears in the far left-hand column. 
+
+
+
+
+
+All characters in the range'\u0001'to'\u007F'are represented by a single byte: 
+
+
+
+Bit Values 
+
+Byte 1 0 bits 6-0 
+
+
+
+The null character'\u0000'and characters in the range'\u0080'to'\u07FF'are 
+represented by a pair of bytes: 
+
+
+
+Bit Values 
+
+Byte 1 1 1 0 bits 10-6 
+
+Byte 2 1 0 bits 5-0 
+
+charvalues in the range'\u0800'to'\uFFFF'are represented by three bytes: 
+
+
+
+Bit Values 
+
+Byte 1 1 1 1 0 bits 15-12 
+
+Byte 2 1 0 bits 11-6 
+
+Byte 3 1 0 bits 5-0 
+
+
+
+The differences between this format and the standard UTF-8 format are the 
+following: 
+
+The null byte'\u0000'is encoded in 2-byte format rather than 1-byte, so that 
+the encoded strings never have embedded nulls. Only the 1-byte, 2-byte, and 
+3-byte formats are used. Supplementary characters are represented in the form 
+of surrogate pairs. 
+
+
+
+*java.io.DataInput.readBoolean()*
+
+public boolean readBoolean()
+  throws |java.io.IOException|
+         
+Reads one input byte and returnstrueif that byte is nonzero,falseif that byte 
+is zero. This method is suitable for reading the byte written by 
+thewriteBooleanmethod of interfaceDataOutput. 
+
+
+
+    Returns: the {@code boolean} value read. 
+
+*java.io.DataInput.readByte()*
+
+public byte readByte()
+  throws |java.io.IOException|
+         
+Reads and returns one input byte. The byte is treated as a signed value in the 
+range-128through127, inclusive. This method is suitable for reading the byte 
+written by thewriteBytemethod of interfaceDataOutput. 
+
+
+
+    Returns: the 8-bit value read. 
+
+*java.io.DataInput.readChar()*
+
+public char readChar()
+  throws |java.io.IOException|
+         
+Reads two input bytes and returns acharvalue. Letabe the first byte read andbbe 
+the second byte. The value returned is: 
+
+(char)((a << 8) | (b & 0xff)) 
+
+This method is suitable for reading bytes written by thewriteCharmethod of 
+interfaceDataOutput. 
+
+
+
+    Returns: the {@code char} value read. 
+
+*java.io.DataInput.readDouble()*
+
+public double readDouble()
+  throws |java.io.IOException|
+         
+Reads eight input bytes and returns adoublevalue. It does this by first 
+constructing alongvalue in exactly the manner of thereadLongmethod, then 
+converting thislongvalue to adoublein exactly the manner of the 
+methodDouble.longBitsToDouble. This method is suitable for reading bytes 
+written by thewriteDoublemethod of interfaceDataOutput. 
+
+
+
+    Returns: the {@code double} value read. 
+
+*java.io.DataInput.readFloat()*
+
+public float readFloat()
+  throws |java.io.IOException|
+         
+Reads four input bytes and returns afloatvalue. It does this by first 
+constructing anintvalue in exactly the manner of thereadIntmethod, then 
+converting thisintvalue to afloatin exactly the manner of the 
+methodFloat.intBitsToFloat. This method is suitable for reading bytes written 
+by thewriteFloatmethod of interfaceDataOutput. 
+
+
+
+    Returns: the {@code float} value read. 
+
+*java.io.DataInput.readFully(byte[])*
+
+public void readFully(byte[] b)
+  throws |java.io.IOException|
+         
+Reads some bytes from an input stream and stores them into the buffer arrayb. 
+The number of bytes read is equal to the length ofb. 
+
+This method blocks until one of the following conditions occurs: 
+
+b.lengthbytes of input data are available, in which case a normal return is 
+made. 
+
+End of file is detected, in which case anEOFExceptionis thrown. 
+
+An I/O error occurs, in which case anIOExceptionother thanEOFExceptionis 
+thrown. 
+
+Ifbisnull, aNullPointerExceptionis thrown. Ifb.lengthis zero, then no bytes are 
+read. Otherwise, the first byte read is stored into elementb[0], the next one 
+intob[1], and so on. If an exception is thrown from this method, then it may be 
+that some but not all bytes ofbhave been updated with data from the input 
+stream. 
+
+
+    b - the buffer into which the data is read. 
+
+*java.io.DataInput.readFully(byte[],int,int)*
+
+public void readFully(
+  byte[] b,
+  int off,
+  int len)
+  throws |java.io.IOException|
+         
+Readslenbytes from an input stream. 
+
+This method blocks until one of the following conditions occurs: 
+
+lenbytes of input data are available, in which case a normal return is made. 
+
+End of file is detected, in which case anEOFExceptionis thrown. 
+
+An I/O error occurs, in which case anIOExceptionother thanEOFExceptionis 
+thrown. 
+
+Ifbisnull, aNullPointerExceptionis thrown. Ifoffis negative, orlenis negative, 
+oroff+lenis greater than the length of the arrayb, then 
+anIndexOutOfBoundsExceptionis thrown. Iflenis zero, then no bytes are read. 
+Otherwise, the first byte read is stored into elementb[off], the next one 
+intob[off+1], and so on. The number of bytes read is, at most, equal tolen. 
+
+
+    b - the buffer into which the data is read. 
+    off - an int specifying the offset into the data. 
+    len - an int specifying the number of bytes to read. 
+
+*java.io.DataInput.readInt()*
+
+public int readInt()
+  throws |java.io.IOException|
+         
+Reads four input bytes and returns anintvalue. Leta-dbe the first through 
+fourth bytes read. The value returned is: 
+
+(((a & 0xff) << 24) | ((b & 0xff) << 16) | ((c & 0xff) << 8) | (d & 0xff)) 
+
+This method is suitable for reading bytes written by thewriteIntmethod of 
+interfaceDataOutput. 
+
+
+
+    Returns: the {@code int} value read. 
+
+*java.io.DataInput.readLine()*
+
+public |java.lang.String| readLine()
+  throws |java.io.IOException|
+         
+Reads the next line of text from the input stream. It reads successive bytes, 
+converting each byte separately into a character, until it encounters a line 
+terminator or end of file; the characters read are then returned as aString. 
+Note that because this method processes bytes, it does not support input of the 
+full Unicode character set. 
+
+If end of file is encountered before even one byte can be read, thennullis 
+returned. Otherwise, each byte that is read is converted to typecharby 
+zero-extension. If the character'\n'is encountered, it is discarded and reading 
+ceases. If the character'\r'is encountered, it is discarded and, if the 
+following byte converts to the character'\n', then that is discarded also; 
+reading then ceases. If end of file is encountered before either of the 
+characters'\n'and'\r'is encountered, reading ceases. Once reading has ceased, 
+aStringis returned that contains all the characters read and not discarded, 
+taken in order. Note that every character in this string will have a value less 
+than\u0100, that is,(char)256. 
+
+
+
+    Returns: the next line of text from the input stream, or {@code null} if the end of file 
+             is encountered before a byte can be read. 
+
+*java.io.DataInput.readLong()*
+
+public long readLong()
+  throws |java.io.IOException|
+         
+Reads eight input bytes and returns alongvalue. Leta-hbe the first through 
+eighth bytes read. The value returned is: 
+
+(((long)(a & 0xff) << 56) | ((long)(b & 0xff) << 48) | ((long)(c & 0xff) << 40) 
+| ((long)(d & 0xff) << 32) | ((long)(e & 0xff) << 24) | ((long)(f & 0xff) << 
+16) | ((long)(g & 0xff) << 8) | ((long)(h & 0xff))) 
+
+This method is suitable for reading bytes written by thewriteLongmethod of 
+interfaceDataOutput. 
+
+
+
+    Returns: the {@code long} value read. 
+
+*java.io.DataInput.readShort()*
+
+public short readShort()
+  throws |java.io.IOException|
+         
+Reads two input bytes and returns ashortvalue. Letabe the first byte read 
+andbbe the second byte. The value returned is: 
+
+(short)((a << 8) | (b & 0xff)) 
+
+This method is suitable for reading the bytes written by thewriteShortmethod of 
+interfaceDataOutput. 
+
+
+
+    Returns: the 16-bit value read. 
+
+*java.io.DataInput.readUnsignedByte()*
+
+public int readUnsignedByte()
+  throws |java.io.IOException|
+         
+Reads one input byte, zero-extends it to typeint, and returns the result, which 
+is therefore in the range0through255. This method is suitable for reading the 
+byte written by thewriteBytemethod of interfaceDataOutputif the argument 
+towriteBytewas intended to be a value in the range0through255. 
+
+
+
+    Returns: the unsigned 8-bit value read. 
+
+*java.io.DataInput.readUnsignedShort()*
+
+public int readUnsignedShort()
+  throws |java.io.IOException|
+         
+Reads two input bytes and returns anintvalue in the range0through65535. Letabe 
+the first byte read andbbe the second byte. The value returned is: 
+
+(((a & 0xff) << 8) | (b & 0xff)) 
+
+This method is suitable for reading the bytes written by thewriteShortmethod of 
+interfaceDataOutputif the argument towriteShortwas intended to be a value in 
+the range0through65535. 
+
+
+
+    Returns: the unsigned 16-bit value read. 
+
+*java.io.DataInput.readUTF()*
+
+public |java.lang.String| readUTF()
+  throws |java.io.IOException|
+         
+Reads in a string that has been encoded using a modified UTF-8 format. The 
+general contract ofreadUTFis that it reads a representation of a Unicode 
+character string encoded in modified UTF-8 format; this string of characters is 
+then returned as aString. 
+
+First, two bytes are read and used to construct an unsigned 16-bit integer in 
+exactly the manner of thereadUnsignedShortmethod . This integer value is called 
+the UTF length and specifies the number of additional bytes to be read. These 
+bytes are then converted to characters by considering them in groups. The 
+length of each group is computed from the value of the first byte of the group. 
+The byte following a group, if any, is the first byte of the next group. 
+
+If the first byte of a group matches the bit pattern0xxxxxxx(wherexmeans "may 
+be0or1"), then the group consists of just that byte. The byte is zero-extended 
+to form a character. 
+
+If the first byte of a group matches the bit pattern110xxxxx, then the group 
+consists of that byteaand a second byteb. If there is no byteb(because byteawas 
+the last of the bytes to be read), or if bytebdoes not match the bit 
+pattern10xxxxxx, then aUTFDataFormatExceptionis thrown. Otherwise, the group is 
+converted to the character: 
+
+(char)(((a & 0x1F) << 6) | (b & 0x3F)) 
+
+If the first byte of a group matches the bit pattern1110xxxx, then the group 
+consists of that byteaand two more bytesbandc. If there is no bytec(because 
+byteawas one of the last two of the bytes to be read), or either bytebor 
+bytecdoes not match the bit pattern10xxxxxx, then aUTFDataFormatExceptionis 
+thrown. Otherwise, the group is converted to the character: 
+
+(char)(((a & 0x0F) << 12) | ((b & 0x3F) << 6) | (c & 0x3F)) 
+
+If the first byte of a group matches the pattern1111xxxxor the pattern10xxxxxx, 
+then aUTFDataFormatExceptionis thrown. 
+
+If end of file is encountered at any time during this entire process, then 
+anEOFExceptionis thrown. 
+
+After every group has been converted to a character by this process, the 
+characters are gathered, in the same order in which their corresponding groups 
+were read from the input stream, to form aString, which is returned. 
+
+ThewriteUTFmethod of interfaceDataOutputmay be used to write data that is 
+suitable for reading by this method. 
+
+
+
+    Returns: a Unicode string. 
+
+*java.io.DataInput.skipBytes(int)*
+
+public int skipBytes(int n)
+  throws |java.io.IOException|
+         
+Makes an attempt to skip overnbytes of data from the input stream, discarding 
+the skipped bytes. However, it may skip over some smaller number of bytes, 
+possibly zero. This may result from any of a number of conditions; reaching end 
+of file beforenbytes have been skipped is only one possibility. This method 
+never throws anEOFException. The actual number of bytes skipped is returned. 
+
+
+    n - the number of bytes to be skipped. 
+
+    Returns: the number of bytes actually skipped. 
+
+

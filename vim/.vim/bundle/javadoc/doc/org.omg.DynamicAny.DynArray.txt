@@ -1,0 +1,24 @@
+*org.omg.DynamicAny.DynArray* *DynArray* DynArray objects support the manipulati
+
+public interface interface DynArray
+
+  implements |org.omg.DynamicAny.DynArrayOperations|
+             |org.omg.DynamicAny.DynAny|
+             |org.omg.CORBA.portable.IDLEntity|
+
+|org.omg.DynamicAny.DynArray_Description|
+|org.omg.DynamicAny.DynArray_Fields|
+|org.omg.DynamicAny.DynArray_Constructors|
+|org.omg.DynamicAny.DynArray_Methods|
+
+================================================================================
+
+*org.omg.DynamicAny.DynArray_Description*
+
+DynArray objects support the manipulation of IDL arrays. Note that the 
+dimension of the array is contained in the TypeCode which is accessible through 
+the type attribute. It can also be obtained by calling the component_count 
+operation. 
+
+
+

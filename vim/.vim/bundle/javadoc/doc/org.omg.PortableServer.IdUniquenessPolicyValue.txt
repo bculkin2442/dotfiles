@@ -1,0 +1,79 @@
+*org.omg.PortableServer.IdUniquenessPolicyValue* *IdUniquenessPolicyValue* IdUni
+
+public class IdUniquenessPolicyValue
+  extends    |java.lang.Object|
+  implements |org.omg.CORBA.portable.IDLEntity|
+
+|org.omg.PortableServer.IdUniquenessPolicyValue_Description|
+|org.omg.PortableServer.IdUniquenessPolicyValue_Fields|
+|org.omg.PortableServer.IdUniquenessPolicyValue_Constructors|
+|org.omg.PortableServer.IdUniquenessPolicyValue_Methods|
+
+================================================================================
+
+*org.omg.PortableServer.IdUniquenessPolicyValue_Fields*
+|int_org.omg.PortableServer.IdUniquenessPolicyValue._MULTIPLE_ID|
+|int_org.omg.PortableServer.IdUniquenessPolicyValue._UNIQUE_ID|
+|org.omg.PortableServer.IdUniquenessPolicyValue_org.omg.PortableServer.IdUniquenessPolicyValue.MULTIPLE_ID|
+|org.omg.PortableServer.IdUniquenessPolicyValue_org.omg.PortableServer.IdUniquenessPolicyValue.UNIQUE_ID|
+
+*org.omg.PortableServer.IdUniquenessPolicyValue_Constructors*
+|org.omg.PortableServer.IdUniquenessPolicyValue(int)|
+
+*org.omg.PortableServer.IdUniquenessPolicyValue_Methods*
+|org.omg.PortableServer.IdUniquenessPolicyValue.from_int(int)|
+|org.omg.PortableServer.IdUniquenessPolicyValue.value()|
+
+*org.omg.PortableServer.IdUniquenessPolicyValue_Description*
+
+IdUniquenessPolicyValue can have the following values. UNIQUE_ID - Servants 
+activated with that POA support exactly one Object Id. MULTIPLE_ID - a servant 
+activated with that POA may support one or more Object Ids. 
+
+
+
+*int_org.omg.PortableServer.IdUniquenessPolicyValue._MULTIPLE_ID*
+
+
+
+
+*int_org.omg.PortableServer.IdUniquenessPolicyValue._UNIQUE_ID*
+
+
+
+
+*org.omg.PortableServer.IdUniquenessPolicyValue_org.omg.PortableServer.IdUniquenessPolicyValue.MULTIPLE_ID*
+
+
+
+
+*org.omg.PortableServer.IdUniquenessPolicyValue_org.omg.PortableServer.IdUniquenessPolicyValue.UNIQUE_ID*
+
+
+
+
+
+*org.omg.PortableServer.IdUniquenessPolicyValue(int)*
+
+protected IdUniquenessPolicyValue(int value)
+
+
+
+
+*org.omg.PortableServer.IdUniquenessPolicyValue.from_int(int)*
+
+public static |org.omg.PortableServer.IdUniquenessPolicyValue| from_int(int value)
+
+
+
+
+
+*org.omg.PortableServer.IdUniquenessPolicyValue.value()*
+
+public int value()
+
+
+
+
+
+

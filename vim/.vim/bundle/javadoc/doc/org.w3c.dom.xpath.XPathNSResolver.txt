@@ -1,0 +1,39 @@
+*org.w3c.dom.xpath.XPathNSResolver* *XPathNSResolver* The XPathNSResolver interf
+
+public interface interface XPathNSResolver
+
+
+|org.w3c.dom.xpath.XPathNSResolver_Description|
+|org.w3c.dom.xpath.XPathNSResolver_Fields|
+|org.w3c.dom.xpath.XPathNSResolver_Constructors|
+|org.w3c.dom.xpath.XPathNSResolver_Methods|
+
+================================================================================
+
+*org.w3c.dom.xpath.XPathNSResolver_Methods*
+|org.w3c.dom.xpath.XPathNSResolver.lookupNamespaceURI(String)|Look up the names
+
+*org.w3c.dom.xpath.XPathNSResolver_Description*
+
+The XPathNSResolver interface permit prefix strings in the expression to be 
+properly bound to namespaceURI strings. XPathEvaluator can construct an 
+implementation of XPathNSResolver from a node, or the interface may be 
+implemented by any application. See also the Document Object Model (DOM) Level 
+3 XPath Specification. 
+
+
+
+*org.w3c.dom.xpath.XPathNSResolver.lookupNamespaceURI(String)*
+
+public |java.lang.String| lookupNamespaceURI(java.lang.String prefix)
+
+Look up the namespace URI associated to the given namespace prefix. The XPath 
+evaluator must never call this with a null or empty argument, because the 
+result of doing this is undefined. 
+
+
+    prefix - The prefix to look for. 
+
+    Returns: Returns the associated namespace URI or null if none is found. 
+
+

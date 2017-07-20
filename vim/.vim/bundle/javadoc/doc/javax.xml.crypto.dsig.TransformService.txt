@@ -1,0 +1,237 @@
+*javax.xml.crypto.dsig.TransformService* *TransformService* A Service Provider I
+
+public abstract class TransformService
+  extends    |java.lang.Object|
+  implements |javax.xml.crypto.dsig.Transform|
+
+|javax.xml.crypto.dsig.TransformService_Description|
+|javax.xml.crypto.dsig.TransformService_Fields|
+|javax.xml.crypto.dsig.TransformService_Constructors|
+|javax.xml.crypto.dsig.TransformService_Methods|
+
+================================================================================
+
+*javax.xml.crypto.dsig.TransformService_Constructors*
+|javax.xml.crypto.dsig.TransformService()|Default constructor, for invocation b
+
+*javax.xml.crypto.dsig.TransformService_Methods*
+|javax.xml.crypto.dsig.TransformService.getAlgorithm()|Returns the URI of the a
+|javax.xml.crypto.dsig.TransformService.getInstance(String,String)|Returns a Tr
+|javax.xml.crypto.dsig.TransformService.getInstance(String,String,Provider)|Ret
+|javax.xml.crypto.dsig.TransformService.getInstance(String,String,String)|Retur
+|javax.xml.crypto.dsig.TransformService.getMechanismType()|Returns the mechanis
+|javax.xml.crypto.dsig.TransformService.getProvider()|Returns the provider of t
+|javax.xml.crypto.dsig.TransformService.init(TransformParameterSpec)|Initialize
+|javax.xml.crypto.dsig.TransformService.init(XMLStructure,XMLCryptoContext)|Ini
+|javax.xml.crypto.dsig.TransformService.marshalParams(XMLStructure,XMLCryptoContext)|
+
+*javax.xml.crypto.dsig.TransformService_Description*
+
+A Service Provider Interface for transform and canonicalization algorithms. 
+
+Each instance of TransformService supports a specific transform or 
+canonicalization algorithm and XML mechanism type. To create a 
+TransformService, call one of the static 
+getInstance(|javax.xml.crypto.dsig.TransformService|) methods, passing in the 
+algorithm URI and XML mechanism type desired, for example: 
+
+TransformService ts = TransformService.getInstance(Transform.XPATH2, "DOM"); 
+
+TransformService implementations are registered and loaded using the 
+(|java.security.Provider|) mechanism. Each TransformService service provider 
+implementation should include a MechanismType service attribute that identifies 
+the XML mechanism type that it supports. If the attribute is not specified, 
+"DOM" is assumed. For example, a service provider that supports the XPath 
+Filter 2 Transform and DOM mechanism would be specified in the Provider 
+subclass as: 
+
+put("TransformService." + Transform.XPATH2, 
+"org.example.XPath2TransformService"); put("TransformService." + 
+Transform.XPATH2 + " MechanismType", "DOM"); 
+
+TransformService implementations that support the DOM mechanism type must abide 
+by the DOM interoperability requirements defined in the 
+
+DOM Mechanism Requirements section of the API overview. See the 
+
+Service Providers section of the API overview for a list of standard mechanism 
+types. 
+
+Once a TransformService has been created, it can be used to process Transform 
+or CanonicalizationMethod objects. If the Transform or CanonicalizationMethod 
+exists in XML form (for example, when validating an existing XMLSignature), the 
+(|javax.xml.crypto.dsig.TransformService|) method must be first called to 
+initialize the transform and provide document context (even if there are no 
+parameters). Alternatively, if the Transform or CanonicalizationMethod is being 
+created from scratch, the (|javax.xml.crypto.dsig.TransformService|) method is 
+called to initialize the transform with parameters and the 
+marshalParams(|javax.xml.crypto.dsig.TransformService|) method is called to 
+marshal the parameters to XML and provide the transform with document context. 
+Finally, the transform(|javax.xml.crypto.dsig.TransformService|) method is 
+called to perform the transformation. 
+
+Concurrent Access The static methods of this class are guaranteed to be 
+thread-safe. Multiple threads may concurrently invoke the static methods 
+defined in this class with no ill effects. 
+
+However, this is not true for the non-static methods defined by this class. 
+Unless otherwise documented by a specific provider, threads that need to access 
+a single TransformService instance concurrently should synchronize amongst 
+themselves and provide the necessary locking. Multiple threads each 
+manipulating a different TransformService instance need not synchronize. 
+
+
+
+*javax.xml.crypto.dsig.TransformService()*
+
+protected TransformService()
+
+Default constructor, for invocation by subclasses. 
+
+
+*javax.xml.crypto.dsig.TransformService.getAlgorithm()*
+
+public final |java.lang.String| getAlgorithm()
+
+Returns the URI of the algorithm supported by this TransformService. 
+
+
+
+    Returns: the algorithm URI 
+
+*javax.xml.crypto.dsig.TransformService.getInstance(String,String)*
+
+public static |javax.xml.crypto.dsig.TransformService| getInstance(
+  java.lang.String algorithm,
+  java.lang.String mechanismType)
+  throws |java.security.NoSuchAlgorithmException|
+         
+Returns a TransformService that supports the specified algorithm URI (ex: 
+(|javax.xml.crypto.dsig.Transform|) ) and mechanism type (ex: DOM). 
+
+This method uses the standard JCA provider lookup mechanism to locate and 
+instantiate a TransformService implementation of the desired algorithm and 
+MechanismType service attribute. It traverses the list of registered security 
+Providers, starting with the most preferred Provider. A new TransformService 
+object from the first Provider that supports the specified algorithm and 
+mechanism type is returned. 
+
+Note that the list of registered providers may be retrieved via the 
+Security.getProviders()(|java.security.Security|) method. 
+
+
+    algorithm - the URI of the algorithm 
+    mechanismType - the type of the XML processing mechanism and representation 
+
+    Returns: a new TransformService 
+
+*javax.xml.crypto.dsig.TransformService.getInstance(String,String,Provider)*
+
+public static |javax.xml.crypto.dsig.TransformService| getInstance(
+  java.lang.String algorithm,
+  java.lang.String mechanismType,
+  java.security.Provider provider)
+  throws |java.security.NoSuchAlgorithmException|
+         
+Returns a TransformService that supports the specified algorithm URI (ex: 
+(|javax.xml.crypto.dsig.Transform|) ) and mechanism type (ex: DOM) as supplied 
+by the specified provider. Note that the specified Provider object does not 
+have to be registered in the provider list. 
+
+
+    algorithm - the URI of the algorithm 
+    mechanismType - the type of the XML processing mechanism and representation 
+    provider - the Provider object 
+
+    Returns: a new TransformService 
+
+*javax.xml.crypto.dsig.TransformService.getInstance(String,String,String)*
+
+public static |javax.xml.crypto.dsig.TransformService| getInstance(
+  java.lang.String algorithm,
+  java.lang.String mechanismType,
+  java.lang.String provider)
+  throws |java.security.NoSuchAlgorithmException|
+         |java.security.NoSuchProviderException|
+         
+Returns a TransformService that supports the specified algorithm URI (ex: 
+(|javax.xml.crypto.dsig.Transform|) ) and mechanism type (ex: DOM) as supplied 
+by the specified provider. The specified provider must be registered in the 
+security provider list. 
+
+Note that the list of registered providers may be retrieved via the 
+Security.getProviders()(|java.security.Security|) method. 
+
+
+    algorithm - the URI of the algorithm 
+    mechanismType - the type of the XML processing mechanism and representation 
+    provider - the string name of the provider 
+
+    Returns: a new TransformService 
+
+*javax.xml.crypto.dsig.TransformService.getMechanismType()*
+
+public final |java.lang.String| getMechanismType()
+
+Returns the mechanism type supported by this TransformService. 
+
+
+
+    Returns: the mechanism type 
+
+*javax.xml.crypto.dsig.TransformService.getProvider()*
+
+public final |java.security.Provider| getProvider()
+
+Returns the provider of this TransformService. 
+
+
+
+    Returns: 
+
+*javax.xml.crypto.dsig.TransformService.init(TransformParameterSpec)*
+
+public abstract void init(javax.xml.crypto.dsig.spec.TransformParameterSpec params)
+  throws |java.security.InvalidAlgorithmParameterException|
+         
+Initializes this TransformService with the specified parameters. 
+
+If the parameters exist in XML form, the 
+(|javax.xml.crypto.dsig.TransformService|) method should be used to initialize 
+the TransformService. 
+
+
+    params - the algorithm parameters (may be null if not required or optional) 
+
+*javax.xml.crypto.dsig.TransformService.init(XMLStructure,XMLCryptoContext)*
+
+public abstract void init(
+  javax.xml.crypto.XMLStructure parent,
+  javax.xml.crypto.XMLCryptoContext context)
+  throws |java.security.InvalidAlgorithmParameterException|
+         
+Initializes this TransformService with the specified parameters and document 
+context. 
+
+
+    parent - a mechanism-specific structure containing the parent structure 
+    context - the XMLCryptoContext containing additional context (may be null if not 
+       applicable) 
+
+*javax.xml.crypto.dsig.TransformService.marshalParams(XMLStructure,XMLCryptoContext)*
+
+public abstract void marshalParams(
+  javax.xml.crypto.XMLStructure parent,
+  javax.xml.crypto.XMLCryptoContext context)
+  throws |javax.xml.crypto.MarshalException|
+         
+Marshals the algorithm-specific parameters. If there are no parameters to be 
+marshalled, this method returns without throwing an exception. 
+
+
+    parent - a mechanism-specific structure containing the parent node that the marshalled 
+       parameters should be appended to 
+    context - the XMLCryptoContext containing additional context (may be null if not 
+       applicable) 
+
+

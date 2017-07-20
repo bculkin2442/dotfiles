@@ -1,0 +1,56 @@
+*javax.xml.ws.Binding* *Binding* The Binding interface is the base interface
+  f
+
+public interface interface Binding
+
+
+|javax.xml.ws.Binding_Description|
+|javax.xml.ws.Binding_Fields|
+|javax.xml.ws.Binding_Constructors|
+|javax.xml.ws.Binding_Methods|
+
+================================================================================
+
+*javax.xml.ws.Binding_Methods*
+|javax.xml.ws.Binding.getBindingID()|Get the URI for this binding instance.
+|javax.xml.ws.Binding.getHandlerChain()|Gets a copy of the handler chain for a 
+|javax.xml.ws.Binding.setHandlerChain(List<Handler>)|Sets the handler chain for
+
+*javax.xml.ws.Binding_Description*
+
+The Binding interface is the base interface for JAX-WS protocol bindings. 
+
+
+
+*javax.xml.ws.Binding.getBindingID()*
+
+public |java.lang.String| getBindingID()
+
+Get the URI for this binding instance. 
+
+
+
+    Returns: String The binding identifier for the port. Never returns null 
+
+*javax.xml.ws.Binding.getHandlerChain()*
+
+public |java.util.List|<Handler> getHandlerChain()
+
+Gets a copy of the handler chain for a protocol binding instance. If the 
+returned chain is modified a call to setHandlerChain is required to configure 
+the binding instance with the new chain. 
+
+
+
+    Returns: java.util.List<Handler> Handler chain 
+
+*javax.xml.ws.Binding.setHandlerChain(List<Handler>)*
+
+public void setHandlerChain(java.util.List<javax.xml.ws.handler.Handler> chain)
+
+Sets the handler chain for the protocol binding instance. 
+
+
+    chain - A List of handler configuration entries 
+
+

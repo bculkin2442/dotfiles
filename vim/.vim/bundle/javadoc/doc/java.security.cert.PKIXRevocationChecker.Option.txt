@@ -1,0 +1,40 @@
+*java.security.cert.PKIXRevocationChecker.Option* *PKIXRevocationChecker.Option* 
+
+public static final enumPKIXRevocationChecker.Option
+  extends    |java.lang.Enum|
+
+|java.security.cert.PKIXRevocationChecker.Option_Description|
+|java.security.cert.PKIXRevocationChecker.Option_Fields|
+|java.security.cert.PKIXRevocationChecker.Option_Constructors|
+|java.security.cert.PKIXRevocationChecker.Option_Methods|
+
+================================================================================
+
+*java.security.cert.PKIXRevocationChecker.Option_Methods*
+|java.security.cert.PKIXRevocationChecker.Option.valueOf(String)|
+|java.security.cert.PKIXRevocationChecker.Option.values()|
+
+*java.security.cert.PKIXRevocationChecker.Option_Description*
+
+Various revocation options that can be specified for the revocation checking 
+mechanism. 
+
+
+
+*java.security.cert.PKIXRevocationChecker.Option.valueOf(String)*
+
+public static |java.security.cert.PKIXRevocationChecker.Option| valueOf(java.lang.String name)
+
+
+
+
+
+*java.security.cert.PKIXRevocationChecker.Option.values()*
+
+public static |java.security.cert.PKIXRevocationChecker.Option|[] values()
+
+
+
+
+
+

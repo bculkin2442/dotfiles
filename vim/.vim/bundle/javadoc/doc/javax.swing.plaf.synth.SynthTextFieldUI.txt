@@ -1,0 +1,150 @@
+*javax.swing.plaf.synth.SynthTextFieldUI* *SynthTextFieldUI* Provides the Synth 
+
+public class SynthTextFieldUI
+  extends    |javax.swing.plaf.basic.BasicTextFieldUI|
+  implements |javax.swing.plaf.synth.SynthUI|
+
+|javax.swing.plaf.synth.SynthTextFieldUI_Description|
+|javax.swing.plaf.synth.SynthTextFieldUI_Fields|
+|javax.swing.plaf.synth.SynthTextFieldUI_Constructors|
+|javax.swing.plaf.synth.SynthTextFieldUI_Methods|
+
+================================================================================
+
+*javax.swing.plaf.synth.SynthTextFieldUI_Constructors*
+|javax.swing.plaf.synth.SynthTextFieldUI()|
+
+*javax.swing.plaf.synth.SynthTextFieldUI_Methods*
+|javax.swing.plaf.synth.SynthTextFieldUI.createUI(JComponent)|Creates a UI for 
+|javax.swing.plaf.synth.SynthTextFieldUI.getContext(JComponent)|
+|javax.swing.plaf.synth.SynthTextFieldUI.installDefaults()|
+|javax.swing.plaf.synth.SynthTextFieldUI.paint(SynthContext,Graphics)|Paints th
+|javax.swing.plaf.synth.SynthTextFieldUI.paintBackground(Graphics)|Overridden t
+|javax.swing.plaf.synth.SynthTextFieldUI.paintBorder(SynthContext,Graphics,int,int,int,int)|
+|javax.swing.plaf.synth.SynthTextFieldUI.propertyChange(PropertyChangeEvent)|Th
+|javax.swing.plaf.synth.SynthTextFieldUI.uninstallDefaults()|
+|javax.swing.plaf.synth.SynthTextFieldUI.update(Graphics,JComponent)|Notifies t
+
+*javax.swing.plaf.synth.SynthTextFieldUI_Description*
+
+Provides the Synth L and F UI delegate for (|javax.swing.JTextField|) . 
+
+Warning: Serialized objects of this class will not be compatible with future 
+Swing releases. The current serialization support is appropriate for short term 
+storage or RMI between applications running the same version of Swing. As of 
+1.4, support for long term storage of all JavaBeans has been added to the 
+java.beans package. Please see (|java.beans.XMLEncoder|) . 
+
+
+
+*javax.swing.plaf.synth.SynthTextFieldUI()*
+
+public SynthTextFieldUI()
+
+
+
+
+*javax.swing.plaf.synth.SynthTextFieldUI.createUI(JComponent)*
+
+public static |javax.swing.plaf.ComponentUI| createUI(javax.swing.JComponent c)
+
+Creates a UI for a JTextField. 
+
+
+    c - the text field 
+
+    Returns: the UI object 
+
+*javax.swing.plaf.synth.SynthTextFieldUI.getContext(JComponent)*
+
+public |javax.swing.plaf.synth.SynthContext| getContext(javax.swing.JComponent c)
+
+
+
+
+
+*javax.swing.plaf.synth.SynthTextFieldUI.installDefaults()*
+
+protected void installDefaults()
+
+
+
+
+
+*javax.swing.plaf.synth.SynthTextFieldUI.paint(SynthContext,Graphics)*
+
+protected void paint(
+  javax.swing.plaf.synth.SynthContext context,
+  java.awt.Graphics g)
+
+Paints the specified component. This is routed to the 
+(|javax.swing.plaf.synth.SynthTextFieldUI|) method under the guarantee that the 
+model does not change from the view of this thread while it is rendering (if 
+the associated model is derived fromAbstractDocument). This enables the model 
+to potentially be updated asynchronously. 
+
+
+    context - context for the component being painted 
+    g - the {@code Graphics} object used for painting 
+
+*javax.swing.plaf.synth.SynthTextFieldUI.paintBackground(Graphics)*
+
+protected void paintBackground(java.awt.Graphics g)
+
+Overridden to do nothing. 
+
+
+
+*javax.swing.plaf.synth.SynthTextFieldUI.paintBorder(SynthContext,Graphics,int,int,int,int)*
+
+public void paintBorder(
+  javax.swing.plaf.synth.SynthContext context,
+  java.awt.Graphics g,
+  int x,
+  int y,
+  int w,
+  int h)
+
+
+
+
+
+*javax.swing.plaf.synth.SynthTextFieldUI.propertyChange(PropertyChangeEvent)*
+
+protected void propertyChange(java.beans.PropertyChangeEvent evt)
+
+This method gets called when a bound property is changed on the associated 
+JTextComponent. This is a hook which UI implementations may change to reflect 
+how the UI displays bound properties of JTextComponent subclasses. This is 
+implemented to do nothing (i.e. the response to properties in JTextComponent 
+itself are handled prior to calling this method). 
+
+
+    evt - the property change event 
+
+*javax.swing.plaf.synth.SynthTextFieldUI.uninstallDefaults()*
+
+protected void uninstallDefaults()
+
+
+
+
+
+*javax.swing.plaf.synth.SynthTextFieldUI.update(Graphics,JComponent)*
+
+public void update(
+  java.awt.Graphics g,
+  javax.swing.JComponent c)
+
+Notifies this UI delegate to repaint the specified component. This method 
+paints the component background, then calls the 
+(|javax.swing.plaf.synth.SynthTextFieldUI|) method. 
+
+In general, this method does not need to be overridden by subclasses. All Look 
+and Feel rendering code should reside in thepaintmethod. 
+
+
+    g - the {@code Graphics} object used for painting 
+    c - the component being painted 
+
+

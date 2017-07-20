@@ -1,0 +1,38 @@
+*javax.xml.crypto.KeySelectorResult* *KeySelectorResult* The result returned by 
+
+public interface interface KeySelectorResult
+
+
+|javax.xml.crypto.KeySelectorResult_Description|
+|javax.xml.crypto.KeySelectorResult_Fields|
+|javax.xml.crypto.KeySelectorResult_Constructors|
+|javax.xml.crypto.KeySelectorResult_Methods|
+
+================================================================================
+
+*javax.xml.crypto.KeySelectorResult_Methods*
+|javax.xml.crypto.KeySelectorResult.getKey()|Returns the selected key.
+
+*javax.xml.crypto.KeySelectorResult_Description*
+
+The result returned by the KeySelector.select(|javax.xml.crypto.KeySelector|) 
+method. 
+
+At a minimum, a KeySelectorResult contains the Key selected by the KeySelector. 
+Implementations of this interface may add methods to return implementation or 
+algorithm specific information, such as a chain of certificates or debugging 
+information. 
+
+
+
+*javax.xml.crypto.KeySelectorResult.getKey()*
+
+public |java.security.Key| getKey()
+
+Returns the selected key. 
+
+
+
+    Returns: the selected key, or null if none can be found 
+
+

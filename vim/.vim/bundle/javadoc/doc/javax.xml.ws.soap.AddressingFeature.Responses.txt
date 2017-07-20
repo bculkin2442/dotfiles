@@ -1,0 +1,55 @@
+*javax.xml.ws.soap.AddressingFeature.Responses* *AddressingFeature.Responses* If
+
+public static final enumAddressingFeature.Responses
+  extends    |java.lang.Enum|
+
+|javax.xml.ws.soap.AddressingFeature.Responses_Description|
+|javax.xml.ws.soap.AddressingFeature.Responses_Fields|
+|javax.xml.ws.soap.AddressingFeature.Responses_Constructors|
+|javax.xml.ws.soap.AddressingFeature.Responses_Methods|
+
+================================================================================
+
+*javax.xml.ws.soap.AddressingFeature.Responses_Methods*
+|javax.xml.ws.soap.AddressingFeature.Responses.valueOf(String)|
+|javax.xml.ws.soap.AddressingFeature.Responses.values()|
+
+*javax.xml.ws.soap.AddressingFeature.Responses_Description*
+
+If addressing is enabled, this property determines if endpoint requires the use 
+of only anonymous responses, or only non-anonymous responses, or all. 
+
+(|javax.xml.ws.soap.AddressingFeature.Responses|) supports all response types 
+and this is the default value. 
+
+(|javax.xml.ws.soap.AddressingFeature.Responses|) requires the use of only 
+anonymous responses. It will result into wsam:AnonymousResponses nested 
+assertion as specified in 
+
+3.1.2 AnonymousResponses Assertion in the generated WSDL. 
+
+(|javax.xml.ws.soap.AddressingFeature.Responses|) requires the use of only 
+non-anonymous responses. It will result into wsam:NonAnonymousResponses nested 
+assertion as specified in 
+
+3.1.3 NonAnonymousResponses Assertion in the generated WSDL. 
+
+
+
+*javax.xml.ws.soap.AddressingFeature.Responses.valueOf(String)*
+
+public static |javax.xml.ws.soap.AddressingFeature.Responses| valueOf(java.lang.String name)
+
+
+
+
+
+*javax.xml.ws.soap.AddressingFeature.Responses.values()*
+
+public static |javax.xml.ws.soap.AddressingFeature.Responses|[] values()
+
+
+
+
+
+

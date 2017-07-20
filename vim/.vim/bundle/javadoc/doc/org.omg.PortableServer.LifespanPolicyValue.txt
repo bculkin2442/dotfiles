@@ -1,0 +1,80 @@
+*org.omg.PortableServer.LifespanPolicyValue* *LifespanPolicyValue* The LifespanP
+
+public class LifespanPolicyValue
+  extends    |java.lang.Object|
+  implements |org.omg.CORBA.portable.IDLEntity|
+
+|org.omg.PortableServer.LifespanPolicyValue_Description|
+|org.omg.PortableServer.LifespanPolicyValue_Fields|
+|org.omg.PortableServer.LifespanPolicyValue_Constructors|
+|org.omg.PortableServer.LifespanPolicyValue_Methods|
+
+================================================================================
+
+*org.omg.PortableServer.LifespanPolicyValue_Fields*
+|int_org.omg.PortableServer.LifespanPolicyValue._PERSISTENT|
+|int_org.omg.PortableServer.LifespanPolicyValue._TRANSIENT|
+|org.omg.PortableServer.LifespanPolicyValue_org.omg.PortableServer.LifespanPolicyValue.PERSISTENT|
+|org.omg.PortableServer.LifespanPolicyValue_org.omg.PortableServer.LifespanPolicyValue.TRANSIENT|
+
+*org.omg.PortableServer.LifespanPolicyValue_Constructors*
+|org.omg.PortableServer.LifespanPolicyValue(int)|
+
+*org.omg.PortableServer.LifespanPolicyValue_Methods*
+|org.omg.PortableServer.LifespanPolicyValue.from_int(int)|
+|org.omg.PortableServer.LifespanPolicyValue.value()|
+
+*org.omg.PortableServer.LifespanPolicyValue_Description*
+
+The LifespanPolicyValue can have the following values. TRANSIENT - The objects 
+implemented in the POA cannot outlive the POA instance in which they are first 
+created. PERSISTENT - The objects implemented in the POA can outlive the 
+process in which they are first created. 
+
+
+
+*int_org.omg.PortableServer.LifespanPolicyValue._PERSISTENT*
+
+
+
+
+*int_org.omg.PortableServer.LifespanPolicyValue._TRANSIENT*
+
+
+
+
+*org.omg.PortableServer.LifespanPolicyValue_org.omg.PortableServer.LifespanPolicyValue.PERSISTENT*
+
+
+
+
+*org.omg.PortableServer.LifespanPolicyValue_org.omg.PortableServer.LifespanPolicyValue.TRANSIENT*
+
+
+
+
+
+*org.omg.PortableServer.LifespanPolicyValue(int)*
+
+protected LifespanPolicyValue(int value)
+
+
+
+
+*org.omg.PortableServer.LifespanPolicyValue.from_int(int)*
+
+public static |org.omg.PortableServer.LifespanPolicyValue| from_int(int value)
+
+
+
+
+
+*org.omg.PortableServer.LifespanPolicyValue.value()*
+
+public int value()
+
+
+
+
+
+

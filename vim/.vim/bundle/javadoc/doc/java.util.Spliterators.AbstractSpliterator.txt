@@ -1,0 +1,72 @@
+*java.util.Spliterators.AbstractSpliterator* *Spliterators.AbstractSpliterator* 
+
+public abstract static class Spliterators.AbstractSpliterator<T>
+  extends    |java.lang.Object|
+  implements |java.util.Spliterator|
+
+|java.util.Spliterators.AbstractSpliterator_Description|
+|java.util.Spliterators.AbstractSpliterator_Fields|
+|java.util.Spliterators.AbstractSpliterator_Constructors|
+|java.util.Spliterators.AbstractSpliterator_Methods|
+
+================================================================================
+
+*java.util.Spliterators.AbstractSpliterator_Constructors*
+|java.util.Spliterators.AbstractSpliterator(long,int)|Creates a spliterator rep
+
+*java.util.Spliterators.AbstractSpliterator_Methods*
+|java.util.Spliterators.AbstractSpliterator.characteristics()|
+|java.util.Spliterators.AbstractSpliterator.estimateSize()|
+|java.util.Spliterators.AbstractSpliterator.trySplit()|This implementation perm
+
+*java.util.Spliterators.AbstractSpliterator_Description*
+
+An abstractSpliteratorthat implementstrySplitto permit limited parallelism. 
+
+An extending class need only implement 
+tryAdvance(|java.util.Spliterators.AbstractSpliterator|) . The extending class 
+should override forEach(|java.util.Spliterators.AbstractSpliterator|) if it can 
+provide a more performant implementation. 
+
+
+
+*java.util.Spliterators.AbstractSpliterator(long,int)*
+
+protected AbstractSpliterator(
+  long est,
+  int additionalCharacteristics)
+
+Creates a spliterator reporting the given estimated size and 
+additionalCharacteristics. 
+
+    est - the estimated size of this spliterator if known, otherwise {@code 
+       Long.MAX_VALUE}. 
+    additionalCharacteristics - properties of this spliterator's source or elements. If {@code SIZED} is 
+       reported then this spliterator will additionally report {@code 
+       SUBSIZED}. 
+
+*java.util.Spliterators.AbstractSpliterator.characteristics()*
+
+public int characteristics()
+
+
+
+
+
+*java.util.Spliterators.AbstractSpliterator.estimateSize()*
+
+public long estimateSize()
+
+
+
+
+
+*java.util.Spliterators.AbstractSpliterator.trySplit()*
+
+public |java.util.Spliterator|<T> trySplit()
+
+This implementation permits limited parallelism. 
+
+
+
+

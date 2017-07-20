@@ -1,0 +1,23 @@
+*org.omg.DynamicAny.DynFixed* *DynFixed* DynFixed objects support the manipulati
+
+public interface interface DynFixed
+
+  implements |org.omg.DynamicAny.DynFixedOperations|
+             |org.omg.DynamicAny.DynAny|
+             |org.omg.CORBA.portable.IDLEntity|
+
+|org.omg.DynamicAny.DynFixed_Description|
+|org.omg.DynamicAny.DynFixed_Fields|
+|org.omg.DynamicAny.DynFixed_Constructors|
+|org.omg.DynamicAny.DynFixed_Methods|
+
+================================================================================
+
+*org.omg.DynamicAny.DynFixed_Description*
+
+DynFixed objects support the manipulation of IDL fixed values. Because IDL does 
+not have a generic type that can represent fixed types with arbitrary number of 
+digits and arbitrary scale, the operations use the IDL string type. 
+
+
+

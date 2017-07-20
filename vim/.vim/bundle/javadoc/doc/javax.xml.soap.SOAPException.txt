@@ -1,0 +1,122 @@
+*javax.xml.soap.SOAPException* *SOAPException* An exception that signals that a 
+
+public class SOAPException
+  extends    |java.lang.Exception|
+
+|javax.xml.soap.SOAPException_Description|
+|javax.xml.soap.SOAPException_Fields|
+|javax.xml.soap.SOAPException_Constructors|
+|javax.xml.soap.SOAPException_Methods|
+
+================================================================================
+
+*javax.xml.soap.SOAPException_Constructors*
+|javax.xml.soap.SOAPException()|Constructs a SOAPException object with no  reas
+|javax.xml.soap.SOAPException(String)|Constructs a SOAPException object with th
+|javax.xml.soap.SOAPException(String,Throwable)|Constructs a SOAPException obje
+|javax.xml.soap.SOAPException(Throwable)|Constructs a SOAPException object init
+
+*javax.xml.soap.SOAPException_Methods*
+|javax.xml.soap.SOAPException.getCause()|Returns the Throwable object embedded 
+|javax.xml.soap.SOAPException.getMessage()|Returns the detail message for this 
+|javax.xml.soap.SOAPException.initCause(Throwable)|Initializes the cause field 
+
+*javax.xml.soap.SOAPException_Description*
+
+An exception that signals that a SOAP exception has occurred. A SOAPException 
+object may contain a String that gives the reason for the exception, an 
+embedded Throwable object, or both. This class provides methods for retrieving 
+reason messages and for retrieving the embedded Throwable object. 
+
+Typical reasons for throwing a SOAPException object are problems such as 
+difficulty setting a header, not being able to send a message, and not being 
+able to get a connection with the provider. Reasons for embedding a Throwable 
+object include problems such as input/output errors or a parsing problem, such 
+as an error in parsing a header. 
+
+
+
+*javax.xml.soap.SOAPException()*
+
+public SOAPException()
+
+Constructs a SOAPException object with no reason or embedded Throwable object. 
+
+
+*javax.xml.soap.SOAPException(String)*
+
+public SOAPException(java.lang.String reason)
+
+Constructs a SOAPException object with the given String as the reason for the 
+exception being thrown. 
+
+    reason - a description of what caused the exception 
+
+*javax.xml.soap.SOAPException(String,Throwable)*
+
+public SOAPException(
+  java.lang.String reason,
+  java.lang.Throwable cause)
+
+Constructs a SOAPException object with the given String as the reason for the 
+exception being thrown and the given Throwable object as an embedded exception. 
+
+    reason - a description of what caused the exception 
+    cause - a Throwable object that is to be embedded in this SOAPException object 
+
+*javax.xml.soap.SOAPException(Throwable)*
+
+public SOAPException(java.lang.Throwable cause)
+
+Constructs a SOAPException object initialized with the given Throwable object. 
+
+
+*javax.xml.soap.SOAPException.getCause()*
+
+public |java.lang.Throwable| getCause()
+
+Returns the Throwable object embedded in this SOAPException if there is one. 
+Otherwise, this method returns null. 
+
+
+
+    Returns: the embedded Throwable object or null if there is none 
+
+*javax.xml.soap.SOAPException.getMessage()*
+
+public |java.lang.String| getMessage()
+
+Returns the detail message for this SOAPException object. 
+
+If there is an embedded Throwable object, and if the SOAPException object has 
+no detail message of its own, this method will return the detail message from 
+the embedded Throwable object. 
+
+
+
+    Returns: the error or warning message for this SOAPException or, if it has none, the 
+             message of the embedded Throwable object, if there is one 
+
+*javax.xml.soap.SOAPException.initCause(Throwable)*
+
+public synchronized |java.lang.Throwable| initCause(java.lang.Throwable cause)
+
+Initializes the cause field of this SOAPException object with the given 
+Throwable object. 
+
+This method can be called at most once. It is generally called from within the 
+constructor or immediately after the constructor has returned a new 
+SOAPException object. If this SOAPException object was created with the 
+constructor (|javax.xml.soap.SOAPException|) or 
+(|javax.xml.soap.SOAPException|) , meaning that its cause field already has a 
+value, this method cannot be called even once. 
+
+
+    cause - the Throwable object that caused this SOAPException object to be thrown. The 
+       value of this parameter is saved for later retrieval by the {@link 
+       #getCause()} method. A null value is permitted and indicates that the 
+       cause is nonexistent or unknown. 
+
+    Returns: a reference to this SOAPException instance 
+
+

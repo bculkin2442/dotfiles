@@ -1,0 +1,89 @@
+*org.omg.IOP.ServiceContextListHelper* *ServiceContextListHelper* An array of se
+
+public abstract class ServiceContextListHelper
+  extends    |java.lang.Object|
+
+|org.omg.IOP.ServiceContextListHelper_Description|
+|org.omg.IOP.ServiceContextListHelper_Fields|
+|org.omg.IOP.ServiceContextListHelper_Constructors|
+|org.omg.IOP.ServiceContextListHelper_Methods|
+
+================================================================================
+
+*org.omg.IOP.ServiceContextListHelper_Constructors*
+|org.omg.IOP.ServiceContextListHelper()|
+
+*org.omg.IOP.ServiceContextListHelper_Methods*
+|org.omg.IOP.ServiceContextListHelper.extract(Any)|
+|org.omg.IOP.ServiceContextListHelper.id()|
+|org.omg.IOP.ServiceContextListHelper.insert(Any,ServiceContext[])|
+|org.omg.IOP.ServiceContextListHelper.read(InputStream)|
+|org.omg.IOP.ServiceContextListHelper.type()|
+|org.omg.IOP.ServiceContextListHelper.write(OutputStream,ServiceContext[])|
+
+*org.omg.IOP.ServiceContextListHelper_Description*
+
+An array of service contexts, forming a service context list. 
+
+
+
+*org.omg.IOP.ServiceContextListHelper()*
+
+public ServiceContextListHelper()
+
+
+
+
+*org.omg.IOP.ServiceContextListHelper.extract(Any)*
+
+public static |org.omg.IOP.ServiceContext|[] extract(org.omg.CORBA.Any a)
+
+
+
+
+
+*org.omg.IOP.ServiceContextListHelper.id()*
+
+public static |java.lang.String| id()
+
+
+
+
+
+*org.omg.IOP.ServiceContextListHelper.insert(Any,ServiceContext[])*
+
+public static void insert(
+  org.omg.CORBA.Any a,
+  org.omg.IOP.ServiceContext[] that)
+
+
+
+
+
+*org.omg.IOP.ServiceContextListHelper.read(InputStream)*
+
+public static |org.omg.IOP.ServiceContext|[] read(org.omg.CORBA.portable.InputStream istream)
+
+
+
+
+
+*org.omg.IOP.ServiceContextListHelper.type()*
+
+public static synchronized |org.omg.CORBA.TypeCode| type()
+
+
+
+
+
+*org.omg.IOP.ServiceContextListHelper.write(OutputStream,ServiceContext[])*
+
+public static void write(
+  org.omg.CORBA.portable.OutputStream ostream,
+  org.omg.IOP.ServiceContext[] value)
+
+
+
+
+
+

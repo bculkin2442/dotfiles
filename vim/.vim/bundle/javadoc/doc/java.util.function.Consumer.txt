@@ -1,0 +1,52 @@
+*java.util.function.Consumer* *Consumer* Represents an operation that accepts a 
+
+public interface interface Consumer<T>
+
+
+|java.util.function.Consumer_Description|
+|java.util.function.Consumer_Fields|
+|java.util.function.Consumer_Constructors|
+|java.util.function.Consumer_Methods|
+
+================================================================================
+
+*java.util.function.Consumer_Methods*
+|java.util.function.Consumer.accept(T)|Performs this operation on the given arg
+|java.util.function.Consumer.andThen(Consumer<?superT>)|Returns a composedConsu
+
+*java.util.function.Consumer_Description*
+
+Represents an operation that accepts a single input argument and returns no 
+result. Unlike most other functional interfaces,Consumeris expected to operate 
+via side-effects. 
+
+This is a functional interface whose functional method is 
+(|java.util.function.Consumer|) . 
+
+
+
+*java.util.function.Consumer.accept(T)*
+
+public void accept(T t)
+
+Performs this operation on the given argument. 
+
+
+    t - the input argument 
+
+*java.util.function.Consumer.andThen(Consumer<?superT>)*
+
+public |java.util.function.Consumer|<T> andThen(java.util.function.Consumer<? super T> after)
+
+Returns a composedConsumerthat performs, in sequence, this operation followed 
+by theafteroperation. If performing either operation throws an exception, it is 
+relayed to the caller of the composed operation. If performing this operation 
+throws an exception, theafteroperation will not be performed. 
+
+
+    after - the operation to perform after this operation 
+
+    Returns: a composed {@code Consumer} that performs in sequence this operation followed 
+             by the {@code after} operation 
+
+

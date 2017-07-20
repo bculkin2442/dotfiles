@@ -1,0 +1,330 @@
+*java.lang.reflect.Executable* *Executable* A shared superclass for the common f
+
+public abstract class Executable
+  extends    |java.lang.reflect.AccessibleObject|
+  implements |java.lang.reflect.Member|
+             |java.lang.reflect.GenericDeclaration|
+
+|java.lang.reflect.Executable_Description|
+|java.lang.reflect.Executable_Fields|
+|java.lang.reflect.Executable_Constructors|
+|java.lang.reflect.Executable_Methods|
+
+================================================================================
+
+*java.lang.reflect.Executable_Methods*
+|java.lang.reflect.Executable.getAnnotatedExceptionTypes()|Returns an array ofA
+|java.lang.reflect.Executable.getAnnotatedParameterTypes()|Returns an array ofA
+|java.lang.reflect.Executable.getAnnotatedReceiverType()|Returns anAnnotatedTyp
+|java.lang.reflect.Executable.getAnnotatedReturnType()|Returns anAnnotatedTypeo
+|java.lang.reflect.Executable.getAnnotation(Class<T>)|
+|java.lang.reflect.Executable.getAnnotationsByType(Class<T>)|
+|java.lang.reflect.Executable.getDeclaredAnnotations()|
+|java.lang.reflect.Executable.getDeclaringClass()|Returns theClassobject repres
+|java.lang.reflect.Executable.getExceptionTypes()|Returns an array ofClassobjec
+|java.lang.reflect.Executable.getGenericExceptionTypes()|Returns an array ofTyp
+|java.lang.reflect.Executable.getGenericParameterTypes()|Returns an array ofTyp
+|java.lang.reflect.Executable.getModifiers()|Returns the Java languageModifier 
+|java.lang.reflect.Executable.getName()|Returns the name of the executable repr
+|java.lang.reflect.Executable.getParameterAnnotations()|Returns an array of arr
+|java.lang.reflect.Executable.getParameterCount()|Returns the number of formal 
+|java.lang.reflect.Executable.getParameters()|Returns an array ofParameterobjec
+|java.lang.reflect.Executable.getParameterTypes()|Returns an array ofClassobjec
+|java.lang.reflect.Executable.getTypeParameters()|Returns an array ofTypeVariab
+|java.lang.reflect.Executable.isSynthetic()|Returnstrueif this executable is a 
+|java.lang.reflect.Executable.isVarArgs()|Returnstrueif this executable was dec
+|java.lang.reflect.Executable.toGenericString()|Returns a string describing thi
+
+*java.lang.reflect.Executable_Description*
+
+A shared superclass for the common functionality of 
+(|java.lang.reflect.Method|) and (|java.lang.reflect.Constructor|) . 
+
+
+
+*java.lang.reflect.Executable.getAnnotatedExceptionTypes()*
+
+public |java.lang.reflect.AnnotatedType|[] getAnnotatedExceptionTypes()
+
+Returns an array ofAnnotatedTypeobjects that represent the use of types to 
+specify the declared exceptions of the method/constructor represented by this 
+Executable. The order of the objects in the array corresponds to the order of 
+the exception types in the declaration of the method/constructor. 
+
+Returns an array of length 0 if the method/constructor declares no exceptions. 
+
+
+
+    Returns: an array of objects representing the declared exceptions of the method or 
+             constructor represented by this {@code Executable} 
+
+*java.lang.reflect.Executable.getAnnotatedParameterTypes()*
+
+public |java.lang.reflect.AnnotatedType|[] getAnnotatedParameterTypes()
+
+Returns an array ofAnnotatedTypeobjects that represent the use of types to 
+specify formal parameter types of the method/constructor represented by this 
+Executable. The order of the objects in the array corresponds to the order of 
+the formal parameter types in the declaration of the method/constructor. 
+
+Returns an array of length 0 if the method/constructor declares no parameters. 
+
+
+
+    Returns: an array of objects representing the types of the formal parameters of the 
+             method or constructor represented by this {@code Executable} 
+
+*java.lang.reflect.Executable.getAnnotatedReceiverType()*
+
+public |java.lang.reflect.AnnotatedType| getAnnotatedReceiverType()
+
+Returns anAnnotatedTypeobject that represents the use of a type to specify the 
+receiver type of the method/constructor represented by this Executable object. 
+The receiver type of a method/constructor is available only if the 
+method/constructor has a receiver parameter (JLS 8.4.1). 
+
+If thisExecutableobject represents a constructor or instance method that does 
+not have a receiver parameter, or has a receiver parameter with no annotations 
+on its type, then the return value is anAnnotatedTypeobject representing an 
+element with no annotations. 
+
+If thisExecutableobject represents a static method, then the return value is 
+null. 
+
+
+
+    Returns: an object representing the receiver type of the method or constructor 
+             represented by this {@code Executable} 
+
+*java.lang.reflect.Executable.getAnnotatedReturnType()*
+
+public abstract |java.lang.reflect.AnnotatedType| getAnnotatedReturnType()
+
+Returns anAnnotatedTypeobject that represents the use of a type to specify the 
+return type of the method/constructor represented by this Executable. 
+
+If thisExecutableobject represents a constructor, theAnnotatedTypeobject 
+represents the type of the constructed object. 
+
+If thisExecutableobject represents a method, theAnnotatedTypeobject represents 
+the use of a type to specify the return type of the method. 
+
+
+
+    Returns: an object representing the return type of the method or constructor represented 
+             by this {@code Executable} 
+
+*java.lang.reflect.Executable.getAnnotation(Class<T>)*
+
+public |T| getAnnotation(java.lang.Class<T> annotationClass)
+
+
+
+
+
+*java.lang.reflect.Executable.getAnnotationsByType(Class<T>)*
+
+public |T|[] getAnnotationsByType(java.lang.Class<T> annotationClass)
+
+
+
+
+
+*java.lang.reflect.Executable.getDeclaredAnnotations()*
+
+public |java.lang.annotation.Annotation|[] getDeclaredAnnotations()
+
+
+
+
+
+*java.lang.reflect.Executable.getDeclaringClass()*
+
+public abstract |java.lang.Class|<?> getDeclaringClass()
+
+Returns theClassobject representing the class or interface that declares the 
+executable represented by this object. 
+
+
+
+*java.lang.reflect.Executable.getExceptionTypes()*
+
+public abstract |java.lang.Class|[] getExceptionTypes()
+
+Returns an array ofClassobjects that represent the types of exceptions declared 
+to be thrown by the underlying executable represented by this object. Returns 
+an array of length 0 if the executable declares no exceptions in 
+itsthrowsclause. 
+
+
+
+    Returns: the exception types declared as being thrown by the executable this object 
+             represents 
+
+*java.lang.reflect.Executable.getGenericExceptionTypes()*
+
+public |java.lang.reflect.Type|[] getGenericExceptionTypes()
+
+Returns an array ofTypeobjects that represent the exceptions declared to be 
+thrown by this executable object. Returns an array of length 0 if the 
+underlying executable declares no exceptions in itsthrowsclause. 
+
+If an exception type is a type variable or a parameterized type, it is created. 
+Otherwise, it is resolved. 
+
+
+
+    Returns: an array of Types that represent the exception types thrown by the underlying 
+             executable 
+
+*java.lang.reflect.Executable.getGenericParameterTypes()*
+
+public |java.lang.reflect.Type|[] getGenericParameterTypes()
+
+Returns an array ofTypeobjects that represent the formal parameter types, in 
+declaration order, of the executable represented by this object. Returns an 
+array of length 0 if the underlying executable takes no parameters. 
+
+If a formal parameter type is a parameterized type, theTypeobject returned for 
+it must accurately reflect the actual type parameters used in the source code. 
+
+If a formal parameter type is a type variable or a parameterized type, it is 
+created. Otherwise, it is resolved. 
+
+
+
+    Returns: an array of {@code Type}s that represent the formal parameter types of the 
+             underlying executable, in declaration order 
+
+*java.lang.reflect.Executable.getModifiers()*
+
+public abstract int getModifiers()
+
+Returns the Java language modifiers(|java.lang.reflect.Modifier|) for the 
+executable represented by this object. 
+
+
+
+*java.lang.reflect.Executable.getName()*
+
+public abstract |java.lang.String| getName()
+
+Returns the name of the executable represented by this object. 
+
+
+
+*java.lang.reflect.Executable.getParameterAnnotations()*
+
+public abstract |java.lang.annotation.Annotation|[][] getParameterAnnotations()
+
+Returns an array of arrays ofAnnotations that represent the annotations on the 
+formal parameters, in declaration order, of theExecutablerepresented by this 
+object. Synthetic and mandated parameters (see explanation below), such as the 
+outer "this" parameter to an inner class constructor will be represented in the 
+returned array. If the executable has no parameters (meaning no formal, no 
+synthetic, and no mandated parameters), a zero-length array will be returned. 
+If theExecutablehas one or more parameters, a nested array of length zero is 
+returned for each parameter with no annotations. The annotation objects 
+contained in the returned arrays are serializable. The caller of this method is 
+free to modify the returned arrays; it will have no effect on the arrays 
+returned to other callers. 
+
+A compiler may add extra parameters that are implicitly declared in source 
+("mandated"), as well as parameters that are neither implicitly nor explicitly 
+declared in source ("synthetic") to the parameter list for a method. See 
+(|java.lang.reflect.Parameter|) for more information. 
+
+
+
+    Returns: an array of arrays that represent the annotations on the formal and implicit 
+             parameters, in declaration order, of the executable represented by 
+             this object 
+
+*java.lang.reflect.Executable.getParameterCount()*
+
+public int getParameterCount()
+
+Returns the number of formal parameters (whether explicitly declared or 
+implicitly declared or neither) for the executable represented by this object. 
+
+
+
+    Returns: The number of formal parameters for the executable this object represents 
+
+*java.lang.reflect.Executable.getParameters()*
+
+public |java.lang.reflect.Parameter|[] getParameters()
+
+Returns an array ofParameterobjects that represent all the parameters to the 
+underlying executable represented by this object. Returns an array of length 0 
+if the executable has no parameters. 
+
+The parameters of the underlying executable do not necessarily have unique 
+names, or names that are legal identifiers in the Java programming language 
+(JLS 3.8). 
+
+
+
+    Returns: an array of {@code Parameter} objects representing all the parameters to the 
+             executable this object represents. 
+
+*java.lang.reflect.Executable.getParameterTypes()*
+
+public abstract |java.lang.Class|[] getParameterTypes()
+
+Returns an array ofClassobjects that represent the formal parameter types, in 
+declaration order, of the executable represented by this object. Returns an 
+array of length 0 if the underlying executable takes no parameters. 
+
+
+
+    Returns: the parameter types for the executable this object represents 
+
+*java.lang.reflect.Executable.getTypeParameters()*
+
+public abstract |java.lang.reflect.TypeVariable|[] getTypeParameters()
+
+Returns an array ofTypeVariableobjects that represent the type variables 
+declared by the generic declaration represented by 
+thisGenericDeclarationobject, in declaration order. Returns an array of length 
+0 if the underlying generic declaration declares no type variables. 
+
+
+
+    Returns: an array of {@code TypeVariable} objects that represent the type variables 
+             declared by this generic declaration 
+
+*java.lang.reflect.Executable.isSynthetic()*
+
+public boolean isSynthetic()
+
+Returnstrueif this executable is a synthetic construct; returnsfalseotherwise. 
+
+
+
+    Returns: true if and only if this executable is a synthetic construct as defined by The 
+             Java Language Specification. 
+
+*java.lang.reflect.Executable.isVarArgs()*
+
+public boolean isVarArgs()
+
+Returnstrueif this executable was declared to take a variable number of 
+arguments; returnsfalseotherwise. 
+
+
+
+    Returns: {@code true} if an only if this executable was declared to take a variable 
+             number of arguments. 
+
+*java.lang.reflect.Executable.toGenericString()*
+
+public abstract |java.lang.String| toGenericString()
+
+Returns a string describing thisExecutable, including any type parameters. 
+
+
+
+    Returns: a string describing this {@code Executable}, including any type parameters 
+
+

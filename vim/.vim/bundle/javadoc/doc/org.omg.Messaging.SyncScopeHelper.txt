@@ -1,0 +1,89 @@
+*org.omg.Messaging.SyncScopeHelper* *SyncScopeHelper* Synchronization scope
+
+public abstract class SyncScopeHelper
+  extends    |java.lang.Object|
+
+|org.omg.Messaging.SyncScopeHelper_Description|
+|org.omg.Messaging.SyncScopeHelper_Fields|
+|org.omg.Messaging.SyncScopeHelper_Constructors|
+|org.omg.Messaging.SyncScopeHelper_Methods|
+
+================================================================================
+
+*org.omg.Messaging.SyncScopeHelper_Constructors*
+|org.omg.Messaging.SyncScopeHelper()|
+
+*org.omg.Messaging.SyncScopeHelper_Methods*
+|org.omg.Messaging.SyncScopeHelper.extract(Any)|
+|org.omg.Messaging.SyncScopeHelper.id()|
+|org.omg.Messaging.SyncScopeHelper.insert(Any,short)|
+|org.omg.Messaging.SyncScopeHelper.read(InputStream)|
+|org.omg.Messaging.SyncScopeHelper.type()|
+|org.omg.Messaging.SyncScopeHelper.write(OutputStream,short)|
+
+*org.omg.Messaging.SyncScopeHelper_Description*
+
+Synchronization scope 
+
+
+
+*org.omg.Messaging.SyncScopeHelper()*
+
+public SyncScopeHelper()
+
+
+
+
+*org.omg.Messaging.SyncScopeHelper.extract(Any)*
+
+public static short extract(org.omg.CORBA.Any a)
+
+
+
+
+
+*org.omg.Messaging.SyncScopeHelper.id()*
+
+public static |java.lang.String| id()
+
+
+
+
+
+*org.omg.Messaging.SyncScopeHelper.insert(Any,short)*
+
+public static void insert(
+  org.omg.CORBA.Any a,
+  short that)
+
+
+
+
+
+*org.omg.Messaging.SyncScopeHelper.read(InputStream)*
+
+public static short read(org.omg.CORBA.portable.InputStream istream)
+
+
+
+
+
+*org.omg.Messaging.SyncScopeHelper.type()*
+
+public static synchronized |org.omg.CORBA.TypeCode| type()
+
+
+
+
+
+*org.omg.Messaging.SyncScopeHelper.write(OutputStream,short)*
+
+public static void write(
+  org.omg.CORBA.portable.OutputStream ostream,
+  short value)
+
+
+
+
+
+

@@ -1,0 +1,65 @@
+*java.util.stream.Stream.Builder* *Stream.Builder* A mutable builder for aStream
+
+public static interface interface Stream.Builder<T>
+
+  implements |java.util.function.Consumer|
+
+|java.util.stream.Stream.Builder_Description|
+|java.util.stream.Stream.Builder_Fields|
+|java.util.stream.Stream.Builder_Constructors|
+|java.util.stream.Stream.Builder_Methods|
+
+================================================================================
+
+*java.util.stream.Stream.Builder_Methods*
+|java.util.stream.Stream.Builder.accept(T)|Adds an element to the stream being 
+|java.util.stream.Stream.Builder.add(T)|Adds an element to the stream being bui
+|java.util.stream.Stream.Builder.build()|Builds the stream, transitioning this 
+
+*java.util.stream.Stream.Builder_Description*
+
+A mutable builder for aStream. This allows the creation of aStreamby generating 
+elements individually and adding them to theBuilder(without the copying 
+overhead that comes from using anArrayListas a temporary buffer.) 
+
+A stream builder has a lifecycle, which starts in a building phase, during 
+which elements can be added, and then transitions to a built phase, after which 
+elements may not be added. The built phase begins when the 
+(|java.util.stream.Stream.Builder|) method is called, which creates an 
+orderedStreamwhose elements are the elements that were added to the stream 
+builder, in the order they were added. 
+
+
+
+*java.util.stream.Stream.Builder.accept(T)*
+
+public void accept(T t)
+
+Adds an element to the stream being built. 
+
+
+
+*java.util.stream.Stream.Builder.add(T)*
+
+public |java.util.stream.Stream.Builder|<T> add(T t)
+
+Adds an element to the stream being built. 
+
+
+    t - the element to add 
+
+    Returns: {@code this} builder 
+
+*java.util.stream.Stream.Builder.build()*
+
+public |java.util.stream.Stream|<T> build()
+
+Builds the stream, transitioning this builder to the built state. 
+AnIllegalStateExceptionis thrown if there are further attempts to operate on 
+the builder after it has entered the built state. 
+
+
+
+    Returns: the built stream 
+
+

@@ -1,0 +1,117 @@
+*javax.xml.crypto.MarshalException* *MarshalException* Indicates an exceptional 
+
+public class MarshalException
+  extends    |java.lang.Exception|
+
+|javax.xml.crypto.MarshalException_Description|
+|javax.xml.crypto.MarshalException_Fields|
+|javax.xml.crypto.MarshalException_Constructors|
+|javax.xml.crypto.MarshalException_Methods|
+
+================================================================================
+
+*javax.xml.crypto.MarshalException_Constructors*
+|javax.xml.crypto.MarshalException()|Constructs a new MarshalException with  nu
+|javax.xml.crypto.MarshalException(String)|Constructs a new MarshalException wi
+|javax.xml.crypto.MarshalException(String,Throwable)|Constructs a new MarshalEx
+|javax.xml.crypto.MarshalException(Throwable)|Constructs a new MarshalException
+
+*javax.xml.crypto.MarshalException_Methods*
+|javax.xml.crypto.MarshalException.getCause()|Returns the cause of this Marshal
+|javax.xml.crypto.MarshalException.printStackTrace()|Prints this MarshalExcepti
+|javax.xml.crypto.MarshalException.printStackTrace(PrintStream)|Prints this Mar
+|javax.xml.crypto.MarshalException.printStackTrace(PrintWriter)|Prints this Mar
+
+*javax.xml.crypto.MarshalException_Description*
+
+Indicates an exceptional condition that occurred during the XML marshalling or 
+unmarshalling process. 
+
+A MarshalException can contain a cause: another throwable that caused this 
+MarshalException to get thrown. 
+
+
+
+*javax.xml.crypto.MarshalException()*
+
+public MarshalException()
+
+Constructs a new MarshalException with null as its detail message. 
+
+
+*javax.xml.crypto.MarshalException(String)*
+
+public MarshalException(java.lang.String message)
+
+Constructs a new MarshalException with the specified detail message. 
+
+    message - the detail message 
+
+*javax.xml.crypto.MarshalException(String,Throwable)*
+
+public MarshalException(
+  java.lang.String message,
+  java.lang.Throwable cause)
+
+Constructs a new MarshalException with the specified detail message and cause. 
+Note that the detail message associated with cause is not automatically 
+incorporated in this exception's detail message. 
+
+    message - the detail message 
+    cause - the cause (A null value is permitted, and indicates that the cause is 
+       nonexistent or unknown.) 
+
+*javax.xml.crypto.MarshalException(Throwable)*
+
+public MarshalException(java.lang.Throwable cause)
+
+Constructs a new MarshalException with the specified cause and a detail message 
+of (cause==null ? null : cause.toString()) (which typically contains the class 
+and detail message of cause). 
+
+    cause - the cause (A null value is permitted, and indicates that the cause is 
+       nonexistent or unknown.) 
+
+*javax.xml.crypto.MarshalException.getCause()*
+
+public |java.lang.Throwable| getCause()
+
+Returns the cause of this MarshalException or null if the cause is nonexistent 
+or unknown. (The cause is the throwable that caused this MarshalException to 
+get thrown.) 
+
+
+
+    Returns: the cause of this MarshalException or null if the cause is nonexistent or 
+             unknown. 
+
+*javax.xml.crypto.MarshalException.printStackTrace()*
+
+public void printStackTrace()
+
+Prints this MarshalException, its backtrace and the cause's backtrace to the 
+standard error stream. 
+
+
+
+*javax.xml.crypto.MarshalException.printStackTrace(PrintStream)*
+
+public void printStackTrace(java.io.PrintStream s)
+
+Prints this MarshalException, its backtrace and the cause's backtrace to the 
+specified print stream. 
+
+
+    s - PrintStream to use for output 
+
+*javax.xml.crypto.MarshalException.printStackTrace(PrintWriter)*
+
+public void printStackTrace(java.io.PrintWriter s)
+
+Prints this MarshalException, its backtrace and the cause's backtrace to the 
+specified print writer. 
+
+
+    s - PrintWriter to use for output 
+
+

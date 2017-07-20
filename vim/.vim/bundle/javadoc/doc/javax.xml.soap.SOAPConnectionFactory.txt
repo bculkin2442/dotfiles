@@ -1,0 +1,61 @@
+*javax.xml.soap.SOAPConnectionFactory* *SOAPConnectionFactory* A factory for cre
+
+public abstract class SOAPConnectionFactory
+  extends    |java.lang.Object|
+
+|javax.xml.soap.SOAPConnectionFactory_Description|
+|javax.xml.soap.SOAPConnectionFactory_Fields|
+|javax.xml.soap.SOAPConnectionFactory_Constructors|
+|javax.xml.soap.SOAPConnectionFactory_Methods|
+
+================================================================================
+
+*javax.xml.soap.SOAPConnectionFactory_Constructors*
+|javax.xml.soap.SOAPConnectionFactory()|
+
+*javax.xml.soap.SOAPConnectionFactory_Methods*
+|javax.xml.soap.SOAPConnectionFactory.createConnection()|Create a new SOAPConne
+|javax.xml.soap.SOAPConnectionFactory.newInstance()|Creates an instance of the 
+
+*javax.xml.soap.SOAPConnectionFactory_Description*
+
+A factory for creating SOAPConnection objects. Implementation of this class is 
+optional. If SOAPConnectionFactory.newInstance() throws an 
+UnsupportedOperationException then the implementation does not support the SAAJ 
+communication infrastructure. Otherwise (|javax.xml.soap.SOAPConnection|) 
+objects can be created by calling createConnection() on the newly created 
+SOAPConnectionFactory object. 
+
+
+
+*javax.xml.soap.SOAPConnectionFactory()*
+
+public SOAPConnectionFactory()
+
+
+
+
+*javax.xml.soap.SOAPConnectionFactory.createConnection()*
+
+public abstract |javax.xml.soap.SOAPConnection| createConnection()
+  throws |javax.xml.soap.SOAPException|
+         
+Create a new SOAPConnection. 
+
+
+
+    Returns: the new SOAPConnection object. 
+
+*javax.xml.soap.SOAPConnectionFactory.newInstance()*
+
+public static |javax.xml.soap.SOAPConnectionFactory| newInstance()
+  throws |javax.xml.soap.SOAPException|
+         |java.lang.UnsupportedOperationException|
+         
+Creates an instance of the default SOAPConnectionFactory object. 
+
+
+
+    Returns: a new instance of a default SOAPConnectionFactory object 
+
+

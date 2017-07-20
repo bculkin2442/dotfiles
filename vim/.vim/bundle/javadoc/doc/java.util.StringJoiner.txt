@@ -1,0 +1,142 @@
+*java.util.StringJoiner* *StringJoiner* StringJoineris used to construct a seque
+
+public final class StringJoiner
+  extends    |java.lang.Object|
+
+|java.util.StringJoiner_Description|
+|java.util.StringJoiner_Fields|
+|java.util.StringJoiner_Constructors|
+|java.util.StringJoiner_Methods|
+
+================================================================================
+
+*java.util.StringJoiner_Constructors*
+|java.util.StringJoiner(CharSequence)|Constructs aStringJoinerwith no character
+|java.util.StringJoiner(CharSequence,CharSequence,CharSequence)|Constructs aStr
+
+*java.util.StringJoiner_Methods*
+|java.util.StringJoiner.add(CharSequence)|Adds a copy of the givenCharSequencev
+|java.util.StringJoiner.length()|Returns the length of theStringrepresentation 
+|java.util.StringJoiner.merge(StringJoiner)|Adds the contents of the givenStrin
+|java.util.StringJoiner.setEmptyValue(CharSequence)|Sets the sequence of charac
+|java.util.StringJoiner.toString()|Returns the current value, consisting of the
+
+*java.util.StringJoiner_Description*
+
+StringJoineris used to construct a sequence of characters separated by a 
+delimiter and optionally starting with a supplied prefix and ending with a 
+supplied suffix. 
+
+Prior to adding something to theStringJoiner, itssj.toString()method will, by 
+default, returnprefix + suffix. However, if thesetEmptyValuemethod is called, 
+theemptyValuesupplied will be returned instead. This can be used, for example, 
+when creating a string using set notation to indicate an empty set, i.e. "{}", 
+where theprefixis "{", thesuffixis "}" and nothing has been added to 
+theStringJoiner. 
+
+
+
+*java.util.StringJoiner(CharSequence)*
+
+public StringJoiner(java.lang.CharSequence delimiter)
+
+Constructs aStringJoinerwith no characters in it, with noprefixorsuffix, and a 
+copy of the supplieddelimiter. If no characters are added to theStringJoinerand 
+methods accessing the value of it are invoked, it will not return 
+aprefixorsuffix(or properties thereof) in the result, unlesssetEmptyValuehas 
+first been called. 
+
+    delimiter - the sequence of characters to be used between each element added to the {@code 
+       StringJoiner} value 
+
+*java.util.StringJoiner(CharSequence,CharSequence,CharSequence)*
+
+public StringJoiner(
+  java.lang.CharSequence delimiter,
+  java.lang.CharSequence prefix,
+  java.lang.CharSequence suffix)
+
+Constructs aStringJoinerwith no characters in it using copies of the 
+suppliedprefix,delimiterandsuffix. If no characters are added to 
+theStringJoinerand methods accessing the string value of it are invoked, it 
+will return theprefix + suffix(or properties thereof) in the result, 
+unlesssetEmptyValuehas first been called. 
+
+    delimiter - the sequence of characters to be used between each element added to the {@code 
+       StringJoiner} 
+    prefix - the sequence of characters to be used at the beginning 
+    suffix - the sequence of characters to be used at the end 
+
+*java.util.StringJoiner.add(CharSequence)*
+
+public |java.util.StringJoiner| add(java.lang.CharSequence newElement)
+
+Adds a copy of the givenCharSequencevalue as the next element of 
+theStringJoinervalue. IfnewElementisnull, then"null"is added. 
+
+
+    newElement - The element to add 
+
+    Returns: a reference to this {@code StringJoiner} 
+
+*java.util.StringJoiner.length()*
+
+public int length()
+
+Returns the length of theStringrepresentation of thisStringJoiner. Note that if 
+no add methods have been called, then the length of theStringrepresentation 
+(eitherprefix + suffixoremptyValue) will be returned. The value should be 
+equivalent totoString().length(). 
+
+
+
+    Returns: the length of the current value of {@code StringJoiner} 
+
+*java.util.StringJoiner.merge(StringJoiner)*
+
+public |java.util.StringJoiner| merge(java.util.StringJoiner other)
+
+Adds the contents of the givenStringJoinerwithout prefix and suffix as the next 
+element if it is non-empty. If the givenStringJoineris empty, the call has no 
+effect. 
+
+AStringJoineris empty if add()(|java.util.StringJoiner|) has never been called, 
+and ifmerge()has never been called with a non-emptyStringJoinerargument. 
+
+If the otherStringJoineris using a different delimiter, then elements from the 
+otherStringJoinerare concatenated with that delimiter and the result is 
+appended to thisStringJoineras a single element. 
+
+
+    other - The {@code StringJoiner} whose contents should be merged into this one 
+
+    Returns: This {@code StringJoiner} 
+
+*java.util.StringJoiner.setEmptyValue(CharSequence)*
+
+public |java.util.StringJoiner| setEmptyValue(java.lang.CharSequence emptyValue)
+
+Sets the sequence of characters to be used when determining the string 
+representation of thisStringJoinerand no elements have been added yet, that is, 
+when it is empty. A copy of theemptyValueparameter is made for this purpose. 
+Note that once an add method has been called, theStringJoineris no longer 
+considered empty, even if the element(s) added correspond to the emptyString. 
+
+
+    emptyValue - the characters to return as the value of an empty {@code StringJoiner} 
+
+    Returns: this {@code StringJoiner} itself so the calls may be chained 
+
+*java.util.StringJoiner.toString()*
+
+public |java.lang.String| toString()
+
+Returns the current value, consisting of theprefix, the values added so far 
+separated by thedelimiter, and thesuffix, unless no elements have been added in 
+which case, theprefix + suffixor theemptyValuecharacters are returned 
+
+
+
+    Returns: the string representation of this {@code StringJoiner} 
+
+

@@ -1,0 +1,78 @@
+*org.omg.CosNaming.BindingIteratorPOA* *BindingIteratorPOA* The BindingIterator 
+
+public abstract class BindingIteratorPOA
+  extends    |org.omg.PortableServer.Servant|
+  implements |org.omg.CosNaming.BindingIteratorOperations|
+             |org.omg.CORBA.portable.InvokeHandler|
+
+|org.omg.CosNaming.BindingIteratorPOA_Description|
+|org.omg.CosNaming.BindingIteratorPOA_Fields|
+|org.omg.CosNaming.BindingIteratorPOA_Constructors|
+|org.omg.CosNaming.BindingIteratorPOA_Methods|
+
+================================================================================
+
+*org.omg.CosNaming.BindingIteratorPOA_Constructors*
+|org.omg.CosNaming.BindingIteratorPOA()|
+
+*org.omg.CosNaming.BindingIteratorPOA_Methods*
+|org.omg.CosNaming.BindingIteratorPOA._all_interfaces(POA,byte[])|
+|org.omg.CosNaming.BindingIteratorPOA._invoke(String,InputStream,ResponseHandler)|
+|org.omg.CosNaming.BindingIteratorPOA._this()|
+|org.omg.CosNaming.BindingIteratorPOA._this(ORB)|
+
+*org.omg.CosNaming.BindingIteratorPOA_Description*
+
+The BindingIterator interface allows a client to iterate through the bindings 
+using the next_one or next_n operations. 
+
+The bindings iterator is obtained by using the list method on the 
+NamingContext. 
+
+
+
+*org.omg.CosNaming.BindingIteratorPOA()*
+
+public BindingIteratorPOA()
+
+
+
+
+*org.omg.CosNaming.BindingIteratorPOA._all_interfaces(POA,byte[])*
+
+public |java.lang.String|[] _all_interfaces(
+  org.omg.PortableServer.POA poa,
+  byte[] objectId)
+
+
+
+
+
+*org.omg.CosNaming.BindingIteratorPOA._invoke(String,InputStream,ResponseHandler)*
+
+public |org.omg.CORBA.portable.OutputStream| _invoke(
+  java.lang.String $method,
+  org.omg.CORBA.portable.InputStream in,
+  org.omg.CORBA.portable.ResponseHandler $rh)
+
+
+
+
+
+*org.omg.CosNaming.BindingIteratorPOA._this()*
+
+public |org.omg.CosNaming.BindingIterator| _this()
+
+
+
+
+
+*org.omg.CosNaming.BindingIteratorPOA._this(ORB)*
+
+public |org.omg.CosNaming.BindingIterator| _this(org.omg.CORBA.ORB orb)
+
+
+
+
+
+

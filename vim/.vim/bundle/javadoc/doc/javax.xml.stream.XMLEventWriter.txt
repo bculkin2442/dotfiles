@@ -1,0 +1,213 @@
+*javax.xml.stream.XMLEventWriter* *XMLEventWriter* This is the top level interfa
+
+public interface interface XMLEventWriter
+
+  implements |javax.xml.stream.util.XMLEventConsumer|
+
+|javax.xml.stream.XMLEventWriter_Description|
+|javax.xml.stream.XMLEventWriter_Fields|
+|javax.xml.stream.XMLEventWriter_Constructors|
+|javax.xml.stream.XMLEventWriter_Methods|
+
+================================================================================
+
+*javax.xml.stream.XMLEventWriter_Methods*
+|javax.xml.stream.XMLEventWriter.add(XMLEvent)|Add an event to the output strea
+|javax.xml.stream.XMLEventWriter.add(XMLEventReader)|Adds an entire stream to a
+|javax.xml.stream.XMLEventWriter.close()|Frees any resources associated with th
+|javax.xml.stream.XMLEventWriter.flush()|Writes any cached events to the underl
+|javax.xml.stream.XMLEventWriter.getNamespaceContext()|Returns the current name
+|javax.xml.stream.XMLEventWriter.getPrefix(String)|Gets the prefix the uri is b
+|javax.xml.stream.XMLEventWriter.setDefaultNamespace(String)|Binds a URI to the
+|javax.xml.stream.XMLEventWriter.setNamespaceContext(NamespaceContext)|Sets the
+|javax.xml.stream.XMLEventWriter.setPrefix(String,String)|Sets the prefix the u
+
+*javax.xml.stream.XMLEventWriter_Description*
+
+This is the top level interface for writing XML documents. 
+
+Instances of this interface are not required to validate the form of the XML. 
+
+
+
+*javax.xml.stream.XMLEventWriter.add(XMLEvent)*
+
+public void add(javax.xml.stream.events.XMLEvent event)
+  throws |javax.xml.stream.XMLStreamException|
+         
+Add an event to the output stream Adding a START_ELEMENT will open a new 
+namespace scope that will be closed when the corresponding END_ELEMENT is 
+written. 
+
+
+
+Required and optional fields for events added to the writer 
+
+
+
+
+
+Event Type Required Fields Optional Fields Required Behavior 
+
+START_ELEMENT QName name namespaces , attributes A START_ELEMENT will be 
+written by writing the name, namespaces, and attributes of the event in XML 1.0 
+valid syntax for START_ELEMENTs. The name is written by looking up the prefix 
+for the namespace uri. The writer can be configured to respect prefixes of 
+QNames. If the writer is respecting prefixes it must use the prefix set on the 
+QName. The default behavior is to lookup the value for the prefix on the 
+EventWriter's internal namespace context. Each attribute (if any) is written 
+using the behavior specified in the attribute section of this table. Each 
+namespace (if any) is written using the behavior specified in the namespace 
+section of this table. 
+
+
+
+END_ELEMENT Qname name None A well formed END_ELEMENT tag is written. The name 
+is written by looking up the prefix for the namespace uri. The writer can be 
+configured to respect prefixes of QNames. If the writer is respecting prefixes 
+it must use the prefix set on the QName. The default behavior is to lookup the 
+value for the prefix on the EventWriter's internal namespace context. If the 
+END_ELEMENT name does not match the START_ELEMENT name an XMLStreamException is 
+thrown. 
+
+
+
+ATTRIBUTE QName name , String value QName type An attribute is written using 
+the same algorithm to find the lexical form as used in START_ELEMENT. The 
+default is to use double quotes to wrap attribute values and to escape any 
+double quotes found in the value. The type value is ignored. 
+
+
+
+NAMESPACE String prefix, String namespaceURI, boolean 
+isDefaultNamespaceDeclaration 
+
+None A namespace declaration is written. If the namespace is a default 
+namespace declaration (isDefault is true) then xmlns="$namespaceURI" is written 
+and the prefix is optional. If isDefault is false, the prefix must be declared 
+and the writer must prepend xmlns to the prefix and write out a standard prefix 
+declaration. 
+
+
+
+PROCESSING_INSTRUCTION None String target, String data The data does not need 
+to be present and may be null. Target is required and many not be null. The 
+writer will write data section directly after the target, enclosed in 
+appropriate XML 1.0 syntax 
+
+
+
+COMMENT None String comment If the comment is present (not null) it is written, 
+otherwise an an empty comment is written 
+
+
+
+START_DOCUMENT None String encoding , boolean standalone, String version A 
+START_DOCUMENT event is not required to be written to the stream. If present 
+the attributes are written inside the appropriate XML declaration syntax 
+
+
+
+END_DOCUMENT None None Nothing is written to the output 
+
+DTD String DocumentTypeDefinition None The DocumentTypeDefinition is written to 
+the output 
+
+
+
+
+    event - the event to be added 
+
+*javax.xml.stream.XMLEventWriter.add(XMLEventReader)*
+
+public void add(javax.xml.stream.XMLEventReader reader)
+  throws |javax.xml.stream.XMLStreamException|
+         
+Adds an entire stream to an output stream, calls next() on the inputStream 
+argument until hasNext() returns false This should be treated as a convenience 
+method that will perform the following loop over all the events in an event 
+reader and call add on each event. 
+
+
+    reader - the event stream to add to the output 
+
+*javax.xml.stream.XMLEventWriter.close()*
+
+public void close()
+  throws |javax.xml.stream.XMLStreamException|
+         
+Frees any resources associated with this stream 
+
+
+
+*javax.xml.stream.XMLEventWriter.flush()*
+
+public void flush()
+  throws |javax.xml.stream.XMLStreamException|
+         
+Writes any cached events to the underlying output mechanism 
+
+
+
+*javax.xml.stream.XMLEventWriter.getNamespaceContext()*
+
+public |javax.xml.namespace.NamespaceContext| getNamespaceContext()
+
+Returns the current namespace context. 
+
+
+
+    Returns: the current namespace context 
+
+*javax.xml.stream.XMLEventWriter.getPrefix(String)*
+
+public |java.lang.String| getPrefix(java.lang.String uri)
+  throws |javax.xml.stream.XMLStreamException|
+         
+Gets the prefix the uri is bound to 
+
+
+    uri - the uri to look up 
+
+*javax.xml.stream.XMLEventWriter.setDefaultNamespace(String)*
+
+public void setDefaultNamespace(java.lang.String uri)
+  throws |javax.xml.stream.XMLStreamException|
+         
+Binds a URI to the default namespace This URI is bound in the scope of the 
+current START_ELEMENT / END_ELEMENT pair. If this method is called before a 
+START_ELEMENT has been written the uri is bound in the root scope. 
+
+
+    uri - the uri to bind to the default namespace 
+
+*javax.xml.stream.XMLEventWriter.setNamespaceContext(NamespaceContext)*
+
+public void setNamespaceContext(javax.xml.namespace.NamespaceContext context)
+  throws |javax.xml.stream.XMLStreamException|
+         
+Sets the current namespace context for prefix and uri bindings. This context 
+becomes the root namespace context for writing and will replace the current 
+root namespace context. Subsequent calls to setPrefix and setDefaultNamespace 
+will bind namespaces using the context passed to the method as the root context 
+for resolving namespaces. 
+
+
+    context - the namespace context to use for this writer 
+
+*javax.xml.stream.XMLEventWriter.setPrefix(String,String)*
+
+public void setPrefix(
+  java.lang.String prefix,
+  java.lang.String uri)
+  throws |javax.xml.stream.XMLStreamException|
+         
+Sets the prefix the uri is bound to. This prefix is bound in the scope of the 
+current START_ELEMENT / END_ELEMENT pair. If this method is called before a 
+START_ELEMENT has been written the prefix is bound in the root scope. 
+
+
+    prefix - the prefix to bind to the uri 
+    uri - the uri to bind to the prefix 
+
+

@@ -1,0 +1,63 @@
+*javax.xml.crypto.dom.DOMStructure* *DOMStructure* A DOM-specificXMLStructure.
+
+public class DOMStructure
+  extends    |java.lang.Object|
+  implements |javax.xml.crypto.XMLStructure|
+
+|javax.xml.crypto.dom.DOMStructure_Description|
+|javax.xml.crypto.dom.DOMStructure_Fields|
+|javax.xml.crypto.dom.DOMStructure_Constructors|
+|javax.xml.crypto.dom.DOMStructure_Methods|
+
+================================================================================
+
+*javax.xml.crypto.dom.DOMStructure_Constructors*
+|javax.xml.crypto.dom.DOMStructure(Node)|Creates a DOMStructure containing the 
+
+*javax.xml.crypto.dom.DOMStructure_Methods*
+|javax.xml.crypto.dom.DOMStructure.getNode()|Returns the node contained in this
+|javax.xml.crypto.dom.DOMStructure.isFeatureSupported(String)|
+
+*javax.xml.crypto.dom.DOMStructure_Description*
+
+A DOM-specific (|javax.xml.crypto.XMLStructure|) . The purpose of this class is 
+to allow a DOM node to be used to represent extensible content (any elements or 
+mixed content) in XML Signature structures. 
+
+If a sequence of nodes is needed, the node contained in the DOMStructure is the 
+first node of the sequence and successive nodes can be accessed by invoking 
+(|org.w3c.dom.Node|) . 
+
+If the owner document of the DOMStructure is different than the target document 
+of an XMLSignature, the (|javax.xml.crypto.dsig.XMLSignature|) method imports 
+the node into the target document before generating the signature. 
+
+
+
+*javax.xml.crypto.dom.DOMStructure(Node)*
+
+public DOMStructure(org.w3c.dom.Node node)
+
+Creates a DOMStructure containing the specified node. 
+
+    node - the node 
+
+*javax.xml.crypto.dom.DOMStructure.getNode()*
+
+public |org.w3c.dom.Node| getNode()
+
+Returns the node contained in this DOMStructure. 
+
+
+
+    Returns: 
+
+*javax.xml.crypto.dom.DOMStructure.isFeatureSupported(String)*
+
+public boolean isFeatureSupported(java.lang.String feature)
+
+
+
+
+
+

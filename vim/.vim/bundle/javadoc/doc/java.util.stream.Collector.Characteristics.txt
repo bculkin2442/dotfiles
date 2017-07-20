@@ -1,0 +1,40 @@
+*java.util.stream.Collector.Characteristics* *Collector.Characteristics* Charact
+
+public static final enumCollector.Characteristics
+  extends    |java.lang.Enum|
+
+|java.util.stream.Collector.Characteristics_Description|
+|java.util.stream.Collector.Characteristics_Fields|
+|java.util.stream.Collector.Characteristics_Constructors|
+|java.util.stream.Collector.Characteristics_Methods|
+
+================================================================================
+
+*java.util.stream.Collector.Characteristics_Methods*
+|java.util.stream.Collector.Characteristics.valueOf(String)|
+|java.util.stream.Collector.Characteristics.values()|
+
+*java.util.stream.Collector.Characteristics_Description*
+
+Characteristics indicating properties of aCollector, which can be used to 
+optimize reduction implementations. 
+
+
+
+*java.util.stream.Collector.Characteristics.valueOf(String)*
+
+public static |java.util.stream.Collector.Characteristics| valueOf(java.lang.String name)
+
+
+
+
+
+*java.util.stream.Collector.Characteristics.values()*
+
+public static |java.util.stream.Collector.Characteristics|[] values()
+
+
+
+
+
+

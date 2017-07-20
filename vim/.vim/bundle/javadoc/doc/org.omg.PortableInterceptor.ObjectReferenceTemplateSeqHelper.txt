@@ -1,0 +1,90 @@
+*org.omg.PortableInterceptor.ObjectReferenceTemplateSeqHelper* *ObjectReferenceTemplateSeqHelper* 
+
+public abstract class ObjectReferenceTemplateSeqHelper
+  extends    |java.lang.Object|
+
+|org.omg.PortableInterceptor.ObjectReferenceTemplateSeqHelper_Description|
+|org.omg.PortableInterceptor.ObjectReferenceTemplateSeqHelper_Fields|
+|org.omg.PortableInterceptor.ObjectReferenceTemplateSeqHelper_Constructors|
+|org.omg.PortableInterceptor.ObjectReferenceTemplateSeqHelper_Methods|
+
+================================================================================
+
+*org.omg.PortableInterceptor.ObjectReferenceTemplateSeqHelper_Constructors*
+|org.omg.PortableInterceptor.ObjectReferenceTemplateSeqHelper()|
+
+*org.omg.PortableInterceptor.ObjectReferenceTemplateSeqHelper_Methods*
+|org.omg.PortableInterceptor.ObjectReferenceTemplateSeqHelper.extract(Any)|
+|org.omg.PortableInterceptor.ObjectReferenceTemplateSeqHelper.id()|
+|org.omg.PortableInterceptor.ObjectReferenceTemplateSeqHelper.insert(Any,ObjectReferenceTemplate[])|
+|org.omg.PortableInterceptor.ObjectReferenceTemplateSeqHelper.read(InputStream)|
+|org.omg.PortableInterceptor.ObjectReferenceTemplateSeqHelper.type()|
+|org.omg.PortableInterceptor.ObjectReferenceTemplateSeqHelper.write(OutputStream,ObjectReferenceTemplate[])|
+
+*org.omg.PortableInterceptor.ObjectReferenceTemplateSeqHelper_Description*
+
+Sequence of object reference templates is used for reporting state changes that 
+do not occur on the adapter manager. 
+
+
+
+*org.omg.PortableInterceptor.ObjectReferenceTemplateSeqHelper()*
+
+public ObjectReferenceTemplateSeqHelper()
+
+
+
+
+*org.omg.PortableInterceptor.ObjectReferenceTemplateSeqHelper.extract(Any)*
+
+public static |org.omg.PortableInterceptor.ObjectReferenceTemplate|[] extract(org.omg.CORBA.Any a)
+
+
+
+
+
+*org.omg.PortableInterceptor.ObjectReferenceTemplateSeqHelper.id()*
+
+public static |java.lang.String| id()
+
+
+
+
+
+*org.omg.PortableInterceptor.ObjectReferenceTemplateSeqHelper.insert(Any,ObjectReferenceTemplate[])*
+
+public static void insert(
+  org.omg.CORBA.Any a,
+  org.omg.PortableInterceptor.ObjectReferenceTemplate[] that)
+
+
+
+
+
+*org.omg.PortableInterceptor.ObjectReferenceTemplateSeqHelper.read(InputStream)*
+
+public static |org.omg.PortableInterceptor.ObjectReferenceTemplate|[] read(org.omg.CORBA.portable.InputStream istream)
+
+
+
+
+
+*org.omg.PortableInterceptor.ObjectReferenceTemplateSeqHelper.type()*
+
+public static synchronized |org.omg.CORBA.TypeCode| type()
+
+
+
+
+
+*org.omg.PortableInterceptor.ObjectReferenceTemplateSeqHelper.write(OutputStream,ObjectReferenceTemplate[])*
+
+public static void write(
+  org.omg.CORBA.portable.OutputStream ostream,
+  org.omg.PortableInterceptor.ObjectReferenceTemplate[] value)
+
+
+
+
+
+

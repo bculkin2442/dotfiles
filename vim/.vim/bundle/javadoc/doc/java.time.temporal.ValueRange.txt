@@ -1,0 +1,295 @@
+*java.time.temporal.ValueRange* *ValueRange* The range of valid values for a dat
+
+public final class ValueRange
+  extends    |java.lang.Object|
+  implements |java.io.Serializable|
+
+|java.time.temporal.ValueRange_Description|
+|java.time.temporal.ValueRange_Fields|
+|java.time.temporal.ValueRange_Constructors|
+|java.time.temporal.ValueRange_Methods|
+
+================================================================================
+
+*java.time.temporal.ValueRange_Methods*
+|java.time.temporal.ValueRange.checkValidIntValue(long,TemporalField)|Checks th
+|java.time.temporal.ValueRange.checkValidValue(long,TemporalField)|Checks that 
+|java.time.temporal.ValueRange.equals(Object)|Checks if this range is equal to 
+|java.time.temporal.ValueRange.getLargestMinimum()|Gets the largest possible mi
+|java.time.temporal.ValueRange.getMaximum()|Gets the maximum value that the fie
+|java.time.temporal.ValueRange.getMinimum()|Gets the minimum value that the fie
+|java.time.temporal.ValueRange.getSmallestMaximum()|Gets the smallest possible 
+|java.time.temporal.ValueRange.hashCode()|A hash code for this range.
+|java.time.temporal.ValueRange.isFixed()|Is the value range fixed and fully kno
+|java.time.temporal.ValueRange.isIntValue()|Checks if all values in the range f
+|java.time.temporal.ValueRange.isValidIntValue(long)|Checks if the value is wit
+|java.time.temporal.ValueRange.isValidValue(long)|Checks if the value is within
+|java.time.temporal.ValueRange.of(long,long)|Obtains a fixed value range.
+|java.time.temporal.ValueRange.of(long,long,long)|Obtains a variable value rang
+|java.time.temporal.ValueRange.of(long,long,long,long)|Obtains a fully variable
+|java.time.temporal.ValueRange.toString()|Outputs this range as aString.
+
+*java.time.temporal.ValueRange_Description*
+
+The range of valid values for a date-time field. 
+
+All (|java.time.temporal.TemporalField|) instances have a valid range of 
+values. For example, the ISO day-of-month runs from 1 to somewhere between 28 
+and 31. This class captures that valid range. 
+
+It is important to be aware of the limitations of this class. Only the minimum 
+and maximum values are provided. It is possible for there to be invalid values 
+within the outer range. For example, a weird field may have valid values of 1, 
+2, 4, 6, 7, thus have a range of '1 - 7', despite that fact that values 3 and 5 
+are invalid. 
+
+Instances of this class are not tied to a specific field. 
+
+
+
+*java.time.temporal.ValueRange.checkValidIntValue(long,TemporalField)*
+
+public int checkValidIntValue(
+  long value,
+  java.time.temporal.TemporalField field)
+
+Checks that the specified value is valid and fits in anint. 
+
+This validates that the value is within the valid range of values and that all 
+valid values are within the bounds of anint. The field is only used to improve 
+the error message. 
+
+
+    value - the value to check 
+    field - the field being checked, may be null 
+
+    Returns: the value that was passed in 
+
+*java.time.temporal.ValueRange.checkValidValue(long,TemporalField)*
+
+public long checkValidValue(
+  long value,
+  java.time.temporal.TemporalField field)
+
+Checks that the specified value is valid. 
+
+This validates that the value is within the valid range of values. The field is 
+only used to improve the error message. 
+
+
+    value - the value to check 
+    field - the field being checked, may be null 
+
+    Returns: the value that was passed in 
+
+*java.time.temporal.ValueRange.equals(Object)*
+
+public boolean equals(java.lang.Object obj)
+
+Checks if this range is equal to another range. 
+
+The comparison is based on the four values, minimum, largest minimum, smallest 
+maximum and maximum. Only objects of typeValueRangeare compared, other types 
+return false. 
+
+
+    obj - the object to check, null returns false 
+
+    Returns: true if this is equal to the other range 
+
+*java.time.temporal.ValueRange.getLargestMinimum()*
+
+public long getLargestMinimum()
+
+Gets the largest possible minimum value that the field can take. 
+
+For example, the ISO day-of-month always starts at 1. The largest minimum is 
+therefore 1. 
+
+
+
+    Returns: the largest possible minimum value for this field 
+
+*java.time.temporal.ValueRange.getMaximum()*
+
+public long getMaximum()
+
+Gets the maximum value that the field can take. 
+
+For example, the ISO day-of-month runs to between 28 and 31 days. The maximum 
+is therefore 31. 
+
+
+
+    Returns: the maximum value for this field 
+
+*java.time.temporal.ValueRange.getMinimum()*
+
+public long getMinimum()
+
+Gets the minimum value that the field can take. 
+
+For example, the ISO day-of-month always starts at 1. The minimum is therefore 
+1. 
+
+
+
+    Returns: the minimum value for this field 
+
+*java.time.temporal.ValueRange.getSmallestMaximum()*
+
+public long getSmallestMaximum()
+
+Gets the smallest possible maximum value that the field can take. 
+
+For example, the ISO day-of-month runs to between 28 and 31 days. The smallest 
+maximum is therefore 28. 
+
+
+
+    Returns: the smallest possible maximum value for this field 
+
+*java.time.temporal.ValueRange.hashCode()*
+
+public int hashCode()
+
+A hash code for this range. 
+
+
+
+    Returns: a suitable hash code 
+
+*java.time.temporal.ValueRange.isFixed()*
+
+public boolean isFixed()
+
+Is the value range fixed and fully known. 
+
+For example, the ISO day-of-month runs from 1 to between 28 and 31. Since there 
+is uncertainty about the maximum value, the range is not fixed. However, for 
+the month of January, the range is always 1 to 31, thus it is fixed. 
+
+
+
+    Returns: true if the set of values is fixed 
+
+*java.time.temporal.ValueRange.isIntValue()*
+
+public boolean isIntValue()
+
+Checks if all values in the range fit in anint. 
+
+This checks that all valid values are within the bounds of anint. 
+
+For example, the ISO month-of-year has values from 1 to 12, which fits in 
+anint. By comparison, ISO nano-of-day runs from 1 to 86,400,000,000,000 which 
+does not fit in anint. 
+
+This implementation uses (|java.time.temporal.ValueRange|) and 
+(|java.time.temporal.ValueRange|) . 
+
+
+
+    Returns: true if a valid value always fits in an {@code int} 
+
+*java.time.temporal.ValueRange.isValidIntValue(long)*
+
+public boolean isValidIntValue(long value)
+
+Checks if the value is within the valid range and that all values in the range 
+fit in anint. 
+
+This method combines (|java.time.temporal.ValueRange|) and 
+(|java.time.temporal.ValueRange|) . 
+
+
+    value - the value to check 
+
+    Returns: true if the value is valid and fits in an {@code int} 
+
+*java.time.temporal.ValueRange.isValidValue(long)*
+
+public boolean isValidValue(long value)
+
+Checks if the value is within the valid range. 
+
+This checks that the value is within the stored range of values. 
+
+
+    value - the value to check 
+
+    Returns: true if the value is valid 
+
+*java.time.temporal.ValueRange.of(long,long)*
+
+public static |java.time.temporal.ValueRange| of(
+  long min,
+  long max)
+
+Obtains a fixed value range. 
+
+This factory obtains a range where the minimum and maximum values are fixed. 
+For example, the ISO month-of-year always runs from 1 to 12. 
+
+
+    min - the minimum value 
+    max - the maximum value 
+
+    Returns: the ValueRange for min, max, not null 
+
+*java.time.temporal.ValueRange.of(long,long,long)*
+
+public static |java.time.temporal.ValueRange| of(
+  long min,
+  long maxSmallest,
+  long maxLargest)
+
+Obtains a variable value range. 
+
+This factory obtains a range where the minimum value is fixed and the maximum 
+value may vary. For example, the ISO day-of-month always starts at 1, but ends 
+between 28 and 31. 
+
+
+    min - the minimum value 
+    maxSmallest - the smallest maximum value 
+    maxLargest - the largest maximum value 
+
+    Returns: the ValueRange for min, smallest max, largest max, not null 
+
+*java.time.temporal.ValueRange.of(long,long,long,long)*
+
+public static |java.time.temporal.ValueRange| of(
+  long minSmallest,
+  long minLargest,
+  long maxSmallest,
+  long maxLargest)
+
+Obtains a fully variable value range. 
+
+This factory obtains a range where both the minimum and maximum value may vary. 
+
+
+    minSmallest - the smallest minimum value 
+    minLargest - the largest minimum value 
+    maxSmallest - the smallest maximum value 
+    maxLargest - the largest maximum value 
+
+    Returns: the ValueRange for smallest min, largest min, smallest max, largest max, not 
+             null 
+
+*java.time.temporal.ValueRange.toString()*
+
+public |java.lang.String| toString()
+
+Outputs this range as aString. 
+
+The format will be '{min}/{largestMin} - {smallestMax}/{max}', where the 
+largestMin or smallestMax sections may be omitted, together with associated 
+slash, if they are the same as the min or max. 
+
+
+
+    Returns: a string representation of this range, not null 
+
+

@@ -1,0 +1,36 @@
+*javax.xml.crypto.dom.DOMURIReference* *DOMURIReference* A DOM-specificURIRefere
+
+public interface interface DOMURIReference
+
+  implements |javax.xml.crypto.URIReference|
+
+|javax.xml.crypto.dom.DOMURIReference_Description|
+|javax.xml.crypto.dom.DOMURIReference_Fields|
+|javax.xml.crypto.dom.DOMURIReference_Constructors|
+|javax.xml.crypto.dom.DOMURIReference_Methods|
+
+================================================================================
+
+*javax.xml.crypto.dom.DOMURIReference_Methods*
+|javax.xml.crypto.dom.DOMURIReference.getHere()|Returns the here node.
+
+*javax.xml.crypto.dom.DOMURIReference_Description*
+
+A DOM-specific (|javax.xml.crypto.URIReference|) . The purpose of this class is 
+to provide additional context necessary for resolving XPointer URIs or 
+same-document references. 
+
+
+
+*javax.xml.crypto.dom.DOMURIReference.getHere()*
+
+public |org.w3c.dom.Node| getHere()
+
+Returns the here node. 
+
+
+
+    Returns: the attribute or processing instruction node or the parent element of the text 
+             node that directly contains the URI 
+
+

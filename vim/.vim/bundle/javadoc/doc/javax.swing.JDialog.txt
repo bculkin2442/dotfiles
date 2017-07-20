@@ -1,0 +1,792 @@
+*javax.swing.JDialog* *JDialog* The main class for creating a dialog window.
+
+public class JDialog
+  extends    |java.awt.Dialog|
+  implements |javax.swing.WindowConstants|
+             |javax.accessibility.Accessible|
+             |javax.swing.RootPaneContainer|
+             |javax.swing.TransferHandler.HasGetTransferHandler|
+
+|javax.swing.JDialog_Description|
+|javax.swing.JDialog_Fields|
+|javax.swing.JDialog_Constructors|
+|javax.swing.JDialog_Methods|
+
+================================================================================
+
+*javax.swing.JDialog_Fields*
+|javax.accessibility.AccessibleContext_javax.swing.JDialog.accessibleContext|
+|javax.swing.JRootPane_javax.swing.JDialog.rootPane|
+|boolean_javax.swing.JDialog.rootPaneCheckingEnabled|
+
+*javax.swing.JDialog_Constructors*
+|javax.swing.JDialog()|Creates a modeless dialog without a title and without a 
+|javax.swing.JDialog(Dialog)|Creates a modeless dialog with the specifiedDialog
+|javax.swing.JDialog(Dialog,boolean)|Creates a dialog with an empty title and t
+|javax.swing.JDialog(Dialog,String)|Creates a modeless dialog with the specifie
+|javax.swing.JDialog(Dialog,String,boolean)|Creates a dialog with the specified
+|javax.swing.JDialog(Dialog,String,boolean,GraphicsConfiguration)|Creates a dia
+|javax.swing.JDialog(Frame)|Creates a modeless dialog with the specifiedFrameas
+|javax.swing.JDialog(Frame,boolean)|Creates a dialog with an empty title and th
+|javax.swing.JDialog(Frame,String)|Creates a modeless dialog with the specified
+|javax.swing.JDialog(Frame,String,boolean)|Creates a dialog with the specified 
+|javax.swing.JDialog(Frame,String,boolean,GraphicsConfiguration)|Creates a dial
+|javax.swing.JDialog(Window)|Creates a modeless dialog with the specifiedWindow
+|javax.swing.JDialog(Window,Dialog.ModalityType)|Creates a dialog with an empty
+|javax.swing.JDialog(Window,String)|Creates a modeless dialog with the specifie
+|javax.swing.JDialog(Window,String,Dialog.ModalityType)|Creates a dialog with t
+|javax.swing.JDialog(Window,String,Dialog.ModalityType,GraphicsConfiguration)|C
+
+*javax.swing.JDialog_Methods*
+|javax.swing.JDialog.addImpl(Component,Object,int)|Adds the specified childComp
+|javax.swing.JDialog.createRootPane()|Called by the constructor methods to crea
+|javax.swing.JDialog.dialogInit()|Called by the constructors to init theJDialog
+|javax.swing.JDialog.getAccessibleContext()|Gets the AccessibleContext associat
+|javax.swing.JDialog.getContentPane()|Returns thecontentPaneobject for this dia
+|javax.swing.JDialog.getDefaultCloseOperation()|Returns the operation which occ
+|javax.swing.JDialog.getGlassPane()|Returns theglassPaneobject for this dialog.
+|javax.swing.JDialog.getGraphics()|
+|javax.swing.JDialog.getJMenuBar()|Returns the menubar set on this dialog.
+|javax.swing.JDialog.getLayeredPane()|Returns thelayeredPaneobject for this dia
+|javax.swing.JDialog.getRootPane()|Returns therootPaneobject for this dialog.
+|javax.swing.JDialog.getTransferHandler()|Gets thetransferHandlerproperty.
+|javax.swing.JDialog.isDefaultLookAndFeelDecorated()|Returns true if newly crea
+|javax.swing.JDialog.isRootPaneCheckingEnabled()|Returns whether calls toaddand
+|javax.swing.JDialog.paramString()|Returns a string representation of thisJDial
+|javax.swing.JDialog.processWindowEvent(WindowEvent)|Handles window events depe
+|javax.swing.JDialog.remove(Component)|Removes the specified component from the
+|javax.swing.JDialog.repaint(long,int,int,int,int)|Repaints the specified recta
+|javax.swing.JDialog.setContentPane(Container)|Sets thecontentPaneproperty.
+|javax.swing.JDialog.setDefaultCloseOperation(int)|Sets the operation that will
+|javax.swing.JDialog.setDefaultLookAndFeelDecorated(boolean)|Provides a hint as
+|javax.swing.JDialog.setGlassPane(Component)|Sets theglassPaneproperty.
+|javax.swing.JDialog.setJMenuBar(JMenuBar)|Sets the menubar for this dialog.
+|javax.swing.JDialog.setLayeredPane(JLayeredPane)|Sets thelayeredPaneproperty.
+|javax.swing.JDialog.setLayout(LayoutManager)|Sets theLayoutManager.
+|javax.swing.JDialog.setRootPane(JRootPane)|Sets therootPaneproperty.
+|javax.swing.JDialog.setRootPaneCheckingEnabled(boolean)|Sets whether calls toa
+|javax.swing.JDialog.setTransferHandler(TransferHandler)|Sets thetransferHandle
+|javax.swing.JDialog.update(Graphics)|Callspaint(g).
+
+*javax.swing.JDialog_Description*
+
+The main class for creating a dialog window. You can use this class to create a 
+custom dialog, or invoke the many class methods in (|javax.swing.JOptionPane|) 
+to create a variety of standard dialogs. For information about creating 
+dialogs, see The Java Tutorial section How to Make Dialogs. 
+
+
+
+TheJDialogcomponent contains aJRootPaneas its only child. ThecontentPaneshould 
+be the parent of any children of theJDialog. As a convenience, theadd,remove, 
+andsetLayoutmethods of this class are overridden, so that they delegate calls 
+to the corresponding methods of theContentPane. For example, you can add a 
+child component to a dialog as follows: 
+
+dialog.add(child); 
+
+And the child will be added to the contentPane. ThecontentPaneis always 
+non-null. Attempting to set it tonullgenerates an exception. The 
+defaultcontentPanehas aBorderLayoutmanager set on it. Refer to 
+(|javax.swing.RootPaneContainer|) for details on adding, removing and setting 
+theLayoutManagerof aJDialog. 
+
+Please see theJRootPanedocumentation for a complete description of 
+thecontentPane,glassPane, andlayeredPanecomponents. 
+
+In a multi-screen environment, you can create aJDialogon a different screen 
+device than its owner. See (|java.awt.Frame|) for more information. 
+
+Warning: Swing is not thread safe. For more information see Swing's Threading 
+Policy. 
+
+Warning: Serialized objects of this class will not be compatible with future 
+Swing releases. The current serialization support is appropriate for short term 
+storage or RMI between applications running the same version of Swing. As of 
+1.4, support for long term storage of all JavaBeans has been added to 
+thejava.beanspackage. Please see (|java.beans.XMLEncoder|) . 
+
+
+
+*javax.accessibility.AccessibleContext_javax.swing.JDialog.accessibleContext*
+
+
+
+
+*javax.swing.JRootPane_javax.swing.JDialog.rootPane*
+
+
+
+
+*boolean_javax.swing.JDialog.rootPaneCheckingEnabled*
+
+If true then calls toaddandsetLayoutwill be forwarded to thecontentPane. This 
+is initially false, but is set to true when theJDialogis constructed. 
+
+
+
+*javax.swing.JDialog()*
+
+public JDialog()
+
+Creates a modeless dialog without a title and without a specifiedFrameowner. A 
+shared, hidden frame will be set as the owner of the dialog. 
+
+This constructor sets the component's locale property to the value returned 
+byJComponent.getDefaultLocale. 
+
+NOTE: This constructor does not allow you to create an unownedJDialog. To 
+create an unownedJDialogyou must use either 
+theJDialog(Window)orJDialog(Dialog)constructor with an argument ofnull. 
+
+
+*javax.swing.JDialog(Dialog)*
+
+public JDialog(java.awt.Dialog owner)
+
+Creates a modeless dialog with the specifiedDialogas its owner and an empty 
+title. 
+
+This constructor sets the component's locale property to the value returned 
+byJComponent.getDefaultLocale. 
+
+    owner - the owner {@code Dialog} from which the dialog is displayed or {@code null} if 
+       this dialog has no owner 
+
+*javax.swing.JDialog(Dialog,boolean)*
+
+public JDialog(
+  java.awt.Dialog owner,
+  boolean modal)
+
+Creates a dialog with an empty title and the specified modality andDialogas its 
+owner. 
+
+This constructor sets the component's locale property to the value returned 
+byJComponent.getDefaultLocale. 
+
+    owner - the owner {@code Dialog} from which the dialog is displayed or {@code null} if 
+       this dialog has no owner 
+    modal - specifies whether dialog blocks user input to other top-level windows when 
+       shown. If {@code true}, the modality type property is set to {@code 
+       DEFAULT_MODALITY_TYPE}, otherwise the dialog is modeless. 
+
+*javax.swing.JDialog(Dialog,String)*
+
+public JDialog(
+  java.awt.Dialog owner,
+  java.lang.String title)
+
+Creates a modeless dialog with the specified title and with the specified owner 
+dialog. 
+
+This constructor sets the component's locale property to the value returned 
+byJComponent.getDefaultLocale. 
+
+    owner - the owner {@code Dialog} from which the dialog is displayed or {@code null} if 
+       this dialog has no owner 
+    title - the {@code String} to display in the dialog's title bar 
+
+*javax.swing.JDialog(Dialog,String,boolean)*
+
+public JDialog(
+  java.awt.Dialog owner,
+  java.lang.String title,
+  boolean modal)
+
+Creates a dialog with the specified title, modality and the specified 
+ownerDialog. 
+
+This constructor sets the component's locale property to the value returned 
+byJComponent.getDefaultLocale. 
+
+    owner - the owner {@code Dialog} from which the dialog is displayed or {@code null} if 
+       this dialog has no owner 
+    title - the {@code String} to display in the dialog's title bar 
+    modal - specifies whether dialog blocks user input to other top-level windows when 
+       shown. If {@code true}, the modality type property is set to {@code 
+       DEFAULT_MODALITY_TYPE}, otherwise the dialog is modeless 
+
+*javax.swing.JDialog(Dialog,String,boolean,GraphicsConfiguration)*
+
+public JDialog(
+  java.awt.Dialog owner,
+  java.lang.String title,
+  boolean modal,
+  java.awt.GraphicsConfiguration gc)
+
+Creates a dialog with the specified title, ownerDialog, modality 
+andGraphicsConfiguration. 
+
+NOTE: Any popup components (JComboBox,JPopupMenu,JMenuBar) created within a 
+modal dialog will be forced to be lightweight. 
+
+This constructor sets the component's locale property to the value returned 
+byJComponent.getDefaultLocale. 
+
+    owner - the owner {@code Dialog} from which the dialog is displayed or {@code null} if 
+       this dialog has no owner 
+    title - the {@code String} to display in the dialog's title bar 
+    modal - specifies whether dialog blocks user input to other top-level windows when 
+       shown. If {@code true}, the modality type property is set to {@code 
+       DEFAULT_MODALITY_TYPE}, otherwise the dialog is modeless 
+    gc - the {@code GraphicsConfiguration} of the target screen device; if {@code null}, 
+       the default system {@code GraphicsConfiguration} is assumed 
+
+*javax.swing.JDialog(Frame)*
+
+public JDialog(java.awt.Frame owner)
+
+Creates a modeless dialog with the specifiedFrameas its owner and an empty 
+title. Ifownerisnull, a shared, hidden frame will be set as the owner of the 
+dialog. 
+
+This constructor sets the component's locale property to the value returned 
+byJComponent.getDefaultLocale. 
+
+NOTE: This constructor does not allow you to create an unownedJDialog. To 
+create an unownedJDialogyou must use either 
+theJDialog(Window)orJDialog(Dialog)constructor with an argument ofnull. 
+
+    owner - the {@code Frame} from which the dialog is displayed 
+
+*javax.swing.JDialog(Frame,boolean)*
+
+public JDialog(
+  java.awt.Frame owner,
+  boolean modal)
+
+Creates a dialog with an empty title and the specified modality andFrameas its 
+owner. Ifownerisnull, a shared, hidden frame will be set as the owner of the 
+dialog. 
+
+This constructor sets the component's locale property to the value returned 
+byJComponent.getDefaultLocale. 
+
+NOTE: This constructor does not allow you to create an unownedJDialog. To 
+create an unownedJDialogyou must use either 
+theJDialog(Window)orJDialog(Dialog)constructor with an argument ofnull. 
+
+    owner - the {@code Frame} from which the dialog is displayed 
+    modal - specifies whether dialog blocks user input to other top-level windows when 
+       shown. If {@code true}, the modality type property is set to {@code 
+       DEFAULT_MODALITY_TYPE}, otherwise the dialog is modeless. 
+
+*javax.swing.JDialog(Frame,String)*
+
+public JDialog(
+  java.awt.Frame owner,
+  java.lang.String title)
+
+Creates a modeless dialog with the specified title and with the specified owner 
+frame. Ifownerisnull, a shared, hidden frame will be set as the owner of the 
+dialog. 
+
+This constructor sets the component's locale property to the value returned 
+byJComponent.getDefaultLocale. 
+
+NOTE: This constructor does not allow you to create an unownedJDialog. To 
+create an unownedJDialogyou must use either 
+theJDialog(Window)orJDialog(Dialog)constructor with an argument ofnull. 
+
+    owner - the {@code Frame} from which the dialog is displayed 
+    title - the {@code String} to display in the dialog's title bar 
+
+*javax.swing.JDialog(Frame,String,boolean)*
+
+public JDialog(
+  java.awt.Frame owner,
+  java.lang.String title,
+  boolean modal)
+
+Creates a dialog with the specified title, ownerFrameand modality. 
+Ifownerisnull, a shared, hidden frame will be set as the owner of this dialog. 
+
+This constructor sets the component's locale property to the value returned 
+byJComponent.getDefaultLocale. 
+
+NOTE: Any popup components (JComboBox,JPopupMenu,JMenuBar) created within a 
+modal dialog will be forced to be lightweight. 
+
+NOTE: This constructor does not allow you to create an unownedJDialog. To 
+create an unownedJDialogyou must use either 
+theJDialog(Window)orJDialog(Dialog)constructor with an argument ofnull. 
+
+    owner - the {@code Frame} from which the dialog is displayed 
+    title - the {@code String} to display in the dialog's title bar 
+    modal - specifies whether dialog blocks user input to other top-level windows when 
+       shown. If {@code true}, the modality type property is set to {@code 
+       DEFAULT_MODALITY_TYPE} otherwise the dialog is modeless 
+
+*javax.swing.JDialog(Frame,String,boolean,GraphicsConfiguration)*
+
+public JDialog(
+  java.awt.Frame owner,
+  java.lang.String title,
+  boolean modal,
+  java.awt.GraphicsConfiguration gc)
+
+Creates a dialog with the specified title, ownerFrame, modality 
+andGraphicsConfiguration. Ifownerisnull, a shared, hidden frame will be set as 
+the owner of this dialog. 
+
+This constructor sets the component's locale property to the value returned 
+byJComponent.getDefaultLocale. 
+
+NOTE: Any popup components (JComboBox,JPopupMenu,JMenuBar) created within a 
+modal dialog will be forced to be lightweight. 
+
+NOTE: This constructor does not allow you to create an unownedJDialog. To 
+create an unownedJDialogyou must use either 
+theJDialog(Window)orJDialog(Dialog)constructor with an argument ofnull. 
+
+    owner - the {@code Frame} from which the dialog is displayed 
+    title - the {@code String} to display in the dialog's title bar 
+    modal - specifies whether dialog blocks user input to other top-level windows when 
+       shown. If {@code true}, the modality type property is set to {@code 
+       DEFAULT_MODALITY_TYPE}, otherwise the dialog is modeless. 
+    gc - the {@code GraphicsConfiguration} of the target screen device; if {@code null}, 
+       the default system {@code GraphicsConfiguration} is assumed 
+
+*javax.swing.JDialog(Window)*
+
+public JDialog(java.awt.Window owner)
+
+Creates a modeless dialog with the specifiedWindowas its owner and an empty 
+title. 
+
+This constructor sets the component's locale property to the value returned 
+byJComponent.getDefaultLocale. 
+
+    owner - the {@code Window} from which the dialog is displayed or {@code null} if this 
+       dialog has no owner 
+
+*javax.swing.JDialog(Window,Dialog.ModalityType)*
+
+public JDialog(
+  java.awt.Window owner,
+  java.awt.Dialog.ModalityType modalityType)
+
+Creates a dialog with an empty title and the specified modality andWindowas its 
+owner. 
+
+This constructor sets the component's locale property to the value returned 
+byJComponent.getDefaultLocale. 
+
+    owner - the {@code Window} from which the dialog is displayed or {@code null} if this 
+       dialog has no owner 
+    modalityType - specifies whether dialog blocks input to other windows when shown. {@code null} 
+       value and unsupported modality types are equivalent to {@code MODELESS} 
+
+*javax.swing.JDialog(Window,String)*
+
+public JDialog(
+  java.awt.Window owner,
+  java.lang.String title)
+
+Creates a modeless dialog with the specified title and ownerWindow. 
+
+This constructor sets the component's locale property to the value returned 
+byJComponent.getDefaultLocale. 
+
+    owner - the {@code Window} from which the dialog is displayed or {@code null} if this 
+       dialog has no owner 
+    title - the {@code String} to display in the dialog's title bar or {@code null} if the 
+       dialog has no title 
+
+*javax.swing.JDialog(Window,String,Dialog.ModalityType)*
+
+public JDialog(
+  java.awt.Window owner,
+  java.lang.String title,
+  java.awt.Dialog.ModalityType modalityType)
+
+Creates a dialog with the specified title, ownerWindowand modality. 
+
+This constructor sets the component's locale property to the value returned 
+byJComponent.getDefaultLocale. 
+
+    owner - the {@code Window} from which the dialog is displayed or {@code null} if this 
+       dialog has no owner 
+    title - the {@code String} to display in the dialog's title bar or {@code null} if the 
+       dialog has no title 
+    modalityType - specifies whether dialog blocks input to other windows when shown. {@code null} 
+       value and unsupported modality types are equivalent to {@code MODELESS} 
+
+*javax.swing.JDialog(Window,String,Dialog.ModalityType,GraphicsConfiguration)*
+
+public JDialog(
+  java.awt.Window owner,
+  java.lang.String title,
+  java.awt.Dialog.ModalityType modalityType,
+  java.awt.GraphicsConfiguration gc)
+
+Creates a dialog with the specified title, ownerWindow, modality 
+andGraphicsConfiguration. 
+
+NOTE: Any popup components (JComboBox,JPopupMenu,JMenuBar) created within a 
+modal dialog will be forced to be lightweight. 
+
+This constructor sets the component's locale property to the value returned 
+byJComponent.getDefaultLocale. 
+
+    owner - the {@code Window} from which the dialog is displayed or {@code null} if this 
+       dialog has no owner 
+    title - the {@code String} to display in the dialog's title bar or {@code null} if the 
+       dialog has no title 
+    modalityType - specifies whether dialog blocks input to other windows when shown. {@code null} 
+       value and unsupported modality types are equivalent to {@code MODELESS} 
+    gc - the {@code GraphicsConfiguration} of the target screen device; if {@code null}, 
+       the default system {@code GraphicsConfiguration} is assumed 
+
+*javax.swing.JDialog.addImpl(Component,Object,int)*
+
+protected void addImpl(
+  java.awt.Component comp,
+  java.lang.Object constraints,
+  int index)
+
+Adds the specified childComponent. This method is overridden to conditionally 
+forward calls to thecontentPane. By default, children are added to 
+thecontentPaneinstead of the frame, refer to (|javax.swing.RootPaneContainer|) 
+for details. 
+
+
+    comp - the component to be enhanced 
+    constraints - the constraints to be respected 
+    index - the index 
+
+*javax.swing.JDialog.createRootPane()*
+
+protected |javax.swing.JRootPane| createRootPane()
+
+Called by the constructor methods to create the defaultrootPane. 
+
+
+
+*javax.swing.JDialog.dialogInit()*
+
+protected void dialogInit()
+
+Called by the constructors to init theJDialogproperly. 
+
+
+
+*javax.swing.JDialog.getAccessibleContext()*
+
+public |javax.accessibility.AccessibleContext| getAccessibleContext()
+
+Gets the AccessibleContext associated with this JDialog. For JDialogs, the 
+AccessibleContext takes the form of an AccessibleJDialog. A new 
+AccessibleJDialog instance is created if necessary. 
+
+
+
+    Returns: an AccessibleJDialog that serves as the AccessibleContext of this JDialog 
+
+*javax.swing.JDialog.getContentPane()*
+
+public |java.awt.Container| getContentPane()
+
+Returns thecontentPaneobject for this dialog. 
+
+
+
+    Returns: the {@code contentPane} property 
+
+*javax.swing.JDialog.getDefaultCloseOperation()*
+
+public int getDefaultCloseOperation()
+
+Returns the operation which occurs when the user initiates a "close" on this 
+dialog. 
+
+
+
+    Returns: an integer indicating the window-close operation 
+
+*javax.swing.JDialog.getGlassPane()*
+
+public |java.awt.Component| getGlassPane()
+
+Returns theglassPaneobject for this dialog. 
+
+
+
+    Returns: the {@code glassPane} property 
+
+*javax.swing.JDialog.getGraphics()*
+
+public |java.awt.Graphics| getGraphics()
+
+
+
+
+
+*javax.swing.JDialog.getJMenuBar()*
+
+public |javax.swing.JMenuBar| getJMenuBar()
+
+Returns the menubar set on this dialog. 
+
+
+
+*javax.swing.JDialog.getLayeredPane()*
+
+public |javax.swing.JLayeredPane| getLayeredPane()
+
+Returns thelayeredPaneobject for this dialog. 
+
+
+
+    Returns: the {@code layeredPane} property 
+
+*javax.swing.JDialog.getRootPane()*
+
+public |javax.swing.JRootPane| getRootPane()
+
+Returns therootPaneobject for this dialog. 
+
+
+
+*javax.swing.JDialog.getTransferHandler()*
+
+public |javax.swing.TransferHandler| getTransferHandler()
+
+Gets thetransferHandlerproperty. 
+
+
+
+    Returns: the value of the {@code transferHandler} property 
+
+*javax.swing.JDialog.isDefaultLookAndFeelDecorated()*
+
+public static boolean isDefaultLookAndFeelDecorated()
+
+Returns true if newly createdJDialogs should have their Window decorations 
+provided by the current look and feel. This is only a hint, as certain look and 
+feels may not support this feature. 
+
+
+
+    Returns: true if look and feel should provide Window decorations. 
+
+*javax.swing.JDialog.isRootPaneCheckingEnabled()*
+
+protected boolean isRootPaneCheckingEnabled()
+
+Returns whether calls toaddandsetLayoutare forwarded to thecontentPane. 
+
+
+
+    Returns: true if {@code add} and {@code setLayout} are forwarded; false otherwise 
+
+*javax.swing.JDialog.paramString()*
+
+protected |java.lang.String| paramString()
+
+Returns a string representation of thisJDialog. This method is intended to be 
+used only for debugging purposes, and the content and format of the returned 
+string may vary between implementations. The returned string may be empty but 
+may not benull. 
+
+
+
+    Returns: a string representation of this {@code JDialog}. 
+
+*javax.swing.JDialog.processWindowEvent(WindowEvent)*
+
+protected void processWindowEvent(java.awt.event.WindowEvent e)
+
+Handles window events depending on the state of 
+thedefaultCloseOperationproperty. 
+
+
+
+*javax.swing.JDialog.remove(Component)*
+
+public void remove(java.awt.Component comp)
+
+Removes the specified component from the container. Ifcompis not therootPane, 
+this will forward the call to thecontentPane. This will do nothing ifcompis not 
+a child of theJDialogorcontentPane. 
+
+
+    comp - the component to be removed 
+
+*javax.swing.JDialog.repaint(long,int,int,int,int)*
+
+public void repaint(
+  long time,
+  int x,
+  int y,
+  int width,
+  int height)
+
+Repaints the specified rectangle of this component withintimemilliseconds. 
+Refer toRepaintManagerfor details on how the repaint is handled. 
+
+
+    time - maximum time in milliseconds before update 
+    x - the x coordinate 
+    y - the y coordinate 
+    width - the width 
+    height - the height 
+
+*javax.swing.JDialog.setContentPane(Container)*
+
+public void setContentPane(java.awt.Container contentPane)
+
+Sets thecontentPaneproperty. This method is called by the constructor. 
+
+Swing's painting architecture requires an opaqueJComponentin the containment 
+hierarchy. This is typically provided by the content pane. If you replace the 
+content pane it is recommended you replace it with an opaqueJComponent. 
+
+
+    contentPane - the {@code contentPane} object for this dialog 
+
+*javax.swing.JDialog.setDefaultCloseOperation(int)*
+
+public void setDefaultCloseOperation(int operation)
+
+Sets the operation that will happen by default when the user initiates a 
+"close" on this dialog. You must specify one of the following choices: 
+
+DO_NOTHING_ON_CLOSE(defined inWindowConstants): Don't do anything; require the 
+program to handle the operation in thewindowClosingmethod of a 
+registeredWindowListenerobject. 
+
+HIDE_ON_CLOSE(defined inWindowConstants): Automatically hide the dialog after 
+invoking any registeredWindowListenerobjects. 
+
+DISPOSE_ON_CLOSE(defined inWindowConstants): Automatically hide and dispose the 
+dialog after invoking any registeredWindowListenerobjects. 
+
+The value is set toHIDE_ON_CLOSEby default. Changes to the value of this 
+property cause the firing of a property change event, with property name 
+"defaultCloseOperation". 
+
+Note: When the last displayable window within the Java virtual machine (VM) is 
+disposed of, the VM may terminate. See AWT Threading Issues for more 
+information. 
+
+
+    operation - the operation which should be performed when the user closes the dialog 
+
+*javax.swing.JDialog.setDefaultLookAndFeelDecorated(boolean)*
+
+public static void setDefaultLookAndFeelDecorated(boolean defaultLookAndFeelDecorated)
+
+Provides a hint as to whether or not newly createdJDialogs should have their 
+Window decorations (such as borders, widgets to close the window, title...) 
+provided by the current look and feel. IfdefaultLookAndFeelDecoratedis true, 
+the currentLookAndFeelsupports providing window decorations, and the current 
+window manager supports undecorated windows, then newly createdJDialogs will 
+have their Window decorations provided by the currentLookAndFeel. Otherwise, 
+newly createdJDialogs will have their Window decorations provided by the 
+current window manager. 
+
+You can get the same effect on a single JDialog by doing the following: 
+
+JDialog dialog = new JDialog(); dialog.setUndecorated(true); 
+dialog.getRootPane().setWindowDecorationStyle(JRootPane.PLAIN_DIALOG); 
+
+
+    defaultLookAndFeelDecorated - A hint as to whether or not current look and feel should provide window 
+       decorations 
+
+*javax.swing.JDialog.setGlassPane(Component)*
+
+public void setGlassPane(java.awt.Component glassPane)
+
+Sets theglassPaneproperty. This method is called by the constructor. 
+
+
+    glassPane - the {@code glassPane} object for this dialog 
+
+*javax.swing.JDialog.setJMenuBar(JMenuBar)*
+
+public void setJMenuBar(javax.swing.JMenuBar menu)
+
+Sets the menubar for this dialog. 
+
+
+    menu - the menubar being placed in the dialog 
+
+*javax.swing.JDialog.setLayeredPane(JLayeredPane)*
+
+public void setLayeredPane(javax.swing.JLayeredPane layeredPane)
+
+Sets thelayeredPaneproperty. This method is called by the constructor. 
+
+
+    layeredPane - the new {@code layeredPane} property 
+
+*javax.swing.JDialog.setLayout(LayoutManager)*
+
+public void setLayout(java.awt.LayoutManager manager)
+
+Sets theLayoutManager. Overridden to conditionally forward the call to 
+thecontentPane. Refer to (|javax.swing.RootPaneContainer|) for more 
+information. 
+
+
+    manager - the {@code LayoutManager} 
+
+*javax.swing.JDialog.setRootPane(JRootPane)*
+
+protected void setRootPane(javax.swing.JRootPane root)
+
+Sets therootPaneproperty. This method is called by the constructor. 
+
+
+    root - the {@code rootPane} object for this dialog 
+
+*javax.swing.JDialog.setRootPaneCheckingEnabled(boolean)*
+
+protected void setRootPaneCheckingEnabled(boolean enabled)
+
+Sets whether calls toaddandsetLayoutare forwarded to thecontentPane. 
+
+
+    enabled - true if {@code add} and {@code setLayout} are forwarded, false if they should 
+       operate directly on the {@code JDialog}. 
+
+*javax.swing.JDialog.setTransferHandler(TransferHandler)*
+
+public void setTransferHandler(javax.swing.TransferHandler newHandler)
+
+Sets thetransferHandlerproperty, which is a mechanism to support transfer of 
+data into this component. Usenullif the component does not support data 
+transfer operations. 
+
+If the system propertysuppressSwingDropSupportisfalse(the default) and the 
+current drop target on this component is eithernullor not a user-set drop 
+target, this method will change the drop target as follows: 
+IfnewHandlerisnullit will clear the drop target. If notnullit will install a 
+newDropTarget. 
+
+Note: When used withJDialog,TransferHandleronly provides data import 
+capability, as the data export related methods are currently typed 
+toJComponent. 
+
+Please see 
+
+How to Use Drag and Drop and Data Transfer, a section in The Java Tutorial, for 
+more information. 
+
+
+    newHandler - the new {@code TransferHandler} 
+
+*javax.swing.JDialog.update(Graphics)*
+
+public void update(java.awt.Graphics g)
+
+Callspaint(g). This method was overridden to prevent an unnecessary call to 
+clear the background. 
+
+
+    g - the {@code Graphics} context in which to paint 
+
+

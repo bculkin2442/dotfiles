@@ -1,0 +1,89 @@
+*org.omg.CORBA.PolicyErrorCodeHelper* *PolicyErrorCodeHelper* Encapsulates a rea
+
+public abstract class PolicyErrorCodeHelper
+  extends    |java.lang.Object|
+
+|org.omg.CORBA.PolicyErrorCodeHelper_Description|
+|org.omg.CORBA.PolicyErrorCodeHelper_Fields|
+|org.omg.CORBA.PolicyErrorCodeHelper_Constructors|
+|org.omg.CORBA.PolicyErrorCodeHelper_Methods|
+
+================================================================================
+
+*org.omg.CORBA.PolicyErrorCodeHelper_Constructors*
+|org.omg.CORBA.PolicyErrorCodeHelper()|
+
+*org.omg.CORBA.PolicyErrorCodeHelper_Methods*
+|org.omg.CORBA.PolicyErrorCodeHelper.extract(Any)|
+|org.omg.CORBA.PolicyErrorCodeHelper.id()|
+|org.omg.CORBA.PolicyErrorCodeHelper.insert(Any,short)|
+|org.omg.CORBA.PolicyErrorCodeHelper.read(InputStream)|
+|org.omg.CORBA.PolicyErrorCodeHelper.type()|
+|org.omg.CORBA.PolicyErrorCodeHelper.write(OutputStream,short)|
+
+*org.omg.CORBA.PolicyErrorCodeHelper_Description*
+
+Encapsulates a reason a Policy may be invalid. 
+
+
+
+*org.omg.CORBA.PolicyErrorCodeHelper()*
+
+public PolicyErrorCodeHelper()
+
+
+
+
+*org.omg.CORBA.PolicyErrorCodeHelper.extract(Any)*
+
+public static short extract(org.omg.CORBA.Any a)
+
+
+
+
+
+*org.omg.CORBA.PolicyErrorCodeHelper.id()*
+
+public static |java.lang.String| id()
+
+
+
+
+
+*org.omg.CORBA.PolicyErrorCodeHelper.insert(Any,short)*
+
+public static void insert(
+  org.omg.CORBA.Any a,
+  short that)
+
+
+
+
+
+*org.omg.CORBA.PolicyErrorCodeHelper.read(InputStream)*
+
+public static short read(org.omg.CORBA.portable.InputStream istream)
+
+
+
+
+
+*org.omg.CORBA.PolicyErrorCodeHelper.type()*
+
+public static synchronized |org.omg.CORBA.TypeCode| type()
+
+
+
+
+
+*org.omg.CORBA.PolicyErrorCodeHelper.write(OutputStream,short)*
+
+public static void write(
+  org.omg.CORBA.portable.OutputStream ostream,
+  short value)
+
+
+
+
+
+

@@ -1,0 +1,77 @@
+*java.time.format.DateTimeParseException* *DateTimeParseException* An exception 
+
+public class DateTimeParseException
+  extends    |java.time.DateTimeException|
+
+|java.time.format.DateTimeParseException_Description|
+|java.time.format.DateTimeParseException_Fields|
+|java.time.format.DateTimeParseException_Constructors|
+|java.time.format.DateTimeParseException_Methods|
+
+================================================================================
+
+*java.time.format.DateTimeParseException_Constructors*
+|java.time.format.DateTimeParseException(String,CharSequence,int)|Constructs a 
+|java.time.format.DateTimeParseException(String,CharSequence,int,Throwable)|Con
+
+*java.time.format.DateTimeParseException_Methods*
+|java.time.format.DateTimeParseException.getErrorIndex()|Returns the index wher
+|java.time.format.DateTimeParseException.getParsedString()|Returns the string t
+
+*java.time.format.DateTimeParseException_Description*
+
+An exception thrown when an error occurs during parsing. 
+
+This exception includes the text being parsed and the error index. 
+
+
+
+*java.time.format.DateTimeParseException(String,CharSequence,int)*
+
+public DateTimeParseException(
+  java.lang.String message,
+  java.lang.CharSequence parsedData,
+  int errorIndex)
+
+Constructs a new exception with the specified message. 
+
+    message - the message to use for this exception, may be null 
+    parsedData - the parsed text, should not be null 
+    errorIndex - the index in the parsed string that was invalid, should be a valid index 
+
+*java.time.format.DateTimeParseException(String,CharSequence,int,Throwable)*
+
+public DateTimeParseException(
+  java.lang.String message,
+  java.lang.CharSequence parsedData,
+  int errorIndex,
+  java.lang.Throwable cause)
+
+Constructs a new exception with the specified message and cause. 
+
+    message - the message to use for this exception, may be null 
+    parsedData - the parsed text, should not be null 
+    errorIndex - the index in the parsed string that was invalid, should be a valid index 
+    cause - the cause exception, may be null 
+
+*java.time.format.DateTimeParseException.getErrorIndex()*
+
+public int getErrorIndex()
+
+Returns the index where the error was found. 
+
+
+
+    Returns: the index in the parsed string that was invalid, should be a valid index 
+
+*java.time.format.DateTimeParseException.getParsedString()*
+
+public |java.lang.String| getParsedString()
+
+Returns the string that was being parsed. 
+
+
+
+    Returns: the string that was being parsed, should not be null. 
+
+

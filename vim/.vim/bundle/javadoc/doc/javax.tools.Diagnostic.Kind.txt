@@ -1,0 +1,46 @@
+*javax.tools.Diagnostic.Kind* *Diagnostic.Kind* Kinds of diagnostics, for exampl
+
+public static final enumDiagnostic.Kind
+  extends    |java.lang.Enum|
+
+|javax.tools.Diagnostic.Kind_Description|
+|javax.tools.Diagnostic.Kind_Fields|
+|javax.tools.Diagnostic.Kind_Constructors|
+|javax.tools.Diagnostic.Kind_Methods|
+
+================================================================================
+
+*javax.tools.Diagnostic.Kind_Methods*
+|javax.tools.Diagnostic.Kind.valueOf(String)|
+|javax.tools.Diagnostic.Kind.values()|
+
+*javax.tools.Diagnostic.Kind_Description*
+
+Kinds of diagnostics, for example, error or warning. 
+
+The kind of a diagnostic can be used to determine how the diagnostic should be 
+presented to the user. For example, errors might be colored red or prefixed 
+with the word "Error", while warnings might be colored yellow or prefixed with 
+the word "Warning". There is no requirement that the Kind should imply any 
+inherent semantic meaning to the message of the diagnostic: for example, a tool 
+might provide an option to report all warnings as errors. 
+
+
+
+*javax.tools.Diagnostic.Kind.valueOf(String)*
+
+public static |javax.tools.Diagnostic.Kind| valueOf(java.lang.String name)
+
+
+
+
+
+*javax.tools.Diagnostic.Kind.values()*
+
+public static |javax.tools.Diagnostic.Kind|[] values()
+
+
+
+
+
+

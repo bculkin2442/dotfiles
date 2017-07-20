@@ -1,0 +1,23 @@
+*org.omg.PortableServer.ServantManagerOperations* *ServantManagerOperations* A s
+
+public interface interface ServantManagerOperations
+
+
+|org.omg.PortableServer.ServantManagerOperations_Description|
+|org.omg.PortableServer.ServantManagerOperations_Fields|
+|org.omg.PortableServer.ServantManagerOperations_Constructors|
+|org.omg.PortableServer.ServantManagerOperations_Methods|
+
+================================================================================
+
+*org.omg.PortableServer.ServantManagerOperations_Description*
+
+A servant manager supplies a POA with the ability to activate objects on demand 
+when the POA receives a request targeted at an inactive object. A servant 
+manager is registered with a POA as a callback object, to be invoked by the POA 
+when necessary. ServantManagers can either be ServantActivators or 
+ServantLocators. A ServantManager object must be local to the process 
+containing the POA objects it is registered with. 
+
+
+

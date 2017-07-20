@@ -1,0 +1,89 @@
+*javax.xml.soap.SOAPConnection* *SOAPConnection* A point-to-point connection tha
+
+public abstract class SOAPConnection
+  extends    |java.lang.Object|
+
+|javax.xml.soap.SOAPConnection_Description|
+|javax.xml.soap.SOAPConnection_Fields|
+|javax.xml.soap.SOAPConnection_Constructors|
+|javax.xml.soap.SOAPConnection_Methods|
+
+================================================================================
+
+*javax.xml.soap.SOAPConnection_Constructors*
+|javax.xml.soap.SOAPConnection()|
+
+*javax.xml.soap.SOAPConnection_Methods*
+|javax.xml.soap.SOAPConnection.call(SOAPMessage,Object)|Sends the given message
+|javax.xml.soap.SOAPConnection.close()|Closes this SOAPConnection object.
+|javax.xml.soap.SOAPConnection.get(Object)|Gets a message from a specific endpo
+
+*javax.xml.soap.SOAPConnection_Description*
+
+A point-to-point connection that a client can use for sending messages directly 
+to a remote party (represented by a URL, for instance). 
+
+The SOAPConnection class is optional. Some implementations may not implement 
+this interface in which case the call to SOAPConnectionFactory.newInstance() 
+(see below) will throw an UnsupportedOperationException. 
+
+A client can obtain a SOAPConnection object using a 
+(|javax.xml.soap.SOAPConnectionFactory|) object as in the following example: 
+
+SOAPConnectionFactory factory = SOAPConnectionFactory.newInstance(); 
+SOAPConnection con = factory.createConnection(); 
+
+A SOAPConnection object can be used to send messages directly to a URL 
+following the request/response paradigm. That is, messages are sent using the 
+method call, which sends the message and then waits until it gets a reply. 
+
+
+
+*javax.xml.soap.SOAPConnection()*
+
+public SOAPConnection()
+
+
+
+
+*javax.xml.soap.SOAPConnection.call(SOAPMessage,Object)*
+
+public abstract |javax.xml.soap.SOAPMessage| call(
+  javax.xml.soap.SOAPMessage request,
+  java.lang.Object to)
+  throws |javax.xml.soap.SOAPException|
+         
+Sends the given message to the specified endpoint and blocks until it has 
+returned the response. 
+
+
+    request - the SOAPMessage object to be sent 
+    to - an Object that identifies where the message should be sent. It is required to 
+       support Objects of type java.lang.String, java.net.URL, and when JAXM is 
+       present javax.xml.messaging.URLEndpoint 
+
+    Returns: the SOAPMessage object that is the response to the message that was sent 
+
+*javax.xml.soap.SOAPConnection.close()*
+
+public abstract void close()
+  throws |javax.xml.soap.SOAPException|
+         
+Closes this SOAPConnection object. 
+
+
+
+*javax.xml.soap.SOAPConnection.get(Object)*
+
+public |javax.xml.soap.SOAPMessage| get(java.lang.Object to)
+  throws |javax.xml.soap.SOAPException|
+         
+Gets a message from a specific endpoint and blocks until it receives, 
+
+
+    to - an Object that identifies where the request should be sent. Objects of type 
+       java.lang.String and java.net.URL must be supported. 
+
+    Returns: the SOAPMessage object that is the response to the get message request 
+
+

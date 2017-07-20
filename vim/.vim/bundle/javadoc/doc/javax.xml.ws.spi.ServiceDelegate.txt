@@ -1,0 +1,442 @@
+*javax.xml.ws.spi.ServiceDelegate* *ServiceDelegate* Service delegates are used 
+
+public abstract class ServiceDelegate
+  extends    |java.lang.Object|
+
+|javax.xml.ws.spi.ServiceDelegate_Description|
+|javax.xml.ws.spi.ServiceDelegate_Fields|
+|javax.xml.ws.spi.ServiceDelegate_Constructors|
+|javax.xml.ws.spi.ServiceDelegate_Methods|
+
+================================================================================
+
+*javax.xml.ws.spi.ServiceDelegate_Constructors*
+|javax.xml.ws.spi.ServiceDelegate()|
+
+*javax.xml.ws.spi.ServiceDelegate_Methods*
+|javax.xml.ws.spi.ServiceDelegate.addPort(QName,String,String)|Creates a new po
+|javax.xml.ws.spi.ServiceDelegate.createDispatch(EndpointReference,Class<T>,Service.Mode,WebServiceFeature...)|
+|javax.xml.ws.spi.ServiceDelegate.createDispatch(EndpointReference,JAXBContext,Service.Mode,WebServiceFeature...)|
+|javax.xml.ws.spi.ServiceDelegate.createDispatch(QName,Class<T>,Service.Mode)|C
+|javax.xml.ws.spi.ServiceDelegate.createDispatch(QName,Class<T>,Service.Mode,WebServiceFeature...)|
+|javax.xml.ws.spi.ServiceDelegate.createDispatch(QName,JAXBContext,Service.Mode)|
+|javax.xml.ws.spi.ServiceDelegate.createDispatch(QName,JAXBContext,Service.Mode,WebServiceFeature...)|
+|javax.xml.ws.spi.ServiceDelegate.getExecutor()|Returns the executor for this S
+|javax.xml.ws.spi.ServiceDelegate.getHandlerResolver()|Returns the configured h
+|javax.xml.ws.spi.ServiceDelegate.getPort(Class<T>)|The getPort method returns 
+|javax.xml.ws.spi.ServiceDelegate.getPort(Class<T>,WebServiceFeature...)|The ge
+|javax.xml.ws.spi.ServiceDelegate.getPort(EndpointReference,Class<T>,WebServiceFeature...)|
+|javax.xml.ws.spi.ServiceDelegate.getPort(QName,Class<T>)|The getPort method re
+|javax.xml.ws.spi.ServiceDelegate.getPort(QName,Class<T>,WebServiceFeature...)|
+|javax.xml.ws.spi.ServiceDelegate.getPorts()|Returns an Iterator for the list o
+|javax.xml.ws.spi.ServiceDelegate.getServiceName()|Gets the name of this servic
+|javax.xml.ws.spi.ServiceDelegate.getWSDLDocumentLocation()|Gets the location o
+|javax.xml.ws.spi.ServiceDelegate.setExecutor(Executor)|Sets the executor for t
+|javax.xml.ws.spi.ServiceDelegate.setHandlerResolver(HandlerResolver)|Sets the 
+
+*javax.xml.ws.spi.ServiceDelegate_Description*
+
+Service delegates are used internally by Service objects to allow pluggability 
+of JAX-WS implementations. 
+
+Every Service object has its own delegate, created using the 
+(|javax.xml.ws.spi.Provider|) method. A Service object delegates all of its 
+instance methods to its delegate. 
+
+
+
+*javax.xml.ws.spi.ServiceDelegate()*
+
+protected ServiceDelegate()
+
+
+
+
+*javax.xml.ws.spi.ServiceDelegate.addPort(QName,String,String)*
+
+public abstract void addPort(
+  javax.xml.namespace.QName portName,
+  java.lang.String bindingId,
+  java.lang.String endpointAddress)
+
+Creates a new port for the service. Ports created in this way contain no WSDL 
+port type information and can only be used for creating Dispatchinstances. 
+
+
+    portName - Qualified name for the target service endpoint 
+    bindingId - A URI identifier of a binding. 
+    endpointAddress - Address of the target service endpoint as a URI 
+
+*javax.xml.ws.spi.ServiceDelegate.createDispatch(EndpointReference,Class<T>,Service.Mode,WebServiceFeature...)*
+
+public abstract |javax.xml.ws.Dispatch|<T> createDispatch(
+  javax.xml.ws.EndpointReference endpointReference,
+  java.lang.Class<T> type,
+  javax.xml.ws.Service.Mode mode,
+  javax.xml.ws.WebServiceFeature[] features)
+
+Creates a Dispatch instance for use with objects of the user's choosing. If 
+there are any reference parameters in the endpointReference, then those 
+reference parameters MUST appear as SOAP headers, indicating them to be 
+reference parameters, on all messages sent to the endpoint. The 
+endpointReference's address MUST be used for invocations on the endpoint. In 
+the implementation of this method, the JAX-WS runtime system takes the 
+responsibility of selecting a protocol binding (and a port) and configuring the 
+dispatch accordingly from the WSDL associated with this Service instance or 
+from the metadata from the endpointReference. If this Service instance has a 
+WSDL and the endpointReference also has a WSDL in its metadata, then the WSDL 
+from this instance MUST be used. If this Service instance does not have a WSDL 
+and the endpointReference does have a WSDL, then the WSDL from the 
+endpointReference MAY be used. An implementation MUST be able to retrieve the 
+portName from the endpointReference metadata. 
+
+This method behaves the same as calling 
+
+dispatch = service.createDispatch(portName, type, mode, features); 
+
+where the portName is retrieved from the WSDL or EndpointReference metadata. 
+
+
+    endpointReference - The EndpointReference for the target service endpoint that will be invoked by 
+       the returned Dispatch object. 
+    type - The class of object used to messages or message payloads. Implementations are 
+       required to support javax.xml.transform.Source and 
+       javax.xml.soap.SOAPMessage. 
+    mode - Controls whether the created dispatch instance is message or payload oriented, 
+       i.e. whether the user will work with complete protocol messages or 
+       message payloads. E.g. when using the SOAP protocol, this parameter 
+       controls whether the user will work with SOAP messages or the contents 
+       of a SOAP body. Mode MUST be MESSAGE when type is SOAPMessage. 
+    features - An array of WebServiceFeatures to configure on the proxy. Supported features 
+       not in the features parameter will have their default values. 
+
+    Returns: Dispatch instance 
+
+*javax.xml.ws.spi.ServiceDelegate.createDispatch(EndpointReference,JAXBContext,Service.Mode,WebServiceFeature...)*
+
+public abstract |javax.xml.ws.Dispatch|<Object> createDispatch(
+  javax.xml.ws.EndpointReference endpointReference,
+  javax.xml.bind.JAXBContext context,
+  javax.xml.ws.Service.Mode mode,
+  javax.xml.ws.WebServiceFeature[] features)
+
+Creates a Dispatch instance for use with JAXB generated objects. If there are 
+any reference parameters in the endpointReference, then those reference 
+parameters MUST appear as SOAP headers, indicating them to be reference 
+parameters, on all messages sent to the endpoint. The endpointReference's 
+address MUST be used for invocations on the endpoint. In the implementation of 
+this method, the JAX-WS runtime system takes the responsibility of selecting a 
+protocol binding (and a port) and configuring the dispatch accordingly from the 
+WSDL associated with this Service instance or from the metadata from the 
+endpointReference. If this Service instance has a WSDL and the 
+endpointReference also has a WSDL in its metadata, then the WSDL from this 
+instance MUST be used. If this Service instance does not have a WSDL and the 
+endpointReference does have a WSDL, then the WSDL from the endpointReference 
+MAY be used. An implementation MUST be able to retrieve the portName from the 
+endpointReference metadata. 
+
+This method behavies the same as calling 
+
+dispatch = service.createDispatch(portName, context, mode, features); 
+
+where the portName is retrieved from the WSDL or endpointReference metadata. 
+
+
+    endpointReference - The EndpointReference for the target service endpoint that will be invoked by 
+       the returned Dispatch object. 
+    context - The JAXB context used to marshall and unmarshall messages or message payloads. 
+    mode - Controls whether the created dispatch instance is message or payload oriented, 
+       i.e. whether the user will work with complete protocol messages or 
+       message payloads. E.g. when using the SOAP protocol, this parameter 
+       controls whether the user will work with SOAP messages or the contents 
+       of a SOAP body. 
+    features - An array of WebServiceFeatures to configure on the proxy. Supported features 
+       not in the features parameter will have their default values. 
+
+    Returns: Dispatch instance 
+
+*javax.xml.ws.spi.ServiceDelegate.createDispatch(QName,Class<T>,Service.Mode)*
+
+public abstract |javax.xml.ws.Dispatch|<T> createDispatch(
+  javax.xml.namespace.QName portName,
+  java.lang.Class<T> type,
+  javax.xml.ws.Service.Mode mode)
+
+Creates a Dispatch instance for use with objects of the user's choosing. 
+
+
+    portName - Qualified name for the target service endpoint 
+    type - The class of object used for messages or message payloads. Implementations are 
+       required to support javax.xml.transform.Source and 
+       javax.xml.soap.SOAPMessage. 
+    mode - Controls whether the created dispatch instance is message or payload oriented, 
+       i.e. whether the user will work with complete protocol messages or 
+       message payloads. E.g. when using the SOAP protocol, this parameter 
+       controls whether the user will work with SOAP messages or the contents 
+       of a SOAP body. Mode MUST be MESSAGE when type is SOAPMessage. 
+
+    Returns: Dispatch instance 
+
+*javax.xml.ws.spi.ServiceDelegate.createDispatch(QName,Class<T>,Service.Mode,WebServiceFeature...)*
+
+public abstract |javax.xml.ws.Dispatch|<T> createDispatch(
+  javax.xml.namespace.QName portName,
+  java.lang.Class<T> type,
+  javax.xml.ws.Service.Mode mode,
+  javax.xml.ws.WebServiceFeature[] features)
+
+Creates a Dispatch instance for use with objects of the user's choosing. 
+
+
+    portName - Qualified name for the target service endpoint 
+    type - The class of object used for messages or message payloads. Implementations are 
+       required to support javax.xml.transform.Source and 
+       javax.xml.soap.SOAPMessage. 
+    mode - Controls whether the created dispatch instance is message or payload oriented, 
+       i.e. whether the user will work with complete protocol messages or 
+       message payloads. E.g. when using the SOAP protocol, this parameter 
+       controls whether the user will work with SOAP messages or the contents 
+       of a SOAP body. Mode MUST be MESSAGE when type is SOAPMessage. 
+    features - A list of WebServiceFeatures to configure on the proxy. Supported features not 
+       in the features parameter will have their default values. 
+
+    Returns: Dispatch instance 
+
+*javax.xml.ws.spi.ServiceDelegate.createDispatch(QName,JAXBContext,Service.Mode)*
+
+public abstract |javax.xml.ws.Dispatch|<Object> createDispatch(
+  javax.xml.namespace.QName portName,
+  javax.xml.bind.JAXBContext context,
+  javax.xml.ws.Service.Mode mode)
+
+Creates a Dispatch instance for use with JAXB generated objects. 
+
+
+    portName - Qualified name for the target service endpoint 
+    context - The JAXB context used to marshall and unmarshall messages or message payloads. 
+    mode - Controls whether the created dispatch instance is message or payload oriented, 
+       i.e. whether the user will work with complete protocol messages or 
+       message payloads. E.g. when using the SOAP protocol, this parameter 
+       controls whether the user will work with SOAP messages or the contents 
+       of a SOAP body. 
+
+    Returns: Dispatch instance 
+
+*javax.xml.ws.spi.ServiceDelegate.createDispatch(QName,JAXBContext,Service.Mode,WebServiceFeature...)*
+
+public abstract |javax.xml.ws.Dispatch|<Object> createDispatch(
+  javax.xml.namespace.QName portName,
+  javax.xml.bind.JAXBContext context,
+  javax.xml.ws.Service.Mode mode,
+  javax.xml.ws.WebServiceFeature[] features)
+
+Creates a Dispatch instance for use with JAXB generated objects. 
+
+
+    portName - Qualified name for the target service endpoint 
+    context - The JAXB context used to marshall and unmarshall messages or message payloads. 
+    mode - Controls whether the created dispatch instance is message or payload oriented, 
+       i.e. whether the user will work with complete protocol messages or 
+       message payloads. E.g. when using the SOAP protocol, this parameter 
+       controls whether the user will work with SOAP messages or the contents 
+       of a SOAP body. 
+    features - A list of WebServiceFeatures to configure on the proxy. Supported features not 
+       in the features parameter will have their default values. 
+
+    Returns: Dispatch instance 
+
+*javax.xml.ws.spi.ServiceDelegate.getExecutor()*
+
+public abstract |java.util.concurrent.Executor| getExecutor()
+
+Returns the executor for this Serviceinstance. 
+
+The executor is used for all asynchronous invocations that require callbacks. 
+
+
+
+    Returns: The java.util.concurrent.Executor to be used to invoke a callback. 
+
+*javax.xml.ws.spi.ServiceDelegate.getHandlerResolver()*
+
+public abstract |javax.xml.ws.handler.HandlerResolver| getHandlerResolver()
+
+Returns the configured handler resolver. 
+
+
+
+    Returns: HandlerResolver The HandlerResolver being used by this Service instance, or 
+             null if there isn't one. 
+
+*javax.xml.ws.spi.ServiceDelegate.getPort(Class<T>)*
+
+public abstract |T| getPort(java.lang.Class<T> serviceEndpointInterface)
+
+The getPort method returns a proxy. The parameter serviceEndpointInterface 
+specifies the service endpoint interface that is supported by the returned 
+proxy. In the implementation of this method, the JAX-WS runtime system takes 
+the responsibility of selecting a protocol binding (and a port) and configuring 
+the proxy accordingly. The returned proxy should not be reconfigured by the 
+client. 
+
+
+    serviceEndpointInterface - Service endpoint interface 
+
+    Returns: Object instance that supports the specified service endpoint interface 
+
+*javax.xml.ws.spi.ServiceDelegate.getPort(Class<T>,WebServiceFeature...)*
+
+public abstract |T| getPort(
+  java.lang.Class<T> serviceEndpointInterface,
+  javax.xml.ws.WebServiceFeature[] features)
+
+The getPort method returns a proxy. The parameter serviceEndpointInterface 
+specifies the service endpoint interface that is supported by the returned 
+proxy. In the implementation of this method, the JAX-WS runtime system takes 
+the responsibility of selecting a protocol binding (and a port) and configuring 
+the proxy accordingly. The returned proxy should not be reconfigured by the 
+client. 
+
+
+    serviceEndpointInterface - Service endpoint interface 
+    features - An array of WebServiceFeatures to configure on the proxy. Supported features 
+       not in the features parameter will have their default values. 
+
+    Returns: Object instance that supports the specified service endpoint interface 
+
+*javax.xml.ws.spi.ServiceDelegate.getPort(EndpointReference,Class<T>,WebServiceFeature...)*
+
+public abstract |T| getPort(
+  javax.xml.ws.EndpointReference endpointReference,
+  java.lang.Class<T> serviceEndpointInterface,
+  javax.xml.ws.WebServiceFeature[] features)
+
+The getPort method returns a proxy. The parameter endpointReference specifies 
+the endpoint that will be invoked by the returned proxy. If there are any 
+reference parameters in the endpointReference, then those reference parameters 
+MUST appear as SOAP headers, indicating them to be reference parameters, on all 
+messages sent to the endpoint. The endpointReference's address MUST be used for 
+invocations on the endpoint. The parameter serviceEndpointInterface specifies 
+the service endpoint interface that is supported by the returned proxy. In the 
+implementation of this method, the JAX-WS runtime system takes the 
+responsibility of selecting a protocol binding (and a port) and configuring the 
+proxy accordingly from the WSDL associated with this Service instance or from 
+the metadata from the endpointReference. If this Service instance has a WSDL 
+and the endpointReference metadata also has a WSDL, then the WSDL from this 
+instance MUST be used. If this Service instance does not have a WSDL and the 
+endpointReference does have a WSDL, then the WSDL from the endpointReference 
+MAY be used. The returned proxy should not be reconfigured by the client. If 
+this Service instance has a known proxy port that matches the information 
+contained in the WSDL, then that proxy is returned, otherwise a 
+WebServiceException is thrown. 
+
+Calling this method has the same behavior as the following 
+
+port = service.getPort(portName, serviceEndpointInterface); 
+
+where the portName is retrieved from the metadata of the endpointReference or 
+from the serviceEndpointInterface and the WSDL associated with this Service 
+instance. 
+
+
+    endpointReference - The EndpointReference for the target service endpoint that will be invoked by 
+       the returned proxy. 
+    serviceEndpointInterface - Service endpoint interface. 
+    features - A list of WebServiceFeatures to configure on the proxy. Supported features not 
+       in the features parameter will have their default values. 
+
+    Returns: Object Proxy instance that supports the specified service endpoint interface. 
+
+*javax.xml.ws.spi.ServiceDelegate.getPort(QName,Class<T>)*
+
+public abstract |T| getPort(
+  javax.xml.namespace.QName portName,
+  java.lang.Class<T> serviceEndpointInterface)
+
+The getPort method returns a proxy. A service client uses this proxy to invoke 
+operations on the target service endpoint. The serviceEndpointInterface 
+specifies the service endpoint interface that is supported by the created 
+dynamic proxy instance. 
+
+
+    portName - Qualified name of the service endpoint in the WSDL service description 
+    serviceEndpointInterface - Service endpoint interface supported by the dynamic proxy 
+
+    Returns: Object Proxy instance that supports the specified service endpoint interface 
+
+*javax.xml.ws.spi.ServiceDelegate.getPort(QName,Class<T>,WebServiceFeature...)*
+
+public abstract |T| getPort(
+  javax.xml.namespace.QName portName,
+  java.lang.Class<T> serviceEndpointInterface,
+  javax.xml.ws.WebServiceFeature[] features)
+
+The getPort method returns a proxy. A service client uses this proxy to invoke 
+operations on the target service endpoint. The serviceEndpointInterface 
+specifies the service endpoint interface that is supported by the created 
+dynamic proxy instance. 
+
+
+    portName - Qualified name of the service endpoint in the WSDL service description 
+    serviceEndpointInterface - Service endpoint interface supported by the dynamic proxy or instance 
+    features - A list of WebServiceFeatures to configure on the proxy. Supported features not 
+       in the features parameter will have their default values. 
+
+    Returns: Object Proxy instance that supports the specified service endpoint interface 
+
+*javax.xml.ws.spi.ServiceDelegate.getPorts()*
+
+public abstract |java.util.Iterator|<QName> getPorts()
+
+Returns an Iterator for the list of QNames of service endpoints grouped by this 
+service 
+
+
+
+    Returns: Returns java.util.Iterator with elements of type javax.xml.namespace.QName 
+
+*javax.xml.ws.spi.ServiceDelegate.getServiceName()*
+
+public abstract |javax.xml.namespace.QName| getServiceName()
+
+Gets the name of this service. 
+
+
+
+    Returns: Qualified name of this service 
+
+*javax.xml.ws.spi.ServiceDelegate.getWSDLDocumentLocation()*
+
+public abstract |java.net.URL| getWSDLDocumentLocation()
+
+Gets the location of the WSDL document for this Service. 
+
+
+
+    Returns: URL for the location of the WSDL document for this service 
+
+*javax.xml.ws.spi.ServiceDelegate.setExecutor(Executor)*
+
+public abstract void setExecutor(java.util.concurrent.Executor executor)
+
+Sets the executor for this Service instance. 
+
+The executor is used for all asynchronous invocations that require callbacks. 
+
+
+    executor - The java.util.concurrent.Executor to be used to invoke a callback. 
+
+*javax.xml.ws.spi.ServiceDelegate.setHandlerResolver(HandlerResolver)*
+
+public abstract void setHandlerResolver(javax.xml.ws.handler.HandlerResolver handlerResolver)
+
+Sets the HandlerResolver for this Service instance. 
+
+The handler resolver, if present, will be called once for each proxy or 
+dispatch instance that is created, and the handler chain returned by the 
+resolver will be set on the instance. 
+
+
+    handlerResolver - The HandlerResolver to use for all subsequently created proxy/dispatch objects. 
+
+

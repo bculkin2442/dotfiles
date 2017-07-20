@@ -1,0 +1,53 @@
+*java.util.function.LongConsumer* *LongConsumer* Represents an operation that ac
+
+public interface interface LongConsumer
+
+
+|java.util.function.LongConsumer_Description|
+|java.util.function.LongConsumer_Fields|
+|java.util.function.LongConsumer_Constructors|
+|java.util.function.LongConsumer_Methods|
+
+================================================================================
+
+*java.util.function.LongConsumer_Methods*
+|java.util.function.LongConsumer.accept(long)|Performs this operation on the gi
+|java.util.function.LongConsumer.andThen(LongConsumer)|Returns a composedLongCo
+
+*java.util.function.LongConsumer_Description*
+
+Represents an operation that accepts a singlelong-valued argument and returns 
+no result. This is the primitive type specialization of 
+(|java.util.function.Consumer|) forlong. Unlike most other functional 
+interfaces,LongConsumeris expected to operate via side-effects. 
+
+This is a functional interface whose functional method is 
+(|java.util.function.LongConsumer|) . 
+
+
+
+*java.util.function.LongConsumer.accept(long)*
+
+public void accept(long value)
+
+Performs this operation on the given argument. 
+
+
+    value - the input argument 
+
+*java.util.function.LongConsumer.andThen(LongConsumer)*
+
+public |java.util.function.LongConsumer| andThen(java.util.function.LongConsumer after)
+
+Returns a composedLongConsumerthat performs, in sequence, this operation 
+followed by theafteroperation. If performing either operation throws an 
+exception, it is relayed to the caller of the composed operation. If performing 
+this operation throws an exception, theafteroperation will not be performed. 
+
+
+    after - the operation to perform after this operation 
+
+    Returns: a composed {@code LongConsumer} that performs in sequence this operation 
+             followed by the {@code after} operation 
+
+

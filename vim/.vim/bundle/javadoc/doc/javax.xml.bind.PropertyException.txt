@@ -1,0 +1,95 @@
+*javax.xml.bind.PropertyException* *PropertyException* This exception indicates 
+
+public class PropertyException
+  extends    |javax.xml.bind.JAXBException|
+
+|javax.xml.bind.PropertyException_Description|
+|javax.xml.bind.PropertyException_Fields|
+|javax.xml.bind.PropertyException_Constructors|
+|javax.xml.bind.PropertyException_Methods|
+
+================================================================================
+
+*javax.xml.bind.PropertyException_Constructors*
+|javax.xml.bind.PropertyException(String)|Construct a PropertyException with th
+|javax.xml.bind.PropertyException(String,Object)|Construct a PropertyException 
+|javax.xml.bind.PropertyException(String,String)|Construct a PropertyException 
+|javax.xml.bind.PropertyException(String,String,Throwable)|Construct a Property
+|javax.xml.bind.PropertyException(String,Throwable)|Construct a PropertyExcepti
+|javax.xml.bind.PropertyException(Throwable)|Construct a PropertyException with
+
+*javax.xml.bind.PropertyException_Description*
+
+This exception indicates that an error was encountered while getting or setting 
+a property. 
+
+
+
+*javax.xml.bind.PropertyException(String)*
+
+public PropertyException(java.lang.String message)
+
+Construct a PropertyException with the specified detail message. The errorCode 
+and linkedException will default to null. 
+
+    message - a description of the exception 
+
+*javax.xml.bind.PropertyException(String,Object)*
+
+public PropertyException(
+  java.lang.String name,
+  java.lang.Object value)
+
+Construct a PropertyException whose message field is set based on the name of 
+the property and value.toString(). 
+
+    name - the name of the property related to this exception 
+    value - the value of the property related to this exception 
+
+*javax.xml.bind.PropertyException(String,String)*
+
+public PropertyException(
+  java.lang.String message,
+  java.lang.String errorCode)
+
+Construct a PropertyException with the specified detail message and vendor 
+specific errorCode. The linkedException will default to null. 
+
+    message - a description of the exception 
+    errorCode - a string specifying the vendor specific error code 
+
+*javax.xml.bind.PropertyException(String,String,Throwable)*
+
+public PropertyException(
+  java.lang.String message,
+  java.lang.String errorCode,
+  java.lang.Throwable exception)
+
+Construct a PropertyException with the specified detail message, vendor 
+specific errorCode, and linkedException. 
+
+    message - a description of the exception 
+    errorCode - a string specifying the vendor specific error code 
+    exception - the linked exception 
+
+*javax.xml.bind.PropertyException(String,Throwable)*
+
+public PropertyException(
+  java.lang.String message,
+  java.lang.Throwable exception)
+
+Construct a PropertyException with the specified detail message and 
+linkedException. The errorCode will default to null. 
+
+    message - a description of the exception 
+    exception - the linked exception 
+
+*javax.xml.bind.PropertyException(Throwable)*
+
+public PropertyException(java.lang.Throwable exception)
+
+Construct a PropertyException with a linkedException. The detail message and 
+vendor specific errorCode will default to null. 
+
+    exception - the linked exception 
+

@@ -1,0 +1,22 @@
+*org.omg.PortableServer.ImplicitActivationPolicy* *ImplicitActivationPolicy* Thi
+
+public interface interface ImplicitActivationPolicy
+
+  implements |org.omg.PortableServer.ImplicitActivationPolicyOperations|
+             |org.omg.CORBA.Policy|
+             |org.omg.CORBA.portable.IDLEntity|
+
+|org.omg.PortableServer.ImplicitActivationPolicy_Description|
+|org.omg.PortableServer.ImplicitActivationPolicy_Fields|
+|org.omg.PortableServer.ImplicitActivationPolicy_Constructors|
+|org.omg.PortableServer.ImplicitActivationPolicy_Methods|
+
+================================================================================
+
+*org.omg.PortableServer.ImplicitActivationPolicy_Description*
+
+This policy specifies whether implicit activation of servants is supported in 
+the created POA. 
+
+
+

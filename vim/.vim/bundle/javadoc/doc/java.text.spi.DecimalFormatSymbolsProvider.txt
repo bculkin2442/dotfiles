@@ -1,0 +1,52 @@
+*java.text.spi.DecimalFormatSymbolsProvider* *DecimalFormatSymbolsProvider* An a
+
+public abstract class DecimalFormatSymbolsProvider
+  extends    |java.util.spi.LocaleServiceProvider|
+
+|java.text.spi.DecimalFormatSymbolsProvider_Description|
+|java.text.spi.DecimalFormatSymbolsProvider_Fields|
+|java.text.spi.DecimalFormatSymbolsProvider_Constructors|
+|java.text.spi.DecimalFormatSymbolsProvider_Methods|
+
+================================================================================
+
+*java.text.spi.DecimalFormatSymbolsProvider_Constructors*
+|java.text.spi.DecimalFormatSymbolsProvider()|Sole constructor.
+
+*java.text.spi.DecimalFormatSymbolsProvider_Methods*
+|java.text.spi.DecimalFormatSymbolsProvider.getInstance(Locale)|Returns a new D
+
+*java.text.spi.DecimalFormatSymbolsProvider_Description*
+
+An abstract class for service providers that provide instances of the 
+DecimalFormatSymbols(|java.text.DecimalFormatSymbols|) class. 
+
+The requestedLocalemay contain an extension for specifying the desired 
+numbering system. For example,"ar-u-nu-arab"(in the BCP 47 language tag form) 
+specifies Arabic with the Arabic-Indic digits and symbols, 
+while"ar-u-nu-latn"specifies Arabic with the Latin digits and symbols. Refer to 
+the Unicode Locale Data Markup Language (LDML) specification for numbering 
+systems. 
+
+
+
+*java.text.spi.DecimalFormatSymbolsProvider()*
+
+protected DecimalFormatSymbolsProvider()
+
+Sole constructor. (For invocation by subclass constructors, typically 
+implicit.) 
+
+
+*java.text.spi.DecimalFormatSymbolsProvider.getInstance(Locale)*
+
+public abstract |java.text.DecimalFormatSymbols| getInstance(java.util.Locale locale)
+
+Returns a new DecimalFormatSymbols instance for the specified locale. 
+
+
+    locale - the desired locale 
+
+    Returns: a DecimalFormatSymbols instance. 
+
+

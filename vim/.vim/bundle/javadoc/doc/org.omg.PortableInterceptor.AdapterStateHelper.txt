@@ -1,0 +1,90 @@
+*org.omg.PortableInterceptor.AdapterStateHelper* *AdapterStateHelper* Type of ob
+
+public abstract class AdapterStateHelper
+  extends    |java.lang.Object|
+
+|org.omg.PortableInterceptor.AdapterStateHelper_Description|
+|org.omg.PortableInterceptor.AdapterStateHelper_Fields|
+|org.omg.PortableInterceptor.AdapterStateHelper_Constructors|
+|org.omg.PortableInterceptor.AdapterStateHelper_Methods|
+
+================================================================================
+
+*org.omg.PortableInterceptor.AdapterStateHelper_Constructors*
+|org.omg.PortableInterceptor.AdapterStateHelper()|
+
+*org.omg.PortableInterceptor.AdapterStateHelper_Methods*
+|org.omg.PortableInterceptor.AdapterStateHelper.extract(Any)|
+|org.omg.PortableInterceptor.AdapterStateHelper.id()|
+|org.omg.PortableInterceptor.AdapterStateHelper.insert(Any,short)|
+|org.omg.PortableInterceptor.AdapterStateHelper.read(InputStream)|
+|org.omg.PortableInterceptor.AdapterStateHelper.type()|
+|org.omg.PortableInterceptor.AdapterStateHelper.write(OutputStream,short)|
+
+*org.omg.PortableInterceptor.AdapterStateHelper_Description*
+
+Type of object adapter state. State changes are reported either to the object 
+adapter or to the adapter manager. 
+
+
+
+*org.omg.PortableInterceptor.AdapterStateHelper()*
+
+public AdapterStateHelper()
+
+
+
+
+*org.omg.PortableInterceptor.AdapterStateHelper.extract(Any)*
+
+public static short extract(org.omg.CORBA.Any a)
+
+
+
+
+
+*org.omg.PortableInterceptor.AdapterStateHelper.id()*
+
+public static |java.lang.String| id()
+
+
+
+
+
+*org.omg.PortableInterceptor.AdapterStateHelper.insert(Any,short)*
+
+public static void insert(
+  org.omg.CORBA.Any a,
+  short that)
+
+
+
+
+
+*org.omg.PortableInterceptor.AdapterStateHelper.read(InputStream)*
+
+public static short read(org.omg.CORBA.portable.InputStream istream)
+
+
+
+
+
+*org.omg.PortableInterceptor.AdapterStateHelper.type()*
+
+public static synchronized |org.omg.CORBA.TypeCode| type()
+
+
+
+
+
+*org.omg.PortableInterceptor.AdapterStateHelper.write(OutputStream,short)*
+
+public static void write(
+  org.omg.CORBA.portable.OutputStream ostream,
+  short value)
+
+
+
+
+
+

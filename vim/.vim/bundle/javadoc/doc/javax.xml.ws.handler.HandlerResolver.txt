@@ -1,0 +1,41 @@
+*javax.xml.ws.handler.HandlerResolver* *HandlerResolver* HandlerResolver is an i
+
+public interface interface HandlerResolver
+
+
+|javax.xml.ws.handler.HandlerResolver_Description|
+|javax.xml.ws.handler.HandlerResolver_Fields|
+|javax.xml.ws.handler.HandlerResolver_Constructors|
+|javax.xml.ws.handler.HandlerResolver_Methods|
+
+================================================================================
+
+*javax.xml.ws.handler.HandlerResolver_Methods*
+|javax.xml.ws.handler.HandlerResolver.getHandlerChain(PortInfo)|Gets the handle
+
+*javax.xml.ws.handler.HandlerResolver_Description*
+
+HandlerResolver is an interface implemented by an application to get control 
+over the handler chain set on proxy/dispatch objects at the time of their 
+creation. 
+
+A HandlerResolver may be set on a Service using the setHandlerResolver method. 
+
+When the runtime invokes a HandlerResolver, it will pass it a PortInfo object 
+containing information about the port that the proxy/dispatch object will be 
+accessing. 
+
+
+
+*javax.xml.ws.handler.HandlerResolver.getHandlerChain(PortInfo)*
+
+public |java.util.List|<Handler> getHandlerChain(javax.xml.ws.handler.PortInfo portInfo)
+
+Gets the handler chain for the specified port. 
+
+
+    portInfo - Contains information about the port being accessed. 
+
+    Returns: java.util.List<Handler> chain 
+
+

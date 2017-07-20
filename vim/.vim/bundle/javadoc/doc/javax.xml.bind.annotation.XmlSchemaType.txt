@@ -1,0 +1,50 @@
+*javax.xml.bind.annotation.XmlSchemaType* *XmlSchemaType* Maps a Java type to a 
+
+public interface class XmlSchemaType
+
+  implements |java.lang.annotation.Annotation|
+
+|javax.xml.bind.annotation.XmlSchemaType_Description|
+|javax.xml.bind.annotation.XmlSchemaType_Fields|
+|javax.xml.bind.annotation.XmlSchemaType_Constructors|
+|javax.xml.bind.annotation.XmlSchemaType_Methods|
+
+================================================================================
+
+*javax.xml.bind.annotation.XmlSchemaType_Description*
+
+Maps a Java type to a simple schema built-in type. 
+
+Usage 
+
+@XmlSchemaType annotation can be used with the following program elements: 
+
+a JavaBean property field package 
+
+@XmlSchemaType annotation defined for Java type applies to all references to 
+the Java type from a property/field. A @XmlSchemaType annotation specified on 
+the property/field overrides the @XmlSchemaType annotation specified at the 
+package level. 
+
+This annotation can be used with the following annotations: 
+(|javax.xml.bind.annotation.XmlElement|) , 
+(|javax.xml.bind.annotation.XmlAttribute|) . 
+
+Example 1: Customize mapping of XMLGregorianCalendar on the field. 
+
+
+
+//Example: Code fragment public class USPrice { XmlElement 
+XmlSchemaType(name="date") public XMLGregorianCalendar date; } 
+
+<!-- Example: Local XML Schema element --> <xs:complexType name="USPrice"/> 
+<xs:sequence> <xs:element name="date" type="xs:date"/> </sequence> 
+</xs:complexType> 
+
+Example 2: Customize mapping of XMLGregorianCalendar at package level 
+
+package foo; javax.xml.bind.annotation.XmlSchemaType( name="date", 
+type=javax.xml.datatype.XMLGregorianCalendar.class) } 
+
+
+

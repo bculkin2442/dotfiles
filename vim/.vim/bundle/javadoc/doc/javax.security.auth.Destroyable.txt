@@ -1,0 +1,51 @@
+*javax.security.auth.Destroyable* *Destroyable* Objects such as credentials may 
+
+public interface interface Destroyable
+
+
+|javax.security.auth.Destroyable_Description|
+|javax.security.auth.Destroyable_Fields|
+|javax.security.auth.Destroyable_Constructors|
+|javax.security.auth.Destroyable_Methods|
+
+================================================================================
+
+*javax.security.auth.Destroyable_Methods*
+|javax.security.auth.Destroyable.destroy()|Destroy thisObject.
+|javax.security.auth.Destroyable.isDestroyed()|Determine if thisObjecthas been 
+
+*javax.security.auth.Destroyable_Description*
+
+Objects such as credentials may optionally implement this interface to provide 
+the capability to destroy its contents. 
+
+
+
+*javax.security.auth.Destroyable.destroy()*
+
+public void destroy()
+  throws |javax.security.auth.DestroyFailedException|
+         
+Destroy thisObject. 
+
+Sensitive information associated with thisObjectis destroyed or cleared. 
+Subsequent calls to certain methods on thisObjectwill result in 
+anIllegalStateExceptionbeing thrown. 
+
+The default implementation throwsDestroyFailedException. 
+
+
+
+*javax.security.auth.Destroyable.isDestroyed()*
+
+public boolean isDestroyed()
+
+Determine if thisObjecthas been destroyed. 
+
+The default implementation returns false. 
+
+
+
+    Returns: true if this {@code Object} has been destroyed, false otherwise. 
+
+

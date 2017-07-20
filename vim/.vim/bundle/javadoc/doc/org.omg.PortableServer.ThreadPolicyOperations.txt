@@ -1,0 +1,32 @@
+*org.omg.PortableServer.ThreadPolicyOperations* *ThreadPolicyOperations* The Thr
+
+public interface interface ThreadPolicyOperations
+
+  implements |org.omg.CORBA.PolicyOperations|
+
+|org.omg.PortableServer.ThreadPolicyOperations_Description|
+|org.omg.PortableServer.ThreadPolicyOperations_Fields|
+|org.omg.PortableServer.ThreadPolicyOperations_Constructors|
+|org.omg.PortableServer.ThreadPolicyOperations_Methods|
+
+================================================================================
+
+*org.omg.PortableServer.ThreadPolicyOperations_Methods*
+|org.omg.PortableServer.ThreadPolicyOperations.value()|specifies the policy val
+
+*org.omg.PortableServer.ThreadPolicyOperations_Description*
+
+The ThreadPolicy specifies the threading model used with the created POA. The 
+default is ORB_CTRL_MODEL. 
+
+
+
+*org.omg.PortableServer.ThreadPolicyOperations.value()*
+
+public |org.omg.PortableServer.ThreadPolicyValue| value()
+
+specifies the policy value 
+
+
+
+

@@ -1,0 +1,289 @@
+*java.lang.invoke.MethodHandleInfo* *MethodHandleInfo* A symbolic reference obta
+
+public interface interface MethodHandleInfo
+
+
+|java.lang.invoke.MethodHandleInfo_Description|
+|java.lang.invoke.MethodHandleInfo_Fields|
+|java.lang.invoke.MethodHandleInfo_Constructors|
+|java.lang.invoke.MethodHandleInfo_Methods|
+
+================================================================================
+
+*java.lang.invoke.MethodHandleInfo_Fields*
+|int_java.lang.invoke.MethodHandleInfo.REF_getField|
+|int_java.lang.invoke.MethodHandleInfo.REF_getStatic|
+|int_java.lang.invoke.MethodHandleInfo.REF_invokeInterface|
+|int_java.lang.invoke.MethodHandleInfo.REF_invokeSpecial|
+|int_java.lang.invoke.MethodHandleInfo.REF_invokeStatic|
+|int_java.lang.invoke.MethodHandleInfo.REF_invokeVirtual|
+|int_java.lang.invoke.MethodHandleInfo.REF_newInvokeSpecial|
+|int_java.lang.invoke.MethodHandleInfo.REF_putField|
+|int_java.lang.invoke.MethodHandleInfo.REF_putStatic|
+
+*java.lang.invoke.MethodHandleInfo_Methods*
+|java.lang.invoke.MethodHandleInfo.getDeclaringClass()|Returns the class in whi
+|java.lang.invoke.MethodHandleInfo.getMethodType()|Returns the nominal type of 
+|java.lang.invoke.MethodHandleInfo.getModifiers()|Returns the access modifiers 
+|java.lang.invoke.MethodHandleInfo.getName()|Returns the name of the cracked me
+|java.lang.invoke.MethodHandleInfo.getReferenceKind()|Returns the reference kin
+|java.lang.invoke.MethodHandleInfo.isVarArgs()|Determines if the underlying mem
+|java.lang.invoke.MethodHandleInfo.referenceKindToString(int)|Returns the descr
+|java.lang.invoke.MethodHandleInfo.reflectAs(Class<T>,MethodHandles.Lookup)|Ref
+|java.lang.invoke.MethodHandleInfo.toString(int,Class<?>,String,MethodType)|Ret
+
+*java.lang.invoke.MethodHandleInfo_Description*
+
+A symbolic reference obtained by cracking a direct method handle into its 
+consitutent symbolic parts. To crack a direct method handle, call 
+Lookup.revealDirect(|java.lang.invoke.MethodHandles.Lookup|) . Direct Method 
+Handles A direct method handle represents a method, constructor, or field 
+without any intervening argument bindings or other transformations. The method, 
+constructor, or field referred to by a direct method handle is called its 
+underlying member. Direct method handles may be obtained in any of these ways: 
+
+By executing anldcinstruction on aCONSTANT_MethodHandleconstant. (See the Java 
+Virtual Machine Specification, sections 4.4.8 and 5.4.3.) By calling one of the 
+Lookup Factory Methods, such as 
+Lookup.findVirtual(|java.lang.invoke.MethodHandles.Lookup|) , to resolve a 
+symbolic reference into a method handle. A symbolic reference consists of a 
+class, name string, and type. By calling the factory method 
+Lookup.unreflect(|java.lang.invoke.MethodHandles.Lookup|) or 
+Lookup.unreflectSpecial(|java.lang.invoke.MethodHandles.Lookup|) to convert a 
+(|java.lang.reflect.Method|) into a method handle. By calling the factory 
+method Lookup.unreflectConstructor(|java.lang.invoke.MethodHandles.Lookup|) to 
+convert a (|java.lang.reflect.Constructor|) into a method handle. By calling 
+the factory method 
+Lookup.unreflectGetter(|java.lang.invoke.MethodHandles.Lookup|) or 
+Lookup.unreflectSetter(|java.lang.invoke.MethodHandles.Lookup|) to convert a 
+(|java.lang.reflect.Field|) into a method handle. 
+
+Restrictions on Cracking Given a suitableLookupobject, it is possible to crack 
+any direct method handle to recover a symbolic reference for the underlying 
+method, constructor, or field. Cracking must be done via aLookupobject 
+equivalent to that which created the target method handle, or which has enough 
+access permissions to recreate an equivalent method handle. 
+
+If the underlying method is caller sensitive, the direct method handle will 
+have been "bound" to a particular caller class, the lookup 
+class(|java.lang.invoke.MethodHandles.Lookup|) of the lookup object used to 
+create it. Cracking this method handle with a different lookup class will fail 
+even if the underlying method is public (likeClass.forName). 
+
+The requirement of lookup object matching provides a "fast fail" behavior for 
+programs which may otherwise trust erroneous revelation of a method handle with 
+symbolic information (or caller binding) from an unexpected scope. Use 
+(|java.lang.invoke.MethodHandles|) to override this limitation. 
+
+Reference kinds The Lookup Factory Methods correspond to all major use cases 
+for methods, constructors, and fields. These use cases may be distinguished 
+using small integers as follows: 
+
+reference kinddescriptive namescopememberbehavior 
+
+1REF_getFieldclass FT f;(T) this.f; 
+
+2REF_getStaticclassorinterface staticFT f;(T) C.f; 
+
+3REF_putFieldclass FT f;this.f = x; 
+
+4REF_putStaticclass staticFT f;C.f = arg; 
+
+5REF_invokeVirtualclass T m(A*);(T) this.m(arg*); 
+
+6REF_invokeStaticclassorinterface staticT m(A*);(T) C.m(arg*); 
+
+7REF_invokeSpecialclassorinterface T m(A*);(T) super.m(arg*); 
+
+8REF_newInvokeSpecialclass C(A*);new C(arg*); 
+
+9REF_invokeInterfaceinterface T m(A*);(T) this.m(arg*); 
+
+
+
+
+
+*int_java.lang.invoke.MethodHandleInfo.REF_getField*
+
+A direct method handle reference kind, as defined in the table above. 
+
+
+*int_java.lang.invoke.MethodHandleInfo.REF_getStatic*
+
+A direct method handle reference kind, as defined in the table above. 
+
+
+*int_java.lang.invoke.MethodHandleInfo.REF_invokeInterface*
+
+A direct method handle reference kind, as defined in the table above. 
+
+
+*int_java.lang.invoke.MethodHandleInfo.REF_invokeSpecial*
+
+A direct method handle reference kind, as defined in the table above. 
+
+
+*int_java.lang.invoke.MethodHandleInfo.REF_invokeStatic*
+
+A direct method handle reference kind, as defined in the table above. 
+
+
+*int_java.lang.invoke.MethodHandleInfo.REF_invokeVirtual*
+
+A direct method handle reference kind, as defined in the table above. 
+
+
+*int_java.lang.invoke.MethodHandleInfo.REF_newInvokeSpecial*
+
+A direct method handle reference kind, as defined in the table above. 
+
+
+*int_java.lang.invoke.MethodHandleInfo.REF_putField*
+
+A direct method handle reference kind, as defined in the table above. 
+
+
+*int_java.lang.invoke.MethodHandleInfo.REF_putStatic*
+
+A direct method handle reference kind, as defined in the table above. 
+
+
+
+*java.lang.invoke.MethodHandleInfo.getDeclaringClass()*
+
+public |java.lang.Class|<?> getDeclaringClass()
+
+Returns the class in which the cracked method handle's underlying member was 
+defined. 
+
+
+
+    Returns: the declaring class of the underlying member 
+
+*java.lang.invoke.MethodHandleInfo.getMethodType()*
+
+public |java.lang.invoke.MethodType| getMethodType()
+
+Returns the nominal type of the cracked symbolic reference, expressed as a 
+method type. If the reference is to a constructor, the return type will bevoid. 
+If it is to a non-static method, the method type will not mention 
+thethisparameter. If it is to a field and the requested access is to read the 
+field, the method type will have no parameters and return the field type. If it 
+is to a field and the requested access is to write the field, the method type 
+will have one parameter of the field type and returnvoid. 
+
+Note that original direct method handle may include a leadingthisparameter, or 
+(in the case of a constructor) will replace thevoidreturn type with the 
+constructed class. The nominal type does not include anythisparameter, and (in 
+the case of a constructor) will returnvoid. 
+
+
+
+    Returns: the type of the underlying member, expressed as a method type 
+
+*java.lang.invoke.MethodHandleInfo.getModifiers()*
+
+public int getModifiers()
+
+Returns the access modifiers of the underlying member. 
+
+
+
+    Returns: the Java language modifiers for underlying member, or -1 if the member cannot 
+             be accessed 
+
+*java.lang.invoke.MethodHandleInfo.getName()*
+
+public |java.lang.String| getName()
+
+Returns the name of the cracked method handle's underlying member. This 
+is"<init>"if the underlying member was a constructor, else it is a simple 
+method name or field name. 
+
+
+
+    Returns: the simple name of the underlying member 
+
+*java.lang.invoke.MethodHandleInfo.getReferenceKind()*
+
+public int getReferenceKind()
+
+Returns the reference kind of the cracked method handle, which in turn 
+determines whether the method handle's underlying member was a constructor, 
+method, or field. See the table above for definitions. 
+
+
+
+    Returns: the integer code for the kind of reference used to access the underlying member 
+
+*java.lang.invoke.MethodHandleInfo.isVarArgs()*
+
+public boolean isVarArgs()
+
+Determines if the underlying member was a variable arity method or constructor. 
+Such members are represented by method handles that are varargs collectors. 
+
+
+
+    Returns: {@code true} if and only if the underlying member was declared with variable 
+             arity. 
+
+*java.lang.invoke.MethodHandleInfo.referenceKindToString(int)*
+
+public static |java.lang.String| referenceKindToString(int referenceKind)
+
+Returns the descriptive name of the given reference kind, as defined in the 
+table above. The conventional prefix "REF_" is omitted. 
+
+
+    referenceKind - an integer code for a kind of reference used to access a class member 
+
+    Returns: a mixed-case string such as {@code "getField"} 
+
+*java.lang.invoke.MethodHandleInfo.reflectAs(Class<T>,MethodHandles.Lookup)*
+
+public |T| reflectAs(
+  java.lang.Class<T> expected,
+  java.lang.invoke.MethodHandles.Lookup lookup)
+
+Reflects the underlying member as a method, constructor, or field object. If 
+the underlying member is public, it is reflected as if 
+bygetMethod,getConstructor, orgetField. Otherwise, it is reflected as if 
+bygetDeclaredMethod,getDeclaredConstructor, orgetDeclaredField. The underlying 
+member must be accessible to the given lookup object. 
+
+
+    expected - a class object representing the desired result type {@code T} 
+    lookup - the lookup object that created this MethodHandleInfo, or one with equivalent 
+       access privileges 
+
+    Returns: a reference to the method, constructor, or field object 
+
+*java.lang.invoke.MethodHandleInfo.toString(int,Class<?>,String,MethodType)*
+
+public static |java.lang.String| toString(
+  int kind,
+  java.lang.Class<?> defc,
+  java.lang.String name,
+  java.lang.invoke.MethodType type)
+
+Returns a string representation for aMethodHandleInfo, given the four parts of 
+its symbolic reference. This is defined to be of the form"RK C.N:MT", whereRKis 
+the reference kind string(|java.lang.invoke.MethodHandleInfo|) forkind,Cis the 
+name(|java.lang.Class|) ofdefcNis thename, andMTis thetype. These four values 
+may be obtained from the reference kind(|java.lang.invoke.MethodHandleInfo|) , 
+declaring class(|java.lang.invoke.MethodHandleInfo|) , member 
+name(|java.lang.invoke.MethodHandleInfo|) , and method 
+type(|java.lang.invoke.MethodHandleInfo|) of aMethodHandleInfoobject. 
+
+
+    kind - the {@linkplain #getReferenceKind reference kind} part of the symbolic 
+       reference 
+    defc - the {@linkplain #getDeclaringClass declaring class} part of the symbolic 
+       reference 
+    name - the {@linkplain #getName member name} part of the symbolic reference 
+    type - the {@linkplain #getMethodType method type} part of the symbolic reference 
+
+    Returns: a string of the form {@code "RK C.N:MT"} 
+
+

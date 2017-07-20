@@ -1,0 +1,89 @@
+*org.omg.CORBA.StringSeqHelper* *StringSeqHelper* An array of Strings
+
+public abstract class StringSeqHelper
+  extends    |java.lang.Object|
+
+|org.omg.CORBA.StringSeqHelper_Description|
+|org.omg.CORBA.StringSeqHelper_Fields|
+|org.omg.CORBA.StringSeqHelper_Constructors|
+|org.omg.CORBA.StringSeqHelper_Methods|
+
+================================================================================
+
+*org.omg.CORBA.StringSeqHelper_Constructors*
+|org.omg.CORBA.StringSeqHelper()|
+
+*org.omg.CORBA.StringSeqHelper_Methods*
+|org.omg.CORBA.StringSeqHelper.extract(Any)|
+|org.omg.CORBA.StringSeqHelper.id()|
+|org.omg.CORBA.StringSeqHelper.insert(Any,String[])|
+|org.omg.CORBA.StringSeqHelper.read(InputStream)|
+|org.omg.CORBA.StringSeqHelper.type()|
+|org.omg.CORBA.StringSeqHelper.write(OutputStream,String[])|
+
+*org.omg.CORBA.StringSeqHelper_Description*
+
+An array of Strings 
+
+
+
+*org.omg.CORBA.StringSeqHelper()*
+
+public StringSeqHelper()
+
+
+
+
+*org.omg.CORBA.StringSeqHelper.extract(Any)*
+
+public static |java.lang.String|[] extract(org.omg.CORBA.Any a)
+
+
+
+
+
+*org.omg.CORBA.StringSeqHelper.id()*
+
+public static |java.lang.String| id()
+
+
+
+
+
+*org.omg.CORBA.StringSeqHelper.insert(Any,String[])*
+
+public static void insert(
+  org.omg.CORBA.Any a,
+  java.lang.String[] that)
+
+
+
+
+
+*org.omg.CORBA.StringSeqHelper.read(InputStream)*
+
+public static |java.lang.String|[] read(org.omg.CORBA.portable.InputStream istream)
+
+
+
+
+
+*org.omg.CORBA.StringSeqHelper.type()*
+
+public static synchronized |org.omg.CORBA.TypeCode| type()
+
+
+
+
+
+*org.omg.CORBA.StringSeqHelper.write(OutputStream,String[])*
+
+public static void write(
+  org.omg.CORBA.portable.OutputStream ostream,
+  java.lang.String[] value)
+
+
+
+
+
+

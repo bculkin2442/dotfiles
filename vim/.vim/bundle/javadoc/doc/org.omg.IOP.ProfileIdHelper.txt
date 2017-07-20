@@ -1,0 +1,89 @@
+*org.omg.IOP.ProfileIdHelper* *ProfileIdHelper* Profile ID
+
+public abstract class ProfileIdHelper
+  extends    |java.lang.Object|
+
+|org.omg.IOP.ProfileIdHelper_Description|
+|org.omg.IOP.ProfileIdHelper_Fields|
+|org.omg.IOP.ProfileIdHelper_Constructors|
+|org.omg.IOP.ProfileIdHelper_Methods|
+
+================================================================================
+
+*org.omg.IOP.ProfileIdHelper_Constructors*
+|org.omg.IOP.ProfileIdHelper()|
+
+*org.omg.IOP.ProfileIdHelper_Methods*
+|org.omg.IOP.ProfileIdHelper.extract(Any)|
+|org.omg.IOP.ProfileIdHelper.id()|
+|org.omg.IOP.ProfileIdHelper.insert(Any,int)|
+|org.omg.IOP.ProfileIdHelper.read(InputStream)|
+|org.omg.IOP.ProfileIdHelper.type()|
+|org.omg.IOP.ProfileIdHelper.write(OutputStream,int)|
+
+*org.omg.IOP.ProfileIdHelper_Description*
+
+Profile ID 
+
+
+
+*org.omg.IOP.ProfileIdHelper()*
+
+public ProfileIdHelper()
+
+
+
+
+*org.omg.IOP.ProfileIdHelper.extract(Any)*
+
+public static int extract(org.omg.CORBA.Any a)
+
+
+
+
+
+*org.omg.IOP.ProfileIdHelper.id()*
+
+public static |java.lang.String| id()
+
+
+
+
+
+*org.omg.IOP.ProfileIdHelper.insert(Any,int)*
+
+public static void insert(
+  org.omg.CORBA.Any a,
+  int that)
+
+
+
+
+
+*org.omg.IOP.ProfileIdHelper.read(InputStream)*
+
+public static int read(org.omg.CORBA.portable.InputStream istream)
+
+
+
+
+
+*org.omg.IOP.ProfileIdHelper.type()*
+
+public static synchronized |org.omg.CORBA.TypeCode| type()
+
+
+
+
+
+*org.omg.IOP.ProfileIdHelper.write(OutputStream,int)*
+
+public static void write(
+  org.omg.CORBA.portable.OutputStream ostream,
+  int value)
+
+
+
+
+
+

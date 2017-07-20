@@ -1,0 +1,29 @@
+*org.omg.PortableInterceptor.RequestInfo* *RequestInfo* Request Information, acc
+
+public interface interface RequestInfo
+
+  implements |org.omg.PortableInterceptor.RequestInfoOperations|
+             |org.omg.CORBA.Object|
+             |org.omg.CORBA.portable.IDLEntity|
+
+|org.omg.PortableInterceptor.RequestInfo_Description|
+|org.omg.PortableInterceptor.RequestInfo_Fields|
+|org.omg.PortableInterceptor.RequestInfo_Constructors|
+|org.omg.PortableInterceptor.RequestInfo_Methods|
+
+================================================================================
+
+*org.omg.PortableInterceptor.RequestInfo_Description*
+
+Request Information, accessible to Interceptors. 
+
+Each interception point is given an object through which the Interceptor can 
+access request information. Client-side and server-side interception points are 
+concerned with different information, so there are two information objects: 
+ClientRequestInfo is passed to the client-side interception points and 
+ServerRequestInfo is passed to the server-side interception points. But there 
+is information that is common to both, so they both inherit from a common 
+interface: RequestInfo. 
+
+
+

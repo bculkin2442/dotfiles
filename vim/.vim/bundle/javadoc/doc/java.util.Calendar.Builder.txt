@@ -1,0 +1,340 @@
+*java.util.Calendar.Builder* *Calendar.Builder* Calendar.Builderis used for crea
+
+public static class Calendar.Builder
+  extends    |java.lang.Object|
+
+|java.util.Calendar.Builder_Description|
+|java.util.Calendar.Builder_Fields|
+|java.util.Calendar.Builder_Constructors|
+|java.util.Calendar.Builder_Methods|
+
+================================================================================
+
+*java.util.Calendar.Builder_Constructors*
+|java.util.Calendar.Builder()|Constructs aCalendar.Builder.
+
+*java.util.Calendar.Builder_Methods*
+|java.util.Calendar.Builder.build()|Returns aCalendarbuilt from the parameters 
+|java.util.Calendar.Builder.set(int,int)|Sets thefieldparameter to the givenval
+|java.util.Calendar.Builder.setCalendarType(String)|Sets the calendar type para
+|java.util.Calendar.Builder.setDate(int,int,int)|Sets the date field parameters
+|java.util.Calendar.Builder.setFields(int...)|Sets field parameters to their va
+|java.util.Calendar.Builder.setInstant(Date)|Sets the instant parameter to thei
+|java.util.Calendar.Builder.setInstant(long)|Sets the instant parameter to the 
+|java.util.Calendar.Builder.setLenient(boolean)|Sets the lenient mode parameter
+|java.util.Calendar.Builder.setLocale(Locale)|Sets the locale parameter to the 
+|java.util.Calendar.Builder.setTimeOfDay(int,int,int)|Sets the time of day fiel
+|java.util.Calendar.Builder.setTimeOfDay(int,int,int,int)|Sets the time of day 
+|java.util.Calendar.Builder.setTimeZone(TimeZone)|Sets the time zone parameter 
+|java.util.Calendar.Builder.setWeekDate(int,int,int)|Sets the week-based date p
+|java.util.Calendar.Builder.setWeekDefinition(int,int)|Sets the week definition
+
+*java.util.Calendar.Builder_Description*
+
+Calendar.Builderis used for creating aCalendarfrom various date-time 
+parameters. 
+
+There are two ways to set aCalendarto a date-time value. One is to set the 
+instant parameter to a millisecond offset from the Epoch. The other is to set 
+individual field parameters, such as YEAR(|java.util.Calendar|) , to their 
+desired values. These two ways can't be mixed. Trying to set both the instant 
+and individual fields will cause an (|java.lang.IllegalStateException|) to be 
+thrown. However, it is permitted to override previous values of the instant or 
+field parameters. 
+
+If no enough field parameters are given for determining date and/or time, 
+calendar specific default values are used when building aCalendar. For example, 
+if the YEAR(|java.util.Calendar|) value isn't given for the Gregorian calendar, 
+1970 will be used. If there are any conflicts among field parameters, the 
+resolution rules are applied. Therefore, the order of field setting matters. 
+
+In addition to the date-time parameters, the 
+locale(|java.util.Calendar.Builder|) , time zone(|java.util.Calendar.Builder|) 
+, week definition(|java.util.Calendar.Builder|) , and leniency 
+mode(|java.util.Calendar.Builder|) parameters can be set. 
+
+Examples The following are sample usages. Sample code assumes that 
+theCalendarconstants are statically imported. 
+
+The following code produces aCalendarwith date 2012-12-31 (Gregorian) because 
+Monday is the first day of a week with the ISO 8601 compatible week parameters. 
+
+Calendar cal = new Calendar.Builder().setCalendarType("iso8601") 
+.setWeekDate(2013, 1, MONDAY).build(); 
+
+The following code produces a JapaneseCalendarwith date 1989-01-08 (Gregorian), 
+assuming that the default ERA(|java.util.Calendar|) is Heisei that started on 
+that day. 
+
+Calendar cal = new Calendar.Builder().setCalendarType("japanese") 
+.setFields(YEAR, 1, DAY_OF_YEAR, 1).build(); 
+
+
+
+*java.util.Calendar.Builder()*
+
+public Builder()
+
+Constructs aCalendar.Builder. 
+
+
+*java.util.Calendar.Builder.build()*
+
+public |java.util.Calendar| build()
+
+Returns aCalendarbuilt from the parameters set by the setter methods. The 
+calendar type given by the setCalendarType(|java.util.Calendar.Builder|) method 
+or the locale(|java.util.Calendar.Builder|) is used to determine whatCalendarto 
+be created. If no explicit calendar type is given, the locale's default 
+calendar is created. 
+
+If the calendar type is"iso8601", the Gregorian change 
+date(|java.util.GregorianCalendar|) of a (|java.util.GregorianCalendar|) is set 
+toDate(Long.MIN_VALUE)to be the proleptic Gregorian calendar. Its week 
+definition parameters are also set to be compatible with the ISO 8601 standard. 
+Note that the getCalendarType(|java.util.GregorianCalendar|) method of 
+aGregorianCalendarcreated with"iso8601"returns"gregory". 
+
+The default values are used for locale and time zone if these parameters 
+haven't been given explicitly. 
+
+Any out of range field values are either normalized in lenient mode or detected 
+as an invalid value in non-lenient mode. 
+
+
+
+    Returns: a {@code Calendar} built with parameters of this {@code Calendar.Builder} 
+
+*java.util.Calendar.Builder.set(int,int)*
+
+public |java.util.Calendar.Builder| set(
+  int field,
+  int value)
+
+Sets thefieldparameter to the givenvalue.fieldis an index to the 
+(|java.util.Calendar|) , such as DAY_OF_MONTH(|java.util.Calendar|) . Field 
+value validation is not performed in this method. Any out of range values are 
+either normalized in lenient mode or detected as an invalid value in 
+non-lenient mode when building aCalendar. 
+
+
+    field - an index to the {@code Calendar} fields 
+    value - the field value 
+
+    Returns: this {@code Calendar.Builder} 
+
+*java.util.Calendar.Builder.setCalendarType(String)*
+
+public |java.util.Calendar.Builder| setCalendarType(java.lang.String type)
+
+Sets the calendar type parameter to the giventype. The calendar type given by 
+this method has precedence over any explicit or implicit calendar type given by 
+the locale(|java.util.Calendar.Builder|) . 
+
+In addition to the available calendar types returned by the 
+Calendar.getAvailableCalendarTypes(|java.util.Calendar|) 
+method,"gregorian"and"iso8601"as aliases of"gregory"can be used with this 
+method. 
+
+
+    type - the calendar type 
+
+    Returns: this {@code Calendar.Builder} 
+
+*java.util.Calendar.Builder.setDate(int,int,int)*
+
+public |java.util.Calendar.Builder| setDate(
+  int year,
+  int month,
+  int dayOfMonth)
+
+Sets the date field parameters to the values given byyear,month, anddayOfMonth. 
+This method is equivalent to a call to: 
+
+setFields(Calendar.YEAR, year, Calendar.MONTH, month, Calendar.DAY_OF_MONTH, 
+dayOfMonth); 
+
+
+    year - the {@link Calendar#YEAR YEAR} value 
+    month - the {@link Calendar#MONTH MONTH} value (the month numbering is 0-based). 
+    dayOfMonth - the {@link Calendar#DAY_OF_MONTH DAY_OF_MONTH} value 
+
+    Returns: this {@code Calendar.Builder} 
+
+*java.util.Calendar.Builder.setFields(int...)*
+
+public |java.util.Calendar.Builder| setFields(int[] fieldValuePairs)
+
+Sets field parameters to their values given byfieldValuePairsthat are pairs of 
+a field and its value. For example, 
+
+setFeilds(Calendar.YEAR, 2013, Calendar.MONTH, Calendar.DECEMBER, 
+Calendar.DAY_OF_MONTH, 23); 
+
+is equivalent to the sequence of the following 
+set(|java.util.Calendar.Builder|) calls: 
+
+set(Calendar.YEAR, 2013) .set(Calendar.MONTH, Calendar.DECEMBER) 
+.set(Calendar.DAY_OF_MONTH, 23); 
+
+
+    fieldValuePairs - field-value pairs 
+
+    Returns: this {@code Calendar.Builder} 
+
+*java.util.Calendar.Builder.setInstant(Date)*
+
+public |java.util.Calendar.Builder| setInstant(java.util.Date instant)
+
+Sets the instant parameter to theinstantvalue given by a (|java.util.Date|) . 
+This method is equivalent to a call to 
+setInstant(instant.getTime())(|java.util.Calendar.Builder|) . 
+
+
+    instant - a {@code Date} representing a millisecond offset from the Epoch 
+
+    Returns: this {@code Calendar.Builder} 
+
+*java.util.Calendar.Builder.setInstant(long)*
+
+public |java.util.Calendar.Builder| setInstant(long instant)
+
+Sets the instant parameter to the giveninstantvalue that is a millisecond 
+offset from the Epoch. 
+
+
+    instant - a millisecond offset from the Epoch 
+
+    Returns: this {@code Calendar.Builder} 
+
+*java.util.Calendar.Builder.setLenient(boolean)*
+
+public |java.util.Calendar.Builder| setLenient(boolean lenient)
+
+Sets the lenient mode parameter to the value given bylenient. If no lenient 
+parameter is given to thisCalendar.Builder, lenient mode will be used in the 
+build(|java.util.Calendar.Builder|) method. 
+
+
+    lenient - {@code true} for lenient mode; {@code false} for non-lenient mode 
+
+    Returns: this {@code Calendar.Builder} 
+
+*java.util.Calendar.Builder.setLocale(Locale)*
+
+public |java.util.Calendar.Builder| setLocale(java.util.Locale locale)
+
+Sets the locale parameter to the givenlocale. If no locale is given to 
+thisCalendar.Builder, the default <code>Locale</code>(|java.util.Locale|) for 
+(|java.util.Locale.Category|) will be used. 
+
+If no calendar type is explicitly given by a call to the 
+setCalendarType(|java.util.Calendar.Builder|) method, theLocalevalue is used to 
+determine what type ofCalendarto be built. 
+
+If no week definition parameters are explicitly given by a call to the 
+setWeekDefinition(|java.util.Calendar.Builder|) method, theLocale's default 
+values are used. 
+
+
+    locale - the {@link Locale} 
+
+    Returns: this {@code Calendar.Builder} 
+
+*java.util.Calendar.Builder.setTimeOfDay(int,int,int)*
+
+public |java.util.Calendar.Builder| setTimeOfDay(
+  int hourOfDay,
+  int minute,
+  int second)
+
+Sets the time of day field parameters to the values given byhourOfDay,minute, 
+andsecond. This method is equivalent to a call to: 
+
+setTimeOfDay(hourOfDay, minute, second, 0); 
+
+
+    hourOfDay - the {@link Calendar#HOUR_OF_DAY HOUR_OF_DAY} value (24-hour clock) 
+    minute - the {@link Calendar#MINUTE MINUTE} value 
+    second - the {@link Calendar#SECOND SECOND} value 
+
+    Returns: this {@code Calendar.Builder} 
+
+*java.util.Calendar.Builder.setTimeOfDay(int,int,int,int)*
+
+public |java.util.Calendar.Builder| setTimeOfDay(
+  int hourOfDay,
+  int minute,
+  int second,
+  int millis)
+
+Sets the time of day field parameters to the values given 
+byhourOfDay,minute,second, andmillis. This method is equivalent to a call to: 
+
+setFields(Calendar.HOUR_OF_DAY, hourOfDay, Calendar.MINUTE, minute, 
+Calendar.SECOND, second, Calendar.MILLISECOND, millis); 
+
+
+    hourOfDay - the {@link Calendar#HOUR_OF_DAY HOUR_OF_DAY} value (24-hour clock) 
+    minute - the {@link Calendar#MINUTE MINUTE} value 
+    second - the {@link Calendar#SECOND SECOND} value 
+    millis - the {@link Calendar#MILLISECOND MILLISECOND} value 
+
+    Returns: this {@code Calendar.Builder} 
+
+*java.util.Calendar.Builder.setTimeZone(TimeZone)*
+
+public |java.util.Calendar.Builder| setTimeZone(java.util.TimeZone zone)
+
+Sets the time zone parameter to the givenzone. If no time zone parameter is 
+given to thisCaledar.Builder, the default 
+<code>TimeZone</code>(|java.util.TimeZone|) will be used in the 
+build(|java.util.Calendar.Builder|) method. 
+
+
+    zone - the {@link TimeZone} 
+
+    Returns: this {@code Calendar.Builder} 
+
+*java.util.Calendar.Builder.setWeekDate(int,int,int)*
+
+public |java.util.Calendar.Builder| setWeekDate(
+  int weekYear,
+  int weekOfYear,
+  int dayOfWeek)
+
+Sets the week-based date parameters to the values with the given date 
+specifiers - week year, week of year, and day of week. 
+
+If the specified calendar doesn't support week dates, the 
+build(|java.util.Calendar.Builder|) method will throw an 
+(|java.lang.IllegalArgumentException|) . 
+
+
+    weekYear - the week year 
+    weekOfYear - the week number based on {@code weekYear} 
+    dayOfWeek - the day of week value: one of the constants for the {@link Calendar#DAY_OF_WEEK 
+       DAY_OF_WEEK} field: {@link Calendar#SUNDAY SUNDAY}, ..., {@link 
+       Calendar#SATURDAY SATURDAY}. 
+
+    Returns: this {@code Calendar.Builder} 
+
+*java.util.Calendar.Builder.setWeekDefinition(int,int)*
+
+public |java.util.Calendar.Builder| setWeekDefinition(
+  int firstDayOfWeek,
+  int minimalDaysInFirstWeek)
+
+Sets the week definition parameters to the values given 
+byfirstDayOfWeekandminimalDaysInFirstWeekthat are used to determine the first 
+week of a year. The parameters given by this method have precedence over the 
+default values given by the locale(|java.util.Calendar.Builder|) . 
+
+
+    firstDayOfWeek - the first day of a week; one of {@link Calendar#SUNDAY} to {@link 
+       Calendar#SATURDAY} 
+    minimalDaysInFirstWeek - the minimal number of days in the first week (1..7) 
+
+    Returns: this {@code Calendar.Builder} 
+
+

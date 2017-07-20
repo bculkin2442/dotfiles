@@ -1,0 +1,64 @@
+*java.rmi.server.RemoteStub* *RemoteStub* TheRemoteStubclass is the common super
+
+public abstract class RemoteStub
+  extends    |java.rmi.server.RemoteObject|
+
+|java.rmi.server.RemoteStub_Description|
+|java.rmi.server.RemoteStub_Fields|
+|java.rmi.server.RemoteStub_Constructors|
+|java.rmi.server.RemoteStub_Methods|
+
+================================================================================
+
+*java.rmi.server.RemoteStub_Constructors*
+|java.rmi.server.RemoteStub()|Constructs aRemoteStub.
+|java.rmi.server.RemoteStub(RemoteRef)|Constructs aRemoteStubwith the specified
+
+*java.rmi.server.RemoteStub_Methods*
+|java.rmi.server.RemoteStub.setRef(RemoteStub,RemoteRef)|ThrowsUnsupportedOpera
+
+*java.rmi.server.RemoteStub_Description*
+
+TheRemoteStubclass is the common superclass of statically generated client 
+stubs and provides the framework to support a wide range of remote reference 
+semantics. Stub objects are surrogates that support exactly the same set of 
+remote interfaces defined by the actual implementation of the remote object. 
+
+
+  Deprecated: Statically generated stubs are deprecated, since
+ stubs are generated dynamically. See {@link UnicastRemoteObject}
+ for information about dynamic stub generation.
+
+*java.rmi.server.RemoteStub()*
+
+protected RemoteStub()
+
+Constructs aRemoteStub. 
+
+
+*java.rmi.server.RemoteStub(RemoteRef)*
+
+protected RemoteStub(java.rmi.server.RemoteRef ref)
+
+Constructs aRemoteStubwith the specified remote reference. 
+
+    ref - the remote reference 
+
+*java.rmi.server.RemoteStub.setRef(RemoteStub,RemoteRef)*
+
+protected static void setRef(
+  java.rmi.server.RemoteStub stub,
+  java.rmi.server.RemoteRef ref)
+
+Throws (|java.lang.UnsupportedOperationException|) . 
+
+    Deprecated: No replacement.  The {@code setRef} method
+ was intended for setting the remote reference of a remote
+ stub. This is unnecessary, since {@code RemoteStub}s can be created
+ and initialized with a remote reference through use of
+ the {@link #RemoteStub(RemoteRef)} constructor.
+
+    stub - the remote stub 
+    ref - the remote reference 
+
+

@@ -1,0 +1,25 @@
+*org.omg.DynamicAny.DynValueBox* *DynValueBox* DynValueBox objects support the m
+
+public interface interface DynValueBox
+
+  implements |org.omg.DynamicAny.DynValueBoxOperations|
+             |org.omg.DynamicAny.DynValueCommon|
+             |org.omg.CORBA.portable.IDLEntity|
+
+|org.omg.DynamicAny.DynValueBox_Description|
+|org.omg.DynamicAny.DynValueBox_Fields|
+|org.omg.DynamicAny.DynValueBox_Constructors|
+|org.omg.DynamicAny.DynValueBox_Methods|
+
+================================================================================
+
+*org.omg.DynamicAny.DynValueBox_Description*
+
+DynValueBox objects support the manipulation of IDL boxed value types. The 
+DynValueBox interface can represent both null and non-null value types. For a 
+DynValueBox representing a non-null value type, the DynValueBox has a single 
+component of the boxed type. A DynValueBox representing a null value type has 
+no components and a current position of -1. 
+
+
+

@@ -1,0 +1,38 @@
+*java.util.function.DoubleToIntFunction* *DoubleToIntFunction* Represents a func
+
+public interface interface DoubleToIntFunction
+
+
+|java.util.function.DoubleToIntFunction_Description|
+|java.util.function.DoubleToIntFunction_Fields|
+|java.util.function.DoubleToIntFunction_Constructors|
+|java.util.function.DoubleToIntFunction_Methods|
+
+================================================================================
+
+*java.util.function.DoubleToIntFunction_Methods*
+|java.util.function.DoubleToIntFunction.applyAsInt(double)|Applies this functio
+
+*java.util.function.DoubleToIntFunction_Description*
+
+Represents a function that accepts a double-valued argument and produces an 
+int-valued result. This is thedouble-to-intprimitive specialization for 
+(|java.util.function.Function|) . 
+
+This is a functional interface whose functional method is 
+(|java.util.function.DoubleToIntFunction|) . 
+
+
+
+*java.util.function.DoubleToIntFunction.applyAsInt(double)*
+
+public int applyAsInt(double value)
+
+Applies this function to the given argument. 
+
+
+    value - the function argument 
+
+    Returns: the function result 
+
+

@@ -1,0 +1,128 @@
+*org.omg.DynamicAny.DynAnyFactoryHelper* *DynAnyFactoryHelper* DynAny objects ca
+
+public abstract class DynAnyFactoryHelper
+  extends    |java.lang.Object|
+
+|org.omg.DynamicAny.DynAnyFactoryHelper_Description|
+|org.omg.DynamicAny.DynAnyFactoryHelper_Fields|
+|org.omg.DynamicAny.DynAnyFactoryHelper_Constructors|
+|org.omg.DynamicAny.DynAnyFactoryHelper_Methods|
+
+================================================================================
+
+*org.omg.DynamicAny.DynAnyFactoryHelper_Constructors*
+|org.omg.DynamicAny.DynAnyFactoryHelper()|
+
+*org.omg.DynamicAny.DynAnyFactoryHelper_Methods*
+|org.omg.DynamicAny.DynAnyFactoryHelper.extract(Any)|
+|org.omg.DynamicAny.DynAnyFactoryHelper.id()|
+|org.omg.DynamicAny.DynAnyFactoryHelper.insert(Any,DynAnyFactory)|
+|org.omg.DynamicAny.DynAnyFactoryHelper.narrow(Object)|
+|org.omg.DynamicAny.DynAnyFactoryHelper.read(InputStream)|
+|org.omg.DynamicAny.DynAnyFactoryHelper.type()|
+|org.omg.DynamicAny.DynAnyFactoryHelper.unchecked_narrow(Object)|
+|org.omg.DynamicAny.DynAnyFactoryHelper.write(OutputStream,DynAnyFactory)|
+
+*org.omg.DynamicAny.DynAnyFactoryHelper_Description*
+
+DynAny objects can be created by invoking operations on the DynAnyFactory 
+object. Generally there are only two ways to create a DynAny object: 
+
+invoking an operation on an existing DynAny object invoking an operation on a 
+DynAnyFactory object 
+
+A constructed DynAny object supports operations that enable the creation of new 
+DynAny objects encapsulating access to the value of some constituent. DynAny 
+objects also support the copy operation for creating new DynAny objects. A 
+reference to the DynAnyFactory object is obtained by calling 
+ORB.resolve_initial_references() with the identifier parameter set to the 
+string constant "DynAnyFactory". Dynamic interpretation of an any usually 
+involves creating a DynAny object using create_dyn_any() as the first step. 
+Depending on the type of the any, the resulting DynAny object reference can be 
+narrowed to a DynFixed, DynStruct, DynSequence, DynArray, DynUnion, DynEnum, or 
+DynValue object reference. Dynamic creation of an any involves creating a 
+DynAny object using create_dyn_any_from_type_code(), passing the TypeCode 
+associated with the value to be created. The returned reference is narrowed to 
+one of the complex types, such as DynStruct, if appropriate. Then, the value 
+can be initialized by means of invoking operations on the resulting object. 
+Finally, the to_any operation can be invoked to create an any value from the 
+constructed DynAny. 
+
+
+
+*org.omg.DynamicAny.DynAnyFactoryHelper()*
+
+public DynAnyFactoryHelper()
+
+
+
+
+*org.omg.DynamicAny.DynAnyFactoryHelper.extract(Any)*
+
+public static |org.omg.DynamicAny.DynAnyFactory| extract(org.omg.CORBA.Any a)
+
+
+
+
+
+*org.omg.DynamicAny.DynAnyFactoryHelper.id()*
+
+public static |java.lang.String| id()
+
+
+
+
+
+*org.omg.DynamicAny.DynAnyFactoryHelper.insert(Any,DynAnyFactory)*
+
+public static void insert(
+  org.omg.CORBA.Any a,
+  org.omg.DynamicAny.DynAnyFactory that)
+
+
+
+
+
+*org.omg.DynamicAny.DynAnyFactoryHelper.narrow(Object)*
+
+public static |org.omg.DynamicAny.DynAnyFactory| narrow(org.omg.CORBA.Object obj)
+
+
+
+
+
+*org.omg.DynamicAny.DynAnyFactoryHelper.read(InputStream)*
+
+public static |org.omg.DynamicAny.DynAnyFactory| read(org.omg.CORBA.portable.InputStream istream)
+
+
+
+
+
+*org.omg.DynamicAny.DynAnyFactoryHelper.type()*
+
+public static synchronized |org.omg.CORBA.TypeCode| type()
+
+
+
+
+
+*org.omg.DynamicAny.DynAnyFactoryHelper.unchecked_narrow(Object)*
+
+public static |org.omg.DynamicAny.DynAnyFactory| unchecked_narrow(org.omg.CORBA.Object obj)
+
+
+
+
+
+*org.omg.DynamicAny.DynAnyFactoryHelper.write(OutputStream,DynAnyFactory)*
+
+public static void write(
+  org.omg.CORBA.portable.OutputStream ostream,
+  org.omg.DynamicAny.DynAnyFactory value)
+
+
+
+
+
+

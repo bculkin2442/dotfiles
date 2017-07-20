@@ -1,0 +1,171 @@
+*javax.swing.plaf.synth.SynthTableHeaderUI* *SynthTableHeaderUI* Provides the Sy
+
+public class SynthTableHeaderUI
+  extends    |javax.swing.plaf.basic.BasicTableHeaderUI|
+  implements |java.beans.PropertyChangeListener|
+             |javax.swing.plaf.synth.SynthUI|
+
+|javax.swing.plaf.synth.SynthTableHeaderUI_Description|
+|javax.swing.plaf.synth.SynthTableHeaderUI_Fields|
+|javax.swing.plaf.synth.SynthTableHeaderUI_Constructors|
+|javax.swing.plaf.synth.SynthTableHeaderUI_Methods|
+
+================================================================================
+
+*javax.swing.plaf.synth.SynthTableHeaderUI_Constructors*
+|javax.swing.plaf.synth.SynthTableHeaderUI()|
+
+*javax.swing.plaf.synth.SynthTableHeaderUI_Methods*
+|javax.swing.plaf.synth.SynthTableHeaderUI.createUI(JComponent)|Creates a new U
+|javax.swing.plaf.synth.SynthTableHeaderUI.getContext(JComponent)|
+|javax.swing.plaf.synth.SynthTableHeaderUI.installDefaults()|
+|javax.swing.plaf.synth.SynthTableHeaderUI.installListeners()|
+|javax.swing.plaf.synth.SynthTableHeaderUI.paint(Graphics,JComponent)|Paints th
+|javax.swing.plaf.synth.SynthTableHeaderUI.paint(SynthContext,Graphics)|Paints 
+|javax.swing.plaf.synth.SynthTableHeaderUI.paintBorder(SynthContext,Graphics,int,int,int,int)|
+|javax.swing.plaf.synth.SynthTableHeaderUI.propertyChange(PropertyChangeEvent)|
+|javax.swing.plaf.synth.SynthTableHeaderUI.rolloverColumnUpdated(int,int)|
+|javax.swing.plaf.synth.SynthTableHeaderUI.uninstallDefaults()|
+|javax.swing.plaf.synth.SynthTableHeaderUI.uninstallListeners()|
+|javax.swing.plaf.synth.SynthTableHeaderUI.update(Graphics,JComponent)|Notifies
+
+*javax.swing.plaf.synth.SynthTableHeaderUI_Description*
+
+Provides the Synth L and F UI delegate for (|javax.swing.table.JTableHeader|) . 
+
+
+
+*javax.swing.plaf.synth.SynthTableHeaderUI()*
+
+public SynthTableHeaderUI()
+
+
+
+
+*javax.swing.plaf.synth.SynthTableHeaderUI.createUI(JComponent)*
+
+public static |javax.swing.plaf.ComponentUI| createUI(javax.swing.JComponent h)
+
+Creates a new UI object for the given component. 
+
+
+    h - component to create UI object for 
+
+    Returns: the UI object 
+
+*javax.swing.plaf.synth.SynthTableHeaderUI.getContext(JComponent)*
+
+public |javax.swing.plaf.synth.SynthContext| getContext(javax.swing.JComponent c)
+
+
+
+
+
+*javax.swing.plaf.synth.SynthTableHeaderUI.installDefaults()*
+
+protected void installDefaults()
+
+
+
+
+
+*javax.swing.plaf.synth.SynthTableHeaderUI.installListeners()*
+
+protected void installListeners()
+
+
+
+
+
+*javax.swing.plaf.synth.SynthTableHeaderUI.paint(Graphics,JComponent)*
+
+public void paint(
+  java.awt.Graphics g,
+  javax.swing.JComponent c)
+
+Paints the specified component according to the Look and Feel. This method is 
+not used by Synth Look and Feel. Painting is handled by the 
+(|javax.swing.plaf.synth.SynthTableHeaderUI|) method. 
+
+
+    g - the {@code Graphics} object used for painting 
+    c - the component being painted 
+
+*javax.swing.plaf.synth.SynthTableHeaderUI.paint(SynthContext,Graphics)*
+
+protected void paint(
+  javax.swing.plaf.synth.SynthContext context,
+  java.awt.Graphics g)
+
+Paints the specified component. 
+
+
+    context - context for the component being painted 
+    g - the {@code Graphics} object used for painting 
+
+*javax.swing.plaf.synth.SynthTableHeaderUI.paintBorder(SynthContext,Graphics,int,int,int,int)*
+
+public void paintBorder(
+  javax.swing.plaf.synth.SynthContext context,
+  java.awt.Graphics g,
+  int x,
+  int y,
+  int w,
+  int h)
+
+
+
+
+
+*javax.swing.plaf.synth.SynthTableHeaderUI.propertyChange(PropertyChangeEvent)*
+
+public void propertyChange(java.beans.PropertyChangeEvent evt)
+
+
+
+
+
+*javax.swing.plaf.synth.SynthTableHeaderUI.rolloverColumnUpdated(int,int)*
+
+protected void rolloverColumnUpdated(
+  int oldColumn,
+  int newColumn)
+
+
+
+
+
+*javax.swing.plaf.synth.SynthTableHeaderUI.uninstallDefaults()*
+
+protected void uninstallDefaults()
+
+
+
+
+
+*javax.swing.plaf.synth.SynthTableHeaderUI.uninstallListeners()*
+
+protected void uninstallListeners()
+
+
+
+
+
+*javax.swing.plaf.synth.SynthTableHeaderUI.update(Graphics,JComponent)*
+
+public void update(
+  java.awt.Graphics g,
+  javax.swing.JComponent c)
+
+Notifies this UI delegate to repaint the specified component. This method 
+paints the component background, then calls the 
+(|javax.swing.plaf.synth.SynthTableHeaderUI|) method. 
+
+In general, this method does not need to be overridden by subclasses. All Look 
+and Feel rendering code should reside in thepaintmethod. 
+
+
+    g - the {@code Graphics} object used for painting 
+    c - the component being painted 
+
+

@@ -1,0 +1,24 @@
+*java.lang.annotation.Native* *Native* Indicates that a field defining a constan
+
+public interface class Native
+
+  implements |java.lang.annotation.Annotation|
+
+|java.lang.annotation.Native_Description|
+|java.lang.annotation.Native_Fields|
+|java.lang.annotation.Native_Constructors|
+|java.lang.annotation.Native_Methods|
+
+================================================================================
+
+*java.lang.annotation.Native_Description*
+
+Indicates that a field defining a constant value may be referenced from native 
+code. 
+
+The annotation may be used as a hint by tools that generate native header files 
+to determine whether a header file is required, and if so, what declarations it 
+should contain. 
+
+
+

@@ -1,0 +1,33 @@
+*java.rmi.RMISecurityManager* *RMISecurityManager* RMISecurityManagerimplements 
+
+public class RMISecurityManager
+  extends    |java.lang.SecurityManager|
+
+|java.rmi.RMISecurityManager_Description|
+|java.rmi.RMISecurityManager_Fields|
+|java.rmi.RMISecurityManager_Constructors|
+|java.rmi.RMISecurityManager_Methods|
+
+================================================================================
+
+*java.rmi.RMISecurityManager_Constructors*
+|java.rmi.RMISecurityManager()|Constructs a newRMISecurityManager.
+
+*java.rmi.RMISecurityManager_Description*
+
+RMISecurityManagerimplements a policy identical to the policy implemented by 
+(|java.lang.SecurityManager|) . RMI applications should use 
+theSecurityManagerclass or another appropriateSecurityManagerimplementation 
+instead of this class. RMI's class loader will download classes from remote 
+locations only if a security manager has been set. 
+
+
+  Deprecated: Use {@link SecurityManager} instead.
+
+*java.rmi.RMISecurityManager()*
+
+public RMISecurityManager()
+
+Constructs a newRMISecurityManager. 
+
+

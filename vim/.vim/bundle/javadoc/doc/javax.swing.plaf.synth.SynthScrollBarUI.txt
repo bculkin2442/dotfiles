@@ -1,0 +1,259 @@
+*javax.swing.plaf.synth.SynthScrollBarUI* *SynthScrollBarUI* Provides the Synth 
+
+public class SynthScrollBarUI
+  extends    |javax.swing.plaf.basic.BasicScrollBarUI|
+  implements |java.beans.PropertyChangeListener|
+             |javax.swing.plaf.synth.SynthUI|
+
+|javax.swing.plaf.synth.SynthScrollBarUI_Description|
+|javax.swing.plaf.synth.SynthScrollBarUI_Fields|
+|javax.swing.plaf.synth.SynthScrollBarUI_Constructors|
+|javax.swing.plaf.synth.SynthScrollBarUI_Methods|
+
+================================================================================
+
+*javax.swing.plaf.synth.SynthScrollBarUI_Constructors*
+|javax.swing.plaf.synth.SynthScrollBarUI()|
+
+*javax.swing.plaf.synth.SynthScrollBarUI_Methods*
+|javax.swing.plaf.synth.SynthScrollBarUI.configureScrollBarColors()|
+|javax.swing.plaf.synth.SynthScrollBarUI.createDecreaseButton(int)|
+|javax.swing.plaf.synth.SynthScrollBarUI.createIncreaseButton(int)|
+|javax.swing.plaf.synth.SynthScrollBarUI.createUI(JComponent)|
+|javax.swing.plaf.synth.SynthScrollBarUI.getContext(JComponent)|
+|javax.swing.plaf.synth.SynthScrollBarUI.getMinimumThumbSize()|
+|javax.swing.plaf.synth.SynthScrollBarUI.getPreferredSize(JComponent)|A vertica
+|javax.swing.plaf.synth.SynthScrollBarUI.getSupportsAbsolutePositioning()|
+|javax.swing.plaf.synth.SynthScrollBarUI.installDefaults()|
+|javax.swing.plaf.synth.SynthScrollBarUI.installListeners()|
+|javax.swing.plaf.synth.SynthScrollBarUI.paint(Graphics,JComponent)|Paints the 
+|javax.swing.plaf.synth.SynthScrollBarUI.paint(SynthContext,Graphics)|Paints th
+|javax.swing.plaf.synth.SynthScrollBarUI.paintBorder(SynthContext,Graphics,int,int,int,int)|
+|javax.swing.plaf.synth.SynthScrollBarUI.paintThumb(SynthContext,Graphics,Rectangle)|
+|javax.swing.plaf.synth.SynthScrollBarUI.paintTrack(SynthContext,Graphics,Rectangle)|
+|javax.swing.plaf.synth.SynthScrollBarUI.propertyChange(PropertyChangeEvent)|
+|javax.swing.plaf.synth.SynthScrollBarUI.setThumbRollover(boolean)|
+|javax.swing.plaf.synth.SynthScrollBarUI.uninstallDefaults()|
+|javax.swing.plaf.synth.SynthScrollBarUI.uninstallListeners()|
+|javax.swing.plaf.synth.SynthScrollBarUI.update(Graphics,JComponent)|Notifies t
+
+*javax.swing.plaf.synth.SynthScrollBarUI_Description*
+
+Provides the Synth L and F UI delegate for (|javax.swing.JScrollBar|) . 
+
+
+
+*javax.swing.plaf.synth.SynthScrollBarUI()*
+
+public SynthScrollBarUI()
+
+
+
+
+*javax.swing.plaf.synth.SynthScrollBarUI.configureScrollBarColors()*
+
+protected void configureScrollBarColors()
+
+
+
+
+
+*javax.swing.plaf.synth.SynthScrollBarUI.createDecreaseButton(int)*
+
+protected |javax.swing.JButton| createDecreaseButton(int orientation)
+
+
+
+
+
+*javax.swing.plaf.synth.SynthScrollBarUI.createIncreaseButton(int)*
+
+protected |javax.swing.JButton| createIncreaseButton(int orientation)
+
+
+
+
+
+*javax.swing.plaf.synth.SynthScrollBarUI.createUI(JComponent)*
+
+public static |javax.swing.plaf.ComponentUI| createUI(javax.swing.JComponent c)
+
+
+
+
+
+*javax.swing.plaf.synth.SynthScrollBarUI.getContext(JComponent)*
+
+public |javax.swing.plaf.synth.SynthContext| getContext(javax.swing.JComponent c)
+
+
+
+
+
+*javax.swing.plaf.synth.SynthScrollBarUI.getMinimumThumbSize()*
+
+protected |java.awt.Dimension| getMinimumThumbSize()
+
+
+
+
+
+*javax.swing.plaf.synth.SynthScrollBarUI.getPreferredSize(JComponent)*
+
+public |java.awt.Dimension| getPreferredSize(javax.swing.JComponent c)
+
+A vertical scrollbar's preferred width is the maximum of preferred widths of 
+the (non null) increment/decrement buttons, and the minimum width of the thumb. 
+The preferred height is the sum of the preferred heights of the same parts. The 
+basis for the preferred size of a horizontal scrollbar is similar. 
+
+The preferredSize is only computed once, subsequent calls to this method just 
+return a cached size. 
+
+
+    c - the JScrollBar that's delegating this method to us 
+
+    Returns: the preferred size of a Basic JScrollBar 
+
+*javax.swing.plaf.synth.SynthScrollBarUI.getSupportsAbsolutePositioning()*
+
+public boolean getSupportsAbsolutePositioning()
+
+
+
+
+
+*javax.swing.plaf.synth.SynthScrollBarUI.installDefaults()*
+
+protected void installDefaults()
+
+
+
+
+
+*javax.swing.plaf.synth.SynthScrollBarUI.installListeners()*
+
+protected void installListeners()
+
+
+
+
+
+*javax.swing.plaf.synth.SynthScrollBarUI.paint(Graphics,JComponent)*
+
+public void paint(
+  java.awt.Graphics g,
+  javax.swing.JComponent c)
+
+Paints the specified component according to the Look and Feel. This method is 
+not used by Synth Look and Feel. Painting is handled by the 
+(|javax.swing.plaf.synth.SynthScrollBarUI|) method. 
+
+
+    g - the {@code Graphics} object used for painting 
+    c - the component being painted 
+
+*javax.swing.plaf.synth.SynthScrollBarUI.paint(SynthContext,Graphics)*
+
+protected void paint(
+  javax.swing.plaf.synth.SynthContext context,
+  java.awt.Graphics g)
+
+Paints the specified component. 
+
+
+    context - context for the component being painted 
+    g - the {@code Graphics} object used for painting 
+
+*javax.swing.plaf.synth.SynthScrollBarUI.paintBorder(SynthContext,Graphics,int,int,int,int)*
+
+public void paintBorder(
+  javax.swing.plaf.synth.SynthContext context,
+  java.awt.Graphics g,
+  int x,
+  int y,
+  int w,
+  int h)
+
+
+
+
+
+*javax.swing.plaf.synth.SynthScrollBarUI.paintThumb(SynthContext,Graphics,Rectangle)*
+
+protected void paintThumb(
+  javax.swing.plaf.synth.SynthContext context,
+  java.awt.Graphics g,
+  java.awt.Rectangle thumbBounds)
+
+Paints the scrollbar thumb. 
+
+
+    context - context for the component being painted 
+    g - {@code Graphics} object used for painting 
+    thumbBounds - bounding box for the thumb 
+
+*javax.swing.plaf.synth.SynthScrollBarUI.paintTrack(SynthContext,Graphics,Rectangle)*
+
+protected void paintTrack(
+  javax.swing.plaf.synth.SynthContext context,
+  java.awt.Graphics g,
+  java.awt.Rectangle trackBounds)
+
+Paints the scrollbar track. 
+
+
+    context - context for the component being painted 
+    g - {@code Graphics} object used for painting 
+    trackBounds - bounding box for the track 
+
+*javax.swing.plaf.synth.SynthScrollBarUI.propertyChange(PropertyChangeEvent)*
+
+public void propertyChange(java.beans.PropertyChangeEvent e)
+
+
+
+
+
+*javax.swing.plaf.synth.SynthScrollBarUI.setThumbRollover(boolean)*
+
+protected void setThumbRollover(boolean active)
+
+
+
+
+
+*javax.swing.plaf.synth.SynthScrollBarUI.uninstallDefaults()*
+
+protected void uninstallDefaults()
+
+
+
+
+
+*javax.swing.plaf.synth.SynthScrollBarUI.uninstallListeners()*
+
+protected void uninstallListeners()
+
+
+
+
+
+*javax.swing.plaf.synth.SynthScrollBarUI.update(Graphics,JComponent)*
+
+public void update(
+  java.awt.Graphics g,
+  javax.swing.JComponent c)
+
+Notifies this UI delegate to repaint the specified component. This method 
+paints the component background, then calls the 
+(|javax.swing.plaf.synth.SynthScrollBarUI|) method. 
+
+In general, this method does not need to be overridden by subclasses. All Look 
+and Feel rendering code should reside in thepaintmethod. 
+
+
+    g - the {@code Graphics} object used for painting 
+    c - the component being painted 
+
+

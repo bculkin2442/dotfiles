@@ -1,0 +1,346 @@
+*javax.xml.ws.spi.Provider* *Provider* Service provider for ServiceDelegate and
+
+
+public abstract class Provider
+  extends    |java.lang.Object|
+
+|javax.xml.ws.spi.Provider_Description|
+|javax.xml.ws.spi.Provider_Fields|
+|javax.xml.ws.spi.Provider_Constructors|
+|javax.xml.ws.spi.Provider_Methods|
+
+================================================================================
+
+*javax.xml.ws.spi.Provider_Fields*
+|java.lang.String_javax.xml.ws.spi.Provider.JAXWSPROVIDER_PROPERTY|
+
+*javax.xml.ws.spi.Provider_Constructors*
+|javax.xml.ws.spi.Provider()|Creates a new instance of Provider
+
+*javax.xml.ws.spi.Provider_Methods*
+|javax.xml.ws.spi.Provider.createAndPublishEndpoint(String,Object)|Creates and 
+|javax.xml.ws.spi.Provider.createAndPublishEndpoint(String,Object,WebServiceFeature...)|
+|javax.xml.ws.spi.Provider.createEndpoint(String,Class<?>,Invoker,WebServiceFeature...)|
+|javax.xml.ws.spi.Provider.createEndpoint(String,Object)|Creates an endpoint ob
+|javax.xml.ws.spi.Provider.createEndpoint(String,Object,WebServiceFeature...)|C
+|javax.xml.ws.spi.Provider.createServiceDelegate(URL,QName,Class<?extendsService>)|
+|javax.xml.ws.spi.Provider.createServiceDelegate(URL,QName,Class<?extendsService>,WebServiceFeature...)|
+|javax.xml.ws.spi.Provider.createW3CEndpointReference(String,QName,QName,List<Element>,String,List<Element>)|
+|javax.xml.ws.spi.Provider.createW3CEndpointReference(String,QName,QName,QName,List<Element>,String,List<Element>,List<Element>,Map<QName,String>)|
+|javax.xml.ws.spi.Provider.getPort(EndpointReference,Class<T>,WebServiceFeature...)|
+|javax.xml.ws.spi.Provider.provider()|Creates a new provider object.
+|javax.xml.ws.spi.Provider.readEndpointReference(Source)|read an EndpointRefere
+
+*javax.xml.ws.spi.Provider_Description*
+
+Service provider for ServiceDelegate and Endpoint objects. 
+
+
+
+*java.lang.String_javax.xml.ws.spi.Provider.JAXWSPROVIDER_PROPERTY*
+
+A constant representing the property used to lookup the name of a Provider 
+implementation class. 
+
+
+
+*javax.xml.ws.spi.Provider()*
+
+protected Provider()
+
+Creates a new instance of Provider 
+
+
+*javax.xml.ws.spi.Provider.createAndPublishEndpoint(String,Object)*
+
+public abstract |javax.xml.ws.Endpoint| createAndPublishEndpoint(
+  java.lang.String address,
+  java.lang.Object implementor)
+
+Creates and publishes an endpoint object with the specified address and 
+implementation object. 
+
+
+    address - A URI specifying the address and transport/protocol to use. A http: URI MUST 
+       result in the SOAP 1.1/HTTP binding being used. Implementations may 
+       support other URI schemes. 
+    implementor - A service implementation object to which incoming requests will be dispatched. 
+       The corresponding class MUST be annotated with all the necessary Web 
+       service annotations. 
+
+    Returns: The newly created endpoint. 
+
+*javax.xml.ws.spi.Provider.createAndPublishEndpoint(String,Object,WebServiceFeature...)*
+
+public |javax.xml.ws.Endpoint| createAndPublishEndpoint(
+  java.lang.String address,
+  java.lang.Object implementor,
+  javax.xml.ws.WebServiceFeature[] features)
+
+Creates and publishes an endpoint object with the specified address, 
+implementation object and web service features. Provider implementations must 
+override the default implementation. 
+
+
+    address - A URI specifying the address and transport/protocol to use. A http: URI MUST 
+       result in the SOAP 1.1/HTTP binding being used. Implementations may 
+       support other URI schemes. 
+    implementor - A service implementation object to which incoming requests will be dispatched. 
+       The corresponding class MUST be annotated with all the necessary Web 
+       service annotations. 
+    features - A list of WebServiceFeatures to configure on the endpoint. Supported features 
+       not in the features parameter will have their default values. 
+
+    Returns: The newly created endpoint. 
+
+*javax.xml.ws.spi.Provider.createEndpoint(String,Class<?>,Invoker,WebServiceFeature...)*
+
+public |javax.xml.ws.Endpoint| createEndpoint(
+  java.lang.String bindingId,
+  java.lang.Class<?> implementorClass,
+  javax.xml.ws.spi.Invoker invoker,
+  javax.xml.ws.WebServiceFeature[] features)
+
+Creates an endpoint object with the provided binding, implementation class, 
+invoker and web service features. Containers typically use this to create 
+Endpoint objects. Provider implementations must override the default 
+implementation. 
+
+
+    bindingId - A URI specifying the desired binding (e.g. SOAP/HTTP). Can be null. 
+    implementorClass - A service implementation class that MUST be annotated with all the necessary 
+       Web service annotations. 
+    invoker - that does the actual invocation on the service instance. 
+    features - A list of WebServiceFeatures to configure on the endpoint. Supported features 
+       not in the features parameter will have their default values. 
+
+    Returns: The newly created endpoint. 
+
+*javax.xml.ws.spi.Provider.createEndpoint(String,Object)*
+
+public abstract |javax.xml.ws.Endpoint| createEndpoint(
+  java.lang.String bindingId,
+  java.lang.Object implementor)
+
+Creates an endpoint object with the provided binding and implementation object. 
+
+
+    bindingId - A URI specifying the desired binding (e.g. SOAP/HTTP) 
+    implementor - A service implementation object to which incoming requests will be dispatched. 
+       The corresponding class MUST be annotated with all the necessary Web 
+       service annotations. 
+
+    Returns: The newly created endpoint. 
+
+*javax.xml.ws.spi.Provider.createEndpoint(String,Object,WebServiceFeature...)*
+
+public |javax.xml.ws.Endpoint| createEndpoint(
+  java.lang.String bindingId,
+  java.lang.Object implementor,
+  javax.xml.ws.WebServiceFeature[] features)
+
+Creates an endpoint object with the provided binding, implementation object and 
+web service features. Provider implementations must override the default 
+implementation. 
+
+
+    bindingId - A URI specifying the desired binding (e.g. SOAP/HTTP) 
+    implementor - A service implementation object to which incoming requests will be dispatched. 
+       The corresponding class MUST be annotated with all the necessary Web 
+       service annotations. 
+    features - A list of WebServiceFeatures to configure on the endpoint. Supported features 
+       not in the features parameter will have their default values. 
+
+    Returns: The newly created endpoint. 
+
+*javax.xml.ws.spi.Provider.createServiceDelegate(URL,QName,Class<?extendsService>)*
+
+public abstract |javax.xml.ws.spi.ServiceDelegate| createServiceDelegate(
+  java.net.URL wsdlDocumentLocation,
+  javax.xml.namespace.QName serviceName,
+  java.lang.Class<? extends javax.xml.ws.Service> serviceClass)
+
+Creates a service delegate object. 
+
+
+    wsdlDocumentLocation - A URL pointing to the WSDL document for the service, or null if there isn't 
+       one. 
+    serviceName - The qualified name of the service. 
+    serviceClass - The service class, which MUST be either javax.xml.ws.Service or a subclass 
+       thereof. 
+
+    Returns: The newly created service delegate. 
+
+*javax.xml.ws.spi.Provider.createServiceDelegate(URL,QName,Class<?extendsService>,WebServiceFeature...)*
+
+public |javax.xml.ws.spi.ServiceDelegate| createServiceDelegate(
+  java.net.URL wsdlDocumentLocation,
+  javax.xml.namespace.QName serviceName,
+  java.lang.Class<? extends javax.xml.ws.Service> serviceClass,
+  javax.xml.ws.WebServiceFeature[] features)
+
+Creates a service delegate object. 
+
+
+    wsdlDocumentLocation - A URL pointing to the WSDL document for the service, or null if there isn't 
+       one. 
+    serviceName - The qualified name of the service. 
+    serviceClass - The service class, which MUST be either javax.xml.ws.Service or a subclass 
+       thereof. 
+    features - Web Service features that must be configured on the service. If the provider 
+       doesn't understand a feature, it must throw a WebServiceException. 
+
+    Returns: The newly created service delegate. 
+
+*javax.xml.ws.spi.Provider.createW3CEndpointReference(String,QName,QName,List<Element>,String,List<Element>)*
+
+public abstract |javax.xml.ws.wsaddressing.W3CEndpointReference| createW3CEndpointReference(
+  java.lang.String address,
+  javax.xml.namespace.QName serviceName,
+  javax.xml.namespace.QName portName,
+  java.util.List<org.w3c.dom.Element> metadata,
+  java.lang.String wsdlDocumentLocation,
+  java.util.List<org.w3c.dom.Element> referenceParameters)
+
+Factory method to create a W3CEndpointReference. 
+
+This method can be used to create a W3CEndpointReference for any endpoint by 
+specifying the address property along with any other desired properties. This 
+method can also be used to create a W3CEndpointReference for an endpoint that 
+is published by the same Java EE application. To do so the address property can 
+be provided or this method can automatically determine the address of an 
+endpoint that is published by the same Java EE application and is identified by 
+the serviceName and portName propeties. If the address is null and the 
+serviceName and portName do not identify an endpoint published by the same Java 
+EE application, a javax.lang.IllegalStateException MUST be thrown. 
+
+
+    address - Specifies the address of the target endpoint 
+    serviceName - Qualified name of the service in the WSDL. 
+    portName - Qualified name of the endpoint in the WSDL. 
+    metadata - A list of elements that should be added to the W3CEndpointReference instances 
+       wsa:metadata element. 
+    wsdlDocumentLocation - URL for the WSDL document location for the service. 
+    referenceParameters - Reference parameters to be associated with the returned EndpointReference 
+       instance. 
+
+    Returns: the W3CEndpointReference created from serviceName, portName, metadata, 
+             wsdlDocumentLocation and referenceParameters. This method never 
+             returns null. 
+
+*javax.xml.ws.spi.Provider.createW3CEndpointReference(String,QName,QName,QName,List<Element>,String,List<Element>,List<Element>,Map<QName,String>)*
+
+public |javax.xml.ws.wsaddressing.W3CEndpointReference| createW3CEndpointReference(
+  java.lang.String address,
+  javax.xml.namespace.QName interfaceName,
+  javax.xml.namespace.QName serviceName,
+  javax.xml.namespace.QName portName,
+  java.util.List<org.w3c.dom.Element> metadata,
+  java.lang.String wsdlDocumentLocation,
+  java.util.List<org.w3c.dom.Element> referenceParameters,
+  java.util.List<org.w3c.dom.Element> elements,
+  java.util.Map<javax.xml.namespace.QName, java.lang.String> attributes)
+
+Factory method to create a W3CEndpointReference. Using this method, a 
+W3CEndpointReference instance can be created with extension elements, and 
+attributes. Provider implementations must override the default implementation. 
+
+This method can be used to create a W3CEndpointReference for any endpoint by 
+specifying the address property along with any other desired properties. This 
+method can also be used to create a W3CEndpointReference for an endpoint that 
+is published by the same Java EE application. To do so the address property can 
+be provided or this method can automatically determine the address of an 
+endpoint that is published by the same Java EE application and is identified by 
+the serviceName and portName propeties. If the address is null and the 
+serviceName and portName do not identify an endpoint published by the same Java 
+EE application, a javax.lang.IllegalStateException MUST be thrown. 
+
+
+    address - Specifies the address of the target endpoint 
+    interfaceName - the wsam:InterfaceName element in the wsa:Metadata element. 
+    serviceName - Qualified name of the service in the WSDL. 
+    portName - Qualified name of the endpoint in the WSDL. 
+    metadata - A list of elements that should be added to the W3CEndpointReference instances 
+       wsa:metadata element. 
+    wsdlDocumentLocation - URL for the WSDL document location for the service. 
+    referenceParameters - Reference parameters to be associated with the returned EndpointReference 
+       instance. 
+    elements - extension elements to be associated with the returned EndpointReference 
+       instance. 
+    attributes - extension attributes to be associated with the returned EndpointReference 
+       instance. 
+
+    Returns: the W3CEndpointReference created from serviceName, portName, metadata, 
+             wsdlDocumentLocation and referenceParameters. This method never 
+             returns null. 
+
+*javax.xml.ws.spi.Provider.getPort(EndpointReference,Class<T>,WebServiceFeature...)*
+
+public abstract |T| getPort(
+  javax.xml.ws.EndpointReference endpointReference,
+  java.lang.Class<T> serviceEndpointInterface,
+  javax.xml.ws.WebServiceFeature[] features)
+
+The getPort method returns a proxy. If there are any reference parameters in 
+the endpointReference, then those reference parameters MUST appear as SOAP 
+headers, indicating them to be reference parameters, on all messages sent to 
+the endpoint. The parameter serviceEndpointInterface specifies the service 
+endpoint interface that is supported by the returned proxy. The parameter 
+endpointReference specifies the endpoint that will be invoked by the returned 
+proxy. In the implementation of this method, the JAX-WS runtime system takes 
+the responsibility of selecting a protocol binding (and a port) and configuring 
+the proxy accordingly from the WSDL metadata of the serviceEndpointInterface 
+and the EndpointReference. For this method to successfully return a proxy, WSDL 
+metadata MUST be available and the endpointReference MUST contain an 
+implementation understood serviceName metadata. 
+
+
+    endpointReference - the EndpointReference that will be invoked by the returned proxy. 
+    serviceEndpointInterface - Service endpoint interface 
+    features - A list of WebServiceFeatures to configure on the proxy. Supported features not 
+       in the features parameter will have their default values. 
+
+    Returns: Object Proxy instance that supports the specified service endpoint interface 
+
+*javax.xml.ws.spi.Provider.provider()*
+
+public static |javax.xml.ws.spi.Provider| provider()
+
+Creates a new provider object. 
+
+The algorithm used to locate the provider subclass to use consists of the 
+following steps: 
+
+
+
+If a resource with the name of META-INF/services/javax.xml.ws.spi.Provider 
+exists, then its first line, if present, is used as the UTF-8 encoded name of 
+the implementation class. 
+
+If the $java.home/lib/jaxws.properties file exists and it is readable by the 
+java.util.Properties.load(InputStream) method and it contains an entry whose 
+key is javax.xml.ws.spi.Provider, then the value of that entry is used as the 
+name of the implementation class. 
+
+If a system property with the name javax.xml.ws.spi.Provider is defined, then 
+its value is used as the name of the implementation class. 
+
+Finally, a default implementation class name is used. 
+
+
+
+
+
+*javax.xml.ws.spi.Provider.readEndpointReference(Source)*
+
+public abstract |javax.xml.ws.EndpointReference| readEndpointReference(javax.xml.transform.Source eprInfoset)
+
+read an EndpointReference from the infoset contained in eprInfoset. 
+
+
+    eprInfoset - infoset for EndpointReference 
+
+    Returns: the EndpointReference unmarshalled from eprInfoset. This method never returns 
+             null. 
+
+

@@ -1,0 +1,55 @@
+*javax.xml.stream.events.EntityReference* *EntityReference* An interface for han
+
+public interface interface EntityReference
+
+  implements |javax.xml.stream.events.XMLEvent|
+
+|javax.xml.stream.events.EntityReference_Description|
+|javax.xml.stream.events.EntityReference_Fields|
+|javax.xml.stream.events.EntityReference_Constructors|
+|javax.xml.stream.events.EntityReference_Methods|
+
+================================================================================
+
+*javax.xml.stream.events.EntityReference_Methods*
+|javax.xml.stream.events.EntityReference.getDeclaration()|Return the declaratio
+|javax.xml.stream.events.EntityReference.getName()|The name of the entity
+
+*javax.xml.stream.events.EntityReference_Description*
+
+An interface for handling Entity events. 
+
+This event reports entities that have not been resolved and reports their 
+replacement text unprocessed (if available). This event will be reported if 
+javax.xml.stream.isReplacingEntityReferences is set to false. If 
+javax.xml.stream.isReplacingEntityReferences is set to true entity references 
+will be resolved transparently. 
+
+Entities are handled in two possible ways: 
+
+(1) If javax.xml.stream.isReplacingEntityReferences is set to true all entity 
+references are resolved and reported as markup transparently. (2) If 
+javax.xml.stream.isReplacingEntityReferences is set to false Entity references 
+are reported as an EntityReference Event. 
+
+
+
+*javax.xml.stream.events.EntityReference.getDeclaration()*
+
+public |javax.xml.stream.events.EntityDeclaration| getDeclaration()
+
+Return the declaration of this entity. 
+
+
+
+*javax.xml.stream.events.EntityReference.getName()*
+
+public |java.lang.String| getName()
+
+The name of the entity 
+
+
+
+    Returns: the entity's name, may not be null 
+
+

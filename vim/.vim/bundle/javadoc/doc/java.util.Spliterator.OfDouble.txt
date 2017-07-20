@@ -1,0 +1,67 @@
+*java.util.Spliterator.OfDouble* *Spliterator.OfDouble* A Spliterator specialize
+
+public static interface interface Spliterator.OfDouble
+
+  implements |java.util.Spliterator.OfPrimitive|
+
+|java.util.Spliterator.OfDouble_Description|
+|java.util.Spliterator.OfDouble_Fields|
+|java.util.Spliterator.OfDouble_Constructors|
+|java.util.Spliterator.OfDouble_Methods|
+
+================================================================================
+
+*java.util.Spliterator.OfDouble_Methods*
+|java.util.Spliterator.OfDouble.forEachRemaining(Consumer<?superDouble>)|
+|java.util.Spliterator.OfDouble.forEachRemaining(DoubleConsumer)|
+|java.util.Spliterator.OfDouble.tryAdvance(Consumer<?superDouble>)|
+|java.util.Spliterator.OfDouble.tryAdvance(DoubleConsumer)|
+|java.util.Spliterator.OfDouble.trySplit()|
+
+*java.util.Spliterator.OfDouble_Description*
+
+A Spliterator specialized fordoublevalues. 
+
+
+
+*java.util.Spliterator.OfDouble.forEachRemaining(Consumer<?superDouble>)*
+
+public void forEachRemaining(java.util.function.Consumer<? super java.lang.Double> action)
+
+
+
+
+
+*java.util.Spliterator.OfDouble.forEachRemaining(DoubleConsumer)*
+
+public void forEachRemaining(java.util.function.DoubleConsumer action)
+
+
+
+
+
+*java.util.Spliterator.OfDouble.tryAdvance(Consumer<?superDouble>)*
+
+public boolean tryAdvance(java.util.function.Consumer<? super java.lang.Double> action)
+
+
+
+
+
+*java.util.Spliterator.OfDouble.tryAdvance(DoubleConsumer)*
+
+public boolean tryAdvance(java.util.function.DoubleConsumer action)
+
+
+
+
+
+*java.util.Spliterator.OfDouble.trySplit()*
+
+public |java.util.Spliterator.OfDouble| trySplit()
+
+
+
+
+
+

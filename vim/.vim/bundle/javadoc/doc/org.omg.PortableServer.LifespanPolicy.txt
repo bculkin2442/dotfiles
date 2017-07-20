@@ -1,0 +1,22 @@
+*org.omg.PortableServer.LifespanPolicy* *LifespanPolicy* The LifespanPolicy spec
+
+public interface interface LifespanPolicy
+
+  implements |org.omg.PortableServer.LifespanPolicyOperations|
+             |org.omg.CORBA.Policy|
+             |org.omg.CORBA.portable.IDLEntity|
+
+|org.omg.PortableServer.LifespanPolicy_Description|
+|org.omg.PortableServer.LifespanPolicy_Fields|
+|org.omg.PortableServer.LifespanPolicy_Constructors|
+|org.omg.PortableServer.LifespanPolicy_Methods|
+
+================================================================================
+
+*org.omg.PortableServer.LifespanPolicy_Description*
+
+The LifespanPolicy specifies the lifespan of the objects implemented in the 
+created POA. The default is TRANSIENT. 
+
+
+

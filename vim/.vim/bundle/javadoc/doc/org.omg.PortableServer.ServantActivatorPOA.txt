@@ -1,0 +1,75 @@
+*org.omg.PortableServer.ServantActivatorPOA* *ServantActivatorPOA* When the POA 
+
+public abstract class ServantActivatorPOA
+  extends    |org.omg.PortableServer.Servant|
+  implements |org.omg.PortableServer.ServantActivatorOperations|
+             |org.omg.CORBA.portable.InvokeHandler|
+
+|org.omg.PortableServer.ServantActivatorPOA_Description|
+|org.omg.PortableServer.ServantActivatorPOA_Fields|
+|org.omg.PortableServer.ServantActivatorPOA_Constructors|
+|org.omg.PortableServer.ServantActivatorPOA_Methods|
+
+================================================================================
+
+*org.omg.PortableServer.ServantActivatorPOA_Constructors*
+|org.omg.PortableServer.ServantActivatorPOA()|
+
+*org.omg.PortableServer.ServantActivatorPOA_Methods*
+|org.omg.PortableServer.ServantActivatorPOA._all_interfaces(POA,byte[])|
+|org.omg.PortableServer.ServantActivatorPOA._invoke(String,InputStream,ResponseHandler)|
+|org.omg.PortableServer.ServantActivatorPOA._this()|
+|org.omg.PortableServer.ServantActivatorPOA._this(ORB)|
+
+*org.omg.PortableServer.ServantActivatorPOA_Description*
+
+When the POA has the RETAIN policy it uses servant managers that are 
+ServantActivators. 
+
+
+
+*org.omg.PortableServer.ServantActivatorPOA()*
+
+public ServantActivatorPOA()
+
+
+
+
+*org.omg.PortableServer.ServantActivatorPOA._all_interfaces(POA,byte[])*
+
+public |java.lang.String|[] _all_interfaces(
+  org.omg.PortableServer.POA poa,
+  byte[] objectId)
+
+
+
+
+
+*org.omg.PortableServer.ServantActivatorPOA._invoke(String,InputStream,ResponseHandler)*
+
+public |org.omg.CORBA.portable.OutputStream| _invoke(
+  java.lang.String $method,
+  org.omg.CORBA.portable.InputStream in,
+  org.omg.CORBA.portable.ResponseHandler $rh)
+
+
+
+
+
+*org.omg.PortableServer.ServantActivatorPOA._this()*
+
+public |org.omg.PortableServer.ServantActivator| _this()
+
+
+
+
+
+*org.omg.PortableServer.ServantActivatorPOA._this(ORB)*
+
+public |org.omg.PortableServer.ServantActivator| _this(org.omg.CORBA.ORB orb)
+
+
+
+
+
+

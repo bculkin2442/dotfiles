@@ -1,0 +1,68 @@
+*javax.xml.stream.events.DTD* *DTD* This is the top level interface for events d
+
+public interface interface DTD
+
+  implements |javax.xml.stream.events.XMLEvent|
+
+|javax.xml.stream.events.DTD_Description|
+|javax.xml.stream.events.DTD_Fields|
+|javax.xml.stream.events.DTD_Constructors|
+|javax.xml.stream.events.DTD_Methods|
+
+================================================================================
+
+*javax.xml.stream.events.DTD_Methods*
+|javax.xml.stream.events.DTD.getDocumentTypeDeclaration()|Returns the entire Do
+|javax.xml.stream.events.DTD.getEntities()|Return a List containing the general
+|javax.xml.stream.events.DTD.getNotations()|Return a List containing the notati
+|javax.xml.stream.events.DTD.getProcessedDTD()|Returns an implementation define
+
+*javax.xml.stream.events.DTD_Description*
+
+This is the top level interface for events dealing with DTDs 
+
+
+
+*javax.xml.stream.events.DTD.getDocumentTypeDeclaration()*
+
+public |java.lang.String| getDocumentTypeDeclaration()
+
+Returns the entire Document Type Declaration as a string, including the 
+internal DTD subset. This may be null if there is not an internal subset. If it 
+is not null it must return the entire Document Type Declaration which matches 
+the doctypedecl production in the XML 1.0 specification 
+
+
+
+*javax.xml.stream.events.DTD.getEntities()*
+
+public |java.util.List| getEntities()
+
+Return a List containing the general entities, both external and internal, 
+declared in the DTD. This list must contain EntityDeclaration events. 
+
+
+
+    Returns: an unordered list of EntityDeclaration events 
+
+*javax.xml.stream.events.DTD.getNotations()*
+
+public |java.util.List| getNotations()
+
+Return a List containing the notations declared in the DTD. This list must 
+contain NotationDeclaration events. 
+
+
+
+    Returns: an unordered list of NotationDeclaration events 
+
+*javax.xml.stream.events.DTD.getProcessedDTD()*
+
+public |java.lang.Object| getProcessedDTD()
+
+Returns an implementation defined representation of the DTD. This method may 
+return null if no representation is available. 
+
+
+
+

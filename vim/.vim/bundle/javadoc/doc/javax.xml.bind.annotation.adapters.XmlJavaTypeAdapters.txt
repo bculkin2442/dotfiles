@@ -1,0 +1,36 @@
+*javax.xml.bind.annotation.adapters.XmlJavaTypeAdapters* *XmlJavaTypeAdapters* 
+
+
+public interface class XmlJavaTypeAdapters
+
+  implements |java.lang.annotation.Annotation|
+
+|javax.xml.bind.annotation.adapters.XmlJavaTypeAdapters_Description|
+|javax.xml.bind.annotation.adapters.XmlJavaTypeAdapters_Fields|
+|javax.xml.bind.annotation.adapters.XmlJavaTypeAdapters_Constructors|
+|javax.xml.bind.annotation.adapters.XmlJavaTypeAdapters_Methods|
+
+================================================================================
+
+*javax.xml.bind.annotation.adapters.XmlJavaTypeAdapters_Description*
+
+A container for multiple @ 
+(|javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter|) annotations. 
+
+Multiple annotations of the same type are not allowed on a program element. 
+This annotation therefore serves as a container annotation for multiple 
+XmlJavaTypeAdapter as follows: 
+
+
+
+XmlJavaTypeAdapters ({ @XmlJavaTypeAdapter(...),@XmlJavaTypeAdapter(...) }) 
+
+The @XmlJavaTypeAdapters annnotation is useful for defining 
+(|javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter|) annotations for 
+different types at the package level. 
+
+See "Package Specification" in javax.xml.bind.package javadoc for additional 
+common information. 
+
+
+

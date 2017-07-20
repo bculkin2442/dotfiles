@@ -1,0 +1,233 @@
+*javax.xml.crypto.XMLCryptoContext* *XMLCryptoContext* Contains common context i
+
+public interface interface XMLCryptoContext
+
+
+|javax.xml.crypto.XMLCryptoContext_Description|
+|javax.xml.crypto.XMLCryptoContext_Fields|
+|javax.xml.crypto.XMLCryptoContext_Constructors|
+|javax.xml.crypto.XMLCryptoContext_Methods|
+
+================================================================================
+
+*javax.xml.crypto.XMLCryptoContext_Methods*
+|javax.xml.crypto.XMLCryptoContext.get(Object)|Returns the value to which this 
+|javax.xml.crypto.XMLCryptoContext.getBaseURI()|Returns the base URI.
+|javax.xml.crypto.XMLCryptoContext.getDefaultNamespacePrefix()|Returns the defa
+|javax.xml.crypto.XMLCryptoContext.getKeySelector()|Returns the key selector fo
+|javax.xml.crypto.XMLCryptoContext.getNamespacePrefix(String,String)|Returns th
+|javax.xml.crypto.XMLCryptoContext.getProperty(String)|Returns the value of the
+|javax.xml.crypto.XMLCryptoContext.getURIDereferencer()|Returns a URIDereferenc
+|javax.xml.crypto.XMLCryptoContext.put(Object,Object)|Associates the specified 
+|javax.xml.crypto.XMLCryptoContext.putNamespacePrefix(String,String)|Maps the s
+|javax.xml.crypto.XMLCryptoContext.setBaseURI(String)|Sets the base URI.
+|javax.xml.crypto.XMLCryptoContext.setDefaultNamespacePrefix(String)|Sets the d
+|javax.xml.crypto.XMLCryptoContext.setKeySelector(KeySelector)|Sets the key sel
+|javax.xml.crypto.XMLCryptoContext.setProperty(String,Object)|Sets the specifie
+|javax.xml.crypto.XMLCryptoContext.setURIDereferencer(URIDereferencer)|Sets a U
+
+*javax.xml.crypto.XMLCryptoContext_Description*
+
+Contains common context information for XML cryptographic operations. 
+
+This interface contains methods for setting and retrieving properties that 
+affect the processing of XML signatures or XML encrypted structures. 
+
+Note that XMLCryptoContext instances can contain information and state specific 
+to the XML cryptographic structure it is used with. The results are 
+unpredictable if an XMLCryptoContext is used with multiple structures (for 
+example, you should not use the same 
+(|javax.xml.crypto.dsig.XMLValidateContext|) instance to validate two different 
+(|javax.xml.crypto.dsig.XMLSignature|) objects). 
+
+
+
+*javax.xml.crypto.XMLCryptoContext.get(Object)*
+
+public |java.lang.Object| get(java.lang.Object key)
+
+Returns the value to which this context maps the specified key. 
+
+More formally, if this context contains a mapping from a key k to a value v 
+such that (key==null ? k==null : key.equals(k)), then this method returns v; 
+otherwise it returns null. (There can be at most one such mapping.) 
+
+This method is useful for retrieving arbitrary information that is specific to 
+the cryptographic operation that this context is used for. 
+
+
+    key - the key whose associated value is to be returned 
+
+    Returns: the value to which this context maps the specified key, or null if there is no 
+             mapping for the key 
+
+*javax.xml.crypto.XMLCryptoContext.getBaseURI()*
+
+public |java.lang.String| getBaseURI()
+
+Returns the base URI. 
+
+
+
+    Returns: the base URI, or null if not specified 
+
+*javax.xml.crypto.XMLCryptoContext.getDefaultNamespacePrefix()*
+
+public |java.lang.String| getDefaultNamespacePrefix()
+
+Returns the default namespace prefix. The default namespace prefix is the 
+prefix for all namespace URIs not explicitly set by the 
+putNamespacePrefix(|javax.xml.crypto.XMLCryptoContext|) method. 
+
+
+
+    Returns: the default namespace prefix, or null if none has been set. 
+
+*javax.xml.crypto.XMLCryptoContext.getKeySelector()*
+
+public |javax.xml.crypto.KeySelector| getKeySelector()
+
+Returns the key selector for finding a key. 
+
+
+
+    Returns: the key selector, or null if not specified 
+
+*javax.xml.crypto.XMLCryptoContext.getNamespacePrefix(String,String)*
+
+public |java.lang.String| getNamespacePrefix(
+  java.lang.String namespaceURI,
+  java.lang.String defaultPrefix)
+
+Returns the namespace prefix that the specified namespace URI is associated 
+with. Returns the specified default prefix if the specified namespace URI has 
+not been bound to a prefix. To bind a namespace URI to a prefix, call the 
+putNamespacePrefix(|javax.xml.crypto.XMLCryptoContext|) method. 
+
+
+    namespaceURI - a namespace URI 
+    defaultPrefix - the prefix to be returned in the event that the the specified namespace URI has 
+       not been bound to a prefix. 
+
+    Returns: the prefix that is associated with the specified namespace URI, or 
+             defaultPrefix if the URI is not registered. If the namespace URI 
+             is registered but has no prefix, an empty string ("") is returned. 
+
+*javax.xml.crypto.XMLCryptoContext.getProperty(String)*
+
+public |java.lang.Object| getProperty(java.lang.String name)
+
+Returns the value of the specified property. 
+
+
+    name - the name of the property 
+
+    Returns: the current value of the specified property, or null if it does not have a 
+             value 
+
+*javax.xml.crypto.XMLCryptoContext.getURIDereferencer()*
+
+public |javax.xml.crypto.URIDereferencer| getURIDereferencer()
+
+Returns a URIDereferencer that is used to dereference 
+(|javax.xml.crypto.URIReference|) s. 
+
+
+
+    Returns: the URIDereferencer, or null if not specified 
+
+*javax.xml.crypto.XMLCryptoContext.put(Object,Object)*
+
+public |java.lang.Object| put(
+  java.lang.Object key,
+  java.lang.Object value)
+
+Associates the specified value with the specified key in this context. If the 
+context previously contained a mapping for this key, the old value is replaced 
+by the specified value. 
+
+This method is useful for storing arbitrary information that is specific to the 
+cryptographic operation that this context is used for. 
+
+
+    key - key with which the specified value is to be associated with 
+    value - value to be associated with the specified key 
+
+    Returns: the previous value associated with the key, or null if there was no mapping for 
+             the key 
+
+*javax.xml.crypto.XMLCryptoContext.putNamespacePrefix(String,String)*
+
+public |java.lang.String| putNamespacePrefix(
+  java.lang.String namespaceURI,
+  java.lang.String prefix)
+
+Maps the specified namespace URI to the specified prefix. If there is already a 
+prefix associated with the specified namespace URI, the old prefix is replaced 
+by the specified prefix. 
+
+
+    namespaceURI - a namespace URI 
+    prefix - a namespace prefix (or null to remove any existing mapping). Specifying the 
+       empty string ("") binds no prefix to the namespace URI. 
+
+    Returns: the previous prefix associated with the specified namespace URI, or null if 
+             there was none 
+
+*javax.xml.crypto.XMLCryptoContext.setBaseURI(String)*
+
+public void setBaseURI(java.lang.String baseURI)
+
+Sets the base URI. 
+
+
+    baseURI - the base URI, or null to remove current value 
+
+*javax.xml.crypto.XMLCryptoContext.setDefaultNamespacePrefix(String)*
+
+public void setDefaultNamespacePrefix(java.lang.String defaultPrefix)
+
+Sets the default namespace prefix. This sets the namespace prefix for all 
+namespace URIs not explicitly set by the 
+putNamespacePrefix(|javax.xml.crypto.XMLCryptoContext|) method. 
+
+
+    defaultPrefix - the default namespace prefix, or null to remove the current setting. Specify 
+       the empty string ("") to bind no prefix. 
+
+*javax.xml.crypto.XMLCryptoContext.setKeySelector(KeySelector)*
+
+public void setKeySelector(javax.xml.crypto.KeySelector ks)
+
+Sets the key selector for finding a key. 
+
+
+    ks - the key selector, or null to remove the current setting 
+
+*javax.xml.crypto.XMLCryptoContext.setProperty(String,Object)*
+
+public |java.lang.Object| setProperty(
+  java.lang.String name,
+  java.lang.Object value)
+
+Sets the specified property. 
+
+
+    name - the name of the property 
+    value - the value of the property to be set 
+
+    Returns: the previous value of the specified property, or null if it did not have a 
+             value 
+
+*javax.xml.crypto.XMLCryptoContext.setURIDereferencer(URIDereferencer)*
+
+public void setURIDereferencer(javax.xml.crypto.URIDereferencer dereferencer)
+
+Sets a URIDereferencer that is used to dereference 
+(|javax.xml.crypto.URIReference|) s. The specified URIDereferencer is used in 
+place of an implementation's default URIDereferencer. 
+
+
+    dereferencer - the URIDereferencer, or null to remove any current setting 
+
+

@@ -1,0 +1,33 @@
+*javax.xml.ws.AsyncHandler* *AsyncHandler* The AsyncHandler interface is impleme
+
+public interface interface AsyncHandler<T>
+
+
+|javax.xml.ws.AsyncHandler_Description|
+|javax.xml.ws.AsyncHandler_Fields|
+|javax.xml.ws.AsyncHandler_Constructors|
+|javax.xml.ws.AsyncHandler_Methods|
+
+================================================================================
+
+*javax.xml.ws.AsyncHandler_Methods*
+|javax.xml.ws.AsyncHandler.handleResponse(Response<T>)|Called when the response
+
+*javax.xml.ws.AsyncHandler_Description*
+
+The AsyncHandler interface is implemented by clients that wish to receive 
+callback notification of the completion of service endpoint operations invoked 
+asynchronously. 
+
+
+
+*javax.xml.ws.AsyncHandler.handleResponse(Response<T>)*
+
+public void handleResponse(javax.xml.ws.Response<T> res)
+
+Called when the response to an asynchronous operation is available. 
+
+
+    res - The response to the operation invocation. 
+
+

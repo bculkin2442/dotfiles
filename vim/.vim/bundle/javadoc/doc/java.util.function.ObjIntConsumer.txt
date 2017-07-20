@@ -1,0 +1,40 @@
+*java.util.function.ObjIntConsumer* *ObjIntConsumer* Represents an operation tha
+
+public interface interface ObjIntConsumer<T>
+
+
+|java.util.function.ObjIntConsumer_Description|
+|java.util.function.ObjIntConsumer_Fields|
+|java.util.function.ObjIntConsumer_Constructors|
+|java.util.function.ObjIntConsumer_Methods|
+
+================================================================================
+
+*java.util.function.ObjIntConsumer_Methods*
+|java.util.function.ObjIntConsumer.accept(T,int)|Performs this operation on the
+
+*java.util.function.ObjIntConsumer_Description*
+
+Represents an operation that accepts an object-valued and aint-valued argument, 
+and returns no result. This is the(reference, int)specialization of 
+(|java.util.function.BiConsumer|) . Unlike most other functional 
+interfaces,ObjIntConsumeris expected to operate via side-effects. 
+
+This is a functional interface whose functional method is 
+(|java.util.function.ObjIntConsumer|) . 
+
+
+
+*java.util.function.ObjIntConsumer.accept(T,int)*
+
+public void accept(
+  T t,
+  int value)
+
+Performs this operation on the given arguments. 
+
+
+    t - the first input argument 
+    value - the second input argument 
+
+

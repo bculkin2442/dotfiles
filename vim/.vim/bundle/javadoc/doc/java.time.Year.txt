@@ -1,0 +1,868 @@
+*java.time.Year* *Year* A year in the ISO-8601 calendar system, such as2007.
+
+public final class Year
+  extends    |java.lang.Object|
+  implements |java.time.temporal.Temporal|
+             |java.time.temporal.TemporalAdjuster|
+             |java.lang.Comparable|
+             |java.io.Serializable|
+
+|java.time.Year_Description|
+|java.time.Year_Fields|
+|java.time.Year_Constructors|
+|java.time.Year_Methods|
+
+================================================================================
+
+*java.time.Year_Fields*
+|int_java.time.Year.MAX_VALUE|
+|int_java.time.Year.MIN_VALUE|
+
+*java.time.Year_Methods*
+|java.time.Year.adjustInto(Temporal)|Adjusts the specified temporal object to h
+|java.time.Year.atDay(int)|Combines this year with a day-of-year to create aLoc
+|java.time.Year.atMonth(int)|Combines this year with a month to create aYearMon
+|java.time.Year.atMonth(Month)|Combines this year with a month to create aYearM
+|java.time.Year.atMonthDay(MonthDay)|Combines this year with a month-day to cre
+|java.time.Year.compareTo(Year)|Compares this year to another year.
+|java.time.Year.equals(Object)|Checks if this year is equal to another year.
+|java.time.Year.format(DateTimeFormatter)|Formats this year using the specified
+|java.time.Year.from(TemporalAccessor)|Obtains an instance ofYearfrom a tempora
+|java.time.Year.get(TemporalField)|Gets the value of the specified field from t
+|java.time.Year.getLong(TemporalField)|Gets the value of the specified field fr
+|java.time.Year.getValue()|Gets the year value.
+|java.time.Year.hashCode()|A hash code for this year.
+|java.time.Year.isAfter(Year)|Is this year after the specified year.
+|java.time.Year.isBefore(Year)|Is this year before the specified year.
+|java.time.Year.isLeap()|Checks if the year is a leap year, according to the IS
+|java.time.Year.isLeap(long)|Checks if the year is a leap year, according to th
+|java.time.Year.isSupported(TemporalField)|Checks if the specified field is sup
+|java.time.Year.isSupported(TemporalUnit)|Checks if the specified unit is suppo
+|java.time.Year.isValidMonthDay(MonthDay)|Checks if the month-day is valid for 
+|java.time.Year.length()|Gets the length of this year in days.
+|java.time.Year.minus(long,TemporalUnit)|Returns a copy of this year with the s
+|java.time.Year.minus(TemporalAmount)|Returns a copy of this year with the spec
+|java.time.Year.minusYears(long)|Returns a copy of this year with the specified
+|java.time.Year.now()|Obtains the current year from the system clock in the def
+|java.time.Year.now(Clock)|Obtains the current year from the specified clock.
+|java.time.Year.now(ZoneId)|Obtains the current year from the system clock in t
+|java.time.Year.of(int)|Obtains an instance ofYear.
+|java.time.Year.parse(CharSequence)|Obtains an instance ofYearfrom a text strin
+|java.time.Year.parse(CharSequence,DateTimeFormatter)|Obtains an instance ofYea
+|java.time.Year.plus(long,TemporalUnit)|Returns a copy of this year with the sp
+|java.time.Year.plus(TemporalAmount)|Returns a copy of this year with the speci
+|java.time.Year.plusYears(long)|Returns a copy of this year with the specified 
+|java.time.Year.query(TemporalQuery<R>)|Queries this year using the specified q
+|java.time.Year.range(TemporalField)|Gets the range of valid values for the spe
+|java.time.Year.toString()|Outputs this year as aString.
+|java.time.Year.until(Temporal,TemporalUnit)|Calculates the amount of time unti
+|java.time.Year.with(TemporalAdjuster)|Returns an adjusted copy of this year.
+|java.time.Year.with(TemporalField,long)|Returns a copy of this year with the s
+
+*java.time.Year_Description*
+
+A year in the ISO-8601 calendar system, such as2007. Yearis an immutable 
+date-time object that represents a year. Any field that can be derived from a 
+year can be obtained. 
+
+Note that years in the ISO chronology only align with years in the 
+Gregorian-Julian system for modern years. Parts of Russia did not switch to the 
+modern Gregorian/ISO rules until 1920. As such, historical years must be 
+treated with caution. 
+
+This class does not store or represent a month, day, time or time-zone. For 
+example, the value "2007" can be stored in aYear. 
+
+Years represented by this class follow the ISO-8601 standard and use the 
+proleptic numbering system. Year 1 is preceded by year 0, then by year -1. 
+
+The ISO-8601 calendar system is the modern civil calendar system used today in 
+most of the world. It is equivalent to the proleptic Gregorian calendar system, 
+in which today's rules for leap years are applied for all time. For most 
+applications written today, the ISO-8601 rules are entirely suitable. However, 
+any application that makes use of historical dates, and requires them to be 
+accurate will find the ISO-8601 approach unsuitable. 
+
+This is a <a href="/java/lang/doc-files/ValueBased.html">value-based class; use 
+of identity-sensitive operations (including reference equality (==), identity 
+hash code, or synchronization) on instances ofYearmay have unpredictable 
+results and should be avoided. Theequalsmethod should be used for comparisons. 
+
+
+
+*int_java.time.Year.MAX_VALUE*
+
+The maximum supported year, '+999,999,999'. 
+
+
+*int_java.time.Year.MIN_VALUE*
+
+The minimum supported year, '-999,999,999'. 
+
+
+
+*java.time.Year.adjustInto(Temporal)*
+
+public |java.time.temporal.Temporal| adjustInto(java.time.temporal.Temporal temporal)
+
+Adjusts the specified temporal object to have this year. 
+
+This returns a temporal object of the same observable type as the input with 
+the year changed to be the same as this. 
+
+The adjustment is equivalent to using (|java.time.temporal.Temporal|) passing 
+(|java.time.temporal.ChronoField|) as the field. If the specified temporal 
+object does not use the ISO calendar system then aDateTimeExceptionis thrown. 
+
+In most cases, it is clearer to reverse the calling pattern by using 
+(|java.time.temporal.Temporal|) : 
+
+// these two lines are equivalent, but the second approach is recommended 
+temporal = thisYear.adjustInto(temporal); temporal = temporal.with(thisYear); 
+
+This instance is immutable and unaffected by this method call. 
+
+
+    temporal - the target object to be adjusted, not null 
+
+    Returns: the adjusted object, not null 
+
+*java.time.Year.atDay(int)*
+
+public |java.time.LocalDate| atDay(int dayOfYear)
+
+Combines this year with a day-of-year to create aLocalDate. 
+
+This returns aLocalDateformed from this year and the specified day-of-year. 
+
+The day-of-year value 366 is only valid in a leap year. 
+
+
+    dayOfYear - the day-of-year to use, not null 
+
+    Returns: the local date formed from this year and the specified date of year, not null 
+
+*java.time.Year.atMonth(int)*
+
+public |java.time.YearMonth| atMonth(int month)
+
+Combines this year with a month to create aYearMonth. 
+
+This returns aYearMonthformed from this year and the specified month. All 
+possible combinations of year and month are valid. 
+
+This method can be used as part of a chain to produce a date: 
+
+LocalDate date = year.atMonth(month).atDay(day); 
+
+
+    month - the month-of-year to use, from 1 (January) to 12 (December) 
+
+    Returns: the year-month formed from this year and the specified month, not null 
+
+*java.time.Year.atMonth(Month)*
+
+public |java.time.YearMonth| atMonth(java.time.Month month)
+
+Combines this year with a month to create aYearMonth. 
+
+This returns aYearMonthformed from this year and the specified month. All 
+possible combinations of year and month are valid. 
+
+This method can be used as part of a chain to produce a date: 
+
+LocalDate date = year.atMonth(month).atDay(day); 
+
+
+    month - the month-of-year to use, not null 
+
+    Returns: the year-month formed from this year and the specified month, not null 
+
+*java.time.Year.atMonthDay(MonthDay)*
+
+public |java.time.LocalDate| atMonthDay(java.time.MonthDay monthDay)
+
+Combines this year with a month-day to create aLocalDate. 
+
+This returns aLocalDateformed from this year and the specified month-day. 
+
+A month-day of February 29th will be adjusted to February 28th in the resulting 
+date if the year is not a leap year. 
+
+
+    monthDay - the month-day to use, not null 
+
+    Returns: the local date formed from this year and the specified month-day, not null 
+
+*java.time.Year.compareTo(Year)*
+
+public int compareTo(java.time.Year other)
+
+Compares this year to another year. 
+
+The comparison is based on the value of the year. It is "consistent with 
+equals", as defined by (|java.lang.Comparable|) . 
+
+
+    other - the other year to compare to, not null 
+
+    Returns: the comparator value, negative if less, positive if greater 
+
+*java.time.Year.equals(Object)*
+
+public boolean equals(java.lang.Object obj)
+
+Checks if this year is equal to another year. 
+
+The comparison is based on the time-line position of the years. 
+
+
+    obj - the object to check, null returns false 
+
+    Returns: true if this is equal to the other year 
+
+*java.time.Year.format(DateTimeFormatter)*
+
+public |java.lang.String| format(java.time.format.DateTimeFormatter formatter)
+
+Formats this year using the specified formatter. 
+
+This year will be passed to the formatter to produce a string. 
+
+
+    formatter - the formatter to use, not null 
+
+    Returns: the formatted year string, not null 
+
+*java.time.Year.from(TemporalAccessor)*
+
+public static |java.time.Year| from(java.time.temporal.TemporalAccessor temporal)
+
+Obtains an instance ofYearfrom a temporal object. 
+
+This obtains a year based on the specified temporal. 
+ATemporalAccessorrepresents an arbitrary set of date and time information, 
+which this factory converts to an instance ofYear. 
+
+The conversion extracts the year(|java.time.temporal.ChronoField|) field. The 
+extraction is only permitted if the temporal object has an ISO chronology, or 
+can be converted to aLocalDate. 
+
+This method matches the signature of the functional interface 
+(|java.time.temporal.TemporalQuery|) allowing it to be used in queries via 
+method reference,Year::from. 
+
+
+    temporal - the temporal object to convert, not null 
+
+    Returns: the year, not null 
+
+*java.time.Year.get(TemporalField)*
+
+public int get(java.time.temporal.TemporalField field)
+
+Gets the value of the specified field from this year as anint. 
+
+This queries this year for the value for the specified field. The returned 
+value will always be within the valid range of values for the field. If it is 
+not possible to return the value, because the field is not supported or for 
+some other reason, an exception is thrown. 
+
+If the field is a (|java.time.temporal.ChronoField|) then the query is 
+implemented here. The supported fields(|java.time.Year|) will return valid 
+values based on this year. All otherChronoFieldinstances will throw 
+anUnsupportedTemporalTypeException. 
+
+If the field is not aChronoField, then the result of this method is obtained by 
+invokingTemporalField.getFrom(TemporalAccessor)passingthisas the argument. 
+Whether the value can be obtained, and what the value represents, is determined 
+by the field. 
+
+
+    field - the field to get, not null 
+
+    Returns: the value for the field 
+
+*java.time.Year.getLong(TemporalField)*
+
+public long getLong(java.time.temporal.TemporalField field)
+
+Gets the value of the specified field from this year as along. 
+
+This queries this year for the value for the specified field. If it is not 
+possible to return the value, because the field is not supported or for some 
+other reason, an exception is thrown. 
+
+If the field is a (|java.time.temporal.ChronoField|) then the query is 
+implemented here. The supported fields(|java.time.Year|) will return valid 
+values based on this year. All otherChronoFieldinstances will throw 
+anUnsupportedTemporalTypeException. 
+
+If the field is not aChronoField, then the result of this method is obtained by 
+invokingTemporalField.getFrom(TemporalAccessor)passingthisas the argument. 
+Whether the value can be obtained, and what the value represents, is determined 
+by the field. 
+
+
+    field - the field to get, not null 
+
+    Returns: the value for the field 
+
+*java.time.Year.getValue()*
+
+public int getValue()
+
+Gets the year value. 
+
+The year returned by this method is proleptic as perget(YEAR). 
+
+
+
+    Returns: the year, {@code MIN_VALUE} to {@code MAX_VALUE} 
+
+*java.time.Year.hashCode()*
+
+public int hashCode()
+
+A hash code for this year. 
+
+
+
+    Returns: a suitable hash code 
+
+*java.time.Year.isAfter(Year)*
+
+public boolean isAfter(java.time.Year other)
+
+Is this year after the specified year. 
+
+
+    other - the other year to compare to, not null 
+
+    Returns: true if this is after the specified year 
+
+*java.time.Year.isBefore(Year)*
+
+public boolean isBefore(java.time.Year other)
+
+Is this year before the specified year. 
+
+
+    other - the other year to compare to, not null 
+
+    Returns: true if this point is before the specified year 
+
+*java.time.Year.isLeap()*
+
+public boolean isLeap()
+
+Checks if the year is a leap year, according to the ISO proleptic calendar 
+system rules. 
+
+This method applies the current rules for leap years across the whole 
+time-line. In general, a year is a leap year if it is divisible by four without 
+remainder. However, years divisible by 100, are not leap years, with the 
+exception of years divisible by 400 which are. 
+
+For example, 1904 is a leap year it is divisible by 4. 1900 was not a leap year 
+as it is divisible by 100, however 2000 was a leap year as it is divisible by 
+400. 
+
+The calculation is proleptic - applying the same rules into the far future and 
+far past. This is historically inaccurate, but is correct for the ISO-8601 
+standard. 
+
+
+
+    Returns: true if the year is leap, false otherwise 
+
+*java.time.Year.isLeap(long)*
+
+public static boolean isLeap(long year)
+
+Checks if the year is a leap year, according to the ISO proleptic calendar 
+system rules. 
+
+This method applies the current rules for leap years across the whole 
+time-line. In general, a year is a leap year if it is divisible by four without 
+remainder. However, years divisible by 100, are not leap years, with the 
+exception of years divisible by 400 which are. 
+
+For example, 1904 is a leap year it is divisible by 4. 1900 was not a leap year 
+as it is divisible by 100, however 2000 was a leap year as it is divisible by 
+400. 
+
+The calculation is proleptic - applying the same rules into the far future and 
+far past. This is historically inaccurate, but is correct for the ISO-8601 
+standard. 
+
+
+    year - the year to check 
+
+    Returns: true if the year is leap, false otherwise 
+
+*java.time.Year.isSupported(TemporalField)*
+
+public boolean isSupported(java.time.temporal.TemporalField field)
+
+Checks if the specified field is supported. 
+
+This checks if this year can be queried for the specified field. If false, then 
+calling the range(|java.time.Year|) , get(|java.time.Year|) and 
+(|java.time.Year|) methods will throw an exception. 
+
+If the field is a (|java.time.temporal.ChronoField|) then the query is 
+implemented here. The supported fields are: 
+
+YEAR_OF_ERAYEARERA All otherChronoFieldinstances will return false. 
+
+If the field is not aChronoField, then the result of this method is obtained by 
+invokingTemporalField.isSupportedBy(TemporalAccessor)passingthisas the 
+argument. Whether the field is supported is determined by the field. 
+
+
+    field - the field to check, null returns false 
+
+    Returns: true if the field is supported on this year, false if not 
+
+*java.time.Year.isSupported(TemporalUnit)*
+
+public boolean isSupported(java.time.temporal.TemporalUnit unit)
+
+Checks if the specified unit is supported. 
+
+This checks if the specified unit can be added to, or subtracted from, this 
+date-time. If false, then calling the (|java.time.Year|) and 
+minus(|java.time.Year|) methods will throw an exception. 
+
+If the unit is a (|java.time.temporal.ChronoUnit|) then the query is 
+implemented here. The supported units are: 
+
+YEARSDECADESCENTURIESMILLENNIAERAS All otherChronoUnitinstances will return 
+false. 
+
+If the unit is not aChronoUnit, then the result of this method is obtained by 
+invokingTemporalUnit.isSupportedBy(Temporal)passingthisas the argument. Whether 
+the unit is supported is determined by the unit. 
+
+
+    unit - the unit to check, null returns false 
+
+    Returns: true if the unit can be added/subtracted, false if not 
+
+*java.time.Year.isValidMonthDay(MonthDay)*
+
+public boolean isValidMonthDay(java.time.MonthDay monthDay)
+
+Checks if the month-day is valid for this year. 
+
+This method checks whether this year and the input month and day form a valid 
+date. 
+
+
+    monthDay - the month-day to validate, null returns false 
+
+    Returns: true if the month and day are valid for this year 
+
+*java.time.Year.length()*
+
+public int length()
+
+Gets the length of this year in days. 
+
+
+
+    Returns: the length of this year in days, 365 or 366 
+
+*java.time.Year.minus(long,TemporalUnit)*
+
+public |java.time.Year| minus(
+  long amountToSubtract,
+  java.time.temporal.TemporalUnit unit)
+
+Returns a copy of this year with the specified amount subtracted. 
+
+This returns aYear, based on this one, with the amount in terms of the unit 
+subtracted. If it is not possible to subtract the amount, because the unit is 
+not supported or for some other reason, an exception is thrown. 
+
+This method is equivalent to (|java.time.Year|) with the amount negated. See 
+that method for a full description of how addition, and thus subtraction, 
+works. 
+
+This instance is immutable and unaffected by this method call. 
+
+
+    amountToSubtract - the amount of the unit to subtract from the result, may be negative 
+    unit - the unit of the amount to subtract, not null 
+
+    Returns: a {@code Year} based on this year with the specified amount subtracted, not 
+             null 
+
+*java.time.Year.minus(TemporalAmount)*
+
+public |java.time.Year| minus(java.time.temporal.TemporalAmount amountToSubtract)
+
+Returns a copy of this year with the specified amount subtracted. 
+
+This returns aYear, based on this one, with the specified amount subtracted. 
+The amount is typically (|java.time.Period|) but may be any other type 
+implementing the (|java.time.temporal.TemporalAmount|) interface. 
+
+The calculation is delegated to the amount object by calling 
+(|java.time.temporal.TemporalAmount|) . The amount implementation is free to 
+implement the subtraction in any way it wishes, however it typically calls back 
+to (|java.time.Year|) . Consult the documentation of the amount implementation 
+to determine if it can be successfully subtracted. 
+
+This instance is immutable and unaffected by this method call. 
+
+
+    amountToSubtract - the amount to subtract, not null 
+
+    Returns: a {@code Year} based on this year with the subtraction made, not null 
+
+*java.time.Year.minusYears(long)*
+
+public |java.time.Year| minusYears(long yearsToSubtract)
+
+Returns a copy of this year with the specified number of years subtracted. 
+
+This instance is immutable and unaffected by this method call. 
+
+
+    yearsToSubtract - the years to subtract, may be negative 
+
+    Returns: a {@code Year} based on this year with the period subtracted, not null 
+
+*java.time.Year.now()*
+
+public static |java.time.Year| now()
+
+Obtains the current year from the system clock in the default time-zone. 
+
+This will query the system clock(|java.time.Clock|) in the default time-zone to 
+obtain the current year. 
+
+Using this method will prevent the ability to use an alternate clock for 
+testing because the clock is hard-coded. 
+
+
+
+    Returns: the current year using the system clock and default time-zone, not null 
+
+*java.time.Year.now(Clock)*
+
+public static |java.time.Year| now(java.time.Clock clock)
+
+Obtains the current year from the specified clock. 
+
+This will query the specified clock to obtain the current year. Using this 
+method allows the use of an alternate clock for testing. The alternate clock 
+may be introduced using dependency injection(|java.time.Clock|) . 
+
+
+    clock - the clock to use, not null 
+
+    Returns: the current year, not null 
+
+*java.time.Year.now(ZoneId)*
+
+public static |java.time.Year| now(java.time.ZoneId zone)
+
+Obtains the current year from the system clock in the specified time-zone. 
+
+This will query the system clock(|java.time.Clock|) to obtain the current year. 
+Specifying the time-zone avoids dependence on the default time-zone. 
+
+Using this method will prevent the ability to use an alternate clock for 
+testing because the clock is hard-coded. 
+
+
+    zone - the zone ID to use, not null 
+
+    Returns: the current year using the system clock, not null 
+
+*java.time.Year.of(int)*
+
+public static |java.time.Year| of(int isoYear)
+
+Obtains an instance ofYear. 
+
+This method accepts a year value from the proleptic ISO calendar system. 
+
+The year 2AD/CE is represented by 2. The year 1AD/CE is represented by 1. The 
+year 1BC/BCE is represented by 0. The year 2BC/BCE is represented by -1. 
+
+
+    isoYear - the ISO proleptic year to represent, from {@code MIN_VALUE} to {@code 
+       MAX_VALUE} 
+
+    Returns: the year, not null 
+
+*java.time.Year.parse(CharSequence)*
+
+public static |java.time.Year| parse(java.lang.CharSequence text)
+
+Obtains an instance ofYearfrom a text string such as2007. 
+
+The string must represent a valid year. Years outside the range 0000 to 9999 
+must be prefixed by the plus or minus symbol. 
+
+
+    text - the text to parse such as "2007", not null 
+
+    Returns: the parsed year, not null 
+
+*java.time.Year.parse(CharSequence,DateTimeFormatter)*
+
+public static |java.time.Year| parse(
+  java.lang.CharSequence text,
+  java.time.format.DateTimeFormatter formatter)
+
+Obtains an instance ofYearfrom a text string using a specific formatter. 
+
+The text is parsed using the formatter, returning a year. 
+
+
+    text - the text to parse, not null 
+    formatter - the formatter to use, not null 
+
+    Returns: the parsed year, not null 
+
+*java.time.Year.plus(long,TemporalUnit)*
+
+public |java.time.Year| plus(
+  long amountToAdd,
+  java.time.temporal.TemporalUnit unit)
+
+Returns a copy of this year with the specified amount added. 
+
+This returns aYear, based on this one, with the amount in terms of the unit 
+added. If it is not possible to add the amount, because the unit is not 
+supported or for some other reason, an exception is thrown. 
+
+If the field is a (|java.time.temporal.ChronoUnit|) then the addition is 
+implemented here. The supported fields behave as follows: 
+
+YEARS- Returns aYearwith the specified number of years added. This is 
+equivalent to (|java.time.Year|) . DECADES- Returns aYearwith the specified 
+number of decades added. This is equivalent to calling (|java.time.Year|) with 
+the amount multiplied by 10. CENTURIES- Returns aYearwith the specified number 
+of centuries added. This is equivalent to calling (|java.time.Year|) with the 
+amount multiplied by 100. MILLENNIA- Returns aYearwith the specified number of 
+millennia added. This is equivalent to calling (|java.time.Year|) with the 
+amount multiplied by 1,000. ERAS- Returns aYearwith the specified number of 
+eras added. Only two eras are supported so the amount must be one, zero or 
+minus one. If the amount is non-zero then the year is changed such that the 
+year-of-era is unchanged. 
+
+All otherChronoUnitinstances will throw anUnsupportedTemporalTypeException. 
+
+If the field is not aChronoUnit, then the result of this method is obtained by 
+invokingTemporalUnit.addTo(Temporal, long)passingthisas the argument. In this 
+case, the unit determines whether and how to perform the addition. 
+
+This instance is immutable and unaffected by this method call. 
+
+
+    amountToAdd - the amount of the unit to add to the result, may be negative 
+    unit - the unit of the amount to add, not null 
+
+    Returns: a {@code Year} based on this year with the specified amount added, not null 
+
+*java.time.Year.plus(TemporalAmount)*
+
+public |java.time.Year| plus(java.time.temporal.TemporalAmount amountToAdd)
+
+Returns a copy of this year with the specified amount added. 
+
+This returns aYear, based on this one, with the specified amount added. The 
+amount is typically (|java.time.Period|) but may be any other type implementing 
+the (|java.time.temporal.TemporalAmount|) interface. 
+
+The calculation is delegated to the amount object by calling 
+(|java.time.temporal.TemporalAmount|) . The amount implementation is free to 
+implement the addition in any way it wishes, however it typically calls back to 
+(|java.time.Year|) . Consult the documentation of the amount implementation to 
+determine if it can be successfully added. 
+
+This instance is immutable and unaffected by this method call. 
+
+
+    amountToAdd - the amount to add, not null 
+
+    Returns: a {@code Year} based on this year with the addition made, not null 
+
+*java.time.Year.plusYears(long)*
+
+public |java.time.Year| plusYears(long yearsToAdd)
+
+Returns a copy of this year with the specified number of years added. 
+
+This instance is immutable and unaffected by this method call. 
+
+
+    yearsToAdd - the years to add, may be negative 
+
+    Returns: a {@code Year} based on this year with the period added, not null 
+
+*java.time.Year.query(TemporalQuery<R>)*
+
+public |R| query(java.time.temporal.TemporalQuery<R> query)
+
+Queries this year using the specified query. 
+
+This queries this year using the specified query strategy object. 
+TheTemporalQueryobject defines the logic to be used to obtain the result. Read 
+the documentation of the query to understand what the result of this method 
+will be. 
+
+The result of this method is obtained by invoking the 
+(|java.time.temporal.TemporalQuery|) method on the specified query 
+passingthisas the argument. 
+
+
+    query - the query to invoke, not null 
+
+    Returns: the query result, null may be returned (defined by the query) 
+
+*java.time.Year.range(TemporalField)*
+
+public |java.time.temporal.ValueRange| range(java.time.temporal.TemporalField field)
+
+Gets the range of valid values for the specified field. 
+
+The range object expresses the minimum and maximum valid values for a field. 
+This year is used to enhance the accuracy of the returned range. If it is not 
+possible to return the range, because the field is not supported or for some 
+other reason, an exception is thrown. 
+
+If the field is a (|java.time.temporal.ChronoField|) then the query is 
+implemented here. The supported fields(|java.time.Year|) will return 
+appropriate range instances. All otherChronoFieldinstances will throw 
+anUnsupportedTemporalTypeException. 
+
+If the field is not aChronoField, then the result of this method is obtained by 
+invokingTemporalField.rangeRefinedBy(TemporalAccessor)passingthisas the 
+argument. Whether the range can be obtained is determined by the field. 
+
+
+    field - the field to query the range for, not null 
+
+    Returns: the range of valid values for the field, not null 
+
+*java.time.Year.toString()*
+
+public |java.lang.String| toString()
+
+Outputs this year as aString. 
+
+
+
+    Returns: a string representation of this year, not null 
+
+*java.time.Year.until(Temporal,TemporalUnit)*
+
+public long until(
+  java.time.temporal.Temporal endExclusive,
+  java.time.temporal.TemporalUnit unit)
+
+Calculates the amount of time until another year in terms of the specified 
+unit. 
+
+This calculates the amount of time between twoYearobjects in terms of a 
+singleTemporalUnit. The start and end points arethisand the specified year. The 
+result will be negative if the end is before the start. TheTemporalpassed to 
+this method is converted to aYearusing (|java.time.Year|) . For example, the 
+period in decades between two year can be calculated 
+usingstartYear.until(endYear, DECADES). 
+
+The calculation returns a whole number, representing the number of complete 
+units between the two years. For example, the period in decades between 2012 
+and 2031 will only be one decade as it is one year short of two decades. 
+
+There are two equivalent ways of using this method. The first is to invoke this 
+method. The second is to use (|java.time.temporal.TemporalUnit|) : 
+
+// these two lines are equivalent amount = start.until(end, YEARS); amount = 
+YEARS.between(start, end); 
+
+The choice should be made based on which makes the code more readable. 
+
+The calculation is implemented in this method for 
+(|java.time.temporal.ChronoUnit|) . The 
+unitsYEARS,DECADES,CENTURIES,MILLENNIAandERASare supported. 
+OtherChronoUnitvalues will throw an exception. 
+
+If the unit is not aChronoUnit, then the result of this method is obtained by 
+invokingTemporalUnit.between(Temporal, Temporal)passingthisas the first 
+argument and the converted input temporal as the second argument. 
+
+This instance is immutable and unaffected by this method call. 
+
+
+    endExclusive - the end date, exclusive, which is converted to a {@code Year}, not null 
+    unit - the unit to measure the amount in, not null 
+
+    Returns: the amount of time between this year and the end year 
+
+*java.time.Year.with(TemporalAdjuster)*
+
+public |java.time.Year| with(java.time.temporal.TemporalAdjuster adjuster)
+
+Returns an adjusted copy of this year. 
+
+This returns aYear, based on this one, with the year adjusted. The adjustment 
+takes place using the specified adjuster strategy object. Read the 
+documentation of the adjuster to understand what adjustment will be made. 
+
+The result of this method is obtained by invoking the 
+(|java.time.temporal.TemporalAdjuster|) method on the specified adjuster 
+passingthisas the argument. 
+
+This instance is immutable and unaffected by this method call. 
+
+
+    adjuster - the adjuster to use, not null 
+
+    Returns: a {@code Year} based on {@code this} with the adjustment made, not null 
+
+*java.time.Year.with(TemporalField,long)*
+
+public |java.time.Year| with(
+  java.time.temporal.TemporalField field,
+  long newValue)
+
+Returns a copy of this year with the specified field set to a new value. 
+
+This returns aYear, based on this one, with the value for the specified field 
+changed. If it is not possible to set the value, because the field is not 
+supported or for some other reason, an exception is thrown. 
+
+If the field is a (|java.time.temporal.ChronoField|) then the adjustment is 
+implemented here. The supported fields behave as follows: 
+
+YEAR_OF_ERA- Returns aYearwith the specified year-of-era The era will be 
+unchanged. YEAR- Returns aYearwith the specified year. This completely replaces 
+the date and is equivalent to (|java.time.Year|) . ERA- Returns aYearwith the 
+specified era. The year-of-era will be unchanged. 
+
+In all cases, if the new value is outside the valid range of values for the 
+field then aDateTimeExceptionwill be thrown. 
+
+All otherChronoFieldinstances will throw anUnsupportedTemporalTypeException. 
+
+If the field is not aChronoField, then the result of this method is obtained by 
+invokingTemporalField.adjustInto(Temporal, long)passingthisas the argument. In 
+this case, the field determines whether and how to adjust the instant. 
+
+This instance is immutable and unaffected by this method call. 
+
+
+    field - the field to set in the result, not null 
+    newValue - the new value of the field in the result 
+
+    Returns: a {@code Year} based on {@code this} with the specified field set, not null 
+
+

@@ -1,0 +1,24 @@
+*org.omg.PortableServer.AdapterActivator* *AdapterActivator* An adapter activato
+
+public interface interface AdapterActivator
+
+  implements |org.omg.PortableServer.AdapterActivatorOperations|
+             |org.omg.CORBA.Object|
+             |org.omg.CORBA.portable.IDLEntity|
+
+|org.omg.PortableServer.AdapterActivator_Description|
+|org.omg.PortableServer.AdapterActivator_Fields|
+|org.omg.PortableServer.AdapterActivator_Constructors|
+|org.omg.PortableServer.AdapterActivator_Methods|
+
+================================================================================
+
+*org.omg.PortableServer.AdapterActivator_Description*
+
+An adapter activator supplies a POA with the ability to create child POAs on 
+demand, as a side-effect of receiving a request that names the child POA (or 
+one of its children), or when find_POA is called with an activate parameter 
+value of TRUE. 
+
+
+

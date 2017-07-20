@@ -1,0 +1,344 @@
+*java.util.Spliterator* *Spliterator* An object for traversing and partitioning 
+
+public interface interface Spliterator<T>
+
+
+|java.util.Spliterator_Description|
+|java.util.Spliterator_Fields|
+|java.util.Spliterator_Constructors|
+|java.util.Spliterator_Methods|
+
+================================================================================
+
+*java.util.Spliterator_Fields*
+|int_java.util.Spliterator.CONCURRENT|
+|int_java.util.Spliterator.DISTINCT|
+|int_java.util.Spliterator.IMMUTABLE|
+|int_java.util.Spliterator.NONNULL|
+|int_java.util.Spliterator.ORDERED|
+|int_java.util.Spliterator.SIZED|
+|int_java.util.Spliterator.SORTED|
+|int_java.util.Spliterator.SUBSIZED|
+
+*java.util.Spliterator_Methods*
+|java.util.Spliterator.characteristics()|Returns a set of characteristics of th
+|java.util.Spliterator.estimateSize()|Returns an estimate of the number of elem
+|java.util.Spliterator.forEachRemaining(Consumer<?superT>)|Performs the given a
+|java.util.Spliterator.getComparator()|If this Spliterator's source is#SORTEDby
+|java.util.Spliterator.getExactSizeIfKnown()|Convenience method that returns#es
+|java.util.Spliterator.hasCharacteristics(int)|Returnstrueif this Spliterator's
+|java.util.Spliterator.tryAdvance(Consumer<?superT>)|If a remaining element exi
+|java.util.Spliterator.trySplit()|If this spliterator can be partitioned, retur
+
+*java.util.Spliterator_Description*
+
+An object for traversing and partitioning elements of a source. The source of 
+elements covered by a Spliterator could be, for example, an array, a 
+(|java.util.Collection|) , an IO channel, or a generator function. 
+
+A Spliterator may traverse elements individually ( 
+tryAdvance()(|java.util.Spliterator|) ) or sequentially in bulk ( 
+forEachRemaining()(|java.util.Spliterator|) ). 
+
+A Spliterator may also partition off some of its elements (using 
+(|java.util.Spliterator|) ) as another Spliterator, to be used in 
+possibly-parallel operations. Operations using a Spliterator that cannot split, 
+or does so in a highly imbalanced or inefficient manner, are unlikely to 
+benefit from parallelism. Traversal and splitting exhaust elements; each 
+Spliterator is useful for only a single bulk computation. 
+
+A Spliterator also reports a set of (|java.util.Spliterator|) of its structure, 
+source, and elements from among (|java.util.Spliterator|) , 
+(|java.util.Spliterator|) , (|java.util.Spliterator|) , 
+(|java.util.Spliterator|) , (|java.util.Spliterator|) , 
+(|java.util.Spliterator|) , (|java.util.Spliterator|) , and 
+(|java.util.Spliterator|) . These may be employed by Spliterator clients to 
+control, specialize or simplify computation. For example, a Spliterator for a 
+(|java.util.Collection|) would reportSIZED, a Spliterator for a 
+(|java.util.Set|) would reportDISTINCT, and a Spliterator for a 
+(|java.util.SortedSet|) would also reportSORTED. Characteristics are reported 
+as a simple unioned bit set. 
+
+Some characteristics additionally constrain method behavior; for example 
+ifORDERED, traversal methods must conform to their documented ordering. New 
+characteristics may be defined in the future, so implementors should not assign 
+meanings to unlisted values. 
+
+A Spliterator that does not reportIMMUTABLEorCONCURRENTis expected to have a 
+documented policy concerning: when the spliterator binds to the element source; 
+and detection of structural interference of the element source detected after 
+binding. A late-binding Spliterator binds to the source of elements at the 
+point of first traversal, first split, or first query for estimated size, 
+rather than at the time the Spliterator is created. A Spliterator that is not 
+late-binding binds to the source of elements at the point of construction or 
+first invocation of any method. Modifications made to the source prior to 
+binding are reflected when the Spliterator is traversed. After binding a 
+Spliterator should, on a best-effort basis, throw 
+(|java.util.ConcurrentModificationException|) if structural interference is 
+detected. Spliterators that do this are called fail-fast. The bulk traversal 
+method ( forEachRemaining()(|java.util.Spliterator|) ) of a Spliterator may 
+optimize traversal and check for structural interference after all elements 
+have been traversed, rather than checking per-element and failing immediately. 
+
+Spliterators can provide an estimate of the number of remaining elements via 
+the (|java.util.Spliterator|) method. Ideally, as reflected in characteristic 
+(|java.util.Spliterator|) , this value corresponds exactly to the number of 
+elements that would be encountered in a successful traversal. However, even 
+when not exactly known, an estimated value value may still be useful to 
+operations being performed on the source, such as helping to determine whether 
+it is preferable to split further or traverse the remaining elements 
+sequentially. 
+
+Despite their obvious utility in parallel algorithms, spliterators are not 
+expected to be thread-safe; instead, implementations of parallel algorithms 
+using spliterators should ensure that the spliterator is only used by one 
+thread at a time. This is generally easy to attain via serial 
+thread-confinement, which often is a natural consequence of typical parallel 
+algorithms that work by recursive decomposition. A thread calling 
+(|java.util.Spliterator|) may hand over the returned Spliterator to another 
+thread, which in turn may traverse or further split that Spliterator. The 
+behaviour of splitting and traversal is undefined if two or more threads 
+operate concurrently on the same spliterator. If the original thread hands a 
+spliterator off to another thread for processing, it is best if that handoff 
+occurs before any elements are consumed with 
+tryAdvance()(|java.util.Spliterator|) , as certain guarantees (such as the 
+accuracy of (|java.util.Spliterator|) forSIZEDspliterators) are only valid 
+before traversal has begun. 
+
+Primitive subtype specializations ofSpliteratorare provided for 
+int(|java.util.Spliterator.OfInt|) , long(|java.util.Spliterator.OfLong|) , and 
+double(|java.util.Spliterator.OfDouble|) values. The subtype default 
+implementations of (|java.util.Spliterator|) and (|java.util.Spliterator|) box 
+primitive values to instances of their corresponding wrapper class. Such boxing 
+may undermine any performance advantages gained by using the primitive 
+specializations. To avoid boxing, the corresponding primitive-based methods 
+should be used. For example, (|java.util.Spliterator.OfInt|) and 
+(|java.util.Spliterator.OfInt|) should be used in preference to 
+(|java.util.Spliterator.OfInt|) and (|java.util.Spliterator.OfInt|) . Traversal 
+of primitive values using boxing-based methods 
+tryAdvance()(|java.util.Spliterator|) and 
+forEachRemaining()(|java.util.Spliterator|) does not affect the order in which 
+the values, transformed to boxed values, are encountered. 
+
+
+
+*int_java.util.Spliterator.CONCURRENT*
+
+Characteristic value signifying that the element source may be safely 
+concurrently modified (allowing additions, replacements, and/or removals) by 
+multiple threads without external synchronization. If so, the Spliterator is 
+expected to have a documented policy concerning the impact of modifications 
+during traversal. 
+
+A top-level Spliterator should not report bothCONCURRENTandSIZED, since the 
+finite size, if known, may change if the source is concurrently modified during 
+traversal. Such a Spliterator is inconsistent and no guarantees can be made 
+about any computation using that Spliterator. Sub-spliterators may 
+reportSIZEDif the sub-split size is known and additions or removals to the 
+source are not reflected when traversing. 
+
+
+*int_java.util.Spliterator.DISTINCT*
+
+Characteristic value signifying that, for each pair of encountered elementsx, 
+y,!x.equals(y). This applies for example, to a Spliterator based on a 
+(|java.util.Set|) . 
+
+
+*int_java.util.Spliterator.IMMUTABLE*
+
+Characteristic value signifying that the element source cannot be structurally 
+modified; that is, elements cannot be added, replaced, or removed, so such 
+changes cannot occur during traversal. A Spliterator that does not 
+reportIMMUTABLEorCONCURRENTis expected to have a documented policy (for example 
+throwing (|java.util.ConcurrentModificationException|) ) concerning structural 
+interference detected during traversal. 
+
+
+*int_java.util.Spliterator.NONNULL*
+
+Characteristic value signifying that the source guarantees that encountered 
+elements will not benull. (This applies, for example, to most concurrent 
+collections, queues, and maps.) 
+
+
+*int_java.util.Spliterator.ORDERED*
+
+Characteristic value signifying that an encounter order is defined for 
+elements. If so, this Spliterator guarantees that method 
+(|java.util.Spliterator|) splits a strict prefix of elements, that method 
+(|java.util.Spliterator|) steps by one element in prefix order, and that 
+(|java.util.Spliterator|) performs actions in encounter order. 
+
+A (|java.util.Collection|) has an encounter order if the corresponding 
+(|java.util.Collection|) documents an order. If so, the encounter order is the 
+same as the documented order. Otherwise, a collection does not have an 
+encounter order. 
+
+
+*int_java.util.Spliterator.SIZED*
+
+Characteristic value signifying that the value returned fromestimateSize()prior 
+to traversal or splitting represents a finite size that, in the absence of 
+structural source modification, represents an exact count of the number of 
+elements that would be encountered by a complete traversal. 
+
+
+*int_java.util.Spliterator.SORTED*
+
+Characteristic value signifying that encounter order follows a defined sort 
+order. If so, method (|java.util.Spliterator|) returns the associated 
+Comparator, ornullif all elements are (|java.lang.Comparable|) and are sorted 
+by their natural ordering. 
+
+A Spliterator that reportsSORTEDmust also reportORDERED. 
+
+
+*int_java.util.Spliterator.SUBSIZED*
+
+Characteristic value signifying that all Spliterators resulting 
+fromtrySplit()will be both (|java.util.Spliterator|) and 
+(|java.util.Spliterator|) . (This means that all child Spliterators, whether 
+direct or indirect, will beSIZED.) 
+
+A Spliterator that does not reportSIZEDas required bySUBSIZEDis inconsistent 
+and no guarantees can be made about any computation using that Spliterator. 
+
+
+
+*java.util.Spliterator.characteristics()*
+
+public int characteristics()
+
+Returns a set of characteristics of this Spliterator and its elements. The 
+result is represented as ORed values from (|java.util.Spliterator|) , 
+(|java.util.Spliterator|) , (|java.util.Spliterator|) , 
+(|java.util.Spliterator|) , (|java.util.Spliterator|) , 
+(|java.util.Spliterator|) , (|java.util.Spliterator|) , 
+(|java.util.Spliterator|) . Repeated calls tocharacteristics()on a given 
+spliterator, prior to or in-between calls totrySplit, should always return the 
+same result. 
+
+If a Spliterator reports an inconsistent set of characteristics (either those 
+returned from a single invocation or across multiple invocations), no 
+guarantees can be made about any computation using this Spliterator. 
+
+
+
+    Returns: a representation of characteristics 
+
+*java.util.Spliterator.estimateSize()*
+
+public long estimateSize()
+
+Returns an estimate of the number of elements that would be encountered by a 
+(|java.util.Spliterator|) traversal, or returns (|java.lang.Long|) if infinite, 
+unknown, or too expensive to compute. 
+
+If this Spliterator is (|java.util.Spliterator|) and has not yet been partially 
+traversed or split, or this Spliterator is (|java.util.Spliterator|) and has 
+not yet been partially traversed, this estimate must be an accurate count of 
+elements that would be encountered by a complete traversal. Otherwise, this 
+estimate may be arbitrarily inaccurate, but must decrease as specified across 
+invocations of (|java.util.Spliterator|) . 
+
+
+
+    Returns: the estimated size, or {@code Long.MAX_VALUE} if infinite, unknown, or too 
+             expensive to compute. 
+
+*java.util.Spliterator.forEachRemaining(Consumer<?superT>)*
+
+public void forEachRemaining(java.util.function.Consumer<? super T> action)
+
+Performs the given action for each remaining element, sequentially in the 
+current thread, until all elements have been processed or the action throws an 
+exception. If this Spliterator is (|java.util.Spliterator|) , actions are 
+performed in encounter order. Exceptions thrown by the action are relayed to 
+the caller. 
+
+
+    action - The action 
+
+*java.util.Spliterator.getComparator()*
+
+public |java.util.Comparator|<? super T> getComparator()
+
+If this Spliterator's source is (|java.util.Spliterator|) by a 
+(|java.util.Comparator|) , returns thatComparator. If the source isSORTEDin 
+natural order(|java.lang.Comparable|) , returnsnull. Otherwise, if the source 
+is notSORTED, throws (|java.lang.IllegalStateException|) . 
+
+
+
+    Returns: a Comparator, or {@code null} if the elements are sorted in the natural order. 
+
+*java.util.Spliterator.getExactSizeIfKnown()*
+
+public long getExactSizeIfKnown()
+
+Convenience method that returns (|java.util.Spliterator|) if this Spliterator 
+is (|java.util.Spliterator|) , else-1. 
+
+
+
+    Returns: the exact size, if known, else {@code -1}. 
+
+*java.util.Spliterator.hasCharacteristics(int)*
+
+public boolean hasCharacteristics(int characteristics)
+
+Returnstrueif this Spliterator's (|java.util.Spliterator|) contain all of the 
+given characteristics. 
+
+
+    characteristics - the characteristics to check for 
+
+    Returns: {@code true} if all the specified characteristics are present, else {@code 
+             false} 
+
+*java.util.Spliterator.tryAdvance(Consumer<?superT>)*
+
+public boolean tryAdvance(java.util.function.Consumer<? super T> action)
+
+If a remaining element exists, performs the given action on it, returningtrue; 
+else returnsfalse. If this Spliterator is (|java.util.Spliterator|) the action 
+is performed on the next element in encounter order. Exceptions thrown by the 
+action are relayed to the caller. 
+
+
+    action - The action 
+
+    Returns: {@code false} if no remaining elements existed upon entry to this method, else 
+             {@code true}. 
+
+*java.util.Spliterator.trySplit()*
+
+public |java.util.Spliterator|<T> trySplit()
+
+If this spliterator can be partitioned, returns a Spliterator covering 
+elements, that will, upon return from this method, not be covered by this 
+Spliterator. 
+
+If this Spliterator is (|java.util.Spliterator|) , the returned Spliterator 
+must cover a strict prefix of the elements. 
+
+Unless this Spliterator covers an infinite number of elements, repeated calls 
+totrySplit()must eventually returnnull. Upon non-null return: 
+
+the value reported forestimateSize()before splitting, must, after splitting, be 
+greater than or equal toestimateSize()for this and the returned Spliterator; 
+and if this Spliterator isSUBSIZED, thenestimateSize()for this spliterator 
+before splitting must be equal to the sum ofestimateSize()for this and the 
+returned Spliterator after splitting. 
+
+This method may returnnullfor any reason, including emptiness, inability to 
+split after traversal has commenced, data structure constraints, and efficiency 
+considerations. 
+
+
+
+    Returns: a {@code Spliterator} covering some portion of the elements, or {@code null} if 
+             this spliterator cannot be split 
+
+

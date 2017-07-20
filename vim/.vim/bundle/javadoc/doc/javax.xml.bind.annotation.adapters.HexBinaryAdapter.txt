@@ -1,0 +1,52 @@
+*javax.xml.bind.annotation.adapters.HexBinaryAdapter* *HexBinaryAdapter* XmlAdap
+
+public final class HexBinaryAdapter
+  extends    |javax.xml.bind.annotation.adapters.XmlAdapter|
+
+|javax.xml.bind.annotation.adapters.HexBinaryAdapter_Description|
+|javax.xml.bind.annotation.adapters.HexBinaryAdapter_Fields|
+|javax.xml.bind.annotation.adapters.HexBinaryAdapter_Constructors|
+|javax.xml.bind.annotation.adapters.HexBinaryAdapter_Methods|
+
+================================================================================
+
+*javax.xml.bind.annotation.adapters.HexBinaryAdapter_Constructors*
+|javax.xml.bind.annotation.adapters.HexBinaryAdapter()|
+
+*javax.xml.bind.annotation.adapters.HexBinaryAdapter_Methods*
+|javax.xml.bind.annotation.adapters.HexBinaryAdapter.marshal(byte[])|
+|javax.xml.bind.annotation.adapters.HexBinaryAdapter.unmarshal(String)|
+
+*javax.xml.bind.annotation.adapters.HexBinaryAdapter_Description*
+
+(|javax.xml.bind.annotation.adapters.XmlAdapter|) for xs:hexBinary. 
+
+This (|javax.xml.bind.annotation.adapters.XmlAdapter|) binds byte[] to the 
+hexBinary representation in XML. 
+
+
+
+*javax.xml.bind.annotation.adapters.HexBinaryAdapter()*
+
+public HexBinaryAdapter()
+
+
+
+
+*javax.xml.bind.annotation.adapters.HexBinaryAdapter.marshal(byte[])*
+
+public |java.lang.String| marshal(byte[] bytes)
+
+
+
+
+
+*javax.xml.bind.annotation.adapters.HexBinaryAdapter.unmarshal(String)*
+
+public byte[] unmarshal(java.lang.String s)
+
+
+
+
+
+

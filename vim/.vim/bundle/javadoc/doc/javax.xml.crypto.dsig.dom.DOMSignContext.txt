@@ -1,0 +1,146 @@
+*javax.xml.crypto.dsig.dom.DOMSignContext* *DOMSignContext* A DOM-specificXMLSig
+
+public class DOMSignContext
+  extends    |javax.xml.crypto.dom.DOMCryptoContext|
+  implements |javax.xml.crypto.dsig.XMLSignContext|
+
+|javax.xml.crypto.dsig.dom.DOMSignContext_Description|
+|javax.xml.crypto.dsig.dom.DOMSignContext_Fields|
+|javax.xml.crypto.dsig.dom.DOMSignContext_Constructors|
+|javax.xml.crypto.dsig.dom.DOMSignContext_Methods|
+
+================================================================================
+
+*javax.xml.crypto.dsig.dom.DOMSignContext_Constructors*
+|javax.xml.crypto.dsig.dom.DOMSignContext(Key,Node)|Creates a DOMSignContext wi
+|javax.xml.crypto.dsig.dom.DOMSignContext(Key,Node,Node)|Creates a DOMSignConte
+|javax.xml.crypto.dsig.dom.DOMSignContext(KeySelector,Node)|Creates a DOMSignCo
+|javax.xml.crypto.dsig.dom.DOMSignContext(KeySelector,Node,Node)|Creates a DOMS
+
+*javax.xml.crypto.dsig.dom.DOMSignContext_Methods*
+|javax.xml.crypto.dsig.dom.DOMSignContext.getNextSibling()|Returns the nextSibl
+|javax.xml.crypto.dsig.dom.DOMSignContext.getParent()|Returns the parent node.
+|javax.xml.crypto.dsig.dom.DOMSignContext.setNextSibling(Node)|Sets the next si
+|javax.xml.crypto.dsig.dom.DOMSignContext.setParent(Node)|Sets the parent node.
+
+*javax.xml.crypto.dsig.dom.DOMSignContext_Description*
+
+A DOM-specific (|javax.xml.crypto.dsig.XMLSignContext|) . This class contains 
+additional methods to specify the location in a DOM tree where an 
+(|javax.xml.crypto.dsig.XMLSignature|) object is to be marshalled when 
+generating the signature. 
+
+Note that DOMSignContext instances can contain information and state specific 
+to the XML signature structure it is used with. The results are unpredictable 
+if a DOMSignContext is used with different signature structures (for example, 
+you should not use the same DOMSignContext instance to sign two different 
+(|javax.xml.crypto.dsig.XMLSignature|) objects). 
+
+
+
+*javax.xml.crypto.dsig.dom.DOMSignContext(Key,Node)*
+
+public DOMSignContext(
+  java.security.Key signingKey,
+  org.w3c.dom.Node parent)
+
+Creates a DOMSignContext with the specified signing key and parent node. The 
+signing key is stored in a singleton 
+KeySelector(|javax.xml.crypto.KeySelector|) that is returned by the 
+getKeySelector(|javax.xml.crypto.dsig.dom.DOMSignContext|) method. The 
+marshalled XMLSignature will be added as the last child element of the 
+specified parent node unless a next sibling node is specified by invoking the 
+setNextSibling(|javax.xml.crypto.dsig.dom.DOMSignContext|) method. 
+
+    signingKey - the signing key 
+    parent - the parent node 
+
+*javax.xml.crypto.dsig.dom.DOMSignContext(Key,Node,Node)*
+
+public DOMSignContext(
+  java.security.Key signingKey,
+  org.w3c.dom.Node parent,
+  org.w3c.dom.Node nextSibling)
+
+Creates a DOMSignContext with the specified signing key, parent and next 
+sibling nodes. The signing key is stored in a singleton 
+KeySelector(|javax.xml.crypto.KeySelector|) that is returned by the 
+getKeySelector(|javax.xml.crypto.dsig.dom.DOMSignContext|) method. The 
+marshalled XMLSignature will be inserted as a child element of the specified 
+parent node and immediately before the specified next sibling node. 
+
+    signingKey - the signing key 
+    parent - the parent node 
+    nextSibling - the next sibling node 
+
+*javax.xml.crypto.dsig.dom.DOMSignContext(KeySelector,Node)*
+
+public DOMSignContext(
+  javax.xml.crypto.KeySelector ks,
+  org.w3c.dom.Node parent)
+
+Creates a DOMSignContext with the specified key selector and parent node. The 
+marshalled XMLSignature will be added as the last child element of the 
+specified parent node unless a next sibling node is specified by invoking the 
+setNextSibling(|javax.xml.crypto.dsig.dom.DOMSignContext|) method. 
+
+    ks - the key selector 
+    parent - the parent node 
+
+*javax.xml.crypto.dsig.dom.DOMSignContext(KeySelector,Node,Node)*
+
+public DOMSignContext(
+  javax.xml.crypto.KeySelector ks,
+  org.w3c.dom.Node parent,
+  org.w3c.dom.Node nextSibling)
+
+Creates a DOMSignContext with the specified key selector, parent and next 
+sibling nodes. The marshalled XMLSignature will be inserted as a child element 
+of the specified parent node and immediately before the specified next sibling 
+node. 
+
+    ks - the key selector 
+    parent - the parent node 
+    nextSibling - the next sibling node 
+
+*javax.xml.crypto.dsig.dom.DOMSignContext.getNextSibling()*
+
+public |org.w3c.dom.Node| getNextSibling()
+
+Returns the nextSibling node. 
+
+
+
+    Returns: the nextSibling node, or null if not specified. 
+
+*javax.xml.crypto.dsig.dom.DOMSignContext.getParent()*
+
+public |org.w3c.dom.Node| getParent()
+
+Returns the parent node. 
+
+
+
+    Returns: the parent node (never null) 
+
+*javax.xml.crypto.dsig.dom.DOMSignContext.setNextSibling(Node)*
+
+public void setNextSibling(org.w3c.dom.Node nextSibling)
+
+Sets the next sibling node. 
+
+
+    nextSibling - the next sibling node. The marshalled XMLSignature will be inserted immediately 
+       before this node. Specify null to remove the current setting. 
+
+*javax.xml.crypto.dsig.dom.DOMSignContext.setParent(Node)*
+
+public void setParent(org.w3c.dom.Node parent)
+
+Sets the parent node. 
+
+
+    parent - the parent node. The marshalled XMLSignature will be added as a child element 
+       of this node. 
+
+

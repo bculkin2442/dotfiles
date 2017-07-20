@@ -1,0 +1,68 @@
+*javax.xml.ws.handler.Handler* *Handler* The Handler interface
+  is the base int
+
+public interface interface Handler<C extends javax.xml.ws.handler.MessageContext>
+
+
+|javax.xml.ws.handler.Handler_Description|
+|javax.xml.ws.handler.Handler_Fields|
+|javax.xml.ws.handler.Handler_Constructors|
+|javax.xml.ws.handler.Handler_Methods|
+
+================================================================================
+
+*javax.xml.ws.handler.Handler_Methods*
+|javax.xml.ws.handler.Handler.close(MessageContext)|Called at the conclusion of
+|javax.xml.ws.handler.Handler.handleFault(C)|The handleFault method is invoked 
+|javax.xml.ws.handler.Handler.handleMessage(C)|The handleMessage method is invo
+
+*javax.xml.ws.handler.Handler_Description*
+
+The Handler interface is the base interface for JAX-WS handlers. 
+
+
+
+*javax.xml.ws.handler.Handler.close(MessageContext)*
+
+public void close(javax.xml.ws.handler.MessageContext context)
+
+Called at the conclusion of a message exchange pattern just prior to the JAX-WS 
+runtime dispatching a message, fault or exception. Refer to the description of 
+the handler framework in the JAX-WS specification for full details. 
+
+
+    context - the message context 
+
+*javax.xml.ws.handler.Handler.handleFault(C)*
+
+public boolean handleFault(C extends javax.xml.ws.handler.MessageContext context)
+
+The handleFault method is invoked for fault message processing. Refer to the 
+description of the handler framework in the JAX-WS specification for full 
+details. 
+
+
+    context - the message context 
+
+    Returns: An indication of whether handler fault processing should continue for the 
+             current message 
+
+Return true to continue processing. Return false to block processing. 
+
+*javax.xml.ws.handler.Handler.handleMessage(C)*
+
+public boolean handleMessage(C extends javax.xml.ws.handler.MessageContext context)
+
+The handleMessage method is invoked for normal processing of inbound and 
+outbound messages. Refer to the description of the handler framework in the 
+JAX-WS specification for full details. 
+
+
+    context - the message context. 
+
+    Returns: An indication of whether handler processing should continue for the current 
+             message 
+
+Return true to continue processing. Return false to block processing. 
+
+

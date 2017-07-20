@@ -1,0 +1,115 @@
+*javax.xml.stream.XMLStreamConstants* *XMLStreamConstants* This interface declar
+
+public interface interface XMLStreamConstants
+
+
+|javax.xml.stream.XMLStreamConstants_Description|
+|javax.xml.stream.XMLStreamConstants_Fields|
+|javax.xml.stream.XMLStreamConstants_Constructors|
+|javax.xml.stream.XMLStreamConstants_Methods|
+
+================================================================================
+
+*javax.xml.stream.XMLStreamConstants_Fields*
+|int_javax.xml.stream.XMLStreamConstants.ATTRIBUTE|
+|int_javax.xml.stream.XMLStreamConstants.CDATA|
+|int_javax.xml.stream.XMLStreamConstants.CHARACTERS|
+|int_javax.xml.stream.XMLStreamConstants.COMMENT|
+|int_javax.xml.stream.XMLStreamConstants.DTD|
+|int_javax.xml.stream.XMLStreamConstants.END_DOCUMENT|
+|int_javax.xml.stream.XMLStreamConstants.END_ELEMENT|
+|int_javax.xml.stream.XMLStreamConstants.ENTITY_DECLARATION|
+|int_javax.xml.stream.XMLStreamConstants.ENTITY_REFERENCE|
+|int_javax.xml.stream.XMLStreamConstants.NAMESPACE|
+|int_javax.xml.stream.XMLStreamConstants.NOTATION_DECLARATION|
+|int_javax.xml.stream.XMLStreamConstants.PROCESSING_INSTRUCTION|
+|int_javax.xml.stream.XMLStreamConstants.SPACE|
+|int_javax.xml.stream.XMLStreamConstants.START_DOCUMENT|
+|int_javax.xml.stream.XMLStreamConstants.START_ELEMENT|
+
+*javax.xml.stream.XMLStreamConstants_Description*
+
+This interface declares the constants used in this API. Numbers in the range 0 
+to 256 are reserved for the specification, user defined events must use event 
+codes outside that range. 
+
+
+
+*int_javax.xml.stream.XMLStreamConstants.ATTRIBUTE*
+
+Indicates an event is an attribute 
+
+
+*int_javax.xml.stream.XMLStreamConstants.CDATA*
+
+Indicates an event is a CDATA section 
+
+
+*int_javax.xml.stream.XMLStreamConstants.CHARACTERS*
+
+Indicates an event is characters 
+
+
+*int_javax.xml.stream.XMLStreamConstants.COMMENT*
+
+Indicates an event is a comment 
+
+
+*int_javax.xml.stream.XMLStreamConstants.DTD*
+
+Indicates an event is a DTD 
+
+
+*int_javax.xml.stream.XMLStreamConstants.END_DOCUMENT*
+
+Indicates an event is an end document 
+
+
+*int_javax.xml.stream.XMLStreamConstants.END_ELEMENT*
+
+Indicates an event is an end element 
+
+
+*int_javax.xml.stream.XMLStreamConstants.ENTITY_DECLARATION*
+
+Indicates a Entity Declaration 
+
+
+*int_javax.xml.stream.XMLStreamConstants.ENTITY_REFERENCE*
+
+Indicates an event is an entity reference 
+
+
+*int_javax.xml.stream.XMLStreamConstants.NAMESPACE*
+
+Indicates the event is a namespace declaration 
+
+
+*int_javax.xml.stream.XMLStreamConstants.NOTATION_DECLARATION*
+
+Indicates a Notation 
+
+
+*int_javax.xml.stream.XMLStreamConstants.PROCESSING_INSTRUCTION*
+
+Indicates an event is a processing instruction 
+
+
+*int_javax.xml.stream.XMLStreamConstants.SPACE*
+
+The characters are white space (see [XML], 2.10 "White Space Handling"). Events 
+are only reported as SPACE if they are ignorable white space. Otherwise they 
+are reported as CHARACTERS. 
+
+
+*int_javax.xml.stream.XMLStreamConstants.START_DOCUMENT*
+
+Indicates an event is a start document 
+
+
+*int_javax.xml.stream.XMLStreamConstants.START_ELEMENT*
+
+Indicates an event is a start element 
+
+
+

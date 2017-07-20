@@ -1,0 +1,22 @@
+*org.omg.DynamicAny.DynEnum* *DynEnum* DynEnum objects support the manipulation 
+
+public interface interface DynEnum
+
+  implements |org.omg.DynamicAny.DynEnumOperations|
+             |org.omg.DynamicAny.DynAny|
+             |org.omg.CORBA.portable.IDLEntity|
+
+|org.omg.DynamicAny.DynEnum_Description|
+|org.omg.DynamicAny.DynEnum_Fields|
+|org.omg.DynamicAny.DynEnum_Constructors|
+|org.omg.DynamicAny.DynEnum_Methods|
+
+================================================================================
+
+*org.omg.DynamicAny.DynEnum_Description*
+
+DynEnum objects support the manipulation of IDL enumerated values. The current 
+position of a DynEnum is always -1. 
+
+
+

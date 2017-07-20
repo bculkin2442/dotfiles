@@ -1,0 +1,52 @@
+*java.util.PrimitiveIterator* *PrimitiveIterator* A base type for primitive spec
+
+public interface interface PrimitiveIterator<T,T_CONS>
+
+  implements |java.util.Iterator|
+
+|java.util.PrimitiveIterator_Description|
+|java.util.PrimitiveIterator_Fields|
+|java.util.PrimitiveIterator_Constructors|
+|java.util.PrimitiveIterator_Methods|
+
+================================================================================
+
+*java.util.PrimitiveIterator_Methods*
+|java.util.PrimitiveIterator.forEachRemaining(T_CONS)|Performs the given action
+
+*java.util.PrimitiveIterator_Description*
+
+A base type for primitive specializations ofIterator. Specialized subtypes are 
+provided for int(|java.util.PrimitiveIterator.OfInt|) , 
+long(|java.util.PrimitiveIterator.OfLong|) , and 
+double(|java.util.PrimitiveIterator.OfDouble|) values. 
+
+The specialized subtype default implementations of (|java.util.Iterator|) and 
+(|java.util.Iterator|) box primitive values to instances of their corresponding 
+wrapper class. Such boxing may offset any advantages gained when using the 
+primitive specializations. To avoid boxing, the corresponding primitive-based 
+methods should be used. For example, (|java.util.PrimitiveIterator.OfInt|) and 
+(|java.util.PrimitiveIterator.OfInt|) should be used in preference to 
+(|java.util.PrimitiveIterator.OfInt|) and (|java.util.PrimitiveIterator.OfInt|) 
+. 
+
+Iteration of primitive values using boxing-based methods 
+next()(|java.util.Iterator|) and forEachRemaining()(|java.util.Iterator|) , 
+does not affect the order in which the values, transformed to boxed values, are 
+encountered. 
+
+
+
+*java.util.PrimitiveIterator.forEachRemaining(T_CONS)*
+
+public void forEachRemaining(T_CONS action)
+
+Performs the given action for each remaining element, in the order elements 
+occur when iterating, until all elements have been processed or the action 
+throws an exception. Errors or runtime exceptions thrown by the action are 
+relayed to the caller. 
+
+
+    action - The action to be performed for each element 
+
+

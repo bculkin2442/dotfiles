@@ -1,0 +1,78 @@
+*org.omg.CosNaming.NamingContextPOA* *NamingContextPOA* A naming context is an o
+
+public abstract class NamingContextPOA
+  extends    |org.omg.PortableServer.Servant|
+  implements |org.omg.CosNaming.NamingContextOperations|
+             |org.omg.CORBA.portable.InvokeHandler|
+
+|org.omg.CosNaming.NamingContextPOA_Description|
+|org.omg.CosNaming.NamingContextPOA_Fields|
+|org.omg.CosNaming.NamingContextPOA_Constructors|
+|org.omg.CosNaming.NamingContextPOA_Methods|
+
+================================================================================
+
+*org.omg.CosNaming.NamingContextPOA_Constructors*
+|org.omg.CosNaming.NamingContextPOA()|
+
+*org.omg.CosNaming.NamingContextPOA_Methods*
+|org.omg.CosNaming.NamingContextPOA._all_interfaces(POA,byte[])|
+|org.omg.CosNaming.NamingContextPOA._invoke(String,InputStream,ResponseHandler)|
+|org.omg.CosNaming.NamingContextPOA._this()|
+|org.omg.CosNaming.NamingContextPOA._this(ORB)|
+
+*org.omg.CosNaming.NamingContextPOA_Description*
+
+A naming context is an object that contains a set of name bindings in which 
+each name is unique. Different names can be bound to an object in the same or 
+different contexts at the same time. 
+
+See CORBA COS Naming Specification. 
+
+
+
+*org.omg.CosNaming.NamingContextPOA()*
+
+public NamingContextPOA()
+
+
+
+
+*org.omg.CosNaming.NamingContextPOA._all_interfaces(POA,byte[])*
+
+public |java.lang.String|[] _all_interfaces(
+  org.omg.PortableServer.POA poa,
+  byte[] objectId)
+
+
+
+
+
+*org.omg.CosNaming.NamingContextPOA._invoke(String,InputStream,ResponseHandler)*
+
+public |org.omg.CORBA.portable.OutputStream| _invoke(
+  java.lang.String $method,
+  org.omg.CORBA.portable.InputStream in,
+  org.omg.CORBA.portable.ResponseHandler $rh)
+
+
+
+
+
+*org.omg.CosNaming.NamingContextPOA._this()*
+
+public |org.omg.CosNaming.NamingContext| _this()
+
+
+
+
+
+*org.omg.CosNaming.NamingContextPOA._this(ORB)*
+
+public |org.omg.CosNaming.NamingContext| _this(org.omg.CORBA.ORB orb)
+
+
+
+
+
+

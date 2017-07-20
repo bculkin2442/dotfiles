@@ -1,0 +1,68 @@
+*org.omg.DynamicAny.DynValueBoxOperations* *DynValueBoxOperations* DynValueBox o
+
+public interface interface DynValueBoxOperations
+
+  implements |org.omg.DynamicAny.DynValueCommonOperations|
+
+|org.omg.DynamicAny.DynValueBoxOperations_Description|
+|org.omg.DynamicAny.DynValueBoxOperations_Fields|
+|org.omg.DynamicAny.DynValueBoxOperations_Constructors|
+|org.omg.DynamicAny.DynValueBoxOperations_Methods|
+
+================================================================================
+
+*org.omg.DynamicAny.DynValueBoxOperations_Methods*
+|org.omg.DynamicAny.DynValueBoxOperations.get_boxed_value_as_dyn_any()|Returns 
+|org.omg.DynamicAny.DynValueBoxOperations.get_boxed_value()|Returns the boxed v
+|org.omg.DynamicAny.DynValueBoxOperations.set_boxed_value_as_dyn_any(DynAny)|Re
+|org.omg.DynamicAny.DynValueBoxOperations.set_boxed_value(Any)|Replaces the box
+
+*org.omg.DynamicAny.DynValueBoxOperations_Description*
+
+DynValueBox objects support the manipulation of IDL boxed value types. The 
+DynValueBox interface can represent both null and non-null value types. For a 
+DynValueBox representing a non-null value type, the DynValueBox has a single 
+component of the boxed type. A DynValueBox representing a null value type has 
+no components and a current position of -1. 
+
+
+
+*org.omg.DynamicAny.DynValueBoxOperations.get_boxed_value_as_dyn_any()*
+
+public |org.omg.DynamicAny.DynAny| get_boxed_value_as_dyn_any()
+  throws |org.omg.DynamicAny.DynAnyPackage.InvalidValue|
+         
+Returns the boxed value as a DynAny. 
+
+
+
+*org.omg.DynamicAny.DynValueBoxOperations.get_boxed_value()*
+
+public |org.omg.CORBA.Any| get_boxed_value()
+  throws |org.omg.DynamicAny.DynAnyPackage.InvalidValue|
+         
+Returns the boxed value as an Any. 
+
+
+
+*org.omg.DynamicAny.DynValueBoxOperations.set_boxed_value_as_dyn_any(DynAny)*
+
+public void set_boxed_value_as_dyn_any(org.omg.DynamicAny.DynAny boxed)
+  throws |org.omg.DynamicAny.DynAnyPackage.TypeMismatch|
+         
+Replaces the boxed value with the value contained in the parameter. If the 
+DynBoxedValue represents a null valuetype, it is converted to a non-null value. 
+
+
+
+*org.omg.DynamicAny.DynValueBoxOperations.set_boxed_value(Any)*
+
+public void set_boxed_value(org.omg.CORBA.Any boxed)
+  throws |org.omg.DynamicAny.DynAnyPackage.TypeMismatch|
+         
+Replaces the boxed value with the specified value. If the DynBoxedValue 
+represents a null valuetype, it is converted to a non-null value. 
+
+
+
+

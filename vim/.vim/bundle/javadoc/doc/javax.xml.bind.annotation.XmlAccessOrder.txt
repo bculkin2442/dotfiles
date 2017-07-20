@@ -1,0 +1,40 @@
+*javax.xml.bind.annotation.XmlAccessOrder* *XmlAccessOrder* Used by XmlAccessorO
+
+public final enumXmlAccessOrder
+  extends    |java.lang.Enum|
+
+|javax.xml.bind.annotation.XmlAccessOrder_Description|
+|javax.xml.bind.annotation.XmlAccessOrder_Fields|
+|javax.xml.bind.annotation.XmlAccessOrder_Constructors|
+|javax.xml.bind.annotation.XmlAccessOrder_Methods|
+
+================================================================================
+
+*javax.xml.bind.annotation.XmlAccessOrder_Methods*
+|javax.xml.bind.annotation.XmlAccessOrder.valueOf(String)|
+|javax.xml.bind.annotation.XmlAccessOrder.values()|
+
+*javax.xml.bind.annotation.XmlAccessOrder_Description*
+
+Used by XmlAccessorOrder to control the ordering of properties and fields in a 
+JAXB bound class. 
+
+
+
+*javax.xml.bind.annotation.XmlAccessOrder.valueOf(String)*
+
+public static |javax.xml.bind.annotation.XmlAccessOrder| valueOf(java.lang.String name)
+
+
+
+
+
+*javax.xml.bind.annotation.XmlAccessOrder.values()*
+
+public static |javax.xml.bind.annotation.XmlAccessOrder|[] values()
+
+
+
+
+
+

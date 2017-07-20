@@ -1,0 +1,27 @@
+*javax.xml.bind.annotation.XmlNs* *XmlNs* 
+ Associates a namespace prefix with a
+
+public interface class XmlNs
+
+  implements |java.lang.annotation.Annotation|
+
+|javax.xml.bind.annotation.XmlNs_Description|
+|javax.xml.bind.annotation.XmlNs_Fields|
+|javax.xml.bind.annotation.XmlNs_Constructors|
+|javax.xml.bind.annotation.XmlNs_Methods|
+
+================================================================================
+
+*javax.xml.bind.annotation.XmlNs_Description*
+
+Associates a namespace prefix with a XML namespace URI. 
+
+Usage @XmlNs annotation is intended for use from other program annotations. 
+
+See "Package Specification" in javax.xml.bind.package javadoc for additional 
+common information. 
+
+Example:See XmlSchema annotation type for an example. 
+
+
+

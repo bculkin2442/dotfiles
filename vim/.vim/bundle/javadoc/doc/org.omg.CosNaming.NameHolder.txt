@@ -1,0 +1,76 @@
+*org.omg.CosNaming.NameHolder* *NameHolder* A name is a sequence of name compone
+
+public final class NameHolder
+  extends    |java.lang.Object|
+  implements |org.omg.CORBA.portable.Streamable|
+
+|org.omg.CosNaming.NameHolder_Description|
+|org.omg.CosNaming.NameHolder_Fields|
+|org.omg.CosNaming.NameHolder_Constructors|
+|org.omg.CosNaming.NameHolder_Methods|
+
+================================================================================
+
+*org.omg.CosNaming.NameHolder_Fields*
+|org.omg.CosNaming.NameComponent[]_org.omg.CosNaming.NameHolder.value|
+
+*org.omg.CosNaming.NameHolder_Constructors*
+|org.omg.CosNaming.NameHolder()|
+|org.omg.CosNaming.NameHolder(NameComponent[])|
+
+*org.omg.CosNaming.NameHolder_Methods*
+|org.omg.CosNaming.NameHolder._read(InputStream)|
+|org.omg.CosNaming.NameHolder._type()|
+|org.omg.CosNaming.NameHolder._write(OutputStream)|
+
+*org.omg.CosNaming.NameHolder_Description*
+
+A name is a sequence of name components. 
+
+
+
+*org.omg.CosNaming.NameComponent[]_org.omg.CosNaming.NameHolder.value*
+
+
+
+
+
+*org.omg.CosNaming.NameHolder()*
+
+public NameHolder()
+
+
+
+
+*org.omg.CosNaming.NameHolder(NameComponent[])*
+
+public NameHolder(org.omg.CosNaming.NameComponent[] initialValue)
+
+
+
+
+*org.omg.CosNaming.NameHolder._read(InputStream)*
+
+public void _read(org.omg.CORBA.portable.InputStream i)
+
+
+
+
+
+*org.omg.CosNaming.NameHolder._type()*
+
+public |org.omg.CORBA.TypeCode| _type()
+
+
+
+
+
+*org.omg.CosNaming.NameHolder._write(OutputStream)*
+
+public void _write(org.omg.CORBA.portable.OutputStream o)
+
+
+
+
+
+

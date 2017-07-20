@@ -1,0 +1,68 @@
+*java.lang.InternalError* *InternalError* Thrown to indicate some unexpected int
+
+public class InternalError
+  extends    |java.lang.VirtualMachineError|
+
+|java.lang.InternalError_Description|
+|java.lang.InternalError_Fields|
+|java.lang.InternalError_Constructors|
+|java.lang.InternalError_Methods|
+
+================================================================================
+
+*java.lang.InternalError_Constructors*
+|java.lang.InternalError()|Constructs an InternalError with no detail message.
+|java.lang.InternalError(String)|Constructs an InternalError with the specified
+|java.lang.InternalError(String,Throwable)|Constructs anInternalErrorwith the s
+|java.lang.InternalError(Throwable)|Constructs anInternalErrorwith the specifie
+
+*java.lang.InternalError_Description*
+
+Thrown to indicate some unexpected internal error has occurred in the Java 
+Virtual Machine. 
+
+
+
+*java.lang.InternalError()*
+
+public InternalError()
+
+Constructs an InternalError with no detail message. 
+
+
+*java.lang.InternalError(String)*
+
+public InternalError(java.lang.String message)
+
+Constructs an InternalError with the specified detail message. 
+
+    message - the detail message. 
+
+*java.lang.InternalError(String,Throwable)*
+
+public InternalError(
+  java.lang.String message,
+  java.lang.Throwable cause)
+
+Constructs anInternalErrorwith the specified detail message and cause. Note 
+that the detail message associated withcauseis not automatically incorporated 
+in this error's detail message. 
+
+    message - the detail message (which is saved for later retrieval by the {@link 
+       #getMessage()} method). 
+    cause - the cause (which is saved for later retrieval by the {@link #getCause()} 
+       method). (A {@code null} value is permitted, and indicates that the 
+       cause is nonexistent or unknown.) 
+
+*java.lang.InternalError(Throwable)*
+
+public InternalError(java.lang.Throwable cause)
+
+Constructs anInternalErrorwith the specified cause and a detail message 
+of(cause==null ? null : cause.toString())(which typically contains the class 
+and detail message ofcause). 
+
+    cause - the cause (which is saved for later retrieval by the {@link #getCause()} 
+       method). (A {@code null} value is permitted, and indicates that the 
+       cause is nonexistent or unknown.) 
+

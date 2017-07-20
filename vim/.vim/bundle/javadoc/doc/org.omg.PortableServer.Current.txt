@@ -1,0 +1,31 @@
+*org.omg.PortableServer.Current* *Current* The PortableServer::Current interface
+
+public interface interface Current
+
+  implements |org.omg.PortableServer.CurrentOperations|
+             |org.omg.CORBA.Current|
+             |org.omg.CORBA.portable.IDLEntity|
+
+|org.omg.PortableServer.Current_Description|
+|org.omg.PortableServer.Current_Fields|
+|org.omg.PortableServer.Current_Constructors|
+|org.omg.PortableServer.Current_Methods|
+
+================================================================================
+
+*org.omg.PortableServer.Current_Description*
+
+The PortableServer::Current interface, derived from CORBA::Current, provides 
+method implementations with access to the identity of the object on which the 
+method was invoked. The Current interface is provided to support servants that 
+implement multiple objects, but can be used within the context of 
+POA-dispatched method invocations on any servant. To provide location 
+transparency, ORBs are required to support use of Current in the context of 
+both locally and remotely invoked operations. An instance of Current can be 
+obtained by the application by issuing the 
+CORBA::ORB::resolve_initial_references("POACurrent") operation. Thereafter, it 
+can be used within the context of a method dispatched by the POA to obtain the 
+POA and ObjectId that identify the object on which that operation was invoked. 
+
+
+

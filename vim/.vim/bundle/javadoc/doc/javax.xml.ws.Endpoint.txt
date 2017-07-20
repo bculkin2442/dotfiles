@@ -1,0 +1,411 @@
+*javax.xml.ws.Endpoint* *Endpoint* A Web service endpoint.
+
+public abstract class Endpoint
+  extends    |java.lang.Object|
+
+|javax.xml.ws.Endpoint_Description|
+|javax.xml.ws.Endpoint_Fields|
+|javax.xml.ws.Endpoint_Constructors|
+|javax.xml.ws.Endpoint_Methods|
+
+================================================================================
+
+*javax.xml.ws.Endpoint_Fields*
+|java.lang.String_javax.xml.ws.Endpoint.WSDL_PORT|
+|java.lang.String_javax.xml.ws.Endpoint.WSDL_SERVICE|
+
+*javax.xml.ws.Endpoint_Constructors*
+|javax.xml.ws.Endpoint()|
+
+*javax.xml.ws.Endpoint_Methods*
+|javax.xml.ws.Endpoint.create(Object)|Creates an endpoint with the specified im
+|javax.xml.ws.Endpoint.create(Object,WebServiceFeature...)|Creates an endpoint 
+|javax.xml.ws.Endpoint.create(String,Object)|Creates an endpoint with the speci
+|javax.xml.ws.Endpoint.create(String,Object,WebServiceFeature...)|Creates an en
+|javax.xml.ws.Endpoint.getBinding()|Returns the binding for this endpoint.
+|javax.xml.ws.Endpoint.getEndpointReference(Class<T>,Element...)|Returns the En
+|javax.xml.ws.Endpoint.getEndpointReference(Element...)|Returns the EndpointRef
+|javax.xml.ws.Endpoint.getExecutor()|Returns the executor for this Endpointinst
+|javax.xml.ws.Endpoint.getImplementor()|Returns the implementation object for t
+|javax.xml.ws.Endpoint.getMetadata()|Returns a list of metadata documents for t
+|javax.xml.ws.Endpoint.getProperties()|Returns the property bag for this Endpoi
+|javax.xml.ws.Endpoint.isPublished()|Returns true if the endpoint is in the pub
+|javax.xml.ws.Endpoint.publish(HttpContext)|Publishes this endpoint at the prov
+|javax.xml.ws.Endpoint.publish(Object)|Publishes this endpoint at the provided 
+|javax.xml.ws.Endpoint.publish(String)|Publishes this endpoint at the given add
+|javax.xml.ws.Endpoint.publish(String,Object)|Creates and publishes an endpoint
+|javax.xml.ws.Endpoint.publish(String,Object,WebServiceFeature...)|Creates and 
+|javax.xml.ws.Endpoint.setEndpointContext(EndpointContext)|By settng a Endpoint
+|javax.xml.ws.Endpoint.setExecutor(Executor)|Sets the executor for this Endpoin
+|javax.xml.ws.Endpoint.setMetadata(List<Source>)|Sets the metadata for this end
+|javax.xml.ws.Endpoint.setProperties(Map<String,Object>)|Sets the property bag 
+|javax.xml.ws.Endpoint.stop()|Stops publishing this endpoint.
+
+*javax.xml.ws.Endpoint_Description*
+
+A Web service endpoint. 
+
+Endpoints are created using the static methods defined in this class. An 
+endpoint is always tied to one Binding and one implementor, both set at 
+endpoint creation time. 
+
+An endpoint is either in a published or an unpublished state. The publish 
+methods can be used to start publishing an endpoint, at which point it starts 
+accepting incoming requests. Conversely, the stop method can be used to stop 
+accepting incoming requests and take the endpoint down. Once stopped, an 
+endpoint cannot be published again. 
+
+An Executor may be set on the endpoint in order to gain better control over the 
+threads used to dispatch incoming requests. For instance, thread pooling with 
+certain parameters can be enabled by creating a ThreadPoolExecutor and 
+registering it with the endpoint. 
+
+Handler chains can be set using the contained Binding. 
+
+An endpoint may have a list of metadata documents, such as WSDL and XMLSchema 
+documents, bound to it. At publishing time, the JAX-WS implementation will try 
+to reuse as much of that metadata as possible instead of generating new ones 
+based on the annotations present on the implementor. 
+
+
+
+*java.lang.String_javax.xml.ws.Endpoint.WSDL_PORT*
+
+Standard property: name of WSDL port. Type: javax.xml.namespace.QName 
+
+
+*java.lang.String_javax.xml.ws.Endpoint.WSDL_SERVICE*
+
+Standard property: name of WSDL service. Type: javax.xml.namespace.QName 
+
+
+
+*javax.xml.ws.Endpoint()*
+
+public Endpoint()
+
+
+
+
+*javax.xml.ws.Endpoint.create(Object)*
+
+public static |javax.xml.ws.Endpoint| create(java.lang.Object implementor)
+
+Creates an endpoint with the specified implementor object. If there is a 
+binding specified via a BindingType annotation then it MUST be used else a 
+default of SOAP 1.1 / HTTP binding MUST be used. 
+
+The newly created endpoint may be published by calling one of the 
+(|javax.xml.ws.Endpoint|) and (|javax.xml.ws.Endpoint|) methods. 
+
+
+    implementor - The endpoint implementor. 
+
+    Returns: The newly created endpoint. 
+
+*javax.xml.ws.Endpoint.create(Object,WebServiceFeature...)*
+
+public static |javax.xml.ws.Endpoint| create(
+  java.lang.Object implementor,
+  javax.xml.ws.WebServiceFeature[] features)
+
+Creates an endpoint with the specified implementor object and web service 
+features. If there is a binding specified via a BindingType annotation then it 
+MUST be used else a default of SOAP 1.1 / HTTP binding MUST be used. 
+
+The newly created endpoint may be published by calling one of the 
+(|javax.xml.ws.Endpoint|) and (|javax.xml.ws.Endpoint|) methods. 
+
+
+    implementor - The endpoint implementor. 
+    features - A list of WebServiceFeature to configure on the endpoint. Supported features 
+       not in the features parameter will have their default values. 
+
+    Returns: The newly created endpoint. 
+
+*javax.xml.ws.Endpoint.create(String,Object)*
+
+public static |javax.xml.ws.Endpoint| create(
+  java.lang.String bindingId,
+  java.lang.Object implementor)
+
+Creates an endpoint with the specified binding type and implementor object. 
+
+The newly created endpoint may be published by calling one of the 
+(|javax.xml.ws.Endpoint|) and (|javax.xml.ws.Endpoint|) methods. 
+
+
+    bindingId - A URI specifying the binding to use. If the bindingID is null and no binding is 
+       specified via a BindingType annotation then a default SOAP 1.1 / HTTP 
+       binding MUST be used. 
+    implementor - The endpoint implementor. 
+
+    Returns: The newly created endpoint. 
+
+*javax.xml.ws.Endpoint.create(String,Object,WebServiceFeature...)*
+
+public static |javax.xml.ws.Endpoint| create(
+  java.lang.String bindingId,
+  java.lang.Object implementor,
+  javax.xml.ws.WebServiceFeature[] features)
+
+Creates an endpoint with the specified binding type, implementor object, and 
+web service features. 
+
+The newly created endpoint may be published by calling one of the 
+(|javax.xml.ws.Endpoint|) and (|javax.xml.ws.Endpoint|) methods. 
+
+
+    bindingId - A URI specifying the binding to use. If the bindingID is null and no binding is 
+       specified via a BindingType annotation then a default SOAP 1.1 / HTTP 
+       binding MUST be used. 
+    implementor - The endpoint implementor. 
+    features - A list of WebServiceFeature to configure on the endpoint. Supported features 
+       not in the features parameter will have their default values. 
+
+    Returns: The newly created endpoint. 
+
+*javax.xml.ws.Endpoint.getBinding()*
+
+public abstract |javax.xml.ws.Binding| getBinding()
+
+Returns the binding for this endpoint. 
+
+
+
+    Returns: The binding for this endpoint 
+
+*javax.xml.ws.Endpoint.getEndpointReference(Class<T>,Element...)*
+
+public abstract |T| getEndpointReference(
+  java.lang.Class<T> clazz,
+  org.w3c.dom.Element[] referenceParameters)
+
+Returns the EndpointReference associated with this Endpoint instance. 
+
+
+    clazz - Specifies the type of EndpointReference that MUST be returned. 
+    referenceParameters - Reference parameters to be associated with the returned EndpointReference 
+       instance. 
+
+    Returns: EndpointReference of type clazz of this Endpoint instance. If the returned 
+             EndpointReference is of type W3CEndpointReference then it MUST 
+             contain the the specified referenceParameters. 
+
+*javax.xml.ws.Endpoint.getEndpointReference(Element...)*
+
+public abstract |javax.xml.ws.EndpointReference| getEndpointReference(org.w3c.dom.Element[] referenceParameters)
+
+Returns the EndpointReference associated with this Endpoint instance. 
+
+If the Binding for this bindingProvider is either SOAP1.1/HTTP or SOAP1.2/HTTP, 
+then a W3CEndpointReference MUST be returned. 
+
+
+    referenceParameters - Reference parameters to be associated with the returned EndpointReference 
+       instance. 
+
+    Returns: EndpointReference of this Endpoint instance. If the returned EndpointReference 
+             is of type W3CEndpointReference then it MUST contain the the 
+             specified referenceParameters. 
+
+*javax.xml.ws.Endpoint.getExecutor()*
+
+public abstract |java.util.concurrent.Executor| getExecutor()
+
+Returns the executor for this Endpointinstance. 
+
+The executor is used to dispatch an incoming request to the implementor object. 
+
+
+
+    Returns: The java.util.concurrent.Executor to be used to dispatch a request. 
+
+*javax.xml.ws.Endpoint.getImplementor()*
+
+public abstract |java.lang.Object| getImplementor()
+
+Returns the implementation object for this endpoint. 
+
+
+
+    Returns: The implementor for this endpoint 
+
+*javax.xml.ws.Endpoint.getMetadata()*
+
+public abstract |java.util.List|<Source> getMetadata()
+
+Returns a list of metadata documents for the service. 
+
+
+
+    Returns: List<javax.xml.transform.Source> A list of metadata documents for the service 
+
+*javax.xml.ws.Endpoint.getProperties()*
+
+public abstract |java.util.Map|<String,Object> getProperties()
+
+Returns the property bag for this Endpoint instance. 
+
+
+
+    Returns: Map<String,Object> The property bag associated with this instance. 
+
+*javax.xml.ws.Endpoint.isPublished()*
+
+public abstract boolean isPublished()
+
+Returns true if the endpoint is in the published state. 
+
+
+
+    Returns: true if the endpoint is in the published state. 
+
+*javax.xml.ws.Endpoint.publish(HttpContext)*
+
+public void publish(javax.xml.ws.spi.http.HttpContext serverContext)
+
+Publishes this endpoint at the provided server context. A server context 
+encapsulates the server infrastructure and addressing information for a 
+particular transport. For a call to this method to succeed, the server context 
+passed as an argument to it MUST be compatible with the endpoint's binding. 
+
+This is meant for container developers to publish the the endpoints portably 
+and not intended for the end developers. 
+
+
+    serverContext - An object representing a server context to be used for publishing the endpoint. 
+
+*javax.xml.ws.Endpoint.publish(Object)*
+
+public abstract void publish(java.lang.Object serverContext)
+
+Publishes this endpoint at the provided server context. A server context 
+encapsulates the server infrastructure and addressing information for a 
+particular transport. For a call to this method to succeed, the server context 
+passed as an argument to it MUST be compatible with the endpoint's binding. 
+
+
+    serverContext - An object representing a server context to be used for publishing the endpoint. 
+
+*javax.xml.ws.Endpoint.publish(String)*
+
+public abstract void publish(java.lang.String address)
+
+Publishes this endpoint at the given address. The necessary server 
+infrastructure will be created and configured by the JAX-WS implementation 
+using some default configuration. In order to get more control over the server 
+configuration, please use the (|javax.xml.ws.Endpoint|) method instead. 
+
+
+    address - A URI specifying the address to use. The address MUST be compatible with the 
+       binding specified at the time the endpoint was created. 
+
+*javax.xml.ws.Endpoint.publish(String,Object)*
+
+public static |javax.xml.ws.Endpoint| publish(
+  java.lang.String address,
+  java.lang.Object implementor)
+
+Creates and publishes an endpoint for the specified implementor object at the 
+given address. 
+
+The necessary server infrastructure will be created and configured by the 
+JAX-WS implementation using some default configuration. 
+
+In order to get more control over the server configuration, please use the 
+(|javax.xml.ws.Endpoint|) and (|javax.xml.ws.Endpoint|) methods instead. 
+
+
+    address - A URI specifying the address and transport/protocol to use. A http: URI MUST 
+       result in the SOAP 1.1/HTTP binding being used. Implementations may 
+       support other URI schemes. 
+    implementor - The endpoint implementor. 
+
+    Returns: The newly created endpoint. 
+
+*javax.xml.ws.Endpoint.publish(String,Object,WebServiceFeature...)*
+
+public static |javax.xml.ws.Endpoint| publish(
+  java.lang.String address,
+  java.lang.Object implementor,
+  javax.xml.ws.WebServiceFeature[] features)
+
+Creates and publishes an endpoint for the specified implementor object at the 
+given address. The created endpoint is configured with the web service 
+features. 
+
+The necessary server infrastructure will be created and configured by the 
+JAX-WS implementation using some default configuration. 
+
+In order to get more control over the server configuration, please use the 
+(|javax.xml.ws.Endpoint|) and (|javax.xml.ws.Endpoint|) methods instead. 
+
+
+    address - A URI specifying the address and transport/protocol to use. A http: URI MUST 
+       result in the SOAP 1.1/HTTP binding being used. Implementations may 
+       support other URI schemes. 
+    implementor - The endpoint implementor. 
+    features - A list of WebServiceFeature to configure on the endpoint. Supported features 
+       not in the features parameter will have their default values. 
+
+    Returns: The newly created endpoint. 
+
+*javax.xml.ws.Endpoint.setEndpointContext(EndpointContext)*
+
+public void setEndpointContext(javax.xml.ws.EndpointContext ctxt)
+
+By settng a EndpointContext, JAX-WS runtime knows about addresses of other 
+endpoints in an application. If multiple endpoints share different ports of a 
+WSDL, then the multiple port addresses are patched when the WSDL is accessed. 
+
+This needs to be set before publishing the endpoints. 
+
+
+    ctxt - that is shared for multiple endpoints 
+
+*javax.xml.ws.Endpoint.setExecutor(Executor)*
+
+public abstract void setExecutor(java.util.concurrent.Executor executor)
+
+Sets the executor for this Endpoint instance. 
+
+The executor is used to dispatch an incoming request to the implementor object. 
+
+If this Endpoint is published using the publish(Object) method and the 
+specified server context defines its own threading behavior, the executor may 
+be ignored. 
+
+
+    executor - The java.util.concurrent.Executor to be used to dispatch a request. 
+
+*javax.xml.ws.Endpoint.setMetadata(List<Source>)*
+
+public abstract void setMetadata(java.util.List<javax.xml.transform.Source> metadata)
+
+Sets the metadata for this endpoint. 
+
+
+    metadata - A list of XML document sources containing metadata information for the endpoint 
+       (e.g. WSDL or XML Schema documents) 
+
+*javax.xml.ws.Endpoint.setProperties(Map<String,Object>)*
+
+public abstract void setProperties(java.util.Map<java.lang.String, java.lang.Object> properties)
+
+Sets the property bag for this Endpoint instance. 
+
+
+    properties - The property bag associated with this instance. 
+
+*javax.xml.ws.Endpoint.stop()*
+
+public abstract void stop()
+
+Stops publishing this endpoint. 
+
+If the endpoint is not in a published state, this method has no effect. 
+
+
+
+

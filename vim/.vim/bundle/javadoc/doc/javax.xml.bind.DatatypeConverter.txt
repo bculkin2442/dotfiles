@@ -1,0 +1,550 @@
+*javax.xml.bind.DatatypeConverter* *DatatypeConverter* 
+ The javaType binding de
+
+public final class DatatypeConverter
+  extends    |java.lang.Object|
+
+|javax.xml.bind.DatatypeConverter_Description|
+|javax.xml.bind.DatatypeConverter_Fields|
+|javax.xml.bind.DatatypeConverter_Constructors|
+|javax.xml.bind.DatatypeConverter_Methods|
+
+================================================================================
+
+*javax.xml.bind.DatatypeConverter_Methods*
+|javax.xml.bind.DatatypeConverter.parseAnySimpleType(String)|Return a string co
+|javax.xml.bind.DatatypeConverter.parseBase64Binary(String)|Converts the string
+|javax.xml.bind.DatatypeConverter.parseBoolean(String)|Converts the string argu
+|javax.xml.bind.DatatypeConverter.parseByte(String)|Converts the string argumen
+|javax.xml.bind.DatatypeConverter.parseDate(String)|Converts the string argumen
+|javax.xml.bind.DatatypeConverter.parseDateTime(String)|Converts the string arg
+|javax.xml.bind.DatatypeConverter.parseDecimal(String)|Converts the string argu
+|javax.xml.bind.DatatypeConverter.parseDouble(String)|Converts the string argum
+|javax.xml.bind.DatatypeConverter.parseFloat(String)|Converts the string argume
+|javax.xml.bind.DatatypeConverter.parseHexBinary(String)|Converts the string ar
+|javax.xml.bind.DatatypeConverter.parseInt(String)|Convert the string argument 
+|javax.xml.bind.DatatypeConverter.parseInteger(String)|Convert the string argum
+|javax.xml.bind.DatatypeConverter.parseLong(String)|Converts the string argumen
+|javax.xml.bind.DatatypeConverter.parseQName(String,NamespaceContext)|Converts 
+|javax.xml.bind.DatatypeConverter.parseShort(String)|Converts the string argume
+|javax.xml.bind.DatatypeConverter.parseString(String)|Convert the lexical XSD s
+|javax.xml.bind.DatatypeConverter.parseTime(String)|Converts the string argumen
+|javax.xml.bind.DatatypeConverter.parseUnsignedInt(String)|Converts the string 
+|javax.xml.bind.DatatypeConverter.parseUnsignedShort(String)|Converts the strin
+|javax.xml.bind.DatatypeConverter.printAnySimpleType(String)|Converts a string 
+|javax.xml.bind.DatatypeConverter.printBase64Binary(byte[])|Converts an array o
+|javax.xml.bind.DatatypeConverter.printBoolean(boolean)|Converts a boolean valu
+|javax.xml.bind.DatatypeConverter.printByte(byte)|Converts a byte value into a 
+|javax.xml.bind.DatatypeConverter.printDate(Calendar)|Converts a Calendar value
+|javax.xml.bind.DatatypeConverter.printDateTime(Calendar)|Converts a Calendar v
+|javax.xml.bind.DatatypeConverter.printDecimal(BigDecimal)|Converts a BigDecima
+|javax.xml.bind.DatatypeConverter.printDouble(double)|Converts a double value i
+|javax.xml.bind.DatatypeConverter.printFloat(float)|Converts a float value into
+|javax.xml.bind.DatatypeConverter.printHexBinary(byte[])|Converts an array of b
+|javax.xml.bind.DatatypeConverter.printInt(int)|Converts an int value into a st
+|javax.xml.bind.DatatypeConverter.printInteger(BigInteger)|Converts a BigIntege
+|javax.xml.bind.DatatypeConverter.printLong(long)|Converts A long value into a 
+|javax.xml.bind.DatatypeConverter.printQName(QName,NamespaceContext)|Converts a
+|javax.xml.bind.DatatypeConverter.printShort(short)|Converts a short value into
+|javax.xml.bind.DatatypeConverter.printString(String)|Converts the string argum
+|javax.xml.bind.DatatypeConverter.printTime(Calendar)|Converts a Calendar value
+|javax.xml.bind.DatatypeConverter.printUnsignedInt(long)|Converts a long value 
+|javax.xml.bind.DatatypeConverter.printUnsignedShort(int)|Converts an int value
+|javax.xml.bind.DatatypeConverter.setDatatypeConverter(DatatypeConverterInterface)|
+
+*javax.xml.bind.DatatypeConverter_Description*
+
+The javaType binding declaration can be used to customize the binding of an XML 
+schema datatype to a Java datatype. Customizations can involve writing a parse 
+and print method for parsing and printing lexical representations of a XML 
+schema datatype respectively. However, writing parse and print methods requires 
+knowledge of the lexical representations ( XML Schema Part2: Datatypes 
+specification ) and hence may be difficult to write. 
+
+This class makes it easier to write parse and print methods. It defines static 
+parse and print methods that provide access to a JAXB provider's implementation 
+of parse and print methods. These methods are invoked by custom parse and print 
+methods. For example, the binding of xsd:dateTime to a long can be customized 
+using parse and print methods as follows: 
+
+
+
+// Customized parse method public long myParseCal( String dateTimeString ) { 
+java.util.Calendar cal = DatatypeConverter.parseDateTime(dateTimeString); long 
+longval = convert_calendar_to_long(cal); //application specific return longval; 
+} 
+
+// Customized print method public String myPrintCal( Long longval ) { 
+java.util.Calendar cal = convert_long_to_calendar(longval) ; //application 
+specific String dateTimeString = DatatypeConverter.printDateTime(cal); return 
+dateTimeString; } 
+
+
+
+There is a static parse and print method corresponding to each parse and print 
+method respectively in the 
+DatatypeConverterInterface(|javax.xml.bind.DatatypeConverterInterface|) . 
+
+The static methods defined in the class can also be used to specify a parse or 
+a print method in a javaType binding declaration. 
+
+JAXB Providers are required to call the 
+setDatatypeConverter(|javax.xml.bind.DatatypeConverter|) api at some point 
+before the first marshal or unmarshal operation (perhaps during the call to 
+JAXBContext.newInstance). This step is necessary to configure the converter 
+that should be used to perform the print and parse functionality. 
+
+A print method for a XML schema datatype can output any lexical representation 
+that is valid with respect to the XML schema datatype. If an error is 
+encountered during conversion, then an IllegalArgumentException, or a subclass 
+of IllegalArgumentException must be thrown by the method. 
+
+
+
+*javax.xml.bind.DatatypeConverter.parseAnySimpleType(String)*
+
+public static |java.lang.String| parseAnySimpleType(java.lang.String lexicalXSDAnySimpleType)
+
+Return a string containing the lexical representation of the simple type. 
+
+
+    lexicalXSDAnySimpleType - A string containing lexical representation of the simple type. 
+
+    Returns: A string containing the lexical representation of the simple type. 
+
+*javax.xml.bind.DatatypeConverter.parseBase64Binary(String)*
+
+public static byte[] parseBase64Binary(java.lang.String lexicalXSDBase64Binary)
+
+Converts the string argument into an array of bytes. 
+
+
+    lexicalXSDBase64Binary - A string containing lexical representation of xsd:base64Binary. 
+
+    Returns: An array of bytes represented by the string argument. 
+
+*javax.xml.bind.DatatypeConverter.parseBoolean(String)*
+
+public static boolean parseBoolean(java.lang.String lexicalXSDBoolean)
+
+Converts the string argument into a boolean value. 
+
+
+    lexicalXSDBoolean - A string containing lexical representation of xsd:boolean. 
+
+    Returns: A boolean value represented by the string argument. 
+
+*javax.xml.bind.DatatypeConverter.parseByte(String)*
+
+public static byte parseByte(java.lang.String lexicalXSDByte)
+
+Converts the string argument into a byte value. 
+
+
+    lexicalXSDByte - A string containing lexical representation of xsd:byte. 
+
+    Returns: A byte value represented by the string argument. 
+
+*javax.xml.bind.DatatypeConverter.parseDate(String)*
+
+public static |java.util.Calendar| parseDate(java.lang.String lexicalXSDDate)
+
+Converts the string argument into a Calendar value. 
+
+
+    lexicalXSDDate - A string containing lexical representation of xsd:Date. 
+
+    Returns: A Calendar value represented by the string argument. 
+
+*javax.xml.bind.DatatypeConverter.parseDateTime(String)*
+
+public static |java.util.Calendar| parseDateTime(java.lang.String lexicalXSDDateTime)
+
+Converts the string argument into a Calendar value. 
+
+
+    lexicalXSDDateTime - A string containing lexical representation of xsd:datetime. 
+
+    Returns: A Calendar object represented by the string argument. 
+
+*javax.xml.bind.DatatypeConverter.parseDecimal(String)*
+
+public static |java.math.BigDecimal| parseDecimal(java.lang.String lexicalXSDDecimal)
+
+Converts the string argument into a BigDecimal value. 
+
+
+    lexicalXSDDecimal - A string containing lexical representation of xsd:decimal. 
+
+    Returns: A BigDecimal value represented by the string argument. 
+
+*javax.xml.bind.DatatypeConverter.parseDouble(String)*
+
+public static double parseDouble(java.lang.String lexicalXSDDouble)
+
+Converts the string argument into a double value. 
+
+
+    lexicalXSDDouble - A string containing lexical representation of xsd:double. 
+
+    Returns: A double value represented by the string argument. 
+
+*javax.xml.bind.DatatypeConverter.parseFloat(String)*
+
+public static float parseFloat(java.lang.String lexicalXSDFloat)
+
+Converts the string argument into a float value. 
+
+
+    lexicalXSDFloat - A string containing lexical representation of xsd:float. 
+
+    Returns: A float value represented by the string argument. 
+
+*javax.xml.bind.DatatypeConverter.parseHexBinary(String)*
+
+public static byte[] parseHexBinary(java.lang.String lexicalXSDHexBinary)
+
+Converts the string argument into an array of bytes. 
+
+
+    lexicalXSDHexBinary - A string containing lexical representation of xsd:hexBinary. 
+
+    Returns: An array of bytes represented by the string argument. 
+
+*javax.xml.bind.DatatypeConverter.parseInt(String)*
+
+public static int parseInt(java.lang.String lexicalXSDInt)
+
+Convert the string argument into an int value. 
+
+
+    lexicalXSDInt - A string containing a lexical representation of xsd:int. 
+
+    Returns: A int value represented by the string argument. 
+
+*javax.xml.bind.DatatypeConverter.parseInteger(String)*
+
+public static |java.math.BigInteger| parseInteger(java.lang.String lexicalXSDInteger)
+
+Convert the string argument into a BigInteger value. 
+
+
+    lexicalXSDInteger - A string containing a lexical representation of xsd:integer. 
+
+    Returns: A BigInteger value represented by the string argument. 
+
+*javax.xml.bind.DatatypeConverter.parseLong(String)*
+
+public static long parseLong(java.lang.String lexicalXSDLong)
+
+Converts the string argument into a long value. 
+
+
+    lexicalXSDLong - A string containing lexical representation of xsd:long. 
+
+    Returns: A long value represented by the string argument. 
+
+*javax.xml.bind.DatatypeConverter.parseQName(String,NamespaceContext)*
+
+public static |javax.xml.namespace.QName| parseQName(
+  java.lang.String lexicalXSDQName,
+  javax.xml.namespace.NamespaceContext nsc)
+
+Converts the string argument into a byte value. 
+
+String parameter lexicalXSDQname must conform to lexical value space specifed 
+at XML Schema Part 2:Datatypes specification:QNames 
+
+
+    lexicalXSDQName - A string containing lexical representation of xsd:QName. 
+    nsc - A namespace context for interpreting a prefix within a QName. 
+
+    Returns: A QName value represented by the string argument. 
+
+*javax.xml.bind.DatatypeConverter.parseShort(String)*
+
+public static short parseShort(java.lang.String lexicalXSDShort)
+
+Converts the string argument into a short value. 
+
+
+    lexicalXSDShort - A string containing lexical representation of xsd:short. 
+
+    Returns: A short value represented by the string argument. 
+
+*javax.xml.bind.DatatypeConverter.parseString(String)*
+
+public static |java.lang.String| parseString(java.lang.String lexicalXSDString)
+
+Convert the lexical XSD string argument into a String value. 
+
+
+    lexicalXSDString - A string containing a lexical representation of xsd:string. 
+
+    Returns: A String value represented by the string argument. 
+
+*javax.xml.bind.DatatypeConverter.parseTime(String)*
+
+public static |java.util.Calendar| parseTime(java.lang.String lexicalXSDTime)
+
+Converts the string argument into a Calendar value. 
+
+
+    lexicalXSDTime - A string containing lexical representation of xsd:time. 
+
+    Returns: A Calendar value represented by the string argument. 
+
+*javax.xml.bind.DatatypeConverter.parseUnsignedInt(String)*
+
+public static long parseUnsignedInt(java.lang.String lexicalXSDUnsignedInt)
+
+Converts the string argument into a long value. 
+
+
+    lexicalXSDUnsignedInt - A string containing lexical representation of xsd:unsignedInt. 
+
+    Returns: A long value represented by the string argument. 
+
+*javax.xml.bind.DatatypeConverter.parseUnsignedShort(String)*
+
+public static int parseUnsignedShort(java.lang.String lexicalXSDUnsignedShort)
+
+Converts the string argument into an int value. 
+
+
+    lexicalXSDUnsignedShort - A string containing lexical representation of xsd:unsignedShort. 
+
+    Returns: An int value represented by the string argument. 
+
+*javax.xml.bind.DatatypeConverter.printAnySimpleType(String)*
+
+public static |java.lang.String| printAnySimpleType(java.lang.String val)
+
+Converts a string value into a string. 
+
+
+    val - A string value 
+
+    Returns: A string containing a lexical representation of xsd:AnySimpleType 
+
+*javax.xml.bind.DatatypeConverter.printBase64Binary(byte[])*
+
+public static |java.lang.String| printBase64Binary(byte[] val)
+
+Converts an array of bytes into a string. 
+
+
+    val - An array of bytes 
+
+    Returns: A string containing a lexical representation of xsd:base64Binary 
+
+*javax.xml.bind.DatatypeConverter.printBoolean(boolean)*
+
+public static |java.lang.String| printBoolean(boolean val)
+
+Converts a boolean value into a string. 
+
+
+    val - A boolean value 
+
+    Returns: A string containing a lexical representation of xsd:boolean 
+
+*javax.xml.bind.DatatypeConverter.printByte(byte)*
+
+public static |java.lang.String| printByte(byte val)
+
+Converts a byte value into a string. 
+
+
+    val - A byte value 
+
+    Returns: A string containing a lexical representation of xsd:byte 
+
+*javax.xml.bind.DatatypeConverter.printDate(Calendar)*
+
+public static |java.lang.String| printDate(java.util.Calendar val)
+
+Converts a Calendar value into a string. 
+
+
+    val - A Calendar value 
+
+    Returns: A string containing a lexical representation of xsd:date 
+
+*javax.xml.bind.DatatypeConverter.printDateTime(Calendar)*
+
+public static |java.lang.String| printDateTime(java.util.Calendar val)
+
+Converts a Calendar value into a string. 
+
+
+    val - A Calendar value 
+
+    Returns: A string containing a lexical representation of xsd:dateTime 
+
+*javax.xml.bind.DatatypeConverter.printDecimal(BigDecimal)*
+
+public static |java.lang.String| printDecimal(java.math.BigDecimal val)
+
+Converts a BigDecimal value into a string. 
+
+
+    val - A BigDecimal value 
+
+    Returns: A string containing a lexical representation of xsd:decimal 
+
+*javax.xml.bind.DatatypeConverter.printDouble(double)*
+
+public static |java.lang.String| printDouble(double val)
+
+Converts a double value into a string. 
+
+
+    val - A double value 
+
+    Returns: A string containing a lexical representation of xsd:double 
+
+*javax.xml.bind.DatatypeConverter.printFloat(float)*
+
+public static |java.lang.String| printFloat(float val)
+
+Converts a float value into a string. 
+
+
+    val - A float value 
+
+    Returns: A string containing a lexical representation of xsd:float 
+
+*javax.xml.bind.DatatypeConverter.printHexBinary(byte[])*
+
+public static |java.lang.String| printHexBinary(byte[] val)
+
+Converts an array of bytes into a string. 
+
+
+    val - An array of bytes 
+
+    Returns: A string containing a lexical representation of xsd:hexBinary 
+
+*javax.xml.bind.DatatypeConverter.printInt(int)*
+
+public static |java.lang.String| printInt(int val)
+
+Converts an int value into a string. 
+
+
+    val - An int value 
+
+    Returns: A string containing a lexical representation of xsd:int 
+
+*javax.xml.bind.DatatypeConverter.printInteger(BigInteger)*
+
+public static |java.lang.String| printInteger(java.math.BigInteger val)
+
+Converts a BigInteger value into a string. 
+
+
+    val - A BigInteger value 
+
+    Returns: A string containing a lexical representation of xsd:integer 
+
+*javax.xml.bind.DatatypeConverter.printLong(long)*
+
+public static |java.lang.String| printLong(long val)
+
+Converts A long value into a string. 
+
+
+    val - A long value 
+
+    Returns: A string containing a lexical representation of xsd:long 
+
+*javax.xml.bind.DatatypeConverter.printQName(QName,NamespaceContext)*
+
+public static |java.lang.String| printQName(
+  javax.xml.namespace.QName val,
+  javax.xml.namespace.NamespaceContext nsc)
+
+Converts a QName instance into a string. 
+
+
+    val - A QName value 
+    nsc - A namespace context for interpreting a prefix within a QName. 
+
+    Returns: A string containing a lexical representation of QName 
+
+*javax.xml.bind.DatatypeConverter.printShort(short)*
+
+public static |java.lang.String| printShort(short val)
+
+Converts a short value into a string. 
+
+
+    val - A short value 
+
+    Returns: A string containing a lexical representation of xsd:short 
+
+*javax.xml.bind.DatatypeConverter.printString(String)*
+
+public static |java.lang.String| printString(java.lang.String val)
+
+Converts the string argument into a string. 
+
+
+    val - A string value. 
+
+    Returns: A string containing a lexical representation of xsd:string. 
+
+*javax.xml.bind.DatatypeConverter.printTime(Calendar)*
+
+public static |java.lang.String| printTime(java.util.Calendar val)
+
+Converts a Calendar value into a string. 
+
+
+    val - A Calendar value 
+
+    Returns: A string containing a lexical representation of xsd:time 
+
+*javax.xml.bind.DatatypeConverter.printUnsignedInt(long)*
+
+public static |java.lang.String| printUnsignedInt(long val)
+
+Converts a long value into a string. 
+
+
+    val - A long value 
+
+    Returns: A string containing a lexical representation of xsd:unsignedInt 
+
+*javax.xml.bind.DatatypeConverter.printUnsignedShort(int)*
+
+public static |java.lang.String| printUnsignedShort(int val)
+
+Converts an int value into a string. 
+
+
+    val - An int value 
+
+    Returns: A string containing a lexical representation of xsd:unsignedShort 
+
+*javax.xml.bind.DatatypeConverter.setDatatypeConverter(DatatypeConverterInterface)*
+
+public static void setDatatypeConverter(javax.xml.bind.DatatypeConverterInterface converter)
+
+This method is for JAXB provider use only. 
+
+JAXB Providers are required to call this method at some point before allowing 
+any of the JAXB client marshal or unmarshal operations to occur. This is 
+necessary to configure the datatype converter that should be used to perform 
+the print and parse conversions. 
+
+Calling this api repeatedly will have no effect - the 
+DatatypeConverterInterface instance passed into the first invocation is the one 
+that will be used from then on. 
+
+
+    converter - an instance of a class that implements the DatatypeConverterInterface class - 
+       this parameter must not be null. 
+
+

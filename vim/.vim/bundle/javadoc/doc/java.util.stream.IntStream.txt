@@ -1,0 +1,742 @@
+*java.util.stream.IntStream* *IntStream* A sequence of primitive int-valued elem
+
+public interface interface IntStream
+
+  implements |java.util.stream.BaseStream|
+
+|java.util.stream.IntStream_Description|
+|java.util.stream.IntStream_Fields|
+|java.util.stream.IntStream_Constructors|
+|java.util.stream.IntStream_Methods|
+
+================================================================================
+
+*java.util.stream.IntStream_Methods*
+|java.util.stream.IntStream.allMatch(IntPredicate)|Returns whether all elements
+|java.util.stream.IntStream.anyMatch(IntPredicate)|Returns whether any elements
+|java.util.stream.IntStream.asDoubleStream()|Returns aDoubleStreamconsisting of
+|java.util.stream.IntStream.asLongStream()|Returns aLongStreamconsisting of the
+|java.util.stream.IntStream.average()|Returns anOptionalDoubledescribing the ar
+|java.util.stream.IntStream.boxed()|Returns aStreamconsisting of the elements o
+|java.util.stream.IntStream.builder()|Returns a builder for anIntStream.
+|java.util.stream.IntStream.collect(Supplier<R>,ObjIntConsumer<R>,BiConsumer<R,R>)|
+|java.util.stream.IntStream.concat(IntStream,IntStream)|Creates a lazily concat
+|java.util.stream.IntStream.count()|Returns the count of elements in this strea
+|java.util.stream.IntStream.distinct()|Returns a stream consisting of the disti
+|java.util.stream.IntStream.empty()|Returns an empty sequentialIntStream.
+|java.util.stream.IntStream.filter(IntPredicate)|Returns a stream consisting of
+|java.util.stream.IntStream.findAny()|Returns anOptionalIntdescribing some elem
+|java.util.stream.IntStream.findFirst()|Returns anOptionalIntdescribing the fir
+|java.util.stream.IntStream.flatMap(IntFunction<?extendsIntStream>)|Returns a s
+|java.util.stream.IntStream.forEach(IntConsumer)|Performs an action for each el
+|java.util.stream.IntStream.forEachOrdered(IntConsumer)|Performs an action for 
+|java.util.stream.IntStream.generate(IntSupplier)|Returns an infinite sequentia
+|java.util.stream.IntStream.iterate(int,IntUnaryOperator)|Returns an infinite s
+|java.util.stream.IntStream.iterator()|
+|java.util.stream.IntStream.limit(long)|Returns a stream consisting of the elem
+|java.util.stream.IntStream.map(IntUnaryOperator)|Returns a stream consisting o
+|java.util.stream.IntStream.mapToDouble(IntToDoubleFunction)|Returns aDoubleStr
+|java.util.stream.IntStream.mapToLong(IntToLongFunction)|Returns aLongStreamcon
+|java.util.stream.IntStream.mapToObj(IntFunction<?extendsU>)|Returns an object-
+|java.util.stream.IntStream.max()|Returns anOptionalIntdescribing the maximum e
+|java.util.stream.IntStream.min()|Returns anOptionalIntdescribing the minimum e
+|java.util.stream.IntStream.noneMatch(IntPredicate)|Returns whether no elements
+|java.util.stream.IntStream.of(int...)|Returns a sequential ordered stream whos
+|java.util.stream.IntStream.of(int)|Returns a sequentialIntStreamcontaining a s
+|java.util.stream.IntStream.parallel()|
+|java.util.stream.IntStream.peek(IntConsumer)|Returns a stream consisting of th
+|java.util.stream.IntStream.range(int,int)|Returns a sequential orderedIntStrea
+|java.util.stream.IntStream.rangeClosed(int,int)|Returns a sequential orderedIn
+|java.util.stream.IntStream.reduce(IntBinaryOperator)|Performs a reduction on t
+|java.util.stream.IntStream.reduce(int,IntBinaryOperator)|Performs a reduction 
+|java.util.stream.IntStream.sequential()|
+|java.util.stream.IntStream.skip(long)|Returns a stream consisting of the remai
+|java.util.stream.IntStream.sorted()|Returns a stream consisting of the element
+|java.util.stream.IntStream.spliterator()|
+|java.util.stream.IntStream.sum()|Returns the sum of elements in this stream.
+|java.util.stream.IntStream.summaryStatistics()|Returns anIntSummaryStatisticsd
+|java.util.stream.IntStream.toArray()|Returns an array containing the elements 
+
+*java.util.stream.IntStream_Description*
+
+A sequence of primitive int-valued elements supporting sequential and parallel 
+aggregate operations. This is theintprimitive specialization of 
+(|java.util.stream.Stream|) . 
+
+The following example illustrates an aggregate operation using 
+(|java.util.stream.Stream|) and (|java.util.stream.IntStream|) , computing the 
+sum of the weights of the red widgets: 
+
+int sum = widgets.stream() .filter(w -> w.getColor() == RED) .mapToInt(w -> 
+w.getWeight()) .sum(); 
+
+See the class documentation for (|java.util.stream.Stream|) and the package 
+documentation for java.util.stream for additional specification of streams, 
+stream operations, stream pipelines, and parallelism. 
+
+
+
+*java.util.stream.IntStream.allMatch(IntPredicate)*
+
+public boolean allMatch(java.util.function.IntPredicate predicate)
+
+Returns whether all elements of this stream match the provided predicate. May 
+not evaluate the predicate on all elements if not necessary for determining the 
+result. If the stream is empty thentrueis returned and the predicate is not 
+evaluated. 
+
+This is a short-circuiting terminal operation. 
+
+
+    predicate - a non-interfering, stateless predicate to apply to elements of this stream 
+
+    Returns: {@code true} if either all elements of the stream match the provided predicate 
+             or the stream is empty, otherwise {@code false} 
+
+*java.util.stream.IntStream.anyMatch(IntPredicate)*
+
+public boolean anyMatch(java.util.function.IntPredicate predicate)
+
+Returns whether any elements of this stream match the provided predicate. May 
+not evaluate the predicate on all elements if not necessary for determining the 
+result. If the stream is empty thenfalseis returned and the predicate is not 
+evaluated. 
+
+This is a short-circuiting terminal operation. 
+
+
+    predicate - a non-interfering, stateless predicate to apply to elements of this stream 
+
+    Returns: {@code true} if any elements of the stream match the provided predicate, 
+             otherwise {@code false} 
+
+*java.util.stream.IntStream.asDoubleStream()*
+
+public |java.util.stream.DoubleStream| asDoubleStream()
+
+Returns aDoubleStreamconsisting of the elements of this stream, converted 
+todouble. 
+
+This is an intermediate operation. 
+
+
+
+    Returns: a {@code DoubleStream} consisting of the elements of this stream, converted to 
+             {@code double} 
+
+*java.util.stream.IntStream.asLongStream()*
+
+public |java.util.stream.LongStream| asLongStream()
+
+Returns aLongStreamconsisting of the elements of this stream, converted tolong. 
+
+This is an intermediate operation. 
+
+
+
+    Returns: a {@code LongStream} consisting of the elements of this stream, converted to 
+             {@code long} 
+
+*java.util.stream.IntStream.average()*
+
+public |java.util.OptionalDouble| average()
+
+Returns anOptionalDoubledescribing the arithmetic mean of elements of this 
+stream, or an empty optional if this stream is empty. This is a special case of 
+a reduction. 
+
+This is a terminal operation. 
+
+
+
+    Returns: an {@code OptionalDouble} containing the average element of this stream, or an 
+             empty optional if the stream is empty 
+
+*java.util.stream.IntStream.boxed()*
+
+public |java.util.stream.Stream|<Integer> boxed()
+
+Returns aStreamconsisting of the elements of this stream, each boxed to 
+anInteger. 
+
+This is an intermediate operation. 
+
+
+
+    Returns: a {@code Stream} consistent of the elements of this stream, each boxed to an 
+             {@code Integer} 
+
+*java.util.stream.IntStream.builder()*
+
+public static |java.util.stream.IntStream.Builder| builder()
+
+Returns a builder for anIntStream. 
+
+
+
+    Returns: a stream builder 
+
+*java.util.stream.IntStream.collect(Supplier<R>,ObjIntConsumer<R>,BiConsumer<R,R>)*
+
+public |R| collect(
+  java.util.function.Supplier<R> supplier,
+  java.util.function.ObjIntConsumer<R> accumulator,
+  java.util.function.BiConsumer<R, R> combiner)
+
+Performs a mutable reduction operation on the elements of this stream. A 
+mutable reduction is one in which the reduced value is a mutable result 
+container, such as anArrayList, and elements are incorporated by updating the 
+state of the result rather than by replacing the result. This produces a result 
+equivalent to: 
+
+R result = supplier.get(); for (int element : this stream) 
+accumulator.accept(result, element); return result; 
+
+Like (|java.util.stream.IntStream|) ,collectoperations can be parallelized 
+without requiring additional synchronization. 
+
+This is a terminal operation. 
+
+
+    supplier - a function that creates a new result container. For a parallel execution, this 
+       function may be called multiple times and must return a fresh value each 
+       time. 
+    accumulator - an associative, non-interfering, stateless function for incorporating an 
+       additional element into a result 
+    combiner - an associative, non-interfering, stateless function for combining two values, 
+       which must be compatible with the accumulator function 
+
+    Returns: the result of the reduction 
+
+*java.util.stream.IntStream.concat(IntStream,IntStream)*
+
+public static |java.util.stream.IntStream| concat(
+  java.util.stream.IntStream a,
+  java.util.stream.IntStream b)
+
+Creates a lazily concatenated stream whose elements are all the elements of the 
+first stream followed by all the elements of the second stream. The resulting 
+stream is ordered if both of the input streams are ordered, and parallel if 
+either of the input streams is parallel. When the resulting stream is closed, 
+the close handlers for both input streams are invoked. 
+
+
+    a - the first stream 
+    b - the second stream 
+
+    Returns: the concatenation of the two input streams 
+
+*java.util.stream.IntStream.count()*
+
+public long count()
+
+Returns the count of elements in this stream. This is a special case of a 
+reduction and is equivalent to: 
+
+return mapToLong(e -> 1L).sum(); 
+
+This is a terminal operation. 
+
+
+
+    Returns: the count of elements in this stream 
+
+*java.util.stream.IntStream.distinct()*
+
+public |java.util.stream.IntStream| distinct()
+
+Returns a stream consisting of the distinct elements of this stream. 
+
+This is a stateful intermediate operation. 
+
+
+
+    Returns: the new stream 
+
+*java.util.stream.IntStream.empty()*
+
+public static |java.util.stream.IntStream| empty()
+
+Returns an empty sequentialIntStream. 
+
+
+
+    Returns: an empty sequential stream 
+
+*java.util.stream.IntStream.filter(IntPredicate)*
+
+public |java.util.stream.IntStream| filter(java.util.function.IntPredicate predicate)
+
+Returns a stream consisting of the elements of this stream that match the given 
+predicate. 
+
+This is an intermediate operation. 
+
+
+    predicate - a non-interfering, stateless predicate to apply to each element to determine if 
+       it should be included 
+
+    Returns: the new stream 
+
+*java.util.stream.IntStream.findAny()*
+
+public |java.util.OptionalInt| findAny()
+
+Returns an (|java.util.OptionalInt|) describing some element of the stream, or 
+an emptyOptionalIntif the stream is empty. 
+
+This is a short-circuiting terminal operation. 
+
+The behavior of this operation is explicitly nondeterministic; it is free to 
+select any element in the stream. This is to allow for maximal performance in 
+parallel operations; the cost is that multiple invocations on the same source 
+may not return the same result. (If a stable result is desired, use 
+(|java.util.stream.IntStream|) instead.) 
+
+
+
+    Returns: an {@code OptionalInt} describing some element of this stream, or an empty 
+             {@code OptionalInt} if the stream is empty 
+
+*java.util.stream.IntStream.findFirst()*
+
+public |java.util.OptionalInt| findFirst()
+
+Returns an (|java.util.OptionalInt|) describing the first element of this 
+stream, or an emptyOptionalIntif the stream is empty. If the stream has no 
+encounter order, then any element may be returned. 
+
+This is a short-circuiting terminal operation. 
+
+
+
+    Returns: an {@code OptionalInt} describing the first element of this stream, or an empty 
+             {@code OptionalInt} if the stream is empty 
+
+*java.util.stream.IntStream.flatMap(IntFunction<?extendsIntStream>)*
+
+public |java.util.stream.IntStream| flatMap(java.util.function.IntFunction<? extends java.util.stream.IntStream> mapper)
+
+Returns a stream consisting of the results of replacing each element of this 
+stream with the contents of a mapped stream produced by applying the provided 
+mapping function to each element. Each mapped stream is 
+closed(|java.util.stream.BaseStream|) after its contents have been placed into 
+this stream. (If a mapped stream isnullan empty stream is used, instead.) 
+
+This is an intermediate operation. 
+
+
+    mapper - a non-interfering, stateless function to apply to each element which produces 
+       an {@code IntStream} of new values 
+
+    Returns: the new stream 
+
+*java.util.stream.IntStream.forEach(IntConsumer)*
+
+public void forEach(java.util.function.IntConsumer action)
+
+Performs an action for each element of this stream. 
+
+This is a terminal operation. 
+
+For parallel stream pipelines, this operation does not guarantee to respect the 
+encounter order of the stream, as doing so would sacrifice the benefit of 
+parallelism. For any given element, the action may be performed at whatever 
+time and in whatever thread the library chooses. If the action accesses shared 
+state, it is responsible for providing the required synchronization. 
+
+
+    action - a non-interfering action to perform on the elements 
+
+*java.util.stream.IntStream.forEachOrdered(IntConsumer)*
+
+public void forEachOrdered(java.util.function.IntConsumer action)
+
+Performs an action for each element of this stream, guaranteeing that each 
+element is processed in encounter order for streams that have a defined 
+encounter order. 
+
+This is a terminal operation. 
+
+
+    action - a non-interfering action to perform on the elements 
+
+*java.util.stream.IntStream.generate(IntSupplier)*
+
+public static |java.util.stream.IntStream| generate(java.util.function.IntSupplier s)
+
+Returns an infinite sequential unordered stream where each element is generated 
+by the providedIntSupplier. This is suitable for generating constant streams, 
+streams of random elements, etc. 
+
+
+    s - the {@code IntSupplier} for generated elements 
+
+    Returns: a new infinite sequential unordered {@code IntStream} 
+
+*java.util.stream.IntStream.iterate(int,IntUnaryOperator)*
+
+public static |java.util.stream.IntStream| iterate(
+  int seed,
+  java.util.function.IntUnaryOperator f)
+
+Returns an infinite sequential orderedIntStreamproduced by iterative 
+application of a functionfto an initial elementseed, producing 
+aStreamconsisting ofseed,f(seed),f(f(seed)), etc. 
+
+The first element (position0) in theIntStreamwill be the providedseed. Forn > 
+0, the element at positionn, will be the result of applying the functionfto the 
+element at positionn - 1. 
+
+
+    seed - the initial element 
+    f - a function to be applied to to the previous element to produce a new element 
+
+    Returns: A new sequential {@code IntStream} 
+
+*java.util.stream.IntStream.iterator()*
+
+public |java.util.PrimitiveIterator.OfInt| iterator()
+
+
+
+
+
+*java.util.stream.IntStream.limit(long)*
+
+public |java.util.stream.IntStream| limit(long maxSize)
+
+Returns a stream consisting of the elements of this stream, truncated to be no 
+longer thanmaxSizein length. 
+
+This is a short-circuiting stateful intermediate operation. 
+
+
+    maxSize - the number of elements the stream should be limited to 
+
+    Returns: the new stream 
+
+*java.util.stream.IntStream.map(IntUnaryOperator)*
+
+public |java.util.stream.IntStream| map(java.util.function.IntUnaryOperator mapper)
+
+Returns a stream consisting of the results of applying the given function to 
+the elements of this stream. 
+
+This is an intermediate operation. 
+
+
+    mapper - a non-interfering, stateless function to apply to each element 
+
+    Returns: the new stream 
+
+*java.util.stream.IntStream.mapToDouble(IntToDoubleFunction)*
+
+public |java.util.stream.DoubleStream| mapToDouble(java.util.function.IntToDoubleFunction mapper)
+
+Returns aDoubleStreamconsisting of the results of applying the given function 
+to the elements of this stream. 
+
+This is an intermediate operation. 
+
+
+    mapper - a non-interfering, stateless function to apply to each element 
+
+    Returns: the new stream 
+
+*java.util.stream.IntStream.mapToLong(IntToLongFunction)*
+
+public |java.util.stream.LongStream| mapToLong(java.util.function.IntToLongFunction mapper)
+
+Returns aLongStreamconsisting of the results of applying the given function to 
+the elements of this stream. 
+
+This is an intermediate operation. 
+
+
+    mapper - a non-interfering, stateless function to apply to each element 
+
+    Returns: the new stream 
+
+*java.util.stream.IntStream.mapToObj(IntFunction<?extendsU>)*
+
+public |java.util.stream.Stream|<U> mapToObj(java.util.function.IntFunction<? extends U> mapper)
+
+Returns an object-valuedStreamconsisting of the results of applying the given 
+function to the elements of this stream. 
+
+This is an intermediate operation. 
+
+
+    mapper - a non-interfering, stateless function to apply to each element 
+
+    Returns: the new stream 
+
+*java.util.stream.IntStream.max()*
+
+public |java.util.OptionalInt| max()
+
+Returns anOptionalIntdescribing the maximum element of this stream, or an empty 
+optional if this stream is empty. This is a special case of a reduction and is 
+equivalent to: 
+
+return reduce(Integer::max); 
+
+This is a terminal operation. 
+
+
+
+    Returns: an {@code OptionalInt} containing the maximum element of this stream, or an 
+             empty {@code OptionalInt} if the stream is empty 
+
+*java.util.stream.IntStream.min()*
+
+public |java.util.OptionalInt| min()
+
+Returns anOptionalIntdescribing the minimum element of this stream, or an empty 
+optional if this stream is empty. This is a special case of a reduction and is 
+equivalent to: 
+
+return reduce(Integer::min); 
+
+This is a terminal operation. 
+
+
+
+    Returns: an {@code OptionalInt} containing the minimum element of this stream, or an 
+             empty {@code OptionalInt} if the stream is empty 
+
+*java.util.stream.IntStream.noneMatch(IntPredicate)*
+
+public boolean noneMatch(java.util.function.IntPredicate predicate)
+
+Returns whether no elements of this stream match the provided predicate. May 
+not evaluate the predicate on all elements if not necessary for determining the 
+result. If the stream is empty thentrueis returned and the predicate is not 
+evaluated. 
+
+This is a short-circuiting terminal operation. 
+
+
+    predicate - a non-interfering, stateless predicate to apply to elements of this stream 
+
+    Returns: {@code true} if either no elements of the stream match the provided predicate 
+             or the stream is empty, otherwise {@code false} 
+
+*java.util.stream.IntStream.of(int...)*
+
+public static |java.util.stream.IntStream| of(int[] values)
+
+Returns a sequential ordered stream whose elements are the specified values. 
+
+
+    values - the elements of the new stream 
+
+    Returns: the new stream 
+
+*java.util.stream.IntStream.of(int)*
+
+public static |java.util.stream.IntStream| of(int t)
+
+Returns a sequentialIntStreamcontaining a single element. 
+
+
+    t - the single element 
+
+    Returns: a singleton sequential stream 
+
+*java.util.stream.IntStream.parallel()*
+
+public |java.util.stream.IntStream| parallel()
+
+
+
+
+
+*java.util.stream.IntStream.peek(IntConsumer)*
+
+public |java.util.stream.IntStream| peek(java.util.function.IntConsumer action)
+
+Returns a stream consisting of the elements of this stream, additionally 
+performing the provided action on each element as elements are consumed from 
+the resulting stream. 
+
+This is an intermediate operation. 
+
+For parallel stream pipelines, the action may be called at whatever time and in 
+whatever thread the element is made available by the upstream operation. If the 
+action modifies shared state, it is responsible for providing the required 
+synchronization. 
+
+
+    action - a non-interfering action to perform on the elements as they are consumed from 
+       the stream 
+
+    Returns: the new stream 
+
+*java.util.stream.IntStream.range(int,int)*
+
+public static |java.util.stream.IntStream| range(
+  int startInclusive,
+  int endExclusive)
+
+Returns a sequential orderedIntStreamfromstartInclusive(inclusive) 
+toendExclusive(exclusive) by an incremental step of1. 
+
+
+    startInclusive - the (inclusive) initial value 
+    endExclusive - the exclusive upper bound 
+
+    Returns: a sequential {@code IntStream} for the range of {@code int} elements 
+
+*java.util.stream.IntStream.rangeClosed(int,int)*
+
+public static |java.util.stream.IntStream| rangeClosed(
+  int startInclusive,
+  int endInclusive)
+
+Returns a sequential orderedIntStreamfromstartInclusive(inclusive) 
+toendInclusive(inclusive) by an incremental step of1. 
+
+
+    startInclusive - the (inclusive) initial value 
+    endInclusive - the inclusive upper bound 
+
+    Returns: a sequential {@code IntStream} for the range of {@code int} elements 
+
+*java.util.stream.IntStream.reduce(IntBinaryOperator)*
+
+public |java.util.OptionalInt| reduce(java.util.function.IntBinaryOperator op)
+
+Performs a reduction on the elements of this stream, using an associative 
+accumulation function, and returns anOptionalIntdescribing the reduced value, 
+if any. This is equivalent to: 
+
+boolean foundAny = false; int result = null; for (int element : this stream) { 
+if (!foundAny) { foundAny = true; result = element; } else result = 
+accumulator.applyAsInt(result, element); } return foundAny ? 
+OptionalInt.of(result) : OptionalInt.empty(); 
+
+but is not constrained to execute sequentially. 
+
+Theaccumulatorfunction must be an associative function. 
+
+This is a terminal operation. 
+
+
+    op - an associative, non-interfering, stateless function for combining two values 
+
+    Returns: the result of the reduction 
+
+*java.util.stream.IntStream.reduce(int,IntBinaryOperator)*
+
+public int reduce(
+  int identity,
+  java.util.function.IntBinaryOperator op)
+
+Performs a reduction on the elements of this stream, using the provided 
+identity value and an associative accumulation function, and returns the 
+reduced value. This is equivalent to: 
+
+int result = identity; for (int element : this stream) result = 
+accumulator.applyAsInt(result, element) return result; 
+
+but is not constrained to execute sequentially. 
+
+Theidentityvalue must be an identity for the accumulator function. This means 
+that for allx,accumulator.apply(identity, x)is equal tox. 
+Theaccumulatorfunction must be an associative function. 
+
+This is a terminal operation. 
+
+
+    identity - the identity value for the accumulating function 
+    op - an associative, non-interfering, stateless function for combining two values 
+
+    Returns: the result of the reduction 
+
+*java.util.stream.IntStream.sequential()*
+
+public |java.util.stream.IntStream| sequential()
+
+
+
+
+
+*java.util.stream.IntStream.skip(long)*
+
+public |java.util.stream.IntStream| skip(long n)
+
+Returns a stream consisting of the remaining elements of this stream after 
+discarding the firstnelements of the stream. If this stream contains fewer 
+thannelements then an empty stream will be returned. 
+
+This is a stateful intermediate operation. 
+
+
+    n - the number of leading elements to skip 
+
+    Returns: the new stream 
+
+*java.util.stream.IntStream.sorted()*
+
+public |java.util.stream.IntStream| sorted()
+
+Returns a stream consisting of the elements of this stream in sorted order. 
+
+This is a stateful intermediate operation. 
+
+
+
+    Returns: the new stream 
+
+*java.util.stream.IntStream.spliterator()*
+
+public |java.util.Spliterator.OfInt| spliterator()
+
+
+
+
+
+*java.util.stream.IntStream.sum()*
+
+public int sum()
+
+Returns the sum of elements in this stream. This is a special case of a 
+reduction and is equivalent to: 
+
+return reduce(0, Integer::sum); 
+
+This is a terminal operation. 
+
+
+
+    Returns: the sum of elements in this stream 
+
+*java.util.stream.IntStream.summaryStatistics()*
+
+public |java.util.IntSummaryStatistics| summaryStatistics()
+
+Returns anIntSummaryStatisticsdescribing various summary data about the 
+elements of this stream. This is a special case of a reduction. 
+
+This is a terminal operation. 
+
+
+
+    Returns: an {@code IntSummaryStatistics} describing various summary data about the 
+             elements of this stream 
+
+*java.util.stream.IntStream.toArray()*
+
+public int[] toArray()
+
+Returns an array containing the elements of this stream. 
+
+This is a terminal operation. 
+
+
+
+    Returns: an array containing the elements of this stream 
+
+

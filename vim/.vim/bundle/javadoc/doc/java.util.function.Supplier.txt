@@ -1,0 +1,38 @@
+*java.util.function.Supplier* *Supplier* Represents a supplier of results.
+
+public interface interface Supplier<T>
+
+
+|java.util.function.Supplier_Description|
+|java.util.function.Supplier_Fields|
+|java.util.function.Supplier_Constructors|
+|java.util.function.Supplier_Methods|
+
+================================================================================
+
+*java.util.function.Supplier_Methods*
+|java.util.function.Supplier.get()|Gets a result.
+
+*java.util.function.Supplier_Description*
+
+Represents a supplier of results. 
+
+There is no requirement that a new or distinct result be returned each time the 
+supplier is invoked. 
+
+This is a functional interface whose functional method is 
+(|java.util.function.Supplier|) . 
+
+
+
+*java.util.function.Supplier.get()*
+
+public |T| get()
+
+Gets a result. 
+
+
+
+    Returns: 
+
+

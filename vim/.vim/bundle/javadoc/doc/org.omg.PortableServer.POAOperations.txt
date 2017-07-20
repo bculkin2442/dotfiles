@@ -1,0 +1,504 @@
+*org.omg.PortableServer.POAOperations* *POAOperations* A POA object manages the 
+
+public interface interface POAOperations
+
+
+|org.omg.PortableServer.POAOperations_Description|
+|org.omg.PortableServer.POAOperations_Fields|
+|org.omg.PortableServer.POAOperations_Constructors|
+|org.omg.PortableServer.POAOperations_Methods|
+
+================================================================================
+
+*org.omg.PortableServer.POAOperations_Methods*
+|org.omg.PortableServer.POAOperations.activate_object_with_id(byte[],Servant)|T
+|org.omg.PortableServer.POAOperations.activate_object(Servant)|This operation g
+|org.omg.PortableServer.POAOperations.create_id_assignment_policy(IdAssignmentPolicyValue)|
+|org.omg.PortableServer.POAOperations.create_id_uniqueness_policy(IdUniquenessPolicyValue)|
+|org.omg.PortableServer.POAOperations.create_implicit_activation_policy(ImplicitActivationPolicyValue)|
+|org.omg.PortableServer.POAOperations.create_lifespan_policy(LifespanPolicyValue)|
+|org.omg.PortableServer.POAOperations.create_POA(String,POAManager,Policy[])|Th
+|org.omg.PortableServer.POAOperations.create_reference_with_id(byte[],String)|T
+|org.omg.PortableServer.POAOperations.create_reference(String)|This operation c
+|org.omg.PortableServer.POAOperations.create_request_processing_policy(RequestProcessingPolicyValue)|
+|org.omg.PortableServer.POAOperations.create_servant_retention_policy(ServantRetentionPolicyValue)|
+|org.omg.PortableServer.POAOperations.create_thread_policy(ThreadPolicyValue)|T
+|org.omg.PortableServer.POAOperations.deactivate_object(byte[])|This operation 
+|org.omg.PortableServer.POAOperations.destroy(boolean,boolean)|This operation d
+|org.omg.PortableServer.POAOperations.find_POA(String,boolean)|If the target PO
+|org.omg.PortableServer.POAOperations.get_servant_manager()|If the ServantReten
+|org.omg.PortableServer.POAOperations.get_servant()|This operation returns the 
+|org.omg.PortableServer.POAOperations.id_to_reference(byte[])|If an object with
+|org.omg.PortableServer.POAOperations.id_to_servant(byte[])|If the POA has the 
+|org.omg.PortableServer.POAOperations.id()|This returns the unique id of the PO
+|org.omg.PortableServer.POAOperations.reference_to_id(Object)|This operation re
+|org.omg.PortableServer.POAOperations.reference_to_servant(Object)|If the POA h
+|org.omg.PortableServer.POAOperations.servant_to_id(Servant)|This operation has
+|org.omg.PortableServer.POAOperations.servant_to_reference(Servant)|This operat
+|org.omg.PortableServer.POAOperations.set_servant_manager(ServantManager)|This 
+|org.omg.PortableServer.POAOperations.set_servant(Servant)|This operation regis
+|org.omg.PortableServer.POAOperations.the_activator()|This attribute identifies
+|org.omg.PortableServer.POAOperations.the_activator(AdapterActivator)|This attr
+|org.omg.PortableServer.POAOperations.the_children()|This attribute identifies 
+|org.omg.PortableServer.POAOperations.the_name()|This attribute identifies the 
+|org.omg.PortableServer.POAOperations.the_parent()|This attribute identifies th
+|org.omg.PortableServer.POAOperations.the_POAManager()|This attribute identifie
+
+*org.omg.PortableServer.POAOperations_Description*
+
+A POA object manages the implementation of a collection of objects. The POA 
+supports a name space for the objects, which are identified by Object Ids. A 
+POA also provides a name space for POAs. A POA is created as a child of an 
+existing POA, which forms a hierarchy starting with the root POA. A POA object 
+must not be exported to other processes, or externalized with 
+ORB::object_to_string. 
+
+
+
+*org.omg.PortableServer.POAOperations.activate_object_with_id(byte[],Servant)*
+
+public void activate_object_with_id(
+  byte[] id,
+  org.omg.PortableServer.Servant p_servant)
+  throws |org.omg.PortableServer.POAPackage.ObjectAlreadyActive|
+         |org.omg.PortableServer.POAPackage.ServantAlreadyActive|
+         |org.omg.PortableServer.POAPackage.WrongPolicy|
+         
+This operation enters an association between the specified Object Id and the 
+specified servant in the Active Object Map. 
+
+
+    id - object id for the object to be activated. 
+    p_servant - servant to be associated with the object. 
+
+*org.omg.PortableServer.POAOperations.activate_object(Servant)*
+
+public byte[] activate_object(org.omg.PortableServer.Servant p_servant)
+  throws |org.omg.PortableServer.POAPackage.ServantAlreadyActive|
+         |org.omg.PortableServer.POAPackage.WrongPolicy|
+         
+This operation generates an Object Id and enters the Object Id and the 
+specified servant in the Active Object Map. 
+
+
+    p_servant - servant to be associated with an object to be activated. 
+
+    Returns: POA generated object id. 
+
+*org.omg.PortableServer.POAOperations.create_id_assignment_policy(IdAssignmentPolicyValue)*
+
+public |org.omg.PortableServer.IdAssignmentPolicy| create_id_assignment_policy(org.omg.PortableServer.IdAssignmentPolicyValue value)
+
+These operations each return a reference to a policy object with the specified 
+value. 
+
+
+    value - policy type 
+
+    Returns: IdAssignmentPolicy Object. 
+
+*org.omg.PortableServer.POAOperations.create_id_uniqueness_policy(IdUniquenessPolicyValue)*
+
+public |org.omg.PortableServer.IdUniquenessPolicy| create_id_uniqueness_policy(org.omg.PortableServer.IdUniquenessPolicyValue value)
+
+These operations each return a reference to a policy object with the specified 
+value. 
+
+
+    value - policy type 
+
+    Returns: IdUniquenessPolicy Object. 
+
+*org.omg.PortableServer.POAOperations.create_implicit_activation_policy(ImplicitActivationPolicyValue)*
+
+public |org.omg.PortableServer.ImplicitActivationPolicy| create_implicit_activation_policy(org.omg.PortableServer.ImplicitActivationPolicyValue value)
+
+These operations each return a reference to a policy object with the specified 
+value. 
+
+
+    value - policy type 
+
+    Returns: ImplicitActivationPolicy Object. 
+
+*org.omg.PortableServer.POAOperations.create_lifespan_policy(LifespanPolicyValue)*
+
+public |org.omg.PortableServer.LifespanPolicy| create_lifespan_policy(org.omg.PortableServer.LifespanPolicyValue value)
+
+These operations each return a reference to a policy object with the specified 
+value. 
+
+
+    value - policy type 
+
+    Returns: LifespanPolicy Object. 
+
+*org.omg.PortableServer.POAOperations.create_POA(String,POAManager,Policy[])*
+
+public |org.omg.PortableServer.POA| create_POA(
+  java.lang.String adapter_name,
+  org.omg.PortableServer.POAManager a_POAManager,
+  org.omg.CORBA.Policy[] policies)
+  throws |org.omg.PortableServer.POAPackage.AdapterAlreadyExists|
+         |org.omg.PortableServer.POAPackage.InvalidPolicy|
+         
+This operation creates a new POA as a child of the target POA. 
+
+
+    adapter_name - identifies the new POA with respect to other POAs with the same parent POA. 
+    a_POAManager - specifies the POA Manager to be associated with the new POA. 
+    policies - specifies policy objects to be associated with the POA to control its behavior. 
+
+*org.omg.PortableServer.POAOperations.create_reference_with_id(byte[],String)*
+
+public |org.omg.CORBA.Object| create_reference_with_id(
+  byte[] oid,
+  java.lang.String intf)
+
+This operation creates an object reference that encapsulates the specified 
+Object Id and interface repository Id values. It does not cause an activation 
+to take place. The resulting reference may be passed to clients, so that 
+subsequent requests on those references will cause the object to be activated 
+if necessary, or the default servant used, depending on the applicable 
+policies. 
+
+
+    oid - object id for creating an objref 
+    intf - rep id for creating an objref 
+
+    Returns: object reference created using oid and intf 
+
+*org.omg.PortableServer.POAOperations.create_reference(String)*
+
+public |org.omg.CORBA.Object| create_reference(java.lang.String intf)
+  throws |org.omg.PortableServer.POAPackage.WrongPolicy|
+         
+This operation creates an object reference that encapsulates a POA-generated 
+Object Id value and the specified interface repository id. 
+
+
+    intf - rep id for creating an object reference. 
+
+    Returns: object reference created using intf. 
+
+*org.omg.PortableServer.POAOperations.create_request_processing_policy(RequestProcessingPolicyValue)*
+
+public |org.omg.PortableServer.RequestProcessingPolicy| create_request_processing_policy(org.omg.PortableServer.RequestProcessingPolicyValue value)
+
+These operations each return a reference to a policy object with the specified 
+value. 
+
+
+    value - policy type 
+
+    Returns: RequestProcessingPolicy Object. 
+
+*org.omg.PortableServer.POAOperations.create_servant_retention_policy(ServantRetentionPolicyValue)*
+
+public |org.omg.PortableServer.ServantRetentionPolicy| create_servant_retention_policy(org.omg.PortableServer.ServantRetentionPolicyValue value)
+
+These operations each return a reference to a policy object with the specified 
+value. 
+
+
+    value - policy type 
+
+    Returns: ServantRetentionPolicy Object. 
+
+*org.omg.PortableServer.POAOperations.create_thread_policy(ThreadPolicyValue)*
+
+public |org.omg.PortableServer.ThreadPolicy| create_thread_policy(org.omg.PortableServer.ThreadPolicyValue value)
+
+These operations each return a reference to a policy object with the specified 
+value. 
+
+
+    value - policy type 
+
+    Returns: ThreadPolcy Object 
+
+*org.omg.PortableServer.POAOperations.deactivate_object(byte[])*
+
+public void deactivate_object(byte[] oid)
+  throws |org.omg.PortableServer.POAPackage.ObjectNotActive|
+         |org.omg.PortableServer.POAPackage.WrongPolicy|
+         
+This operation causes the ObjectId specified in the oid parameter to be 
+deactivated. An ObjectId which has been deactivated continues to process 
+requests until there are no active requests for that ObjectId. A deactivated 
+ObjectId is removed from the Active Object Map when all requests executing for 
+that ObjectId have completed. 
+
+
+    oid - Object Id for the object to be deactivated. 
+
+*org.omg.PortableServer.POAOperations.destroy(boolean,boolean)*
+
+public void destroy(
+  boolean etherealize_objects,
+  boolean wait_for_completion)
+
+This operation destroys the POA and all descendant POAs. All descendant POAs 
+are destroyed (recursively) before the destruction of the containing POA. The 
+POA so destroyed (that is, the POA with its name) may be re-created later in 
+the same process. 
+
+
+    etherealize_objects - flag to indicate whether etherealize operation on servant manager needs to be 
+       called. 
+    wait_for_completion - flag to indicate whether POA and its children need to wait for active requests 
+       and the etherealization to complete. 
+
+*org.omg.PortableServer.POAOperations.find_POA(String,boolean)*
+
+public |org.omg.PortableServer.POA| find_POA(
+  java.lang.String adapter_name,
+  boolean activate_it)
+  throws |org.omg.PortableServer.POAPackage.AdapterNonExistent|
+         
+If the target POA is the parent of a child POA with the specified name 
+(relative to the target POA), that child POA is returned. 
+
+
+    adapter_name - POA name to be found. 
+    activate_it - if a POA with the specified name does not exist and the value of the 
+       activate_it parameter is TRUE, the target POA's AdapterActivator, if one 
+       exists, is invoked. 
+
+    Returns: POA if one exists or is activated by the AdapterActivator. 
+    Returns: AdapterNonExistent is raised if POA with a specified name cannot be found or 
+             activated using AdapaterActivator. 
+
+*org.omg.PortableServer.POAOperations.get_servant_manager()*
+
+public |org.omg.PortableServer.ServantManager| get_servant_manager()
+  throws |org.omg.PortableServer.POAPackage.WrongPolicy|
+         
+If the ServantRetentionPolicy of the POA is RETAIN, then the ServantManager 
+argument (imgr) shall support the ServantActivator interface. For a NON_RETAIN 
+policy, the ServantManager shall support the ServantLocator interface. If the 
+argument is nil, or does not support the required interface, then the 
+OBJ_ADAPTER exception is raised. 
+
+
+
+    Returns: ServantManager associated with a POA or null if none exists. 
+
+*org.omg.PortableServer.POAOperations.get_servant()*
+
+public |org.omg.PortableServer.Servant| get_servant()
+  throws |org.omg.PortableServer.POAPackage.NoServant|
+         |org.omg.PortableServer.POAPackage.WrongPolicy|
+         
+This operation returns the default servant associated with the POA. 
+
+
+
+    Returns: p_servant default servant associated with a POA. 
+
+*org.omg.PortableServer.POAOperations.id_to_reference(byte[])*
+
+public |org.omg.CORBA.Object| id_to_reference(byte[] oid)
+  throws |org.omg.PortableServer.POAPackage.ObjectNotActive|
+         |org.omg.PortableServer.POAPackage.WrongPolicy|
+         
+If an object with the specified Object Id value is currently active, a 
+reference encapsulating the information used to activate the object is 
+returned. 
+
+
+    oid - id of the object for which the reference is returned. 
+
+    Returns: the object reference 
+
+*org.omg.PortableServer.POAOperations.id_to_servant(byte[])*
+
+public |org.omg.PortableServer.Servant| id_to_servant(byte[] oid)
+  throws |org.omg.PortableServer.POAPackage.ObjectNotActive|
+         |org.omg.PortableServer.POAPackage.WrongPolicy|
+         
+If the POA has the RETAIN policy and the specified ObjectId is in the Active 
+Object Map, this operation returns the servant associated with that object in 
+the Active Object Map. Otherwise, if the POA has the USE_DEFAULT_SERVANT policy 
+and a default servant has been registered with the POA, this operation returns 
+the default servant. 
+
+
+    oid - object id for the which the servant is returned. 
+
+    Returns: servant associated with oid. 
+
+*org.omg.PortableServer.POAOperations.id()*
+
+public byte[] id()
+
+This returns the unique id of the POA in the process in which it is created. It 
+is for use by portable interceptors. 
+
+This id is guaranteed unique for the life span of the POA in the process. For 
+persistent POAs, this means that if a POA is created in the same path with the 
+same name as another POA, these POAs are identical and, therefore, have the 
+same id. For transient POAs, each POA is unique. 
+
+
+
+*org.omg.PortableServer.POAOperations.reference_to_id(Object)*
+
+public byte[] reference_to_id(org.omg.CORBA.Object reference)
+  throws |org.omg.PortableServer.POAPackage.WrongAdapter|
+         |org.omg.PortableServer.POAPackage.WrongPolicy|
+         
+This operation returns the Object Id value encapsulated by the specified 
+reference. This operation is valid only if the reference was created by the POA 
+on which the operation is being performed. The object denoted by the reference 
+does not have to be active for this operation to succeed. 
+
+
+    reference - the object reference from which the object id needs to be returned. 
+
+    Returns: object id encapsulated in the reference. 
+
+*org.omg.PortableServer.POAOperations.reference_to_servant(Object)*
+
+public |org.omg.PortableServer.Servant| reference_to_servant(org.omg.CORBA.Object reference)
+  throws |org.omg.PortableServer.POAPackage.ObjectNotActive|
+         |org.omg.PortableServer.POAPackage.WrongAdapter|
+         |org.omg.PortableServer.POAPackage.WrongPolicy|
+         
+If the POA has the RETAIN policy and the specified object is present in the 
+Active Object Map, this operation returns the servant associated with that 
+object in the Active Object Map. Otherwise, if the POA has the 
+USE_DEFAULT_SERVANT policy and a default servant has been registered with the 
+POA, this operation returns the default servant. If the object reference was 
+not created by this POA, the WrongAdapter exception is raised. (OMG Issue on 
+inconsistency with the POA.IDL. 
+
+
+    reference - object reference for which the servant is returned. 
+
+    Returns: servant associated with the reference. 
+
+*org.omg.PortableServer.POAOperations.servant_to_id(Servant)*
+
+public byte[] servant_to_id(org.omg.PortableServer.Servant p_servant)
+  throws |org.omg.PortableServer.POAPackage.ServantNotActive|
+         |org.omg.PortableServer.POAPackage.WrongPolicy|
+         
+This operation has four possible behaviors. 1. If the POA has the UNIQUE_ID 
+policy and the specified servant is active, the Object Id associated with that 
+servant is returned. 2. If the POA has the IMPLICIT_ACTIVATION policy and 
+either the POA has the MULTIPLE_ID policy or the specified servant is not 
+active, the servant is activated using a POA-generated Object Id and the 
+Interface Id associated with the servant, and that Object Id is returned. 3. If 
+the POA has the USE_DEFAULT_SERVANT policy, the servant specified is the 
+default servant, and the operation is being invoked in the context of executing 
+a request on the default servant, then the ObjectId associated with the current 
+invocation is returned. 4. Otherwise, the ServantNotActive exception is raised. 
+
+
+    p_servant - servant for which the object disi returned. 
+
+    Returns: object id associated with the servant. 
+
+*org.omg.PortableServer.POAOperations.servant_to_reference(Servant)*
+
+public |org.omg.CORBA.Object| servant_to_reference(org.omg.PortableServer.Servant p_servant)
+  throws |org.omg.PortableServer.POAPackage.ServantNotActive|
+         |org.omg.PortableServer.POAPackage.WrongPolicy|
+         
+This operation requires the RETAIN policy and either the UNIQUE_ID or 
+IMPLICIT_ACTIVATION policies if invoked outside the context of an operation 
+dispatched by this POA. It has four possible behaviors. 1. If the POA has both 
+the RETAIN and the UNIQUE_ID policy and the specified servant is active, an 
+object reference encapsulating the information used to activate the servant is 
+returned. 2. If the POA has both the RETAIN and the IMPLICIT_ACTIVATION policy 
+and either the POA has the MULTIPLE_ID policy or the specified servant is not 
+active, the servant is activated using a POA-generated Object Id and the 
+Interface Id associated with the servant, and a corresponding object reference 
+is returned. 3. If the operation was invoked in the context of executing a 
+request on the specified servant, the reference associated with the current 
+invocation is returned. 4. Otherwise, the ServantNotActive exception is raised. 
+
+
+    p_servant - servant for which the object reference needs to be obtained. 
+
+    Returns: object reference associated with the servant. 
+
+*org.omg.PortableServer.POAOperations.set_servant_manager(ServantManager)*
+
+public void set_servant_manager(org.omg.PortableServer.ServantManager imgr)
+  throws |org.omg.PortableServer.POAPackage.WrongPolicy|
+         
+This operation sets the default servant manager associated with the POA. This 
+operation may only be invoked once after a POA has been created. Attempting to 
+set the servant manager after one has already been set will result in the 
+BAD_INV_ORDER exception being raised. 
+
+
+    imgr - servant manager to be used as a default. 
+
+*org.omg.PortableServer.POAOperations.set_servant(Servant)*
+
+public void set_servant(org.omg.PortableServer.Servant p_servant)
+  throws |org.omg.PortableServer.POAPackage.WrongPolicy|
+         
+This operation registers the specified servant with the POA as the default 
+servant. This servant will be used for all requests for which no servant is 
+found in the Active Object Map. 
+
+
+    p_servant - servant to be used as a default. 
+
+*org.omg.PortableServer.POAOperations.the_activator()*
+
+public |org.omg.PortableServer.AdapterActivator| the_activator()
+
+This attribute identifies the adapter activator associated with the POA. 
+
+
+
+*org.omg.PortableServer.POAOperations.the_activator(AdapterActivator)*
+
+public void the_activator(org.omg.PortableServer.AdapterActivator newThe_activator)
+
+This attribute identifies the adapter activator associated with the POA. 
+
+
+
+*org.omg.PortableServer.POAOperations.the_children()*
+
+public |org.omg.PortableServer.POA|[] the_children()
+
+This attribute identifies the current set of all child POAs of the POA. The set 
+of child POAs includes only the POA's immediate children, and not their 
+descendants. 
+
+
+
+*org.omg.PortableServer.POAOperations.the_name()*
+
+public |java.lang.String| the_name()
+
+This attribute identifies the POA relative to its parent. This name is assigned 
+when the POA is created. 
+
+
+
+*org.omg.PortableServer.POAOperations.the_parent()*
+
+public |org.omg.PortableServer.POA| the_parent()
+
+This attribute identifies the parent of the POA. The parent of the root POA is 
+null. 
+
+
+
+*org.omg.PortableServer.POAOperations.the_POAManager()*
+
+public |org.omg.PortableServer.POAManager| the_POAManager()
+
+This attribute identifies the POA manager associated with the POA. 
+
+
+
+

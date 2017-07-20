@@ -1,0 +1,76 @@
+*org.omg.IOP.ServiceContextListHolder* *ServiceContextListHolder* An array of se
+
+public final class ServiceContextListHolder
+  extends    |java.lang.Object|
+  implements |org.omg.CORBA.portable.Streamable|
+
+|org.omg.IOP.ServiceContextListHolder_Description|
+|org.omg.IOP.ServiceContextListHolder_Fields|
+|org.omg.IOP.ServiceContextListHolder_Constructors|
+|org.omg.IOP.ServiceContextListHolder_Methods|
+
+================================================================================
+
+*org.omg.IOP.ServiceContextListHolder_Fields*
+|org.omg.IOP.ServiceContext[]_org.omg.IOP.ServiceContextListHolder.value|
+
+*org.omg.IOP.ServiceContextListHolder_Constructors*
+|org.omg.IOP.ServiceContextListHolder()|
+|org.omg.IOP.ServiceContextListHolder(ServiceContext[])|
+
+*org.omg.IOP.ServiceContextListHolder_Methods*
+|org.omg.IOP.ServiceContextListHolder._read(InputStream)|
+|org.omg.IOP.ServiceContextListHolder._type()|
+|org.omg.IOP.ServiceContextListHolder._write(OutputStream)|
+
+*org.omg.IOP.ServiceContextListHolder_Description*
+
+An array of service contexts, forming a service context list. 
+
+
+
+*org.omg.IOP.ServiceContext[]_org.omg.IOP.ServiceContextListHolder.value*
+
+
+
+
+
+*org.omg.IOP.ServiceContextListHolder()*
+
+public ServiceContextListHolder()
+
+
+
+
+*org.omg.IOP.ServiceContextListHolder(ServiceContext[])*
+
+public ServiceContextListHolder(org.omg.IOP.ServiceContext[] initialValue)
+
+
+
+
+*org.omg.IOP.ServiceContextListHolder._read(InputStream)*
+
+public void _read(org.omg.CORBA.portable.InputStream i)
+
+
+
+
+
+*org.omg.IOP.ServiceContextListHolder._type()*
+
+public |org.omg.CORBA.TypeCode| _type()
+
+
+
+
+
+*org.omg.IOP.ServiceContextListHolder._write(OutputStream)*
+
+public void _write(org.omg.CORBA.portable.OutputStream o)
+
+
+
+
+
+

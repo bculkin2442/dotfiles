@@ -1,0 +1,48 @@
+*javax.xml.bind.annotation.XmlAccessorOrder* *XmlAccessorOrder*  Controls the or
+
+public interface class XmlAccessorOrder
+
+  implements |java.lang.annotation.Annotation|
+
+|javax.xml.bind.annotation.XmlAccessorOrder_Description|
+|javax.xml.bind.annotation.XmlAccessorOrder_Fields|
+|javax.xml.bind.annotation.XmlAccessorOrder_Constructors|
+|javax.xml.bind.annotation.XmlAccessorOrder_Methods|
+
+================================================================================
+
+*javax.xml.bind.annotation.XmlAccessorOrder_Description*
+
+Controls the ordering of fields and properties in a class. 
+
+Usage 
+
+@XmlAccessorOrder annotation can be used with the following program elements: 
+
+package a top level class 
+
+See "Package Specification" in javax.xml.bind package javadoc for additional 
+common information. 
+
+The effective (|javax.xml.bind.annotation.XmlAccessOrder|) on a class is 
+determined as follows: 
+
+If there is a @XmlAccessorOrder on a class, then it is used. Otherwise, if a 
+@XmlAccessorOrder exists on one of its super classes, then it is inherited (by 
+the virtue of (|java.lang.annotation.Inherited|) ) Otherwise, the 
+@XmlAccessorOrder on the package of the class is used, if it's there. Otherwise 
+(|javax.xml.bind.annotation.XmlAccessOrder|) . 
+
+This annotation can be used with the following annotations: 
+(|javax.xml.bind.annotation.XmlType|) , 
+(|javax.xml.bind.annotation.XmlRootElement|) , 
+(|javax.xml.bind.annotation.XmlAccessorType|) , 
+(|javax.xml.bind.annotation.XmlSchema|) , 
+(|javax.xml.bind.annotation.XmlSchemaType|) , 
+(|javax.xml.bind.annotation.XmlSchemaTypes|) , , 
+(|javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter|) . It can also be used 
+with the following annotations at the package level: 
+(|javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter|) . 
+
+
+

@@ -1,0 +1,92 @@
+*javax.xml.stream.events.EntityDeclaration* *EntityDeclaration* An interface for
+
+public interface interface EntityDeclaration
+
+  implements |javax.xml.stream.events.XMLEvent|
+
+|javax.xml.stream.events.EntityDeclaration_Description|
+|javax.xml.stream.events.EntityDeclaration_Fields|
+|javax.xml.stream.events.EntityDeclaration_Constructors|
+|javax.xml.stream.events.EntityDeclaration_Methods|
+
+================================================================================
+
+*javax.xml.stream.events.EntityDeclaration_Methods*
+|javax.xml.stream.events.EntityDeclaration.getBaseURI()|Get the base URI for th
+|javax.xml.stream.events.EntityDeclaration.getName()|The entity's name
+|javax.xml.stream.events.EntityDeclaration.getNotationName()|The name of the as
+|javax.xml.stream.events.EntityDeclaration.getPublicId()|The entity's public id
+|javax.xml.stream.events.EntityDeclaration.getReplacementText()|The replacement
+|javax.xml.stream.events.EntityDeclaration.getSystemId()|The entity's system id
+
+*javax.xml.stream.events.EntityDeclaration_Description*
+
+An interface for handling Entity Declarations 
+
+This interface is used to record and report unparsed entity declarations. 
+
+
+
+*javax.xml.stream.events.EntityDeclaration.getBaseURI()*
+
+public |java.lang.String| getBaseURI()
+
+Get the base URI for this reference or null if this information is not 
+available 
+
+
+
+    Returns: the base URI or null 
+
+*javax.xml.stream.events.EntityDeclaration.getName()*
+
+public |java.lang.String| getName()
+
+The entity's name 
+
+
+
+    Returns: the name, may not be null 
+
+*javax.xml.stream.events.EntityDeclaration.getNotationName()*
+
+public |java.lang.String| getNotationName()
+
+The name of the associated notation. 
+
+
+
+    Returns: the notation name 
+
+*javax.xml.stream.events.EntityDeclaration.getPublicId()*
+
+public |java.lang.String| getPublicId()
+
+The entity's public identifier, or null if none was given 
+
+
+
+    Returns: the public ID for this declaration or null 
+
+*javax.xml.stream.events.EntityDeclaration.getReplacementText()*
+
+public |java.lang.String| getReplacementText()
+
+The replacement text of the entity. This method will only return non-null if 
+this is an internal entity. 
+
+
+
+    Returns: null or the replacment text 
+
+*javax.xml.stream.events.EntityDeclaration.getSystemId()*
+
+public |java.lang.String| getSystemId()
+
+The entity's system identifier. 
+
+
+
+    Returns: the system ID for this declaration or null 
+
+

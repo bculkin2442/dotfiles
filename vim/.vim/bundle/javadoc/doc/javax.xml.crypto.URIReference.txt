@@ -1,0 +1,46 @@
+*javax.xml.crypto.URIReference* *URIReference* Identifies a data object via a UR
+
+public interface interface URIReference
+
+
+|javax.xml.crypto.URIReference_Description|
+|javax.xml.crypto.URIReference_Fields|
+|javax.xml.crypto.URIReference_Constructors|
+|javax.xml.crypto.URIReference_Methods|
+
+================================================================================
+
+*javax.xml.crypto.URIReference_Methods*
+|javax.xml.crypto.URIReference.getType()|Returns the type of data referenced by
+|javax.xml.crypto.URIReference.getURI()|Returns the URI of the referenced data 
+
+*javax.xml.crypto.URIReference_Description*
+
+Identifies a data object via a URI-Reference, as specified by RFC 2396. 
+
+Note that some subclasses may not have a type attribute and for objects of 
+those types, the (|javax.xml.crypto.URIReference|) method always returns null. 
+
+
+
+*javax.xml.crypto.URIReference.getType()*
+
+public |java.lang.String| getType()
+
+Returns the type of data referenced by this URI. 
+
+
+
+    Returns: the type (a URI) of the data object (may be null if not specified) 
+
+*javax.xml.crypto.URIReference.getURI()*
+
+public |java.lang.String| getURI()
+
+Returns the URI of the referenced data object. 
+
+
+
+    Returns: the URI of the data object in RFC 2396 format (may be null if not specified) 
+
+

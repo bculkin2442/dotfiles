@@ -1,0 +1,28 @@
+*javax.xml.bind.annotation.XmlMimeType* *XmlMimeType* Associates the MIME type t
+
+public interface class XmlMimeType
+
+  implements |java.lang.annotation.Annotation|
+
+|javax.xml.bind.annotation.XmlMimeType_Description|
+|javax.xml.bind.annotation.XmlMimeType_Fields|
+|javax.xml.bind.annotation.XmlMimeType_Constructors|
+|javax.xml.bind.annotation.XmlMimeType_Methods|
+
+================================================================================
+
+*javax.xml.bind.annotation.XmlMimeType_Description*
+
+Associates the MIME type that controls the XML representation of the property. 
+
+This annotation is used in conjunction with datatypes such as 
+(|java.awt.Image|) or (|javax.xml.transform.Source|) that are bound to 
+base64-encoded binary in XML. 
+
+If a property that has this annotation has a sibling property bound to the 
+xmime:contentType attribute, and if in the instance the property has a value, 
+the value of the attribute takes precedence and that will control the 
+marshalling. 
+
+
+

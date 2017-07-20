@@ -1,0 +1,26 @@
+*org.omg.PortableInterceptor.ORBInitInfo* *ORBInitInfo* Passed to each ORBInitia
+
+public interface interface ORBInitInfo
+
+  implements |org.omg.PortableInterceptor.ORBInitInfoOperations|
+             |org.omg.CORBA.Object|
+             |org.omg.CORBA.portable.IDLEntity|
+
+|org.omg.PortableInterceptor.ORBInitInfo_Description|
+|org.omg.PortableInterceptor.ORBInitInfo_Fields|
+|org.omg.PortableInterceptor.ORBInitInfo_Constructors|
+|org.omg.PortableInterceptor.ORBInitInfo_Methods|
+
+================================================================================
+
+*org.omg.PortableInterceptor.ORBInitInfo_Description*
+
+Passed to each ORBInitializer, allowing it to to register interceptors and 
+perform other duties while the ORB is initializing. 
+
+The ORBInitInfo object is only valid during ORB.init. If a service keeps a 
+reference to its ORBInitInfo object and tries to use it after ORB.init returns, 
+the object no longer exists and an OBJECT_NOT_EXIST exception shall be thrown. 
+
+
+

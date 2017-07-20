@@ -1,0 +1,80 @@
+*org.omg.PortableServer.ImplicitActivationPolicyValue* *ImplicitActivationPolicyValue* 
+
+public class ImplicitActivationPolicyValue
+  extends    |java.lang.Object|
+  implements |org.omg.CORBA.portable.IDLEntity|
+
+|org.omg.PortableServer.ImplicitActivationPolicyValue_Description|
+|org.omg.PortableServer.ImplicitActivationPolicyValue_Fields|
+|org.omg.PortableServer.ImplicitActivationPolicyValue_Constructors|
+|org.omg.PortableServer.ImplicitActivationPolicyValue_Methods|
+
+================================================================================
+
+*org.omg.PortableServer.ImplicitActivationPolicyValue_Fields*
+|int_org.omg.PortableServer.ImplicitActivationPolicyValue._IMPLICIT_ACTIVATION|
+|int_org.omg.PortableServer.ImplicitActivationPolicyValue._NO_IMPLICIT_ACTIVATION|
+|org.omg.PortableServer.ImplicitActivationPolicyValue_org.omg.PortableServer.ImplicitActivationPolicyValue.IMPLICIT_ACTIVATION|
+|org.omg.PortableServer.ImplicitActivationPolicyValue_org.omg.PortableServer.ImplicitActivationPolicyValue.NO_IMPLICIT_ACTIVATION|
+
+*org.omg.PortableServer.ImplicitActivationPolicyValue_Constructors*
+|org.omg.PortableServer.ImplicitActivationPolicyValue(int)|
+
+*org.omg.PortableServer.ImplicitActivationPolicyValue_Methods*
+|org.omg.PortableServer.ImplicitActivationPolicyValue.from_int(int)|
+|org.omg.PortableServer.ImplicitActivationPolicyValue.value()|
+
+*org.omg.PortableServer.ImplicitActivationPolicyValue_Description*
+
+ImplicitActivationPolicyValue has the following semantics. IMPLICIT_ACTIVATION 
+to indicate implicit activation of servants. This requires SYSTEM_ID and RETAIN 
+policies to be set. NO_IMPLICIT_ACTIVATION to indicate no implicit servant 
+activation. 
+
+
+
+*int_org.omg.PortableServer.ImplicitActivationPolicyValue._IMPLICIT_ACTIVATION*
+
+
+
+
+*int_org.omg.PortableServer.ImplicitActivationPolicyValue._NO_IMPLICIT_ACTIVATION*
+
+
+
+
+*org.omg.PortableServer.ImplicitActivationPolicyValue_org.omg.PortableServer.ImplicitActivationPolicyValue.IMPLICIT_ACTIVATION*
+
+
+
+
+*org.omg.PortableServer.ImplicitActivationPolicyValue_org.omg.PortableServer.ImplicitActivationPolicyValue.NO_IMPLICIT_ACTIVATION*
+
+
+
+
+
+*org.omg.PortableServer.ImplicitActivationPolicyValue(int)*
+
+protected ImplicitActivationPolicyValue(int value)
+
+
+
+
+*org.omg.PortableServer.ImplicitActivationPolicyValue.from_int(int)*
+
+public static |org.omg.PortableServer.ImplicitActivationPolicyValue| from_int(int value)
+
+
+
+
+
+*org.omg.PortableServer.ImplicitActivationPolicyValue.value()*
+
+public int value()
+
+
+
+
+
+

@@ -1,0 +1,236 @@
+*javax.swing.tree.TreePath* *TreePath* TreePathrepresents an array of objects th
+
+public class TreePath
+  extends    |java.lang.Object|
+  implements |java.io.Serializable|
+
+|javax.swing.tree.TreePath_Description|
+|javax.swing.tree.TreePath_Fields|
+|javax.swing.tree.TreePath_Constructors|
+|javax.swing.tree.TreePath_Methods|
+
+================================================================================
+
+*javax.swing.tree.TreePath_Constructors*
+|javax.swing.tree.TreePath()|Creates an emptyTreePath.
+|javax.swing.tree.TreePath(Object)|Creates aTreePathcontaining a single element
+|javax.swing.tree.TreePath(Object[])|Creates aTreePathfrom an array.
+|javax.swing.tree.TreePath(Object[],int)|Creates aTreePathfrom an array.
+|javax.swing.tree.TreePath(TreePath,Object)|Creates aTreePathwith the specified
+
+*javax.swing.tree.TreePath_Methods*
+|javax.swing.tree.TreePath.equals(Object)|Compares thisTreePathto the specified
+|javax.swing.tree.TreePath.getLastPathComponent()|Returns the last element of t
+|javax.swing.tree.TreePath.getParentPath()|Returns theTreePathof the parent.
+|javax.swing.tree.TreePath.getPath()|Returns an ordered array of the elements o
+|javax.swing.tree.TreePath.getPathComponent(int)|Returns the path element at th
+|javax.swing.tree.TreePath.getPathCount()|Returns the number of elements in the
+|javax.swing.tree.TreePath.hashCode()|Returns the hash code of thisTreePath.
+|javax.swing.tree.TreePath.isDescendant(TreePath)|Returns true if aTreePath is 
+|javax.swing.tree.TreePath.pathByAddingChild(Object)|Returns a new path contain
+|javax.swing.tree.TreePath.toString()|Returns a string that displays and identi
+
+*javax.swing.tree.TreePath_Description*
+
+TreePathrepresents an array of objects that uniquely identify the path to a 
+node in a tree. The elements of the array are ordered with the root as the 
+first element of the array. For example, a file on the file system is uniquely 
+identified based on the array of parent directories and the name of the file. 
+The path/tmp/foo/barcould be represented by aTreePathasnew TreePath(new 
+Object[] {"tmp", "foo", "bar"}). TreePathis used extensively byJTreeand related 
+classes. For example,JTreerepresents the selection as an array ofTreePaths. 
+When used withJTree, the elements of the path are the objects returned from 
+theTreeModel. WhenJTreeis paired withDefaultTreeModel, the elements of the path 
+areTreeNodes. The following example illustrates extracting the user object from 
+the selection of aJTree: 
+
+DefaultMutableTreeNode root = ...; DefaultTreeModel model = new 
+DefaultTreeModel(root); JTree tree = new JTree(model); ... TreePath 
+selectedPath = tree.getSelectionPath(); DefaultMutableTreeNode selectedNode = 
+((DefaultMutableTreeNode)selectedPath.getLastPathComponent()). getUserObject(); 
+
+Subclasses typically need override onlygetLastPathComponent, andgetParentPath. 
+AsJTreeinternally createsTreePaths at various points, it's generally not useful 
+to subclassTreePathand use withJTree. 
+
+WhileTreePathis serializable, aNotSerializableExceptionis thrown if any 
+elements of the path are not serializable. 
+
+For further information and examples of using tree paths, see How to Use Trees 
+in The Java Tutorial. 
+
+Warning: Serialized objects of this class will not be compatible with future 
+Swing releases. The current serialization support is appropriate for short term 
+storage or RMI between applications running the same version of Swing. As of 
+1.4, support for long term storage of all JavaBeans has been added to the 
+java.beans package. Please see (|java.beans.XMLEncoder|) . 
+
+
+
+*javax.swing.tree.TreePath()*
+
+protected TreePath()
+
+Creates an emptyTreePath. This is provided for subclasses that represent paths 
+in a different manner. Subclasses that use this constructor must 
+overridegetLastPathComponent, andgetParentPath. 
+
+
+*javax.swing.tree.TreePath(Object)*
+
+public TreePath(java.lang.Object lastPathComponent)
+
+Creates aTreePathcontaining a single element. This is used to construct 
+aTreePathidentifying the root. 
+
+    lastPathComponent - the root 
+
+*javax.swing.tree.TreePath(Object[])*
+
+public TreePath(java.lang.Object[] path)
+
+Creates aTreePathfrom an array. The array uniquely identifies the path to a 
+node. 
+
+    path - an array of objects representing the path to a node 
+
+*javax.swing.tree.TreePath(Object[],int)*
+
+protected TreePath(
+  java.lang.Object[] path,
+  int length)
+
+Creates aTreePathfrom an array. The returnedTreePathrepresents the elements of 
+the array from0tolength - 1. 
+
+This constructor is used internally, and generally not useful outside of 
+subclasses. 
+
+    path - the array to create the {@code TreePath} from 
+    length - identifies the number of elements in {@code path} to create the {@code 
+       TreePath} from 
+
+*javax.swing.tree.TreePath(TreePath,Object)*
+
+protected TreePath(
+  javax.swing.tree.TreePath parent,
+  java.lang.Object lastPathComponent)
+
+Creates aTreePathwith the specified parent and element. 
+
+    parent - the path to the parent, or {@code null} to indicate the root 
+    lastPathComponent - the last path element 
+
+*javax.swing.tree.TreePath.equals(Object)*
+
+public boolean equals(java.lang.Object o)
+
+Compares thisTreePathto the specified object. This returnstrueifois 
+aTreePathwith the exact same elements (as determined by usingequalson each 
+element of the path). 
+
+
+    o - the object to compare 
+
+*javax.swing.tree.TreePath.getLastPathComponent()*
+
+public |java.lang.Object| getLastPathComponent()
+
+Returns the last element of this path. 
+
+
+
+    Returns: the last element in the path 
+
+*javax.swing.tree.TreePath.getParentPath()*
+
+public |javax.swing.tree.TreePath| getParentPath()
+
+Returns theTreePathof the parent. A return value ofnullindicates this is the 
+root node. 
+
+
+
+    Returns: the parent path 
+
+*javax.swing.tree.TreePath.getPath()*
+
+public |java.lang.Object|[] getPath()
+
+Returns an ordered array of the elements of thisTreePath. The first element is 
+the root. 
+
+
+
+    Returns: an array of the elements in this {@code TreePath} 
+
+*javax.swing.tree.TreePath.getPathComponent(int)*
+
+public |java.lang.Object| getPathComponent(int index)
+
+Returns the path element at the specified index. 
+
+
+    index - the index of the element requested 
+
+    Returns: the element at the specified index 
+
+*javax.swing.tree.TreePath.getPathCount()*
+
+public int getPathCount()
+
+Returns the number of elements in the path. 
+
+
+
+    Returns: the number of elements in the path 
+
+*javax.swing.tree.TreePath.hashCode()*
+
+public int hashCode()
+
+Returns the hash code of thisTreePath. The hash code of aTreePathis the hash 
+code of the last element in the path. 
+
+
+
+    Returns: the hashCode for the object 
+
+*javax.swing.tree.TreePath.isDescendant(TreePath)*
+
+public boolean isDescendant(javax.swing.tree.TreePath aTreePath)
+
+Returns true if aTreePath is a descendant of thisTreePath. ATreePathP1is a 
+descendant of aTreePathP2ifP1contains all of the elements that make upP2'spath. 
+For example, if this object has the path[a, b], and aTreePath has the path[a, 
+b, c], then aTreePath is a descendant of this object. However, if aTreePath has 
+the path[a], then it is not a descendant of this object. By this definition 
+aTreePathis always considered a descendant of itself. That is, 
+aTreePath.isDescendant(aTreePath) returnstrue. 
+
+
+    aTreePath - the {@code TreePath} to check 
+
+    Returns: true if aTreePath is a descendant of this path 
+
+*javax.swing.tree.TreePath.pathByAddingChild(Object)*
+
+public |javax.swing.tree.TreePath| pathByAddingChild(java.lang.Object child)
+
+Returns a new path containing all the elements of this path plus child. child 
+is the last element of the newly createdTreePath. 
+
+
+    child - the path element to add 
+
+*javax.swing.tree.TreePath.toString()*
+
+public |java.lang.String| toString()
+
+Returns a string that displays and identifies this object's properties. 
+
+
+
+    Returns: a String representation of this object 
+
+

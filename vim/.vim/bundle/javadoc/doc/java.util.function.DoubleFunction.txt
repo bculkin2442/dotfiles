@@ -1,0 +1,38 @@
+*java.util.function.DoubleFunction* *DoubleFunction* Represents a function that 
+
+public interface interface DoubleFunction<R>
+
+
+|java.util.function.DoubleFunction_Description|
+|java.util.function.DoubleFunction_Fields|
+|java.util.function.DoubleFunction_Constructors|
+|java.util.function.DoubleFunction_Methods|
+
+================================================================================
+
+*java.util.function.DoubleFunction_Methods*
+|java.util.function.DoubleFunction.apply(double)|Applies this function to the g
+
+*java.util.function.DoubleFunction_Description*
+
+Represents a function that accepts a double-valued argument and produces a 
+result. This is thedouble-consuming primitive specialization for 
+(|java.util.function.Function|) . 
+
+This is a functional interface whose functional method is 
+(|java.util.function.DoubleFunction|) . 
+
+
+
+*java.util.function.DoubleFunction.apply(double)*
+
+public |R| apply(double value)
+
+Applies this function to the given argument. 
+
+
+    value - the function argument 
+
+    Returns: the function result 
+
+

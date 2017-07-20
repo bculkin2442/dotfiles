@@ -1,0 +1,69 @@
+*javax.xml.ws.wsaddressing.W3CEndpointReference* *W3CEndpointReference* This cla
+
+public final class W3CEndpointReference
+  extends    |javax.xml.ws.EndpointReference|
+
+|javax.xml.ws.wsaddressing.W3CEndpointReference_Description|
+|javax.xml.ws.wsaddressing.W3CEndpointReference_Fields|
+|javax.xml.ws.wsaddressing.W3CEndpointReference_Constructors|
+|javax.xml.ws.wsaddressing.W3CEndpointReference_Methods|
+
+================================================================================
+
+*javax.xml.ws.wsaddressing.W3CEndpointReference_Fields*
+|java.lang.String_javax.xml.ws.wsaddressing.W3CEndpointReference.NS|
+
+*javax.xml.ws.wsaddressing.W3CEndpointReference_Constructors*
+|javax.xml.ws.wsaddressing.W3CEndpointReference()|
+|javax.xml.ws.wsaddressing.W3CEndpointReference(Source)|Creates an EPR from inf
+
+*javax.xml.ws.wsaddressing.W3CEndpointReference_Methods*
+|javax.xml.ws.wsaddressing.W3CEndpointReference.writeTo(Result)|
+
+*javax.xml.ws.wsaddressing.W3CEndpointReference_Description*
+
+This class represents a W3C Addressing EndpointReferece which is a remote 
+reference to a web service endpoint that supports the W3C WS-Addressing 1.0 - 
+Core Recommendation. 
+
+Developers should use this class in their SEIs if they want to pass/return 
+endpoint references that represent the W3C WS-Addressing recommendation. 
+
+JAXB will use the JAXB annotations and bind this class to XML infoset that is 
+consistent with that defined by WS-Addressing. See 
+
+WS-Addressing for more information on WS-Addressing EndpointReferences. 
+
+
+
+*java.lang.String_javax.xml.ws.wsaddressing.W3CEndpointReference.NS*
+
+
+
+
+
+*javax.xml.ws.wsaddressing.W3CEndpointReference()*
+
+protected W3CEndpointReference()
+
+
+
+
+*javax.xml.ws.wsaddressing.W3CEndpointReference(Source)*
+
+public W3CEndpointReference(javax.xml.transform.Source source)
+
+Creates an EPR from infoset representation 
+
+    source - A source object containing valid XmlInfoset instance consistent with the W3C 
+       WS-Addressing Core recommendation. 
+
+*javax.xml.ws.wsaddressing.W3CEndpointReference.writeTo(Result)*
+
+public void writeTo(javax.xml.transform.Result result)
+
+
+
+
+
+

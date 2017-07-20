@@ -1,0 +1,43 @@
+*java.time.temporal.UnsupportedTemporalTypeException* *UnsupportedTemporalTypeException* 
+
+public class UnsupportedTemporalTypeException
+  extends    |java.time.DateTimeException|
+
+|java.time.temporal.UnsupportedTemporalTypeException_Description|
+|java.time.temporal.UnsupportedTemporalTypeException_Fields|
+|java.time.temporal.UnsupportedTemporalTypeException_Constructors|
+|java.time.temporal.UnsupportedTemporalTypeException_Methods|
+
+================================================================================
+
+*java.time.temporal.UnsupportedTemporalTypeException_Constructors*
+|java.time.temporal.UnsupportedTemporalTypeException(String)|Constructs a new U
+|java.time.temporal.UnsupportedTemporalTypeException(String,Throwable)|Construc
+
+*java.time.temporal.UnsupportedTemporalTypeException_Description*
+
+UnsupportedTemporalTypeException indicates that a ChronoField or ChronoUnit is 
+not supported for a Temporal class. 
+
+
+
+*java.time.temporal.UnsupportedTemporalTypeException(String)*
+
+public UnsupportedTemporalTypeException(java.lang.String message)
+
+Constructs a new UnsupportedTemporalTypeException with the specified message. 
+
+    message - the message to use for this exception, may be null 
+
+*java.time.temporal.UnsupportedTemporalTypeException(String,Throwable)*
+
+public UnsupportedTemporalTypeException(
+  java.lang.String message,
+  java.lang.Throwable cause)
+
+Constructs a new UnsupportedTemporalTypeException with the specified message 
+and cause. 
+
+    message - the message to use for this exception, may be null 
+    cause - the cause of the exception, may be null 
+

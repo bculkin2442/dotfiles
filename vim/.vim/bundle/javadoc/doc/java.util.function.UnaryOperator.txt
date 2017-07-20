@@ -1,0 +1,38 @@
+*java.util.function.UnaryOperator* *UnaryOperator* Represents an operation on a 
+
+public interface interface UnaryOperator<T>
+
+  implements |java.util.function.Function|
+
+|java.util.function.UnaryOperator_Description|
+|java.util.function.UnaryOperator_Fields|
+|java.util.function.UnaryOperator_Constructors|
+|java.util.function.UnaryOperator_Methods|
+
+================================================================================
+
+*java.util.function.UnaryOperator_Methods*
+|java.util.function.UnaryOperator.identity()|Returns a unary operator that alwa
+
+*java.util.function.UnaryOperator_Description*
+
+Represents an operation on a single operand that produces a result of the same 
+type as its operand. This is a specialization ofFunctionfor the case where the 
+operand and result are of the same type. 
+
+This is a functional interface whose functional method is 
+(|java.util.function.UnaryOperator|) . 
+
+
+
+*java.util.function.UnaryOperator.identity()*
+
+public static |java.util.function.UnaryOperator|<T> identity()
+
+Returns a unary operator that always returns its input argument. 
+
+
+
+    Returns: a unary operator that always returns its input argument 
+
+

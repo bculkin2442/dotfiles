@@ -1,0 +1,90 @@
+*java.time.chrono.IsoEra* *IsoEra* An era in the ISO calendar system.
+
+public final enumIsoEra
+  extends    |java.lang.Enum|
+  implements |java.time.chrono.Era|
+
+|java.time.chrono.IsoEra_Description|
+|java.time.chrono.IsoEra_Fields|
+|java.time.chrono.IsoEra_Constructors|
+|java.time.chrono.IsoEra_Methods|
+
+================================================================================
+
+*java.time.chrono.IsoEra_Methods*
+|java.time.chrono.IsoEra.getValue()|Gets the numeric eraintvalue.
+|java.time.chrono.IsoEra.of(int)|Obtains an instance ofIsoErafrom anintvalue.
+|java.time.chrono.IsoEra.valueOf(String)|
+|java.time.chrono.IsoEra.values()|
+
+*java.time.chrono.IsoEra_Description*
+
+An era in the ISO calendar system. 
+
+The ISO-8601 standard does not define eras. A definition has therefore been 
+created with two eras - 'Current era' (CE) for years on or after 0001-01-01 
+(ISO), and 'Before current era' (BCE) for years before that. 
+
+
+
+year-of-era era proleptic-year 
+
+
+
+2CE2 
+
+1CE1 
+
+1BCE0 
+
+2BCE-1 
+
+
+
+Do not useordinal()to obtain the numeric representation ofIsoEra. 
+UsegetValue()instead. 
+
+
+
+*java.time.chrono.IsoEra.getValue()*
+
+public int getValue()
+
+Gets the numeric eraintvalue. 
+
+The era BCE has the value 0, while the era CE has the value 1. 
+
+
+
+    Returns: the era value, from 0 (BCE) to 1 (CE) 
+
+*java.time.chrono.IsoEra.of(int)*
+
+public static |java.time.chrono.IsoEra| of(int isoEra)
+
+Obtains an instance ofIsoErafrom anintvalue. IsoErais an enum representing the 
+ISO eras of BCE/CE. This factory allows the enum to be obtained from 
+theintvalue. 
+
+
+    isoEra - the BCE/CE value to represent, from 0 (BCE) to 1 (CE) 
+
+    Returns: the era singleton, not null 
+
+*java.time.chrono.IsoEra.valueOf(String)*
+
+public static |java.time.chrono.IsoEra| valueOf(java.lang.String name)
+
+
+
+
+
+*java.time.chrono.IsoEra.values()*
+
+public static |java.time.chrono.IsoEra|[] values()
+
+
+
+
+
+

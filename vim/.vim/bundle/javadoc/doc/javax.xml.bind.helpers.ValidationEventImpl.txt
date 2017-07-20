@@ -1,0 +1,147 @@
+*javax.xml.bind.helpers.ValidationEventImpl* *ValidationEventImpl* Default imple
+
+public class ValidationEventImpl
+  extends    |java.lang.Object|
+  implements |javax.xml.bind.ValidationEvent|
+
+|javax.xml.bind.helpers.ValidationEventImpl_Description|
+|javax.xml.bind.helpers.ValidationEventImpl_Fields|
+|javax.xml.bind.helpers.ValidationEventImpl_Constructors|
+|javax.xml.bind.helpers.ValidationEventImpl_Methods|
+
+================================================================================
+
+*javax.xml.bind.helpers.ValidationEventImpl_Constructors*
+|javax.xml.bind.helpers.ValidationEventImpl(int,String,ValidationEventLocator)|
+|javax.xml.bind.helpers.ValidationEventImpl(int,String,ValidationEventLocator,Throwable)|
+
+*javax.xml.bind.helpers.ValidationEventImpl_Methods*
+|javax.xml.bind.helpers.ValidationEventImpl.getLinkedException()|
+|javax.xml.bind.helpers.ValidationEventImpl.getLocator()|
+|javax.xml.bind.helpers.ValidationEventImpl.getMessage()|
+|javax.xml.bind.helpers.ValidationEventImpl.getSeverity()|
+|javax.xml.bind.helpers.ValidationEventImpl.setLinkedException(Throwable)|Set t
+|javax.xml.bind.helpers.ValidationEventImpl.setLocator(ValidationEventLocator)|
+|javax.xml.bind.helpers.ValidationEventImpl.setMessage(String)|Set the message 
+|javax.xml.bind.helpers.ValidationEventImpl.setSeverity(int)|Set the severity f
+|javax.xml.bind.helpers.ValidationEventImpl.toString()|Returns a string represe
+
+*javax.xml.bind.helpers.ValidationEventImpl_Description*
+
+Default implementation of the ValidationEvent interface. 
+
+JAXB providers are allowed to use whatever class that implements the 
+ValidationEvent interface. This class is just provided for a convenience. 
+
+
+
+*javax.xml.bind.helpers.ValidationEventImpl(int,String,ValidationEventLocator)*
+
+public ValidationEventImpl(
+  int _severity,
+  java.lang.String _message,
+  javax.xml.bind.ValidationEventLocator _locator)
+
+Create a new ValidationEventImpl. 
+
+    _severity - The severity value for this event. Must be one of ValidationEvent.WARNING, 
+       ValidationEvent.ERROR, or ValidationEvent.FATAL_ERROR 
+    _message - The text message for this event - may be null. 
+    _locator - The locator object for this event - may be null. 
+
+*javax.xml.bind.helpers.ValidationEventImpl(int,String,ValidationEventLocator,Throwable)*
+
+public ValidationEventImpl(
+  int _severity,
+  java.lang.String _message,
+  javax.xml.bind.ValidationEventLocator _locator,
+  java.lang.Throwable _linkedException)
+
+Create a new ValidationEventImpl. 
+
+    _severity - The severity value for this event. Must be one of ValidationEvent.WARNING, 
+       ValidationEvent.ERROR, or ValidationEvent.FATAL_ERROR 
+    _message - The text message for this event - may be null. 
+    _locator - The locator object for this event - may be null. 
+    _linkedException - An optional linked exception that may provide additional information about the 
+       event - may be null. 
+
+*javax.xml.bind.helpers.ValidationEventImpl.getLinkedException()*
+
+public |java.lang.Throwable| getLinkedException()
+
+
+
+
+
+*javax.xml.bind.helpers.ValidationEventImpl.getLocator()*
+
+public |javax.xml.bind.ValidationEventLocator| getLocator()
+
+
+
+
+
+*javax.xml.bind.helpers.ValidationEventImpl.getMessage()*
+
+public |java.lang.String| getMessage()
+
+
+
+
+
+*javax.xml.bind.helpers.ValidationEventImpl.getSeverity()*
+
+public int getSeverity()
+
+
+
+
+
+*javax.xml.bind.helpers.ValidationEventImpl.setLinkedException(Throwable)*
+
+public void setLinkedException(java.lang.Throwable _linkedException)
+
+Set the linked exception field of this event. 
+
+
+    _linkedException - Optional linked exception - may be null. 
+
+*javax.xml.bind.helpers.ValidationEventImpl.setLocator(ValidationEventLocator)*
+
+public void setLocator(javax.xml.bind.ValidationEventLocator _locator)
+
+Set the locator object for this event. 
+
+
+    _locator - The locator - may be null. 
+
+*javax.xml.bind.helpers.ValidationEventImpl.setMessage(String)*
+
+public void setMessage(java.lang.String _message)
+
+Set the message field of this event. 
+
+
+    _message - String message - may be null. 
+
+*javax.xml.bind.helpers.ValidationEventImpl.setSeverity(int)*
+
+public void setSeverity(int _severity)
+
+Set the severity field of this event. 
+
+
+    _severity - Must be one of ValidationEvent.WARNING, ValidationEvent.ERROR, or 
+       ValidationEvent.FATAL_ERROR. 
+
+*javax.xml.bind.helpers.ValidationEventImpl.toString()*
+
+public |java.lang.String| toString()
+
+Returns a string representation of this object in a format helpful to 
+debugging. 
+
+
+
+

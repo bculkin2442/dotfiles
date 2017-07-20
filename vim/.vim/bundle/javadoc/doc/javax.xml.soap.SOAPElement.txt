@@ -1,0 +1,501 @@
+*javax.xml.soap.SOAPElement* *SOAPElement* An object representing an element of 
+
+public interface interface SOAPElement
+
+  implements |javax.xml.soap.Node|
+             |org.w3c.dom.Element|
+
+|javax.xml.soap.SOAPElement_Description|
+|javax.xml.soap.SOAPElement_Fields|
+|javax.xml.soap.SOAPElement_Constructors|
+|javax.xml.soap.SOAPElement_Methods|
+
+================================================================================
+
+*javax.xml.soap.SOAPElement_Methods*
+|javax.xml.soap.SOAPElement.addAttribute(Name,String)|Adds an attribute with th
+|javax.xml.soap.SOAPElement.addAttribute(QName,String)|Adds an attribute with t
+|javax.xml.soap.SOAPElement.addChildElement(Name)|Creates a new SOAPElement obj
+|javax.xml.soap.SOAPElement.addChildElement(QName)|Creates a new SOAPElement ob
+|javax.xml.soap.SOAPElement.addChildElement(SOAPElement)|Add a SOAPElement as a
+|javax.xml.soap.SOAPElement.addChildElement(String)|Creates a new SOAPElement o
+|javax.xml.soap.SOAPElement.addChildElement(String,String)|Creates a new SOAPEl
+|javax.xml.soap.SOAPElement.addChildElement(String,String,String)|Creates a new
+|javax.xml.soap.SOAPElement.addNamespaceDeclaration(String,String)|Adds a names
+|javax.xml.soap.SOAPElement.addTextNode(String)|Creates a new Text object initi
+|javax.xml.soap.SOAPElement.createQName(String,String)|Creates a QName whose na
+|javax.xml.soap.SOAPElement.getAllAttributes()|Returns an Iterator over all of 
+|javax.xml.soap.SOAPElement.getAllAttributesAsQNames()|Returns an Iterator over
+|javax.xml.soap.SOAPElement.getAttributeValue(Name)|Returns the value of the at
+|javax.xml.soap.SOAPElement.getAttributeValue(QName)|Returns the value of the a
+|javax.xml.soap.SOAPElement.getChildElements()|Returns an Iterator over all the
+|javax.xml.soap.SOAPElement.getChildElements(Name)|Returns an Iterator over all
+|javax.xml.soap.SOAPElement.getChildElements(QName)|Returns an Iterator over al
+|javax.xml.soap.SOAPElement.getElementName()|Returns the name of this SOAPEleme
+|javax.xml.soap.SOAPElement.getElementQName()|Returns the qname of this SOAPEle
+|javax.xml.soap.SOAPElement.getEncodingStyle()|Returns the encoding style for t
+|javax.xml.soap.SOAPElement.getNamespacePrefixes()|Returns an Iterator over the
+|javax.xml.soap.SOAPElement.getNamespaceURI(String)|Returns the URI of the name
+|javax.xml.soap.SOAPElement.getVisibleNamespacePrefixes()|Returns an Iterator o
+|javax.xml.soap.SOAPElement.removeAttribute(Name)|Removes the attribute with th
+|javax.xml.soap.SOAPElement.removeAttribute(QName)|Removes the attribute with t
+|javax.xml.soap.SOAPElement.removeContents()|Detaches all children of this SOAP
+|javax.xml.soap.SOAPElement.removeNamespaceDeclaration(String)|Removes the name
+|javax.xml.soap.SOAPElement.setElementQName(QName)|Changes the name of this Ele
+|javax.xml.soap.SOAPElement.setEncodingStyle(String)|Sets the encoding style fo
+
+*javax.xml.soap.SOAPElement_Description*
+
+An object representing an element of a SOAP message that is allowed but not 
+specifically prescribed by a SOAP specification. This interface serves as the 
+base interface for those objects that are specifically prescribed by a SOAP 
+specification. 
+
+Methods in this interface that are required to return SAAJ specific objects may 
+"silently" replace nodes in the tree as required to successfully return objects 
+of the correct type. See (|javax.xml.soap.SOAPElement|) and (|null|) for 
+details. 
+
+
+
+*javax.xml.soap.SOAPElement.addAttribute(Name,String)*
+
+public |javax.xml.soap.SOAPElement| addAttribute(
+  javax.xml.soap.Name name,
+  java.lang.String value)
+  throws |javax.xml.soap.SOAPException|
+         
+Adds an attribute with the specified name and value to this SOAPElement object. 
+
+
+    name - a Name object with the name of the attribute 
+    value - a String giving the value of the attribute 
+
+    Returns: the SOAPElement object into which the attribute was inserted 
+
+*javax.xml.soap.SOAPElement.addAttribute(QName,String)*
+
+public |javax.xml.soap.SOAPElement| addAttribute(
+  javax.xml.namespace.QName qname,
+  java.lang.String value)
+  throws |javax.xml.soap.SOAPException|
+         
+Adds an attribute with the specified name and value to this SOAPElement object. 
+
+
+    qname - a QName object with the name of the attribute 
+    value - a String giving the value of the attribute 
+
+    Returns: the SOAPElement object into which the attribute was inserted 
+
+*javax.xml.soap.SOAPElement.addChildElement(Name)*
+
+public |javax.xml.soap.SOAPElement| addChildElement(javax.xml.soap.Name name)
+  throws |javax.xml.soap.SOAPException|
+         
+Creates a new SOAPElement object initialized with the given Name object and 
+adds the new element to this SOAPElement object. 
+
+This method may be deprecated in a future release of SAAJ in favor of 
+addChildElement(javax.xml.namespace.QName) 
+
+
+    name - a Name object with the XML name for the new element 
+
+    Returns: the new SOAPElement object that was created 
+
+*javax.xml.soap.SOAPElement.addChildElement(QName)*
+
+public |javax.xml.soap.SOAPElement| addChildElement(javax.xml.namespace.QName qname)
+  throws |javax.xml.soap.SOAPException|
+         
+Creates a new SOAPElement object initialized with the given QName object and 
+adds the new element to this SOAPElement object. The namespace, localname and 
+prefix of the new SOAPElement are all taken from the qname argument. 
+
+
+    qname - a QName object with the XML name for the new element 
+
+    Returns: the new SOAPElement object that was created 
+
+*javax.xml.soap.SOAPElement.addChildElement(SOAPElement)*
+
+public |javax.xml.soap.SOAPElement| addChildElement(javax.xml.soap.SOAPElement element)
+  throws |javax.xml.soap.SOAPException|
+         
+Add a SOAPElement as a child of this SOAPElement instance. The SOAPElement is 
+expected to be created by a SOAPFactory. Callers should not rely on the element 
+instance being added as is into the XML tree. Implementations could end up 
+copying the content of the SOAPElement passed into an instance of a different 
+SOAPElement implementation. For instance if addChildElement() is called on a 
+SOAPHeader, element will be copied into an instance of a SOAPHeaderElement. 
+
+The fragment rooted in element is either added as a whole or not at all, if 
+there was an error. 
+
+The fragment rooted in element cannot contain elements named "Envelope", 
+"Header" or "Body" and in the SOAP namespace. Any namespace prefixes present in 
+the fragment should be fully resolved using appropriate namespace declarations 
+within the fragment itself. 
+
+
+    element - the SOAPElement to be added as a new child 
+
+    Returns: an instance representing the new SOAP element that was actually added to the 
+             tree. 
+
+*javax.xml.soap.SOAPElement.addChildElement(String)*
+
+public |javax.xml.soap.SOAPElement| addChildElement(java.lang.String localName)
+  throws |javax.xml.soap.SOAPException|
+         
+Creates a new SOAPElement object initialized with the specified local name and 
+adds the new element to this SOAPElement object. The new SOAPElement inherits 
+any in-scope default namespace. 
+
+
+    localName - a String giving the local name for the element 
+
+    Returns: the new SOAPElement object that was created 
+
+*javax.xml.soap.SOAPElement.addChildElement(String,String)*
+
+public |javax.xml.soap.SOAPElement| addChildElement(
+  java.lang.String localName,
+  java.lang.String prefix)
+  throws |javax.xml.soap.SOAPException|
+         
+Creates a new SOAPElement object initialized with the specified local name and 
+prefix and adds the new element to this SOAPElement object. 
+
+
+    localName - a String giving the local name for the new element 
+    prefix - a String giving the namespace prefix for the new element 
+
+    Returns: the new SOAPElement object that was created 
+
+*javax.xml.soap.SOAPElement.addChildElement(String,String,String)*
+
+public |javax.xml.soap.SOAPElement| addChildElement(
+  java.lang.String localName,
+  java.lang.String prefix,
+  java.lang.String uri)
+  throws |javax.xml.soap.SOAPException|
+         
+Creates a new SOAPElement object initialized with the specified local name, 
+prefix, and URI and adds the new element to this SOAPElement object. 
+
+
+    localName - a String giving the local name for the new element 
+    prefix - a String giving the namespace prefix for the new element 
+    uri - a String giving the URI of the namespace to which the new element belongs 
+
+    Returns: the new SOAPElement object that was created 
+
+*javax.xml.soap.SOAPElement.addNamespaceDeclaration(String,String)*
+
+public |javax.xml.soap.SOAPElement| addNamespaceDeclaration(
+  java.lang.String prefix,
+  java.lang.String uri)
+  throws |javax.xml.soap.SOAPException|
+         
+Adds a namespace declaration with the specified prefix and URI to this 
+SOAPElement object. 
+
+
+    prefix - a String giving the prefix of the namespace 
+    uri - a String giving the uri of the namespace 
+
+    Returns: the SOAPElement object into which this namespace declaration was inserted. 
+
+*javax.xml.soap.SOAPElement.addTextNode(String)*
+
+public |javax.xml.soap.SOAPElement| addTextNode(java.lang.String text)
+  throws |javax.xml.soap.SOAPException|
+         
+Creates a new Text object initialized with the given String and adds it to this 
+SOAPElement object. 
+
+
+    text - a String object with the textual content to be added 
+
+    Returns: the SOAPElement object into which the new Text object was inserted 
+
+*javax.xml.soap.SOAPElement.createQName(String,String)*
+
+public |javax.xml.namespace.QName| createQName(
+  java.lang.String localName,
+  java.lang.String prefix)
+  throws |javax.xml.soap.SOAPException|
+         
+Creates a QName whose namespace URI is the one associated with the parameter, 
+prefix, in the context of this SOAPElement. The remaining elements of the new 
+QName are taken directly from the parameters, localName and prefix. 
+
+
+    localName - a String containing the local part of the name. 
+    prefix - a String containing the prefix for the name. 
+
+    Returns: a QName with the specified localName and prefix, and with a namespace that is 
+             associated with the prefix in the context of this SOAPElement. 
+             This namespace will be the same as the one that would be returned 
+             by {@link #getNamespaceURI(String)} if it were given prefix as 
+             it's parameter. 
+
+*javax.xml.soap.SOAPElement.getAllAttributes()*
+
+public |java.util.Iterator| getAllAttributes()
+
+Returns an Iterator over all of the attribute Name objects in this SOAPElement 
+object. The iterator can be used to get the attribute names, which can then be 
+passed to the method getAttributeValue to retrieve the value of each attribute. 
+
+
+
+    Returns: an iterator over the names of the attributes 
+
+*javax.xml.soap.SOAPElement.getAllAttributesAsQNames()*
+
+public |java.util.Iterator| getAllAttributesAsQNames()
+
+Returns an Iterator over all of the attributes in this SOAPElement as QName 
+objects. The iterator can be used to get the attribute QName, which can then be 
+passed to the method getAttributeValue to retrieve the value of each attribute. 
+
+
+
+    Returns: an iterator over the QNames of the attributes 
+
+*javax.xml.soap.SOAPElement.getAttributeValue(Name)*
+
+public |java.lang.String| getAttributeValue(javax.xml.soap.Name name)
+
+Returns the value of the attribute with the specified name. 
+
+
+    name - a Name object with the name of the attribute 
+
+    Returns: a String giving the value of the specified attribute, Null if there is no such 
+             attribute 
+
+*javax.xml.soap.SOAPElement.getAttributeValue(QName)*
+
+public |java.lang.String| getAttributeValue(javax.xml.namespace.QName qname)
+
+Returns the value of the attribute with the specified qname. 
+
+
+    qname - a QName object with the qname of the attribute 
+
+    Returns: a String giving the value of the specified attribute, Null if there is no such 
+             attribute 
+
+*javax.xml.soap.SOAPElement.getChildElements()*
+
+public |java.util.Iterator| getChildElements()
+
+Returns an Iterator over all the immediate child (|javax.xml.soap.Node|) s of 
+this element. This includes javax.xml.soap.Text objects as well as SOAPElement 
+objects. 
+
+Calling this method may cause child Element, SOAPElement and org.w3c.dom.Text 
+nodes to be replaced by SOAPElement, SOAPHeaderElement, SOAPBodyElement or 
+javax.xml.soap.Text nodes as appropriate for the type of this parent node. As a 
+result the calling application must treat any existing references to these 
+child nodes that have been obtained through DOM APIs as invalid and either 
+discard them or refresh them with the values returned by this Iterator. This 
+behavior can be avoided by calling the equivalent DOM APIs. See (|null|) for 
+more details. 
+
+
+
+    Returns: an iterator with the content of this SOAPElement object 
+
+*javax.xml.soap.SOAPElement.getChildElements(Name)*
+
+public |java.util.Iterator| getChildElements(javax.xml.soap.Name name)
+
+Returns an Iterator over all the immediate child (|javax.xml.soap.Node|) s of 
+this element with the specified name. All of these children will be SOAPElement 
+nodes. 
+
+Calling this method may cause child Element, SOAPElement and org.w3c.dom.Text 
+nodes to be replaced by SOAPElement, SOAPHeaderElement, SOAPBodyElement or 
+javax.xml.soap.Text nodes as appropriate for the type of this parent node. As a 
+result the calling application must treat any existing references to these 
+child nodes that have been obtained through DOM APIs as invalid and either 
+discard them or refresh them with the values returned by this Iterator. This 
+behavior can be avoided by calling the equivalent DOM APIs. See (|null|) for 
+more details. 
+
+
+    name - a Name object with the name of the child elements to be returned 
+
+    Returns: an Iterator object over all the elements in this SOAPElement object with the 
+             specified name 
+
+*javax.xml.soap.SOAPElement.getChildElements(QName)*
+
+public |java.util.Iterator| getChildElements(javax.xml.namespace.QName qname)
+
+Returns an Iterator over all the immediate child (|javax.xml.soap.Node|) s of 
+this element with the specified qname. All of these children will be 
+SOAPElement nodes. 
+
+Calling this method may cause child Element, SOAPElement and org.w3c.dom.Text 
+nodes to be replaced by SOAPElement, SOAPHeaderElement, SOAPBodyElement or 
+javax.xml.soap.Text nodes as appropriate for the type of this parent node. As a 
+result the calling application must treat any existing references to these 
+child nodes that have been obtained through DOM APIs as invalid and either 
+discard them or refresh them with the values returned by this Iterator. This 
+behavior can be avoided by calling the equivalent DOM APIs. See (|null|) for 
+more details. 
+
+
+    qname - a QName object with the qname of the child elements to be returned 
+
+    Returns: an Iterator object over all the elements in this SOAPElement object with the 
+             specified qname 
+
+*javax.xml.soap.SOAPElement.getElementName()*
+
+public |javax.xml.soap.Name| getElementName()
+
+Returns the name of this SOAPElement object. 
+
+
+
+    Returns: a Name object with the name of this SOAPElement object 
+
+*javax.xml.soap.SOAPElement.getElementQName()*
+
+public |javax.xml.namespace.QName| getElementQName()
+
+Returns the qname of this SOAPElement object. 
+
+
+
+    Returns: a QName object with the qname of this SOAPElement object 
+
+*javax.xml.soap.SOAPElement.getEncodingStyle()*
+
+public |java.lang.String| getEncodingStyle()
+
+Returns the encoding style for this SOAPElement object. 
+
+
+
+    Returns: a String giving the encoding style 
+
+*javax.xml.soap.SOAPElement.getNamespacePrefixes()*
+
+public |java.util.Iterator| getNamespacePrefixes()
+
+Returns an Iterator over the namespace prefix Strings declared by this element. 
+The prefixes returned by this iterator can be passed to the method 
+getNamespaceURI to retrieve the URI of each namespace. 
+
+
+
+    Returns: an iterator over the namespace prefixes in this SOAPElement object 
+
+*javax.xml.soap.SOAPElement.getNamespaceURI(String)*
+
+public |java.lang.String| getNamespaceURI(java.lang.String prefix)
+
+Returns the URI of the namespace that has the given prefix. 
+
+
+    prefix - a String giving the prefix of the namespace for which to search 
+
+    Returns: a String with the uri of the namespace that has the given prefix 
+
+*javax.xml.soap.SOAPElement.getVisibleNamespacePrefixes()*
+
+public |java.util.Iterator| getVisibleNamespacePrefixes()
+
+Returns an Iterator over the namespace prefix Strings visible to this element. 
+The prefixes returned by this iterator can be passed to the method 
+getNamespaceURI to retrieve the URI of each namespace. 
+
+
+
+    Returns: an iterator over the namespace prefixes are within scope of this SOAPElement 
+             object 
+
+*javax.xml.soap.SOAPElement.removeAttribute(Name)*
+
+public boolean removeAttribute(javax.xml.soap.Name name)
+
+Removes the attribute with the specified name. 
+
+
+    name - the Name object with the name of the attribute to be removed 
+
+    Returns: true if the attribute was removed successfully; false if it was not 
+
+*javax.xml.soap.SOAPElement.removeAttribute(QName)*
+
+public boolean removeAttribute(javax.xml.namespace.QName qname)
+
+Removes the attribute with the specified qname. 
+
+
+    qname - the QName object with the qname of the attribute to be removed 
+
+    Returns: true if the attribute was removed successfully; false if it was not 
+
+*javax.xml.soap.SOAPElement.removeContents()*
+
+public void removeContents()
+
+Detaches all children of this SOAPElement. 
+
+This method is useful for rolling back the construction of partially completed 
+SOAPHeaders and SOAPBodys in preparation for sending a fault when an error 
+condition is detected. It is also useful for recycling portions of a document 
+within a SOAP message. 
+
+
+
+*javax.xml.soap.SOAPElement.removeNamespaceDeclaration(String)*
+
+public boolean removeNamespaceDeclaration(java.lang.String prefix)
+
+Removes the namespace declaration corresponding to the given prefix. 
+
+
+    prefix - a String giving the prefix for which to search 
+
+    Returns: true if the namespace declaration was removed successfully; false if it was not 
+
+*javax.xml.soap.SOAPElement.setElementQName(QName)*
+
+public |javax.xml.soap.SOAPElement| setElementQName(javax.xml.namespace.QName newName)
+  throws |javax.xml.soap.SOAPException|
+         
+Changes the name of this Element to newName if possible. SOAP Defined elements 
+such as SOAPEnvelope, SOAPHeader, SOAPBody etc. cannot have their names changed 
+using this method. Any attempt to do so will result in a SOAPException being 
+thrown. 
+
+Callers should not rely on the element instance being renamed as is. 
+Implementations could end up copying the content of the SOAPElement to a 
+renamed instance. 
+
+
+    newName - the new name for the Element. 
+
+    Returns: The renamed Node 
+
+*javax.xml.soap.SOAPElement.setEncodingStyle(String)*
+
+public void setEncodingStyle(java.lang.String encodingStyle)
+  throws |javax.xml.soap.SOAPException|
+         
+Sets the encoding style for this SOAPElement object to one specified. 
+
+
+    encodingStyle - a String giving the encoding style 
+
+

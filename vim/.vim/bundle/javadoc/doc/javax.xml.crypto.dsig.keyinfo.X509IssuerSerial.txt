@@ -1,0 +1,66 @@
+*javax.xml.crypto.dsig.keyinfo.X509IssuerSerial* *X509IssuerSerial* A representa
+
+public interface interface X509IssuerSerial
+
+  implements |javax.xml.crypto.XMLStructure|
+
+|javax.xml.crypto.dsig.keyinfo.X509IssuerSerial_Description|
+|javax.xml.crypto.dsig.keyinfo.X509IssuerSerial_Fields|
+|javax.xml.crypto.dsig.keyinfo.X509IssuerSerial_Constructors|
+|javax.xml.crypto.dsig.keyinfo.X509IssuerSerial_Methods|
+
+================================================================================
+
+*javax.xml.crypto.dsig.keyinfo.X509IssuerSerial_Methods*
+|javax.xml.crypto.dsig.keyinfo.X509IssuerSerial.getIssuerName()|Returns the X.5
+|javax.xml.crypto.dsig.keyinfo.X509IssuerSerial.getSerialNumber()|Returns the s
+
+*javax.xml.crypto.dsig.keyinfo.X509IssuerSerial_Description*
+
+A representation of the XML X509IssuerSerial element as defined in the W3C 
+Recommendation for XML-Signature Syntax and Processing. An X509IssuerSerial 
+object contains an X.509 issuer distinguished name (DN) and serial number pair. 
+The XML schema definition is defined as: 
+
+
+
+<element name="X509IssuerSerial" type="ds:X509IssuerSerialType"/> <complexType 
+name="X509IssuerSerialType"> <sequence> <element name="X509IssuerName" 
+type="string"/> <element name="X509SerialNumber" type="integer"/> </sequence> 
+</complexType> 
+
+An X509IssuerSerial instance may be created by invoking the 
+newX509IssuerSerial(|javax.xml.crypto.dsig.keyinfo.KeyInfoFactory|) method of 
+the (|javax.xml.crypto.dsig.keyinfo.KeyInfoFactory|) class, and passing it a 
+String and BigInteger representing the X.500 DN and serial number. Here is an 
+example of creating an X509IssuerSerial from the issuer DN and serial number of 
+an existing (|java.security.cert.X509Certificate|) : 
+
+KeyInfoFactory factory = KeyInfoFactory.getInstance("DOM"); X509IssuerSerial 
+issuer = factory.newX509IssuerSerial (cert.getIssuerX500Principal().getName(), 
+cert.getSerialNumber()); 
+
+
+
+*javax.xml.crypto.dsig.keyinfo.X509IssuerSerial.getIssuerName()*
+
+public |java.lang.String| getIssuerName()
+
+Returns the X.500 distinguished name of this X509IssuerSerial in RFC 2253 
+String format. 
+
+
+
+    Returns: the X.500 distinguished name in RFC 2253 String format (never null) 
+
+*javax.xml.crypto.dsig.keyinfo.X509IssuerSerial.getSerialNumber()*
+
+public |java.math.BigInteger| getSerialNumber()
+
+Returns the serial number of this X509IssuerSerial. 
+
+
+
+    Returns: the serial number (never null) 
+
+

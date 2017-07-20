@@ -1,0 +1,38 @@
+*javax.lang.model.type.IntersectionType* *IntersectionType* Represents an inters
+
+public interface interface IntersectionType
+
+  implements |javax.lang.model.type.TypeMirror|
+
+|javax.lang.model.type.IntersectionType_Description|
+|javax.lang.model.type.IntersectionType_Fields|
+|javax.lang.model.type.IntersectionType_Constructors|
+|javax.lang.model.type.IntersectionType_Methods|
+
+================================================================================
+
+*javax.lang.model.type.IntersectionType_Methods*
+|javax.lang.model.type.IntersectionType.getBounds()|Return the bounds comprisin
+
+*javax.lang.model.type.IntersectionType_Description*
+
+Represents an intersection type. 
+
+An intersection type can be either implicitly or explicitly declared in a 
+program. For example, the bound of the type parameteris an (implicit) 
+intersection type. As of RELEASE_8(|javax.lang.model.SourceVersion|) , this is 
+represented by anIntersectionTypewithNumberandRunnableas its bounds. 
+
+
+
+*javax.lang.model.type.IntersectionType.getBounds()*
+
+public |java.util.List|<? extends javax.lang.model.type.TypeMirror> getBounds()
+
+Return the bounds comprising this intersection type. 
+
+
+
+    Returns: the bounds of this intersection types. 
+
+

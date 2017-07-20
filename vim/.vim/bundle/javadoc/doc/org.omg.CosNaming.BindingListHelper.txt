@@ -1,0 +1,89 @@
+*org.omg.CosNaming.BindingListHelper* *BindingListHelper* List of Bindings.
+
+public abstract class BindingListHelper
+  extends    |java.lang.Object|
+
+|org.omg.CosNaming.BindingListHelper_Description|
+|org.omg.CosNaming.BindingListHelper_Fields|
+|org.omg.CosNaming.BindingListHelper_Constructors|
+|org.omg.CosNaming.BindingListHelper_Methods|
+
+================================================================================
+
+*org.omg.CosNaming.BindingListHelper_Constructors*
+|org.omg.CosNaming.BindingListHelper()|
+
+*org.omg.CosNaming.BindingListHelper_Methods*
+|org.omg.CosNaming.BindingListHelper.extract(Any)|
+|org.omg.CosNaming.BindingListHelper.id()|
+|org.omg.CosNaming.BindingListHelper.insert(Any,Binding[])|
+|org.omg.CosNaming.BindingListHelper.read(InputStream)|
+|org.omg.CosNaming.BindingListHelper.type()|
+|org.omg.CosNaming.BindingListHelper.write(OutputStream,Binding[])|
+
+*org.omg.CosNaming.BindingListHelper_Description*
+
+List of Bindings. 
+
+
+
+*org.omg.CosNaming.BindingListHelper()*
+
+public BindingListHelper()
+
+
+
+
+*org.omg.CosNaming.BindingListHelper.extract(Any)*
+
+public static |org.omg.CosNaming.Binding|[] extract(org.omg.CORBA.Any a)
+
+
+
+
+
+*org.omg.CosNaming.BindingListHelper.id()*
+
+public static |java.lang.String| id()
+
+
+
+
+
+*org.omg.CosNaming.BindingListHelper.insert(Any,Binding[])*
+
+public static void insert(
+  org.omg.CORBA.Any a,
+  org.omg.CosNaming.Binding[] that)
+
+
+
+
+
+*org.omg.CosNaming.BindingListHelper.read(InputStream)*
+
+public static |org.omg.CosNaming.Binding|[] read(org.omg.CORBA.portable.InputStream istream)
+
+
+
+
+
+*org.omg.CosNaming.BindingListHelper.type()*
+
+public static synchronized |org.omg.CORBA.TypeCode| type()
+
+
+
+
+
+*org.omg.CosNaming.BindingListHelper.write(OutputStream,Binding[])*
+
+public static void write(
+  org.omg.CORBA.portable.OutputStream ostream,
+  org.omg.CosNaming.Binding[] value)
+
+
+
+
+
+

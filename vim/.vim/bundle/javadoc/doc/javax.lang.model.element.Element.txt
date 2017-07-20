@@ -1,0 +1,223 @@
+*javax.lang.model.element.Element* *Element* Represents a program element such a
+
+public interface interface Element
+
+  implements |javax.lang.model.AnnotatedConstruct|
+
+|javax.lang.model.element.Element_Description|
+|javax.lang.model.element.Element_Fields|
+|javax.lang.model.element.Element_Constructors|
+|javax.lang.model.element.Element_Methods|
+
+================================================================================
+
+*javax.lang.model.element.Element_Methods*
+|javax.lang.model.element.Element.accept(ElementVisitor<R,P>,P)|Applies a visit
+|javax.lang.model.element.Element.asType()|Returns the type defined by this ele
+|javax.lang.model.element.Element.equals(Object)|Returnstrueif the argument rep
+|javax.lang.model.element.Element.getAnnotation(Class<A>)|
+|javax.lang.model.element.Element.getAnnotationMirrors()|
+|javax.lang.model.element.Element.getEnclosedElements()|Returns the elements th
+|javax.lang.model.element.Element.getEnclosingElement()|Returns the innermost e
+|javax.lang.model.element.Element.getKind()|Returns thekindof this element.
+|javax.lang.model.element.Element.getModifiers()|Returns the modifiers of this 
+|javax.lang.model.element.Element.getSimpleName()|Returns the simple (unqualifi
+|javax.lang.model.element.Element.hashCode()|Obeys the general contract ofObjec
+
+*javax.lang.model.element.Element_Description*
+
+Represents a program element such as a package, class, or method. Each element 
+represents a static, language-level construct (and not, for example, a runtime 
+construct of the virtual machine). 
+
+Elements should be compared using the (|javax.lang.model.element.Element|) 
+method. There is no guarantee that any particular element will always be 
+represented by the same object. 
+
+To implement operations based on the class of anElementobject, either use a 
+visitor(|javax.lang.model.element.ElementVisitor|) or use the result of the 
+(|javax.lang.model.element.Element|) method. Usinginstanceofis not necessarily 
+a reliable idiom for determining the effective class of an object in this 
+modeling hierarchy since an implementation may choose to have a single object 
+implement multipleElementsubinterfaces. 
+
+
+
+*javax.lang.model.element.Element.accept(ElementVisitor<R,P>,P)*
+
+public |R| accept(
+  javax.lang.model.element.ElementVisitor<R, P> v,
+  P p)
+
+Applies a visitor to this element. 
+
+
+    v - the visitor operating on this element 
+    p - additional parameter to the visitor 
+
+    Returns: a visitor-specified result 
+
+*javax.lang.model.element.Element.asType()*
+
+public |javax.lang.model.type.TypeMirror| asType()
+
+Returns the type defined by this element. 
+
+A generic element defines a family of types, not just one. If this is a generic 
+element, a prototypical type is returned. This is the element's invocation on 
+the type variables corresponding to its own formal type parameters. For 
+example, for the generic class elementC, the parameterized typeCis returned. 
+The (|javax.lang.model.util.Types|) utility interface has more general methods 
+for obtaining the full range of types defined by an element. 
+
+
+
+    Returns: the type defined by this element 
+
+*javax.lang.model.element.Element.equals(Object)*
+
+public boolean equals(java.lang.Object obj)
+
+Returnstrueif the argument represents the same element asthis, 
+orfalseotherwise. 
+
+Note that the identity of an element involves implicit state not directly 
+accessible from the element's methods, including state about the presence of 
+unrelated types. Element objects created by different implementations of these 
+interfaces should not be expected to be equal even if the same element is being 
+modeled; this is analogous to the inequality ofClassobjects for the same class 
+file loaded through different class loaders. 
+
+
+    obj - the object to be compared with this element 
+
+    Returns: {@code true} if the specified object represents the same element as this 
+
+*javax.lang.model.element.Element.getAnnotation(Class<A>)*
+
+public |A| getAnnotation(java.lang.Class<A> annotationType)
+
+
+
+
+
+*javax.lang.model.element.Element.getAnnotationMirrors()*
+
+public |java.util.List|<? extends javax.lang.model.element.AnnotationMirror> getAnnotationMirrors()
+
+To get inherited annotations as well, use 
+getAllAnnotationMirrors(|javax.lang.model.util.Elements|) . 
+
+
+
+*javax.lang.model.element.Element.getEnclosedElements()*
+
+public |java.util.List|<? extends javax.lang.model.element.Element> getEnclosedElements()
+
+Returns the elements that are, loosely speaking, directly enclosed by this 
+element. 
+
+A class or interface(|javax.lang.model.element.TypeElement|) is considered to 
+enclose the fields, methods, constructors, and member types that it directly 
+declares. 
+
+A package(|javax.lang.model.element.PackageElement|) encloses the top-level 
+classes and interfaces within it, but is not considered to enclose subpackages. 
+
+Other kinds of elements are not currently considered to enclose any elements; 
+however, that may change as this API or the programming language evolves. 
+
+Note that elements of certain kinds can be isolated using methods in 
+(|javax.lang.model.util.ElementFilter|) . 
+
+
+
+    Returns: the enclosed elements, or an empty list if none 
+
+*javax.lang.model.element.Element.getEnclosingElement()*
+
+public |javax.lang.model.element.Element| getEnclosingElement()
+
+Returns the innermost element within which this element is, loosely speaking, 
+enclosed. 
+
+If this element is one whose declaration is lexically enclosed immediately 
+within the declaration of another element, that other element is returned. 
+
+If this is a top-level type(|javax.lang.model.element.TypeElement|) , its 
+package is returned. 
+
+If this is a package(|javax.lang.model.element.PackageElement|) ,nullis 
+returned. 
+
+If this is a type parameter(|javax.lang.model.element.TypeParameterElement|) , 
+the generic element(|javax.lang.model.element.TypeParameterElement|) of the 
+type parameter is returned. 
+
+If this is a method or constructor 
+parameter(|javax.lang.model.element.VariableElement|) , the executable 
+element(|javax.lang.model.element.ExecutableElement|) which declares the 
+parameter is returned. 
+
+
+
+
+
+    Returns: the enclosing element, or {@code null} if there is none 
+
+*javax.lang.model.element.Element.getKind()*
+
+public |javax.lang.model.element.ElementKind| getKind()
+
+Returns thekindof this element. 
+
+
+
+    Returns: the kind of this element 
+
+*javax.lang.model.element.Element.getModifiers()*
+
+public |java.util.Set|<Modifier> getModifiers()
+
+Returns the modifiers of this element, excluding annotations. Implicit 
+modifiers, such as thepublicandstaticmodifiers of interface members, are 
+included. 
+
+
+
+    Returns: the modifiers of this element, or an empty set if there are none 
+
+*javax.lang.model.element.Element.getSimpleName()*
+
+public |javax.lang.model.element.Name| getSimpleName()
+
+Returns the simple (unqualified) name of this element. The name of a generic 
+type does not include any reference to its formal type parameters. 
+
+For example, the simple name of the type elementjava.util.Setis"Set". 
+
+If this element represents an unnamed 
+package(|javax.lang.model.element.PackageElement|) , an empty name is returned. 
+
+If it represents a constructor(|javax.lang.model.element.ExecutableElement|) , 
+the name "" is returned. If it represents a static 
+initializer(|javax.lang.model.element.ExecutableElement|) , the name "" is 
+returned. 
+
+If it represents an anonymous class(|javax.lang.model.element.TypeElement|) or 
+instance initializer(|javax.lang.model.element.ExecutableElement|) , an empty 
+name is returned. 
+
+
+
+    Returns: the simple name of this element 
+
+*javax.lang.model.element.Element.hashCode()*
+
+public int hashCode()
+
+Obeys the general contract of Object.hashCode(|java.lang.Object|) . 
+
+
+
+

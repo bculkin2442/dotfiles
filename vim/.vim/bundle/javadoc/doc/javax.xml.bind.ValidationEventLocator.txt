@@ -1,0 +1,95 @@
+*javax.xml.bind.ValidationEventLocator* *ValidationEventLocator* Encapsulate the
+
+public interface interface ValidationEventLocator
+
+
+|javax.xml.bind.ValidationEventLocator_Description|
+|javax.xml.bind.ValidationEventLocator_Fields|
+|javax.xml.bind.ValidationEventLocator_Constructors|
+|javax.xml.bind.ValidationEventLocator_Methods|
+
+================================================================================
+
+*javax.xml.bind.ValidationEventLocator_Methods*
+|javax.xml.bind.ValidationEventLocator.getColumnNumber()|Return the column numb
+|javax.xml.bind.ValidationEventLocator.getLineNumber()|Return the line number i
+|javax.xml.bind.ValidationEventLocator.getNode()|Return a reference to the DOM 
+|javax.xml.bind.ValidationEventLocator.getObject()|Return a reference to the ob
+|javax.xml.bind.ValidationEventLocator.getOffset()|Return the byte offset if av
+|javax.xml.bind.ValidationEventLocator.getURL()|Return the name of the XML sour
+
+*javax.xml.bind.ValidationEventLocator_Description*
+
+Encapsulate the location of a ValidationEvent. 
+
+The ValidationEventLocator indicates where the ValidationEvent occurred. 
+Different fields will be set depending on the type of validation that was being 
+performed when the error or warning was detected. For example, on-demand 
+validation would produce locators that contained references to objects in the 
+Java content tree while unmarshal-time validation would produce locators 
+containing information appropriate to the source of the XML data (file, url, 
+Node, etc). 
+
+
+
+*javax.xml.bind.ValidationEventLocator.getColumnNumber()*
+
+public int getColumnNumber()
+
+Return the column number if available 
+
+
+
+    Returns: the column number or -1 if unavailable 
+
+*javax.xml.bind.ValidationEventLocator.getLineNumber()*
+
+public int getLineNumber()
+
+Return the line number if available 
+
+
+
+    Returns: the line number or -1 if unavailable 
+
+*javax.xml.bind.ValidationEventLocator.getNode()*
+
+public |org.w3c.dom.Node| getNode()
+
+Return a reference to the DOM Node if available 
+
+
+
+    Returns: a reference to the DOM Node or null if unavailable 
+
+*javax.xml.bind.ValidationEventLocator.getObject()*
+
+public |java.lang.Object| getObject()
+
+Return a reference to the object in the Java content tree if available 
+
+
+
+    Returns: a reference to the object in the Java content tree or null if unavailable 
+
+*javax.xml.bind.ValidationEventLocator.getOffset()*
+
+public int getOffset()
+
+Return the byte offset if available 
+
+
+
+    Returns: the byte offset into the input source or -1 if unavailable 
+
+*javax.xml.bind.ValidationEventLocator.getURL()*
+
+public |java.net.URL| getURL()
+
+Return the name of the XML source as a URL if available 
+
+
+
+    Returns: the name of the XML source as a URL or null if unavailable 
+
+

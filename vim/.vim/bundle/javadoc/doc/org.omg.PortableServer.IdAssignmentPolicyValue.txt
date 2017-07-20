@@ -1,0 +1,81 @@
+*org.omg.PortableServer.IdAssignmentPolicyValue* *IdAssignmentPolicyValue* The I
+
+public class IdAssignmentPolicyValue
+  extends    |java.lang.Object|
+  implements |org.omg.CORBA.portable.IDLEntity|
+
+|org.omg.PortableServer.IdAssignmentPolicyValue_Description|
+|org.omg.PortableServer.IdAssignmentPolicyValue_Fields|
+|org.omg.PortableServer.IdAssignmentPolicyValue_Constructors|
+|org.omg.PortableServer.IdAssignmentPolicyValue_Methods|
+
+================================================================================
+
+*org.omg.PortableServer.IdAssignmentPolicyValue_Fields*
+|int_org.omg.PortableServer.IdAssignmentPolicyValue._SYSTEM_ID|
+|int_org.omg.PortableServer.IdAssignmentPolicyValue._USER_ID|
+|org.omg.PortableServer.IdAssignmentPolicyValue_org.omg.PortableServer.IdAssignmentPolicyValue.SYSTEM_ID|
+|org.omg.PortableServer.IdAssignmentPolicyValue_org.omg.PortableServer.IdAssignmentPolicyValue.USER_ID|
+
+*org.omg.PortableServer.IdAssignmentPolicyValue_Constructors*
+|org.omg.PortableServer.IdAssignmentPolicyValue(int)|
+
+*org.omg.PortableServer.IdAssignmentPolicyValue_Methods*
+|org.omg.PortableServer.IdAssignmentPolicyValue.from_int(int)|
+|org.omg.PortableServer.IdAssignmentPolicyValue.value()|
+
+*org.omg.PortableServer.IdAssignmentPolicyValue_Description*
+
+The IdAssignmentPolicyValue can have the following values. USER_ID - Objects 
+created with that POA are assigned Object Ids only by the application. 
+SYSTEM_ID - Objects created with that POA are assigned Object Ids only by the 
+POA. If the POA also has the PERSISTENT policy, assigned Object Ids must be 
+unique across all instantiations of the same POA. 
+
+
+
+*int_org.omg.PortableServer.IdAssignmentPolicyValue._SYSTEM_ID*
+
+
+
+
+*int_org.omg.PortableServer.IdAssignmentPolicyValue._USER_ID*
+
+
+
+
+*org.omg.PortableServer.IdAssignmentPolicyValue_org.omg.PortableServer.IdAssignmentPolicyValue.SYSTEM_ID*
+
+
+
+
+*org.omg.PortableServer.IdAssignmentPolicyValue_org.omg.PortableServer.IdAssignmentPolicyValue.USER_ID*
+
+
+
+
+
+*org.omg.PortableServer.IdAssignmentPolicyValue(int)*
+
+protected IdAssignmentPolicyValue(int value)
+
+
+
+
+*org.omg.PortableServer.IdAssignmentPolicyValue.from_int(int)*
+
+public static |org.omg.PortableServer.IdAssignmentPolicyValue| from_int(int value)
+
+
+
+
+
+*org.omg.PortableServer.IdAssignmentPolicyValue.value()*
+
+public int value()
+
+
+
+
+
+

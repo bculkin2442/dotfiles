@@ -1,0 +1,89 @@
+*org.omg.IOP.ServiceIdHelper* *ServiceIdHelper* A service id, represented as an 
+
+public abstract class ServiceIdHelper
+  extends    |java.lang.Object|
+
+|org.omg.IOP.ServiceIdHelper_Description|
+|org.omg.IOP.ServiceIdHelper_Fields|
+|org.omg.IOP.ServiceIdHelper_Constructors|
+|org.omg.IOP.ServiceIdHelper_Methods|
+
+================================================================================
+
+*org.omg.IOP.ServiceIdHelper_Constructors*
+|org.omg.IOP.ServiceIdHelper()|
+
+*org.omg.IOP.ServiceIdHelper_Methods*
+|org.omg.IOP.ServiceIdHelper.extract(Any)|
+|org.omg.IOP.ServiceIdHelper.id()|
+|org.omg.IOP.ServiceIdHelper.insert(Any,int)|
+|org.omg.IOP.ServiceIdHelper.read(InputStream)|
+|org.omg.IOP.ServiceIdHelper.type()|
+|org.omg.IOP.ServiceIdHelper.write(OutputStream,int)|
+
+*org.omg.IOP.ServiceIdHelper_Description*
+
+A service id, represented as an int 
+
+
+
+*org.omg.IOP.ServiceIdHelper()*
+
+public ServiceIdHelper()
+
+
+
+
+*org.omg.IOP.ServiceIdHelper.extract(Any)*
+
+public static int extract(org.omg.CORBA.Any a)
+
+
+
+
+
+*org.omg.IOP.ServiceIdHelper.id()*
+
+public static |java.lang.String| id()
+
+
+
+
+
+*org.omg.IOP.ServiceIdHelper.insert(Any,int)*
+
+public static void insert(
+  org.omg.CORBA.Any a,
+  int that)
+
+
+
+
+
+*org.omg.IOP.ServiceIdHelper.read(InputStream)*
+
+public static int read(org.omg.CORBA.portable.InputStream istream)
+
+
+
+
+
+*org.omg.IOP.ServiceIdHelper.type()*
+
+public static synchronized |org.omg.CORBA.TypeCode| type()
+
+
+
+
+
+*org.omg.IOP.ServiceIdHelper.write(OutputStream,int)*
+
+public static void write(
+  org.omg.CORBA.portable.OutputStream ostream,
+  int value)
+
+
+
+
+
+

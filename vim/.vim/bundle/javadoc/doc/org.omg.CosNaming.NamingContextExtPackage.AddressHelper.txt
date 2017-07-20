@@ -1,0 +1,89 @@
+*org.omg.CosNaming.NamingContextExtPackage.AddressHelper* *AddressHelper* Addres
+
+public abstract class AddressHelper
+  extends    |java.lang.Object|
+
+|org.omg.CosNaming.NamingContextExtPackage.AddressHelper_Description|
+|org.omg.CosNaming.NamingContextExtPackage.AddressHelper_Fields|
+|org.omg.CosNaming.NamingContextExtPackage.AddressHelper_Constructors|
+|org.omg.CosNaming.NamingContextExtPackage.AddressHelper_Methods|
+
+================================================================================
+
+*org.omg.CosNaming.NamingContextExtPackage.AddressHelper_Constructors*
+|org.omg.CosNaming.NamingContextExtPackage.AddressHelper()|
+
+*org.omg.CosNaming.NamingContextExtPackage.AddressHelper_Methods*
+|org.omg.CosNaming.NamingContextExtPackage.AddressHelper.extract(Any)|
+|org.omg.CosNaming.NamingContextExtPackage.AddressHelper.id()|
+|org.omg.CosNaming.NamingContextExtPackage.AddressHelper.insert(Any,String)|
+|org.omg.CosNaming.NamingContextExtPackage.AddressHelper.read(InputStream)|
+|org.omg.CosNaming.NamingContextExtPackage.AddressHelper.type()|
+|org.omg.CosNaming.NamingContextExtPackage.AddressHelper.write(OutputStream,String)|
+
+*org.omg.CosNaming.NamingContextExtPackage.AddressHelper_Description*
+
+Address is the Host and Port information represented as a String. 
+
+
+
+*org.omg.CosNaming.NamingContextExtPackage.AddressHelper()*
+
+public AddressHelper()
+
+
+
+
+*org.omg.CosNaming.NamingContextExtPackage.AddressHelper.extract(Any)*
+
+public static |java.lang.String| extract(org.omg.CORBA.Any a)
+
+
+
+
+
+*org.omg.CosNaming.NamingContextExtPackage.AddressHelper.id()*
+
+public static |java.lang.String| id()
+
+
+
+
+
+*org.omg.CosNaming.NamingContextExtPackage.AddressHelper.insert(Any,String)*
+
+public static void insert(
+  org.omg.CORBA.Any a,
+  java.lang.String that)
+
+
+
+
+
+*org.omg.CosNaming.NamingContextExtPackage.AddressHelper.read(InputStream)*
+
+public static |java.lang.String| read(org.omg.CORBA.portable.InputStream istream)
+
+
+
+
+
+*org.omg.CosNaming.NamingContextExtPackage.AddressHelper.type()*
+
+public static synchronized |org.omg.CORBA.TypeCode| type()
+
+
+
+
+
+*org.omg.CosNaming.NamingContextExtPackage.AddressHelper.write(OutputStream,String)*
+
+public static void write(
+  org.omg.CORBA.portable.OutputStream ostream,
+  java.lang.String value)
+
+
+
+
+
+

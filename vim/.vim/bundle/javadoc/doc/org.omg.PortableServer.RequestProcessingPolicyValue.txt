@@ -1,0 +1,99 @@
+*org.omg.PortableServer.RequestProcessingPolicyValue* *RequestProcessingPolicyValue* 
+
+public class RequestProcessingPolicyValue
+  extends    |java.lang.Object|
+  implements |org.omg.CORBA.portable.IDLEntity|
+
+|org.omg.PortableServer.RequestProcessingPolicyValue_Description|
+|org.omg.PortableServer.RequestProcessingPolicyValue_Fields|
+|org.omg.PortableServer.RequestProcessingPolicyValue_Constructors|
+|org.omg.PortableServer.RequestProcessingPolicyValue_Methods|
+
+================================================================================
+
+*org.omg.PortableServer.RequestProcessingPolicyValue_Fields*
+|int_org.omg.PortableServer.RequestProcessingPolicyValue._USE_ACTIVE_OBJECT_MAP_ONLY|
+|int_org.omg.PortableServer.RequestProcessingPolicyValue._USE_DEFAULT_SERVANT|
+|int_org.omg.PortableServer.RequestProcessingPolicyValue._USE_SERVANT_MANAGER|
+|org.omg.PortableServer.RequestProcessingPolicyValue_org.omg.PortableServer.RequestProcessingPolicyValue.USE_ACTIVE_OBJECT_MAP_ONLY|
+|org.omg.PortableServer.RequestProcessingPolicyValue_org.omg.PortableServer.RequestProcessingPolicyValue.USE_DEFAULT_SERVANT|
+|org.omg.PortableServer.RequestProcessingPolicyValue_org.omg.PortableServer.RequestProcessingPolicyValue.USE_SERVANT_MANAGER|
+
+*org.omg.PortableServer.RequestProcessingPolicyValue_Constructors*
+|org.omg.PortableServer.RequestProcessingPolicyValue(int)|
+
+*org.omg.PortableServer.RequestProcessingPolicyValue_Methods*
+|org.omg.PortableServer.RequestProcessingPolicyValue.from_int(int)|
+|org.omg.PortableServer.RequestProcessingPolicyValue.value()|
+
+*org.omg.PortableServer.RequestProcessingPolicyValue_Description*
+
+The RequestProcessingPolicyValue can have the following values. 
+USE_ACTIVE_OBJECT_MAP_ONLY - If the Object Id is not found in the Active Object 
+Map, an OBJECT_NOT_EXIST exception is returned to the client. The RETAIN policy 
+is also required. USE_DEFAULT_SERVANT - If the Object Id is not found in the 
+Active Object Map or the NON_RETAIN policy is present, and a default servant 
+has been registered with the POA using the set_servant operation, the request 
+is dispatched to the default servant. USE_SERVANT_MANAGER - If the Object Id is 
+not found in the Active Object Map or the NON_RETAIN policy is present, and a 
+servant manager has been registered with the POA using the set_servant_manager 
+operation, the servant manager is given the opportunity to locate a servant or 
+raise an exception. 
+
+
+
+*int_org.omg.PortableServer.RequestProcessingPolicyValue._USE_ACTIVE_OBJECT_MAP_ONLY*
+
+
+
+
+*int_org.omg.PortableServer.RequestProcessingPolicyValue._USE_DEFAULT_SERVANT*
+
+
+
+
+*int_org.omg.PortableServer.RequestProcessingPolicyValue._USE_SERVANT_MANAGER*
+
+
+
+
+*org.omg.PortableServer.RequestProcessingPolicyValue_org.omg.PortableServer.RequestProcessingPolicyValue.USE_ACTIVE_OBJECT_MAP_ONLY*
+
+
+
+
+*org.omg.PortableServer.RequestProcessingPolicyValue_org.omg.PortableServer.RequestProcessingPolicyValue.USE_DEFAULT_SERVANT*
+
+
+
+
+*org.omg.PortableServer.RequestProcessingPolicyValue_org.omg.PortableServer.RequestProcessingPolicyValue.USE_SERVANT_MANAGER*
+
+
+
+
+
+*org.omg.PortableServer.RequestProcessingPolicyValue(int)*
+
+protected RequestProcessingPolicyValue(int value)
+
+
+
+
+*org.omg.PortableServer.RequestProcessingPolicyValue.from_int(int)*
+
+public static |org.omg.PortableServer.RequestProcessingPolicyValue| from_int(int value)
+
+
+
+
+
+*org.omg.PortableServer.RequestProcessingPolicyValue.value()*
+
+public int value()
+
+
+
+
+
+

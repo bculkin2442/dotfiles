@@ -1,0 +1,113 @@
+*org.omg.CosNaming.NamingContextExtHelper* *NamingContextExtHelper* NamingContex
+
+public abstract class NamingContextExtHelper
+  extends    |java.lang.Object|
+
+|org.omg.CosNaming.NamingContextExtHelper_Description|
+|org.omg.CosNaming.NamingContextExtHelper_Fields|
+|org.omg.CosNaming.NamingContextExtHelper_Constructors|
+|org.omg.CosNaming.NamingContextExtHelper_Methods|
+
+================================================================================
+
+*org.omg.CosNaming.NamingContextExtHelper_Constructors*
+|org.omg.CosNaming.NamingContextExtHelper()|
+
+*org.omg.CosNaming.NamingContextExtHelper_Methods*
+|org.omg.CosNaming.NamingContextExtHelper.extract(Any)|
+|org.omg.CosNaming.NamingContextExtHelper.id()|
+|org.omg.CosNaming.NamingContextExtHelper.insert(Any,NamingContextExt)|
+|org.omg.CosNaming.NamingContextExtHelper.narrow(Object)|
+|org.omg.CosNaming.NamingContextExtHelper.read(InputStream)|
+|org.omg.CosNaming.NamingContextExtHelper.type()|
+|org.omg.CosNaming.NamingContextExtHelper.unchecked_narrow(Object)|
+|org.omg.CosNaming.NamingContextExtHelper.write(OutputStream,NamingContextExt)|
+
+*org.omg.CosNaming.NamingContextExtHelper_Description*
+
+NamingContextExt is the extension of NamingContext which contains a set of name 
+bindings in which each name is unique and is part of Interoperable Naming 
+Service. Different names can be bound to an object in the same or different 
+contexts at the same time. Using NamingContextExt, you can use URL-based names 
+to bind and resolve. 
+
+See CORBA COS Naming Specification. 
+
+
+
+*org.omg.CosNaming.NamingContextExtHelper()*
+
+public NamingContextExtHelper()
+
+
+
+
+*org.omg.CosNaming.NamingContextExtHelper.extract(Any)*
+
+public static |org.omg.CosNaming.NamingContextExt| extract(org.omg.CORBA.Any a)
+
+
+
+
+
+*org.omg.CosNaming.NamingContextExtHelper.id()*
+
+public static |java.lang.String| id()
+
+
+
+
+
+*org.omg.CosNaming.NamingContextExtHelper.insert(Any,NamingContextExt)*
+
+public static void insert(
+  org.omg.CORBA.Any a,
+  org.omg.CosNaming.NamingContextExt that)
+
+
+
+
+
+*org.omg.CosNaming.NamingContextExtHelper.narrow(Object)*
+
+public static |org.omg.CosNaming.NamingContextExt| narrow(org.omg.CORBA.Object obj)
+
+
+
+
+
+*org.omg.CosNaming.NamingContextExtHelper.read(InputStream)*
+
+public static |org.omg.CosNaming.NamingContextExt| read(org.omg.CORBA.portable.InputStream istream)
+
+
+
+
+
+*org.omg.CosNaming.NamingContextExtHelper.type()*
+
+public static synchronized |org.omg.CORBA.TypeCode| type()
+
+
+
+
+
+*org.omg.CosNaming.NamingContextExtHelper.unchecked_narrow(Object)*
+
+public static |org.omg.CosNaming.NamingContextExt| unchecked_narrow(org.omg.CORBA.Object obj)
+
+
+
+
+
+*org.omg.CosNaming.NamingContextExtHelper.write(OutputStream,NamingContextExt)*
+
+public static void write(
+  org.omg.CORBA.portable.OutputStream ostream,
+  org.omg.CosNaming.NamingContextExt value)
+
+
+
+
+
+

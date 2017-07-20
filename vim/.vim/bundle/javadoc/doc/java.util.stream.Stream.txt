@@ -1,0 +1,824 @@
+*java.util.stream.Stream* *Stream* A sequence of elements supporting sequential 
+
+public interface interface Stream<T>
+
+  implements |java.util.stream.BaseStream|
+
+|java.util.stream.Stream_Description|
+|java.util.stream.Stream_Fields|
+|java.util.stream.Stream_Constructors|
+|java.util.stream.Stream_Methods|
+
+================================================================================
+
+*java.util.stream.Stream_Methods*
+|java.util.stream.Stream.allMatch(Predicate<?superT>)|Returns whether all eleme
+|java.util.stream.Stream.anyMatch(Predicate<?superT>)|Returns whether any eleme
+|java.util.stream.Stream.builder()|Returns a builder for aStream.
+|java.util.stream.Stream.collect(Collector<?superT,A,R>)|Performs a mutable  re
+|java.util.stream.Stream.collect(Supplier<R>,BiConsumer<R,?superT>,BiConsumer<R,R>)|
+|java.util.stream.Stream.concat(Stream<?extendsT>,Stream<?extendsT>)|Creates a 
+|java.util.stream.Stream.count()|Returns the count of elements in this stream.
+|java.util.stream.Stream.distinct()|Returns a stream consisting of the distinct
+|java.util.stream.Stream.empty()|Returns an empty sequentialStream.
+|java.util.stream.Stream.filter(Predicate<?superT>)|Returns a stream consisting
+|java.util.stream.Stream.findAny()|Returns anOptionaldescribing some element of
+|java.util.stream.Stream.findFirst()|Returns anOptionaldescribing the first ele
+|java.util.stream.Stream.flatMap(Function<?superT,?extendsStream<?extendsR>>)|R
+|java.util.stream.Stream.flatMapToDouble(Function<?superT,?extendsDoubleStream>)|
+|java.util.stream.Stream.flatMapToInt(Function<?superT,?extendsIntStream>)|Retu
+|java.util.stream.Stream.flatMapToLong(Function<?superT,?extendsLongStream>)|Re
+|java.util.stream.Stream.forEach(Consumer<?superT>)|Performs an action for each
+|java.util.stream.Stream.forEachOrdered(Consumer<?superT>)|Performs an action f
+|java.util.stream.Stream.generate(Supplier<T>)|Returns an infinite sequential u
+|java.util.stream.Stream.iterate(T,UnaryOperator<T>)|Returns an infinite sequen
+|java.util.stream.Stream.limit(long)|Returns a stream consisting of the element
+|java.util.stream.Stream.map(Function<?superT,?extendsR>)|Returns a stream cons
+|java.util.stream.Stream.mapToDouble(ToDoubleFunction<?superT>)|Returns aDouble
+|java.util.stream.Stream.mapToInt(ToIntFunction<?superT>)|Returns anIntStreamco
+|java.util.stream.Stream.mapToLong(ToLongFunction<?superT>)|Returns aLongStream
+|java.util.stream.Stream.max(Comparator<?superT>)|Returns the maximum element o
+|java.util.stream.Stream.min(Comparator<?superT>)|Returns the minimum element o
+|java.util.stream.Stream.noneMatch(Predicate<?superT>)|Returns whether no eleme
+|java.util.stream.Stream.of(T...)|Returns a sequential ordered stream whose ele
+|java.util.stream.Stream.of(T)|Returns a sequentialStreamcontaining a single el
+|java.util.stream.Stream.peek(Consumer<?superT>)|Returns a stream consisting of
+|java.util.stream.Stream.reduce(BinaryOperator<T>)|Performs a reduction on the 
+|java.util.stream.Stream.reduce(T,BinaryOperator<T>)|Performs a reduction on th
+|java.util.stream.Stream.reduce(U,BiFunction<U,?superT,U>,BinaryOperator<U>)|Pe
+|java.util.stream.Stream.skip(long)|Returns a stream consisting of the remainin
+|java.util.stream.Stream.sorted()|Returns a stream consisting of the elements o
+|java.util.stream.Stream.sorted(Comparator<?superT>)|Returns a stream consistin
+|java.util.stream.Stream.toArray()|Returns an array containing the elements of 
+|java.util.stream.Stream.toArray(IntFunction<A[]>)|Returns an array containing 
+
+*java.util.stream.Stream_Description*
+
+A sequence of elements supporting sequential and parallel aggregate operations. 
+The following example illustrates an aggregate operation using 
+(|java.util.stream.Stream|) and (|java.util.stream.IntStream|) : 
+
+int sum = widgets.stream() .filter(w -> w.getColor() == RED) .mapToInt(w -> 
+w.getWeight()) .sum(); 
+
+In this example,widgetsis aCollection. We create a stream ofWidgetobjects via 
+Collection.stream()(|java.util.Collection|) , filter it to produce a stream 
+containing only the red widgets, and then transform it into a stream 
+ofintvalues representing the weight of each red widget. Then this stream is 
+summed to produce a total weight. 
+
+In addition toStream, which is a stream of object references, there are 
+primitive specializations for (|java.util.stream.IntStream|) , 
+(|java.util.stream.LongStream|) , and (|java.util.stream.DoubleStream|) , all 
+of which are referred to as "streams" and conform to the characteristics and 
+restrictions described here. 
+
+To perform a computation, stream operations are composed into a stream 
+pipeline. A stream pipeline consists of a source (which might be an array, a 
+collection, a generator function, an I/O channel, etc), zero or more 
+intermediate operations (which transform a stream into another stream, such as 
+(|java.util.stream.Stream|) ), and a terminal operation (which produces a 
+result or side-effect, such as (|java.util.stream.Stream|) or 
+(|java.util.stream.Stream|) ). Streams are lazy; computation on the source data 
+is only performed when the terminal operation is initiated, and source elements 
+are consumed only as needed. 
+
+Collections and streams, while bearing some superficial similarities, have 
+different goals. Collections are primarily concerned with the efficient 
+management of, and access to, their elements. By contrast, streams do not 
+provide a means to directly access or manipulate their elements, and are 
+instead concerned with declaratively describing their source and the 
+computational operations which will be performed in aggregate on that source. 
+However, if the provided stream operations do not offer the desired 
+functionality, the (|java.util.stream.Stream|) and (|java.util.stream.Stream|) 
+operations can be used to perform a controlled traversal. 
+
+A stream pipeline, like the "widgets" example above, can be viewed as a query 
+on the stream source. Unless the source was explicitly designed for concurrent 
+modification (such as a (|java.util.concurrent.ConcurrentHashMap|) ), 
+unpredictable or erroneous behavior may result from modifying the stream source 
+while it is being queried. 
+
+Most stream operations accept parameters that describe user-specified behavior, 
+such as the lambda expressionw -> w.getWeight()passed tomapToIntin the example 
+above. To preserve correct behavior, these behavioral parameters: 
+
+must be non-interfering (they do not modify the stream source); and in most 
+cases must be stateless (their result should not depend on any state that might 
+change during execution of the stream pipeline). 
+
+Such parameters are always instances of a functional interface such as 
+(|java.util.function.Function|) , and are often lambda expressions or method 
+references. Unless otherwise specified these parameters must be non-null. 
+
+A stream should be operated on (invoking an intermediate or terminal stream 
+operation) only once. This rules out, for example, "forked" streams, where the 
+same source feeds two or more pipelines, or multiple traversals of the same 
+stream. A stream implementation may throw (|java.lang.IllegalStateException|) 
+if it detects that the stream is being reused. However, since some stream 
+operations may return their receiver rather than a new stream object, it may 
+not be possible to detect reuse in all cases. 
+
+Streams have a (|java.util.stream.Stream|) method and implement 
+(|java.lang.AutoCloseable|) , but nearly all stream instances do not actually 
+need to be closed after use. Generally, only streams whose source is an IO 
+channel (such as those returned by (|java.nio.file.Files|) ) will require 
+closing. Most streams are backed by collections, arrays, or generating 
+functions, which require no special resource management. (If a stream does 
+require closing, it can be declared as a resource in atry-with-resources 
+statement.) 
+
+Stream pipelines may execute either sequentially or in parallel. This execution 
+mode is a property of the stream. Streams are created with an initial choice of 
+sequential or parallel execution. (For example, 
+Collection.stream()(|java.util.Collection|) creates a sequential stream, and 
+Collection.parallelStream()(|java.util.Collection|) creates a parallel one.) 
+This choice of execution mode may be modified by the 
+(|java.util.stream.Stream|) or (|java.util.stream.Stream|) methods, and may be 
+queried with the (|java.util.stream.Stream|) method. 
+
+
+
+*java.util.stream.Stream.allMatch(Predicate<?superT>)*
+
+public boolean allMatch(java.util.function.Predicate<? super T> predicate)
+
+Returns whether all elements of this stream match the provided predicate. May 
+not evaluate the predicate on all elements if not necessary for determining the 
+result. If the stream is empty thentrueis returned and the predicate is not 
+evaluated. 
+
+This is a short-circuiting terminal operation. 
+
+
+    predicate - a non-interfering, stateless predicate to apply to elements of this stream 
+
+    Returns: {@code true} if either all elements of the stream match the provided predicate 
+             or the stream is empty, otherwise {@code false} 
+
+*java.util.stream.Stream.anyMatch(Predicate<?superT>)*
+
+public boolean anyMatch(java.util.function.Predicate<? super T> predicate)
+
+Returns whether any elements of this stream match the provided predicate. May 
+not evaluate the predicate on all elements if not necessary for determining the 
+result. If the stream is empty thenfalseis returned and the predicate is not 
+evaluated. 
+
+This is a short-circuiting terminal operation. 
+
+
+    predicate - a non-interfering, stateless predicate to apply to elements of this stream 
+
+    Returns: {@code true} if any elements of the stream match the provided predicate, 
+             otherwise {@code false} 
+
+*java.util.stream.Stream.builder()*
+
+public static |java.util.stream.Stream.Builder|<T> builder()
+
+Returns a builder for aStream. 
+
+
+
+    Returns: a stream builder 
+
+*java.util.stream.Stream.collect(Collector<?superT,A,R>)*
+
+public |R| collect(java.util.stream.Collector<? super T, A, R> collector)
+
+Performs a mutable reduction operation on the elements of this stream using 
+aCollector. ACollectorencapsulates the functions used as arguments to 
+(|java.util.stream.Stream|) , allowing for reuse of collection strategies and 
+composition of collect operations such as multiple-level grouping or 
+partitioning. 
+
+If the stream is parallel, and theCollectoris 
+concurrent(|java.util.stream.Collector.Characteristics|) , and either the 
+stream is unordered or the collector is 
+unordered(|java.util.stream.Collector.Characteristics|) , then a concurrent 
+reduction will be performed (see (|java.util.stream.Collector|) for details on 
+concurrent reduction.) 
+
+This is a terminal operation. 
+
+When executed in parallel, multiple intermediate results may be instantiated, 
+populated, and merged so as to maintain isolation of mutable data structures. 
+Therefore, even when executed in parallel with non-thread-safe data structures 
+(such asArrayList), no additional synchronization is needed for a parallel 
+reduction. 
+
+
+    collector - the {@code Collector} describing the reduction 
+
+    Returns: the result of the reduction 
+
+*java.util.stream.Stream.collect(Supplier<R>,BiConsumer<R,?superT>,BiConsumer<R,R>)*
+
+public |R| collect(
+  java.util.function.Supplier<R> supplier,
+  java.util.function.BiConsumer<R, ? super T> accumulator,
+  java.util.function.BiConsumer<R, R> combiner)
+
+Performs a mutable reduction operation on the elements of this stream. A 
+mutable reduction is one in which the reduced value is a mutable result 
+container, such as anArrayList, and elements are incorporated by updating the 
+state of the result rather than by replacing the result. This produces a result 
+equivalent to: 
+
+R result = supplier.get(); for (T element : this stream) 
+accumulator.accept(result, element); return result; 
+
+Like (|java.util.stream.Stream|) ,collectoperations can be parallelized without 
+requiring additional synchronization. 
+
+This is a terminal operation. 
+
+
+    supplier - a function that creates a new result container. For a parallel execution, this 
+       function may be called multiple times and must return a fresh value each 
+       time. 
+    accumulator - an associative, non-interfering, stateless function for incorporating an 
+       additional element into a result 
+    combiner - an associative, non-interfering, stateless function for combining two values, 
+       which must be compatible with the accumulator function 
+
+    Returns: the result of the reduction 
+
+*java.util.stream.Stream.concat(Stream<?extendsT>,Stream<?extendsT>)*
+
+public static |java.util.stream.Stream|<T> concat(
+  java.util.stream.Stream<? extends T> a,
+  java.util.stream.Stream<? extends T> b)
+
+Creates a lazily concatenated stream whose elements are all the elements of the 
+first stream followed by all the elements of the second stream. The resulting 
+stream is ordered if both of the input streams are ordered, and parallel if 
+either of the input streams is parallel. When the resulting stream is closed, 
+the close handlers for both input streams are invoked. 
+
+
+    a - the first stream 
+    b - the second stream 
+
+    Returns: the concatenation of the two input streams 
+
+*java.util.stream.Stream.count()*
+
+public long count()
+
+Returns the count of elements in this stream. This is a special case of a 
+reduction and is equivalent to: 
+
+return mapToLong(e -> 1L).sum(); 
+
+This is a terminal operation. 
+
+
+
+    Returns: the count of elements in this stream 
+
+*java.util.stream.Stream.distinct()*
+
+public |java.util.stream.Stream|<T> distinct()
+
+Returns a stream consisting of the distinct elements (according to 
+(|java.lang.Object|) ) of this stream. 
+
+For ordered streams, the selection of distinct elements is stable (for 
+duplicated elements, the element appearing first in the encounter order is 
+preserved.) For unordered streams, no stability guarantees are made. 
+
+This is a stateful intermediate operation. 
+
+
+
+    Returns: the new stream 
+
+*java.util.stream.Stream.empty()*
+
+public static |java.util.stream.Stream|<T> empty()
+
+Returns an empty sequentialStream. 
+
+
+
+    Returns: an empty sequential stream 
+
+*java.util.stream.Stream.filter(Predicate<?superT>)*
+
+public |java.util.stream.Stream|<T> filter(java.util.function.Predicate<? super T> predicate)
+
+Returns a stream consisting of the elements of this stream that match the given 
+predicate. 
+
+This is an intermediate operation. 
+
+
+    predicate - a non-interfering, stateless predicate to apply to each element to determine if 
+       it should be included 
+
+    Returns: the new stream 
+
+*java.util.stream.Stream.findAny()*
+
+public |java.util.Optional|<T> findAny()
+
+Returns an (|java.util.Optional|) describing some element of the stream, or an 
+emptyOptionalif the stream is empty. 
+
+This is a short-circuiting terminal operation. 
+
+The behavior of this operation is explicitly nondeterministic; it is free to 
+select any element in the stream. This is to allow for maximal performance in 
+parallel operations; the cost is that multiple invocations on the same source 
+may not return the same result. (If a stable result is desired, use 
+(|java.util.stream.Stream|) instead.) 
+
+
+
+    Returns: an {@code Optional} describing some element of this stream, or an empty {@code 
+             Optional} if the stream is empty 
+
+*java.util.stream.Stream.findFirst()*
+
+public |java.util.Optional|<T> findFirst()
+
+Returns an (|java.util.Optional|) describing the first element of this stream, 
+or an emptyOptionalif the stream is empty. If the stream has no encounter 
+order, then any element may be returned. 
+
+This is a short-circuiting terminal operation. 
+
+
+
+    Returns: an {@code Optional} describing the first element of this stream, or an empty 
+             {@code Optional} if the stream is empty 
+
+*java.util.stream.Stream.flatMap(Function<?superT,?extendsStream<?extendsR>>)*
+
+public |java.util.stream.Stream|<R> flatMap(java.util.function.Function<? super T, ? extends java.util.stream.Stream<? extends R>> mapper)
+
+Returns a stream consisting of the results of replacing each element of this 
+stream with the contents of a mapped stream produced by applying the provided 
+mapping function to each element. Each mapped stream is 
+closed(|java.util.stream.BaseStream|) after its contents have been placed into 
+this stream. (If a mapped stream isnullan empty stream is used, instead.) 
+
+This is an intermediate operation. 
+
+
+    mapper - a non-interfering, stateless function to apply to each element which produces a 
+       stream of new values 
+
+    Returns: the new stream 
+
+*java.util.stream.Stream.flatMapToDouble(Function<?superT,?extendsDoubleStream>)*
+
+public |java.util.stream.DoubleStream| flatMapToDouble(java.util.function.Function<? super T, ? extends java.util.stream.DoubleStream> mapper)
+
+Returns anDoubleStreamconsisting of the results of replacing each element of 
+this stream with the contents of a mapped stream produced by applying the 
+provided mapping function to each element. Each mapped stream is 
+closed(|java.util.stream.BaseStream|) after its contents have placed been into 
+this stream. (If a mapped stream isnullan empty stream is used, instead.) 
+
+This is an intermediate operation. 
+
+
+    mapper - a non-interfering, stateless function to apply to each element which produces a 
+       stream of new values 
+
+    Returns: the new stream 
+
+*java.util.stream.Stream.flatMapToInt(Function<?superT,?extendsIntStream>)*
+
+public |java.util.stream.IntStream| flatMapToInt(java.util.function.Function<? super T, ? extends java.util.stream.IntStream> mapper)
+
+Returns anIntStreamconsisting of the results of replacing each element of this 
+stream with the contents of a mapped stream produced by applying the provided 
+mapping function to each element. Each mapped stream is 
+closed(|java.util.stream.BaseStream|) after its contents have been placed into 
+this stream. (If a mapped stream isnullan empty stream is used, instead.) 
+
+This is an intermediate operation. 
+
+
+    mapper - a non-interfering, stateless function to apply to each element which produces a 
+       stream of new values 
+
+    Returns: the new stream 
+
+*java.util.stream.Stream.flatMapToLong(Function<?superT,?extendsLongStream>)*
+
+public |java.util.stream.LongStream| flatMapToLong(java.util.function.Function<? super T, ? extends java.util.stream.LongStream> mapper)
+
+Returns anLongStreamconsisting of the results of replacing each element of this 
+stream with the contents of a mapped stream produced by applying the provided 
+mapping function to each element. Each mapped stream is 
+closed(|java.util.stream.BaseStream|) after its contents have been placed into 
+this stream. (If a mapped stream isnullan empty stream is used, instead.) 
+
+This is an intermediate operation. 
+
+
+    mapper - a non-interfering, stateless function to apply to each element which produces a 
+       stream of new values 
+
+    Returns: the new stream 
+
+*java.util.stream.Stream.forEach(Consumer<?superT>)*
+
+public void forEach(java.util.function.Consumer<? super T> action)
+
+Performs an action for each element of this stream. 
+
+This is a terminal operation. 
+
+The behavior of this operation is explicitly nondeterministic. For parallel 
+stream pipelines, this operation does not guarantee to respect the encounter 
+order of the stream, as doing so would sacrifice the benefit of parallelism. 
+For any given element, the action may be performed at whatever time and in 
+whatever thread the library chooses. If the action accesses shared state, it is 
+responsible for providing the required synchronization. 
+
+
+    action - a non-interfering action to perform on the elements 
+
+*java.util.stream.Stream.forEachOrdered(Consumer<?superT>)*
+
+public void forEachOrdered(java.util.function.Consumer<? super T> action)
+
+Performs an action for each element of this stream, in the encounter order of 
+the stream if the stream has a defined encounter order. 
+
+This is a terminal operation. 
+
+This operation processes the elements one at a time, in encounter order if one 
+exists. Performing the action for one element happens-before performing the 
+action for subsequent elements, but for any given element, the action may be 
+performed in whatever thread the library chooses. 
+
+
+    action - a non-interfering action to perform on the elements 
+
+*java.util.stream.Stream.generate(Supplier<T>)*
+
+public static |java.util.stream.Stream|<T> generate(java.util.function.Supplier<T> s)
+
+Returns an infinite sequential unordered stream where each element is generated 
+by the providedSupplier. This is suitable for generating constant streams, 
+streams of random elements, etc. 
+
+
+    s - the {@code Supplier} of generated elements 
+
+    Returns: a new infinite sequential unordered {@code Stream} 
+
+*java.util.stream.Stream.iterate(T,UnaryOperator<T>)*
+
+public static |java.util.stream.Stream|<T> iterate(
+  T seed,
+  java.util.function.UnaryOperator<T> f)
+
+Returns an infinite sequential orderedStreamproduced by iterative application 
+of a functionfto an initial elementseed, producing aStreamconsisting 
+ofseed,f(seed),f(f(seed)), etc. 
+
+The first element (position0) in theStreamwill be the providedseed. Forn > 0, 
+the element at positionn, will be the result of applying the functionfto the 
+element at positionn - 1. 
+
+
+    seed - the initial element 
+    f - a function to be applied to to the previous element to produce a new element 
+
+    Returns: a new sequential {@code Stream} 
+
+*java.util.stream.Stream.limit(long)*
+
+public |java.util.stream.Stream|<T> limit(long maxSize)
+
+Returns a stream consisting of the elements of this stream, truncated to be no 
+longer thanmaxSizein length. 
+
+This is a short-circuiting stateful intermediate operation. 
+
+
+    maxSize - the number of elements the stream should be limited to 
+
+    Returns: the new stream 
+
+*java.util.stream.Stream.map(Function<?superT,?extendsR>)*
+
+public |java.util.stream.Stream|<R> map(java.util.function.Function<? super T, ? extends R> mapper)
+
+Returns a stream consisting of the results of applying the given function to 
+the elements of this stream. 
+
+This is an intermediate operation. 
+
+
+    mapper - a non-interfering, stateless function to apply to each element 
+
+    Returns: the new stream 
+
+*java.util.stream.Stream.mapToDouble(ToDoubleFunction<?superT>)*
+
+public |java.util.stream.DoubleStream| mapToDouble(java.util.function.ToDoubleFunction<? super T> mapper)
+
+Returns aDoubleStreamconsisting of the results of applying the given function 
+to the elements of this stream. 
+
+This is an intermediate operation. 
+
+
+    mapper - a non-interfering, stateless function to apply to each element 
+
+    Returns: the new stream 
+
+*java.util.stream.Stream.mapToInt(ToIntFunction<?superT>)*
+
+public |java.util.stream.IntStream| mapToInt(java.util.function.ToIntFunction<? super T> mapper)
+
+Returns anIntStreamconsisting of the results of applying the given function to 
+the elements of this stream. 
+
+This is an intermediate operation. 
+
+
+    mapper - a non-interfering, stateless function to apply to each element 
+
+    Returns: the new stream 
+
+*java.util.stream.Stream.mapToLong(ToLongFunction<?superT>)*
+
+public |java.util.stream.LongStream| mapToLong(java.util.function.ToLongFunction<? super T> mapper)
+
+Returns aLongStreamconsisting of the results of applying the given function to 
+the elements of this stream. 
+
+This is an intermediate operation. 
+
+
+    mapper - a non-interfering, stateless function to apply to each element 
+
+    Returns: the new stream 
+
+*java.util.stream.Stream.max(Comparator<?superT>)*
+
+public |java.util.Optional|<T> max(java.util.Comparator<? super T> comparator)
+
+Returns the maximum element of this stream according to the providedComparator. 
+This is a special case of a reduction. 
+
+This is a terminal operation. 
+
+
+    comparator - a non-interfering, stateless {@code Comparator} to compare elements of this 
+       stream 
+
+    Returns: an {@code Optional} describing the maximum element of this stream, or an empty 
+             {@code Optional} if the stream is empty 
+
+*java.util.stream.Stream.min(Comparator<?superT>)*
+
+public |java.util.Optional|<T> min(java.util.Comparator<? super T> comparator)
+
+Returns the minimum element of this stream according to the providedComparator. 
+This is a special case of a reduction. 
+
+This is a terminal operation. 
+
+
+    comparator - a non-interfering, stateless {@code Comparator} to compare elements of this 
+       stream 
+
+    Returns: an {@code Optional} describing the minimum element of this stream, or an empty 
+             {@code Optional} if the stream is empty 
+
+*java.util.stream.Stream.noneMatch(Predicate<?superT>)*
+
+public boolean noneMatch(java.util.function.Predicate<? super T> predicate)
+
+Returns whether no elements of this stream match the provided predicate. May 
+not evaluate the predicate on all elements if not necessary for determining the 
+result. If the stream is empty thentrueis returned and the predicate is not 
+evaluated. 
+
+This is a short-circuiting terminal operation. 
+
+
+    predicate - a non-interfering, stateless predicate to apply to elements of this stream 
+
+    Returns: {@code true} if either no elements of the stream match the provided predicate 
+             or the stream is empty, otherwise {@code false} 
+
+*java.util.stream.Stream.of(T...)*
+
+public static |java.util.stream.Stream|<T> of(T[] values)
+
+Returns a sequential ordered stream whose elements are the specified values. 
+
+
+    values - the elements of the new stream 
+
+    Returns: the new stream 
+
+*java.util.stream.Stream.of(T)*
+
+public static |java.util.stream.Stream|<T> of(T t)
+
+Returns a sequentialStreamcontaining a single element. 
+
+
+    t - the single element 
+
+    Returns: a singleton sequential stream 
+
+*java.util.stream.Stream.peek(Consumer<?superT>)*
+
+public |java.util.stream.Stream|<T> peek(java.util.function.Consumer<? super T> action)
+
+Returns a stream consisting of the elements of this stream, additionally 
+performing the provided action on each element as elements are consumed from 
+the resulting stream. 
+
+This is an intermediate operation. 
+
+For parallel stream pipelines, the action may be called at whatever time and in 
+whatever thread the element is made available by the upstream operation. If the 
+action modifies shared state, it is responsible for providing the required 
+synchronization. 
+
+
+    action - a non-interfering action to perform on the elements as they are consumed from 
+       the stream 
+
+    Returns: the new stream 
+
+*java.util.stream.Stream.reduce(BinaryOperator<T>)*
+
+public |java.util.Optional|<T> reduce(java.util.function.BinaryOperator<T> accumulator)
+
+Performs a reduction on the elements of this stream, using an associative 
+accumulation function, and returns anOptionaldescribing the reduced value, if 
+any. This is equivalent to: 
+
+boolean foundAny = false; T result = null; for (T element : this stream) { if 
+(!foundAny) { foundAny = true; result = element; } else result = 
+accumulator.apply(result, element); } return foundAny ? Optional.of(result) : 
+Optional.empty(); 
+
+but is not constrained to execute sequentially. 
+
+Theaccumulatorfunction must be an associative function. 
+
+This is a terminal operation. 
+
+
+    accumulator - an associative, non-interfering, stateless function for combining two values 
+
+    Returns: an {@link Optional} describing the result of the reduction 
+
+*java.util.stream.Stream.reduce(T,BinaryOperator<T>)*
+
+public |T| reduce(
+  T identity,
+  java.util.function.BinaryOperator<T> accumulator)
+
+Performs a reduction on the elements of this stream, using the provided 
+identity value and an associative accumulation function, and returns the 
+reduced value. This is equivalent to: 
+
+T result = identity; for (T element : this stream) result = 
+accumulator.apply(result, element) return result; 
+
+but is not constrained to execute sequentially. 
+
+Theidentityvalue must be an identity for the accumulator function. This means 
+that for allt,accumulator.apply(identity, t)is equal tot. 
+Theaccumulatorfunction must be an associative function. 
+
+This is a terminal operation. 
+
+
+    identity - the identity value for the accumulating function 
+    accumulator - an associative, non-interfering, stateless function for combining two values 
+
+    Returns: the result of the reduction 
+
+*java.util.stream.Stream.reduce(U,BiFunction<U,?superT,U>,BinaryOperator<U>)*
+
+public |U| reduce(
+  U identity,
+  java.util.function.BiFunction<U, ? super T, U> accumulator,
+  java.util.function.BinaryOperator<U> combiner)
+
+Performs a reduction on the elements of this stream, using the provided 
+identity, accumulation and combining functions. This is equivalent to: 
+
+U result = identity; for (T element : this stream) result = 
+accumulator.apply(result, element) return result; 
+
+but is not constrained to execute sequentially. 
+
+Theidentityvalue must be an identity for the combiner function. This means that 
+for allu,combiner(identity, u)is equal tou. Additionally, thecombinerfunction 
+must be compatible with theaccumulatorfunction; for alluandt, the following 
+must hold: 
+
+combiner.apply(u, accumulator.apply(identity, t)) == accumulator.apply(u, t) 
+
+This is a terminal operation. 
+
+
+    identity - the identity value for the combiner function 
+    accumulator - an associative, non-interfering, stateless function for incorporating an 
+       additional element into a result 
+    combiner - an associative, non-interfering, stateless function for combining two values, 
+       which must be compatible with the accumulator function 
+
+    Returns: the result of the reduction 
+
+*java.util.stream.Stream.skip(long)*
+
+public |java.util.stream.Stream|<T> skip(long n)
+
+Returns a stream consisting of the remaining elements of this stream after 
+discarding the firstnelements of the stream. If this stream contains fewer 
+thannelements then an empty stream will be returned. 
+
+This is a stateful intermediate operation. 
+
+
+    n - the number of leading elements to skip 
+
+    Returns: the new stream 
+
+*java.util.stream.Stream.sorted()*
+
+public |java.util.stream.Stream|<T> sorted()
+
+Returns a stream consisting of the elements of this stream, sorted according to 
+natural order. If the elements of this stream are notComparable, 
+ajava.lang.ClassCastExceptionmay be thrown when the terminal operation is 
+executed. 
+
+For ordered streams, the sort is stable. For unordered streams, no stability 
+guarantees are made. 
+
+This is a stateful intermediate operation. 
+
+
+
+    Returns: the new stream 
+
+*java.util.stream.Stream.sorted(Comparator<?superT>)*
+
+public |java.util.stream.Stream|<T> sorted(java.util.Comparator<? super T> comparator)
+
+Returns a stream consisting of the elements of this stream, sorted according to 
+the providedComparator. 
+
+For ordered streams, the sort is stable. For unordered streams, no stability 
+guarantees are made. 
+
+This is a stateful intermediate operation. 
+
+
+    comparator - a non-interfering, stateless {@code Comparator} to be used to compare stream 
+       elements 
+
+    Returns: the new stream 
+
+*java.util.stream.Stream.toArray()*
+
+public |java.lang.Object|[] toArray()
+
+Returns an array containing the elements of this stream. 
+
+This is a terminal operation. 
+
+
+
+    Returns: an array containing the elements of this stream 
+
+*java.util.stream.Stream.toArray(IntFunction<A[]>)*
+
+public |A|[] toArray(java.util.function.IntFunction<A[]> generator)
+
+Returns an array containing the elements of this stream, using the 
+providedgeneratorfunction to allocate the returned array, as well as any 
+additional arrays that might be required for a partitioned execution or for 
+resizing. 
+
+This is a terminal operation. 
+
+
+    generator - a function which produces a new array of the desired type and the provided 
+       length 
+
+    Returns: an array containing the elements in this stream 
+
+

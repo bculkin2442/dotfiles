@@ -1,0 +1,55 @@
+*java.io.UncheckedIOException* *UncheckedIOException* Wraps anIOExceptionwith an
+
+public class UncheckedIOException
+  extends    |java.lang.RuntimeException|
+
+|java.io.UncheckedIOException_Description|
+|java.io.UncheckedIOException_Fields|
+|java.io.UncheckedIOException_Constructors|
+|java.io.UncheckedIOException_Methods|
+
+================================================================================
+
+*java.io.UncheckedIOException_Constructors*
+|java.io.UncheckedIOException(IOException)|Constructs an instance of this class
+|java.io.UncheckedIOException(String,IOException)|Constructs an instance of thi
+
+*java.io.UncheckedIOException_Methods*
+|java.io.UncheckedIOException.getCause()|Returns the cause of this exception.
+
+*java.io.UncheckedIOException_Description*
+
+Wraps an (|java.io.IOException|) with an unchecked exception. 
+
+
+
+*java.io.UncheckedIOException(IOException)*
+
+public UncheckedIOException(java.io.IOException cause)
+
+Constructs an instance of this class. 
+
+    cause - the {@code IOException} 
+
+*java.io.UncheckedIOException(String,IOException)*
+
+public UncheckedIOException(
+  java.lang.String message,
+  java.io.IOException cause)
+
+Constructs an instance of this class. 
+
+    message - the detail message, can be null 
+    cause - the {@code IOException} 
+
+*java.io.UncheckedIOException.getCause()*
+
+public |java.io.IOException| getCause()
+
+Returns the cause of this exception. 
+
+
+
+    Returns: the {@code IOException} which is the cause of this exception. 
+
+

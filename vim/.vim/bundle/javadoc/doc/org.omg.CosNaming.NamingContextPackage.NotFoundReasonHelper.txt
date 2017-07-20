@@ -1,0 +1,89 @@
+*org.omg.CosNaming.NamingContextPackage.NotFoundReasonHelper* *NotFoundReasonHelper* 
+
+public abstract class NotFoundReasonHelper
+  extends    |java.lang.Object|
+
+|org.omg.CosNaming.NamingContextPackage.NotFoundReasonHelper_Description|
+|org.omg.CosNaming.NamingContextPackage.NotFoundReasonHelper_Fields|
+|org.omg.CosNaming.NamingContextPackage.NotFoundReasonHelper_Constructors|
+|org.omg.CosNaming.NamingContextPackage.NotFoundReasonHelper_Methods|
+
+================================================================================
+
+*org.omg.CosNaming.NamingContextPackage.NotFoundReasonHelper_Constructors*
+|org.omg.CosNaming.NamingContextPackage.NotFoundReasonHelper()|
+
+*org.omg.CosNaming.NamingContextPackage.NotFoundReasonHelper_Methods*
+|org.omg.CosNaming.NamingContextPackage.NotFoundReasonHelper.extract(Any)|
+|org.omg.CosNaming.NamingContextPackage.NotFoundReasonHelper.id()|
+|org.omg.CosNaming.NamingContextPackage.NotFoundReasonHelper.insert(Any,NotFoundReason)|
+|org.omg.CosNaming.NamingContextPackage.NotFoundReasonHelper.read(InputStream)|
+|org.omg.CosNaming.NamingContextPackage.NotFoundReasonHelper.type()|
+|org.omg.CosNaming.NamingContextPackage.NotFoundReasonHelper.write(OutputStream,NotFoundReason)|
+
+*org.omg.CosNaming.NamingContextPackage.NotFoundReasonHelper_Description*
+
+Indicates the reason for not able to resolve. 
+
+
+
+*org.omg.CosNaming.NamingContextPackage.NotFoundReasonHelper()*
+
+public NotFoundReasonHelper()
+
+
+
+
+*org.omg.CosNaming.NamingContextPackage.NotFoundReasonHelper.extract(Any)*
+
+public static |org.omg.CosNaming.NamingContextPackage.NotFoundReason| extract(org.omg.CORBA.Any a)
+
+
+
+
+
+*org.omg.CosNaming.NamingContextPackage.NotFoundReasonHelper.id()*
+
+public static |java.lang.String| id()
+
+
+
+
+
+*org.omg.CosNaming.NamingContextPackage.NotFoundReasonHelper.insert(Any,NotFoundReason)*
+
+public static void insert(
+  org.omg.CORBA.Any a,
+  org.omg.CosNaming.NamingContextPackage.NotFoundReason that)
+
+
+
+
+
+*org.omg.CosNaming.NamingContextPackage.NotFoundReasonHelper.read(InputStream)*
+
+public static |org.omg.CosNaming.NamingContextPackage.NotFoundReason| read(org.omg.CORBA.portable.InputStream istream)
+
+
+
+
+
+*org.omg.CosNaming.NamingContextPackage.NotFoundReasonHelper.type()*
+
+public static synchronized |org.omg.CORBA.TypeCode| type()
+
+
+
+
+
+*org.omg.CosNaming.NamingContextPackage.NotFoundReasonHelper.write(OutputStream,NotFoundReason)*
+
+public static void write(
+  org.omg.CORBA.portable.OutputStream ostream,
+  org.omg.CosNaming.NamingContextPackage.NotFoundReason value)
+
+
+
+
+
+

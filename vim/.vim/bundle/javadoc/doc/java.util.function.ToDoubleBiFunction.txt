@@ -1,0 +1,41 @@
+*java.util.function.ToDoubleBiFunction* *ToDoubleBiFunction* Represents a functi
+
+public interface interface ToDoubleBiFunction<T,U>
+
+
+|java.util.function.ToDoubleBiFunction_Description|
+|java.util.function.ToDoubleBiFunction_Fields|
+|java.util.function.ToDoubleBiFunction_Constructors|
+|java.util.function.ToDoubleBiFunction_Methods|
+
+================================================================================
+
+*java.util.function.ToDoubleBiFunction_Methods*
+|java.util.function.ToDoubleBiFunction.applyAsDouble(T,U)|Applies this function
+
+*java.util.function.ToDoubleBiFunction_Description*
+
+Represents a function that accepts two arguments and produces a double-valued 
+result. This is thedouble-producing primitive specialization for 
+(|java.util.function.BiFunction|) . 
+
+This is a functional interface whose functional method is 
+(|java.util.function.ToDoubleBiFunction|) . 
+
+
+
+*java.util.function.ToDoubleBiFunction.applyAsDouble(T,U)*
+
+public double applyAsDouble(
+  T t,
+  U u)
+
+Applies this function to the given arguments. 
+
+
+    t - the first function argument 
+    u - the second function argument 
+
+    Returns: the function result 
+
+

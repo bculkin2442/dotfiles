@@ -1,0 +1,21 @@
+*org.omg.PortableInterceptor.Interceptor* *Interceptor* All Portable Interceptor
+
+public interface interface Interceptor
+
+  implements |org.omg.PortableInterceptor.InterceptorOperations|
+             |org.omg.CORBA.Object|
+             |org.omg.CORBA.portable.IDLEntity|
+
+|org.omg.PortableInterceptor.Interceptor_Description|
+|org.omg.PortableInterceptor.Interceptor_Fields|
+|org.omg.PortableInterceptor.Interceptor_Constructors|
+|org.omg.PortableInterceptor.Interceptor_Methods|
+
+================================================================================
+
+*org.omg.PortableInterceptor.Interceptor_Description*
+
+All Portable Interceptors implement Interceptor. 
+
+
+

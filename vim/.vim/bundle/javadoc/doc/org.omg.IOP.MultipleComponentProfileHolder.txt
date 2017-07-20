@@ -1,0 +1,76 @@
+*org.omg.IOP.MultipleComponentProfileHolder* *MultipleComponentProfileHolder* An
+
+public final class MultipleComponentProfileHolder
+  extends    |java.lang.Object|
+  implements |org.omg.CORBA.portable.Streamable|
+
+|org.omg.IOP.MultipleComponentProfileHolder_Description|
+|org.omg.IOP.MultipleComponentProfileHolder_Fields|
+|org.omg.IOP.MultipleComponentProfileHolder_Constructors|
+|org.omg.IOP.MultipleComponentProfileHolder_Methods|
+
+================================================================================
+
+*org.omg.IOP.MultipleComponentProfileHolder_Fields*
+|org.omg.IOP.TaggedComponent[]_org.omg.IOP.MultipleComponentProfileHolder.value|
+
+*org.omg.IOP.MultipleComponentProfileHolder_Constructors*
+|org.omg.IOP.MultipleComponentProfileHolder()|
+|org.omg.IOP.MultipleComponentProfileHolder(TaggedComponent[])|
+
+*org.omg.IOP.MultipleComponentProfileHolder_Methods*
+|org.omg.IOP.MultipleComponentProfileHolder._read(InputStream)|
+|org.omg.IOP.MultipleComponentProfileHolder._type()|
+|org.omg.IOP.MultipleComponentProfileHolder._write(OutputStream)|
+
+*org.omg.IOP.MultipleComponentProfileHolder_Description*
+
+An array of tagged components, forming a multiple component profile. 
+
+
+
+*org.omg.IOP.TaggedComponent[]_org.omg.IOP.MultipleComponentProfileHolder.value*
+
+
+
+
+
+*org.omg.IOP.MultipleComponentProfileHolder()*
+
+public MultipleComponentProfileHolder()
+
+
+
+
+*org.omg.IOP.MultipleComponentProfileHolder(TaggedComponent[])*
+
+public MultipleComponentProfileHolder(org.omg.IOP.TaggedComponent[] initialValue)
+
+
+
+
+*org.omg.IOP.MultipleComponentProfileHolder._read(InputStream)*
+
+public void _read(org.omg.CORBA.portable.InputStream i)
+
+
+
+
+
+*org.omg.IOP.MultipleComponentProfileHolder._type()*
+
+public |org.omg.CORBA.TypeCode| _type()
+
+
+
+
+
+*org.omg.IOP.MultipleComponentProfileHolder._write(OutputStream)*
+
+public void _write(org.omg.CORBA.portable.OutputStream o)
+
+
+
+
+
+

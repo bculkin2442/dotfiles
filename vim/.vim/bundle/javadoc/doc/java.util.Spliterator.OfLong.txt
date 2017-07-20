@@ -1,0 +1,67 @@
+*java.util.Spliterator.OfLong* *Spliterator.OfLong* A Spliterator specialized fo
+
+public static interface interface Spliterator.OfLong
+
+  implements |java.util.Spliterator.OfPrimitive|
+
+|java.util.Spliterator.OfLong_Description|
+|java.util.Spliterator.OfLong_Fields|
+|java.util.Spliterator.OfLong_Constructors|
+|java.util.Spliterator.OfLong_Methods|
+
+================================================================================
+
+*java.util.Spliterator.OfLong_Methods*
+|java.util.Spliterator.OfLong.forEachRemaining(Consumer<?superLong>)|
+|java.util.Spliterator.OfLong.forEachRemaining(LongConsumer)|
+|java.util.Spliterator.OfLong.tryAdvance(Consumer<?superLong>)|
+|java.util.Spliterator.OfLong.tryAdvance(LongConsumer)|
+|java.util.Spliterator.OfLong.trySplit()|
+
+*java.util.Spliterator.OfLong_Description*
+
+A Spliterator specialized forlongvalues. 
+
+
+
+*java.util.Spliterator.OfLong.forEachRemaining(Consumer<?superLong>)*
+
+public void forEachRemaining(java.util.function.Consumer<? super java.lang.Long> action)
+
+
+
+
+
+*java.util.Spliterator.OfLong.forEachRemaining(LongConsumer)*
+
+public void forEachRemaining(java.util.function.LongConsumer action)
+
+
+
+
+
+*java.util.Spliterator.OfLong.tryAdvance(Consumer<?superLong>)*
+
+public boolean tryAdvance(java.util.function.Consumer<? super java.lang.Long> action)
+
+
+
+
+
+*java.util.Spliterator.OfLong.tryAdvance(LongConsumer)*
+
+public boolean tryAdvance(java.util.function.LongConsumer action)
+
+
+
+
+
+*java.util.Spliterator.OfLong.trySplit()*
+
+public |java.util.Spliterator.OfLong| trySplit()
+
+
+
+
+
+

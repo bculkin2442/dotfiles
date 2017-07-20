@@ -1,0 +1,77 @@
+*org.omg.CosNaming.BindingTypeHolder* *BindingTypeHolder* Specifies whether the 
+
+public final class BindingTypeHolder
+  extends    |java.lang.Object|
+  implements |org.omg.CORBA.portable.Streamable|
+
+|org.omg.CosNaming.BindingTypeHolder_Description|
+|org.omg.CosNaming.BindingTypeHolder_Fields|
+|org.omg.CosNaming.BindingTypeHolder_Constructors|
+|org.omg.CosNaming.BindingTypeHolder_Methods|
+
+================================================================================
+
+*org.omg.CosNaming.BindingTypeHolder_Fields*
+|org.omg.CosNaming.BindingType_org.omg.CosNaming.BindingTypeHolder.value|
+
+*org.omg.CosNaming.BindingTypeHolder_Constructors*
+|org.omg.CosNaming.BindingTypeHolder()|
+|org.omg.CosNaming.BindingTypeHolder(BindingType)|
+
+*org.omg.CosNaming.BindingTypeHolder_Methods*
+|org.omg.CosNaming.BindingTypeHolder._read(InputStream)|
+|org.omg.CosNaming.BindingTypeHolder._type()|
+|org.omg.CosNaming.BindingTypeHolder._write(OutputStream)|
+
+*org.omg.CosNaming.BindingTypeHolder_Description*
+
+Specifies whether the given binding is for a object (that is not a naming 
+context) or for a naming context. 
+
+
+
+*org.omg.CosNaming.BindingType_org.omg.CosNaming.BindingTypeHolder.value*
+
+
+
+
+
+*org.omg.CosNaming.BindingTypeHolder()*
+
+public BindingTypeHolder()
+
+
+
+
+*org.omg.CosNaming.BindingTypeHolder(BindingType)*
+
+public BindingTypeHolder(org.omg.CosNaming.BindingType initialValue)
+
+
+
+
+*org.omg.CosNaming.BindingTypeHolder._read(InputStream)*
+
+public void _read(org.omg.CORBA.portable.InputStream i)
+
+
+
+
+
+*org.omg.CosNaming.BindingTypeHolder._type()*
+
+public |org.omg.CORBA.TypeCode| _type()
+
+
+
+
+
+*org.omg.CosNaming.BindingTypeHolder._write(OutputStream)*
+
+public void _write(org.omg.CORBA.portable.OutputStream o)
+
+
+
+
+
+

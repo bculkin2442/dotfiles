@@ -1,0 +1,64 @@
+*java.util.PrimitiveIterator.OfDouble* *PrimitiveIterator.OfDouble* An Iterator 
+
+public static interface interface PrimitiveIterator.OfDouble
+
+  implements |java.util.PrimitiveIterator|
+
+|java.util.PrimitiveIterator.OfDouble_Description|
+|java.util.PrimitiveIterator.OfDouble_Fields|
+|java.util.PrimitiveIterator.OfDouble_Constructors|
+|java.util.PrimitiveIterator.OfDouble_Methods|
+
+================================================================================
+
+*java.util.PrimitiveIterator.OfDouble_Methods*
+|java.util.PrimitiveIterator.OfDouble.forEachRemaining(Consumer<?superDouble>)|
+|java.util.PrimitiveIterator.OfDouble.forEachRemaining(DoubleConsumer)|Performs
+|java.util.PrimitiveIterator.OfDouble.next()|
+|java.util.PrimitiveIterator.OfDouble.nextDouble()|Returns the nextdoubleelemen
+
+*java.util.PrimitiveIterator.OfDouble_Description*
+
+An Iterator specialized fordoublevalues. 
+
+
+
+*java.util.PrimitiveIterator.OfDouble.forEachRemaining(Consumer<?superDouble>)*
+
+public void forEachRemaining(java.util.function.Consumer<? super java.lang.Double> action)
+
+
+
+
+
+*java.util.PrimitiveIterator.OfDouble.forEachRemaining(DoubleConsumer)*
+
+public void forEachRemaining(java.util.function.DoubleConsumer action)
+
+Performs the given action for each remaining element until all elements have 
+been processed or the action throws an exception. Actions are performed in the 
+order of iteration, if that order is specified. Exceptions thrown by the action 
+are relayed to the caller. 
+
+
+    action - The action to be performed for each element 
+
+*java.util.PrimitiveIterator.OfDouble.next()*
+
+public |java.lang.Double| next()
+
+
+
+
+
+*java.util.PrimitiveIterator.OfDouble.nextDouble()*
+
+public double nextDouble()
+
+Returns the nextdoubleelement in the iteration. 
+
+
+
+    Returns: the next {@code double} element in the iteration 
+
+

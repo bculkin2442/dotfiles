@@ -1,0 +1,103 @@
+*javax.xml.soap.SAAJResult* *SAAJResult* Acts as a holder for the results of a J
+
+public class SAAJResult
+  extends    |javax.xml.transform.dom.DOMResult|
+
+|javax.xml.soap.SAAJResult_Description|
+|javax.xml.soap.SAAJResult_Fields|
+|javax.xml.soap.SAAJResult_Constructors|
+|javax.xml.soap.SAAJResult_Methods|
+
+================================================================================
+
+*javax.xml.soap.SAAJResult_Constructors*
+|javax.xml.soap.SAAJResult()|Creates a SAAJResult that will present results in 
+|javax.xml.soap.SAAJResult(SOAPElement)|Creates a SAAJResult that will write th
+|javax.xml.soap.SAAJResult(SOAPMessage)|Creates a SAAJResult that will write th
+|javax.xml.soap.SAAJResult(String)|Creates a SAAJResult that will present resul
+
+*javax.xml.soap.SAAJResult_Methods*
+|javax.xml.soap.SAAJResult.getResult()|
+
+*javax.xml.soap.SAAJResult_Description*
+
+Acts as a holder for the results of a JAXP transformation or a JAXB 
+marshalling, in the form of a SAAJ tree. These results should be accessed by 
+using the (|javax.xml.soap.SAAJResult|) method. The 
+(|javax.xml.transform.dom.DOMResult|) method should be avoided in almost all 
+cases. 
+
+
+
+*javax.xml.soap.SAAJResult()*
+
+public SAAJResult()
+  throws |javax.xml.soap.SOAPException|
+         
+Creates a SAAJResult that will present results in the form of a SAAJ tree that 
+supports the default (SOAP 1.1) protocol. 
+
+This kind of SAAJResult is meant for use in situations where the results will 
+be used as a parameter to a method that takes a parameter whose type, such as 
+SOAPElement, is drawn from the SAAJ API. When used in a transformation, the 
+results are populated into the SOAPPart of a SOAPMessage that is created 
+internally. The SOAPPart returned by (|javax.xml.transform.dom.DOMResult|) is 
+not guaranteed to be well-formed. 
+
+
+*javax.xml.soap.SAAJResult(SOAPElement)*
+
+public SAAJResult(javax.xml.soap.SOAPElement rootNode)
+
+Creates a SAAJResult that will write the results as a child node of the 
+SOAPElement specified. In the normal case these results will be written using 
+DOM APIs and as a result may invalidate the structure of the SAAJ tree. This 
+kind of SAAJResult should only be used when the validity of the incoming data 
+can be guaranteed by means outside of the SAAJ specification. 
+
+    rootNode - - the root to which the results will be appended 
+
+*javax.xml.soap.SAAJResult(SOAPMessage)*
+
+public SAAJResult(javax.xml.soap.SOAPMessage message)
+
+Creates a SAAJResult that will write the results into the SOAPPart of the 
+supplied SOAPMessage. In the normal case these results will be written using 
+DOM APIs and, as a result, the finished SOAPPart will not be guaranteed to be 
+well-formed unless the data used to create it is also well formed. When used in 
+a transformation the validity of the SOAPMessage after the transformation can 
+be guaranteed only by means outside SAAJ specification. 
+
+    message - - the message whose SOAPPart will be populated as a result of some 
+       transformation or marshalling operation 
+
+*javax.xml.soap.SAAJResult(String)*
+
+public SAAJResult(java.lang.String protocol)
+  throws |javax.xml.soap.SOAPException|
+         
+Creates a SAAJResult that will present results in the form of a SAAJ tree that 
+supports the specified protocol. The DYNAMIC_SOAP_PROTOCOL is ambiguous in this 
+context and will cause this constructor to throw an 
+UnsupportedOperationException. 
+
+This kind of SAAJResult is meant for use in situations where the results will 
+be used as a parameter to a method that takes a parameter whose type, such as 
+SOAPElement, is drawn from the SAAJ API. When used in a transformation the 
+results are populated into the SOAPPart of a SOAPMessage that is created 
+internally. The SOAPPart returned by (|javax.xml.transform.dom.DOMResult|) is 
+not guaranteed to be well-formed. 
+
+    protocol - - the name of the SOAP protocol that the resulting SAAJ tree should support 
+
+*javax.xml.soap.SAAJResult.getResult()*
+
+public |javax.xml.soap.Node| getResult()
+
+
+
+
+
+    Returns: the resulting Tree that was created under the specified root Node. 
+
+

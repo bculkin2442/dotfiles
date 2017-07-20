@@ -1,0 +1,111 @@
+*org.omg.CosNaming.BindingIteratorHelper* *BindingIteratorHelper* The BindingIte
+
+public abstract class BindingIteratorHelper
+  extends    |java.lang.Object|
+
+|org.omg.CosNaming.BindingIteratorHelper_Description|
+|org.omg.CosNaming.BindingIteratorHelper_Fields|
+|org.omg.CosNaming.BindingIteratorHelper_Constructors|
+|org.omg.CosNaming.BindingIteratorHelper_Methods|
+
+================================================================================
+
+*org.omg.CosNaming.BindingIteratorHelper_Constructors*
+|org.omg.CosNaming.BindingIteratorHelper()|
+
+*org.omg.CosNaming.BindingIteratorHelper_Methods*
+|org.omg.CosNaming.BindingIteratorHelper.extract(Any)|
+|org.omg.CosNaming.BindingIteratorHelper.id()|
+|org.omg.CosNaming.BindingIteratorHelper.insert(Any,BindingIterator)|
+|org.omg.CosNaming.BindingIteratorHelper.narrow(Object)|
+|org.omg.CosNaming.BindingIteratorHelper.read(InputStream)|
+|org.omg.CosNaming.BindingIteratorHelper.type()|
+|org.omg.CosNaming.BindingIteratorHelper.unchecked_narrow(Object)|
+|org.omg.CosNaming.BindingIteratorHelper.write(OutputStream,BindingIterator)|
+
+*org.omg.CosNaming.BindingIteratorHelper_Description*
+
+The BindingIterator interface allows a client to iterate through the bindings 
+using the next_one or next_n operations. 
+
+The bindings iterator is obtained by using the list method on the 
+NamingContext. 
+
+
+
+*org.omg.CosNaming.BindingIteratorHelper()*
+
+public BindingIteratorHelper()
+
+
+
+
+*org.omg.CosNaming.BindingIteratorHelper.extract(Any)*
+
+public static |org.omg.CosNaming.BindingIterator| extract(org.omg.CORBA.Any a)
+
+
+
+
+
+*org.omg.CosNaming.BindingIteratorHelper.id()*
+
+public static |java.lang.String| id()
+
+
+
+
+
+*org.omg.CosNaming.BindingIteratorHelper.insert(Any,BindingIterator)*
+
+public static void insert(
+  org.omg.CORBA.Any a,
+  org.omg.CosNaming.BindingIterator that)
+
+
+
+
+
+*org.omg.CosNaming.BindingIteratorHelper.narrow(Object)*
+
+public static |org.omg.CosNaming.BindingIterator| narrow(org.omg.CORBA.Object obj)
+
+
+
+
+
+*org.omg.CosNaming.BindingIteratorHelper.read(InputStream)*
+
+public static |org.omg.CosNaming.BindingIterator| read(org.omg.CORBA.portable.InputStream istream)
+
+
+
+
+
+*org.omg.CosNaming.BindingIteratorHelper.type()*
+
+public static synchronized |org.omg.CORBA.TypeCode| type()
+
+
+
+
+
+*org.omg.CosNaming.BindingIteratorHelper.unchecked_narrow(Object)*
+
+public static |org.omg.CosNaming.BindingIterator| unchecked_narrow(org.omg.CORBA.Object obj)
+
+
+
+
+
+*org.omg.CosNaming.BindingIteratorHelper.write(OutputStream,BindingIterator)*
+
+public static void write(
+  org.omg.CORBA.portable.OutputStream ostream,
+  org.omg.CosNaming.BindingIterator value)
+
+
+
+
+
+

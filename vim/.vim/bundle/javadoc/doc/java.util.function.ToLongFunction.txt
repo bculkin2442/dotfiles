@@ -1,0 +1,38 @@
+*java.util.function.ToLongFunction* *ToLongFunction* Represents a function that 
+
+public interface interface ToLongFunction<T>
+
+
+|java.util.function.ToLongFunction_Description|
+|java.util.function.ToLongFunction_Fields|
+|java.util.function.ToLongFunction_Constructors|
+|java.util.function.ToLongFunction_Methods|
+
+================================================================================
+
+*java.util.function.ToLongFunction_Methods*
+|java.util.function.ToLongFunction.applyAsLong(T)|Applies this function to the 
+
+*java.util.function.ToLongFunction_Description*
+
+Represents a function that produces a long-valued result. This is 
+thelong-producing primitive specialization for (|java.util.function.Function|) 
+. 
+
+This is a functional interface whose functional method is 
+(|java.util.function.ToLongFunction|) . 
+
+
+
+*java.util.function.ToLongFunction.applyAsLong(T)*
+
+public long applyAsLong(T value)
+
+Applies this function to the given argument. 
+
+
+    value - the function argument 
+
+    Returns: the function result 
+
+

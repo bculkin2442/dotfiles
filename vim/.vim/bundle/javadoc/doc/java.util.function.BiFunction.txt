@@ -1,0 +1,55 @@
+*java.util.function.BiFunction* *BiFunction* Represents a function that accepts 
+
+public interface interface BiFunction<T,U,R>
+
+
+|java.util.function.BiFunction_Description|
+|java.util.function.BiFunction_Fields|
+|java.util.function.BiFunction_Constructors|
+|java.util.function.BiFunction_Methods|
+
+================================================================================
+
+*java.util.function.BiFunction_Methods*
+|java.util.function.BiFunction.andThen(Function<?superR,?extendsV>)|Returns a c
+|java.util.function.BiFunction.apply(T,U)|Applies this function to the given ar
+
+*java.util.function.BiFunction_Description*
+
+Represents a function that accepts two arguments and produces a result. This is 
+the two-arity specialization of (|java.util.function.Function|) . 
+
+This is a functional interface whose functional method is 
+(|java.util.function.BiFunction|) . 
+
+
+
+*java.util.function.BiFunction.andThen(Function<?superR,?extendsV>)*
+
+public |java.util.function.BiFunction|<T,U,V> andThen(java.util.function.Function<? super R, ? extends V> after)
+
+Returns a composed function that first applies this function to its input, and 
+then applies theafterfunction to the result. If evaluation of either function 
+throws an exception, it is relayed to the caller of the composed function. 
+
+
+    after - the function to apply after this function is applied 
+
+    Returns: a composed function that first applies this function and then applies the 
+             {@code after} function 
+
+*java.util.function.BiFunction.apply(T,U)*
+
+public |R| apply(
+  T t,
+  U u)
+
+Applies this function to the given arguments. 
+
+
+    t - the first function argument 
+    u - the second function argument 
+
+    Returns: the function result 
+
+

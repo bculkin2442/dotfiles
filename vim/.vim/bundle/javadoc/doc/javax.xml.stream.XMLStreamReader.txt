@@ -1,0 +1,755 @@
+*javax.xml.stream.XMLStreamReader* *XMLStreamReader* The XMLStreamReader interfa
+
+public interface interface XMLStreamReader
+
+  implements |javax.xml.stream.XMLStreamConstants|
+
+|javax.xml.stream.XMLStreamReader_Description|
+|javax.xml.stream.XMLStreamReader_Fields|
+|javax.xml.stream.XMLStreamReader_Constructors|
+|javax.xml.stream.XMLStreamReader_Methods|
+
+================================================================================
+
+*javax.xml.stream.XMLStreamReader_Methods*
+|javax.xml.stream.XMLStreamReader.close()|Frees any resources associated with t
+|javax.xml.stream.XMLStreamReader.getAttributeCount()|Returns the count of attr
+|javax.xml.stream.XMLStreamReader.getAttributeLocalName(int)|Returns the localN
+|javax.xml.stream.XMLStreamReader.getAttributeName(int)|Returns the qname of th
+|javax.xml.stream.XMLStreamReader.getAttributeNamespace(int)|Returns the namesp
+|javax.xml.stream.XMLStreamReader.getAttributePrefix(int)|Returns the prefix of
+|javax.xml.stream.XMLStreamReader.getAttributeType(int)|Returns the XML type of
+|javax.xml.stream.XMLStreamReader.getAttributeValue(int)|Returns the value of t
+|javax.xml.stream.XMLStreamReader.getAttributeValue(String,String)|Returns the 
+|javax.xml.stream.XMLStreamReader.getCharacterEncodingScheme()|Returns the char
+|javax.xml.stream.XMLStreamReader.getElementText()|Reads the content of a text-
+|javax.xml.stream.XMLStreamReader.getEncoding()|Return input encoding if known 
+|javax.xml.stream.XMLStreamReader.getEventType()|Returns an integer code that i
+|javax.xml.stream.XMLStreamReader.getLocalName()|Returns the (local) name of th
+|javax.xml.stream.XMLStreamReader.getLocation()|Return the current location of 
+|javax.xml.stream.XMLStreamReader.getName()|Returns a QName for the current STA
+|javax.xml.stream.XMLStreamReader.getNamespaceContext()|Returns a read only nam
+|javax.xml.stream.XMLStreamReader.getNamespaceCount()|Returns the count of name
+|javax.xml.stream.XMLStreamReader.getNamespacePrefix(int)|Returns the prefix fo
+|javax.xml.stream.XMLStreamReader.getNamespaceURI()|If the current event is a S
+|javax.xml.stream.XMLStreamReader.getNamespaceURI(int)|Returns the uri for the 
+|javax.xml.stream.XMLStreamReader.getNamespaceURI(String)|Return the uri for th
+|javax.xml.stream.XMLStreamReader.getPIData()|Get the data section of a process
+|javax.xml.stream.XMLStreamReader.getPITarget()|Get the target of a processing 
+|javax.xml.stream.XMLStreamReader.getPrefix()|Returns the prefix of the current
+|javax.xml.stream.XMLStreamReader.getProperty(String)|Get the value of a featur
+|javax.xml.stream.XMLStreamReader.getText()|Returns the current value of the pa
+|javax.xml.stream.XMLStreamReader.getTextCharacters()|Returns an array which co
+|javax.xml.stream.XMLStreamReader.getTextCharacters(int,char[],int,int)|Gets th
+|javax.xml.stream.XMLStreamReader.getTextLength()|Returns the length of the seq
+|javax.xml.stream.XMLStreamReader.getTextStart()|Returns the offset into the te
+|javax.xml.stream.XMLStreamReader.getVersion()|Get the xml version declared on 
+|javax.xml.stream.XMLStreamReader.hasName()|returns true if the current event h
+|javax.xml.stream.XMLStreamReader.hasNext()|Returns true if there are more pars
+|javax.xml.stream.XMLStreamReader.hasText()|Return true if the current event ha
+|javax.xml.stream.XMLStreamReader.isAttributeSpecified(int)|Returns a boolean w
+|javax.xml.stream.XMLStreamReader.isCharacters()|Returns true if the cursor poi
+|javax.xml.stream.XMLStreamReader.isEndElement()|Returns true if the cursor poi
+|javax.xml.stream.XMLStreamReader.isStandalone()|Get the standalone declaration
+|javax.xml.stream.XMLStreamReader.isStartElement()|Returns true if the cursor p
+|javax.xml.stream.XMLStreamReader.isWhiteSpace()|Returns true if the cursor poi
+|javax.xml.stream.XMLStreamReader.next()|Get next parsing event - a processor m
+|javax.xml.stream.XMLStreamReader.nextTag()|Skips any white space (isWhiteSpace
+|javax.xml.stream.XMLStreamReader.require(int,String,String)|Test if the curren
+|javax.xml.stream.XMLStreamReader.standaloneSet()|Checks if standalone was set 
+
+*javax.xml.stream.XMLStreamReader_Description*
+
+The XMLStreamReader interface allows forward, read-only access to XML. It is 
+designed to be the lowest level and most efficient way to read XML data. 
+
+The XMLStreamReader is designed to iterate over XML using next() and hasNext(). 
+The data can be accessed using methods such as getEventType(), 
+getNamespaceURI(), getLocalName() and getText(); 
+
+The next() method causes the reader to read the next parse event. The next() 
+method returns an integer which identifies the type of event just read. The 
+event type can be determined using getEventType(). Parsing events are defined 
+as the XML Declaration, a DTD, start tag, character data, white space, end tag, 
+comment, or processing instruction. An attribute or namespace event may be 
+encountered at the root level of a document as the result of a query operation. 
+
+For XML 1.0 compliance an XML processor must pass the identifiers of declared 
+unparsed entities, notation declarations and their associated identifiers to 
+the application. This information is provided through the property API on this 
+interface. The following two properties allow access to this information: 
+javax.xml.stream.notations and javax.xml.stream.entities. When the current 
+event is a DTD the following call will return a list of Notations List l = 
+(List) getProperty("javax.xml.stream.notations"); The following call will 
+return a list of entity declarations: List l = (List) 
+getProperty("javax.xml.stream.entities"); These properties can only be accessed 
+during a DTD event and are defined to return null if the information is not 
+available. 
+
+The following table describes which methods are valid in what state. If a 
+method is called in an invalid state the method will throw a 
+java.lang.IllegalStateException. 
+
+
+
+
+
+Valid methods for each state 
+
+
+
+
+
+Event Type Valid Methods 
+
+All States getProperty(), hasNext(), require(), close(), getNamespaceURI(), 
+isStartElement(), isEndElement(), isCharacters(), isWhiteSpace(), 
+getNamespaceContext(), getEventType(),getLocation(), hasText(), hasName() 
+
+
+
+START_ELEMENT next(), getName(), getLocalName(), hasName(), getPrefix(), 
+getAttributeXXX(), isAttributeSpecified(), getNamespaceXXX(), getElementText(), 
+nextTag() 
+
+ATTRIBUTE next(), nextTag() getAttributeXXX(), isAttributeSpecified(), 
+
+
+
+NAMESPACE next(), nextTag() getNamespaceXXX() 
+
+
+
+END_ELEMENT next(), getName(), getLocalName(), hasName(), getPrefix(), 
+getNamespaceXXX(), nextTag() 
+
+
+
+CHARACTERS next(), getTextXXX(), nextTag() 
+
+CDATA next(), getTextXXX(), nextTag() 
+
+COMMENT next(), getTextXXX(), nextTag() 
+
+SPACE next(), getTextXXX(), nextTag() 
+
+START_DOCUMENT next(), getEncoding(), getVersion(), isStandalone(), 
+standaloneSet(), getCharacterEncodingScheme(), nextTag() 
+
+END_DOCUMENT close() 
+
+PROCESSING_INSTRUCTION next(), getPITarget(), getPIData(), nextTag() 
+
+ENTITY_REFERENCE next(), getLocalName(), getText(), nextTag() 
+
+DTD next(), getText(), nextTag() 
+
+
+
+
+
+*javax.xml.stream.XMLStreamReader.close()*
+
+public void close()
+  throws |javax.xml.stream.XMLStreamException|
+         
+Frees any resources associated with this Reader. This method does not close the 
+underlying input source. 
+
+
+
+*javax.xml.stream.XMLStreamReader.getAttributeCount()*
+
+public int getAttributeCount()
+
+Returns the count of attributes on this START_ELEMENT, this method is only 
+valid on a START_ELEMENT or ATTRIBUTE. This count excludes namespace 
+definitions. Attribute indices are zero-based. 
+
+
+
+    Returns: returns the number of attributes 
+
+*javax.xml.stream.XMLStreamReader.getAttributeLocalName(int)*
+
+public |java.lang.String| getAttributeLocalName(int index)
+
+Returns the localName of the attribute at the provided index 
+
+
+    index - the position of the attribute 
+
+    Returns: the localName of the attribute 
+
+*javax.xml.stream.XMLStreamReader.getAttributeName(int)*
+
+public |javax.xml.namespace.QName| getAttributeName(int index)
+
+Returns the qname of the attribute at the provided index 
+
+
+    index - the position of the attribute 
+
+    Returns: the QName of the attribute 
+
+*javax.xml.stream.XMLStreamReader.getAttributeNamespace(int)*
+
+public |java.lang.String| getAttributeNamespace(int index)
+
+Returns the namespace of the attribute at the provided index 
+
+
+    index - the position of the attribute 
+
+    Returns: the namespace URI (can be null) 
+
+*javax.xml.stream.XMLStreamReader.getAttributePrefix(int)*
+
+public |java.lang.String| getAttributePrefix(int index)
+
+Returns the prefix of this attribute at the provided index 
+
+
+    index - the position of the attribute 
+
+    Returns: the prefix of the attribute 
+
+*javax.xml.stream.XMLStreamReader.getAttributeType(int)*
+
+public |java.lang.String| getAttributeType(int index)
+
+Returns the XML type of the attribute at the provided index 
+
+
+    index - the position of the attribute 
+
+    Returns: the XML type of the attribute 
+
+*javax.xml.stream.XMLStreamReader.getAttributeValue(int)*
+
+public |java.lang.String| getAttributeValue(int index)
+
+Returns the value of the attribute at the index 
+
+
+    index - the position of the attribute 
+
+    Returns: the attribute value 
+
+*javax.xml.stream.XMLStreamReader.getAttributeValue(String,String)*
+
+public |java.lang.String| getAttributeValue(
+  java.lang.String namespaceURI,
+  java.lang.String localName)
+
+Returns the normalized attribute value of the attribute with the namespace and 
+localName If the namespaceURI is null the namespace is not checked for equality 
+
+
+    namespaceURI - the namespace of the attribute 
+    localName - the local name of the attribute, cannot be null 
+
+    Returns: returns the value of the attribute , returns null if not found 
+
+*javax.xml.stream.XMLStreamReader.getCharacterEncodingScheme()*
+
+public |java.lang.String| getCharacterEncodingScheme()
+
+Returns the character encoding declared on the xml declaration Returns null if 
+none was declared 
+
+
+
+    Returns: the encoding declared in the document or null 
+
+*javax.xml.stream.XMLStreamReader.getElementText()*
+
+public |java.lang.String| getElementText()
+  throws |javax.xml.stream.XMLStreamException|
+         
+Reads the content of a text-only element, an exception is thrown if this is not 
+a text-only element. Regardless of value of javax.xml.stream.isCoalescing this 
+method always returns coalesced content. Precondition: the current event is 
+START_ELEMENT. Postcondition: the current event is the corresponding 
+END_ELEMENT. 
+
+The method does the following (implementations are free to optimized but must 
+do equivalent processing): 
+
+if(getEventType() != XMLStreamConstants.START_ELEMENT) { throw new 
+XMLStreamException( "parser must be on START_ELEMENT to read next text", 
+getLocation()); } int eventType = next(); StringBuffer content = new 
+StringBuffer(); while(eventType != XMLStreamConstants.END_ELEMENT ) { 
+if(eventType == XMLStreamConstants.CHARACTERS || eventType == 
+XMLStreamConstants.CDATA || eventType == XMLStreamConstants.SPACE || eventType 
+== XMLStreamConstants.ENTITY_REFERENCE) { buf.append(getText()); } else 
+if(eventType == XMLStreamConstants.PROCESSING_INSTRUCTION || eventType == 
+XMLStreamConstants.COMMENT) { // skipping } else if(eventType == 
+XMLStreamConstants.END_DOCUMENT) { throw new XMLStreamException( "unexpected 
+end of document when reading element text content", this); } else if(eventType 
+== XMLStreamConstants.START_ELEMENT) { throw new XMLStreamException( "element 
+text content may not contain START_ELEMENT", getLocation()); } else { throw new 
+XMLStreamException( "Unexpected event type "+eventType, getLocation()); } 
+eventType = next(); } return buf.toString(); 
+
+
+
+*javax.xml.stream.XMLStreamReader.getEncoding()*
+
+public |java.lang.String| getEncoding()
+
+Return input encoding if known or null if unknown. 
+
+
+
+    Returns: the encoding of this instance or null 
+
+*javax.xml.stream.XMLStreamReader.getEventType()*
+
+public int getEventType()
+
+Returns an integer code that indicates the type of the event the cursor is 
+pointing to. 
+
+
+
+*javax.xml.stream.XMLStreamReader.getLocalName()*
+
+public |java.lang.String| getLocalName()
+
+Returns the (local) name of the current event. For START_ELEMENT or END_ELEMENT 
+returns the (local) name of the current element. For ENTITY_REFERENCE it 
+returns entity name. The current event must be START_ELEMENT or END_ELEMENT, or 
+ENTITY_REFERENCE 
+
+
+
+    Returns: the localName 
+
+*javax.xml.stream.XMLStreamReader.getLocation()*
+
+public |javax.xml.stream.Location| getLocation()
+
+Return the current location of the processor. If the Location is unknown the 
+processor should return an implementation of Location that returns -1 for the 
+location and null for the publicId and systemId. The location information is 
+only valid until next() is called. 
+
+
+
+*javax.xml.stream.XMLStreamReader.getName()*
+
+public |javax.xml.namespace.QName| getName()
+
+Returns a QName for the current START_ELEMENT or END_ELEMENT event 
+
+
+
+    Returns: the QName for the current START_ELEMENT or END_ELEMENT event 
+
+*javax.xml.stream.XMLStreamReader.getNamespaceContext()*
+
+public |javax.xml.namespace.NamespaceContext| getNamespaceContext()
+
+Returns a read only namespace context for the current position. The context is 
+transient and only valid until a call to next() changes the state of the 
+reader. 
+
+
+
+    Returns: return a namespace context 
+
+*javax.xml.stream.XMLStreamReader.getNamespaceCount()*
+
+public int getNamespaceCount()
+
+Returns the count of namespaces declared on this START_ELEMENT or END_ELEMENT, 
+this method is only valid on a START_ELEMENT, END_ELEMENT or NAMESPACE. On an 
+END_ELEMENT the count is of the namespaces that are about to go out of scope. 
+This is the equivalent of the information reported by SAX callback for an end 
+element event. 
+
+
+
+    Returns: returns the number of namespace declarations on this specific element 
+
+*javax.xml.stream.XMLStreamReader.getNamespacePrefix(int)*
+
+public |java.lang.String| getNamespacePrefix(int index)
+
+Returns the prefix for the namespace declared at the index. Returns null if 
+this is the default namespace declaration 
+
+
+    index - the position of the namespace declaration 
+
+    Returns: returns the namespace prefix 
+
+*javax.xml.stream.XMLStreamReader.getNamespaceURI()*
+
+public |java.lang.String| getNamespaceURI()
+
+If the current event is a START_ELEMENT or END_ELEMENT this method returns the 
+URI of the prefix or the default namespace. Returns null if the event does not 
+have a prefix. 
+
+
+
+    Returns: the URI bound to this elements prefix, the default namespace, or null 
+
+*javax.xml.stream.XMLStreamReader.getNamespaceURI(int)*
+
+public |java.lang.String| getNamespaceURI(int index)
+
+Returns the uri for the namespace declared at the index. 
+
+
+    index - the position of the namespace declaration 
+
+    Returns: returns the namespace uri 
+
+*javax.xml.stream.XMLStreamReader.getNamespaceURI(String)*
+
+public |java.lang.String| getNamespaceURI(java.lang.String prefix)
+
+Return the uri for the given prefix. The uri returned depends on the current 
+state of the processor. 
+
+NOTE:The 'xml' prefix is bound as defined in Namespaces in XML specification to 
+"http://www.w3.org/XML/1998/namespace". 
+
+NOTE: The 'xmlns' prefix must be resolved to following namespace 
+http://www.w3.org/2000/xmlns/ 
+
+
+    prefix - The prefix to lookup, may not be null 
+
+    Returns: the uri bound to the given prefix or null if it is not bound 
+
+*javax.xml.stream.XMLStreamReader.getPIData()*
+
+public |java.lang.String| getPIData()
+
+Get the data section of a processing instruction 
+
+
+
+    Returns: the data or null 
+
+*javax.xml.stream.XMLStreamReader.getPITarget()*
+
+public |java.lang.String| getPITarget()
+
+Get the target of a processing instruction 
+
+
+
+    Returns: the target or null 
+
+*javax.xml.stream.XMLStreamReader.getPrefix()*
+
+public |java.lang.String| getPrefix()
+
+Returns the prefix of the current event or null if the event does not have a 
+prefix 
+
+
+
+    Returns: the prefix or null 
+
+*javax.xml.stream.XMLStreamReader.getProperty(String)*
+
+public |java.lang.Object| getProperty(java.lang.String name)
+  throws |java.lang.IllegalArgumentException|
+         
+Get the value of a feature/property from the underlying implementation 
+
+
+    name - The name of the property, may not be null 
+
+    Returns: The value of the property 
+
+*javax.xml.stream.XMLStreamReader.getText()*
+
+public |java.lang.String| getText()
+
+Returns the current value of the parse event as a string, this returns the 
+string value of a CHARACTERS event, returns the value of a COMMENT, the 
+replacement value for an ENTITY_REFERENCE, the string value of a CDATA section, 
+the string value for a SPACE event, or the String value of the internal subset 
+of the DTD. If an ENTITY_REFERENCE has been resolved, any character data will 
+be reported as CHARACTERS events. 
+
+
+
+    Returns: the current text or null 
+
+*javax.xml.stream.XMLStreamReader.getTextCharacters()*
+
+public char[] getTextCharacters()
+
+Returns an array which contains the characters from this event. This array 
+should be treated as read-only and transient. I.e. the array will contain the 
+text characters until the XMLStreamReader moves on to the next event. Attempts 
+to hold onto the character array beyond that time or modify the contents of the 
+array are breaches of the contract for this interface. 
+
+
+
+    Returns: the current text or an empty array 
+
+*javax.xml.stream.XMLStreamReader.getTextCharacters(int,char[],int,int)*
+
+public int getTextCharacters(
+  int sourceStart,
+  char[] target,
+  int targetStart,
+  int length)
+  throws |javax.xml.stream.XMLStreamException|
+         
+Gets the the text associated with a CHARACTERS, SPACE or CDATA event. Text 
+starting a "sourceStart" is copied into "target" starting at "targetStart". Up 
+to "length" characters are copied. The number of characters actually copied is 
+returned. 
+
+The "sourceStart" argument must be greater or equal to 0 and less than or equal 
+to the number of characters associated with the event. Usually, one requests 
+text starting at a "sourceStart" of 0. If the number of characters actually 
+copied is less than the "length", then there is no more text. Otherwise, 
+subsequent calls need to be made until all text has been retrieved. For 
+example: 
+
+int length = 1024; char[] myBuffer = new char[ length ]; 
+
+for ( int sourceStart = 0 ; ; sourceStart += length ) { int nCopied = 
+stream.getTextCharacters( sourceStart, myBuffer, 0, length ); 
+
+if (nCopied XMLStreamException may be thrown if there are any XML errors in the 
+underlying source. The "targetStart" argument must be greater than or equal to 
+0 and less than the length of "target", Length must be greater than 0 and 
+"targetStart + length" must be less than or equal to length of "target". 
+
+
+    sourceStart - the index of the first character in the source array to copy 
+    target - the destination array 
+    targetStart - the start offset in the target array 
+    length - the number of characters to copy 
+
+    Returns: the number of characters actually copied 
+
+*javax.xml.stream.XMLStreamReader.getTextLength()*
+
+public int getTextLength()
+
+Returns the length of the sequence of characters for this Text event within the 
+text character array. 
+
+
+
+*javax.xml.stream.XMLStreamReader.getTextStart()*
+
+public int getTextStart()
+
+Returns the offset into the text character array where the first character (of 
+this text event) is stored. 
+
+
+
+*javax.xml.stream.XMLStreamReader.getVersion()*
+
+public |java.lang.String| getVersion()
+
+Get the xml version declared on the xml declaration Returns null if none was 
+declared 
+
+
+
+    Returns: the XML version or null 
+
+*javax.xml.stream.XMLStreamReader.hasName()*
+
+public boolean hasName()
+
+returns true if the current event has a name (is a START_ELEMENT or 
+END_ELEMENT) returns false otherwise 
+
+
+
+*javax.xml.stream.XMLStreamReader.hasNext()*
+
+public boolean hasNext()
+  throws |javax.xml.stream.XMLStreamException|
+         
+Returns true if there are more parsing events and false if there are no more 
+events. This method will return false if the current state of the 
+XMLStreamReader is END_DOCUMENT 
+
+
+
+    Returns: true if there are more events, false otherwise 
+
+*javax.xml.stream.XMLStreamReader.hasText()*
+
+public boolean hasText()
+
+Return true if the current event has text, false otherwise The following events 
+have text: CHARACTERS,DTD ,ENTITY_REFERENCE, COMMENT, SPACE 
+
+
+
+*javax.xml.stream.XMLStreamReader.isAttributeSpecified(int)*
+
+public boolean isAttributeSpecified(int index)
+
+Returns a boolean which indicates if this attribute was created by default 
+
+
+    index - the position of the attribute 
+
+    Returns: true if this is a default attribute 
+
+*javax.xml.stream.XMLStreamReader.isCharacters()*
+
+public boolean isCharacters()
+
+Returns true if the cursor points to a character data event 
+
+
+
+    Returns: true if the cursor points to character data, false otherwise 
+
+*javax.xml.stream.XMLStreamReader.isEndElement()*
+
+public boolean isEndElement()
+
+Returns true if the cursor points to an end tag (otherwise false) 
+
+
+
+    Returns: true if the cursor points to an end tag, false otherwise 
+
+*javax.xml.stream.XMLStreamReader.isStandalone()*
+
+public boolean isStandalone()
+
+Get the standalone declaration from the xml declaration 
+
+
+
+    Returns: true if this is standalone, or false otherwise 
+
+*javax.xml.stream.XMLStreamReader.isStartElement()*
+
+public boolean isStartElement()
+
+Returns true if the cursor points to a start tag (otherwise false) 
+
+
+
+    Returns: true if the cursor points to a start tag, false otherwise 
+
+*javax.xml.stream.XMLStreamReader.isWhiteSpace()*
+
+public boolean isWhiteSpace()
+
+Returns true if the cursor points to a character data event that consists of 
+all whitespace 
+
+
+
+    Returns: true if the cursor points to all whitespace, false otherwise 
+
+*javax.xml.stream.XMLStreamReader.next()*
+
+public int next()
+  throws |javax.xml.stream.XMLStreamException|
+         
+Get next parsing event - a processor may return all contiguous character data 
+in a single chunk, or it may split it into several chunks. If the property 
+javax.xml.stream.isCoalescing is set to true element content must be coalesced 
+and only one CHARACTERS event must be returned for contiguous element content 
+or CDATA Sections. 
+
+By default entity references must be expanded and reported transparently to the 
+application. An exception will be thrown if an entity reference cannot be 
+expanded. If element content is empty (i.e. content is "") then no CHARACTERS 
+event will be reported. 
+
+Given the following XML: <foo><!--description-->content 
+text<![CDATA[<greeting>Hello</greeting>]]>other content</foo> The behavior of 
+calling next() when being on foo will be: 1- the comment (COMMENT) 2- then the 
+characters section (CHARACTERS) 3- then the CDATA section (another CHARACTERS) 
+4- then the next characters section (another CHARACTERS) 5- then the 
+END_ELEMENT 
+
+NOTE: empty element (such as <tag/>) will be reported with two separate events: 
+START_ELEMENT, END_ELEMENT - This preserves parsing equivalency of empty 
+element to <tag></tag>. 
+
+This method will throw an IllegalStateException if it is called after hasNext() 
+returns false. 
+
+
+
+    Returns: the integer code corresponding to the current parse event 
+
+*javax.xml.stream.XMLStreamReader.nextTag()*
+
+public int nextTag()
+  throws |javax.xml.stream.XMLStreamException|
+         
+Skips any white space (isWhiteSpace() returns true), COMMENT, or 
+PROCESSING_INSTRUCTION, until a START_ELEMENT or END_ELEMENT is reached. If 
+other than white space characters, COMMENT, PROCESSING_INSTRUCTION, 
+START_ELEMENT, END_ELEMENT are encountered, an exception is thrown. This method 
+should be used when processing element-only content seperated by white space. 
+
+Precondition: none Postcondition: the current event is START_ELEMENT or 
+END_ELEMENT and cursor may have moved over any whitespace event. 
+
+Essentially it does the following (implementations are free to optimized but 
+must do equivalent processing): 
+
+int eventType = next(); while((eventType == XMLStreamConstants.CHARACTERS and 
+and isWhiteSpace()) // skip whitespace || (eventType == 
+XMLStreamConstants.CDATA and and isWhiteSpace()) // skip whitespace || 
+eventType == XMLStreamConstants.SPACE || eventType == 
+XMLStreamConstants.PROCESSING_INSTRUCTION || eventType == 
+XMLStreamConstants.COMMENT ) { eventType = next(); } if (eventType != 
+XMLStreamConstants.START_ELEMENT and and eventType != 
+XMLStreamConstants.END_ELEMENT) { throw new String XMLStreamException("expected 
+start or end tag", getLocation()); } return eventType; 
+
+
+
+    Returns: the event type of the element read (START_ELEMENT or END_ELEMENT) 
+
+*javax.xml.stream.XMLStreamReader.require(int,String,String)*
+
+public void require(
+  int type,
+  java.lang.String namespaceURI,
+  java.lang.String localName)
+  throws |javax.xml.stream.XMLStreamException|
+         
+Test if the current event is of the given type and if the namespace and name 
+match the current namespace and name of the current event. If the namespaceURI 
+is null it is not checked for equality, if the localName is null it is not 
+checked for equality. 
+
+
+    type - the event type 
+    namespaceURI - the uri of the event, may be null 
+    localName - the localName of the event, may be null 
+
+*javax.xml.stream.XMLStreamReader.standaloneSet()*
+
+public boolean standaloneSet()
+
+Checks if standalone was set in the document 
+
+
+
+    Returns: true if standalone was set in the document, or false otherwise 
+
+

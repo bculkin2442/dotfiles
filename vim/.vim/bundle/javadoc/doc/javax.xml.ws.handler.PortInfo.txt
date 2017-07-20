@@ -1,0 +1,60 @@
+*javax.xml.ws.handler.PortInfo* *PortInfo* The PortInfo interface is used by a
+ 
+
+public interface interface PortInfo
+
+
+|javax.xml.ws.handler.PortInfo_Description|
+|javax.xml.ws.handler.PortInfo_Fields|
+|javax.xml.ws.handler.PortInfo_Constructors|
+|javax.xml.ws.handler.PortInfo_Methods|
+
+================================================================================
+
+*javax.xml.ws.handler.PortInfo_Methods*
+|javax.xml.ws.handler.PortInfo.getBindingID()|Gets the URI identifying the bind
+|javax.xml.ws.handler.PortInfo.getPortName()|Gets the qualified name of the WSD
+|javax.xml.ws.handler.PortInfo.getServiceName()|Gets the qualified name of the 
+
+*javax.xml.ws.handler.PortInfo_Description*
+
+The PortInfo interface is used by a HandlerResolver to query information about 
+the port it is being asked to create a handler chain for. 
+
+This interface is never implemented by an application, only by a JAX-WS 
+implementation. 
+
+
+
+*javax.xml.ws.handler.PortInfo.getBindingID()*
+
+public |java.lang.String| getBindingID()
+
+Gets the URI identifying the binding used by the port being accessed. 
+
+
+
+    Returns: String The binding identifier for the port. 
+
+*javax.xml.ws.handler.PortInfo.getPortName()*
+
+public |javax.xml.namespace.QName| getPortName()
+
+Gets the qualified name of the WSDL port being accessed. 
+
+
+
+    Returns: javax.xml.namespace.QName The qualified name of the WSDL port. 
+
+*javax.xml.ws.handler.PortInfo.getServiceName()*
+
+public |javax.xml.namespace.QName| getServiceName()
+
+Gets the qualified name of the WSDL service name containing the port being 
+accessed. 
+
+
+
+    Returns: javax.xml.namespace.QName The qualified name of the WSDL service. 
+
+

@@ -1,0 +1,35 @@
+*javax.xml.ws.handler.LogicalMessageContext* *LogicalMessageContext* The Logical
+
+public interface interface LogicalMessageContext
+
+  implements |javax.xml.ws.handler.MessageContext|
+
+|javax.xml.ws.handler.LogicalMessageContext_Description|
+|javax.xml.ws.handler.LogicalMessageContext_Fields|
+|javax.xml.ws.handler.LogicalMessageContext_Constructors|
+|javax.xml.ws.handler.LogicalMessageContext_Methods|
+
+================================================================================
+
+*javax.xml.ws.handler.LogicalMessageContext_Methods*
+|javax.xml.ws.handler.LogicalMessageContext.getMessage()|Gets the message from 
+
+*javax.xml.ws.handler.LogicalMessageContext_Description*
+
+The LogicalMessageContext interface extends MessageContext to provide access to 
+a the contained message as a protocol neutral LogicalMessage 
+
+
+
+*javax.xml.ws.handler.LogicalMessageContext.getMessage()*
+
+public |javax.xml.ws.LogicalMessage| getMessage()
+
+Gets the message from this message context 
+
+
+
+    Returns: The contained message; returns null if no message is present in this message 
+             context 
+
+

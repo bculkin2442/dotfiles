@@ -1,0 +1,89 @@
+*org.omg.PortableInterceptor.ORBInitInfoPackage.ObjectIdHelper* *ObjectIdHelper* 
+
+public abstract class ObjectIdHelper
+  extends    |java.lang.Object|
+
+|org.omg.PortableInterceptor.ORBInitInfoPackage.ObjectIdHelper_Description|
+|org.omg.PortableInterceptor.ORBInitInfoPackage.ObjectIdHelper_Fields|
+|org.omg.PortableInterceptor.ORBInitInfoPackage.ObjectIdHelper_Constructors|
+|org.omg.PortableInterceptor.ORBInitInfoPackage.ObjectIdHelper_Methods|
+
+================================================================================
+
+*org.omg.PortableInterceptor.ORBInitInfoPackage.ObjectIdHelper_Constructors*
+|org.omg.PortableInterceptor.ORBInitInfoPackage.ObjectIdHelper()|
+
+*org.omg.PortableInterceptor.ORBInitInfoPackage.ObjectIdHelper_Methods*
+|org.omg.PortableInterceptor.ORBInitInfoPackage.ObjectIdHelper.extract(Any)|
+|org.omg.PortableInterceptor.ORBInitInfoPackage.ObjectIdHelper.id()|
+|org.omg.PortableInterceptor.ORBInitInfoPackage.ObjectIdHelper.insert(Any,String)|
+|org.omg.PortableInterceptor.ORBInitInfoPackage.ObjectIdHelper.read(InputStream)|
+|org.omg.PortableInterceptor.ORBInitInfoPackage.ObjectIdHelper.type()|
+|org.omg.PortableInterceptor.ORBInitInfoPackage.ObjectIdHelper.write(OutputStream,String)|
+
+*org.omg.PortableInterceptor.ORBInitInfoPackage.ObjectIdHelper_Description*
+
+Object id, represented as a String 
+
+
+
+*org.omg.PortableInterceptor.ORBInitInfoPackage.ObjectIdHelper()*
+
+public ObjectIdHelper()
+
+
+
+
+*org.omg.PortableInterceptor.ORBInitInfoPackage.ObjectIdHelper.extract(Any)*
+
+public static |java.lang.String| extract(org.omg.CORBA.Any a)
+
+
+
+
+
+*org.omg.PortableInterceptor.ORBInitInfoPackage.ObjectIdHelper.id()*
+
+public static |java.lang.String| id()
+
+
+
+
+
+*org.omg.PortableInterceptor.ORBInitInfoPackage.ObjectIdHelper.insert(Any,String)*
+
+public static void insert(
+  org.omg.CORBA.Any a,
+  java.lang.String that)
+
+
+
+
+
+*org.omg.PortableInterceptor.ORBInitInfoPackage.ObjectIdHelper.read(InputStream)*
+
+public static |java.lang.String| read(org.omg.CORBA.portable.InputStream istream)
+
+
+
+
+
+*org.omg.PortableInterceptor.ORBInitInfoPackage.ObjectIdHelper.type()*
+
+public static synchronized |org.omg.CORBA.TypeCode| type()
+
+
+
+
+
+*org.omg.PortableInterceptor.ORBInitInfoPackage.ObjectIdHelper.write(OutputStream,String)*
+
+public static void write(
+  org.omg.CORBA.portable.OutputStream ostream,
+  java.lang.String value)
+
+
+
+
+
+

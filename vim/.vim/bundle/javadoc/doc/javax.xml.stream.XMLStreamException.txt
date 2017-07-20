@@ -1,0 +1,126 @@
+*javax.xml.stream.XMLStreamException* *XMLStreamException* The base exception fo
+
+public class XMLStreamException
+  extends    |java.lang.Exception|
+
+|javax.xml.stream.XMLStreamException_Description|
+|javax.xml.stream.XMLStreamException_Fields|
+|javax.xml.stream.XMLStreamException_Constructors|
+|javax.xml.stream.XMLStreamException_Methods|
+
+================================================================================
+
+*javax.xml.stream.XMLStreamException_Fields*
+|javax.xml.stream.Location_javax.xml.stream.XMLStreamException.location|
+|java.lang.Throwable_javax.xml.stream.XMLStreamException.nested|
+
+*javax.xml.stream.XMLStreamException_Constructors*
+|javax.xml.stream.XMLStreamException()|Default constructor
+|javax.xml.stream.XMLStreamException(String)|Construct an exception with the as
+|javax.xml.stream.XMLStreamException(String,Location)|Construct an exception wi
+|javax.xml.stream.XMLStreamException(String,Location,Throwable)|Construct an ex
+|javax.xml.stream.XMLStreamException(String,Throwable)|Construct an exception w
+|javax.xml.stream.XMLStreamException(Throwable)|Construct an exception with the
+
+*javax.xml.stream.XMLStreamException_Methods*
+|javax.xml.stream.XMLStreamException.getLocation()|Gets the location of the exc
+|javax.xml.stream.XMLStreamException.getNestedException()|Gets the nested excep
+
+*javax.xml.stream.XMLStreamException_Description*
+
+The base exception for unexpected processing errors. This Exception class is 
+used to report well-formedness errors as well as unexpected processing 
+conditions. 
+
+
+
+*javax.xml.stream.Location_javax.xml.stream.XMLStreamException.location*
+
+
+
+
+*java.lang.Throwable_javax.xml.stream.XMLStreamException.nested*
+
+
+
+
+
+*javax.xml.stream.XMLStreamException()*
+
+public XMLStreamException()
+
+Default constructor 
+
+
+*javax.xml.stream.XMLStreamException(String)*
+
+public XMLStreamException(java.lang.String msg)
+
+Construct an exception with the assocated message. 
+
+    msg - the message to report 
+
+*javax.xml.stream.XMLStreamException(String,Location)*
+
+public XMLStreamException(
+  java.lang.String msg,
+  javax.xml.stream.Location location)
+
+Construct an exception with the assocated message, exception and location. 
+
+    msg - the message to report 
+    location - the location of the error 
+
+*javax.xml.stream.XMLStreamException(String,Location,Throwable)*
+
+public XMLStreamException(
+  java.lang.String msg,
+  javax.xml.stream.Location location,
+  java.lang.Throwable th)
+
+Construct an exception with the assocated message, exception and location. 
+
+    th - a nested exception 
+    msg - the message to report 
+    location - the location of the error 
+
+*javax.xml.stream.XMLStreamException(String,Throwable)*
+
+public XMLStreamException(
+  java.lang.String msg,
+  java.lang.Throwable th)
+
+Construct an exception with the assocated message and exception 
+
+    th - a nested exception 
+    msg - the message to report 
+
+*javax.xml.stream.XMLStreamException(Throwable)*
+
+public XMLStreamException(java.lang.Throwable th)
+
+Construct an exception with the assocated exception 
+
+    th - a nested exception 
+
+*javax.xml.stream.XMLStreamException.getLocation()*
+
+public |javax.xml.stream.Location| getLocation()
+
+Gets the location of the exception 
+
+
+
+    Returns: the location of the exception, may be null if none is available 
+
+*javax.xml.stream.XMLStreamException.getNestedException()*
+
+public |java.lang.Throwable| getNestedException()
+
+Gets the nested exception. 
+
+
+
+    Returns: Nested exception 
+
+

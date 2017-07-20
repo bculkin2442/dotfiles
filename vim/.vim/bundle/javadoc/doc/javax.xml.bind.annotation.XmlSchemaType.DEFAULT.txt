@@ -1,0 +1,29 @@
+*javax.xml.bind.annotation.XmlSchemaType.DEFAULT* *XmlSchemaType.DEFAULT* Used i
+
+public static final class XmlSchemaType.DEFAULT
+  extends    |java.lang.Object|
+
+|javax.xml.bind.annotation.XmlSchemaType.DEFAULT_Description|
+|javax.xml.bind.annotation.XmlSchemaType.DEFAULT_Fields|
+|javax.xml.bind.annotation.XmlSchemaType.DEFAULT_Constructors|
+|javax.xml.bind.annotation.XmlSchemaType.DEFAULT_Methods|
+
+================================================================================
+
+*javax.xml.bind.annotation.XmlSchemaType.DEFAULT_Constructors*
+|javax.xml.bind.annotation.XmlSchemaType.DEFAULT()|
+
+*javax.xml.bind.annotation.XmlSchemaType.DEFAULT_Description*
+
+Used in (|javax.xml.bind.annotation.XmlSchemaType|) to signal that the type be 
+inferred from the signature of the property. 
+
+
+
+*javax.xml.bind.annotation.XmlSchemaType.DEFAULT()*
+
+public DEFAULT()
+
+
+
+

@@ -1,0 +1,19 @@
+*java.util.concurrent.CompletableFuture.AsynchronousCompletionTask* *CompletableFuture.AsynchronousCompletionTask* 
+
+public static interface interface CompletableFuture.AsynchronousCompletionTask
+
+
+|java.util.concurrent.CompletableFuture.AsynchronousCompletionTask_Description|
+|java.util.concurrent.CompletableFuture.AsynchronousCompletionTask_Fields|
+|java.util.concurrent.CompletableFuture.AsynchronousCompletionTask_Constructors|
+|java.util.concurrent.CompletableFuture.AsynchronousCompletionTask_Methods|
+
+================================================================================
+
+*java.util.concurrent.CompletableFuture.AsynchronousCompletionTask_Description*
+
+A marker interface identifying asynchronous tasks produced byasyncmethods. This 
+may be useful for monitoring, debugging, and tracking asynchronous activities. 
+
+
+

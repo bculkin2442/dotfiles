@@ -1,0 +1,84 @@
+*javax.xml.stream.Location* *Location* Provides information on the location of a
+
+public interface interface Location
+
+
+|javax.xml.stream.Location_Description|
+|javax.xml.stream.Location_Fields|
+|javax.xml.stream.Location_Constructors|
+|javax.xml.stream.Location_Methods|
+
+================================================================================
+
+*javax.xml.stream.Location_Methods*
+|javax.xml.stream.Location.getCharacterOffset()|Return the byte or character of
+|javax.xml.stream.Location.getColumnNumber()|Return the column number where the
+|javax.xml.stream.Location.getLineNumber()|Return the line number where the cur
+|javax.xml.stream.Location.getPublicId()|Returns the public ID of the XML
+|javax.xml.stream.Location.getSystemId()|Returns the system ID of the XML
+
+*javax.xml.stream.Location_Description*
+
+Provides information on the location of an event. 
+
+All the information provided by a Location is optional. For example an 
+application may only report line numbers. 
+
+
+
+*javax.xml.stream.Location.getCharacterOffset()*
+
+public int getCharacterOffset()
+
+Return the byte or character offset into the input source this location is 
+pointing to. If the input source is a file or a byte stream then this is the 
+byte offset into that stream, but if the input source is a character media then 
+the offset is the character offset. Returns -1 if there is no offset available. 
+
+
+
+    Returns: the current offset 
+
+*javax.xml.stream.Location.getColumnNumber()*
+
+public int getColumnNumber()
+
+Return the column number where the current event ends, returns -1 if none is 
+available. 
+
+
+
+    Returns: the current column number 
+
+*javax.xml.stream.Location.getLineNumber()*
+
+public int getLineNumber()
+
+Return the line number where the current event ends, returns -1 if none is 
+available. 
+
+
+
+    Returns: the current line number 
+
+*javax.xml.stream.Location.getPublicId()*
+
+public |java.lang.String| getPublicId()
+
+Returns the public ID of the XML 
+
+
+
+    Returns: the public ID, or null if not available 
+
+*javax.xml.stream.Location.getSystemId()*
+
+public |java.lang.String| getSystemId()
+
+Returns the system ID of the XML 
+
+
+
+    Returns: the system ID, or null if not available 
+
+

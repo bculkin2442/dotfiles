@@ -1,0 +1,38 @@
+*javax.xml.stream.util.XMLEventConsumer* *XMLEventConsumer* This interface defin
+
+public interface interface XMLEventConsumer
+
+
+|javax.xml.stream.util.XMLEventConsumer_Description|
+|javax.xml.stream.util.XMLEventConsumer_Fields|
+|javax.xml.stream.util.XMLEventConsumer_Constructors|
+|javax.xml.stream.util.XMLEventConsumer_Methods|
+
+================================================================================
+
+*javax.xml.stream.util.XMLEventConsumer_Methods*
+|javax.xml.stream.util.XMLEventConsumer.add(XMLEvent)|This method adds an event
+
+*javax.xml.stream.util.XMLEventConsumer_Description*
+
+This interface defines an event consumer interface. The contract of the of a 
+consumer is to accept the event. This interface can be used to mark an object 
+as able to receive events. Add may be called several times in immediate 
+succession so a consumer must be able to cache events it hasn't processed yet. 
+
+
+
+*javax.xml.stream.util.XMLEventConsumer.add(XMLEvent)*
+
+public void add(javax.xml.stream.events.XMLEvent event)
+  throws |javax.xml.stream.XMLStreamException|
+         
+This method adds an event to the consumer. Calling this method invalidates the 
+event parameter. The client application should discard all references to this 
+event upon calling add. The behavior of an application that continues to use 
+such references is undefined. 
+
+
+    event - the event to add, may not be null 
+
+

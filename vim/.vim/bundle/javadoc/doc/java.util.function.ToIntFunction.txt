@@ -1,0 +1,37 @@
+*java.util.function.ToIntFunction* *ToIntFunction* Represents a function that pr
+
+public interface interface ToIntFunction<T>
+
+
+|java.util.function.ToIntFunction_Description|
+|java.util.function.ToIntFunction_Fields|
+|java.util.function.ToIntFunction_Constructors|
+|java.util.function.ToIntFunction_Methods|
+
+================================================================================
+
+*java.util.function.ToIntFunction_Methods*
+|java.util.function.ToIntFunction.applyAsInt(T)|Applies this function to the gi
+
+*java.util.function.ToIntFunction_Description*
+
+Represents a function that produces an int-valued result. This is 
+theint-producing primitive specialization for (|java.util.function.Function|) . 
+
+This is a functional interface whose functional method is 
+(|java.util.function.ToIntFunction|) . 
+
+
+
+*java.util.function.ToIntFunction.applyAsInt(T)*
+
+public int applyAsInt(T value)
+
+Applies this function to the given argument. 
+
+
+    value - the function argument 
+
+    Returns: the function result 
+
+

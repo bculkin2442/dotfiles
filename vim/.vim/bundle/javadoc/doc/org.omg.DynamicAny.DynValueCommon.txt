@@ -1,0 +1,22 @@
+*org.omg.DynamicAny.DynValueCommon* *DynValueCommon* DynValueCommon provides ope
+
+public interface interface DynValueCommon
+
+  implements |org.omg.DynamicAny.DynValueCommonOperations|
+             |org.omg.DynamicAny.DynAny|
+             |org.omg.CORBA.portable.IDLEntity|
+
+|org.omg.DynamicAny.DynValueCommon_Description|
+|org.omg.DynamicAny.DynValueCommon_Fields|
+|org.omg.DynamicAny.DynValueCommon_Constructors|
+|org.omg.DynamicAny.DynValueCommon_Methods|
+
+================================================================================
+
+*org.omg.DynamicAny.DynValueCommon_Description*
+
+DynValueCommon provides operations supported by both the DynValue and 
+DynValueBox interfaces. 
+
+
+

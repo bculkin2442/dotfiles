@@ -1,0 +1,727 @@
+*java.util.stream.LongStream* *LongStream* A sequence of primitive long-valued e
+
+public interface interface LongStream
+
+  implements |java.util.stream.BaseStream|
+
+|java.util.stream.LongStream_Description|
+|java.util.stream.LongStream_Fields|
+|java.util.stream.LongStream_Constructors|
+|java.util.stream.LongStream_Methods|
+
+================================================================================
+
+*java.util.stream.LongStream_Methods*
+|java.util.stream.LongStream.allMatch(LongPredicate)|Returns whether all elemen
+|java.util.stream.LongStream.anyMatch(LongPredicate)|Returns whether any elemen
+|java.util.stream.LongStream.asDoubleStream()|Returns aDoubleStreamconsisting o
+|java.util.stream.LongStream.average()|Returns anOptionalDoubledescribing the a
+|java.util.stream.LongStream.boxed()|Returns aStreamconsisting of the elements 
+|java.util.stream.LongStream.builder()|Returns a builder for aLongStream.
+|java.util.stream.LongStream.collect(Supplier<R>,ObjLongConsumer<R>,BiConsumer<R,R>)|
+|java.util.stream.LongStream.concat(LongStream,LongStream)|Creates a lazily con
+|java.util.stream.LongStream.count()|Returns the count of elements in this stre
+|java.util.stream.LongStream.distinct()|Returns a stream consisting of the dist
+|java.util.stream.LongStream.empty()|Returns an empty sequentialLongStream.
+|java.util.stream.LongStream.filter(LongPredicate)|Returns a stream consisting 
+|java.util.stream.LongStream.findAny()|Returns anOptionalLongdescribing some el
+|java.util.stream.LongStream.findFirst()|Returns anOptionalLongdescribing the f
+|java.util.stream.LongStream.flatMap(LongFunction<?extendsLongStream>)|Returns 
+|java.util.stream.LongStream.forEach(LongConsumer)|Performs an action for each 
+|java.util.stream.LongStream.forEachOrdered(LongConsumer)|Performs an action fo
+|java.util.stream.LongStream.generate(LongSupplier)|Returns an infinite sequent
+|java.util.stream.LongStream.iterate(long,LongUnaryOperator)|Returns an infinit
+|java.util.stream.LongStream.iterator()|
+|java.util.stream.LongStream.limit(long)|Returns a stream consisting of the ele
+|java.util.stream.LongStream.map(LongUnaryOperator)|Returns a stream consisting
+|java.util.stream.LongStream.mapToDouble(LongToDoubleFunction)|Returns aDoubleS
+|java.util.stream.LongStream.mapToInt(LongToIntFunction)|Returns anIntStreamcon
+|java.util.stream.LongStream.mapToObj(LongFunction<?extendsU>)|Returns an objec
+|java.util.stream.LongStream.max()|Returns anOptionalLongdescribing the maximum
+|java.util.stream.LongStream.min()|Returns anOptionalLongdescribing the minimum
+|java.util.stream.LongStream.noneMatch(LongPredicate)|Returns whether no elemen
+|java.util.stream.LongStream.of(long...)|Returns a sequential ordered stream wh
+|java.util.stream.LongStream.of(long)|Returns a sequentialLongStreamcontaining 
+|java.util.stream.LongStream.parallel()|
+|java.util.stream.LongStream.peek(LongConsumer)|Returns a stream consisting of 
+|java.util.stream.LongStream.range(long,long)|Returns a sequential orderedLongS
+|java.util.stream.LongStream.rangeClosed(long,long)|Returns a sequential ordere
+|java.util.stream.LongStream.reduce(LongBinaryOperator)|Performs a reduction on
+|java.util.stream.LongStream.reduce(long,LongBinaryOperator)|Performs a reducti
+|java.util.stream.LongStream.sequential()|
+|java.util.stream.LongStream.skip(long)|Returns a stream consisting of the rema
+|java.util.stream.LongStream.sorted()|Returns a stream consisting of the elemen
+|java.util.stream.LongStream.spliterator()|
+|java.util.stream.LongStream.sum()|Returns the sum of elements in this stream.
+|java.util.stream.LongStream.summaryStatistics()|Returns aLongSummaryStatistics
+|java.util.stream.LongStream.toArray()|Returns an array containing the elements
+
+*java.util.stream.LongStream_Description*
+
+A sequence of primitive long-valued elements supporting sequential and parallel 
+aggregate operations. This is thelongprimitive specialization of 
+(|java.util.stream.Stream|) . 
+
+The following example illustrates an aggregate operation using 
+(|java.util.stream.Stream|) and (|java.util.stream.LongStream|) , computing the 
+sum of the weights of the red widgets: 
+
+long sum = widgets.stream() .filter(w -> w.getColor() == RED) .mapToLong(w -> 
+w.getWeight()) .sum(); 
+
+See the class documentation for (|java.util.stream.Stream|) and the package 
+documentation for java.util.stream for additional specification of streams, 
+stream operations, stream pipelines, and parallelism. 
+
+
+
+*java.util.stream.LongStream.allMatch(LongPredicate)*
+
+public boolean allMatch(java.util.function.LongPredicate predicate)
+
+Returns whether all elements of this stream match the provided predicate. May 
+not evaluate the predicate on all elements if not necessary for determining the 
+result. If the stream is empty thentrueis returned and the predicate is not 
+evaluated. 
+
+This is a short-circuiting terminal operation. 
+
+
+    predicate - a non-interfering, stateless predicate to apply to elements of this stream 
+
+    Returns: {@code true} if either all elements of the stream match the provided predicate 
+             or the stream is empty, otherwise {@code false} 
+
+*java.util.stream.LongStream.anyMatch(LongPredicate)*
+
+public boolean anyMatch(java.util.function.LongPredicate predicate)
+
+Returns whether any elements of this stream match the provided predicate. May 
+not evaluate the predicate on all elements if not necessary for determining the 
+result. If the stream is empty thenfalseis returned and the predicate is not 
+evaluated. 
+
+This is a short-circuiting terminal operation. 
+
+
+    predicate - a non-interfering, stateless predicate to apply to elements of this stream 
+
+    Returns: {@code true} if any elements of the stream match the provided predicate, 
+             otherwise {@code false} 
+
+*java.util.stream.LongStream.asDoubleStream()*
+
+public |java.util.stream.DoubleStream| asDoubleStream()
+
+Returns aDoubleStreamconsisting of the elements of this stream, converted 
+todouble. 
+
+This is an intermediate operation. 
+
+
+
+    Returns: a {@code DoubleStream} consisting of the elements of this stream, converted to 
+             {@code double} 
+
+*java.util.stream.LongStream.average()*
+
+public |java.util.OptionalDouble| average()
+
+Returns anOptionalDoubledescribing the arithmetic mean of elements of this 
+stream, or an empty optional if this stream is empty. This is a special case of 
+a reduction. 
+
+This is a terminal operation. 
+
+
+
+    Returns: an {@code OptionalDouble} containing the average element of this stream, or an 
+             empty optional if the stream is empty 
+
+*java.util.stream.LongStream.boxed()*
+
+public |java.util.stream.Stream|<Long> boxed()
+
+Returns aStreamconsisting of the elements of this stream, each boxed to aLong. 
+
+This is an intermediate operation. 
+
+
+
+    Returns: a {@code Stream} consistent of the elements of this stream, each boxed to 
+             {@code Long} 
+
+*java.util.stream.LongStream.builder()*
+
+public static |java.util.stream.LongStream.Builder| builder()
+
+Returns a builder for aLongStream. 
+
+
+
+    Returns: a stream builder 
+
+*java.util.stream.LongStream.collect(Supplier<R>,ObjLongConsumer<R>,BiConsumer<R,R>)*
+
+public |R| collect(
+  java.util.function.Supplier<R> supplier,
+  java.util.function.ObjLongConsumer<R> accumulator,
+  java.util.function.BiConsumer<R, R> combiner)
+
+Performs a mutable reduction operation on the elements of this stream. A 
+mutable reduction is one in which the reduced value is a mutable result 
+container, such as anArrayList, and elements are incorporated by updating the 
+state of the result rather than by replacing the result. This produces a result 
+equivalent to: 
+
+R result = supplier.get(); for (long element : this stream) 
+accumulator.accept(result, element); return result; 
+
+Like (|java.util.stream.LongStream|) ,collectoperations can be parallelized 
+without requiring additional synchronization. 
+
+This is a terminal operation. 
+
+
+    supplier - a function that creates a new result container. For a parallel execution, this 
+       function may be called multiple times and must return a fresh value each 
+       time. 
+    accumulator - an associative, non-interfering, stateless function for incorporating an 
+       additional element into a result 
+    combiner - an associative, non-interfering, stateless function for combining two values, 
+       which must be compatible with the accumulator function 
+
+    Returns: the result of the reduction 
+
+*java.util.stream.LongStream.concat(LongStream,LongStream)*
+
+public static |java.util.stream.LongStream| concat(
+  java.util.stream.LongStream a,
+  java.util.stream.LongStream b)
+
+Creates a lazily concatenated stream whose elements are all the elements of the 
+first stream followed by all the elements of the second stream. The resulting 
+stream is ordered if both of the input streams are ordered, and parallel if 
+either of the input streams is parallel. When the resulting stream is closed, 
+the close handlers for both input streams are invoked. 
+
+
+    a - the first stream 
+    b - the second stream 
+
+    Returns: the concatenation of the two input streams 
+
+*java.util.stream.LongStream.count()*
+
+public long count()
+
+Returns the count of elements in this stream. This is a special case of a 
+reduction and is equivalent to: 
+
+return map(e -> 1L).sum(); 
+
+This is a terminal operation. 
+
+
+
+    Returns: the count of elements in this stream 
+
+*java.util.stream.LongStream.distinct()*
+
+public |java.util.stream.LongStream| distinct()
+
+Returns a stream consisting of the distinct elements of this stream. 
+
+This is a stateful intermediate operation. 
+
+
+
+    Returns: the new stream 
+
+*java.util.stream.LongStream.empty()*
+
+public static |java.util.stream.LongStream| empty()
+
+Returns an empty sequentialLongStream. 
+
+
+
+    Returns: an empty sequential stream 
+
+*java.util.stream.LongStream.filter(LongPredicate)*
+
+public |java.util.stream.LongStream| filter(java.util.function.LongPredicate predicate)
+
+Returns a stream consisting of the elements of this stream that match the given 
+predicate. 
+
+This is an intermediate operation. 
+
+
+    predicate - a non-interfering, stateless predicate to apply to each element to determine if 
+       it should be included 
+
+    Returns: the new stream 
+
+*java.util.stream.LongStream.findAny()*
+
+public |java.util.OptionalLong| findAny()
+
+Returns an (|java.util.OptionalLong|) describing some element of the stream, or 
+an emptyOptionalLongif the stream is empty. 
+
+This is a short-circuiting terminal operation. 
+
+The behavior of this operation is explicitly nondeterministic; it is free to 
+select any element in the stream. This is to allow for maximal performance in 
+parallel operations; the cost is that multiple invocations on the same source 
+may not return the same result. (If a stable result is desired, use 
+(|java.util.stream.LongStream|) instead.) 
+
+
+
+    Returns: an {@code OptionalLong} describing some element of this stream, or an empty 
+             {@code OptionalLong} if the stream is empty 
+
+*java.util.stream.LongStream.findFirst()*
+
+public |java.util.OptionalLong| findFirst()
+
+Returns an (|java.util.OptionalLong|) describing the first element of this 
+stream, or an emptyOptionalLongif the stream is empty. If the stream has no 
+encounter order, then any element may be returned. 
+
+This is a short-circuiting terminal operation. 
+
+
+
+    Returns: an {@code OptionalLong} describing the first element of this stream, or an 
+             empty {@code OptionalLong} if the stream is empty 
+
+*java.util.stream.LongStream.flatMap(LongFunction<?extendsLongStream>)*
+
+public |java.util.stream.LongStream| flatMap(java.util.function.LongFunction<? extends java.util.stream.LongStream> mapper)
+
+Returns a stream consisting of the results of replacing each element of this 
+stream with the contents of a mapped stream produced by applying the provided 
+mapping function to each element. Each mapped stream is 
+closed(|java.util.stream.BaseStream|) after its contents have been placed into 
+this stream. (If a mapped stream isnullan empty stream is used, instead.) 
+
+This is an intermediate operation. 
+
+
+    mapper - a non-interfering, stateless function to apply to each element which produces a 
+       {@code LongStream} of new values 
+
+    Returns: the new stream 
+
+*java.util.stream.LongStream.forEach(LongConsumer)*
+
+public void forEach(java.util.function.LongConsumer action)
+
+Performs an action for each element of this stream. 
+
+This is a terminal operation. 
+
+For parallel stream pipelines, this operation does not guarantee to respect the 
+encounter order of the stream, as doing so would sacrifice the benefit of 
+parallelism. For any given element, the action may be performed at whatever 
+time and in whatever thread the library chooses. If the action accesses shared 
+state, it is responsible for providing the required synchronization. 
+
+
+    action - a non-interfering action to perform on the elements 
+
+*java.util.stream.LongStream.forEachOrdered(LongConsumer)*
+
+public void forEachOrdered(java.util.function.LongConsumer action)
+
+Performs an action for each element of this stream, guaranteeing that each 
+element is processed in encounter order for streams that have a defined 
+encounter order. 
+
+This is a terminal operation. 
+
+
+    action - a non-interfering action to perform on the elements 
+
+*java.util.stream.LongStream.generate(LongSupplier)*
+
+public static |java.util.stream.LongStream| generate(java.util.function.LongSupplier s)
+
+Returns an infinite sequential unordered stream where each element is generated 
+by the providedLongSupplier. This is suitable for generating constant streams, 
+streams of random elements, etc. 
+
+
+    s - the {@code LongSupplier} for generated elements 
+
+    Returns: a new infinite sequential unordered {@code LongStream} 
+
+*java.util.stream.LongStream.iterate(long,LongUnaryOperator)*
+
+public static |java.util.stream.LongStream| iterate(
+  long seed,
+  java.util.function.LongUnaryOperator f)
+
+Returns an infinite sequential orderedLongStreamproduced by iterative 
+application of a functionfto an initial elementseed, producing 
+aStreamconsisting ofseed,f(seed),f(f(seed)), etc. 
+
+The first element (position0) in theLongStreamwill be the providedseed. Forn > 
+0, the element at positionn, will be the result of applying the functionfto the 
+element at positionn - 1. 
+
+
+    seed - the initial element 
+    f - a function to be applied to to the previous element to produce a new element 
+
+    Returns: a new sequential {@code LongStream} 
+
+*java.util.stream.LongStream.iterator()*
+
+public |java.util.PrimitiveIterator.OfLong| iterator()
+
+
+
+
+
+*java.util.stream.LongStream.limit(long)*
+
+public |java.util.stream.LongStream| limit(long maxSize)
+
+Returns a stream consisting of the elements of this stream, truncated to be no 
+longer thanmaxSizein length. 
+
+This is a short-circuiting stateful intermediate operation. 
+
+
+    maxSize - the number of elements the stream should be limited to 
+
+    Returns: the new stream 
+
+*java.util.stream.LongStream.map(LongUnaryOperator)*
+
+public |java.util.stream.LongStream| map(java.util.function.LongUnaryOperator mapper)
+
+Returns a stream consisting of the results of applying the given function to 
+the elements of this stream. 
+
+This is an intermediate operation. 
+
+
+    mapper - a non-interfering, stateless function to apply to each element 
+
+    Returns: the new stream 
+
+*java.util.stream.LongStream.mapToDouble(LongToDoubleFunction)*
+
+public |java.util.stream.DoubleStream| mapToDouble(java.util.function.LongToDoubleFunction mapper)
+
+Returns aDoubleStreamconsisting of the results of applying the given function 
+to the elements of this stream. 
+
+This is an intermediate operation. 
+
+
+    mapper - a non-interfering, stateless function to apply to each element 
+
+    Returns: the new stream 
+
+*java.util.stream.LongStream.mapToInt(LongToIntFunction)*
+
+public |java.util.stream.IntStream| mapToInt(java.util.function.LongToIntFunction mapper)
+
+Returns anIntStreamconsisting of the results of applying the given function to 
+the elements of this stream. 
+
+This is an intermediate operation. 
+
+
+    mapper - a non-interfering, stateless function to apply to each element 
+
+    Returns: the new stream 
+
+*java.util.stream.LongStream.mapToObj(LongFunction<?extendsU>)*
+
+public |java.util.stream.Stream|<U> mapToObj(java.util.function.LongFunction<? extends U> mapper)
+
+Returns an object-valuedStreamconsisting of the results of applying the given 
+function to the elements of this stream. 
+
+This is an intermediate operation. 
+
+
+    mapper - a non-interfering, stateless function to apply to each element 
+
+    Returns: the new stream 
+
+*java.util.stream.LongStream.max()*
+
+public |java.util.OptionalLong| max()
+
+Returns anOptionalLongdescribing the maximum element of this stream, or an 
+empty optional if this stream is empty. This is a special case of a reduction 
+and is equivalent to: 
+
+return reduce(Long::max); 
+
+This is a terminal operation. 
+
+
+
+    Returns: an {@code OptionalLong} containing the maximum element of this stream, or an 
+             empty {@code OptionalLong} if the stream is empty 
+
+*java.util.stream.LongStream.min()*
+
+public |java.util.OptionalLong| min()
+
+Returns anOptionalLongdescribing the minimum element of this stream, or an 
+empty optional if this stream is empty. This is a special case of a reduction 
+and is equivalent to: 
+
+return reduce(Long::min); 
+
+This is a terminal operation. 
+
+
+
+    Returns: an {@code OptionalLong} containing the minimum element of this stream, or an 
+             empty {@code OptionalLong} if the stream is empty 
+
+*java.util.stream.LongStream.noneMatch(LongPredicate)*
+
+public boolean noneMatch(java.util.function.LongPredicate predicate)
+
+Returns whether no elements of this stream match the provided predicate. May 
+not evaluate the predicate on all elements if not necessary for determining the 
+result. If the stream is empty thentrueis returned and the predicate is not 
+evaluated. 
+
+This is a short-circuiting terminal operation. 
+
+
+    predicate - a non-interfering, stateless predicate to apply to elements of this stream 
+
+    Returns: {@code true} if either no elements of the stream match the provided predicate 
+             or the stream is empty, otherwise {@code false} 
+
+*java.util.stream.LongStream.of(long...)*
+
+public static |java.util.stream.LongStream| of(long[] values)
+
+Returns a sequential ordered stream whose elements are the specified values. 
+
+
+    values - the elements of the new stream 
+
+    Returns: the new stream 
+
+*java.util.stream.LongStream.of(long)*
+
+public static |java.util.stream.LongStream| of(long t)
+
+Returns a sequentialLongStreamcontaining a single element. 
+
+
+    t - the single element 
+
+    Returns: a singleton sequential stream 
+
+*java.util.stream.LongStream.parallel()*
+
+public |java.util.stream.LongStream| parallel()
+
+
+
+
+
+*java.util.stream.LongStream.peek(LongConsumer)*
+
+public |java.util.stream.LongStream| peek(java.util.function.LongConsumer action)
+
+Returns a stream consisting of the elements of this stream, additionally 
+performing the provided action on each element as elements are consumed from 
+the resulting stream. 
+
+This is an intermediate operation. 
+
+For parallel stream pipelines, the action may be called at whatever time and in 
+whatever thread the element is made available by the upstream operation. If the 
+action modifies shared state, it is responsible for providing the required 
+synchronization. 
+
+
+    action - a non-interfering action to perform on the elements as they are consumed from 
+       the stream 
+
+    Returns: the new stream 
+
+*java.util.stream.LongStream.range(long,long)*
+
+public static |java.util.stream.LongStream| range(
+  long startInclusive,
+  long endExclusive)
+
+Returns a sequential orderedLongStreamfromstartInclusive(inclusive) 
+toendExclusive(exclusive) by an incremental step of1. 
+
+
+    startInclusive - the (inclusive) initial value 
+    endExclusive - the exclusive upper bound 
+
+    Returns: a sequential {@code LongStream} for the range of {@code long} elements 
+
+*java.util.stream.LongStream.rangeClosed(long,long)*
+
+public static |java.util.stream.LongStream| rangeClosed(
+  long startInclusive,
+  long endInclusive)
+
+Returns a sequential orderedLongStreamfromstartInclusive(inclusive) 
+toendInclusive(inclusive) by an incremental step of1. 
+
+
+    startInclusive - the (inclusive) initial value 
+    endInclusive - the inclusive upper bound 
+
+    Returns: a sequential {@code LongStream} for the range of {@code long} elements 
+
+*java.util.stream.LongStream.reduce(LongBinaryOperator)*
+
+public |java.util.OptionalLong| reduce(java.util.function.LongBinaryOperator op)
+
+Performs a reduction on the elements of this stream, using an associative 
+accumulation function, and returns anOptionalLongdescribing the reduced value, 
+if any. This is equivalent to: 
+
+boolean foundAny = false; long result = null; for (long element : this stream) 
+{ if (!foundAny) { foundAny = true; result = element; } else result = 
+accumulator.applyAsLong(result, element); } return foundAny ? 
+OptionalLong.of(result) : OptionalLong.empty(); 
+
+but is not constrained to execute sequentially. 
+
+Theaccumulatorfunction must be an associative function. 
+
+This is a terminal operation. 
+
+
+    op - an associative, non-interfering, stateless function for combining two values 
+
+    Returns: the result of the reduction 
+
+*java.util.stream.LongStream.reduce(long,LongBinaryOperator)*
+
+public long reduce(
+  long identity,
+  java.util.function.LongBinaryOperator op)
+
+Performs a reduction on the elements of this stream, using the provided 
+identity value and an associative accumulation function, and returns the 
+reduced value. This is equivalent to: 
+
+long result = identity; for (long element : this stream) result = 
+accumulator.applyAsLong(result, element) return result; 
+
+but is not constrained to execute sequentially. 
+
+Theidentityvalue must be an identity for the accumulator function. This means 
+that for allx,accumulator.apply(identity, x)is equal tox. 
+Theaccumulatorfunction must be an associative function. 
+
+This is a terminal operation. 
+
+
+    identity - the identity value for the accumulating function 
+    op - an associative, non-interfering, stateless function for combining two values 
+
+    Returns: the result of the reduction 
+
+*java.util.stream.LongStream.sequential()*
+
+public |java.util.stream.LongStream| sequential()
+
+
+
+
+
+*java.util.stream.LongStream.skip(long)*
+
+public |java.util.stream.LongStream| skip(long n)
+
+Returns a stream consisting of the remaining elements of this stream after 
+discarding the firstnelements of the stream. If this stream contains fewer 
+thannelements then an empty stream will be returned. 
+
+This is a stateful intermediate operation. 
+
+
+    n - the number of leading elements to skip 
+
+    Returns: the new stream 
+
+*java.util.stream.LongStream.sorted()*
+
+public |java.util.stream.LongStream| sorted()
+
+Returns a stream consisting of the elements of this stream in sorted order. 
+
+This is a stateful intermediate operation. 
+
+
+
+    Returns: the new stream 
+
+*java.util.stream.LongStream.spliterator()*
+
+public |java.util.Spliterator.OfLong| spliterator()
+
+
+
+
+
+*java.util.stream.LongStream.sum()*
+
+public long sum()
+
+Returns the sum of elements in this stream. This is a special case of a 
+reduction and is equivalent to: 
+
+return reduce(0, Long::sum); 
+
+This is a terminal operation. 
+
+
+
+    Returns: the sum of elements in this stream 
+
+*java.util.stream.LongStream.summaryStatistics()*
+
+public |java.util.LongSummaryStatistics| summaryStatistics()
+
+Returns aLongSummaryStatisticsdescribing various summary data about the 
+elements of this stream. This is a special case of a reduction. 
+
+This is a terminal operation. 
+
+
+
+    Returns: a {@code LongSummaryStatistics} describing various summary data about the 
+             elements of this stream 
+
+*java.util.stream.LongStream.toArray()*
+
+public long[] toArray()
+
+Returns an array containing the elements of this stream. 
+
+This is a terminal operation. 
+
+
+
+    Returns: an array containing the elements of this stream 
+
+

@@ -1,0 +1,74 @@
+*javax.xml.crypto.dsig.SignatureMethod* *SignatureMethod* A representation of th
+
+public interface interface SignatureMethod
+
+  implements |javax.xml.crypto.XMLStructure|
+             |javax.xml.crypto.AlgorithmMethod|
+
+|javax.xml.crypto.dsig.SignatureMethod_Description|
+|javax.xml.crypto.dsig.SignatureMethod_Fields|
+|javax.xml.crypto.dsig.SignatureMethod_Constructors|
+|javax.xml.crypto.dsig.SignatureMethod_Methods|
+
+================================================================================
+
+*javax.xml.crypto.dsig.SignatureMethod_Fields*
+|java.lang.String_javax.xml.crypto.dsig.SignatureMethod.DSA_SHA1|
+|java.lang.String_javax.xml.crypto.dsig.SignatureMethod.HMAC_SHA1|
+|java.lang.String_javax.xml.crypto.dsig.SignatureMethod.RSA_SHA1|
+
+*javax.xml.crypto.dsig.SignatureMethod_Methods*
+|javax.xml.crypto.dsig.SignatureMethod.getParameterSpec()|Returns the algorithm
+
+*javax.xml.crypto.dsig.SignatureMethod_Description*
+
+A representation of the XML SignatureMethod element as defined in the W3C 
+Recommendation for XML-Signature Syntax and Processing. The XML Schema 
+Definition is defined as: 
+
+
+
+<element name="SignatureMethod" type="ds:SignatureMethodType"/> <complexType 
+name="SignatureMethodType" mixed="true"> <sequence> <element 
+name="HMACOutputLength" minOccurs="0" type="ds:HMACOutputLengthType"/> <any 
+namespace="##any" minOccurs="0" maxOccurs="unbounded"/> <!-- (0,unbounded) 
+elements from (1,1) namespace --> </sequence> <attribute name="Algorithm" 
+type="anyURI" use="required"/> </complexType> 
+
+A SignatureMethod instance may be created by invoking the 
+newSignatureMethod(|javax.xml.crypto.dsig.XMLSignatureFactory|) method of the 
+(|javax.xml.crypto.dsig.XMLSignatureFactory|) class. 
+
+
+
+*java.lang.String_javax.xml.crypto.dsig.SignatureMethod.DSA_SHA1*
+
+The DSAwithSHA1 (DSS) signature method algorithm URI. 
+
+
+*java.lang.String_javax.xml.crypto.dsig.SignatureMethod.HMAC_SHA1*
+
+The HMAC-SHA1 MAC signature method algorithm URI 
+
+
+*java.lang.String_javax.xml.crypto.dsig.SignatureMethod.RSA_SHA1*
+
+The RSAwithSHA1 (PKCS #1) signature method algorithm URI. 
+
+
+
+*javax.xml.crypto.dsig.SignatureMethod.getParameterSpec()*
+
+public |java.security.spec.AlgorithmParameterSpec| getParameterSpec()
+
+Returns the algorithm-specific input parameters of this SignatureMethod. 
+
+The returned parameters can be typecast to a 
+(|javax.xml.crypto.dsig.spec.SignatureMethodParameterSpec|) object. 
+
+
+
+    Returns: the algorithm-specific input parameters of this SignatureMethod (may be null if 
+             not specified) 
+
+

@@ -1,0 +1,35 @@
+*java.net.URLStreamHandlerFactory* *URLStreamHandlerFactory* This interface defi
+
+public interface interface URLStreamHandlerFactory
+
+
+|java.net.URLStreamHandlerFactory_Description|
+|java.net.URLStreamHandlerFactory_Fields|
+|java.net.URLStreamHandlerFactory_Constructors|
+|java.net.URLStreamHandlerFactory_Methods|
+
+================================================================================
+
+*java.net.URLStreamHandlerFactory_Methods*
+|java.net.URLStreamHandlerFactory.createURLStreamHandler(String)|Creates a newU
+
+*java.net.URLStreamHandlerFactory_Description*
+
+This interface defines a factory forURLstream protocol handlers. 
+
+It is used by theURLclass to create aURLStreamHandlerfor a specific protocol. 
+
+
+
+*java.net.URLStreamHandlerFactory.createURLStreamHandler(String)*
+
+public |java.net.URLStreamHandler| createURLStreamHandler(java.lang.String protocol)
+
+Creates a newURLStreamHandlerinstance with the specified protocol. 
+
+
+    protocol - the protocol ("{@code ftp}", "{@code http}", "{@code nntp}", etc.). 
+
+    Returns: a {@code URLStreamHandler} for the specific protocol. 
+
+

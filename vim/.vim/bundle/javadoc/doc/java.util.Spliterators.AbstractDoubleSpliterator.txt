@@ -1,0 +1,72 @@
+*java.util.Spliterators.AbstractDoubleSpliterator* *Spliterators.AbstractDoubleSpliterator* 
+
+public abstract static class Spliterators.AbstractDoubleSpliterator
+  extends    |java.lang.Object|
+  implements |java.util.Spliterator.OfDouble|
+
+|java.util.Spliterators.AbstractDoubleSpliterator_Description|
+|java.util.Spliterators.AbstractDoubleSpliterator_Fields|
+|java.util.Spliterators.AbstractDoubleSpliterator_Constructors|
+|java.util.Spliterators.AbstractDoubleSpliterator_Methods|
+
+================================================================================
+
+*java.util.Spliterators.AbstractDoubleSpliterator_Constructors*
+|java.util.Spliterators.AbstractDoubleSpliterator(long,int)|Creates a spliterat
+
+*java.util.Spliterators.AbstractDoubleSpliterator_Methods*
+|java.util.Spliterators.AbstractDoubleSpliterator.characteristics()|
+|java.util.Spliterators.AbstractDoubleSpliterator.estimateSize()|
+|java.util.Spliterators.AbstractDoubleSpliterator.trySplit()|This implementatio
+
+*java.util.Spliterators.AbstractDoubleSpliterator_Description*
+
+An abstractSpliterator.OfDoublethat implementstrySplitto permit limited 
+parallelism. 
+
+To implement a spliterator an extending class need only implement 
+(|java.util.Spliterators.AbstractDoubleSpliterator|) tryAdvance}. The extending 
+class should override (|java.util.Spliterators.AbstractDoubleSpliterator|) 
+forEach} if it can provide a more performant implementation. 
+
+
+
+*java.util.Spliterators.AbstractDoubleSpliterator(long,int)*
+
+protected AbstractDoubleSpliterator(
+  long est,
+  int additionalCharacteristics)
+
+Creates a spliterator reporting the given estimated size and characteristics. 
+
+    est - the estimated size of this spliterator if known, otherwise {@code 
+       Long.MAX_VALUE}. 
+    additionalCharacteristics - properties of this spliterator's source or elements. If {@code SIZED} is 
+       reported then this spliterator will additionally report {@code 
+       SUBSIZED}. 
+
+*java.util.Spliterators.AbstractDoubleSpliterator.characteristics()*
+
+public int characteristics()
+
+
+
+
+
+*java.util.Spliterators.AbstractDoubleSpliterator.estimateSize()*
+
+public long estimateSize()
+
+
+
+
+
+*java.util.Spliterators.AbstractDoubleSpliterator.trySplit()*
+
+public |java.util.Spliterator.OfDouble| trySplit()
+
+This implementation permits limited parallelism. 
+
+
+
+

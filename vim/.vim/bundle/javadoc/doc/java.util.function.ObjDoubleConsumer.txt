@@ -1,0 +1,40 @@
+*java.util.function.ObjDoubleConsumer* *ObjDoubleConsumer* Represents an operati
+
+public interface interface ObjDoubleConsumer<T>
+
+
+|java.util.function.ObjDoubleConsumer_Description|
+|java.util.function.ObjDoubleConsumer_Fields|
+|java.util.function.ObjDoubleConsumer_Constructors|
+|java.util.function.ObjDoubleConsumer_Methods|
+
+================================================================================
+
+*java.util.function.ObjDoubleConsumer_Methods*
+|java.util.function.ObjDoubleConsumer.accept(T,double)|Performs this operation 
+
+*java.util.function.ObjDoubleConsumer_Description*
+
+Represents an operation that accepts an object-valued and adouble-valued 
+argument, and returns no result. This is the(reference, double)specialization 
+of (|java.util.function.BiConsumer|) . Unlike most other functional 
+interfaces,ObjDoubleConsumeris expected to operate via side-effects. 
+
+This is a functional interface whose functional method is 
+(|java.util.function.ObjDoubleConsumer|) . 
+
+
+
+*java.util.function.ObjDoubleConsumer.accept(T,double)*
+
+public void accept(
+  T t,
+  double value)
+
+Performs this operation on the given arguments. 
+
+
+    t - the first input argument 
+    value - the second input argument 
+
+

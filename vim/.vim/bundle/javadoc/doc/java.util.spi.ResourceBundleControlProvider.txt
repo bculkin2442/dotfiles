@@ -1,0 +1,45 @@
+*java.util.spi.ResourceBundleControlProvider* *ResourceBundleControlProvider* An
+
+public interface interface ResourceBundleControlProvider
+
+
+|java.util.spi.ResourceBundleControlProvider_Description|
+|java.util.spi.ResourceBundleControlProvider_Fields|
+|java.util.spi.ResourceBundleControlProvider_Constructors|
+|java.util.spi.ResourceBundleControlProvider_Methods|
+
+================================================================================
+
+*java.util.spi.ResourceBundleControlProvider_Methods*
+|java.util.spi.ResourceBundleControlProvider.getControl(String)|Returns aResour
+
+*java.util.spi.ResourceBundleControlProvider_Description*
+
+An interface for service providers that provide implementations of 
+(|java.util.ResourceBundle.Control|) . The default resource bundle loading 
+behavior of theResourceBundle.getBundlefactory methods that take no 
+(|java.util.ResourceBundle.Control|) instance can be modified 
+withResourceBundleControlProviderimplementations. 
+
+Provider implementations must be packaged using the Java Extension Mechanism as 
+installed extensions. Refer to (|java.util.ServiceLoader|) for the extension 
+packaging. Any installedResourceBundleControlProviderimplementations are loaded 
+using (|java.util.ServiceLoader|) at theResourceBundleclass loading time. 
+
+
+
+*java.util.spi.ResourceBundleControlProvider.getControl(String)*
+
+public |java.util.ResourceBundle.Control| getControl(java.lang.String baseName)
+
+Returns aResourceBundle.Controlinstance that is used to handle resource bundle 
+loading for the givenbaseName. This method must returnnullif the 
+givenbaseNameisn't handled by this provider. 
+
+
+    baseName - the base name of the resource bundle 
+
+    Returns: a {@code ResourceBundle.Control} instance, or {@code null} if the given {@code 
+             baseName} is not applicable to this provider. 
+
+

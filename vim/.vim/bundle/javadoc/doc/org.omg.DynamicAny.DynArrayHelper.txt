@@ -1,0 +1,110 @@
+*org.omg.DynamicAny.DynArrayHelper* *DynArrayHelper* DynArray objects support th
+
+public abstract class DynArrayHelper
+  extends    |java.lang.Object|
+
+|org.omg.DynamicAny.DynArrayHelper_Description|
+|org.omg.DynamicAny.DynArrayHelper_Fields|
+|org.omg.DynamicAny.DynArrayHelper_Constructors|
+|org.omg.DynamicAny.DynArrayHelper_Methods|
+
+================================================================================
+
+*org.omg.DynamicAny.DynArrayHelper_Constructors*
+|org.omg.DynamicAny.DynArrayHelper()|
+
+*org.omg.DynamicAny.DynArrayHelper_Methods*
+|org.omg.DynamicAny.DynArrayHelper.extract(Any)|
+|org.omg.DynamicAny.DynArrayHelper.id()|
+|org.omg.DynamicAny.DynArrayHelper.insert(Any,DynArray)|
+|org.omg.DynamicAny.DynArrayHelper.narrow(Object)|
+|org.omg.DynamicAny.DynArrayHelper.read(InputStream)|
+|org.omg.DynamicAny.DynArrayHelper.type()|
+|org.omg.DynamicAny.DynArrayHelper.unchecked_narrow(Object)|
+|org.omg.DynamicAny.DynArrayHelper.write(OutputStream,DynArray)|
+
+*org.omg.DynamicAny.DynArrayHelper_Description*
+
+DynArray objects support the manipulation of IDL arrays. Note that the 
+dimension of the array is contained in the TypeCode which is accessible through 
+the type attribute. It can also be obtained by calling the component_count 
+operation. 
+
+
+
+*org.omg.DynamicAny.DynArrayHelper()*
+
+public DynArrayHelper()
+
+
+
+
+*org.omg.DynamicAny.DynArrayHelper.extract(Any)*
+
+public static |org.omg.DynamicAny.DynArray| extract(org.omg.CORBA.Any a)
+
+
+
+
+
+*org.omg.DynamicAny.DynArrayHelper.id()*
+
+public static |java.lang.String| id()
+
+
+
+
+
+*org.omg.DynamicAny.DynArrayHelper.insert(Any,DynArray)*
+
+public static void insert(
+  org.omg.CORBA.Any a,
+  org.omg.DynamicAny.DynArray that)
+
+
+
+
+
+*org.omg.DynamicAny.DynArrayHelper.narrow(Object)*
+
+public static |org.omg.DynamicAny.DynArray| narrow(org.omg.CORBA.Object obj)
+
+
+
+
+
+*org.omg.DynamicAny.DynArrayHelper.read(InputStream)*
+
+public static |org.omg.DynamicAny.DynArray| read(org.omg.CORBA.portable.InputStream istream)
+
+
+
+
+
+*org.omg.DynamicAny.DynArrayHelper.type()*
+
+public static synchronized |org.omg.CORBA.TypeCode| type()
+
+
+
+
+
+*org.omg.DynamicAny.DynArrayHelper.unchecked_narrow(Object)*
+
+public static |org.omg.DynamicAny.DynArray| unchecked_narrow(org.omg.CORBA.Object obj)
+
+
+
+
+
+*org.omg.DynamicAny.DynArrayHelper.write(OutputStream,DynArray)*
+
+public static void write(
+  org.omg.CORBA.portable.OutputStream ostream,
+  org.omg.DynamicAny.DynArray value)
+
+
+
+
+
+

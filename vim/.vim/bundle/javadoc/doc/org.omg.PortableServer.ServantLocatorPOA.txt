@@ -1,0 +1,84 @@
+*org.omg.PortableServer.ServantLocatorPOA* *ServantLocatorPOA* When the POA has 
+
+public abstract class ServantLocatorPOA
+  extends    |org.omg.PortableServer.Servant|
+  implements |org.omg.PortableServer.ServantLocatorOperations|
+             |org.omg.CORBA.portable.InvokeHandler|
+
+|org.omg.PortableServer.ServantLocatorPOA_Description|
+|org.omg.PortableServer.ServantLocatorPOA_Fields|
+|org.omg.PortableServer.ServantLocatorPOA_Constructors|
+|org.omg.PortableServer.ServantLocatorPOA_Methods|
+
+================================================================================
+
+*org.omg.PortableServer.ServantLocatorPOA_Constructors*
+|org.omg.PortableServer.ServantLocatorPOA()|
+
+*org.omg.PortableServer.ServantLocatorPOA_Methods*
+|org.omg.PortableServer.ServantLocatorPOA._all_interfaces(POA,byte[])|
+|org.omg.PortableServer.ServantLocatorPOA._invoke(String,InputStream,ResponseHandler)|
+|org.omg.PortableServer.ServantLocatorPOA._this()|
+|org.omg.PortableServer.ServantLocatorPOA._this(ORB)|
+
+*org.omg.PortableServer.ServantLocatorPOA_Description*
+
+When the POA has the NON_RETAIN policy it uses servant managers that are 
+ServantLocators. Because the POA knows that the servant returned by this 
+servant manager will be used only for a single request, it can supply extra 
+information to the servant manager's operations and the servant manager's pair 
+of operations may be able to cooperate to do something different than a 
+ServantActivator. When the POA uses the ServantLocator interface, immediately 
+after performing the operation invocation on the servant returned by preinvoke, 
+the POA will invoke postinvoke on the servant manager, passing the ObjectId 
+value and the Servant value as parameters (among others). This feature may be 
+used to force every request for objects associated with a POA to be mediated by 
+the servant manager. 
+
+
+
+*org.omg.PortableServer.ServantLocatorPOA()*
+
+public ServantLocatorPOA()
+
+
+
+
+*org.omg.PortableServer.ServantLocatorPOA._all_interfaces(POA,byte[])*
+
+public |java.lang.String|[] _all_interfaces(
+  org.omg.PortableServer.POA poa,
+  byte[] objectId)
+
+
+
+
+
+*org.omg.PortableServer.ServantLocatorPOA._invoke(String,InputStream,ResponseHandler)*
+
+public |org.omg.CORBA.portable.OutputStream| _invoke(
+  java.lang.String $method,
+  org.omg.CORBA.portable.InputStream in,
+  org.omg.CORBA.portable.ResponseHandler $rh)
+
+
+
+
+
+*org.omg.PortableServer.ServantLocatorPOA._this()*
+
+public |org.omg.PortableServer.ServantLocator| _this()
+
+
+
+
+
+*org.omg.PortableServer.ServantLocatorPOA._this(ORB)*
+
+public |org.omg.PortableServer.ServantLocator| _this(org.omg.CORBA.ORB orb)
+
+
+
+
+
+

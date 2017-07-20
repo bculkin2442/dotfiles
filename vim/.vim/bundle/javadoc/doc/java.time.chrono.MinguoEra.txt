@@ -1,0 +1,91 @@
+*java.time.chrono.MinguoEra* *MinguoEra* An era in the Minguo calendar system.
+
+public final enumMinguoEra
+  extends    |java.lang.Enum|
+  implements |java.time.chrono.Era|
+
+|java.time.chrono.MinguoEra_Description|
+|java.time.chrono.MinguoEra_Fields|
+|java.time.chrono.MinguoEra_Constructors|
+|java.time.chrono.MinguoEra_Methods|
+
+================================================================================
+
+*java.time.chrono.MinguoEra_Methods*
+|java.time.chrono.MinguoEra.getValue()|Gets the numeric eraintvalue.
+|java.time.chrono.MinguoEra.of(int)|Obtains an instance ofMinguoErafrom anintva
+|java.time.chrono.MinguoEra.valueOf(String)|
+|java.time.chrono.MinguoEra.values()|
+
+*java.time.chrono.MinguoEra_Description*
+
+An era in the Minguo calendar system. 
+
+The Minguo calendar system has two eras. The current era, for years from 1 
+onwards, is known as the 'Republic of China' era. All previous years, zero or 
+earlier in the proleptic count or one and greater in the year-of-era count, are 
+part of the 'Before Republic of China' era. 
+
+
+
+year-of-era era proleptic-year ISO proleptic-year 
+
+
+
+2ROC21913 
+
+1ROC11912 
+
+1BEFORE_ROC01911 
+
+2BEFORE_ROC-11910 
+
+
+
+Do not useordinal()to obtain the numeric representation ofMinguoEra. 
+UsegetValue()instead. 
+
+
+
+*java.time.chrono.MinguoEra.getValue()*
+
+public int getValue()
+
+Gets the numeric eraintvalue. 
+
+The era BEFORE_ROC has the value 0, while the era ROC has the value 1. 
+
+
+
+    Returns: the era value, from 0 (BEFORE_ROC) to 1 (ROC) 
+
+*java.time.chrono.MinguoEra.of(int)*
+
+public static |java.time.chrono.MinguoEra| of(int minguoEra)
+
+Obtains an instance ofMinguoErafrom anintvalue. MinguoErais an enum 
+representing the Minguo eras of BEFORE_ROC/ROC. This factory allows the enum to 
+be obtained from theintvalue. 
+
+
+    minguoEra - the BEFORE_ROC/ROC value to represent, from 0 (BEFORE_ROC) to 1 (ROC) 
+
+    Returns: the era singleton, not null 
+
+*java.time.chrono.MinguoEra.valueOf(String)*
+
+public static |java.time.chrono.MinguoEra| valueOf(java.lang.String name)
+
+
+
+
+
+*java.time.chrono.MinguoEra.values()*
+
+public static |java.time.chrono.MinguoEra|[] values()
+
+
+
+
+
+

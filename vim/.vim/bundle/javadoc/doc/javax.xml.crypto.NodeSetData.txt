@@ -1,0 +1,38 @@
+*javax.xml.crypto.NodeSetData* *NodeSetData* An abstract representation of a Dat
+
+public interface interface NodeSetData
+
+  implements |javax.xml.crypto.Data|
+
+|javax.xml.crypto.NodeSetData_Description|
+|javax.xml.crypto.NodeSetData_Fields|
+|javax.xml.crypto.NodeSetData_Constructors|
+|javax.xml.crypto.NodeSetData_Methods|
+
+================================================================================
+
+*javax.xml.crypto.NodeSetData_Methods*
+|javax.xml.crypto.NodeSetData.iterator()|Returns a read-only iterator over the 
+
+*javax.xml.crypto.NodeSetData_Description*
+
+An abstract representation of a Data type containing a node-set. The type 
+(class) and ordering of the nodes contained in the set are not defined by this 
+class; instead that behavior should be defined by NodeSetData subclasses. 
+
+
+
+*javax.xml.crypto.NodeSetData.iterator()*
+
+public |java.util.Iterator| iterator()
+
+Returns a read-only iterator over the nodes contained in this NodeSetData in 
+
+document order. Attempts to modify the returned iterator via the remove method 
+throw UnsupportedOperationException. 
+
+
+
+    Returns: an Iterator over the nodes in this NodeSetData in document order 
+
+

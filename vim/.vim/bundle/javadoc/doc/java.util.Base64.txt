@@ -1,0 +1,132 @@
+*java.util.Base64* *Base64* This class consists exclusively of static methods fo
+
+public class Base64
+  extends    |java.lang.Object|
+
+|java.util.Base64_Description|
+|java.util.Base64_Fields|
+|java.util.Base64_Constructors|
+|java.util.Base64_Methods|
+
+================================================================================
+
+*java.util.Base64_Methods*
+|java.util.Base64.getDecoder()|Returns aDecoderthat decodes using the  Basic ty
+|java.util.Base64.getEncoder()|Returns aEncoderthat encodes using the  Basic ty
+|java.util.Base64.getMimeDecoder()|Returns aDecoderthat decodes using the  MIME
+|java.util.Base64.getMimeEncoder()|Returns aEncoderthat encodes using the  MIME
+|java.util.Base64.getMimeEncoder(int,byte[])|Returns aEncoderthat encodes using
+|java.util.Base64.getUrlDecoder()|Returns aDecoderthat decodes using the  URL a
+|java.util.Base64.getUrlEncoder()|Returns aEncoderthat encodes using the  URL a
+
+*java.util.Base64_Description*
+
+This class consists exclusively of static methods for obtaining encoders and 
+decoders for the Base64 encoding scheme. The implementation of this class 
+supports the following types of Base64 as specified in RFC 4648 and RFC 2045. 
+
+Basic Uses "The Base64 Alphabet" as specified in Table 1 of RFC 4648 and RFC 
+2045 for encoding and decoding operation. The encoder does not add any line 
+feed (line separator) character. The decoder rejects data that contains 
+characters outside the base64 alphabet. 
+
+URL and Filename safe Uses the "URL and Filename safe Base64 Alphabet" as 
+specified in Table 2 of RFC 4648 for encoding and decoding. The encoder does 
+not add any line feed (line separator) character. The decoder rejects data that 
+contains characters outside the base64 alphabet. 
+
+MIME Uses the "The Base64 Alphabet" as specified in Table 1 of RFC 2045 for 
+encoding and decoding operation. The encoded output must be represented in 
+lines of no more than 76 characters each and uses a carriage return'\r'followed 
+immediately by a linefeed'\n'as the line separator. No line separator is added 
+to the end of the encoded output. All line separators or other characters not 
+found in the base64 alphabet table are ignored in decoding operation. 
+
+Unless otherwise noted, passing anullargument to a method of this class will 
+cause a NullPointerException(|java.lang.NullPointerException|) to be thrown. 
+
+
+
+*java.util.Base64.getDecoder()*
+
+public static |java.util.Base64.Decoder| getDecoder()
+
+Returns a (|java.util.Base64.Decoder|) that decodes using the Basic type base64 
+encoding scheme. 
+
+
+
+    Returns: A Base64 decoder. 
+
+*java.util.Base64.getEncoder()*
+
+public static |java.util.Base64.Encoder| getEncoder()
+
+Returns a (|java.util.Base64.Encoder|) that encodes using the Basic type base64 
+encoding scheme. 
+
+
+
+    Returns: A Base64 encoder. 
+
+*java.util.Base64.getMimeDecoder()*
+
+public static |java.util.Base64.Decoder| getMimeDecoder()
+
+Returns a (|java.util.Base64.Decoder|) that decodes using the MIME type base64 
+decoding scheme. 
+
+
+
+    Returns: A Base64 decoder. 
+
+*java.util.Base64.getMimeEncoder()*
+
+public static |java.util.Base64.Encoder| getMimeEncoder()
+
+Returns a (|java.util.Base64.Encoder|) that encodes using the MIME type base64 
+encoding scheme. 
+
+
+
+    Returns: A Base64 encoder. 
+
+*java.util.Base64.getMimeEncoder(int,byte[])*
+
+public static |java.util.Base64.Encoder| getMimeEncoder(
+  int lineLength,
+  byte[] lineSeparator)
+
+Returns a (|java.util.Base64.Encoder|) that encodes using the MIME type base64 
+encoding scheme with specified line length and line separators. 
+
+
+    lineLength - the length of each output line (rounded down to nearest multiple of 4). If 
+       {@code lineLength <= 0} the output will not be separated in lines 
+    lineSeparator - the line separator for each output line 
+
+    Returns: A Base64 encoder. 
+
+*java.util.Base64.getUrlDecoder()*
+
+public static |java.util.Base64.Decoder| getUrlDecoder()
+
+Returns a (|java.util.Base64.Decoder|) that decodes using the URL and Filename 
+safe type base64 encoding scheme. 
+
+
+
+    Returns: A Base64 decoder. 
+
+*java.util.Base64.getUrlEncoder()*
+
+public static |java.util.Base64.Encoder| getUrlEncoder()
+
+Returns a (|java.util.Base64.Encoder|) that encodes using the URL and Filename 
+safe type base64 encoding scheme. 
+
+
+
+    Returns: A Base64 encoder. 
+
+

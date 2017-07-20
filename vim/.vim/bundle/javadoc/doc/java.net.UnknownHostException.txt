@@ -1,0 +1,37 @@
+*java.net.UnknownHostException* *UnknownHostException* Thrown to indicate that t
+
+public class UnknownHostException
+  extends    |java.io.IOException|
+
+|java.net.UnknownHostException_Description|
+|java.net.UnknownHostException_Fields|
+|java.net.UnknownHostException_Constructors|
+|java.net.UnknownHostException_Methods|
+
+================================================================================
+
+*java.net.UnknownHostException_Constructors*
+|java.net.UnknownHostException()|Constructs a newUnknownHostExceptionwith no de
+|java.net.UnknownHostException(String)|Constructs a newUnknownHostExceptionwith
+
+*java.net.UnknownHostException_Description*
+
+Thrown to indicate that the IP address of a host could not be determined. 
+
+
+
+*java.net.UnknownHostException()*
+
+public UnknownHostException()
+
+Constructs a newUnknownHostExceptionwith no detail message. 
+
+
+*java.net.UnknownHostException(String)*
+
+public UnknownHostException(java.lang.String host)
+
+Constructs a newUnknownHostExceptionwith the specified detail message. 
+
+    host - the detail message. 
+

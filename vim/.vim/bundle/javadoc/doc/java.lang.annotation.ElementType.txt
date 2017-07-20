@@ -1,0 +1,75 @@
+*java.lang.annotation.ElementType* *ElementType* The constants of this enumerate
+
+public final enumElementType
+  extends    |java.lang.Enum|
+
+|java.lang.annotation.ElementType_Description|
+|java.lang.annotation.ElementType_Fields|
+|java.lang.annotation.ElementType_Constructors|
+|java.lang.annotation.ElementType_Methods|
+
+================================================================================
+
+*java.lang.annotation.ElementType_Methods*
+|java.lang.annotation.ElementType.valueOf(String)|
+|java.lang.annotation.ElementType.values()|
+
+*java.lang.annotation.ElementType_Description*
+
+The constants of this enumerated type provide a simple classification of the 
+syntactic locations where annotations may appear in a Java program. These 
+constants are used in 
+java.lang.annotation.Target(|java.lang.annotation.Target|) meta-annotations to 
+specify where it is legal to write annotations of a given type. 
+
+The syntactic locations where annotations may appear are split into declaration 
+contexts , where annotations apply to declarations, and type contexts , where 
+annotations apply to types used in declarations and expressions. 
+
+The constants (|java.lang.annotation.ElementType|) , 
+(|java.lang.annotation.ElementType|) , (|java.lang.annotation.ElementType|) , 
+(|java.lang.annotation.ElementType|) , (|java.lang.annotation.ElementType|) , 
+(|java.lang.annotation.ElementType|) , (|java.lang.annotation.ElementType|) , 
+(|java.lang.annotation.ElementType|) , and (|java.lang.annotation.ElementType|) 
+correspond to the declaration contexts in JLS 9.6.4.1. 
+
+For example, an annotation whose type is meta-annotated 
+with@Target(ElementType.FIELD)may only be written as a modifier for a field 
+declaration. 
+
+The constant (|java.lang.annotation.ElementType|) corresponds to the 15 type 
+contexts in JLS 4.11, as well as to two declaration contexts: type declarations 
+(including annotation type declarations) and type parameter declarations. 
+
+For example, an annotation whose type is meta-annotated 
+with@Target(ElementType.TYPE_USE)may be written on the type of a field (or 
+within the type of the field, if it is a nested, parameterized, or array type), 
+and may also appear as a modifier for, say, a class declaration. 
+
+TheTYPE_USEconstant includes type declarations and type parameter declarations 
+as a convenience for designers of type checkers which give semantics to 
+annotation types. For example, if the annotation typeNonNullis meta-annotated 
+with@Target(ElementType.TYPE_USE), then@NonNullclass C {...}could be treated by 
+a type checker as indicating that all variables of classCare non-null, while 
+still allowing variables of other classes to be non-null or not non-null based 
+on whether@NonNullappears at the variable's declaration. 
+
+
+
+*java.lang.annotation.ElementType.valueOf(String)*
+
+public static |java.lang.annotation.ElementType| valueOf(java.lang.String name)
+
+
+
+
+
+*java.lang.annotation.ElementType.values()*
+
+public static |java.lang.annotation.ElementType|[] values()
+
+
+
+
+
+

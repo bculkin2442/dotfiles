@@ -1,0 +1,170 @@
+*javax.swing.plaf.synth.SynthColorChooserUI* *SynthColorChooserUI* Provides the 
+
+public class SynthColorChooserUI
+  extends    |javax.swing.plaf.basic.BasicColorChooserUI|
+  implements |java.beans.PropertyChangeListener|
+             |javax.swing.plaf.synth.SynthUI|
+
+|javax.swing.plaf.synth.SynthColorChooserUI_Description|
+|javax.swing.plaf.synth.SynthColorChooserUI_Fields|
+|javax.swing.plaf.synth.SynthColorChooserUI_Constructors|
+|javax.swing.plaf.synth.SynthColorChooserUI_Methods|
+
+================================================================================
+
+*javax.swing.plaf.synth.SynthColorChooserUI_Constructors*
+|javax.swing.plaf.synth.SynthColorChooserUI()|
+
+*javax.swing.plaf.synth.SynthColorChooserUI_Methods*
+|javax.swing.plaf.synth.SynthColorChooserUI.createDefaultChoosers()|
+|javax.swing.plaf.synth.SynthColorChooserUI.createUI(JComponent)|Creates a new 
+|javax.swing.plaf.synth.SynthColorChooserUI.getContext(JComponent)|
+|javax.swing.plaf.synth.SynthColorChooserUI.installDefaults()|
+|javax.swing.plaf.synth.SynthColorChooserUI.installListeners()|
+|javax.swing.plaf.synth.SynthColorChooserUI.paint(Graphics,JComponent)|Paints t
+|javax.swing.plaf.synth.SynthColorChooserUI.paint(SynthContext,Graphics)|Paints
+|javax.swing.plaf.synth.SynthColorChooserUI.paintBorder(SynthContext,Graphics,int,int,int,int)|
+|javax.swing.plaf.synth.SynthColorChooserUI.propertyChange(PropertyChangeEvent)|
+|javax.swing.plaf.synth.SynthColorChooserUI.uninstallDefaults()|
+|javax.swing.plaf.synth.SynthColorChooserUI.uninstallListeners()|
+|javax.swing.plaf.synth.SynthColorChooserUI.update(Graphics,JComponent)|Notifie
+
+*javax.swing.plaf.synth.SynthColorChooserUI_Description*
+
+Provides the Synth L and F UI delegate for (|javax.swing.JColorChooser|) . 
+
+
+
+*javax.swing.plaf.synth.SynthColorChooserUI()*
+
+public SynthColorChooserUI()
+
+
+
+
+*javax.swing.plaf.synth.SynthColorChooserUI.createDefaultChoosers()*
+
+protected |javax.swing.colorchooser.AbstractColorChooserPanel|[] createDefaultChoosers()
+
+
+
+
+
+*javax.swing.plaf.synth.SynthColorChooserUI.createUI(JComponent)*
+
+public static |javax.swing.plaf.ComponentUI| createUI(javax.swing.JComponent c)
+
+Creates a new UI object for the given component. 
+
+
+    c - component to create UI object for 
+
+    Returns: the UI object 
+
+*javax.swing.plaf.synth.SynthColorChooserUI.getContext(JComponent)*
+
+public |javax.swing.plaf.synth.SynthContext| getContext(javax.swing.JComponent c)
+
+
+
+
+
+*javax.swing.plaf.synth.SynthColorChooserUI.installDefaults()*
+
+protected void installDefaults()
+
+
+
+
+
+*javax.swing.plaf.synth.SynthColorChooserUI.installListeners()*
+
+protected void installListeners()
+
+
+
+
+
+*javax.swing.plaf.synth.SynthColorChooserUI.paint(Graphics,JComponent)*
+
+public void paint(
+  java.awt.Graphics g,
+  javax.swing.JComponent c)
+
+Paints the specified component according to the Look and Feel. This method is 
+not used by Synth Look and Feel. Painting is handled by the 
+(|javax.swing.plaf.synth.SynthColorChooserUI|) method. 
+
+
+    g - the {@code Graphics} object used for painting 
+    c - the component being painted 
+
+*javax.swing.plaf.synth.SynthColorChooserUI.paint(SynthContext,Graphics)*
+
+protected void paint(
+  javax.swing.plaf.synth.SynthContext context,
+  java.awt.Graphics g)
+
+Paints the specified component. This implementation does not perform any 
+actions. 
+
+
+    context - context for the component being painted 
+    g - the {@code Graphics} object used for painting 
+
+*javax.swing.plaf.synth.SynthColorChooserUI.paintBorder(SynthContext,Graphics,int,int,int,int)*
+
+public void paintBorder(
+  javax.swing.plaf.synth.SynthContext context,
+  java.awt.Graphics g,
+  int x,
+  int y,
+  int w,
+  int h)
+
+
+
+
+
+*javax.swing.plaf.synth.SynthColorChooserUI.propertyChange(PropertyChangeEvent)*
+
+public void propertyChange(java.beans.PropertyChangeEvent e)
+
+
+
+
+
+*javax.swing.plaf.synth.SynthColorChooserUI.uninstallDefaults()*
+
+protected void uninstallDefaults()
+
+
+
+
+
+*javax.swing.plaf.synth.SynthColorChooserUI.uninstallListeners()*
+
+protected void uninstallListeners()
+
+
+
+
+
+*javax.swing.plaf.synth.SynthColorChooserUI.update(Graphics,JComponent)*
+
+public void update(
+  java.awt.Graphics g,
+  javax.swing.JComponent c)
+
+Notifies this UI delegate to repaint the specified component. This method 
+paints the component background, then calls the 
+(|javax.swing.plaf.synth.SynthColorChooserUI|) method. 
+
+In general, this method does not need to be overridden by subclasses. All Look 
+and Feel rendering code should reside in thepaintmethod. 
+
+
+    g - the {@code Graphics} object used for painting 
+    c - the component being painted 
+
+

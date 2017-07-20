@@ -1,0 +1,148 @@
+*javax.swing.plaf.synth.SynthTextAreaUI* *SynthTextAreaUI* Provides the look and
+
+public class SynthTextAreaUI
+  extends    |javax.swing.plaf.basic.BasicTextAreaUI|
+  implements |javax.swing.plaf.synth.SynthUI|
+
+|javax.swing.plaf.synth.SynthTextAreaUI_Description|
+|javax.swing.plaf.synth.SynthTextAreaUI_Fields|
+|javax.swing.plaf.synth.SynthTextAreaUI_Constructors|
+|javax.swing.plaf.synth.SynthTextAreaUI_Methods|
+
+================================================================================
+
+*javax.swing.plaf.synth.SynthTextAreaUI_Constructors*
+|javax.swing.plaf.synth.SynthTextAreaUI()|
+
+*javax.swing.plaf.synth.SynthTextAreaUI_Methods*
+|javax.swing.plaf.synth.SynthTextAreaUI.createUI(JComponent)|Creates a UI objec
+|javax.swing.plaf.synth.SynthTextAreaUI.getContext(JComponent)|
+|javax.swing.plaf.synth.SynthTextAreaUI.installDefaults()|
+|javax.swing.plaf.synth.SynthTextAreaUI.paint(SynthContext,Graphics)|Paints the
+|javax.swing.plaf.synth.SynthTextAreaUI.paintBackground(Graphics)|Overridden to
+|javax.swing.plaf.synth.SynthTextAreaUI.paintBorder(SynthContext,Graphics,int,int,int,int)|
+|javax.swing.plaf.synth.SynthTextAreaUI.propertyChange(PropertyChangeEvent)|Thi
+|javax.swing.plaf.synth.SynthTextAreaUI.uninstallDefaults()|
+|javax.swing.plaf.synth.SynthTextAreaUI.update(Graphics,JComponent)|Notifies th
+
+*javax.swing.plaf.synth.SynthTextAreaUI_Description*
+
+Provides the look and feel for a plain text editor in the Synth look and feel. 
+In this implementation the default UI is extended to act as a simple view 
+factory. 
+
+Warning: Serialized objects of this class will not be compatible with future 
+Swing releases. The current serialization support is appropriate for short term 
+storage or RMI between applications running the same version of Swing. As of 
+1.4, support for long term storage of all JavaBeans has been added to the 
+java.beans package. Please see (|java.beans.XMLEncoder|) . 
+
+
+
+*javax.swing.plaf.synth.SynthTextAreaUI()*
+
+public SynthTextAreaUI()
+
+
+
+
+*javax.swing.plaf.synth.SynthTextAreaUI.createUI(JComponent)*
+
+public static |javax.swing.plaf.ComponentUI| createUI(javax.swing.JComponent ta)
+
+Creates a UI object for a JTextArea. 
+
+
+    ta - a text area 
+
+    Returns: the UI object 
+
+*javax.swing.plaf.synth.SynthTextAreaUI.getContext(JComponent)*
+
+public |javax.swing.plaf.synth.SynthContext| getContext(javax.swing.JComponent c)
+
+
+
+
+
+*javax.swing.plaf.synth.SynthTextAreaUI.installDefaults()*
+
+protected void installDefaults()
+
+
+
+
+
+*javax.swing.plaf.synth.SynthTextAreaUI.paint(SynthContext,Graphics)*
+
+protected void paint(
+  javax.swing.plaf.synth.SynthContext context,
+  java.awt.Graphics g)
+
+Paints the specified component. 
+
+
+    context - context for the component being painted 
+    g - the {@code Graphics} object used for painting 
+
+*javax.swing.plaf.synth.SynthTextAreaUI.paintBackground(Graphics)*
+
+protected void paintBackground(java.awt.Graphics g)
+
+Overridden to do nothing. 
+
+
+
+*javax.swing.plaf.synth.SynthTextAreaUI.paintBorder(SynthContext,Graphics,int,int,int,int)*
+
+public void paintBorder(
+  javax.swing.plaf.synth.SynthContext context,
+  java.awt.Graphics g,
+  int x,
+  int y,
+  int w,
+  int h)
+
+
+
+
+
+*javax.swing.plaf.synth.SynthTextAreaUI.propertyChange(PropertyChangeEvent)*
+
+protected void propertyChange(java.beans.PropertyChangeEvent evt)
+
+This method gets called when a bound property is changed on the associated 
+JTextComponent. This is a hook which UI implementations may change to reflect 
+how the UI displays bound properties of JTextComponent subclasses. This is 
+implemented to rebuild the View when the WrapLine or the WrapStyleWord property 
+changes. 
+
+
+    evt - the property change event 
+
+*javax.swing.plaf.synth.SynthTextAreaUI.uninstallDefaults()*
+
+protected void uninstallDefaults()
+
+
+
+
+
+*javax.swing.plaf.synth.SynthTextAreaUI.update(Graphics,JComponent)*
+
+public void update(
+  java.awt.Graphics g,
+  javax.swing.JComponent c)
+
+Notifies this UI delegate to repaint the specified component. This method 
+paints the component background, then calls the 
+(|javax.swing.plaf.synth.SynthTextAreaUI|) method. 
+
+In general, this method does not need to be overridden by subclasses. All Look 
+and Feel rendering code should reside in thepaintmethod. 
+
+
+    g - the {@code Graphics} object used for painting 
+    c - the component being painted 
+
+

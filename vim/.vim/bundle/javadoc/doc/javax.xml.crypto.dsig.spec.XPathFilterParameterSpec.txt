@@ -1,0 +1,77 @@
+*javax.xml.crypto.dsig.spec.XPathFilterParameterSpec* *XPathFilterParameterSpec* 
+
+public final class XPathFilterParameterSpec
+  extends    |java.lang.Object|
+  implements |javax.xml.crypto.dsig.spec.TransformParameterSpec|
+
+|javax.xml.crypto.dsig.spec.XPathFilterParameterSpec_Description|
+|javax.xml.crypto.dsig.spec.XPathFilterParameterSpec_Fields|
+|javax.xml.crypto.dsig.spec.XPathFilterParameterSpec_Constructors|
+|javax.xml.crypto.dsig.spec.XPathFilterParameterSpec_Methods|
+
+================================================================================
+
+*javax.xml.crypto.dsig.spec.XPathFilterParameterSpec_Constructors*
+|javax.xml.crypto.dsig.spec.XPathFilterParameterSpec(String)|Creates an XPathFi
+|javax.xml.crypto.dsig.spec.XPathFilterParameterSpec(String,Map)|Creates an XPa
+
+*javax.xml.crypto.dsig.spec.XPathFilterParameterSpec_Methods*
+|javax.xml.crypto.dsig.spec.XPathFilterParameterSpec.getNamespaceMap()|Returns 
+|javax.xml.crypto.dsig.spec.XPathFilterParameterSpec.getXPath()|Returns the XPa
+
+*javax.xml.crypto.dsig.spec.XPathFilterParameterSpec_Description*
+
+Parameters for the XPath Filtering Transform Algorithm. The parameters include 
+the XPath expression and an optional Map of additional namespace prefix 
+mappings. The XML Schema Definition of the XPath Filtering transform parameters 
+is defined as: 
+
+<element name="XPath" type="string"/> 
+
+
+
+*javax.xml.crypto.dsig.spec.XPathFilterParameterSpec(String)*
+
+public XPathFilterParameterSpec(java.lang.String xPath)
+
+Creates an XPathFilterParameterSpec with the specified XPath expression. 
+
+    xPath - the XPath expression to be evaluated 
+
+*javax.xml.crypto.dsig.spec.XPathFilterParameterSpec(String,Map)*
+
+public XPathFilterParameterSpec(
+  java.lang.String xPath,
+  java.util.Map namespaceMap)
+
+Creates an XPathFilterParameterSpec with the specified XPath expression and 
+namespace map. The map is copied to protect against subsequent modification. 
+
+    xPath - the XPath expression to be evaluated 
+    namespaceMap - the map of namespace prefixes. Each key is a namespace prefix String that maps 
+       to a corresponding namespace URI String. 
+
+*javax.xml.crypto.dsig.spec.XPathFilterParameterSpec.getNamespaceMap()*
+
+public |java.util.Map| getNamespaceMap()
+
+Returns a map of namespace prefixes. Each key is a namespace prefix String that 
+maps to a corresponding namespace URI String. 
+
+This implementation returns an unmodifiable map(|java.util.Collections|) . 
+
+
+
+    Returns: a Map of namespace prefixes to namespace URIs (may be empty, but never null) 
+
+*javax.xml.crypto.dsig.spec.XPathFilterParameterSpec.getXPath()*
+
+public |java.lang.String| getXPath()
+
+Returns the XPath expression to be evaluated. 
+
+
+
+    Returns: the XPath expression to be evaluated 
+
+

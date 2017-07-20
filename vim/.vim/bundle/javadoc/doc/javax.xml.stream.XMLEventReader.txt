@@ -1,0 +1,108 @@
+*javax.xml.stream.XMLEventReader* *XMLEventReader* This is the top level interfa
+
+public interface interface XMLEventReader
+
+  implements |java.util.Iterator|
+
+|javax.xml.stream.XMLEventReader_Description|
+|javax.xml.stream.XMLEventReader_Fields|
+|javax.xml.stream.XMLEventReader_Constructors|
+|javax.xml.stream.XMLEventReader_Methods|
+
+================================================================================
+
+*javax.xml.stream.XMLEventReader_Methods*
+|javax.xml.stream.XMLEventReader.close()|Frees any resources associated with th
+|javax.xml.stream.XMLEventReader.getElementText()|Reads the content of a text-o
+|javax.xml.stream.XMLEventReader.getProperty(String)|Get the value of a feature
+|javax.xml.stream.XMLEventReader.hasNext()|Check if there are more events.
+|javax.xml.stream.XMLEventReader.nextEvent()|Get the next XMLEvent
+|javax.xml.stream.XMLEventReader.nextTag()|Skips any insignificant space events
+|javax.xml.stream.XMLEventReader.peek()|Check the next XMLEvent without reading
+
+*javax.xml.stream.XMLEventReader_Description*
+
+This is the top level interface for parsing XML Events. It provides the ability 
+to peek at the next event and returns configuration information through the 
+property interface. 
+
+
+
+*javax.xml.stream.XMLEventReader.close()*
+
+public void close()
+  throws |javax.xml.stream.XMLStreamException|
+         
+Frees any resources associated with this Reader. This method does not close the 
+underlying input source. 
+
+
+
+*javax.xml.stream.XMLEventReader.getElementText()*
+
+public |java.lang.String| getElementText()
+  throws |javax.xml.stream.XMLStreamException|
+         
+Reads the content of a text-only element. Precondition: the current event is 
+START_ELEMENT. Postcondition: The current event is the corresponding 
+END_ELEMENT. 
+
+
+
+*javax.xml.stream.XMLEventReader.getProperty(String)*
+
+public |java.lang.Object| getProperty(java.lang.String name)
+  throws |java.lang.IllegalArgumentException|
+         
+Get the value of a feature/property from the underlying implementation 
+
+
+    name - The name of the property 
+
+    Returns: The value of the property 
+
+*javax.xml.stream.XMLEventReader.hasNext()*
+
+public boolean hasNext()
+
+Check if there are more events. Returns true if there are more events and false 
+otherwise. 
+
+
+
+    Returns: true if the event reader has more events, false otherwise 
+
+*javax.xml.stream.XMLEventReader.nextEvent()*
+
+public |javax.xml.stream.events.XMLEvent| nextEvent()
+  throws |javax.xml.stream.XMLStreamException|
+         
+Get the next XMLEvent 
+
+
+
+*javax.xml.stream.XMLEventReader.nextTag()*
+
+public |javax.xml.stream.events.XMLEvent| nextTag()
+  throws |javax.xml.stream.XMLStreamException|
+         
+Skips any insignificant space events until a START_ELEMENT or END_ELEMENT is 
+reached. If anything other than space characters are encountered, an exception 
+is thrown. This method should be used when processing element-only content 
+because the parser is not able to recognize ignorable whitespace if the DTD is 
+missing or not interpreted. 
+
+
+
+*javax.xml.stream.XMLEventReader.peek()*
+
+public |javax.xml.stream.events.XMLEvent| peek()
+  throws |javax.xml.stream.XMLStreamException|
+         
+Check the next XMLEvent without reading it from the stream. Returns null if the 
+stream is at EOF or has no more XMLEvents. A call to peek() will be equal to 
+the next return of next(). 
+
+
+
+

@@ -1,0 +1,19 @@
+*javax.xml.bind.annotation.XmlRegistry* *XmlRegistry* Marks a class that hasXmlE
+
+public interface class XmlRegistry
+
+  implements |java.lang.annotation.Annotation|
+
+|javax.xml.bind.annotation.XmlRegistry_Description|
+|javax.xml.bind.annotation.XmlRegistry_Fields|
+|javax.xml.bind.annotation.XmlRegistry_Constructors|
+|javax.xml.bind.annotation.XmlRegistry_Methods|
+
+================================================================================
+
+*javax.xml.bind.annotation.XmlRegistry_Description*
+
+Marks a class that has (|javax.xml.bind.annotation.XmlElementDecl|) s. 
+
+
+

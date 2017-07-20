@@ -1,0 +1,80 @@
+*org.omg.CosNaming.NamingContextHolder* *NamingContextHolder* A naming context i
+
+public final class NamingContextHolder
+  extends    |java.lang.Object|
+  implements |org.omg.CORBA.portable.Streamable|
+
+|org.omg.CosNaming.NamingContextHolder_Description|
+|org.omg.CosNaming.NamingContextHolder_Fields|
+|org.omg.CosNaming.NamingContextHolder_Constructors|
+|org.omg.CosNaming.NamingContextHolder_Methods|
+
+================================================================================
+
+*org.omg.CosNaming.NamingContextHolder_Fields*
+|org.omg.CosNaming.NamingContext_org.omg.CosNaming.NamingContextHolder.value|
+
+*org.omg.CosNaming.NamingContextHolder_Constructors*
+|org.omg.CosNaming.NamingContextHolder()|
+|org.omg.CosNaming.NamingContextHolder(NamingContext)|
+
+*org.omg.CosNaming.NamingContextHolder_Methods*
+|org.omg.CosNaming.NamingContextHolder._read(InputStream)|
+|org.omg.CosNaming.NamingContextHolder._type()|
+|org.omg.CosNaming.NamingContextHolder._write(OutputStream)|
+
+*org.omg.CosNaming.NamingContextHolder_Description*
+
+A naming context is an object that contains a set of name bindings in which 
+each name is unique. Different names can be bound to an object in the same or 
+different contexts at the same time. 
+
+See CORBA COS Naming Specification. 
+
+
+
+*org.omg.CosNaming.NamingContext_org.omg.CosNaming.NamingContextHolder.value*
+
+
+
+
+
+*org.omg.CosNaming.NamingContextHolder()*
+
+public NamingContextHolder()
+
+
+
+
+*org.omg.CosNaming.NamingContextHolder(NamingContext)*
+
+public NamingContextHolder(org.omg.CosNaming.NamingContext initialValue)
+
+
+
+
+*org.omg.CosNaming.NamingContextHolder._read(InputStream)*
+
+public void _read(org.omg.CORBA.portable.InputStream i)
+
+
+
+
+
+*org.omg.CosNaming.NamingContextHolder._type()*
+
+public |org.omg.CORBA.TypeCode| _type()
+
+
+
+
+
+*org.omg.CosNaming.NamingContextHolder._write(OutputStream)*
+
+public void _write(org.omg.CORBA.portable.OutputStream o)
+
+
+
+
+
+

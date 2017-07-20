@@ -1,0 +1,210 @@
+*javax.xml.bind.helpers.ValidationEventLocatorImpl* *ValidationEventLocatorImpl* 
+
+public class ValidationEventLocatorImpl
+  extends    |java.lang.Object|
+  implements |javax.xml.bind.ValidationEventLocator|
+
+|javax.xml.bind.helpers.ValidationEventLocatorImpl_Description|
+|javax.xml.bind.helpers.ValidationEventLocatorImpl_Fields|
+|javax.xml.bind.helpers.ValidationEventLocatorImpl_Constructors|
+|javax.xml.bind.helpers.ValidationEventLocatorImpl_Methods|
+
+================================================================================
+
+*javax.xml.bind.helpers.ValidationEventLocatorImpl_Constructors*
+|javax.xml.bind.helpers.ValidationEventLocatorImpl()|Creates an object with all
+|javax.xml.bind.helpers.ValidationEventLocatorImpl(Locator)|Constructs an objec
+|javax.xml.bind.helpers.ValidationEventLocatorImpl(Node)|Constructs an object t
+|javax.xml.bind.helpers.ValidationEventLocatorImpl(Object)|Constructs an object
+|javax.xml.bind.helpers.ValidationEventLocatorImpl(SAXParseException)|Construct
+
+*javax.xml.bind.helpers.ValidationEventLocatorImpl_Methods*
+|javax.xml.bind.helpers.ValidationEventLocatorImpl.getColumnNumber()|
+|javax.xml.bind.helpers.ValidationEventLocatorImpl.getLineNumber()|
+|javax.xml.bind.helpers.ValidationEventLocatorImpl.getNode()|
+|javax.xml.bind.helpers.ValidationEventLocatorImpl.getObject()|
+|javax.xml.bind.helpers.ValidationEventLocatorImpl.getOffset()|
+|javax.xml.bind.helpers.ValidationEventLocatorImpl.getURL()|
+|javax.xml.bind.helpers.ValidationEventLocatorImpl.setColumnNumber(int)|Set the
+|javax.xml.bind.helpers.ValidationEventLocatorImpl.setLineNumber(int)|Set the l
+|javax.xml.bind.helpers.ValidationEventLocatorImpl.setNode(Node)|Set the Node f
+|javax.xml.bind.helpers.ValidationEventLocatorImpl.setObject(Object)|Set the Ob
+|javax.xml.bind.helpers.ValidationEventLocatorImpl.setOffset(int)|Set the offse
+|javax.xml.bind.helpers.ValidationEventLocatorImpl.setURL(URL)|Set the URL fiel
+|javax.xml.bind.helpers.ValidationEventLocatorImpl.toString()|Returns a string 
+
+*javax.xml.bind.helpers.ValidationEventLocatorImpl_Description*
+
+Default implementation of the ValidationEventLocator interface. 
+
+JAXB providers are allowed to use whatever class that implements the 
+ValidationEventLocator interface. This class is just provided for a 
+convenience. 
+
+
+
+*javax.xml.bind.helpers.ValidationEventLocatorImpl()*
+
+public ValidationEventLocatorImpl()
+
+Creates an object with all fields unavailable. 
+
+
+*javax.xml.bind.helpers.ValidationEventLocatorImpl(Locator)*
+
+public ValidationEventLocatorImpl(org.xml.sax.Locator loc)
+
+Constructs an object from an org.xml.sax.Locator. 
+
+The object's ColumnNumber, LineNumber, and URL become available from the values 
+returned by the locator's getColumnNumber(), getLineNumber(), and getSystemId() 
+methods respectively. Node, Object, and Offset are not available. 
+
+    loc - the SAX Locator object that will be used to populate this event locator. 
+
+*javax.xml.bind.helpers.ValidationEventLocatorImpl(Node)*
+
+public ValidationEventLocatorImpl(org.w3c.dom.Node _node)
+
+Constructs an object that points to a DOM Node. 
+
+The object's Node becomes available. ColumnNumber, LineNumber, Object, Offset, 
+and URL are not available. 
+
+    _node - the DOM Node object that will be used to populate this event locator. 
+
+*javax.xml.bind.helpers.ValidationEventLocatorImpl(Object)*
+
+public ValidationEventLocatorImpl(java.lang.Object _object)
+
+Constructs an object that points to a JAXB content object. 
+
+The object's Object becomes available. ColumnNumber, LineNumber, Node, Offset, 
+and URL are not available. 
+
+    _object - the Object that will be used to populate this event locator. 
+
+*javax.xml.bind.helpers.ValidationEventLocatorImpl(SAXParseException)*
+
+public ValidationEventLocatorImpl(org.xml.sax.SAXParseException e)
+
+Constructs an object from the location information of a SAXParseException. 
+
+The object's ColumnNumber, LineNumber, and URL become available from the values 
+returned by the locator's getColumnNumber(), getLineNumber(), and getSystemId() 
+methods respectively. Node, Object, and Offset are not available. 
+
+    e - the SAXParseException object that will be used to populate this event locator. 
+
+*javax.xml.bind.helpers.ValidationEventLocatorImpl.getColumnNumber()*
+
+public int getColumnNumber()
+
+
+
+
+
+*javax.xml.bind.helpers.ValidationEventLocatorImpl.getLineNumber()*
+
+public int getLineNumber()
+
+
+
+
+
+*javax.xml.bind.helpers.ValidationEventLocatorImpl.getNode()*
+
+public |org.w3c.dom.Node| getNode()
+
+
+
+
+
+*javax.xml.bind.helpers.ValidationEventLocatorImpl.getObject()*
+
+public |java.lang.Object| getObject()
+
+
+
+
+
+*javax.xml.bind.helpers.ValidationEventLocatorImpl.getOffset()*
+
+public int getOffset()
+
+
+
+
+
+*javax.xml.bind.helpers.ValidationEventLocatorImpl.getURL()*
+
+public |java.net.URL| getURL()
+
+
+
+
+
+*javax.xml.bind.helpers.ValidationEventLocatorImpl.setColumnNumber(int)*
+
+public void setColumnNumber(int _columnNumber)
+
+Set the columnNumber field on this event locator. 
+
+
+    _columnNumber - the column number 
+
+*javax.xml.bind.helpers.ValidationEventLocatorImpl.setLineNumber(int)*
+
+public void setLineNumber(int _lineNumber)
+
+Set the lineNumber field on this event locator. 
+
+
+    _lineNumber - the line number 
+
+*javax.xml.bind.helpers.ValidationEventLocatorImpl.setNode(Node)*
+
+public void setNode(org.w3c.dom.Node _node)
+
+Set the Node field on this event locator. Null values are allowed. 
+
+
+    _node - the Node 
+
+*javax.xml.bind.helpers.ValidationEventLocatorImpl.setObject(Object)*
+
+public void setObject(java.lang.Object _object)
+
+Set the Object field on this event locator. Null values are allowed. 
+
+
+    _object - the java content object 
+
+*javax.xml.bind.helpers.ValidationEventLocatorImpl.setOffset(int)*
+
+public void setOffset(int _offset)
+
+Set the offset field on this event locator. 
+
+
+    _offset - the offset 
+
+*javax.xml.bind.helpers.ValidationEventLocatorImpl.setURL(URL)*
+
+public void setURL(java.net.URL _url)
+
+Set the URL field on this event locator. Null values are allowed. 
+
+
+    _url - the url 
+
+*javax.xml.bind.helpers.ValidationEventLocatorImpl.toString()*
+
+public |java.lang.String| toString()
+
+Returns a string representation of this object in a format helpful to 
+debugging. 
+
+
+
+

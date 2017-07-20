@@ -1,0 +1,66 @@
+*javax.xml.stream.events.Attribute* *Attribute* An interface that contains infor
+
+public interface interface Attribute
+
+  implements |javax.xml.stream.events.XMLEvent|
+
+|javax.xml.stream.events.Attribute_Description|
+|javax.xml.stream.events.Attribute_Fields|
+|javax.xml.stream.events.Attribute_Constructors|
+|javax.xml.stream.events.Attribute_Methods|
+
+================================================================================
+
+*javax.xml.stream.events.Attribute_Methods*
+|javax.xml.stream.events.Attribute.getDTDType()|Gets the type of this attribute
+|javax.xml.stream.events.Attribute.getName()|Returns the QName for this attribu
+|javax.xml.stream.events.Attribute.getValue()|Gets the normalized value of this
+|javax.xml.stream.events.Attribute.isSpecified()|A flag indicating whether this
+
+*javax.xml.stream.events.Attribute_Description*
+
+An interface that contains information about an attribute. Attributes are 
+reported as a set of events accessible from a StartElement. Other applications 
+may report Attributes as first-order events, for example as the results of an 
+XPath expression. 
+
+
+
+*javax.xml.stream.events.Attribute.getDTDType()*
+
+public |java.lang.String| getDTDType()
+
+Gets the type of this attribute, default is the String "CDATA" 
+
+
+
+    Returns: the type as a String, default is "CDATA" 
+
+*javax.xml.stream.events.Attribute.getName()*
+
+public |javax.xml.namespace.QName| getName()
+
+Returns the QName for this attribute 
+
+
+
+*javax.xml.stream.events.Attribute.getValue()*
+
+public |java.lang.String| getValue()
+
+Gets the normalized value of this attribute 
+
+
+
+*javax.xml.stream.events.Attribute.isSpecified()*
+
+public boolean isSpecified()
+
+A flag indicating whether this attribute was actually specified in the 
+start-tag of its element, or was defaulted from the schema. 
+
+
+
+    Returns: returns true if this was specified in the start element 
+
+

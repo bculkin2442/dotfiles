@@ -1,0 +1,64 @@
+*java.util.PrimitiveIterator.OfLong* *PrimitiveIterator.OfLong* An Iterator spec
+
+public static interface interface PrimitiveIterator.OfLong
+
+  implements |java.util.PrimitiveIterator|
+
+|java.util.PrimitiveIterator.OfLong_Description|
+|java.util.PrimitiveIterator.OfLong_Fields|
+|java.util.PrimitiveIterator.OfLong_Constructors|
+|java.util.PrimitiveIterator.OfLong_Methods|
+
+================================================================================
+
+*java.util.PrimitiveIterator.OfLong_Methods*
+|java.util.PrimitiveIterator.OfLong.forEachRemaining(Consumer<?superLong>)|
+|java.util.PrimitiveIterator.OfLong.forEachRemaining(LongConsumer)|Performs the
+|java.util.PrimitiveIterator.OfLong.next()|
+|java.util.PrimitiveIterator.OfLong.nextLong()|Returns the nextlongelement in t
+
+*java.util.PrimitiveIterator.OfLong_Description*
+
+An Iterator specialized forlongvalues. 
+
+
+
+*java.util.PrimitiveIterator.OfLong.forEachRemaining(Consumer<?superLong>)*
+
+public void forEachRemaining(java.util.function.Consumer<? super java.lang.Long> action)
+
+
+
+
+
+*java.util.PrimitiveIterator.OfLong.forEachRemaining(LongConsumer)*
+
+public void forEachRemaining(java.util.function.LongConsumer action)
+
+Performs the given action for each remaining element until all elements have 
+been processed or the action throws an exception. Actions are performed in the 
+order of iteration, if that order is specified. Exceptions thrown by the action 
+are relayed to the caller. 
+
+
+    action - The action to be performed for each element 
+
+*java.util.PrimitiveIterator.OfLong.next()*
+
+public |java.lang.Long| next()
+
+
+
+
+
+*java.util.PrimitiveIterator.OfLong.nextLong()*
+
+public long nextLong()
+
+Returns the nextlongelement in the iteration. 
+
+
+
+    Returns: the next {@code long} element in the iteration 
+
+

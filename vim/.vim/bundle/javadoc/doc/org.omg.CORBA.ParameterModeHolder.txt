@@ -1,0 +1,79 @@
+*org.omg.CORBA.ParameterModeHolder* *ParameterModeHolder* Enumeration of paramet
+
+public final class ParameterModeHolder
+  extends    |java.lang.Object|
+  implements |org.omg.CORBA.portable.Streamable|
+
+|org.omg.CORBA.ParameterModeHolder_Description|
+|org.omg.CORBA.ParameterModeHolder_Fields|
+|org.omg.CORBA.ParameterModeHolder_Constructors|
+|org.omg.CORBA.ParameterModeHolder_Methods|
+
+================================================================================
+
+*org.omg.CORBA.ParameterModeHolder_Fields*
+|org.omg.CORBA.ParameterMode_org.omg.CORBA.ParameterModeHolder.value|
+
+*org.omg.CORBA.ParameterModeHolder_Constructors*
+|org.omg.CORBA.ParameterModeHolder()|
+|org.omg.CORBA.ParameterModeHolder(ParameterMode)|
+
+*org.omg.CORBA.ParameterModeHolder_Methods*
+|org.omg.CORBA.ParameterModeHolder._read(InputStream)|
+|org.omg.CORBA.ParameterModeHolder._type()|
+|org.omg.CORBA.ParameterModeHolder._write(OutputStream)|
+
+*org.omg.CORBA.ParameterModeHolder_Description*
+
+Enumeration of parameter modes for Parameter. Possible vaues: 
+
+PARAM_IN - Represents an "in" parameter. PARAM_OUT - Represents an "out" 
+parameter. PARAM_INOUT - Represents an "inout" parameter. 
+
+
+
+*org.omg.CORBA.ParameterMode_org.omg.CORBA.ParameterModeHolder.value*
+
+
+
+
+
+*org.omg.CORBA.ParameterModeHolder()*
+
+public ParameterModeHolder()
+
+
+
+
+*org.omg.CORBA.ParameterModeHolder(ParameterMode)*
+
+public ParameterModeHolder(org.omg.CORBA.ParameterMode initialValue)
+
+
+
+
+*org.omg.CORBA.ParameterModeHolder._read(InputStream)*
+
+public void _read(org.omg.CORBA.portable.InputStream i)
+
+
+
+
+
+*org.omg.CORBA.ParameterModeHolder._type()*
+
+public |org.omg.CORBA.TypeCode| _type()
+
+
+
+
+
+*org.omg.CORBA.ParameterModeHolder._write(OutputStream)*
+
+public void _write(org.omg.CORBA.portable.OutputStream o)
+
+
+
+
+
+

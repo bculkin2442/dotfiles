@@ -1,0 +1,20 @@
+*javax.xml.ws.handler.LogicalHandler* *LogicalHandler* The LogicalHandler extend
+
+public interface interface LogicalHandler<C extends javax.xml.ws.handler.LogicalMessageContext>
+
+  implements |javax.xml.ws.handler.Handler|
+
+|javax.xml.ws.handler.LogicalHandler_Description|
+|javax.xml.ws.handler.LogicalHandler_Fields|
+|javax.xml.ws.handler.LogicalHandler_Constructors|
+|javax.xml.ws.handler.LogicalHandler_Methods|
+
+================================================================================
+
+*javax.xml.ws.handler.LogicalHandler_Description*
+
+The LogicalHandler extends Handler to provide typesafety for the message 
+context parameter. 
+
+
+

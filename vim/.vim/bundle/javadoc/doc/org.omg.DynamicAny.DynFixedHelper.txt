@@ -1,0 +1,109 @@
+*org.omg.DynamicAny.DynFixedHelper* *DynFixedHelper* DynFixed objects support th
+
+public abstract class DynFixedHelper
+  extends    |java.lang.Object|
+
+|org.omg.DynamicAny.DynFixedHelper_Description|
+|org.omg.DynamicAny.DynFixedHelper_Fields|
+|org.omg.DynamicAny.DynFixedHelper_Constructors|
+|org.omg.DynamicAny.DynFixedHelper_Methods|
+
+================================================================================
+
+*org.omg.DynamicAny.DynFixedHelper_Constructors*
+|org.omg.DynamicAny.DynFixedHelper()|
+
+*org.omg.DynamicAny.DynFixedHelper_Methods*
+|org.omg.DynamicAny.DynFixedHelper.extract(Any)|
+|org.omg.DynamicAny.DynFixedHelper.id()|
+|org.omg.DynamicAny.DynFixedHelper.insert(Any,DynFixed)|
+|org.omg.DynamicAny.DynFixedHelper.narrow(Object)|
+|org.omg.DynamicAny.DynFixedHelper.read(InputStream)|
+|org.omg.DynamicAny.DynFixedHelper.type()|
+|org.omg.DynamicAny.DynFixedHelper.unchecked_narrow(Object)|
+|org.omg.DynamicAny.DynFixedHelper.write(OutputStream,DynFixed)|
+
+*org.omg.DynamicAny.DynFixedHelper_Description*
+
+DynFixed objects support the manipulation of IDL fixed values. Because IDL does 
+not have a generic type that can represent fixed types with arbitrary number of 
+digits and arbitrary scale, the operations use the IDL string type. 
+
+
+
+*org.omg.DynamicAny.DynFixedHelper()*
+
+public DynFixedHelper()
+
+
+
+
+*org.omg.DynamicAny.DynFixedHelper.extract(Any)*
+
+public static |org.omg.DynamicAny.DynFixed| extract(org.omg.CORBA.Any a)
+
+
+
+
+
+*org.omg.DynamicAny.DynFixedHelper.id()*
+
+public static |java.lang.String| id()
+
+
+
+
+
+*org.omg.DynamicAny.DynFixedHelper.insert(Any,DynFixed)*
+
+public static void insert(
+  org.omg.CORBA.Any a,
+  org.omg.DynamicAny.DynFixed that)
+
+
+
+
+
+*org.omg.DynamicAny.DynFixedHelper.narrow(Object)*
+
+public static |org.omg.DynamicAny.DynFixed| narrow(org.omg.CORBA.Object obj)
+
+
+
+
+
+*org.omg.DynamicAny.DynFixedHelper.read(InputStream)*
+
+public static |org.omg.DynamicAny.DynFixed| read(org.omg.CORBA.portable.InputStream istream)
+
+
+
+
+
+*org.omg.DynamicAny.DynFixedHelper.type()*
+
+public static synchronized |org.omg.CORBA.TypeCode| type()
+
+
+
+
+
+*org.omg.DynamicAny.DynFixedHelper.unchecked_narrow(Object)*
+
+public static |org.omg.DynamicAny.DynFixed| unchecked_narrow(org.omg.CORBA.Object obj)
+
+
+
+
+
+*org.omg.DynamicAny.DynFixedHelper.write(OutputStream,DynFixed)*
+
+public static void write(
+  org.omg.CORBA.portable.OutputStream ostream,
+  org.omg.DynamicAny.DynFixed value)
+
+
+
+
+
+

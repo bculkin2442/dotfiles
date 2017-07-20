@@ -1,0 +1,36 @@
+*javax.xml.ws.handler.soap.SOAPHandler* *SOAPHandler* The SOAPHandler class exte
+
+public interface interface SOAPHandler<T extends javax.xml.ws.handler.soap.SOAPMessageContext>
+
+  implements |javax.xml.ws.handler.Handler|
+
+|javax.xml.ws.handler.soap.SOAPHandler_Description|
+|javax.xml.ws.handler.soap.SOAPHandler_Fields|
+|javax.xml.ws.handler.soap.SOAPHandler_Constructors|
+|javax.xml.ws.handler.soap.SOAPHandler_Methods|
+
+================================================================================
+
+*javax.xml.ws.handler.soap.SOAPHandler_Methods*
+|javax.xml.ws.handler.soap.SOAPHandler.getHeaders()|Gets the header blocks that
+
+*javax.xml.ws.handler.soap.SOAPHandler_Description*
+
+The SOAPHandler class extends Handler to provide typesafety for the message 
+context parameter and add a method to obtain access to the headers that may be 
+processed by the handler. 
+
+
+
+*javax.xml.ws.handler.soap.SOAPHandler.getHeaders()*
+
+public |java.util.Set|<QName> getHeaders()
+
+Gets the header blocks that can be processed by this Handler instance. 
+
+
+
+    Returns: Set of QNames of header blocks processed by this handler instance. QName is the 
+             qualified name of the outermost element of the Header block. 
+
+

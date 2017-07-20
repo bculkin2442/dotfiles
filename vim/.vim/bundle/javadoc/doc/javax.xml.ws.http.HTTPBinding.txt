@@ -1,0 +1,29 @@
+*javax.xml.ws.http.HTTPBinding* *HTTPBinding* The HTTPBinding interface is an
+  
+
+public interface interface HTTPBinding
+
+  implements |javax.xml.ws.Binding|
+
+|javax.xml.ws.http.HTTPBinding_Description|
+|javax.xml.ws.http.HTTPBinding_Fields|
+|javax.xml.ws.http.HTTPBinding_Constructors|
+|javax.xml.ws.http.HTTPBinding_Methods|
+
+================================================================================
+
+*javax.xml.ws.http.HTTPBinding_Fields*
+|java.lang.String_javax.xml.ws.http.HTTPBinding.HTTP_BINDING|
+
+*javax.xml.ws.http.HTTPBinding_Description*
+
+The HTTPBinding interface is an abstraction for the XML/HTTP binding. 
+
+
+
+*java.lang.String_javax.xml.ws.http.HTTPBinding.HTTP_BINDING*
+
+A constant representing the identity of the XML/HTTP binding. 
+
+
+

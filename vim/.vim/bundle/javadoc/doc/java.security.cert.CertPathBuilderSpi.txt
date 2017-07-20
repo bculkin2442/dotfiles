@@ -1,0 +1,86 @@
+*java.security.cert.CertPathBuilderSpi* *CertPathBuilderSpi* The Service Provide
+
+public abstract class CertPathBuilderSpi
+  extends    |java.lang.Object|
+
+|java.security.cert.CertPathBuilderSpi_Description|
+|java.security.cert.CertPathBuilderSpi_Fields|
+|java.security.cert.CertPathBuilderSpi_Constructors|
+|java.security.cert.CertPathBuilderSpi_Methods|
+
+================================================================================
+
+*java.security.cert.CertPathBuilderSpi_Constructors*
+|java.security.cert.CertPathBuilderSpi()|The default constructor.
+
+*java.security.cert.CertPathBuilderSpi_Methods*
+|java.security.cert.CertPathBuilderSpi.engineBuild(CertPathParameters)|Attempts
+|java.security.cert.CertPathBuilderSpi.engineGetRevocationChecker()|Returns aCe
+
+*java.security.cert.CertPathBuilderSpi_Description*
+
+The Service Provider Interface (SPI) for the 
+CertPathBuilder(|java.security.cert.CertPathBuilder|) class. 
+AllCertPathBuilderimplementations must include a class (the SPI class) that 
+extends this class (CertPathBuilderSpi) and implements all of its methods. In 
+general, instances of this class should only be accessed through 
+theCertPathBuilderclass. For details, see the Java Cryptography Architecture. 
+
+Concurrent Access 
+
+Instances of this class need not be protected against concurrent access from 
+multiple threads. Threads that need to access a 
+singleCertPathBuilderSpiinstance concurrently should synchronize amongst 
+themselves and provide the necessary locking before calling the 
+wrappingCertPathBuilderobject. 
+
+However, implementations ofCertPathBuilderSpimay still encounter concurrency 
+issues, since multiple threads each manipulating a 
+differentCertPathBuilderSpiinstance need not synchronize. 
+
+
+
+*java.security.cert.CertPathBuilderSpi()*
+
+public CertPathBuilderSpi()
+
+The default constructor. 
+
+
+*java.security.cert.CertPathBuilderSpi.engineBuild(CertPathParameters)*
+
+public abstract |java.security.cert.CertPathBuilderResult| engineBuild(java.security.cert.CertPathParameters params)
+  throws |java.security.cert.CertPathBuilderException|
+         |java.security.InvalidAlgorithmParameterException|
+         
+Attempts to build a certification path using the specified algorithm parameter 
+set. 
+
+
+    params - the algorithm parameters 
+
+    Returns: the result of the build algorithm 
+
+*java.security.cert.CertPathBuilderSpi.engineGetRevocationChecker()*
+
+public |java.security.cert.CertPathChecker| engineGetRevocationChecker()
+
+Returns aCertPathCheckerthat this implementation uses to check the revocation 
+status of certificates. A PKIX implementation returns objects of 
+typePKIXRevocationChecker. 
+
+The primary purpose of this method is to allow callers to specify additional 
+input parameters and options specific to revocation checking. See the class 
+description ofCertPathBuilderfor an example. 
+
+This method was added to version 1.8 of the Java Platform Standard Edition. In 
+order to maintain backwards compatibility with existing service providers, this 
+method cannot be abstract and by default throws 
+anUnsupportedOperationException. 
+
+
+
+    Returns: a {@code CertPathChecker} that this implementation uses to check the revocation 
+             status of certificates 
+
+

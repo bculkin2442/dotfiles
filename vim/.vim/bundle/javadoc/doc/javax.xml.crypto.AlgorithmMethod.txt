@@ -1,0 +1,47 @@
+*javax.xml.crypto.AlgorithmMethod* *AlgorithmMethod* An abstract representation 
+
+public interface interface AlgorithmMethod
+
+
+|javax.xml.crypto.AlgorithmMethod_Description|
+|javax.xml.crypto.AlgorithmMethod_Fields|
+|javax.xml.crypto.AlgorithmMethod_Constructors|
+|javax.xml.crypto.AlgorithmMethod_Methods|
+
+================================================================================
+
+*javax.xml.crypto.AlgorithmMethod_Methods*
+|javax.xml.crypto.AlgorithmMethod.getAlgorithm()|Returns the algorithm URI of t
+|javax.xml.crypto.AlgorithmMethod.getParameterSpec()|Returns the algorithm para
+
+*javax.xml.crypto.AlgorithmMethod_Description*
+
+An abstract representation of an algorithm defined in the XML Security 
+specifications. Subclasses represent specific types of XML security algorithms, 
+such as a (|javax.xml.crypto.dsig.Transform|) . 
+
+
+
+*javax.xml.crypto.AlgorithmMethod.getAlgorithm()*
+
+public |java.lang.String| getAlgorithm()
+
+Returns the algorithm URI of this AlgorithmMethod. 
+
+
+
+    Returns: the algorithm URI of this AlgorithmMethod 
+
+*javax.xml.crypto.AlgorithmMethod.getParameterSpec()*
+
+public |java.security.spec.AlgorithmParameterSpec| getParameterSpec()
+
+Returns the algorithm parameters of this AlgorithmMethod. 
+
+
+
+    Returns: the algorithm parameters of this AlgorithmMethod. Returns null if this 
+             AlgorithmMethod does not require parameters and they are not 
+             specified. 
+
+

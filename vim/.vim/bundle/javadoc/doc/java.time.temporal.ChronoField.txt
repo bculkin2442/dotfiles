@@ -1,0 +1,213 @@
+*java.time.temporal.ChronoField* *ChronoField* A standard set of fields.
+
+public final enumChronoField
+  extends    |java.lang.Enum|
+  implements |java.time.temporal.TemporalField|
+
+|java.time.temporal.ChronoField_Description|
+|java.time.temporal.ChronoField_Fields|
+|java.time.temporal.ChronoField_Constructors|
+|java.time.temporal.ChronoField_Methods|
+
+================================================================================
+
+*java.time.temporal.ChronoField_Methods*
+|java.time.temporal.ChronoField.adjustInto(R,long)|
+|java.time.temporal.ChronoField.checkValidIntValue(long)|Checks that the specif
+|java.time.temporal.ChronoField.checkValidValue(long)|Checks that the specified
+|java.time.temporal.ChronoField.getBaseUnit()|
+|java.time.temporal.ChronoField.getDisplayName(Locale)|
+|java.time.temporal.ChronoField.getFrom(TemporalAccessor)|
+|java.time.temporal.ChronoField.getRangeUnit()|
+|java.time.temporal.ChronoField.isDateBased()|Checks if this field represents a
+|java.time.temporal.ChronoField.isSupportedBy(TemporalAccessor)|
+|java.time.temporal.ChronoField.isTimeBased()|Checks if this field represents a
+|java.time.temporal.ChronoField.range()|Gets the range of valid values for the 
+|java.time.temporal.ChronoField.rangeRefinedBy(TemporalAccessor)|
+|java.time.temporal.ChronoField.toString()|
+|java.time.temporal.ChronoField.valueOf(String)|
+|java.time.temporal.ChronoField.values()|
+
+*java.time.temporal.ChronoField_Description*
+
+A standard set of fields. 
+
+This set of fields provide field-based access to manipulate a date, time or 
+date-time. The standard set of fields can be extended by implementing 
+(|java.time.temporal.TemporalField|) . 
+
+These fields are intended to be applicable in multiple calendar systems. For 
+example, most non-ISO calendar systems define dates as a year, month and day, 
+just with slightly different rules. The documentation of each field explains 
+how it operates. 
+
+
+
+*java.time.temporal.ChronoField.adjustInto(R,long)*
+
+public |R| adjustInto(
+  R extends java.time.temporal.Temporal temporal,
+  long newValue)
+
+
+
+
+
+*java.time.temporal.ChronoField.checkValidIntValue(long)*
+
+public int checkValidIntValue(long value)
+
+Checks that the specified value is valid and fits in anint. 
+
+This validates that the value is within the outer range of valid values 
+returned by (|java.time.temporal.ChronoField|) . It also checks that all valid 
+values are within the bounds of anint. 
+
+This method checks against the range of the field in the ISO-8601 calendar 
+system. This range may be incorrect for other calendar systems. Use 
+(|java.time.chrono.Chronology|) to access the correct range for a different 
+calendar system. 
+
+
+    value - the value to check 
+
+    Returns: the value that was passed in 
+
+*java.time.temporal.ChronoField.checkValidValue(long)*
+
+public long checkValidValue(long value)
+
+Checks that the specified value is valid for this field. 
+
+This validates that the value is within the outer range of valid values 
+returned by (|java.time.temporal.ChronoField|) . 
+
+This method checks against the range of the field in the ISO-8601 calendar 
+system. This range may be incorrect for other calendar systems. Use 
+(|java.time.chrono.Chronology|) to access the correct range for a different 
+calendar system. 
+
+
+    value - the value to check 
+
+    Returns: the value that was passed in 
+
+*java.time.temporal.ChronoField.getBaseUnit()*
+
+public |java.time.temporal.TemporalUnit| getBaseUnit()
+
+
+
+
+
+*java.time.temporal.ChronoField.getDisplayName(Locale)*
+
+public |java.lang.String| getDisplayName(java.util.Locale locale)
+
+
+
+
+
+*java.time.temporal.ChronoField.getFrom(TemporalAccessor)*
+
+public long getFrom(java.time.temporal.TemporalAccessor temporal)
+
+
+
+
+
+*java.time.temporal.ChronoField.getRangeUnit()*
+
+public |java.time.temporal.TemporalUnit| getRangeUnit()
+
+
+
+
+
+*java.time.temporal.ChronoField.isDateBased()*
+
+public boolean isDateBased()
+
+Checks if this field represents a component of a date. 
+
+Fields from day-of-week to era are date-based. 
+
+
+
+    Returns: true if it is a component of a date 
+
+*java.time.temporal.ChronoField.isSupportedBy(TemporalAccessor)*
+
+public boolean isSupportedBy(java.time.temporal.TemporalAccessor temporal)
+
+
+
+
+
+*java.time.temporal.ChronoField.isTimeBased()*
+
+public boolean isTimeBased()
+
+Checks if this field represents a component of a time. 
+
+Fields from nano-of-second to am-pm-of-day are time-based. 
+
+
+
+    Returns: true if it is a component of a time 
+
+*java.time.temporal.ChronoField.range()*
+
+public |java.time.temporal.ValueRange| range()
+
+Gets the range of valid values for the field. 
+
+All fields can be expressed as alonginteger. This method returns an object that 
+describes the valid range for that value. 
+
+This method returns the range of the field in the ISO-8601 calendar system. 
+This range may be incorrect for other calendar systems. Use 
+(|java.time.chrono.Chronology|) to access the correct range for a different 
+calendar system. 
+
+Note that the result only describes the minimum and maximum valid values and it 
+is important not to read too much into them. For example, there could be values 
+within the range that are invalid for the field. 
+
+
+
+    Returns: the range of valid values for the field, not null 
+
+*java.time.temporal.ChronoField.rangeRefinedBy(TemporalAccessor)*
+
+public |java.time.temporal.ValueRange| rangeRefinedBy(java.time.temporal.TemporalAccessor temporal)
+
+
+
+
+
+*java.time.temporal.ChronoField.toString()*
+
+public |java.lang.String| toString()
+
+
+
+
+
+*java.time.temporal.ChronoField.valueOf(String)*
+
+public static |java.time.temporal.ChronoField| valueOf(java.lang.String name)
+
+
+
+
+
+*java.time.temporal.ChronoField.values()*
+
+public static |java.time.temporal.ChronoField|[] values()
+
+
+
+
+
+

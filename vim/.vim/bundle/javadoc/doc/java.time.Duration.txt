@@ -1,0 +1,975 @@
+*java.time.Duration* *Duration* A time-based amount of time, such as '34.5 secon
+
+public final class Duration
+  extends    |java.lang.Object|
+  implements |java.time.temporal.TemporalAmount|
+             |java.lang.Comparable|
+             |java.io.Serializable|
+
+|java.time.Duration_Description|
+|java.time.Duration_Fields|
+|java.time.Duration_Constructors|
+|java.time.Duration_Methods|
+
+================================================================================
+
+*java.time.Duration_Fields*
+|java.time.Duration_java.time.Duration.ZERO|
+
+*java.time.Duration_Methods*
+|java.time.Duration.abs()|Returns a copy of this duration with a positive lengt
+|java.time.Duration.addTo(Temporal)|Adds this duration to the specified tempora
+|java.time.Duration.between(Temporal,Temporal)|Obtains aDurationrepresenting th
+|java.time.Duration.compareTo(Duration)|Compares this duration to the specified
+|java.time.Duration.dividedBy(long)|Returns a copy of this duration divided by 
+|java.time.Duration.equals(Object)|Checks if this duration is equal to the spec
+|java.time.Duration.from(TemporalAmount)|Obtains an instance ofDurationfrom a t
+|java.time.Duration.get(TemporalUnit)|Gets the value of the requested unit.
+|java.time.Duration.getNano()|Gets the number of nanoseconds within the second 
+|java.time.Duration.getSeconds()|Gets the number of seconds in this duration.
+|java.time.Duration.getUnits()|Gets the set of units supported by this duration
+|java.time.Duration.hashCode()|A hash code for this duration.
+|java.time.Duration.isNegative()|Checks if this duration is negative, excluding
+|java.time.Duration.isZero()|Checks if this duration is zero length.
+|java.time.Duration.minus(Duration)|Returns a copy of this duration with the sp
+|java.time.Duration.minus(long,TemporalUnit)|Returns a copy of this duration wi
+|java.time.Duration.minusDays(long)|Returns a copy of this duration with the sp
+|java.time.Duration.minusHours(long)|Returns a copy of this duration with the s
+|java.time.Duration.minusMillis(long)|Returns a copy of this duration with the 
+|java.time.Duration.minusMinutes(long)|Returns a copy of this duration with the
+|java.time.Duration.minusNanos(long)|Returns a copy of this duration with the s
+|java.time.Duration.minusSeconds(long)|Returns a copy of this duration with the
+|java.time.Duration.multipliedBy(long)|Returns a copy of this duration multipli
+|java.time.Duration.negated()|Returns a copy of this duration with the length n
+|java.time.Duration.of(long,TemporalUnit)|Obtains aDurationrepresenting an amou
+|java.time.Duration.ofDays(long)|Obtains aDurationrepresenting a number of stan
+|java.time.Duration.ofHours(long)|Obtains aDurationrepresenting a number of sta
+|java.time.Duration.ofMillis(long)|Obtains aDurationrepresenting a number of mi
+|java.time.Duration.ofMinutes(long)|Obtains aDurationrepresenting a number of s
+|java.time.Duration.ofNanos(long)|Obtains aDurationrepresenting a number of nan
+|java.time.Duration.ofSeconds(long)|Obtains aDurationrepresenting a number of s
+|java.time.Duration.ofSeconds(long,long)|Obtains aDurationrepresenting a number
+|java.time.Duration.parse(CharSequence)|Obtains aDurationfrom a text string suc
+|java.time.Duration.plus(Duration)|Returns a copy of this duration with the spe
+|java.time.Duration.plus(long,TemporalUnit)|Returns a copy of this duration wit
+|java.time.Duration.plusDays(long)|Returns a copy of this duration with the spe
+|java.time.Duration.plusHours(long)|Returns a copy of this duration with the sp
+|java.time.Duration.plusMillis(long)|Returns a copy of this duration with the s
+|java.time.Duration.plusMinutes(long)|Returns a copy of this duration with the 
+|java.time.Duration.plusNanos(long)|Returns a copy of this duration with the sp
+|java.time.Duration.plusSeconds(long)|Returns a copy of this duration with the 
+|java.time.Duration.subtractFrom(Temporal)|Subtracts this duration from the spe
+|java.time.Duration.toDays()|Gets the number of days in this duration.
+|java.time.Duration.toHours()|Gets the number of hours in this duration.
+|java.time.Duration.toMillis()|Converts this duration to the total length in mi
+|java.time.Duration.toMinutes()|Gets the number of minutes in this duration.
+|java.time.Duration.toNanos()|Converts this duration to the total length in nan
+|java.time.Duration.toString()|A string representation of this duration using I
+|java.time.Duration.withNanos(int)|Returns a copy of this duration with the spe
+|java.time.Duration.withSeconds(long)|Returns a copy of this duration with the 
+
+*java.time.Duration_Description*
+
+A time-based amount of time, such as '34.5 seconds'. 
+
+This class models a quantity or amount of time in terms of seconds and 
+nanoseconds. It can be accessed using other duration-based units, such as 
+minutes and hours. In addition, the DAYS(|java.time.temporal.ChronoUnit|) unit 
+can be used and is treated as exactly equal to 24 hours, thus ignoring daylight 
+savings effects. See (|java.time.Period|) for the date-based equivalent to this 
+class. 
+
+A physical duration could be of infinite length. For practicality, the duration 
+is stored with constraints similar to (|java.time.Instant|) . The duration uses 
+nanosecond resolution with a maximum value of the seconds that can be held in 
+along. This is greater than the current estimated age of the universe. 
+
+The range of a duration requires the storage of a number larger than along. To 
+achieve this, the class stores alongrepresenting seconds and anintrepresenting 
+nanosecond-of-second, which will always be between 0 and 999,999,999. The model 
+is of a directed duration, meaning that the duration may be negative. 
+
+The duration is measured in "seconds", but these are not necessarily identical 
+to the scientific "SI second" definition based on atomic clocks. This 
+difference only impacts durations measured near a leap-second and should not 
+affect most applications. See (|java.time.Instant|) for a discussion as to the 
+meaning of the second and time-scales. 
+
+This is a <a href="/java/lang/doc-files/ValueBased.html">value-based class; use 
+of identity-sensitive operations (including reference equality (==), identity 
+hash code, or synchronization) on instances ofDurationmay have unpredictable 
+results and should be avoided. Theequalsmethod should be used for comparisons. 
+
+
+
+*java.time.Duration_java.time.Duration.ZERO*
+
+Constant for a duration of zero. 
+
+
+
+*java.time.Duration.abs()*
+
+public |java.time.Duration| abs()
+
+Returns a copy of this duration with a positive length. 
+
+This method returns a positive duration by effectively removing the sign from 
+any negative total length. For example,PT-1.3Swill be returned asPT1.3S. 
+
+This instance is immutable and unaffected by this method call. 
+
+
+
+    Returns: a {@code Duration} based on this duration with an absolute length, not null 
+
+*java.time.Duration.addTo(Temporal)*
+
+public |java.time.temporal.Temporal| addTo(java.time.temporal.Temporal temporal)
+
+Adds this duration to the specified temporal object. 
+
+This returns a temporal object of the same observable type as the input with 
+this duration added. 
+
+In most cases, it is clearer to reverse the calling pattern by using 
+(|java.time.temporal.Temporal|) . 
+
+// these two lines are equivalent, but the second approach is recommended 
+dateTime = thisDuration.addTo(dateTime); dateTime = 
+dateTime.plus(thisDuration); 
+
+The calculation will add the seconds, then nanos. Only non-zero amounts will be 
+added. 
+
+This instance is immutable and unaffected by this method call. 
+
+
+    temporal - the temporal object to adjust, not null 
+
+    Returns: an object of the same type with the adjustment made, not null 
+
+*java.time.Duration.between(Temporal,Temporal)*
+
+public static |java.time.Duration| between(
+  java.time.temporal.Temporal startInclusive,
+  java.time.temporal.Temporal endExclusive)
+
+Obtains aDurationrepresenting the duration between two temporal objects. 
+
+This calculates the duration between two temporal objects. If the objects are 
+of different types, then the duration is calculated based on the type of the 
+first object. For example, if the first argument is aLocalTimethen the second 
+argument is converted to aLocalTime. 
+
+The specified temporal objects must support the 
+SECONDS(|java.time.temporal.ChronoUnit|) unit. For full accuracy, either the 
+NANOS(|java.time.temporal.ChronoUnit|) unit or the 
+NANO_OF_SECOND(|java.time.temporal.ChronoField|) field should be supported. 
+
+The result of this method can be a negative period if the end is before the 
+start. To guarantee to obtain a positive duration call (|java.time.Duration|) 
+on the result. 
+
+
+    startInclusive - the start instant, inclusive, not null 
+    endExclusive - the end instant, exclusive, not null 
+
+    Returns: a {@code Duration}, not null 
+
+*java.time.Duration.compareTo(Duration)*
+
+public int compareTo(java.time.Duration otherDuration)
+
+Compares this duration to the specifiedDuration. 
+
+The comparison is based on the total length of the durations. It is "consistent 
+with equals", as defined by (|java.lang.Comparable|) . 
+
+
+    otherDuration - the other duration to compare to, not null 
+
+    Returns: the comparator value, negative if less, positive if greater 
+
+*java.time.Duration.dividedBy(long)*
+
+public |java.time.Duration| dividedBy(long divisor)
+
+Returns a copy of this duration divided by the specified value. 
+
+This instance is immutable and unaffected by this method call. 
+
+
+    divisor - the value to divide the duration by, positive or negative, not zero 
+
+    Returns: a {@code Duration} based on this duration divided by the specified divisor, not 
+             null 
+
+*java.time.Duration.equals(Object)*
+
+public boolean equals(java.lang.Object otherDuration)
+
+Checks if this duration is equal to the specifiedDuration. 
+
+The comparison is based on the total length of the durations. 
+
+
+    otherDuration - the other duration, null returns false 
+
+    Returns: true if the other duration is equal to this one 
+
+*java.time.Duration.from(TemporalAmount)*
+
+public static |java.time.Duration| from(java.time.temporal.TemporalAmount amount)
+
+Obtains an instance ofDurationfrom a temporal amount. 
+
+This obtains a duration based on the specified amount. 
+ATemporalAmountrepresents an amount of time, which may be date-based or 
+time-based, which this factory extracts to a duration. 
+
+The conversion loops around the set of units from the amount and uses the 
+duration(|java.time.temporal.TemporalUnit|) of the unit to calculate the 
+totalDuration. Only a subset of units are accepted by this method. The unit 
+must either have an exact duration(|java.time.temporal.TemporalUnit|) or be 
+(|java.time.temporal.ChronoUnit|) which is treated as 24 hours. If any other 
+units are found then an exception is thrown. 
+
+
+    amount - the temporal amount to convert, not null 
+
+    Returns: the equivalent duration, not null 
+
+*java.time.Duration.get(TemporalUnit)*
+
+public long get(java.time.temporal.TemporalUnit unit)
+
+Gets the value of the requested unit. 
+
+This returns a value for each of the two supported units, 
+SECONDS(|java.time.temporal.ChronoUnit|) and 
+NANOS(|java.time.temporal.ChronoUnit|) . All other units throw an exception. 
+
+
+    unit - the {@code TemporalUnit} for which to return the value 
+
+    Returns: the long value of the unit 
+
+*java.time.Duration.getNano()*
+
+public int getNano()
+
+Gets the number of nanoseconds within the second in this duration. 
+
+The length of the duration is stored using two fields - seconds and 
+nanoseconds. The nanoseconds part is a value from 0 to 999,999,999 that is an 
+adjustment to the length in seconds. The total duration is defined by calling 
+this method and (|java.time.Duration|) . 
+
+ADurationrepresents a directed distance between two points on the time-line. A 
+negative duration is expressed by the negative sign of the seconds part. A 
+duration of -1 nanosecond is stored as -1 seconds plus 999,999,999 nanoseconds. 
+
+
+
+    Returns: the nanoseconds within the second part of the length of the duration, from 0 to 
+             999,999,999 
+
+*java.time.Duration.getSeconds()*
+
+public long getSeconds()
+
+Gets the number of seconds in this duration. 
+
+The length of the duration is stored using two fields - seconds and 
+nanoseconds. The nanoseconds part is a value from 0 to 999,999,999 that is an 
+adjustment to the length in seconds. The total duration is defined by calling 
+this method and (|java.time.Duration|) . 
+
+ADurationrepresents a directed distance between two points on the time-line. A 
+negative duration is expressed by the negative sign of the seconds part. A 
+duration of -1 nanosecond is stored as -1 seconds plus 999,999,999 nanoseconds. 
+
+
+
+    Returns: the whole seconds part of the length of the duration, positive or negative 
+
+*java.time.Duration.getUnits()*
+
+public |java.util.List|<TemporalUnit> getUnits()
+
+Gets the set of units supported by this duration. 
+
+The supported units are SECONDS(|java.time.temporal.ChronoUnit|) , and 
+NANOS(|java.time.temporal.ChronoUnit|) . They are returned in the order 
+seconds, nanos. 
+
+This set can be used in conjunction with (|java.time.Duration|) to access the 
+entire state of the period. 
+
+
+
+    Returns: a list containing the seconds and nanos units, not null 
+
+*java.time.Duration.hashCode()*
+
+public int hashCode()
+
+A hash code for this duration. 
+
+
+
+    Returns: a suitable hash code 
+
+*java.time.Duration.isNegative()*
+
+public boolean isNegative()
+
+Checks if this duration is negative, excluding zero. 
+
+ADurationrepresents a directed distance between two points on the time-line and 
+can therefore be positive, zero or negative. This method checks whether the 
+length is less than zero. 
+
+
+
+    Returns: true if this duration has a total length less than zero 
+
+*java.time.Duration.isZero()*
+
+public boolean isZero()
+
+Checks if this duration is zero length. 
+
+ADurationrepresents a directed distance between two points on the time-line and 
+can therefore be positive, zero or negative. This method checks whether the 
+length is zero. 
+
+
+
+    Returns: true if this duration has a total length equal to zero 
+
+*java.time.Duration.minus(Duration)*
+
+public |java.time.Duration| minus(java.time.Duration duration)
+
+Returns a copy of this duration with the specified duration subtracted. 
+
+This instance is immutable and unaffected by this method call. 
+
+
+    duration - the duration to subtract, positive or negative, not null 
+
+    Returns: a {@code Duration} based on this duration with the specified duration 
+             subtracted, not null 
+
+*java.time.Duration.minus(long,TemporalUnit)*
+
+public |java.time.Duration| minus(
+  long amountToSubtract,
+  java.time.temporal.TemporalUnit unit)
+
+Returns a copy of this duration with the specified duration subtracted. 
+
+The duration amount is measured in terms of the specified unit. Only a subset 
+of units are accepted by this method. The unit must either have an exact 
+duration(|java.time.temporal.TemporalUnit|) or be 
+(|java.time.temporal.ChronoUnit|) which is treated as 24 hours. Other units 
+throw an exception. 
+
+This instance is immutable and unaffected by this method call. 
+
+
+    amountToSubtract - the amount of the period, measured in terms of the unit, positive or negative 
+    unit - the unit that the period is measured in, must have an exact duration, not null 
+
+    Returns: a {@code Duration} based on this duration with the specified duration 
+             subtracted, not null 
+
+*java.time.Duration.minusDays(long)*
+
+public |java.time.Duration| minusDays(long daysToSubtract)
+
+Returns a copy of this duration with the specified duration in standard 24 hour 
+days subtracted. 
+
+The number of days is multiplied by 86400 to obtain the number of seconds to 
+subtract. This is based on the standard definition of a day as 24 hours. 
+
+This instance is immutable and unaffected by this method call. 
+
+
+    daysToSubtract - the days to subtract, positive or negative 
+
+    Returns: a {@code Duration} based on this duration with the specified days subtracted, 
+             not null 
+
+*java.time.Duration.minusHours(long)*
+
+public |java.time.Duration| minusHours(long hoursToSubtract)
+
+Returns a copy of this duration with the specified duration in hours 
+subtracted. 
+
+The number of hours is multiplied by 3600 to obtain the number of seconds to 
+subtract. 
+
+This instance is immutable and unaffected by this method call. 
+
+
+    hoursToSubtract - the hours to subtract, positive or negative 
+
+    Returns: a {@code Duration} based on this duration with the specified hours subtracted, 
+             not null 
+
+*java.time.Duration.minusMillis(long)*
+
+public |java.time.Duration| minusMillis(long millisToSubtract)
+
+Returns a copy of this duration with the specified duration in milliseconds 
+subtracted. 
+
+This instance is immutable and unaffected by this method call. 
+
+
+    millisToSubtract - the milliseconds to subtract, positive or negative 
+
+    Returns: a {@code Duration} based on this duration with the specified milliseconds 
+             subtracted, not null 
+
+*java.time.Duration.minusMinutes(long)*
+
+public |java.time.Duration| minusMinutes(long minutesToSubtract)
+
+Returns a copy of this duration with the specified duration in minutes 
+subtracted. 
+
+The number of hours is multiplied by 60 to obtain the number of seconds to 
+subtract. 
+
+This instance is immutable and unaffected by this method call. 
+
+
+    minutesToSubtract - the minutes to subtract, positive or negative 
+
+    Returns: a {@code Duration} based on this duration with the specified minutes 
+             subtracted, not null 
+
+*java.time.Duration.minusNanos(long)*
+
+public |java.time.Duration| minusNanos(long nanosToSubtract)
+
+Returns a copy of this duration with the specified duration in nanoseconds 
+subtracted. 
+
+This instance is immutable and unaffected by this method call. 
+
+
+    nanosToSubtract - the nanoseconds to subtract, positive or negative 
+
+    Returns: a {@code Duration} based on this duration with the specified nanoseconds 
+             subtracted, not null 
+
+*java.time.Duration.minusSeconds(long)*
+
+public |java.time.Duration| minusSeconds(long secondsToSubtract)
+
+Returns a copy of this duration with the specified duration in seconds 
+subtracted. 
+
+This instance is immutable and unaffected by this method call. 
+
+
+    secondsToSubtract - the seconds to subtract, positive or negative 
+
+    Returns: a {@code Duration} based on this duration with the specified seconds 
+             subtracted, not null 
+
+*java.time.Duration.multipliedBy(long)*
+
+public |java.time.Duration| multipliedBy(long multiplicand)
+
+Returns a copy of this duration multiplied by the scalar. 
+
+This instance is immutable and unaffected by this method call. 
+
+
+    multiplicand - the value to multiply the duration by, positive or negative 
+
+    Returns: a {@code Duration} based on this duration multiplied by the specified scalar, 
+             not null 
+
+*java.time.Duration.negated()*
+
+public |java.time.Duration| negated()
+
+Returns a copy of this duration with the length negated. 
+
+This method swaps the sign of the total length of this duration. For 
+example,PT1.3Swill be returned asPT-1.3S. 
+
+This instance is immutable and unaffected by this method call. 
+
+
+
+    Returns: a {@code Duration} based on this duration with the amount negated, not null 
+
+*java.time.Duration.of(long,TemporalUnit)*
+
+public static |java.time.Duration| of(
+  long amount,
+  java.time.temporal.TemporalUnit unit)
+
+Obtains aDurationrepresenting an amount in the specified unit. 
+
+The parameters represent the two parts of a phrase like '6 Hours'. For example: 
+
+Duration.of(3, SECONDS); Duration.of(465, HOURS); 
+
+Only a subset of units are accepted by this method. The unit must either have 
+an exact duration(|java.time.temporal.TemporalUnit|) or be 
+(|java.time.temporal.ChronoUnit|) which is treated as 24 hours. Other units 
+throw an exception. 
+
+
+    amount - the amount of the duration, measured in terms of the unit, positive or negative 
+    unit - the unit that the duration is measured in, must have an exact duration, not 
+       null 
+
+    Returns: a {@code Duration}, not null 
+
+*java.time.Duration.ofDays(long)*
+
+public static |java.time.Duration| ofDays(long days)
+
+Obtains aDurationrepresenting a number of standard 24 hour days. 
+
+The seconds are calculated based on the standard definition of a day, where 
+each day is 86400 seconds which implies a 24 hour day. The nanosecond in second 
+field is set to zero. 
+
+
+    days - the number of days, positive or negative 
+
+    Returns: a {@code Duration}, not null 
+
+*java.time.Duration.ofHours(long)*
+
+public static |java.time.Duration| ofHours(long hours)
+
+Obtains aDurationrepresenting a number of standard hours. 
+
+The seconds are calculated based on the standard definition of an hour, where 
+each hour is 3600 seconds. The nanosecond in second field is set to zero. 
+
+
+    hours - the number of hours, positive or negative 
+
+    Returns: a {@code Duration}, not null 
+
+*java.time.Duration.ofMillis(long)*
+
+public static |java.time.Duration| ofMillis(long millis)
+
+Obtains aDurationrepresenting a number of milliseconds. 
+
+The seconds and nanoseconds are extracted from the specified milliseconds. 
+
+
+    millis - the number of milliseconds, positive or negative 
+
+    Returns: a {@code Duration}, not null 
+
+*java.time.Duration.ofMinutes(long)*
+
+public static |java.time.Duration| ofMinutes(long minutes)
+
+Obtains aDurationrepresenting a number of standard minutes. 
+
+The seconds are calculated based on the standard definition of a minute, where 
+each minute is 60 seconds. The nanosecond in second field is set to zero. 
+
+
+    minutes - the number of minutes, positive or negative 
+
+    Returns: a {@code Duration}, not null 
+
+*java.time.Duration.ofNanos(long)*
+
+public static |java.time.Duration| ofNanos(long nanos)
+
+Obtains aDurationrepresenting a number of nanoseconds. 
+
+The seconds and nanoseconds are extracted from the specified nanoseconds. 
+
+
+    nanos - the number of nanoseconds, positive or negative 
+
+    Returns: a {@code Duration}, not null 
+
+*java.time.Duration.ofSeconds(long)*
+
+public static |java.time.Duration| ofSeconds(long seconds)
+
+Obtains aDurationrepresenting a number of seconds. 
+
+The nanosecond in second field is set to zero. 
+
+
+    seconds - the number of seconds, positive or negative 
+
+    Returns: a {@code Duration}, not null 
+
+*java.time.Duration.ofSeconds(long,long)*
+
+public static |java.time.Duration| ofSeconds(
+  long seconds,
+  long nanoAdjustment)
+
+Obtains aDurationrepresenting a number of seconds and an adjustment in 
+nanoseconds. 
+
+This method allows an arbitrary number of nanoseconds to be passed in. The 
+factory will alter the values of the second and nanosecond in order to ensure 
+that the stored nanosecond is in the range 0 to 999,999,999. For example, the 
+following will result in the exactly the same duration: 
+
+Duration.ofSeconds(3, 1); Duration.ofSeconds(4, -999_999_999); 
+Duration.ofSeconds(2, 1000_000_001); 
+
+
+    seconds - the number of seconds, positive or negative 
+    nanoAdjustment - the nanosecond adjustment to the number of seconds, positive or negative 
+
+    Returns: a {@code Duration}, not null 
+
+*java.time.Duration.parse(CharSequence)*
+
+public static |java.time.Duration| parse(java.lang.CharSequence text)
+
+Obtains aDurationfrom a text string such asPnDTnHnMn.nS. 
+
+This will parse a textual representation of a duration, including the string 
+produced bytoString(). The formats accepted are based on the ISO-8601 duration 
+formatPnDTnHnMn.nSwith days considered to be exactly 24 hours. 
+
+The string starts with an optional sign, denoted by the ASCII negative or 
+positive symbol. If negative, the whole period is negated. The ASCII letter "P" 
+is next in upper or lower case. There are then four sections, each consisting 
+of a number and a suffix. The sections have suffixes in ASCII of "D", "H", "M" 
+and "S" for days, hours, minutes and seconds, accepted in upper or lower case. 
+The suffixes must occur in order. The ASCII letter "T" must occur before the 
+first occurrence, if any, of an hour, minute or second section. At least one of 
+the four sections must be present, and if "T" is present there must be at least 
+one section after the "T". The number part of each section must consist of one 
+or more ASCII digits. The number may be prefixed by the ASCII negative or 
+positive symbol. The number of days, hours and minutes must parse to anlong. 
+The number of seconds must parse to anlongwith optional fraction. The decimal 
+point may be either a dot or a comma. The fractional part may have from zero to 
+9 digits. 
+
+The leading plus/minus sign, and negative values for other units are not part 
+of the ISO-8601 standard. 
+
+Examples: 
+
+"PT20.345S" -- parses as "20.345 seconds" "PT15M" -- parses as "15 minutes" 
+(where a minute is 60 seconds) "PT10H" -- parses as "10 hours" (where an hour 
+is 3600 seconds) "P2D" -- parses as "2 days" (where a day is 24 hours or 86400 
+seconds) "P2DT3H4M" -- parses as "2 days, 3 hours and 4 minutes" "P-6H3M" -- 
+parses as "-6 hours and +3 minutes" "-P6H3M" -- parses as "-6 hours and -3 
+minutes" "-P-6H+3M" -- parses as "+6 hours and -3 minutes" 
+
+
+    text - the text to parse, not null 
+
+    Returns: the parsed duration, not null 
+
+*java.time.Duration.plus(Duration)*
+
+public |java.time.Duration| plus(java.time.Duration duration)
+
+Returns a copy of this duration with the specified duration added. 
+
+This instance is immutable and unaffected by this method call. 
+
+
+    duration - the duration to add, positive or negative, not null 
+
+    Returns: a {@code Duration} based on this duration with the specified duration added, 
+             not null 
+
+*java.time.Duration.plus(long,TemporalUnit)*
+
+public |java.time.Duration| plus(
+  long amountToAdd,
+  java.time.temporal.TemporalUnit unit)
+
+Returns a copy of this duration with the specified duration added. 
+
+The duration amount is measured in terms of the specified unit. Only a subset 
+of units are accepted by this method. The unit must either have an exact 
+duration(|java.time.temporal.TemporalUnit|) or be 
+(|java.time.temporal.ChronoUnit|) which is treated as 24 hours. Other units 
+throw an exception. 
+
+This instance is immutable and unaffected by this method call. 
+
+
+    amountToAdd - the amount of the period, measured in terms of the unit, positive or negative 
+    unit - the unit that the period is measured in, must have an exact duration, not null 
+
+    Returns: a {@code Duration} based on this duration with the specified duration added, 
+             not null 
+
+*java.time.Duration.plusDays(long)*
+
+public |java.time.Duration| plusDays(long daysToAdd)
+
+Returns a copy of this duration with the specified duration in standard 24 hour 
+days added. 
+
+The number of days is multiplied by 86400 to obtain the number of seconds to 
+add. This is based on the standard definition of a day as 24 hours. 
+
+This instance is immutable and unaffected by this method call. 
+
+
+    daysToAdd - the days to add, positive or negative 
+
+    Returns: a {@code Duration} based on this duration with the specified days added, not 
+             null 
+
+*java.time.Duration.plusHours(long)*
+
+public |java.time.Duration| plusHours(long hoursToAdd)
+
+Returns a copy of this duration with the specified duration in hours added. 
+
+This instance is immutable and unaffected by this method call. 
+
+
+    hoursToAdd - the hours to add, positive or negative 
+
+    Returns: a {@code Duration} based on this duration with the specified hours added, not 
+             null 
+
+*java.time.Duration.plusMillis(long)*
+
+public |java.time.Duration| plusMillis(long millisToAdd)
+
+Returns a copy of this duration with the specified duration in milliseconds 
+added. 
+
+This instance is immutable and unaffected by this method call. 
+
+
+    millisToAdd - the milliseconds to add, positive or negative 
+
+    Returns: a {@code Duration} based on this duration with the specified milliseconds 
+             added, not null 
+
+*java.time.Duration.plusMinutes(long)*
+
+public |java.time.Duration| plusMinutes(long minutesToAdd)
+
+Returns a copy of this duration with the specified duration in minutes added. 
+
+This instance is immutable and unaffected by this method call. 
+
+
+    minutesToAdd - the minutes to add, positive or negative 
+
+    Returns: a {@code Duration} based on this duration with the specified minutes added, not 
+             null 
+
+*java.time.Duration.plusNanos(long)*
+
+public |java.time.Duration| plusNanos(long nanosToAdd)
+
+Returns a copy of this duration with the specified duration in nanoseconds 
+added. 
+
+This instance is immutable and unaffected by this method call. 
+
+
+    nanosToAdd - the nanoseconds to add, positive or negative 
+
+    Returns: a {@code Duration} based on this duration with the specified nanoseconds added, 
+             not null 
+
+*java.time.Duration.plusSeconds(long)*
+
+public |java.time.Duration| plusSeconds(long secondsToAdd)
+
+Returns a copy of this duration with the specified duration in seconds added. 
+
+This instance is immutable and unaffected by this method call. 
+
+
+    secondsToAdd - the seconds to add, positive or negative 
+
+    Returns: a {@code Duration} based on this duration with the specified seconds added, not 
+             null 
+
+*java.time.Duration.subtractFrom(Temporal)*
+
+public |java.time.temporal.Temporal| subtractFrom(java.time.temporal.Temporal temporal)
+
+Subtracts this duration from the specified temporal object. 
+
+This returns a temporal object of the same observable type as the input with 
+this duration subtracted. 
+
+In most cases, it is clearer to reverse the calling pattern by using 
+(|java.time.temporal.Temporal|) . 
+
+// these two lines are equivalent, but the second approach is recommended 
+dateTime = thisDuration.subtractFrom(dateTime); dateTime = 
+dateTime.minus(thisDuration); 
+
+The calculation will subtract the seconds, then nanos. Only non-zero amounts 
+will be added. 
+
+This instance is immutable and unaffected by this method call. 
+
+
+    temporal - the temporal object to adjust, not null 
+
+    Returns: an object of the same type with the adjustment made, not null 
+
+*java.time.Duration.toDays()*
+
+public long toDays()
+
+Gets the number of days in this duration. 
+
+This returns the total number of days in the duration by dividing the number of 
+seconds by 86400. This is based on the standard definition of a day as 24 
+hours. 
+
+This instance is immutable and unaffected by this method call. 
+
+
+
+    Returns: the number of days in the duration, may be negative 
+
+*java.time.Duration.toHours()*
+
+public long toHours()
+
+Gets the number of hours in this duration. 
+
+This returns the total number of hours in the duration by dividing the number 
+of seconds by 3600. 
+
+This instance is immutable and unaffected by this method call. 
+
+
+
+    Returns: the number of hours in the duration, may be negative 
+
+*java.time.Duration.toMillis()*
+
+public long toMillis()
+
+Converts this duration to the total length in milliseconds. 
+
+If this duration is too large to fit in alongmilliseconds, then an exception is 
+thrown. 
+
+If this duration has greater than millisecond precision, then the conversion 
+will drop any excess precision information as though the amount in nanoseconds 
+was subject to integer division by one million. 
+
+
+
+    Returns: the total length of the duration in milliseconds 
+
+*java.time.Duration.toMinutes()*
+
+public long toMinutes()
+
+Gets the number of minutes in this duration. 
+
+This returns the total number of minutes in the duration by dividing the number 
+of seconds by 60. 
+
+This instance is immutable and unaffected by this method call. 
+
+
+
+    Returns: the number of minutes in the duration, may be negative 
+
+*java.time.Duration.toNanos()*
+
+public long toNanos()
+
+Converts this duration to the total length in nanoseconds expressed as along. 
+
+If this duration is too large to fit in alongnanoseconds, then an exception is 
+thrown. 
+
+
+
+    Returns: the total length of the duration in nanoseconds 
+
+*java.time.Duration.toString()*
+
+public |java.lang.String| toString()
+
+A string representation of this duration using ISO-8601 seconds based 
+representation, such asPT8H6M12.345S. 
+
+The format of the returned string will bePTnHnMnS, where n is the relevant 
+hours, minutes or seconds part of the duration. Any fractional seconds are 
+placed after a decimal point i the seconds section. If a section has a zero 
+value, it is omitted. The hours, minutes and seconds will all have the same 
+sign. 
+
+Examples: 
+
+"20.345 seconds" -- "PT20.345S "15 minutes" (15 * 60 seconds) -- "PT15M" "10 
+hours" (10 * 3600 seconds) -- "PT10H" "2 days" (2 * 86400 seconds) -- "PT48H" 
+
+Note that multiples of 24 hours are not output as days to avoid confusion 
+withPeriod. 
+
+
+
+    Returns: an ISO-8601 representation of this duration, not null 
+
+*java.time.Duration.withNanos(int)*
+
+public |java.time.Duration| withNanos(int nanoOfSecond)
+
+Returns a copy of this duration with the specified nano-of-second. 
+
+This returns a duration with the specified nano-of-second, retaining the 
+seconds part of this duration. 
+
+This instance is immutable and unaffected by this method call. 
+
+
+    nanoOfSecond - the nano-of-second to represent, from 0 to 999,999,999 
+
+    Returns: a {@code Duration} based on this period with the requested nano-of-second, not 
+             null 
+
+*java.time.Duration.withSeconds(long)*
+
+public |java.time.Duration| withSeconds(long seconds)
+
+Returns a copy of this duration with the specified amount of seconds. 
+
+This returns a duration with the specified seconds, retaining the 
+nano-of-second part of this duration. 
+
+This instance is immutable and unaffected by this method call. 
+
+
+    seconds - the seconds to represent, may be negative 
+
+    Returns: a {@code Duration} based on this period with the requested seconds, not null 
+
+

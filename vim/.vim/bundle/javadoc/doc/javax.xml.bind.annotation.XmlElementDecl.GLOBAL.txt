@@ -1,0 +1,29 @@
+*javax.xml.bind.annotation.XmlElementDecl.GLOBAL* *XmlElementDecl.GLOBAL* Used i
+
+public static final class XmlElementDecl.GLOBAL
+  extends    |java.lang.Object|
+
+|javax.xml.bind.annotation.XmlElementDecl.GLOBAL_Description|
+|javax.xml.bind.annotation.XmlElementDecl.GLOBAL_Fields|
+|javax.xml.bind.annotation.XmlElementDecl.GLOBAL_Constructors|
+|javax.xml.bind.annotation.XmlElementDecl.GLOBAL_Methods|
+
+================================================================================
+
+*javax.xml.bind.annotation.XmlElementDecl.GLOBAL_Constructors*
+|javax.xml.bind.annotation.XmlElementDecl.GLOBAL()|
+
+*javax.xml.bind.annotation.XmlElementDecl.GLOBAL_Description*
+
+Used in (|javax.xml.bind.annotation.XmlElementDecl|) to signal that the 
+declaration is in the global scope. 
+
+
+
+*javax.xml.bind.annotation.XmlElementDecl.GLOBAL()*
+
+public GLOBAL()
+
+
+
+

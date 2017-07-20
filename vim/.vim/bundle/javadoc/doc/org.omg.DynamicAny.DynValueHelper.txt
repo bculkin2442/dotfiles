@@ -1,0 +1,117 @@
+*org.omg.DynamicAny.DynValueHelper* *DynValueHelper* DynValue objects support th
+
+public abstract class DynValueHelper
+  extends    |java.lang.Object|
+
+|org.omg.DynamicAny.DynValueHelper_Description|
+|org.omg.DynamicAny.DynValueHelper_Fields|
+|org.omg.DynamicAny.DynValueHelper_Constructors|
+|org.omg.DynamicAny.DynValueHelper_Methods|
+
+================================================================================
+
+*org.omg.DynamicAny.DynValueHelper_Constructors*
+|org.omg.DynamicAny.DynValueHelper()|
+
+*org.omg.DynamicAny.DynValueHelper_Methods*
+|org.omg.DynamicAny.DynValueHelper.extract(Any)|
+|org.omg.DynamicAny.DynValueHelper.id()|
+|org.omg.DynamicAny.DynValueHelper.insert(Any,DynValue)|
+|org.omg.DynamicAny.DynValueHelper.narrow(Object)|
+|org.omg.DynamicAny.DynValueHelper.read(InputStream)|
+|org.omg.DynamicAny.DynValueHelper.type()|
+|org.omg.DynamicAny.DynValueHelper.unchecked_narrow(Object)|
+|org.omg.DynamicAny.DynValueHelper.write(OutputStream,DynValue)|
+
+*org.omg.DynamicAny.DynValueHelper_Description*
+
+DynValue objects support the manipulation of IDL non-boxed value types. The 
+DynValue interface can represent both null and non-null value types. For a 
+DynValue representing a non-null value type, the DynValue's components comprise 
+the public and private members of the value type, including those inherited 
+from concrete base value types, in the order of definition. A DynValue 
+representing a null value type has no components and a current position of -1. 
+Warning: Indiscriminantly changing the contents of private value type members 
+can cause the value type implementation to break by violating internal 
+constraints. Access to private members is provided to support such activities 
+as ORB bridging and debugging and should not be used to arbitrarily violate the 
+encapsulation of the value type. 
+
+
+
+*org.omg.DynamicAny.DynValueHelper()*
+
+public DynValueHelper()
+
+
+
+
+*org.omg.DynamicAny.DynValueHelper.extract(Any)*
+
+public static |org.omg.DynamicAny.DynValue| extract(org.omg.CORBA.Any a)
+
+
+
+
+
+*org.omg.DynamicAny.DynValueHelper.id()*
+
+public static |java.lang.String| id()
+
+
+
+
+
+*org.omg.DynamicAny.DynValueHelper.insert(Any,DynValue)*
+
+public static void insert(
+  org.omg.CORBA.Any a,
+  org.omg.DynamicAny.DynValue that)
+
+
+
+
+
+*org.omg.DynamicAny.DynValueHelper.narrow(Object)*
+
+public static |org.omg.DynamicAny.DynValue| narrow(org.omg.CORBA.Object obj)
+
+
+
+
+
+*org.omg.DynamicAny.DynValueHelper.read(InputStream)*
+
+public static |org.omg.DynamicAny.DynValue| read(org.omg.CORBA.portable.InputStream istream)
+
+
+
+
+
+*org.omg.DynamicAny.DynValueHelper.type()*
+
+public static synchronized |org.omg.CORBA.TypeCode| type()
+
+
+
+
+
+*org.omg.DynamicAny.DynValueHelper.unchecked_narrow(Object)*
+
+public static |org.omg.DynamicAny.DynValue| unchecked_narrow(org.omg.CORBA.Object obj)
+
+
+
+
+
+*org.omg.DynamicAny.DynValueHelper.write(OutputStream,DynValue)*
+
+public static void write(
+  org.omg.CORBA.portable.OutputStream ostream,
+  org.omg.DynamicAny.DynValue value)
+
+
+
+
+
+

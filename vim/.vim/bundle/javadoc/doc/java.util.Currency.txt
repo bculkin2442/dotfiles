@@ -1,0 +1,218 @@
+*java.util.Currency* *Currency* Represents a currency.
+
+public final class Currency
+  extends    |java.lang.Object|
+  implements |java.io.Serializable|
+
+|java.util.Currency_Description|
+|java.util.Currency_Fields|
+|java.util.Currency_Constructors|
+|java.util.Currency_Methods|
+
+================================================================================
+
+*java.util.Currency_Methods*
+|java.util.Currency.getAvailableCurrencies()|Gets the set of available currenci
+|java.util.Currency.getCurrencyCode()|Gets the ISO 4217 currency code of this c
+|java.util.Currency.getDefaultFractionDigits()|Gets the default number of fract
+|java.util.Currency.getDisplayName()|Gets the name that is suitable for display
+|java.util.Currency.getDisplayName(Locale)|Gets the name that is suitable for d
+|java.util.Currency.getInstance(Locale)|Returns the Currency instance for the c
+|java.util.Currency.getInstance(String)|Returns the Currency instance for the g
+|java.util.Currency.getNumericCode()|Returns the ISO 4217 numeric code of this 
+|java.util.Currency.getSymbol()|Gets the symbol of this currency for the defaul
+|java.util.Currency.getSymbol(Locale)|Gets the symbol of this currency for the 
+|java.util.Currency.toString()|Returns the ISO 4217 currency code of this curre
+
+*java.util.Currency_Description*
+
+Represents a currency. Currencies are identified by their ISO 4217 currency 
+codes. Visit the ISO web site for more information. 
+
+The class is designed so that there's never more than one Currency instance for 
+any given currency. Therefore, there's no public constructor. You obtain a 
+Currency instance using the getInstance methods. 
+
+Users can supersede the Java runtime currency data by means of the system 
+propertyjava.util.currency.data. If this system property is defined then its 
+value is the location of a properties file, the contents of which are key/value 
+pairs of the ISO 3166 country codes and the ISO 4217 currency data 
+respectively. The value part consists of three ISO 4217 values of a currency, 
+i.e., an alphabetic code, a numeric code, and a minor unit. Those three ISO 
+4217 values are separated by commas. The lines which start with '#'s are 
+considered comment lines. An optional UTC timestamp may be specified per 
+currency entry if users need to specify a cutover date indicating when the new 
+data comes into effect. The timestamp is appended to the end of the currency 
+properties and uses a comma as a separator. If a UTC datestamp is present and 
+valid, the JRE will only use the new currency properties if the current UTC 
+date is later than the date specified at class loading time. The format of the 
+timestamp must be of ISO 8601 format :'yyyy-MM-dd'T'HH:mm:ss'. For example, 
+
+#Sample currency properties JP=JPZ,999,0 
+
+will supersede the currency data for Japan. 
+
+
+
+#Sample currency properties with cutover date JP=JPZ,999,0,2014-01-01T00:00:00 
+
+will supersede the currency data for Japan ifCurrencyclass is loaded after 1st 
+January 2014 00:00:00 GMT. 
+
+Where syntactically malformed entries are encountered, the entry is ignored and 
+the remainder of entries in file are processed. For instances where duplicate 
+country code entries exist, the behavior of the Currency information for 
+thatCurrencyis undefined and the remainder of entries in file are processed. 
+
+
+
+*java.util.Currency.getAvailableCurrencies()*
+
+public static |java.util.Set|<Currency> getAvailableCurrencies()
+
+Gets the set of available currencies. The returned set of currencies contains 
+all of the available currencies, which may include currencies that represent 
+obsolete ISO 4217 codes. The set can be modified without affecting the 
+available currencies in the runtime. 
+
+
+
+    Returns: the set of available currencies. If there is no currency available in the 
+             runtime, the returned set is empty. 
+
+*java.util.Currency.getCurrencyCode()*
+
+public |java.lang.String| getCurrencyCode()
+
+Gets the ISO 4217 currency code of this currency. 
+
+
+
+    Returns: the ISO 4217 currency code of this currency. 
+
+*java.util.Currency.getDefaultFractionDigits()*
+
+public int getDefaultFractionDigits()
+
+Gets the default number of fraction digits used with this currency. For 
+example, the default number of fraction digits for the Euro is 2, while for the 
+Japanese Yen it's 0. In the case of pseudo-currencies, such as IMF Special 
+Drawing Rights, -1 is returned. 
+
+
+
+    Returns: the default number of fraction digits used with this currency 
+
+*java.util.Currency.getDisplayName()*
+
+public |java.lang.String| getDisplayName()
+
+Gets the name that is suitable for displaying this currency for the default 
+DISPLAY(|java.util.Locale.Category|) locale. If there is no suitable display 
+name found for the default locale, the ISO 4217 currency code is returned. 
+
+This is equivalent to calling 
+getDisplayName(Locale.getDefault(Locale.Category.DISPLAY))(|java.util.Currency|)
+. 
+
+
+
+    Returns: the display name of this currency for the default {@link 
+             Locale.Category#DISPLAY DISPLAY} locale 
+
+*java.util.Currency.getDisplayName(Locale)*
+
+public |java.lang.String| getDisplayName(java.util.Locale locale)
+
+Gets the name that is suitable for displaying this currency for the specified 
+locale. If there is no suitable display name found for the specified locale, 
+the ISO 4217 currency code is returned. 
+
+
+    locale - the locale for which a display name for this currency is needed 
+
+    Returns: the display name of this currency for the specified locale 
+
+*java.util.Currency.getInstance(Locale)*
+
+public static |java.util.Currency| getInstance(java.util.Locale locale)
+
+Returns the Currency instance for the country of the given locale. The language 
+and variant components of the locale are ignored. The result may vary over 
+time, as countries change their currencies. For example, for the original 
+member countries of the European Monetary Union, the method returns the old 
+national currencies until December 31, 2001, and the Euro from January 1, 2002, 
+local time of the respective countries. 
+
+The method returns null for territories that don't have a currency, such as 
+Antarctica. 
+
+
+    locale - the locale for whose country a Currency instance is needed 
+
+    Returns: the Currency instance for the country of the given locale, or {@code null} 
+
+*java.util.Currency.getInstance(String)*
+
+public static |java.util.Currency| getInstance(java.lang.String currencyCode)
+
+Returns the Currency instance for the given currency code. 
+
+
+    currencyCode - the ISO 4217 code of the currency 
+
+    Returns: the Currency instance for the given currency code 
+
+*java.util.Currency.getNumericCode()*
+
+public int getNumericCode()
+
+Returns the ISO 4217 numeric code of this currency. 
+
+
+
+    Returns: the ISO 4217 numeric code of this currency 
+
+*java.util.Currency.getSymbol()*
+
+public |java.lang.String| getSymbol()
+
+Gets the symbol of this currency for the default 
+DISPLAY(|java.util.Locale.Category|) locale. For example, for the US Dollar, 
+the symbol is "$" if the default locale is the US, while for other locales it 
+may be "US$". If no symbol can be determined, the ISO 4217 currency code is 
+returned. 
+
+This is equivalent to calling 
+getSymbol(Locale.getDefault(Locale.Category.DISPLAY))(|java.util.Currency|) . 
+
+
+
+    Returns: the symbol of this currency for the default {@link Locale.Category#DISPLAY 
+             DISPLAY} locale 
+
+*java.util.Currency.getSymbol(Locale)*
+
+public |java.lang.String| getSymbol(java.util.Locale locale)
+
+Gets the symbol of this currency for the specified locale. For example, for the 
+US Dollar, the symbol is "$" if the specified locale is the US, while for other 
+locales it may be "US$". If no symbol can be determined, the ISO 4217 currency 
+code is returned. 
+
+
+    locale - the locale for which a display name for this currency is needed 
+
+    Returns: the symbol of this currency for the specified locale 
+
+*java.util.Currency.toString()*
+
+public |java.lang.String| toString()
+
+Returns the ISO 4217 currency code of this currency. 
+
+
+
+    Returns: the ISO 4217 currency code of this currency 
+
+

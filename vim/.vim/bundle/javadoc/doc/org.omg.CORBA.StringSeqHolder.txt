@@ -1,0 +1,76 @@
+*org.omg.CORBA.StringSeqHolder* *StringSeqHolder* An array of Strings
+
+public final class StringSeqHolder
+  extends    |java.lang.Object|
+  implements |org.omg.CORBA.portable.Streamable|
+
+|org.omg.CORBA.StringSeqHolder_Description|
+|org.omg.CORBA.StringSeqHolder_Fields|
+|org.omg.CORBA.StringSeqHolder_Constructors|
+|org.omg.CORBA.StringSeqHolder_Methods|
+
+================================================================================
+
+*org.omg.CORBA.StringSeqHolder_Fields*
+|java.lang.String[]_org.omg.CORBA.StringSeqHolder.value|
+
+*org.omg.CORBA.StringSeqHolder_Constructors*
+|org.omg.CORBA.StringSeqHolder()|
+|org.omg.CORBA.StringSeqHolder(String[])|
+
+*org.omg.CORBA.StringSeqHolder_Methods*
+|org.omg.CORBA.StringSeqHolder._read(InputStream)|
+|org.omg.CORBA.StringSeqHolder._type()|
+|org.omg.CORBA.StringSeqHolder._write(OutputStream)|
+
+*org.omg.CORBA.StringSeqHolder_Description*
+
+An array of Strings 
+
+
+
+*java.lang.String[]_org.omg.CORBA.StringSeqHolder.value*
+
+
+
+
+
+*org.omg.CORBA.StringSeqHolder()*
+
+public StringSeqHolder()
+
+
+
+
+*org.omg.CORBA.StringSeqHolder(String[])*
+
+public StringSeqHolder(java.lang.String[] initialValue)
+
+
+
+
+*org.omg.CORBA.StringSeqHolder._read(InputStream)*
+
+public void _read(org.omg.CORBA.portable.InputStream i)
+
+
+
+
+
+*org.omg.CORBA.StringSeqHolder._type()*
+
+public |org.omg.CORBA.TypeCode| _type()
+
+
+
+
+
+*org.omg.CORBA.StringSeqHolder._write(OutputStream)*
+
+public void _write(org.omg.CORBA.portable.OutputStream o)
+
+
+
+
+
+

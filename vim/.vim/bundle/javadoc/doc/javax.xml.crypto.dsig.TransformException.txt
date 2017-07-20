@@ -1,0 +1,117 @@
+*javax.xml.crypto.dsig.TransformException* *TransformException* Indicates an exc
+
+public class TransformException
+  extends    |java.lang.Exception|
+
+|javax.xml.crypto.dsig.TransformException_Description|
+|javax.xml.crypto.dsig.TransformException_Fields|
+|javax.xml.crypto.dsig.TransformException_Constructors|
+|javax.xml.crypto.dsig.TransformException_Methods|
+
+================================================================================
+
+*javax.xml.crypto.dsig.TransformException_Constructors*
+|javax.xml.crypto.dsig.TransformException()|Constructs a new TransformException
+|javax.xml.crypto.dsig.TransformException(String)|Constructs a new TransformExc
+|javax.xml.crypto.dsig.TransformException(String,Throwable)|Constructs a new Tr
+|javax.xml.crypto.dsig.TransformException(Throwable)|Constructs a new Transform
+
+*javax.xml.crypto.dsig.TransformException_Methods*
+|javax.xml.crypto.dsig.TransformException.getCause()|Returns the cause of this 
+|javax.xml.crypto.dsig.TransformException.printStackTrace()|Prints this Transfo
+|javax.xml.crypto.dsig.TransformException.printStackTrace(PrintStream)|Prints t
+|javax.xml.crypto.dsig.TransformException.printStackTrace(PrintWriter)|Prints t
+
+*javax.xml.crypto.dsig.TransformException_Description*
+
+Indicates an exceptional condition that occurred while executing a transform 
+algorithm. 
+
+A TransformException can contain a cause: another throwable that caused this 
+TransformException to get thrown. 
+
+
+
+*javax.xml.crypto.dsig.TransformException()*
+
+public TransformException()
+
+Constructs a new TransformException with null as its detail message. 
+
+
+*javax.xml.crypto.dsig.TransformException(String)*
+
+public TransformException(java.lang.String message)
+
+Constructs a new TransformException with the specified detail message. 
+
+    message - the detail message 
+
+*javax.xml.crypto.dsig.TransformException(String,Throwable)*
+
+public TransformException(
+  java.lang.String message,
+  java.lang.Throwable cause)
+
+Constructs a new TransformException with the specified detail message and 
+cause. Note that the detail message associated with cause is not automatically 
+incorporated in this exception's detail message. 
+
+    message - the detail message 
+    cause - the cause (A null value is permitted, and indicates that the cause is 
+       nonexistent or unknown.) 
+
+*javax.xml.crypto.dsig.TransformException(Throwable)*
+
+public TransformException(java.lang.Throwable cause)
+
+Constructs a new TransformException with the specified cause and a detail 
+message of (cause==null ? null : cause.toString()) (which typically contains 
+the class and detail message of cause). 
+
+    cause - the cause (A null value is permitted, and indicates that the cause is 
+       nonexistent or unknown.) 
+
+*javax.xml.crypto.dsig.TransformException.getCause()*
+
+public |java.lang.Throwable| getCause()
+
+Returns the cause of this TransformException or null if the cause is 
+nonexistent or unknown. (The cause is the throwable that caused this 
+TransformException to get thrown.) 
+
+
+
+    Returns: the cause of this TransformException or null if the cause is nonexistent or 
+             unknown. 
+
+*javax.xml.crypto.dsig.TransformException.printStackTrace()*
+
+public void printStackTrace()
+
+Prints this TransformException, its backtrace and the cause's backtrace to the 
+standard error stream. 
+
+
+
+*javax.xml.crypto.dsig.TransformException.printStackTrace(PrintStream)*
+
+public void printStackTrace(java.io.PrintStream s)
+
+Prints this TransformException, its backtrace and the cause's backtrace to the 
+specified print stream. 
+
+
+    s - PrintStream to use for output 
+
+*javax.xml.crypto.dsig.TransformException.printStackTrace(PrintWriter)*
+
+public void printStackTrace(java.io.PrintWriter s)
+
+Prints this TransformException, its backtrace and the cause's backtrace to the 
+specified print writer. 
+
+
+    s - PrintWriter to use for output 
+
+

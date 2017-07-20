@@ -1,0 +1,76 @@
+*javax.xml.ws.spi.Invoker* *Invoker* Invoker hides the detail of calling into ap
+
+public abstract class Invoker
+  extends    |java.lang.Object|
+
+|javax.xml.ws.spi.Invoker_Description|
+|javax.xml.ws.spi.Invoker_Fields|
+|javax.xml.ws.spi.Invoker_Constructors|
+|javax.xml.ws.spi.Invoker_Methods|
+
+================================================================================
+
+*javax.xml.ws.spi.Invoker_Constructors*
+|javax.xml.ws.spi.Invoker()|
+
+*javax.xml.ws.spi.Invoker_Methods*
+|javax.xml.ws.spi.Invoker.inject(WebServiceContext)|JAX-WS runtimes calls this 
+|javax.xml.ws.spi.Invoker.invoke(Method,Object...)|JAX-WS runtime calls this me
+
+*javax.xml.ws.spi.Invoker_Description*
+
+Invoker hides the detail of calling into application endpoint implementation. 
+Container hands over an implementation of Invoker to JAX-WS runtime, and jax-ws 
+runtime calls (|javax.xml.ws.spi.Invoker|) for a web service invocation. 
+Finally, Invoker does the actual invocation of web service on endpoint 
+instance. 
+
+Container also injects the provided WebServiceContext and takes care of 
+invoking javax.annotation.PostConstruct methods, if present, on the endpoint 
+implementation. 
+
+
+
+*javax.xml.ws.spi.Invoker()*
+
+public Invoker()
+
+
+
+
+*javax.xml.ws.spi.Invoker.inject(WebServiceContext)*
+
+public abstract void inject(javax.xml.ws.WebServiceContext webServiceContext)
+  throws |java.lang.IllegalAccessException|
+         |java.lang.IllegalArgumentException|
+         |java.lang.reflect.InvocationTargetException|
+         
+JAX-WS runtimes calls this method to ask container to inject WebServiceContext 
+on the endpoint instance. The WebServiceContext object uses thread-local 
+information to return the correct information during the actual endpoint 
+invocation regardless of how many threads are concurrently being used to serve 
+requests. 
+
+
+    webServiceContext - a holder for MessageContext 
+
+*javax.xml.ws.spi.Invoker.invoke(Method,Object...)*
+
+public abstract |java.lang.Object| invoke(
+  java.lang.reflect.Method m,
+  java.lang.Object[] args)
+  throws |java.lang.IllegalAccessException|
+         |java.lang.IllegalArgumentException|
+         |java.lang.reflect.InvocationTargetException|
+         
+JAX-WS runtime calls this method to do the actual web service invocation on 
+endpoint instance. The injected WebServiceContext.getMessageContext() gives the 
+correct information for this invocation. 
+
+
+    m - Method to be invoked on the service 
+    args - Method arguments 
+
+    Returns: return value of the method 
+
+

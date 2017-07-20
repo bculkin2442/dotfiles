@@ -1,0 +1,22 @@
+*org.omg.PortableServer.ServantActivator* *ServantActivator* When the POA has th
+
+public interface interface ServantActivator
+
+  implements |org.omg.PortableServer.ServantActivatorOperations|
+             |org.omg.PortableServer.ServantManager|
+             |org.omg.CORBA.portable.IDLEntity|
+
+|org.omg.PortableServer.ServantActivator_Description|
+|org.omg.PortableServer.ServantActivator_Fields|
+|org.omg.PortableServer.ServantActivator_Constructors|
+|org.omg.PortableServer.ServantActivator_Methods|
+
+================================================================================
+
+*org.omg.PortableServer.ServantActivator_Description*
+
+When the POA has the RETAIN policy it uses servant managers that are 
+ServantActivators. 
+
+
+

@@ -1,0 +1,76 @@
+*org.omg.CosNaming.NamingContextPackage.NotFoundReasonHolder* *NotFoundReasonHolder* 
+
+public final class NotFoundReasonHolder
+  extends    |java.lang.Object|
+  implements |org.omg.CORBA.portable.Streamable|
+
+|org.omg.CosNaming.NamingContextPackage.NotFoundReasonHolder_Description|
+|org.omg.CosNaming.NamingContextPackage.NotFoundReasonHolder_Fields|
+|org.omg.CosNaming.NamingContextPackage.NotFoundReasonHolder_Constructors|
+|org.omg.CosNaming.NamingContextPackage.NotFoundReasonHolder_Methods|
+
+================================================================================
+
+*org.omg.CosNaming.NamingContextPackage.NotFoundReasonHolder_Fields*
+|org.omg.CosNaming.NamingContextPackage.NotFoundReason_org.omg.CosNaming.NamingContextPackage.NotFoundReasonHolder.value|
+
+*org.omg.CosNaming.NamingContextPackage.NotFoundReasonHolder_Constructors*
+|org.omg.CosNaming.NamingContextPackage.NotFoundReasonHolder()|
+|org.omg.CosNaming.NamingContextPackage.NotFoundReasonHolder(NotFoundReason)|
+
+*org.omg.CosNaming.NamingContextPackage.NotFoundReasonHolder_Methods*
+|org.omg.CosNaming.NamingContextPackage.NotFoundReasonHolder._read(InputStream)|
+|org.omg.CosNaming.NamingContextPackage.NotFoundReasonHolder._type()|
+|org.omg.CosNaming.NamingContextPackage.NotFoundReasonHolder._write(OutputStream)|
+
+*org.omg.CosNaming.NamingContextPackage.NotFoundReasonHolder_Description*
+
+Indicates the reason for not able to resolve. 
+
+
+
+*org.omg.CosNaming.NamingContextPackage.NotFoundReason_org.omg.CosNaming.NamingContextPackage.NotFoundReasonHolder.value*
+
+
+
+
+
+*org.omg.CosNaming.NamingContextPackage.NotFoundReasonHolder()*
+
+public NotFoundReasonHolder()
+
+
+
+
+*org.omg.CosNaming.NamingContextPackage.NotFoundReasonHolder(NotFoundReason)*
+
+public NotFoundReasonHolder(org.omg.CosNaming.NamingContextPackage.NotFoundReason initialValue)
+
+
+
+
+*org.omg.CosNaming.NamingContextPackage.NotFoundReasonHolder._read(InputStream)*
+
+public void _read(org.omg.CORBA.portable.InputStream i)
+
+
+
+
+
+*org.omg.CosNaming.NamingContextPackage.NotFoundReasonHolder._type()*
+
+public |org.omg.CORBA.TypeCode| _type()
+
+
+
+
+
+*org.omg.CosNaming.NamingContextPackage.NotFoundReasonHolder._write(OutputStream)*
+
+public void _write(org.omg.CORBA.portable.OutputStream o)
+
+
+
+
+
+

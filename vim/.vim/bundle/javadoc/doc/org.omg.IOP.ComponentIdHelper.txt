@@ -1,0 +1,90 @@
+*org.omg.IOP.ComponentIdHelper* *ComponentIdHelper* Standard way of representing
+
+public abstract class ComponentIdHelper
+  extends    |java.lang.Object|
+
+|org.omg.IOP.ComponentIdHelper_Description|
+|org.omg.IOP.ComponentIdHelper_Fields|
+|org.omg.IOP.ComponentIdHelper_Constructors|
+|org.omg.IOP.ComponentIdHelper_Methods|
+
+================================================================================
+
+*org.omg.IOP.ComponentIdHelper_Constructors*
+|org.omg.IOP.ComponentIdHelper()|
+
+*org.omg.IOP.ComponentIdHelper_Methods*
+|org.omg.IOP.ComponentIdHelper.extract(Any)|
+|org.omg.IOP.ComponentIdHelper.id()|
+|org.omg.IOP.ComponentIdHelper.insert(Any,int)|
+|org.omg.IOP.ComponentIdHelper.read(InputStream)|
+|org.omg.IOP.ComponentIdHelper.type()|
+|org.omg.IOP.ComponentIdHelper.write(OutputStream,int)|
+
+*org.omg.IOP.ComponentIdHelper_Description*
+
+Standard way of representing multicomponent profiles. This would be 
+encapsulated in a TaggedProfile. 
+
+
+
+*org.omg.IOP.ComponentIdHelper()*
+
+public ComponentIdHelper()
+
+
+
+
+*org.omg.IOP.ComponentIdHelper.extract(Any)*
+
+public static int extract(org.omg.CORBA.Any a)
+
+
+
+
+
+*org.omg.IOP.ComponentIdHelper.id()*
+
+public static |java.lang.String| id()
+
+
+
+
+
+*org.omg.IOP.ComponentIdHelper.insert(Any,int)*
+
+public static void insert(
+  org.omg.CORBA.Any a,
+  int that)
+
+
+
+
+
+*org.omg.IOP.ComponentIdHelper.read(InputStream)*
+
+public static int read(org.omg.CORBA.portable.InputStream istream)
+
+
+
+
+
+*org.omg.IOP.ComponentIdHelper.type()*
+
+public static synchronized |org.omg.CORBA.TypeCode| type()
+
+
+
+
+
+*org.omg.IOP.ComponentIdHelper.write(OutputStream,int)*
+
+public static void write(
+  org.omg.CORBA.portable.OutputStream ostream,
+  int value)
+
+
+
+
+
+

@@ -1,0 +1,19 @@
+*javax.xml.stream.events.EndDocument* *EndDocument* A marker interface for the e
+
+public interface interface EndDocument
+
+  implements |javax.xml.stream.events.XMLEvent|
+
+|javax.xml.stream.events.EndDocument_Description|
+|javax.xml.stream.events.EndDocument_Fields|
+|javax.xml.stream.events.EndDocument_Constructors|
+|javax.xml.stream.events.EndDocument_Methods|
+
+================================================================================
+
+*javax.xml.stream.events.EndDocument_Description*
+
+A marker interface for the end of the document 
+
+
+

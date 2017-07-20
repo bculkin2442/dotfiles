@@ -1,0 +1,129 @@
+*java.lang.Number* *Number* The abstract classNumberis the superclass of platfor
+
+public abstract class Number
+  extends    |java.lang.Object|
+  implements |java.io.Serializable|
+
+|java.lang.Number_Description|
+|java.lang.Number_Fields|
+|java.lang.Number_Constructors|
+|java.lang.Number_Methods|
+
+================================================================================
+
+*java.lang.Number_Constructors*
+|java.lang.Number()|
+
+*java.lang.Number_Methods*
+|java.lang.Number.byteValue()|Returns the value of the specified number as abyt
+|java.lang.Number.doubleValue()|Returns the value of the specified number as ad
+|java.lang.Number.floatValue()|Returns the value of the specified number as afl
+|java.lang.Number.intValue()|Returns the value of the specified number as anint
+|java.lang.Number.longValue()|Returns the value of the specified number as alon
+|java.lang.Number.shortValue()|Returns the value of the specified number as ash
+
+*java.lang.Number_Description*
+
+The abstract classNumberis the superclass of platform classes representing 
+numeric values that are convertible to the primitive 
+typesbyte,double,float,int,long, andshort. 
+
+The specific semantics of the conversion from the numeric value of a 
+particularNumberimplementation to a given primitive type is defined by 
+theNumberimplementation in question. 
+
+For platform classes, the conversion is often analogous to a narrowing 
+primitive conversion or a widening primitive conversion as defining in The Java 
+Language Specification for converting between primitive types. Therefore, 
+conversions may lose information about the overall magnitude of a numeric 
+value, may lose precision, and may even return a result of a different sign 
+than the input. 
+
+See the documentation of a givenNumberimplementation for conversion details. 
+
+
+
+*java.lang.Number()*
+
+public Number()
+
+
+
+
+*java.lang.Number.byteValue()*
+
+public byte byteValue()
+
+Returns the value of the specified number as abyte, which may involve rounding 
+or truncation. 
+
+This implementation returns the result of (|java.lang.Number|) cast to abyte. 
+
+
+
+    Returns: the numeric value represented by this object after conversion to type {@code 
+             byte}. 
+
+*java.lang.Number.doubleValue()*
+
+public abstract double doubleValue()
+
+Returns the value of the specified number as adouble, which may involve 
+rounding. 
+
+
+
+    Returns: the numeric value represented by this object after conversion to type {@code 
+             double}. 
+
+*java.lang.Number.floatValue()*
+
+public abstract float floatValue()
+
+Returns the value of the specified number as afloat, which may involve 
+rounding. 
+
+
+
+    Returns: the numeric value represented by this object after conversion to type {@code 
+             float}. 
+
+*java.lang.Number.intValue()*
+
+public abstract int intValue()
+
+Returns the value of the specified number as anint, which may involve rounding 
+or truncation. 
+
+
+
+    Returns: the numeric value represented by this object after conversion to type {@code 
+             int}. 
+
+*java.lang.Number.longValue()*
+
+public abstract long longValue()
+
+Returns the value of the specified number as along, which may involve rounding 
+or truncation. 
+
+
+
+    Returns: the numeric value represented by this object after conversion to type {@code 
+             long}. 
+
+*java.lang.Number.shortValue()*
+
+public short shortValue()
+
+Returns the value of the specified number as ashort, which may involve rounding 
+or truncation. 
+
+This implementation returns the result of (|java.lang.Number|) cast to ashort. 
+
+
+
+    Returns: the numeric value represented by this object after conversion to type {@code 
+             short}. 
+
+

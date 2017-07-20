@@ -1,0 +1,23 @@
+*javax.xml.crypto.dsig.spec.DigestMethodParameterSpec* *DigestMethodParameterSpec* 
+
+public interface interface DigestMethodParameterSpec
+
+  implements |java.security.spec.AlgorithmParameterSpec|
+
+|javax.xml.crypto.dsig.spec.DigestMethodParameterSpec_Description|
+|javax.xml.crypto.dsig.spec.DigestMethodParameterSpec_Fields|
+|javax.xml.crypto.dsig.spec.DigestMethodParameterSpec_Constructors|
+|javax.xml.crypto.dsig.spec.DigestMethodParameterSpec_Methods|
+
+================================================================================
+
+*javax.xml.crypto.dsig.spec.DigestMethodParameterSpec_Description*
+
+A specification of algorithm parameters for a 
+(|javax.xml.crypto.dsig.DigestMethod|) algorithm. The purpose of this interface 
+is to group (and provide type safety for) all digest method parameter 
+specifications. All digest method parameter specifications must implement this 
+interface. 
+
+
+

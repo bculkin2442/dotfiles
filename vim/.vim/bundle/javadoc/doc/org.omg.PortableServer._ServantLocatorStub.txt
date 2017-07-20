@@ -1,0 +1,100 @@
+*org.omg.PortableServer._ServantLocatorStub* *_ServantLocatorStub* When the POA 
+
+public class _ServantLocatorStub
+  extends    |org.omg.CORBA.portable.ObjectImpl|
+  implements |org.omg.PortableServer.ServantLocator|
+
+|org.omg.PortableServer._ServantLocatorStub_Description|
+|org.omg.PortableServer._ServantLocatorStub_Fields|
+|org.omg.PortableServer._ServantLocatorStub_Constructors|
+|org.omg.PortableServer._ServantLocatorStub_Methods|
+
+================================================================================
+
+*org.omg.PortableServer._ServantLocatorStub_Fields*
+|java.lang.Class_org.omg.PortableServer._ServantLocatorStub._opsClass|
+
+*org.omg.PortableServer._ServantLocatorStub_Constructors*
+|org.omg.PortableServer._ServantLocatorStub()|
+
+*org.omg.PortableServer._ServantLocatorStub_Methods*
+|org.omg.PortableServer._ServantLocatorStub._ids()|
+|org.omg.PortableServer._ServantLocatorStub.postinvoke(byte[],POA,String,Object,Servant)|
+|org.omg.PortableServer._ServantLocatorStub.preinvoke(byte[],POA,String,CookieHolder)|
+
+*org.omg.PortableServer._ServantLocatorStub_Description*
+
+When the POA has the NON_RETAIN policy it uses servant managers that are 
+ServantLocators. Because the POA knows that the servant returned by this 
+servant manager will be used only for a single request, it can supply extra 
+information to the servant manager's operations and the servant manager's pair 
+of operations may be able to cooperate to do something different than a 
+ServantActivator. When the POA uses the ServantLocator interface, immediately 
+after performing the operation invocation on the servant returned by preinvoke, 
+the POA will invoke postinvoke on the servant manager, passing the ObjectId 
+value and the Servant value as parameters (among others). This feature may be 
+used to force every request for objects associated with a POA to be mediated by 
+the servant manager. 
+
+
+
+*java.lang.Class_org.omg.PortableServer._ServantLocatorStub._opsClass*
+
+
+
+
+
+*org.omg.PortableServer._ServantLocatorStub()*
+
+public _ServantLocatorStub()
+
+
+
+
+*org.omg.PortableServer._ServantLocatorStub._ids()*
+
+public |java.lang.String|[] _ids()
+
+
+
+
+
+*org.omg.PortableServer._ServantLocatorStub.postinvoke(byte[],POA,String,Object,Servant)*
+
+public void postinvoke(
+  byte[] oid,
+  org.omg.PortableServer.POA adapter,
+  java.lang.String operation,
+  java.lang.Object the_cookie,
+  org.omg.PortableServer.Servant the_servant)
+
+This operation is invoked whenener a servant completes a request. 
+
+
+    oid - the object id ssociated with object on which the request was made. 
+    adapter - the reference for POA in which the object was active. 
+    the_cookie - an opaque value that contains the data set by preinvoke. 
+    the_servant - reference to the servant that is associated with the object. 
+
+*org.omg.PortableServer._ServantLocatorStub.preinvoke(byte[],POA,String,CookieHolder)*
+
+public |org.omg.PortableServer.Servant| preinvoke(
+  byte[] oid,
+  org.omg.PortableServer.POA adapter,
+  java.lang.String operation,
+  org.omg.PortableServer.ServantLocatorPackage.CookieHolder the_cookie)
+  throws |org.omg.PortableServer.ForwardRequest|
+         
+This operations is used to get a servant that will be used to process the 
+request that caused preinvoke to be called. 
+
+
+    oid - the object id associated with object on which the request was made. 
+    adapter - the reference for POA in which the object is being activated. 
+    operation - the operation name. 
+    the_cookie - an opaque value that can be set by the servant manager to be used during 
+       postinvoke. 
+
+    Returns: Servant used to process incoming request. 
+
+

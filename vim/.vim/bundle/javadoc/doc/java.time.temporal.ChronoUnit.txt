@@ -1,0 +1,148 @@
+*java.time.temporal.ChronoUnit* *ChronoUnit* A standard set of date periods unit
+
+public final enumChronoUnit
+  extends    |java.lang.Enum|
+  implements |java.time.temporal.TemporalUnit|
+
+|java.time.temporal.ChronoUnit_Description|
+|java.time.temporal.ChronoUnit_Fields|
+|java.time.temporal.ChronoUnit_Constructors|
+|java.time.temporal.ChronoUnit_Methods|
+
+================================================================================
+
+*java.time.temporal.ChronoUnit_Methods*
+|java.time.temporal.ChronoUnit.addTo(R,long)|
+|java.time.temporal.ChronoUnit.between(Temporal,Temporal)|
+|java.time.temporal.ChronoUnit.getDuration()|Gets the estimated duration of thi
+|java.time.temporal.ChronoUnit.isDateBased()|Checks if this unit is a date unit
+|java.time.temporal.ChronoUnit.isDurationEstimated()|Checks if the duration of 
+|java.time.temporal.ChronoUnit.isSupportedBy(Temporal)|
+|java.time.temporal.ChronoUnit.isTimeBased()|Checks if this unit is a time unit
+|java.time.temporal.ChronoUnit.toString()|
+|java.time.temporal.ChronoUnit.valueOf(String)|
+|java.time.temporal.ChronoUnit.values()|
+
+*java.time.temporal.ChronoUnit_Description*
+
+A standard set of date periods units. 
+
+This set of units provide unit-based access to manipulate a date, time or 
+date-time. The standard set of units can be extended by implementing 
+(|java.time.temporal.TemporalUnit|) . 
+
+These units are intended to be applicable in multiple calendar systems. For 
+example, most non-ISO calendar systems define units of years, months and days, 
+just with slightly different rules. The documentation of each unit explains how 
+it operates. 
+
+
+
+*java.time.temporal.ChronoUnit.addTo(R,long)*
+
+public |R| addTo(
+  R extends java.time.temporal.Temporal temporal,
+  long amount)
+
+
+
+
+
+*java.time.temporal.ChronoUnit.between(Temporal,Temporal)*
+
+public long between(
+  java.time.temporal.Temporal temporal1Inclusive,
+  java.time.temporal.Temporal temporal2Exclusive)
+
+
+
+
+
+*java.time.temporal.ChronoUnit.getDuration()*
+
+public |java.time.Duration| getDuration()
+
+Gets the estimated duration of this unit in the ISO calendar system. 
+
+All of the units in this class have an estimated duration. Days vary due to 
+daylight saving time, while months have different lengths. 
+
+
+
+    Returns: the estimated duration of this unit, not null 
+
+*java.time.temporal.ChronoUnit.isDateBased()*
+
+public boolean isDateBased()
+
+Checks if this unit is a date unit. 
+
+All units from days to eras inclusive are date-based. Time-based units 
+andFOREVERreturn false. 
+
+
+
+    Returns: true if a date unit, false if a time unit 
+
+*java.time.temporal.ChronoUnit.isDurationEstimated()*
+
+public boolean isDurationEstimated()
+
+Checks if the duration of the unit is an estimate. 
+
+All time units in this class are considered to be accurate, while all date 
+units in this class are considered to be estimated. 
+
+This definition ignores leap seconds, but considers that Days vary due to 
+daylight saving time and months have different lengths. 
+
+
+
+    Returns: true if the duration is estimated, false if accurate 
+
+*java.time.temporal.ChronoUnit.isSupportedBy(Temporal)*
+
+public boolean isSupportedBy(java.time.temporal.Temporal temporal)
+
+
+
+
+
+*java.time.temporal.ChronoUnit.isTimeBased()*
+
+public boolean isTimeBased()
+
+Checks if this unit is a time unit. 
+
+All units from nanos to half-days inclusive are time-based. Date-based units 
+andFOREVERreturn false. 
+
+
+
+    Returns: true if a time unit, false if a date unit 
+
+*java.time.temporal.ChronoUnit.toString()*
+
+public |java.lang.String| toString()
+
+
+
+
+
+*java.time.temporal.ChronoUnit.valueOf(String)*
+
+public static |java.time.temporal.ChronoUnit| valueOf(java.lang.String name)
+
+
+
+
+
+*java.time.temporal.ChronoUnit.values()*
+
+public static |java.time.temporal.ChronoUnit|[] values()
+
+
+
+
+
+

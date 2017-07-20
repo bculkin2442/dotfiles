@@ -1,0 +1,63 @@
+*java.security.cert.CertStoreParameters* *CertStoreParameters* A specification o
+
+public interface interface CertStoreParameters
+
+  implements |java.lang.Cloneable|
+
+|java.security.cert.CertStoreParameters_Description|
+|java.security.cert.CertStoreParameters_Fields|
+|java.security.cert.CertStoreParameters_Constructors|
+|java.security.cert.CertStoreParameters_Methods|
+
+================================================================================
+
+*java.security.cert.CertStoreParameters_Methods*
+|java.security.cert.CertStoreParameters.clone()|Makes a copy of thisCertStorePa
+
+*java.security.cert.CertStoreParameters_Description*
+
+A specification ofCertStoreparameters. 
+
+The purpose of this interface is to group (and provide type safety for) 
+allCertStoreparameter specifications. AllCertStoreparameter specifications must 
+implement this interface. 
+
+Typically, aCertStoreParametersobject is passed as a parameter to one of the 
+CertStore.getInstance(|java.security.cert.CertStore|) methods. 
+ThegetInstancemethod returns aCertStorethat is used for retrievingCertificates 
+andCRLs. TheCertStorethat is returned is initialized with the specified 
+parameters. The type of parameters needed may vary between different types 
+ofCertStores. 
+
+
+
+*java.security.cert.CertStoreParameters.clone()*
+
+public |java.lang.Object| clone()
+
+Makes a copy of thisCertStoreParameters. 
+
+The precise meaning of "copy" may depend on the class of 
+theCertStoreParametersobject. A typical implementation performs a "deep copy" 
+of this object, but this is not an absolute requirement. Some implementations 
+may perform a "shallow copy" of some or all of the fields of this object. 
+
+Note that theCertStore.getInstancemethods make a copy of the 
+specifiedCertStoreParameters. A deep copy implementation ofcloneis safer and 
+more robust, as it prevents the caller from corrupting a sharedCertStoreby 
+subsequently modifying the contents of its initialization parameters. However, 
+a shallow copy implementation ofcloneis more appropriate for applications that 
+need to hold a reference to a parameter contained in theCertStoreParameters. 
+For example, a shallow copy clone allows an application to release the 
+resources of a particularCertStoreinitialization parameter immediately, rather 
+than waiting for the garbage collection mechanism. This should be done with the 
+utmost care, since theCertStoremay still be in use by other threads. 
+
+Each subclass should state the precise behavior of this method so that users 
+and developers know what to expect. 
+
+
+
+    Returns: a copy of this {@code CertStoreParameters} 
+
+

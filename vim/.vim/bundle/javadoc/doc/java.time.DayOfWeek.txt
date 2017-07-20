@@ -1,0 +1,326 @@
+*java.time.DayOfWeek* *DayOfWeek* A day-of-week, such as 'Tuesday'.
+
+public final enumDayOfWeek
+  extends    |java.lang.Enum|
+  implements |java.time.temporal.TemporalAccessor|
+             |java.time.temporal.TemporalAdjuster|
+
+|java.time.DayOfWeek_Description|
+|java.time.DayOfWeek_Fields|
+|java.time.DayOfWeek_Constructors|
+|java.time.DayOfWeek_Methods|
+
+================================================================================
+
+*java.time.DayOfWeek_Methods*
+|java.time.DayOfWeek.adjustInto(Temporal)|Adjusts the specified temporal object
+|java.time.DayOfWeek.from(TemporalAccessor)|Obtains an instance ofDayOfWeekfrom
+|java.time.DayOfWeek.get(TemporalField)|Gets the value of the specified field f
+|java.time.DayOfWeek.getDisplayName(TextStyle,Locale)|Gets the textual represen
+|java.time.DayOfWeek.getLong(TemporalField)|Gets the value of the specified fie
+|java.time.DayOfWeek.getValue()|Gets the day-of-weekintvalue.
+|java.time.DayOfWeek.isSupported(TemporalField)|Checks if the specified field i
+|java.time.DayOfWeek.minus(long)|Returns the day-of-week that is the specified 
+|java.time.DayOfWeek.of(int)|Obtains an instance ofDayOfWeekfrom anintvalue.
+|java.time.DayOfWeek.plus(long)|Returns the day-of-week that is the specified n
+|java.time.DayOfWeek.query(TemporalQuery<R>)|Queries this day-of-week using the
+|java.time.DayOfWeek.range(TemporalField)|Gets the range of valid values for th
+|java.time.DayOfWeek.valueOf(String)|
+|java.time.DayOfWeek.values()|
+
+*java.time.DayOfWeek_Description*
+
+A day-of-week, such as 'Tuesday'. DayOfWeekis an enum representing the 7 days 
+of the week - Monday, Tuesday, Wednesday, Thursday, Friday, Saturday and 
+Sunday. 
+
+In addition to the textual enum name, each day-of-week has anintvalue. 
+Theintvalue follows the ISO-8601 standard, from 1 (Monday) to 7 (Sunday). It is 
+recommended that applications use the enum rather than theintvalue to ensure 
+code clarity. 
+
+This enum provides access to the localized textual form of the day-of-week. 
+Some locales also assign different numeric values to the days, declaring Sunday 
+to have the value 1, however this class provides no support for this. See 
+(|java.time.temporal.WeekFields|) for localized week-numbering. 
+
+Do not useordinal()to obtain the numeric representation ofDayOfWeek. 
+UsegetValue()instead. 
+
+This enum represents a common concept that is found in many calendar systems. 
+As such, this enum may be used by any calendar system that has the day-of-week 
+concept defined exactly equivalent to the ISO calendar system. 
+
+
+
+*java.time.DayOfWeek.adjustInto(Temporal)*
+
+public |java.time.temporal.Temporal| adjustInto(java.time.temporal.Temporal temporal)
+
+Adjusts the specified temporal object to have this day-of-week. 
+
+This returns a temporal object of the same observable type as the input with 
+the day-of-week changed to be the same as this. 
+
+The adjustment is equivalent to using (|java.time.temporal.Temporal|) passing 
+(|java.time.temporal.ChronoField|) as the field. Note that this adjusts 
+forwards or backwards within a Monday to Sunday week. See 
+(|java.time.temporal.WeekFields|) for localized week start days. 
+SeeTemporalAdjusterfor other adjusters with more control, such asnext(MONDAY). 
+
+In most cases, it is clearer to reverse the calling pattern by using 
+(|java.time.temporal.Temporal|) : 
+
+// these two lines are equivalent, but the second approach is recommended 
+temporal = thisDayOfWeek.adjustInto(temporal); temporal = 
+temporal.with(thisDayOfWeek); 
+
+For example, given a date that is a Wednesday, the following are output: 
+
+dateOnWed.with(MONDAY); // two days earlier dateOnWed.with(TUESDAY); // one day 
+earlier dateOnWed.with(WEDNESDAY); // same date dateOnWed.with(THURSDAY); // 
+one day later dateOnWed.with(FRIDAY); // two days later 
+dateOnWed.with(SATURDAY); // three days later dateOnWed.with(SUNDAY); // four 
+days later 
+
+This instance is immutable and unaffected by this method call. 
+
+
+    temporal - the target object to be adjusted, not null 
+
+    Returns: the adjusted object, not null 
+
+*java.time.DayOfWeek.from(TemporalAccessor)*
+
+public static |java.time.DayOfWeek| from(java.time.temporal.TemporalAccessor temporal)
+
+Obtains an instance ofDayOfWeekfrom a temporal object. 
+
+This obtains a day-of-week based on the specified temporal. 
+ATemporalAccessorrepresents an arbitrary set of date and time information, 
+which this factory converts to an instance ofDayOfWeek. 
+
+The conversion extracts the DAY_OF_WEEK(|java.time.temporal.ChronoField|) 
+field. 
+
+This method matches the signature of the functional interface 
+(|java.time.temporal.TemporalQuery|) allowing it to be used as a query via 
+method reference,DayOfWeek::from. 
+
+
+    temporal - the temporal object to convert, not null 
+
+    Returns: the day-of-week, not null 
+
+*java.time.DayOfWeek.get(TemporalField)*
+
+public int get(java.time.temporal.TemporalField field)
+
+Gets the value of the specified field from this day-of-week as anint. 
+
+This queries this day-of-week for the value for the specified field. The 
+returned value will always be within the valid range of values for the field. 
+If it is not possible to return the value, because the field is not supported 
+or for some other reason, an exception is thrown. 
+
+If the field is DAY_OF_WEEK(|java.time.temporal.ChronoField|) then the value of 
+the day-of-week, from 1 to 7, will be returned. All otherChronoFieldinstances 
+will throw anUnsupportedTemporalTypeException. 
+
+If the field is not aChronoField, then the result of this method is obtained by 
+invokingTemporalField.getFrom(TemporalAccessor)passingthisas the argument. 
+Whether the value can be obtained, and what the value represents, is determined 
+by the field. 
+
+
+    field - the field to get, not null 
+
+    Returns: the value for the field, within the valid range of values 
+
+*java.time.DayOfWeek.getDisplayName(TextStyle,Locale)*
+
+public |java.lang.String| getDisplayName(
+  java.time.format.TextStyle style,
+  java.util.Locale locale)
+
+Gets the textual representation, such as 'Mon' or 'Friday'. 
+
+This returns the textual name used to identify the day-of-week, suitable for 
+presentation to the user. The parameters control the style of the returned text 
+and the locale. 
+
+If no textual mapping is found then the numeric value(|java.time.DayOfWeek|) is 
+returned. 
+
+
+    style - the length of the text required, not null 
+    locale - the locale to use, not null 
+
+    Returns: the text value of the day-of-week, not null 
+
+*java.time.DayOfWeek.getLong(TemporalField)*
+
+public long getLong(java.time.temporal.TemporalField field)
+
+Gets the value of the specified field from this day-of-week as along. 
+
+This queries this day-of-week for the value for the specified field. If it is 
+not possible to return the value, because the field is not supported or for 
+some other reason, an exception is thrown. 
+
+If the field is DAY_OF_WEEK(|java.time.temporal.ChronoField|) then the value of 
+the day-of-week, from 1 to 7, will be returned. All otherChronoFieldinstances 
+will throw anUnsupportedTemporalTypeException. 
+
+If the field is not aChronoField, then the result of this method is obtained by 
+invokingTemporalField.getFrom(TemporalAccessor)passingthisas the argument. 
+Whether the value can be obtained, and what the value represents, is determined 
+by the field. 
+
+
+    field - the field to get, not null 
+
+    Returns: the value for the field 
+
+*java.time.DayOfWeek.getValue()*
+
+public int getValue()
+
+Gets the day-of-weekintvalue. 
+
+The values are numbered following the ISO-8601 standard, from 1 (Monday) to 7 
+(Sunday). See (|java.time.temporal.WeekFields|) for localized week-numbering. 
+
+
+
+    Returns: the day-of-week, from 1 (Monday) to 7 (Sunday) 
+
+*java.time.DayOfWeek.isSupported(TemporalField)*
+
+public boolean isSupported(java.time.temporal.TemporalField field)
+
+Checks if the specified field is supported. 
+
+This checks if this day-of-week can be queried for the specified field. If 
+false, then calling the range(|java.time.DayOfWeek|) and 
+get(|java.time.DayOfWeek|) methods will throw an exception. 
+
+If the field is DAY_OF_WEEK(|java.time.temporal.ChronoField|) then this method 
+returns true. All otherChronoFieldinstances will return false. 
+
+If the field is not aChronoField, then the result of this method is obtained by 
+invokingTemporalField.isSupportedBy(TemporalAccessor)passingthisas the 
+argument. Whether the field is supported is determined by the field. 
+
+
+    field - the field to check, null returns false 
+
+    Returns: true if the field is supported on this day-of-week, false if not 
+
+*java.time.DayOfWeek.minus(long)*
+
+public |java.time.DayOfWeek| minus(long days)
+
+Returns the day-of-week that is the specified number of days before this one. 
+
+The calculation rolls around the start of the year from Monday to Sunday. The 
+specified period may be negative. 
+
+This instance is immutable and unaffected by this method call. 
+
+
+    days - the days to subtract, positive or negative 
+
+    Returns: the resulting day-of-week, not null 
+
+*java.time.DayOfWeek.of(int)*
+
+public static |java.time.DayOfWeek| of(int dayOfWeek)
+
+Obtains an instance ofDayOfWeekfrom anintvalue. DayOfWeekis an enum 
+representing the 7 days of the week. This factory allows the enum to be 
+obtained from theintvalue. Theintvalue follows the ISO-8601 standard, from 1 
+(Monday) to 7 (Sunday). 
+
+
+    dayOfWeek - the day-of-week to represent, from 1 (Monday) to 7 (Sunday) 
+
+    Returns: the day-of-week singleton, not null 
+
+*java.time.DayOfWeek.plus(long)*
+
+public |java.time.DayOfWeek| plus(long days)
+
+Returns the day-of-week that is the specified number of days after this one. 
+
+The calculation rolls around the end of the week from Sunday to Monday. The 
+specified period may be negative. 
+
+This instance is immutable and unaffected by this method call. 
+
+
+    days - the days to add, positive or negative 
+
+    Returns: the resulting day-of-week, not null 
+
+*java.time.DayOfWeek.query(TemporalQuery<R>)*
+
+public |R| query(java.time.temporal.TemporalQuery<R> query)
+
+Queries this day-of-week using the specified query. 
+
+This queries this day-of-week using the specified query strategy object. 
+TheTemporalQueryobject defines the logic to be used to obtain the result. Read 
+the documentation of the query to understand what the result of this method 
+will be. 
+
+The result of this method is obtained by invoking the 
+(|java.time.temporal.TemporalQuery|) method on the specified query 
+passingthisas the argument. 
+
+
+    query - the query to invoke, not null 
+
+    Returns: the query result, null may be returned (defined by the query) 
+
+*java.time.DayOfWeek.range(TemporalField)*
+
+public |java.time.temporal.ValueRange| range(java.time.temporal.TemporalField field)
+
+Gets the range of valid values for the specified field. 
+
+The range object expresses the minimum and maximum valid values for a field. 
+This day-of-week is used to enhance the accuracy of the returned range. If it 
+is not possible to return the range, because the field is not supported or for 
+some other reason, an exception is thrown. 
+
+If the field is DAY_OF_WEEK(|java.time.temporal.ChronoField|) then the range of 
+the day-of-week, from 1 to 7, will be returned. All otherChronoFieldinstances 
+will throw anUnsupportedTemporalTypeException. 
+
+If the field is not aChronoField, then the result of this method is obtained by 
+invokingTemporalField.rangeRefinedBy(TemporalAccessor)passingthisas the 
+argument. Whether the range can be obtained is determined by the field. 
+
+
+    field - the field to query the range for, not null 
+
+    Returns: the range of valid values for the field, not null 
+
+*java.time.DayOfWeek.valueOf(String)*
+
+public static |java.time.DayOfWeek| valueOf(java.lang.String name)
+
+
+
+
+
+*java.time.DayOfWeek.values()*
+
+public static |java.time.DayOfWeek|[] values()
+
+
+
+
+
+

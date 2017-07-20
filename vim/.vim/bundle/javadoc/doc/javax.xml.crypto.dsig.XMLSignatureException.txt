@@ -1,0 +1,117 @@
+*javax.xml.crypto.dsig.XMLSignatureException* *XMLSignatureException* Indicates 
+
+public class XMLSignatureException
+  extends    |java.lang.Exception|
+
+|javax.xml.crypto.dsig.XMLSignatureException_Description|
+|javax.xml.crypto.dsig.XMLSignatureException_Fields|
+|javax.xml.crypto.dsig.XMLSignatureException_Constructors|
+|javax.xml.crypto.dsig.XMLSignatureException_Methods|
+
+================================================================================
+
+*javax.xml.crypto.dsig.XMLSignatureException_Constructors*
+|javax.xml.crypto.dsig.XMLSignatureException()|Constructs a new XMLSignatureExc
+|javax.xml.crypto.dsig.XMLSignatureException(String)|Constructs a new XMLSignat
+|javax.xml.crypto.dsig.XMLSignatureException(String,Throwable)|Constructs a new
+|javax.xml.crypto.dsig.XMLSignatureException(Throwable)|Constructs a new XMLSig
+
+*javax.xml.crypto.dsig.XMLSignatureException_Methods*
+|javax.xml.crypto.dsig.XMLSignatureException.getCause()|Returns the cause of th
+|javax.xml.crypto.dsig.XMLSignatureException.printStackTrace()|Prints this XMLS
+|javax.xml.crypto.dsig.XMLSignatureException.printStackTrace(PrintStream)|Print
+|javax.xml.crypto.dsig.XMLSignatureException.printStackTrace(PrintWriter)|Print
+
+*javax.xml.crypto.dsig.XMLSignatureException_Description*
+
+Indicates an exceptional condition that occurred during the XML signature 
+generation or validation process. 
+
+An XMLSignatureException can contain a cause: another throwable that caused 
+this XMLSignatureException to get thrown. 
+
+
+
+*javax.xml.crypto.dsig.XMLSignatureException()*
+
+public XMLSignatureException()
+
+Constructs a new XMLSignatureException with null as its detail message. 
+
+
+*javax.xml.crypto.dsig.XMLSignatureException(String)*
+
+public XMLSignatureException(java.lang.String message)
+
+Constructs a new XMLSignatureException with the specified detail message. 
+
+    message - the detail message 
+
+*javax.xml.crypto.dsig.XMLSignatureException(String,Throwable)*
+
+public XMLSignatureException(
+  java.lang.String message,
+  java.lang.Throwable cause)
+
+Constructs a new XMLSignatureException with the specified detail message and 
+cause. Note that the detail message associated with cause is not automatically 
+incorporated in this exception's detail message. 
+
+    message - the detail message 
+    cause - the cause (A null value is permitted, and indicates that the cause is 
+       nonexistent or unknown.) 
+
+*javax.xml.crypto.dsig.XMLSignatureException(Throwable)*
+
+public XMLSignatureException(java.lang.Throwable cause)
+
+Constructs a new XMLSignatureException with the specified cause and a detail 
+message of (cause==null ? null : cause.toString()) (which typically contains 
+the class and detail message of cause). 
+
+    cause - the cause (A null value is permitted, and indicates that the cause is 
+       nonexistent or unknown.) 
+
+*javax.xml.crypto.dsig.XMLSignatureException.getCause()*
+
+public |java.lang.Throwable| getCause()
+
+Returns the cause of this XMLSignatureException or null if the cause is 
+nonexistent or unknown. (The cause is the throwable that caused this 
+XMLSignatureException to get thrown.) 
+
+
+
+    Returns: the cause of this XMLSignatureException or null if the cause is nonexistent or 
+             unknown. 
+
+*javax.xml.crypto.dsig.XMLSignatureException.printStackTrace()*
+
+public void printStackTrace()
+
+Prints this XMLSignatureException, its backtrace and the cause's backtrace to 
+the standard error stream. 
+
+
+
+*javax.xml.crypto.dsig.XMLSignatureException.printStackTrace(PrintStream)*
+
+public void printStackTrace(java.io.PrintStream s)
+
+Prints this XMLSignatureException, its backtrace and the cause's backtrace to 
+the specified print stream. 
+
+
+    s - PrintStream to use for output 
+
+*javax.xml.crypto.dsig.XMLSignatureException.printStackTrace(PrintWriter)*
+
+public void printStackTrace(java.io.PrintWriter s)
+
+Prints this XMLSignatureException, its backtrace and the cause's backtrace to 
+the specified print writer. 
+
+
+    s - PrintWriter to use for output 
+
+

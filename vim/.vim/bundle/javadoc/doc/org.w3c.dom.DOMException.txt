@@ -1,0 +1,159 @@
+*org.w3c.dom.DOMException* *DOMException* DOM operations only raise exceptions i
+
+public class DOMException
+  extends    |java.lang.RuntimeException|
+
+|org.w3c.dom.DOMException_Description|
+|org.w3c.dom.DOMException_Fields|
+|org.w3c.dom.DOMException_Constructors|
+|org.w3c.dom.DOMException_Methods|
+
+================================================================================
+
+*org.w3c.dom.DOMException_Fields*
+|short_org.w3c.dom.DOMException.code|
+|short_org.w3c.dom.DOMException.DOMSTRING_SIZE_ERR|
+|short_org.w3c.dom.DOMException.HIERARCHY_REQUEST_ERR|
+|short_org.w3c.dom.DOMException.INDEX_SIZE_ERR|
+|short_org.w3c.dom.DOMException.INUSE_ATTRIBUTE_ERR|
+|short_org.w3c.dom.DOMException.INVALID_ACCESS_ERR|
+|short_org.w3c.dom.DOMException.INVALID_CHARACTER_ERR|
+|short_org.w3c.dom.DOMException.INVALID_MODIFICATION_ERR|
+|short_org.w3c.dom.DOMException.INVALID_STATE_ERR|
+|short_org.w3c.dom.DOMException.NAMESPACE_ERR|
+|short_org.w3c.dom.DOMException.NO_DATA_ALLOWED_ERR|
+|short_org.w3c.dom.DOMException.NO_MODIFICATION_ALLOWED_ERR|
+|short_org.w3c.dom.DOMException.NOT_FOUND_ERR|
+|short_org.w3c.dom.DOMException.NOT_SUPPORTED_ERR|
+|short_org.w3c.dom.DOMException.SYNTAX_ERR|
+|short_org.w3c.dom.DOMException.TYPE_MISMATCH_ERR|
+|short_org.w3c.dom.DOMException.VALIDATION_ERR|
+|short_org.w3c.dom.DOMException.WRONG_DOCUMENT_ERR|
+
+*org.w3c.dom.DOMException_Constructors*
+|org.w3c.dom.DOMException(short,String)|
+
+*org.w3c.dom.DOMException_Description*
+
+DOM operations only raise exceptions in "exceptional" circumstances, i.e., when 
+an operation is impossible to perform (either for logical reasons, because data 
+is lost, or because the implementation has become unstable). In general, DOM 
+methods return specific error values in ordinary processing situations, such as 
+out-of-bound errors when using NodeList. Implementations should raise other 
+exceptions under other circumstances. For example, implementations should raise 
+an implementation-dependent exception if a null argument is passed when null 
+was not expected. Some languages and object systems do not support the concept 
+of exceptions. For such systems, error conditions may be indicated using native 
+error reporting mechanisms. For some bindings, for example, methods may return 
+error codes similar to those listed in the corresponding method descriptions. 
+See also the Document Object Model (DOM) Level 3 Core Specification. 
+
+
+
+*short_org.w3c.dom.DOMException.code*
+
+
+
+
+*short_org.w3c.dom.DOMException.DOMSTRING_SIZE_ERR*
+
+If the specified range of text does not fit into a DOMString. 
+
+
+*short_org.w3c.dom.DOMException.HIERARCHY_REQUEST_ERR*
+
+If any Node is inserted somewhere it doesn't belong. 
+
+
+*short_org.w3c.dom.DOMException.INDEX_SIZE_ERR*
+
+If index or size is negative, or greater than the allowed value. 
+
+
+*short_org.w3c.dom.DOMException.INUSE_ATTRIBUTE_ERR*
+
+If an attempt is made to add an attribute that is already in use elsewhere. 
+
+
+*short_org.w3c.dom.DOMException.INVALID_ACCESS_ERR*
+
+If a parameter or an operation is not supported by the underlying object. 
+
+
+*short_org.w3c.dom.DOMException.INVALID_CHARACTER_ERR*
+
+If an invalid or illegal character is specified, such as in an XML name. 
+
+
+*short_org.w3c.dom.DOMException.INVALID_MODIFICATION_ERR*
+
+If an attempt is made to modify the type of the underlying object. 
+
+
+*short_org.w3c.dom.DOMException.INVALID_STATE_ERR*
+
+If an attempt is made to use an object that is not, or is no longer, usable. 
+
+
+*short_org.w3c.dom.DOMException.NAMESPACE_ERR*
+
+If an attempt is made to create or change an object in a way which is incorrect 
+with regard to namespaces. 
+
+
+*short_org.w3c.dom.DOMException.NO_DATA_ALLOWED_ERR*
+
+If data is specified for a Node which does not support data. 
+
+
+*short_org.w3c.dom.DOMException.NO_MODIFICATION_ALLOWED_ERR*
+
+If an attempt is made to modify an object where modifications are not allowed. 
+
+
+*short_org.w3c.dom.DOMException.NOT_FOUND_ERR*
+
+If an attempt is made to reference a Node in a context where it does not exist. 
+
+
+*short_org.w3c.dom.DOMException.NOT_SUPPORTED_ERR*
+
+If the implementation does not support the requested type of object or 
+operation. 
+
+
+*short_org.w3c.dom.DOMException.SYNTAX_ERR*
+
+If an invalid or illegal string is specified. 
+
+
+*short_org.w3c.dom.DOMException.TYPE_MISMATCH_ERR*
+
+If the type of an object is incompatible with the expected type of the 
+parameter associated to the object. 
+
+
+*short_org.w3c.dom.DOMException.VALIDATION_ERR*
+
+If a call to a method such as insertBefore or removeChild would make the Node 
+invalid with respect to "partial validity", this exception would be raised and 
+the operation would not be done. This code is used in [DOM Level 3 Validation] 
+. Refer to this specification for further information. 
+
+
+*short_org.w3c.dom.DOMException.WRONG_DOCUMENT_ERR*
+
+If a Node is used in a different document than the one that created it (that 
+doesn't support it). 
+
+
+
+*org.w3c.dom.DOMException(short,String)*
+
+public DOMException(
+  short code,
+  java.lang.String message)
+
+
+
+

@@ -1,0 +1,42 @@
+*javax.xml.ws.WebServiceRef* *WebServiceRef* The WebServiceRef annotation is use
+
+public interface class WebServiceRef
+
+  implements |java.lang.annotation.Annotation|
+
+|javax.xml.ws.WebServiceRef_Description|
+|javax.xml.ws.WebServiceRef_Fields|
+|javax.xml.ws.WebServiceRef_Constructors|
+|javax.xml.ws.WebServiceRef_Methods|
+
+================================================================================
+
+*javax.xml.ws.WebServiceRef_Description*
+
+The WebServiceRef annotation is used to define a reference to a web service and 
+(optionally) an injection target for it. It can be used to inject both service 
+and proxy instances. These injected references are not thread safe. If the 
+references are accessed by multiple threads, usual synchronization techinques 
+can be used to support multiple threads. 
+
+Web service references are resources in the Java EE 5 sense. The annotations 
+(for example, (|javax.xml.ws.soap.Addressing|) ) annotated with meta-annotation 
+(|javax.xml.ws.spi.WebServiceFeatureAnnotation|) can be used in conjunction 
+with WebServiceRef. The created reference MUST be configured with annotation's 
+web service feature. 
+
+For example, in the code below, the injected StockQuoteProvider proxy MUST have 
+WS-Addressing enabled as specifed by the (|javax.xml.ws.soap.Addressing|) 
+annotation. 
+
+
+
+public class MyClient { Addressing WebServiceRef(StockQuoteService.class) 
+private StockQuoteProvider stockQuoteProvider; ... } 
+
+If a JAX-WS implementation encounters an unsupported or unrecognized annotation 
+annotated with the WebServiceFeatureAnnotation that is specified with 
+WebServiceRef, an ERROR MUST be given. 
+
+
+

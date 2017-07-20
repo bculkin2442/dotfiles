@@ -1,0 +1,487 @@
+*javax.xml.stream.util.StreamReaderDelegate* *StreamReaderDelegate* This is the 
+
+public class StreamReaderDelegate
+  extends    |java.lang.Object|
+  implements |javax.xml.stream.XMLStreamReader|
+
+|javax.xml.stream.util.StreamReaderDelegate_Description|
+|javax.xml.stream.util.StreamReaderDelegate_Fields|
+|javax.xml.stream.util.StreamReaderDelegate_Constructors|
+|javax.xml.stream.util.StreamReaderDelegate_Methods|
+
+================================================================================
+
+*javax.xml.stream.util.StreamReaderDelegate_Constructors*
+|javax.xml.stream.util.StreamReaderDelegate()|Construct an empty filter with no
+|javax.xml.stream.util.StreamReaderDelegate(XMLStreamReader)|Construct an filte
+
+*javax.xml.stream.util.StreamReaderDelegate_Methods*
+|javax.xml.stream.util.StreamReaderDelegate.close()|
+|javax.xml.stream.util.StreamReaderDelegate.getAttributeCount()|
+|javax.xml.stream.util.StreamReaderDelegate.getAttributeLocalName(int)|
+|javax.xml.stream.util.StreamReaderDelegate.getAttributeName(int)|
+|javax.xml.stream.util.StreamReaderDelegate.getAttributeNamespace(int)|
+|javax.xml.stream.util.StreamReaderDelegate.getAttributePrefix(int)|
+|javax.xml.stream.util.StreamReaderDelegate.getAttributeType(int)|
+|javax.xml.stream.util.StreamReaderDelegate.getAttributeValue(int)|
+|javax.xml.stream.util.StreamReaderDelegate.getAttributeValue(String,String)|
+|javax.xml.stream.util.StreamReaderDelegate.getCharacterEncodingScheme()|
+|javax.xml.stream.util.StreamReaderDelegate.getElementText()|
+|javax.xml.stream.util.StreamReaderDelegate.getEncoding()|
+|javax.xml.stream.util.StreamReaderDelegate.getEventType()|
+|javax.xml.stream.util.StreamReaderDelegate.getLocalName()|
+|javax.xml.stream.util.StreamReaderDelegate.getLocation()|
+|javax.xml.stream.util.StreamReaderDelegate.getName()|
+|javax.xml.stream.util.StreamReaderDelegate.getNamespaceContext()|
+|javax.xml.stream.util.StreamReaderDelegate.getNamespaceCount()|
+|javax.xml.stream.util.StreamReaderDelegate.getNamespacePrefix(int)|
+|javax.xml.stream.util.StreamReaderDelegate.getNamespaceURI()|
+|javax.xml.stream.util.StreamReaderDelegate.getNamespaceURI(int)|
+|javax.xml.stream.util.StreamReaderDelegate.getNamespaceURI(String)|
+|javax.xml.stream.util.StreamReaderDelegate.getParent()|Get the parent of this 
+|javax.xml.stream.util.StreamReaderDelegate.getPIData()|
+|javax.xml.stream.util.StreamReaderDelegate.getPITarget()|
+|javax.xml.stream.util.StreamReaderDelegate.getPrefix()|
+|javax.xml.stream.util.StreamReaderDelegate.getProperty(String)|
+|javax.xml.stream.util.StreamReaderDelegate.getText()|
+|javax.xml.stream.util.StreamReaderDelegate.getTextCharacters()|
+|javax.xml.stream.util.StreamReaderDelegate.getTextCharacters(int,char[],int,int)|
+|javax.xml.stream.util.StreamReaderDelegate.getTextLength()|
+|javax.xml.stream.util.StreamReaderDelegate.getTextStart()|
+|javax.xml.stream.util.StreamReaderDelegate.getVersion()|
+|javax.xml.stream.util.StreamReaderDelegate.hasName()|
+|javax.xml.stream.util.StreamReaderDelegate.hasNext()|
+|javax.xml.stream.util.StreamReaderDelegate.hasText()|
+|javax.xml.stream.util.StreamReaderDelegate.isAttributeSpecified(int)|
+|javax.xml.stream.util.StreamReaderDelegate.isCharacters()|
+|javax.xml.stream.util.StreamReaderDelegate.isEndElement()|
+|javax.xml.stream.util.StreamReaderDelegate.isStandalone()|
+|javax.xml.stream.util.StreamReaderDelegate.isStartElement()|
+|javax.xml.stream.util.StreamReaderDelegate.isWhiteSpace()|
+|javax.xml.stream.util.StreamReaderDelegate.next()|
+|javax.xml.stream.util.StreamReaderDelegate.nextTag()|
+|javax.xml.stream.util.StreamReaderDelegate.require(int,String,String)|
+|javax.xml.stream.util.StreamReaderDelegate.setParent(XMLStreamReader)|Set the 
+|javax.xml.stream.util.StreamReaderDelegate.standaloneSet()|
+
+*javax.xml.stream.util.StreamReaderDelegate_Description*
+
+This is the base class for deriving an XMLStreamReader filter 
+
+This class is designed to sit between an XMLStreamReader and an application's 
+XMLStreamReader. By default each method does nothing but call the corresponding 
+method on the parent interface. 
+
+
+
+*javax.xml.stream.util.StreamReaderDelegate()*
+
+public StreamReaderDelegate()
+
+Construct an empty filter with no parent. 
+
+
+*javax.xml.stream.util.StreamReaderDelegate(XMLStreamReader)*
+
+public StreamReaderDelegate(javax.xml.stream.XMLStreamReader reader)
+
+Construct an filter with the specified parent. 
+
+    reader - the parent 
+
+*javax.xml.stream.util.StreamReaderDelegate.close()*
+
+public void close()
+  throws |javax.xml.stream.XMLStreamException|
+         
+
+
+
+
+*javax.xml.stream.util.StreamReaderDelegate.getAttributeCount()*
+
+public int getAttributeCount()
+
+
+
+
+
+*javax.xml.stream.util.StreamReaderDelegate.getAttributeLocalName(int)*
+
+public |java.lang.String| getAttributeLocalName(int index)
+
+
+
+
+
+*javax.xml.stream.util.StreamReaderDelegate.getAttributeName(int)*
+
+public |javax.xml.namespace.QName| getAttributeName(int index)
+
+
+
+
+
+*javax.xml.stream.util.StreamReaderDelegate.getAttributeNamespace(int)*
+
+public |java.lang.String| getAttributeNamespace(int index)
+
+
+
+
+
+*javax.xml.stream.util.StreamReaderDelegate.getAttributePrefix(int)*
+
+public |java.lang.String| getAttributePrefix(int index)
+
+
+
+
+
+*javax.xml.stream.util.StreamReaderDelegate.getAttributeType(int)*
+
+public |java.lang.String| getAttributeType(int index)
+
+
+
+
+
+*javax.xml.stream.util.StreamReaderDelegate.getAttributeValue(int)*
+
+public |java.lang.String| getAttributeValue(int index)
+
+
+
+
+
+*javax.xml.stream.util.StreamReaderDelegate.getAttributeValue(String,String)*
+
+public |java.lang.String| getAttributeValue(
+  java.lang.String namespaceUri,
+  java.lang.String localName)
+
+
+
+
+
+*javax.xml.stream.util.StreamReaderDelegate.getCharacterEncodingScheme()*
+
+public |java.lang.String| getCharacterEncodingScheme()
+
+
+
+
+
+*javax.xml.stream.util.StreamReaderDelegate.getElementText()*
+
+public |java.lang.String| getElementText()
+  throws |javax.xml.stream.XMLStreamException|
+         
+
+
+
+
+*javax.xml.stream.util.StreamReaderDelegate.getEncoding()*
+
+public |java.lang.String| getEncoding()
+
+
+
+
+
+*javax.xml.stream.util.StreamReaderDelegate.getEventType()*
+
+public int getEventType()
+
+
+
+
+
+*javax.xml.stream.util.StreamReaderDelegate.getLocalName()*
+
+public |java.lang.String| getLocalName()
+
+
+
+
+
+*javax.xml.stream.util.StreamReaderDelegate.getLocation()*
+
+public |javax.xml.stream.Location| getLocation()
+
+
+
+
+
+*javax.xml.stream.util.StreamReaderDelegate.getName()*
+
+public |javax.xml.namespace.QName| getName()
+
+
+
+
+
+*javax.xml.stream.util.StreamReaderDelegate.getNamespaceContext()*
+
+public |javax.xml.namespace.NamespaceContext| getNamespaceContext()
+
+
+
+
+
+*javax.xml.stream.util.StreamReaderDelegate.getNamespaceCount()*
+
+public int getNamespaceCount()
+
+
+
+
+
+*javax.xml.stream.util.StreamReaderDelegate.getNamespacePrefix(int)*
+
+public |java.lang.String| getNamespacePrefix(int index)
+
+
+
+
+
+*javax.xml.stream.util.StreamReaderDelegate.getNamespaceURI()*
+
+public |java.lang.String| getNamespaceURI()
+
+
+
+
+
+*javax.xml.stream.util.StreamReaderDelegate.getNamespaceURI(int)*
+
+public |java.lang.String| getNamespaceURI(int index)
+
+
+
+
+
+*javax.xml.stream.util.StreamReaderDelegate.getNamespaceURI(String)*
+
+public |java.lang.String| getNamespaceURI(java.lang.String prefix)
+
+
+
+
+
+*javax.xml.stream.util.StreamReaderDelegate.getParent()*
+
+public |javax.xml.stream.XMLStreamReader| getParent()
+
+Get the parent of this instance. 
+
+
+
+    Returns: the parent or null if none is set 
+
+*javax.xml.stream.util.StreamReaderDelegate.getPIData()*
+
+public |java.lang.String| getPIData()
+
+
+
+
+
+*javax.xml.stream.util.StreamReaderDelegate.getPITarget()*
+
+public |java.lang.String| getPITarget()
+
+
+
+
+
+*javax.xml.stream.util.StreamReaderDelegate.getPrefix()*
+
+public |java.lang.String| getPrefix()
+
+
+
+
+
+*javax.xml.stream.util.StreamReaderDelegate.getProperty(String)*
+
+public |java.lang.Object| getProperty(java.lang.String name)
+
+
+
+
+
+*javax.xml.stream.util.StreamReaderDelegate.getText()*
+
+public |java.lang.String| getText()
+
+
+
+
+
+*javax.xml.stream.util.StreamReaderDelegate.getTextCharacters()*
+
+public char[] getTextCharacters()
+
+
+
+
+
+*javax.xml.stream.util.StreamReaderDelegate.getTextCharacters(int,char[],int,int)*
+
+public int getTextCharacters(
+  int sourceStart,
+  char[] target,
+  int targetStart,
+  int length)
+  throws |javax.xml.stream.XMLStreamException|
+         
+
+
+
+
+*javax.xml.stream.util.StreamReaderDelegate.getTextLength()*
+
+public int getTextLength()
+
+
+
+
+
+*javax.xml.stream.util.StreamReaderDelegate.getTextStart()*
+
+public int getTextStart()
+
+
+
+
+
+*javax.xml.stream.util.StreamReaderDelegate.getVersion()*
+
+public |java.lang.String| getVersion()
+
+
+
+
+
+*javax.xml.stream.util.StreamReaderDelegate.hasName()*
+
+public boolean hasName()
+
+
+
+
+
+*javax.xml.stream.util.StreamReaderDelegate.hasNext()*
+
+public boolean hasNext()
+  throws |javax.xml.stream.XMLStreamException|
+         
+
+
+
+
+*javax.xml.stream.util.StreamReaderDelegate.hasText()*
+
+public boolean hasText()
+
+
+
+
+
+*javax.xml.stream.util.StreamReaderDelegate.isAttributeSpecified(int)*
+
+public boolean isAttributeSpecified(int index)
+
+
+
+
+
+*javax.xml.stream.util.StreamReaderDelegate.isCharacters()*
+
+public boolean isCharacters()
+
+
+
+
+
+*javax.xml.stream.util.StreamReaderDelegate.isEndElement()*
+
+public boolean isEndElement()
+
+
+
+
+
+*javax.xml.stream.util.StreamReaderDelegate.isStandalone()*
+
+public boolean isStandalone()
+
+
+
+
+
+*javax.xml.stream.util.StreamReaderDelegate.isStartElement()*
+
+public boolean isStartElement()
+
+
+
+
+
+*javax.xml.stream.util.StreamReaderDelegate.isWhiteSpace()*
+
+public boolean isWhiteSpace()
+
+
+
+
+
+*javax.xml.stream.util.StreamReaderDelegate.next()*
+
+public int next()
+  throws |javax.xml.stream.XMLStreamException|
+         
+
+
+
+
+*javax.xml.stream.util.StreamReaderDelegate.nextTag()*
+
+public int nextTag()
+  throws |javax.xml.stream.XMLStreamException|
+         
+
+
+
+
+*javax.xml.stream.util.StreamReaderDelegate.require(int,String,String)*
+
+public void require(
+  int type,
+  java.lang.String namespaceURI,
+  java.lang.String localName)
+  throws |javax.xml.stream.XMLStreamException|
+         
+
+
+
+
+*javax.xml.stream.util.StreamReaderDelegate.setParent(XMLStreamReader)*
+
+public void setParent(javax.xml.stream.XMLStreamReader reader)
+
+Set the parent of this instance. 
+
+
+    reader - the new parent 
+
+*javax.xml.stream.util.StreamReaderDelegate.standaloneSet()*
+
+public boolean standaloneSet()
+
+
+
+
+
+

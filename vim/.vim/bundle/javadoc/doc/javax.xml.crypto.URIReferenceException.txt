@@ -1,0 +1,147 @@
+*javax.xml.crypto.URIReferenceException* *URIReferenceException* Indicates an ex
+
+public class URIReferenceException
+  extends    |java.lang.Exception|
+
+|javax.xml.crypto.URIReferenceException_Description|
+|javax.xml.crypto.URIReferenceException_Fields|
+|javax.xml.crypto.URIReferenceException_Constructors|
+|javax.xml.crypto.URIReferenceException_Methods|
+
+================================================================================
+
+*javax.xml.crypto.URIReferenceException_Constructors*
+|javax.xml.crypto.URIReferenceException()|Constructs a new URIReferenceExceptio
+|javax.xml.crypto.URIReferenceException(String)|Constructs a new URIReferenceEx
+|javax.xml.crypto.URIReferenceException(String,Throwable)|Constructs a new URIR
+|javax.xml.crypto.URIReferenceException(String,Throwable,URIReference)|Construc
+|javax.xml.crypto.URIReferenceException(Throwable)|Constructs a new URIReferenc
+
+*javax.xml.crypto.URIReferenceException_Methods*
+|javax.xml.crypto.URIReferenceException.getCause()|Returns the cause of this UR
+|javax.xml.crypto.URIReferenceException.getURIReference()|Returns the URIRefere
+|javax.xml.crypto.URIReferenceException.printStackTrace()|Prints this URIRefere
+|javax.xml.crypto.URIReferenceException.printStackTrace(PrintStream)|Prints thi
+|javax.xml.crypto.URIReferenceException.printStackTrace(PrintWriter)|Prints thi
+
+*javax.xml.crypto.URIReferenceException_Description*
+
+Indicates an exceptional condition thrown while dereferencing a 
+(|javax.xml.crypto.URIReference|) . 
+
+A URIReferenceException can contain a cause: another throwable that caused this 
+URIReferenceException to get thrown. 
+
+
+
+*javax.xml.crypto.URIReferenceException()*
+
+public URIReferenceException()
+
+Constructs a new URIReferenceException with null as its detail message. 
+
+
+*javax.xml.crypto.URIReferenceException(String)*
+
+public URIReferenceException(java.lang.String message)
+
+Constructs a new URIReferenceException with the specified detail message. 
+
+    message - the detail message 
+
+*javax.xml.crypto.URIReferenceException(String,Throwable)*
+
+public URIReferenceException(
+  java.lang.String message,
+  java.lang.Throwable cause)
+
+Constructs a new URIReferenceException with the specified detail message and 
+cause. Note that the detail message associated with cause is not automatically 
+incorporated in this exception's detail message. 
+
+    message - the detail message 
+    cause - the cause (A null value is permitted, and indicates that the cause is 
+       nonexistent or unknown.) 
+
+*javax.xml.crypto.URIReferenceException(String,Throwable,URIReference)*
+
+public URIReferenceException(
+  java.lang.String message,
+  java.lang.Throwable cause,
+  javax.xml.crypto.URIReference uriReference)
+
+Constructs a new URIReferenceException with the specified detail message, cause 
+and URIReference. Note that the detail message associated with cause is not 
+automatically incorporated in this exception's detail message. 
+
+    message - the detail message 
+    cause - the cause (A null value is permitted, and indicates that the cause is 
+       nonexistent or unknown.) 
+    uriReference - the URIReference that was being dereferenced when the error was encountered 
+
+*javax.xml.crypto.URIReferenceException(Throwable)*
+
+public URIReferenceException(java.lang.Throwable cause)
+
+Constructs a new URIReferenceException with the specified cause and a detail 
+message of (cause==null ? null : cause.toString()) (which typically contains 
+the class and detail message of cause). 
+
+    cause - the cause (A null value is permitted, and indicates that the cause is 
+       nonexistent or unknown.) 
+
+*javax.xml.crypto.URIReferenceException.getCause()*
+
+public |java.lang.Throwable| getCause()
+
+Returns the cause of this URIReferenceException or null if the cause is 
+nonexistent or unknown. (The cause is the throwable that caused this 
+URIReferenceException to get thrown.) 
+
+
+
+    Returns: the cause of this URIReferenceException or null if the cause is nonexistent or 
+             unknown. 
+
+*javax.xml.crypto.URIReferenceException.getURIReference()*
+
+public |javax.xml.crypto.URIReference| getURIReference()
+
+Returns the URIReference that was being dereferenced when the exception was 
+thrown. 
+
+
+
+    Returns: the URIReference that was being dereferenced when the exception was thrown, or 
+             null if not specified 
+
+*javax.xml.crypto.URIReferenceException.printStackTrace()*
+
+public void printStackTrace()
+
+Prints this URIReferenceException, its backtrace and the cause's backtrace to 
+the standard error stream. 
+
+
+
+*javax.xml.crypto.URIReferenceException.printStackTrace(PrintStream)*
+
+public void printStackTrace(java.io.PrintStream s)
+
+Prints this URIReferenceException, its backtrace and the cause's backtrace to 
+the specified print stream. 
+
+
+    s - PrintStream to use for output 
+
+*javax.xml.crypto.URIReferenceException.printStackTrace(PrintWriter)*
+
+public void printStackTrace(java.io.PrintWriter s)
+
+Prints this URIReferenceException, its backtrace and the cause's backtrace to 
+the specified print writer. 
+
+
+    s - PrintWriter to use for output 
+
+

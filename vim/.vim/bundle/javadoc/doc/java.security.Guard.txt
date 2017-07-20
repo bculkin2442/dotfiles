@@ -1,0 +1,38 @@
+*java.security.Guard* *Guard*  This interface represents a guard, which is an ob
+
+public interface interface Guard
+
+
+|java.security.Guard_Description|
+|java.security.Guard_Fields|
+|java.security.Guard_Constructors|
+|java.security.Guard_Methods|
+
+================================================================================
+
+*java.security.Guard_Methods*
+|java.security.Guard.checkGuard(Object)|Determines whether or not to allow acce
+
+*java.security.Guard_Description*
+
+This interface represents a guard, which is an object that is used to protect 
+access to another object. 
+
+This interface contains a single method,checkGuard, with a 
+singleobjectargument.checkGuardis invoked (by the GuardedObjectgetObjectmethod) 
+to determine whether or not to allow access to the object. 
+
+
+
+*java.security.Guard.checkGuard(Object)*
+
+public void checkGuard(java.lang.Object object)
+  throws |java.lang.SecurityException|
+         
+Determines whether or not to allow access to the guarded objectobject. Returns 
+silently if access is allowed. Otherwise, throws a SecurityException. 
+
+
+    object - the object being protected by the guard. 
+
+

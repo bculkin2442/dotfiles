@@ -1,0 +1,167 @@
+*javax.xml.bind.JAXBException* *JAXBException* This is the root exception class 
+
+public class JAXBException
+  extends    |java.lang.Exception|
+
+|javax.xml.bind.JAXBException_Description|
+|javax.xml.bind.JAXBException_Fields|
+|javax.xml.bind.JAXBException_Constructors|
+|javax.xml.bind.JAXBException_Methods|
+
+================================================================================
+
+*javax.xml.bind.JAXBException_Constructors*
+|javax.xml.bind.JAXBException(String)|Construct a JAXBException with the specif
+|javax.xml.bind.JAXBException(String,String)|Construct a JAXBException with the
+|javax.xml.bind.JAXBException(String,String,Throwable)|Construct a JAXBExceptio
+|javax.xml.bind.JAXBException(String,Throwable)|Construct a JAXBException with 
+|javax.xml.bind.JAXBException(Throwable)|Construct a JAXBException with a linke
+
+*javax.xml.bind.JAXBException_Methods*
+|javax.xml.bind.JAXBException.getCause()|
+|javax.xml.bind.JAXBException.getErrorCode()|Get the vendor specific error code
+|javax.xml.bind.JAXBException.getLinkedException()|Get the linked exception
+|javax.xml.bind.JAXBException.printStackTrace()|Prints this JAXBException and i
+|javax.xml.bind.JAXBException.printStackTrace(PrintStream)|Prints this JAXBExce
+|javax.xml.bind.JAXBException.printStackTrace(PrintWriter)|Prints this JAXBExce
+|javax.xml.bind.JAXBException.setLinkedException(Throwable)|Add a linked Except
+|javax.xml.bind.JAXBException.toString()|Returns a short description of this JA
+
+*javax.xml.bind.JAXBException_Description*
+
+This is the root exception class for all JAXB exceptions. 
+
+
+
+*javax.xml.bind.JAXBException(String)*
+
+public JAXBException(java.lang.String message)
+
+Construct a JAXBException with the specified detail message. The errorCode and 
+linkedException will default to null. 
+
+    message - a description of the exception 
+
+*javax.xml.bind.JAXBException(String,String)*
+
+public JAXBException(
+  java.lang.String message,
+  java.lang.String errorCode)
+
+Construct a JAXBException with the specified detail message and vendor specific 
+errorCode. The linkedException will default to null. 
+
+    message - a description of the exception 
+    errorCode - a string specifying the vendor specific error code 
+
+*javax.xml.bind.JAXBException(String,String,Throwable)*
+
+public JAXBException(
+  java.lang.String message,
+  java.lang.String errorCode,
+  java.lang.Throwable exception)
+
+Construct a JAXBException with the specified detail message, vendor specific 
+errorCode, and linkedException. 
+
+    message - a description of the exception 
+    errorCode - a string specifying the vendor specific error code 
+    exception - the linked exception 
+
+*javax.xml.bind.JAXBException(String,Throwable)*
+
+public JAXBException(
+  java.lang.String message,
+  java.lang.Throwable exception)
+
+Construct a JAXBException with the specified detail message and 
+linkedException. The errorCode will default to null. 
+
+    message - a description of the exception 
+    exception - the linked exception 
+
+*javax.xml.bind.JAXBException(Throwable)*
+
+public JAXBException(java.lang.Throwable exception)
+
+Construct a JAXBException with a linkedException. The detail message and vendor 
+specific errorCode will default to null. 
+
+    exception - the linked exception 
+
+*javax.xml.bind.JAXBException.getCause()*
+
+public |java.lang.Throwable| getCause()
+
+
+
+
+
+*javax.xml.bind.JAXBException.getErrorCode()*
+
+public |java.lang.String| getErrorCode()
+
+Get the vendor specific error code 
+
+
+
+    Returns: a string specifying the vendor specific error code 
+
+*javax.xml.bind.JAXBException.getLinkedException()*
+
+public |java.lang.Throwable| getLinkedException()
+
+Get the linked exception 
+
+
+
+    Returns: the linked Exception, null if none exists 
+
+*javax.xml.bind.JAXBException.printStackTrace()*
+
+public void printStackTrace()
+
+Prints this JAXBException and its stack trace (including the stack trace of the 
+linkedException if it is non-null) to System.err. 
+
+
+
+*javax.xml.bind.JAXBException.printStackTrace(PrintStream)*
+
+public void printStackTrace(java.io.PrintStream s)
+
+Prints this JAXBException and its stack trace (including the stack trace of the 
+linkedException if it is non-null) to the PrintStream. 
+
+
+    s - PrintStream to use for output 
+
+*javax.xml.bind.JAXBException.printStackTrace(PrintWriter)*
+
+public void printStackTrace(java.io.PrintWriter s)
+
+Prints this JAXBException and its stack trace (including the stack trace of the 
+linkedException if it is non-null) to the PrintWriter. 
+
+
+    s - PrintWriter to use for output 
+
+*javax.xml.bind.JAXBException.setLinkedException(Throwable)*
+
+public void setLinkedException(java.lang.Throwable exception)
+
+Add a linked Exception. 
+
+
+    exception - the linked Exception (A null value is permitted and indicates that the linked 
+       exception does not exist or is unknown). 
+
+*javax.xml.bind.JAXBException.toString()*
+
+public |java.lang.String| toString()
+
+Returns a short description of this JAXBException. 
+
+
+
+

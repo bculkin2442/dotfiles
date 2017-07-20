@@ -1,0 +1,243 @@
+*javax.swing.plaf.synth.SynthComboBoxUI* *SynthComboBoxUI* Provides the Synth L 
+
+public class SynthComboBoxUI
+  extends    |javax.swing.plaf.basic.BasicComboBoxUI|
+  implements |java.beans.PropertyChangeListener|
+             |javax.swing.plaf.synth.SynthUI|
+
+|javax.swing.plaf.synth.SynthComboBoxUI_Description|
+|javax.swing.plaf.synth.SynthComboBoxUI_Fields|
+|javax.swing.plaf.synth.SynthComboBoxUI_Constructors|
+|javax.swing.plaf.synth.SynthComboBoxUI_Methods|
+
+================================================================================
+
+*javax.swing.plaf.synth.SynthComboBoxUI_Constructors*
+|javax.swing.plaf.synth.SynthComboBoxUI()|
+
+*javax.swing.plaf.synth.SynthComboBoxUI_Methods*
+|javax.swing.plaf.synth.SynthComboBoxUI.createArrowButton()|
+|javax.swing.plaf.synth.SynthComboBoxUI.createEditor()|
+|javax.swing.plaf.synth.SynthComboBoxUI.createPopup()|
+|javax.swing.plaf.synth.SynthComboBoxUI.createRenderer()|
+|javax.swing.plaf.synth.SynthComboBoxUI.createUI(JComponent)|Creates a new UI o
+|javax.swing.plaf.synth.SynthComboBoxUI.getContext(JComponent)|
+|javax.swing.plaf.synth.SynthComboBoxUI.getDefaultSize()|Returns the default si
+|javax.swing.plaf.synth.SynthComboBoxUI.installDefaults()|
+|javax.swing.plaf.synth.SynthComboBoxUI.installListeners()|
+|javax.swing.plaf.synth.SynthComboBoxUI.installUI(JComponent)|Overridden to ens
+|javax.swing.plaf.synth.SynthComboBoxUI.paint(Graphics,JComponent)|Paints the s
+|javax.swing.plaf.synth.SynthComboBoxUI.paint(SynthContext,Graphics)|Paints the
+|javax.swing.plaf.synth.SynthComboBoxUI.paintBorder(SynthContext,Graphics,int,int,int,int)|
+|javax.swing.plaf.synth.SynthComboBoxUI.paintCurrentValue(Graphics,Rectangle,boolean)|
+|javax.swing.plaf.synth.SynthComboBoxUI.propertyChange(PropertyChangeEvent)|
+|javax.swing.plaf.synth.SynthComboBoxUI.uninstallDefaults()|
+|javax.swing.plaf.synth.SynthComboBoxUI.uninstallListeners()|
+|javax.swing.plaf.synth.SynthComboBoxUI.uninstallUI(JComponent)|
+|javax.swing.plaf.synth.SynthComboBoxUI.update(Graphics,JComponent)|Notifies th
+
+*javax.swing.plaf.synth.SynthComboBoxUI_Description*
+
+Provides the Synth L and F UI delegate for (|javax.swing.JComboBox|) . 
+
+
+
+*javax.swing.plaf.synth.SynthComboBoxUI()*
+
+public SynthComboBoxUI()
+
+
+
+
+*javax.swing.plaf.synth.SynthComboBoxUI.createArrowButton()*
+
+protected |javax.swing.JButton| createArrowButton()
+
+
+
+
+
+*javax.swing.plaf.synth.SynthComboBoxUI.createEditor()*
+
+protected |javax.swing.ComboBoxEditor| createEditor()
+
+
+
+
+
+*javax.swing.plaf.synth.SynthComboBoxUI.createPopup()*
+
+protected |javax.swing.plaf.basic.ComboPopup| createPopup()
+
+
+
+
+
+*javax.swing.plaf.synth.SynthComboBoxUI.createRenderer()*
+
+protected |javax.swing.ListCellRenderer| createRenderer()
+
+
+
+
+
+*javax.swing.plaf.synth.SynthComboBoxUI.createUI(JComponent)*
+
+public static |javax.swing.plaf.ComponentUI| createUI(javax.swing.JComponent c)
+
+Creates a new UI object for the given component. 
+
+
+    c - component to create UI object for 
+
+    Returns: the UI object 
+
+*javax.swing.plaf.synth.SynthComboBoxUI.getContext(JComponent)*
+
+public |javax.swing.plaf.synth.SynthContext| getContext(javax.swing.JComponent c)
+
+
+
+
+
+*javax.swing.plaf.synth.SynthComboBoxUI.getDefaultSize()*
+
+protected |java.awt.Dimension| getDefaultSize()
+
+Returns the default size of an empty display area of the combo box using the 
+current renderer and font. 
+
+This method was overridden to use SynthComboBoxRenderer instead of 
+DefaultListCellRenderer as the default renderer when calculating the size of 
+the combo box. This is used in the case of the combo not having any data. 
+
+
+
+    Returns: the size of an empty display area 
+
+*javax.swing.plaf.synth.SynthComboBoxUI.installDefaults()*
+
+protected void installDefaults()
+
+
+
+
+
+*javax.swing.plaf.synth.SynthComboBoxUI.installListeners()*
+
+protected void installListeners()
+
+
+
+
+
+*javax.swing.plaf.synth.SynthComboBoxUI.installUI(JComponent)*
+
+public void installUI(javax.swing.JComponent c)
+
+Overridden to ensure that ButtonHandler is created prior to any of the other 
+installXXX methods, since several of them reference buttonHandler. 
+
+
+
+*javax.swing.plaf.synth.SynthComboBoxUI.paint(Graphics,JComponent)*
+
+public void paint(
+  java.awt.Graphics g,
+  javax.swing.JComponent c)
+
+Paints the specified component according to the Look and Feel. This method is 
+not used by Synth Look and Feel. Painting is handled by the 
+(|javax.swing.plaf.synth.SynthComboBoxUI|) method. 
+
+
+    g - the {@code Graphics} object used for painting 
+    c - the component being painted 
+
+*javax.swing.plaf.synth.SynthComboBoxUI.paint(SynthContext,Graphics)*
+
+protected void paint(
+  javax.swing.plaf.synth.SynthContext context,
+  java.awt.Graphics g)
+
+Paints the specified component. 
+
+
+    context - context for the component being painted 
+    g - the {@code Graphics} object used for painting 
+
+*javax.swing.plaf.synth.SynthComboBoxUI.paintBorder(SynthContext,Graphics,int,int,int,int)*
+
+public void paintBorder(
+  javax.swing.plaf.synth.SynthContext context,
+  java.awt.Graphics g,
+  int x,
+  int y,
+  int w,
+  int h)
+
+
+
+
+
+*javax.swing.plaf.synth.SynthComboBoxUI.paintCurrentValue(Graphics,Rectangle,boolean)*
+
+public void paintCurrentValue(
+  java.awt.Graphics g,
+  java.awt.Rectangle bounds,
+  boolean hasFocus)
+
+Paints the currently selected item. 
+
+
+
+*javax.swing.plaf.synth.SynthComboBoxUI.propertyChange(PropertyChangeEvent)*
+
+public void propertyChange(java.beans.PropertyChangeEvent e)
+
+
+
+
+
+*javax.swing.plaf.synth.SynthComboBoxUI.uninstallDefaults()*
+
+protected void uninstallDefaults()
+
+
+
+
+
+*javax.swing.plaf.synth.SynthComboBoxUI.uninstallListeners()*
+
+protected void uninstallListeners()
+
+
+
+
+
+*javax.swing.plaf.synth.SynthComboBoxUI.uninstallUI(JComponent)*
+
+public void uninstallUI(javax.swing.JComponent c)
+
+
+
+
+
+*javax.swing.plaf.synth.SynthComboBoxUI.update(Graphics,JComponent)*
+
+public void update(
+  java.awt.Graphics g,
+  javax.swing.JComponent c)
+
+Notifies this UI delegate to repaint the specified component. This method 
+paints the component background, then calls the 
+(|javax.swing.plaf.synth.SynthComboBoxUI|) method. 
+
+In general, this method does not need to be overridden by subclasses. All Look 
+and Feel rendering code should reside in thepaintmethod. 
+
+
+    g - the {@code Graphics} object used for painting 
+    c - the component being painted 
+
+

@@ -1,0 +1,41 @@
+*java.util.function.ToLongBiFunction* *ToLongBiFunction* Represents a function t
+
+public interface interface ToLongBiFunction<T,U>
+
+
+|java.util.function.ToLongBiFunction_Description|
+|java.util.function.ToLongBiFunction_Fields|
+|java.util.function.ToLongBiFunction_Constructors|
+|java.util.function.ToLongBiFunction_Methods|
+
+================================================================================
+
+*java.util.function.ToLongBiFunction_Methods*
+|java.util.function.ToLongBiFunction.applyAsLong(T,U)|Applies this function to 
+
+*java.util.function.ToLongBiFunction_Description*
+
+Represents a function that accepts two arguments and produces a long-valued 
+result. This is thelong-producing primitive specialization for 
+(|java.util.function.BiFunction|) . 
+
+This is a functional interface whose functional method is 
+(|java.util.function.ToLongBiFunction|) . 
+
+
+
+*java.util.function.ToLongBiFunction.applyAsLong(T,U)*
+
+public long applyAsLong(
+  T t,
+  U u)
+
+Applies this function to the given arguments. 
+
+
+    t - the first function argument 
+    u - the second function argument 
+
+    Returns: the function result 
+
+

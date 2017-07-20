@@ -1,0 +1,58 @@
+*javax.xml.soap.MimeHeader* *MimeHeader* An object that stores a MIME header nam
+
+public class MimeHeader
+  extends    |java.lang.Object|
+
+|javax.xml.soap.MimeHeader_Description|
+|javax.xml.soap.MimeHeader_Fields|
+|javax.xml.soap.MimeHeader_Constructors|
+|javax.xml.soap.MimeHeader_Methods|
+
+================================================================================
+
+*javax.xml.soap.MimeHeader_Constructors*
+|javax.xml.soap.MimeHeader(String,String)|Constructs a MimeHeader object initia
+
+*javax.xml.soap.MimeHeader_Methods*
+|javax.xml.soap.MimeHeader.getName()|Returns the name of this MimeHeader object
+|javax.xml.soap.MimeHeader.getValue()|Returns the value of this MimeHeader obje
+
+*javax.xml.soap.MimeHeader_Description*
+
+An object that stores a MIME header name and its value. One or more MimeHeader 
+objects may be contained in a MimeHeaders object. 
+
+
+
+*javax.xml.soap.MimeHeader(String,String)*
+
+public MimeHeader(
+  java.lang.String name,
+  java.lang.String value)
+
+Constructs a MimeHeader object initialized with the given name and value. 
+
+    name - a String giving the name of the header 
+    value - a String giving the value of the header 
+
+*javax.xml.soap.MimeHeader.getName()*
+
+public |java.lang.String| getName()
+
+Returns the name of this MimeHeader object. 
+
+
+
+    Returns: the name of the header as a String 
+
+*javax.xml.soap.MimeHeader.getValue()*
+
+public |java.lang.String| getValue()
+
+Returns the value of this MimeHeader object. 
+
+
+
+    Returns: the value of the header as a String 
+
+

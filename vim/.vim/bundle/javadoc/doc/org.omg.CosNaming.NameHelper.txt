@@ -1,0 +1,89 @@
+*org.omg.CosNaming.NameHelper* *NameHelper* A name is a sequence of name compone
+
+public abstract class NameHelper
+  extends    |java.lang.Object|
+
+|org.omg.CosNaming.NameHelper_Description|
+|org.omg.CosNaming.NameHelper_Fields|
+|org.omg.CosNaming.NameHelper_Constructors|
+|org.omg.CosNaming.NameHelper_Methods|
+
+================================================================================
+
+*org.omg.CosNaming.NameHelper_Constructors*
+|org.omg.CosNaming.NameHelper()|
+
+*org.omg.CosNaming.NameHelper_Methods*
+|org.omg.CosNaming.NameHelper.extract(Any)|
+|org.omg.CosNaming.NameHelper.id()|
+|org.omg.CosNaming.NameHelper.insert(Any,NameComponent[])|
+|org.omg.CosNaming.NameHelper.read(InputStream)|
+|org.omg.CosNaming.NameHelper.type()|
+|org.omg.CosNaming.NameHelper.write(OutputStream,NameComponent[])|
+
+*org.omg.CosNaming.NameHelper_Description*
+
+A name is a sequence of name components. 
+
+
+
+*org.omg.CosNaming.NameHelper()*
+
+public NameHelper()
+
+
+
+
+*org.omg.CosNaming.NameHelper.extract(Any)*
+
+public static |org.omg.CosNaming.NameComponent|[] extract(org.omg.CORBA.Any a)
+
+
+
+
+
+*org.omg.CosNaming.NameHelper.id()*
+
+public static |java.lang.String| id()
+
+
+
+
+
+*org.omg.CosNaming.NameHelper.insert(Any,NameComponent[])*
+
+public static void insert(
+  org.omg.CORBA.Any a,
+  org.omg.CosNaming.NameComponent[] that)
+
+
+
+
+
+*org.omg.CosNaming.NameHelper.read(InputStream)*
+
+public static |org.omg.CosNaming.NameComponent|[] read(org.omg.CORBA.portable.InputStream istream)
+
+
+
+
+
+*org.omg.CosNaming.NameHelper.type()*
+
+public static synchronized |org.omg.CORBA.TypeCode| type()
+
+
+
+
+
+*org.omg.CosNaming.NameHelper.write(OutputStream,NameComponent[])*
+
+public static void write(
+  org.omg.CORBA.portable.OutputStream ostream,
+  org.omg.CosNaming.NameComponent[] value)
+
+
+
+
+
+

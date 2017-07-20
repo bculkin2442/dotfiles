@@ -1,0 +1,67 @@
+*javax.swing.plaf.synth.SynthCheckBoxMenuItemUI* *SynthCheckBoxMenuItemUI* Provi
+
+public class SynthCheckBoxMenuItemUI
+  extends    |javax.swing.plaf.synth.SynthMenuItemUI|
+
+|javax.swing.plaf.synth.SynthCheckBoxMenuItemUI_Description|
+|javax.swing.plaf.synth.SynthCheckBoxMenuItemUI_Fields|
+|javax.swing.plaf.synth.SynthCheckBoxMenuItemUI_Constructors|
+|javax.swing.plaf.synth.SynthCheckBoxMenuItemUI_Methods|
+
+================================================================================
+
+*javax.swing.plaf.synth.SynthCheckBoxMenuItemUI_Constructors*
+|javax.swing.plaf.synth.SynthCheckBoxMenuItemUI()|
+
+*javax.swing.plaf.synth.SynthCheckBoxMenuItemUI_Methods*
+|javax.swing.plaf.synth.SynthCheckBoxMenuItemUI.createUI(JComponent)|Creates a 
+|javax.swing.plaf.synth.SynthCheckBoxMenuItemUI.getPropertyPrefix()|
+|javax.swing.plaf.synth.SynthCheckBoxMenuItemUI.paintBorder(SynthContext,Graphics,int,int,int,int)|
+
+*javax.swing.plaf.synth.SynthCheckBoxMenuItemUI_Description*
+
+Provides the Synth L and F UI delegate for (|javax.swing.JCheckBoxMenuItem|) . 
+
+
+
+*javax.swing.plaf.synth.SynthCheckBoxMenuItemUI()*
+
+public SynthCheckBoxMenuItemUI()
+
+
+
+
+*javax.swing.plaf.synth.SynthCheckBoxMenuItemUI.createUI(JComponent)*
+
+public static |javax.swing.plaf.ComponentUI| createUI(javax.swing.JComponent c)
+
+Creates a new UI object for the given component. 
+
+
+    c - component to create UI object for 
+
+    Returns: the UI object 
+
+*javax.swing.plaf.synth.SynthCheckBoxMenuItemUI.getPropertyPrefix()*
+
+protected |java.lang.String| getPropertyPrefix()
+
+
+
+
+
+*javax.swing.plaf.synth.SynthCheckBoxMenuItemUI.paintBorder(SynthContext,Graphics,int,int,int,int)*
+
+public void paintBorder(
+  javax.swing.plaf.synth.SynthContext context,
+  java.awt.Graphics g,
+  int x,
+  int y,
+  int w,
+  int h)
+
+
+
+
+
+

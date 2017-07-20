@@ -1,0 +1,154 @@
+*java.util.concurrent.atomic.DoubleAdder* *DoubleAdder* One or more variables th
+
+public class DoubleAdder
+  extends    |java.util.concurrent.atomic.Striped64|
+  implements |java.io.Serializable|
+
+|java.util.concurrent.atomic.DoubleAdder_Description|
+|java.util.concurrent.atomic.DoubleAdder_Fields|
+|java.util.concurrent.atomic.DoubleAdder_Constructors|
+|java.util.concurrent.atomic.DoubleAdder_Methods|
+
+================================================================================
+
+*java.util.concurrent.atomic.DoubleAdder_Constructors*
+|java.util.concurrent.atomic.DoubleAdder()|Creates a new adder with initial sum
+
+*java.util.concurrent.atomic.DoubleAdder_Methods*
+|java.util.concurrent.atomic.DoubleAdder.add(double)|Adds the given value.
+|java.util.concurrent.atomic.DoubleAdder.doubleValue()|Equivalent to#sum.
+|java.util.concurrent.atomic.DoubleAdder.floatValue()|Returns the#sumas afloata
+|java.util.concurrent.atomic.DoubleAdder.intValue()|Returns the#sumas anintafte
+|java.util.concurrent.atomic.DoubleAdder.longValue()|Returns the#sumas alongaft
+|java.util.concurrent.atomic.DoubleAdder.reset()|Resets variables maintaining t
+|java.util.concurrent.atomic.DoubleAdder.sum()|Returns the current sum.
+|java.util.concurrent.atomic.DoubleAdder.sumThenReset()|Equivalent in effect to
+|java.util.concurrent.atomic.DoubleAdder.toString()|Returns the String represen
+
+*java.util.concurrent.atomic.DoubleAdder_Description*
+
+One or more variables that together maintain an initially zerodoublesum. When 
+updates (method (|java.util.concurrent.atomic.DoubleAdder|) ) are contended 
+across threads, the set of variables may grow dynamically to reduce contention. 
+Method (|java.util.concurrent.atomic.DoubleAdder|) (or, equivalently 
+(|java.util.concurrent.atomic.DoubleAdder|) ) returns the current total 
+combined across the variables maintaining the sum. The order of accumulation 
+within or across threads is not guaranteed. Thus, this class may not be 
+applicable if numerical stability is required, especially when combining values 
+of substantially different orders of magnitude. 
+
+This class is usually preferable to alternatives when multiple threads update a 
+common value that is used for purposes such as summary statistics that are 
+frequently updated but less frequently read. 
+
+This class extends (|java.lang.Number|) , but does not define methods such 
+asequals,hashCodeandcompareTobecause instances are expected to be mutated, and 
+so are not useful as collection keys. 
+
+
+
+*java.util.concurrent.atomic.DoubleAdder()*
+
+public DoubleAdder()
+
+Creates a new adder with initial sum of zero. 
+
+
+*java.util.concurrent.atomic.DoubleAdder.add(double)*
+
+public void add(double x)
+
+Adds the given value. 
+
+
+    x - the value to add 
+
+*java.util.concurrent.atomic.DoubleAdder.doubleValue()*
+
+public double doubleValue()
+
+Equivalent to (|java.util.concurrent.atomic.DoubleAdder|) . 
+
+
+
+    Returns: 
+
+*java.util.concurrent.atomic.DoubleAdder.floatValue()*
+
+public float floatValue()
+
+Returns the (|java.util.concurrent.atomic.DoubleAdder|) as afloatafter a 
+narrowing primitive conversion. 
+
+
+
+*java.util.concurrent.atomic.DoubleAdder.intValue()*
+
+public int intValue()
+
+Returns the (|java.util.concurrent.atomic.DoubleAdder|) as anintafter a 
+narrowing primitive conversion. 
+
+
+
+*java.util.concurrent.atomic.DoubleAdder.longValue()*
+
+public long longValue()
+
+Returns the (|java.util.concurrent.atomic.DoubleAdder|) as alongafter a 
+narrowing primitive conversion. 
+
+
+
+*java.util.concurrent.atomic.DoubleAdder.reset()*
+
+public void reset()
+
+Resets variables maintaining the sum to zero. This method may be a useful 
+alternative to creating a new adder, but is only effective if there are no 
+concurrent updates. Because this method is intrinsically racy, it should only 
+be used when it is known that no threads are concurrently updating. 
+
+
+
+*java.util.concurrent.atomic.DoubleAdder.sum()*
+
+public double sum()
+
+Returns the current sum. The returned value is NOT an atomic snapshot; 
+invocation in the absence of concurrent updates returns an accurate result, but 
+concurrent updates that occur while the sum is being calculated might not be 
+incorporated. Also, because floating-point arithmetic is not strictly 
+associative, the returned result need not be identical to the value that would 
+be obtained in a sequential series of updates to a single variable. 
+
+
+
+    Returns: 
+
+*java.util.concurrent.atomic.DoubleAdder.sumThenReset()*
+
+public double sumThenReset()
+
+Equivalent in effect to (|java.util.concurrent.atomic.DoubleAdder|) followed by 
+(|java.util.concurrent.atomic.DoubleAdder|) . This method may apply for example 
+during quiescent points between multithreaded computations. If there are 
+updates concurrent with this method, the returned value is not guaranteed to be 
+the final value occurring before the reset. 
+
+
+
+    Returns: 
+
+*java.util.concurrent.atomic.DoubleAdder.toString()*
+
+public |java.lang.String| toString()
+
+Returns the String representation of the 
+(|java.util.concurrent.atomic.DoubleAdder|) . 
+
+
+
+    Returns: the String representation of the {@link #sum} 
+
+

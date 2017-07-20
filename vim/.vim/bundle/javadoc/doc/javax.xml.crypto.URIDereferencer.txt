@@ -1,0 +1,46 @@
+*javax.xml.crypto.URIDereferencer* *URIDereferencer* A dereferencer ofURIReferen
+
+public interface interface URIDereferencer
+
+
+|javax.xml.crypto.URIDereferencer_Description|
+|javax.xml.crypto.URIDereferencer_Fields|
+|javax.xml.crypto.URIDereferencer_Constructors|
+|javax.xml.crypto.URIDereferencer_Methods|
+
+================================================================================
+
+*javax.xml.crypto.URIDereferencer_Methods*
+|javax.xml.crypto.URIDereferencer.dereference(URIReference,XMLCryptoContext)|De
+
+*javax.xml.crypto.URIDereferencer_Description*
+
+A dereferencer of (|javax.xml.crypto.URIReference|) s. 
+
+The result of dereferencing a URIReference is either an instance of 
+(|javax.xml.crypto.OctetStreamData|) or (|javax.xml.crypto.NodeSetData|) . 
+Unless the URIReference is a same-document reference as defined in section 4.2 
+of the W3C Recommendation for XML-Signature Syntax and Processing, the result 
+of dereferencing the URIReference MUST be an OctetStreamData. 
+
+
+
+*javax.xml.crypto.URIDereferencer.dereference(URIReference,XMLCryptoContext)*
+
+public |javax.xml.crypto.Data| dereference(
+  javax.xml.crypto.URIReference uriReference,
+  javax.xml.crypto.XMLCryptoContext context)
+  throws |javax.xml.crypto.URIReferenceException|
+         
+Dereferences the specified URIReference and returns the dereferenced data. 
+
+
+    uriReference - the URIReference 
+    context - an XMLCryptoContext that may contain additional useful information for 
+       dereferencing the URI. This implementation should dereference the 
+       specified URIReference against the context's baseURI parameter, if 
+       specified. 
+
+    Returns: the dereferenced data 
+
+

@@ -1,0 +1,66 @@
+*org.omg.PortableServer.ServantActivatorOperations* *ServantActivatorOperations* 
+
+public interface interface ServantActivatorOperations
+
+  implements |org.omg.PortableServer.ServantManagerOperations|
+
+|org.omg.PortableServer.ServantActivatorOperations_Description|
+|org.omg.PortableServer.ServantActivatorOperations_Fields|
+|org.omg.PortableServer.ServantActivatorOperations_Constructors|
+|org.omg.PortableServer.ServantActivatorOperations_Methods|
+
+================================================================================
+
+*org.omg.PortableServer.ServantActivatorOperations_Methods*
+|org.omg.PortableServer.ServantActivatorOperations.etherealize(byte[],POA,Servant,boolean,boolean)|
+|org.omg.PortableServer.ServantActivatorOperations.incarnate(byte[],POA)|This o
+
+*org.omg.PortableServer.ServantActivatorOperations_Description*
+
+When the POA has the RETAIN policy it uses servant managers that are 
+ServantActivators. 
+
+
+
+*org.omg.PortableServer.ServantActivatorOperations.etherealize(byte[],POA,Servant,boolean,boolean)*
+
+public void etherealize(
+  byte[] oid,
+  org.omg.PortableServer.POA adapter,
+  org.omg.PortableServer.Servant serv,
+  boolean cleanup_in_progress,
+  boolean remaining_activations)
+
+This operation is invoked whenever a servant for an object is deactivated, 
+assuming the POA has the USE_SERVANT_MANAGER and RETAIN policies. 
+
+
+    oid - object Id associated with the object being deactivated. 
+    adapter - object reference for the POA in which the object was active. 
+    serv - contains reference to the servant associated with the object being deactivated. 
+    cleanup_in_progress - if TRUE indicates that destroy or deactivate is called with etherealize_objects 
+       param of TRUE. FALSE indicates that etherealize was called due to other 
+       reasons. 
+    remaining_activations - indicates whether the Servant Manager can destroy a servant. If set to TRUE, 
+       the Servant Manager should wait until all invocations in progress have 
+       completed. 
+
+*org.omg.PortableServer.ServantActivatorOperations.incarnate(byte[],POA)*
+
+public |org.omg.PortableServer.Servant| incarnate(
+  byte[] oid,
+  org.omg.PortableServer.POA adapter)
+  throws |org.omg.PortableServer.ForwardRequest|
+         
+This operation is invoked by the POA whenever the POA receives a request for an 
+object that is not currently active, assuming the POA has the 
+USE_SERVANT_MANAGER and RETAIN policies. 
+
+
+    oid - object Id associated with the object on the request was made. 
+    adapter - object reference for the POA in which the object is being activated. 
+
+    Returns: Servant corresponding to oid is created or located by the user supplied servant 
+             manager. 
+
+

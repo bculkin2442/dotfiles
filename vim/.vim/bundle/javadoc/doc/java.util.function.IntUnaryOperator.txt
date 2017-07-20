@@ -1,0 +1,79 @@
+*java.util.function.IntUnaryOperator* *IntUnaryOperator* Represents an operation
+
+public interface interface IntUnaryOperator
+
+
+|java.util.function.IntUnaryOperator_Description|
+|java.util.function.IntUnaryOperator_Fields|
+|java.util.function.IntUnaryOperator_Constructors|
+|java.util.function.IntUnaryOperator_Methods|
+
+================================================================================
+
+*java.util.function.IntUnaryOperator_Methods*
+|java.util.function.IntUnaryOperator.andThen(IntUnaryOperator)|Returns a compos
+|java.util.function.IntUnaryOperator.applyAsInt(int)|Applies this operator to t
+|java.util.function.IntUnaryOperator.compose(IntUnaryOperator)|Returns a compos
+|java.util.function.IntUnaryOperator.identity()|Returns a unary operator that a
+
+*java.util.function.IntUnaryOperator_Description*
+
+Represents an operation on a singleint-valued operand that produces 
+anint-valued result. This is the primitive type specialization of 
+(|java.util.function.UnaryOperator|) forint. 
+
+This is a functional interface whose functional method is 
+(|java.util.function.IntUnaryOperator|) . 
+
+
+
+*java.util.function.IntUnaryOperator.andThen(IntUnaryOperator)*
+
+public |java.util.function.IntUnaryOperator| andThen(java.util.function.IntUnaryOperator after)
+
+Returns a composed operator that first applies this operator to its input, and 
+then applies theafteroperator to the result. If evaluation of either operator 
+throws an exception, it is relayed to the caller of the composed operator. 
+
+
+    after - the operator to apply after this operator is applied 
+
+    Returns: a composed operator that first applies this operator and then applies the 
+             {@code after} operator 
+
+*java.util.function.IntUnaryOperator.applyAsInt(int)*
+
+public int applyAsInt(int operand)
+
+Applies this operator to the given operand. 
+
+
+    operand - the operand 
+
+    Returns: the operator result 
+
+*java.util.function.IntUnaryOperator.compose(IntUnaryOperator)*
+
+public |java.util.function.IntUnaryOperator| compose(java.util.function.IntUnaryOperator before)
+
+Returns a composed operator that first applies thebeforeoperator to its input, 
+and then applies this operator to the result. If evaluation of either operator 
+throws an exception, it is relayed to the caller of the composed operator. 
+
+
+    before - the operator to apply before this operator is applied 
+
+    Returns: a composed operator that first applies the {@code before} operator and then 
+             applies this operator 
+
+*java.util.function.IntUnaryOperator.identity()*
+
+public static |java.util.function.IntUnaryOperator| identity()
+
+Returns a unary operator that always returns its input argument. 
+
+
+
+    Returns: a unary operator that always returns its input argument 
+
+

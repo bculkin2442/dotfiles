@@ -1,0 +1,39 @@
+*javax.swing.plaf.nimbus.AbstractRegionPainter.PaintContext.CacheMode* *AbstractRegionPainter.PaintContext.CacheMode* 
+
+protected static final enumAbstractRegionPainter.PaintContext.CacheMode
+  extends    |java.lang.Enum|
+
+|javax.swing.plaf.nimbus.AbstractRegionPainter.PaintContext.CacheMode_Description|
+|javax.swing.plaf.nimbus.AbstractRegionPainter.PaintContext.CacheMode_Fields|
+|javax.swing.plaf.nimbus.AbstractRegionPainter.PaintContext.CacheMode_Constructors|
+|javax.swing.plaf.nimbus.AbstractRegionPainter.PaintContext.CacheMode_Methods|
+
+================================================================================
+
+*javax.swing.plaf.nimbus.AbstractRegionPainter.PaintContext.CacheMode_Methods*
+|javax.swing.plaf.nimbus.AbstractRegionPainter.PaintContext.CacheMode.valueOf(String)|
+|javax.swing.plaf.nimbus.AbstractRegionPainter.PaintContext.CacheMode.values()|
+
+*javax.swing.plaf.nimbus.AbstractRegionPainter.PaintContext.CacheMode_Description*
+
+
+
+
+
+*javax.swing.plaf.nimbus.AbstractRegionPainter.PaintContext.CacheMode.valueOf(String)*
+
+public static |javax.swing.plaf.nimbus.AbstractRegionPainter.PaintContext.CacheMode| valueOf(java.lang.String name)
+
+
+
+
+
+*javax.swing.plaf.nimbus.AbstractRegionPainter.PaintContext.CacheMode.values()*
+
+public static |javax.swing.plaf.nimbus.AbstractRegionPainter.PaintContext.CacheMode|[] values()
+
+
+
+
+
+

@@ -1,0 +1,237 @@
+*java.time.temporal.TemporalQueries* *TemporalQueries* Common implementations of
+
+public final class TemporalQueries
+  extends    |java.lang.Object|
+
+|java.time.temporal.TemporalQueries_Description|
+|java.time.temporal.TemporalQueries_Fields|
+|java.time.temporal.TemporalQueries_Constructors|
+|java.time.temporal.TemporalQueries_Methods|
+
+================================================================================
+
+*java.time.temporal.TemporalQueries_Methods*
+|java.time.temporal.TemporalQueries.chronology()|A query for theChronology.
+|java.time.temporal.TemporalQueries.localDate()|A query forLocalDatereturning n
+|java.time.temporal.TemporalQueries.localTime()|A query forLocalTimereturning n
+|java.time.temporal.TemporalQueries.offset()|A query forZoneOffsetreturning nul
+|java.time.temporal.TemporalQueries.precision()|A query for the smallest suppor
+|java.time.temporal.TemporalQueries.zone()|A lenient query for theZoneId, falli
+|java.time.temporal.TemporalQueries.zoneId()|A strict query for theZoneId.
+
+*java.time.temporal.TemporalQueries_Description*
+
+Common implementations ofTemporalQuery. 
+
+This class provides common implementations of 
+(|java.time.temporal.TemporalQuery|) . These are defined here as they must be 
+constants, and the definition of lambdas does not guarantee that. By assigning 
+them once here, they become 'normal' Java constants. 
+
+Queries are a key tool for extracting information from temporal objects. They 
+exist to externalize the process of querying, permitting different approaches, 
+as per the strategy design pattern. Examples might be a query that checks if 
+the date is the day before February 29th in a leap year, or calculates the 
+number of days to your next birthday. 
+
+The (|java.time.temporal.TemporalField|) interface provides another mechanism 
+for querying temporal objects. That interface is limited to returning along. By 
+contrast, queries can return any type. 
+
+There are two equivalent ways of using aTemporalQuery. The first is to invoke 
+the method on this interface directly. The second is to use 
+(|java.time.temporal.TemporalAccessor|) : 
+
+// these two lines are equivalent, but the second approach is recommended 
+temporal = thisQuery.queryFrom(temporal); temporal = temporal.query(thisQuery); 
+
+It is recommended to use the second approach,query(TemporalQuery), as it is a 
+lot clearer to read in code. 
+
+The most common implementations are method references, such 
+asLocalDate::fromandZoneId::from. Additional common queries are provided to 
+return: 
+
+a Chronology, a LocalDate, a LocalTime, a ZoneOffset, a precision, a zone, or a 
+zoneId. 
+
+
+
+*java.time.temporal.TemporalQueries.chronology()*
+
+public static |java.time.temporal.TemporalQuery|<Chronology> chronology()
+
+A query for theChronology. 
+
+This queries aTemporalAccessorfor the chronology. If the 
+targetTemporalAccessorrepresents a date, or part of a date, then it should 
+return the chronology that the date is expressed in. As a result of this 
+definition, objects only representing time, such asLocalTime, will return null. 
+
+The result from JDK classes implementingTemporalAccessoris as 
+follows:LocalDatereturnsIsoChronology.INSTANCELocalTimereturns null (does not 
+represent a 
+date)LocalDateTimereturnsIsoChronology.INSTANCEZonedDateTimereturnsIsoChronology.INSTANCEOffsetTimereturns
+null (does not represent a 
+date)OffsetDateTimereturnsIsoChronology.INSTANCEChronoLocalDatereturns the 
+associated chronologyChronoLocalDateTimereturns the associated 
+chronologyChronoZonedDateTimereturns the associated chronologyErareturns the 
+associated chronologyDayOfWeekreturns null (shared across 
+chronologies)MonthreturnsIsoChronology.INSTANCEYearreturnsIsoChronology.INSTANCEYearMonthreturnsIsoChronology.INSTANCEMonthDayreturns
+nullIsoChronology.INSTANCEZoneOffsetreturns null (does not represent a 
+date)Instantreturns null (does not represent a date) 
+
+The method (|java.time.chrono.Chronology|) can be used as aTemporalQueryvia a 
+method reference,Chronology::from. That method is equivalent to this query, 
+except that it throws an exception if a chronology cannot be obtained. 
+
+
+
+    Returns: a query that can obtain the chronology of a temporal, not null 
+
+*java.time.temporal.TemporalQueries.localDate()*
+
+public static |java.time.temporal.TemporalQuery|<LocalDate> localDate()
+
+A query forLocalDatereturning null if not found. 
+
+This returns aTemporalQuerythat can be used to query a temporal object for the 
+local date. The query will return null if the temporal object cannot supply a 
+local date. 
+
+The query implementation examines the 
+EPOCH_DAY(|java.time.temporal.ChronoField|) field and uses it to create 
+aLocalDate. 
+
+The method (|java.time.ZoneOffset|) can be used as aTemporalQueryvia a method 
+reference,LocalDate::from. This query andLocalDate::fromwill return the same 
+result if the temporal object contains a date. If the temporal object does not 
+contain a date, then the method reference will throw an exception, whereas this 
+query will return null. 
+
+
+
+    Returns: a query that can obtain the date of a temporal, not null 
+
+*java.time.temporal.TemporalQueries.localTime()*
+
+public static |java.time.temporal.TemporalQuery|<LocalTime> localTime()
+
+A query forLocalTimereturning null if not found. 
+
+This returns aTemporalQuerythat can be used to query a temporal object for the 
+local time. The query will return null if the temporal object cannot supply a 
+local time. 
+
+The query implementation examines the 
+NANO_OF_DAY(|java.time.temporal.ChronoField|) field and uses it to create 
+aLocalTime. 
+
+The method (|java.time.ZoneOffset|) can be used as aTemporalQueryvia a method 
+reference,LocalTime::from. This query andLocalTime::fromwill return the same 
+result if the temporal object contains a time. If the temporal object does not 
+contain a time, then the method reference will throw an exception, whereas this 
+query will return null. 
+
+
+
+    Returns: a query that can obtain the time of a temporal, not null 
+
+*java.time.temporal.TemporalQueries.offset()*
+
+public static |java.time.temporal.TemporalQuery|<ZoneOffset> offset()
+
+A query forZoneOffsetreturning null if not found. 
+
+This returns aTemporalQuerythat can be used to query a temporal object for the 
+offset. The query will return null if the temporal object cannot supply an 
+offset. 
+
+The query implementation examines the 
+OFFSET_SECONDS(|java.time.temporal.ChronoField|) field and uses it to create 
+aZoneOffset. 
+
+The method (|java.time.ZoneOffset|) can be used as aTemporalQueryvia a method 
+reference,ZoneOffset::from. This query andZoneOffset::fromwill return the same 
+result if the temporal object contains an offset. If the temporal object does 
+not contain an offset, then the method reference will throw an exception, 
+whereas this query will return null. 
+
+
+
+    Returns: a query that can obtain the offset of a temporal, not null 
+
+*java.time.temporal.TemporalQueries.precision()*
+
+public static |java.time.temporal.TemporalQuery|<TemporalUnit> precision()
+
+A query for the smallest supported unit. 
+
+This queries aTemporalAccessorfor the time precision. If the 
+targetTemporalAccessorrepresents a consistent or complete date-time, date or 
+time then this must return the smallest precision actually supported. Note that 
+fields such asNANO_OF_DAYandNANO_OF_SECONDare defined to always return ignoring 
+the precision, thus this is the only way to find the actual smallest supported 
+unit. For example, wereGregorianCalendarto implementTemporalAccessorit would 
+return a precision ofMILLIS. 
+
+The result from JDK classes implementingTemporalAccessoris as 
+follows:LocalDatereturnsDAYSLocalTimereturnsNANOSLocalDateTimereturnsNANOSZonedDateTimereturnsNANOSOffsetTimereturnsNANOSOffsetDateTimereturnsNANOSChronoLocalDatereturnsDAYSChronoLocalDateTimereturnsNANOSChronoZonedDateTimereturnsNANOSErareturnsERASDayOfWeekreturnsDAYSMonthreturnsMONTHSYearreturnsYEARSYearMonthreturnsMONTHSMonthDayreturns
+null (does not represent a complete date or time)ZoneOffsetreturns null (does 
+not represent a date or time)InstantreturnsNANOS 
+
+
+
+    Returns: a query that can obtain the precision of a temporal, not null 
+
+*java.time.temporal.TemporalQueries.zone()*
+
+public static |java.time.temporal.TemporalQuery|<ZoneId> zone()
+
+A lenient query for theZoneId, falling back to theZoneOffset. 
+
+This queries aTemporalAccessorfor the zone. It first tries to obtain the zone, 
+using (|java.time.temporal.TemporalQueries|) . If that is not found it tries to 
+obtain the (|java.time.temporal.TemporalQueries|) . Thus a 
+(|java.time.ZonedDateTime|) will return the result ofgetZone(), while an 
+(|java.time.OffsetDateTime|) will return the result ofgetOffset(). 
+
+In most cases, applications should use this query rather than#zoneId(). 
+
+The method (|java.time.ZoneId|) can be used as aTemporalQueryvia a method 
+reference,ZoneId::from. That method is equivalent to this query, except that it 
+throws an exception if a zone cannot be obtained. 
+
+
+
+    Returns: a query that can obtain the zone ID or offset of a temporal, not null 
+
+*java.time.temporal.TemporalQueries.zoneId()*
+
+public static |java.time.temporal.TemporalQuery|<ZoneId> zoneId()
+
+A strict query for theZoneId. 
+
+This queries aTemporalAccessorfor the zone. The zone is only returned if the 
+date-time conceptually contains aZoneId. It will not be returned if the 
+date-time only conceptually has anZoneOffset. Thus a 
+(|java.time.ZonedDateTime|) will return the result ofgetZone(), but an 
+(|java.time.OffsetDateTime|) will return null. 
+
+In most cases, applications should use (|java.time.temporal.TemporalQueries|) 
+as this query is too strict. 
+
+The result from JDK classes implementingTemporalAccessoris as 
+follows:LocalDatereturns nullLocalTimereturns nullLocalDateTimereturns 
+nullZonedDateTimereturns the associated zoneOffsetTimereturns 
+nullOffsetDateTimereturns nullChronoLocalDatereturns 
+nullChronoLocalDateTimereturns nullChronoZonedDateTimereturns the associated 
+zoneErareturns nullDayOfWeekreturns nullMonthreturns nullYearreturns 
+nullYearMonthreturns nullMonthDayreturns nullZoneOffsetreturns 
+nullInstantreturns null 
+
+
+
+    Returns: a query that can obtain the zone ID of a temporal, not null 
+
+

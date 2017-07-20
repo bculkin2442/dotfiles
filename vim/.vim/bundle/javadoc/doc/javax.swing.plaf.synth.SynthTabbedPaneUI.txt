@@ -1,0 +1,295 @@
+*javax.swing.plaf.synth.SynthTabbedPaneUI* *SynthTabbedPaneUI* Provides the Synt
+
+public class SynthTabbedPaneUI
+  extends    |javax.swing.plaf.basic.BasicTabbedPaneUI|
+  implements |java.beans.PropertyChangeListener|
+             |javax.swing.plaf.synth.SynthUI|
+
+|javax.swing.plaf.synth.SynthTabbedPaneUI_Description|
+|javax.swing.plaf.synth.SynthTabbedPaneUI_Fields|
+|javax.swing.plaf.synth.SynthTabbedPaneUI_Constructors|
+|javax.swing.plaf.synth.SynthTabbedPaneUI_Methods|
+
+================================================================================
+
+*javax.swing.plaf.synth.SynthTabbedPaneUI_Constructors*
+|javax.swing.plaf.synth.SynthTabbedPaneUI()|
+
+*javax.swing.plaf.synth.SynthTabbedPaneUI_Methods*
+|javax.swing.plaf.synth.SynthTabbedPaneUI.calculateMaxTabHeight(int)|
+|javax.swing.plaf.synth.SynthTabbedPaneUI.calculateMaxTabWidth(int)|
+|javax.swing.plaf.synth.SynthTabbedPaneUI.calculateTabWidth(int,int,FontMetrics)|
+|javax.swing.plaf.synth.SynthTabbedPaneUI.createLayoutManager()|Overridden to c
+|javax.swing.plaf.synth.SynthTabbedPaneUI.createMouseListener()|Overridden to k
+|javax.swing.plaf.synth.SynthTabbedPaneUI.createScrollButton(int)|
+|javax.swing.plaf.synth.SynthTabbedPaneUI.createUI(JComponent)|Creates a new UI
+|javax.swing.plaf.synth.SynthTabbedPaneUI.getBaseline(int)|
+|javax.swing.plaf.synth.SynthTabbedPaneUI.getContext(JComponent)|
+|javax.swing.plaf.synth.SynthTabbedPaneUI.getFontMetrics()|
+|javax.swing.plaf.synth.SynthTabbedPaneUI.getTabInsets(int,int)|
+|javax.swing.plaf.synth.SynthTabbedPaneUI.getTabLabelShiftX(int,int,boolean)|
+|javax.swing.plaf.synth.SynthTabbedPaneUI.getTabLabelShiftY(int,int,boolean)|
+|javax.swing.plaf.synth.SynthTabbedPaneUI.installDefaults()|
+|javax.swing.plaf.synth.SynthTabbedPaneUI.installListeners()|
+|javax.swing.plaf.synth.SynthTabbedPaneUI.paint(Graphics,JComponent)|Paints the
+|javax.swing.plaf.synth.SynthTabbedPaneUI.paint(SynthContext,Graphics)|Paints t
+|javax.swing.plaf.synth.SynthTabbedPaneUI.paintBorder(SynthContext,Graphics,int,int,int,int)|
+|javax.swing.plaf.synth.SynthTabbedPaneUI.paintTabArea(Graphics,int,int)|
+|javax.swing.plaf.synth.SynthTabbedPaneUI.propertyChange(PropertyChangeEvent)|
+|javax.swing.plaf.synth.SynthTabbedPaneUI.setRolloverTab(int)|
+|javax.swing.plaf.synth.SynthTabbedPaneUI.uninstallDefaults()|
+|javax.swing.plaf.synth.SynthTabbedPaneUI.uninstallListeners()|
+|javax.swing.plaf.synth.SynthTabbedPaneUI.update(Graphics,JComponent)|Notifies 
+
+*javax.swing.plaf.synth.SynthTabbedPaneUI_Description*
+
+Provides the Synth L and F UI delegate for (|javax.swing.JTabbedPane|) . 
+
+Looks up theselectedTabPadInsetsproperty from the Style, which represents 
+additional insets for the selected tab. 
+
+
+
+*javax.swing.plaf.synth.SynthTabbedPaneUI()*
+
+public SynthTabbedPaneUI()
+
+
+
+
+*javax.swing.plaf.synth.SynthTabbedPaneUI.calculateMaxTabHeight(int)*
+
+protected int calculateMaxTabHeight(int tabPlacement)
+
+
+
+
+
+*javax.swing.plaf.synth.SynthTabbedPaneUI.calculateMaxTabWidth(int)*
+
+protected int calculateMaxTabWidth(int tabPlacement)
+
+
+
+
+
+*javax.swing.plaf.synth.SynthTabbedPaneUI.calculateTabWidth(int,int,FontMetrics)*
+
+protected int calculateTabWidth(
+  int tabPlacement,
+  int tabIndex,
+  java.awt.FontMetrics metrics)
+
+
+
+
+
+*javax.swing.plaf.synth.SynthTabbedPaneUI.createLayoutManager()*
+
+protected |java.awt.LayoutManager| createLayoutManager()
+
+Overridden to create a TabbedPaneLayout subclass which takes into account 
+tabOverlap. 
+
+
+
+*javax.swing.plaf.synth.SynthTabbedPaneUI.createMouseListener()*
+
+protected |java.awt.event.MouseListener| createMouseListener()
+
+Overridden to keep track of whether the selected tab is also pressed. 
+
+
+
+*javax.swing.plaf.synth.SynthTabbedPaneUI.createScrollButton(int)*
+
+protected |javax.swing.JButton| createScrollButton(int direction)
+
+
+
+
+
+*javax.swing.plaf.synth.SynthTabbedPaneUI.createUI(JComponent)*
+
+public static |javax.swing.plaf.ComponentUI| createUI(javax.swing.JComponent c)
+
+Creates a new UI object for the given component. 
+
+
+    c - component to create UI object for 
+
+    Returns: the UI object 
+
+*javax.swing.plaf.synth.SynthTabbedPaneUI.getBaseline(int)*
+
+protected int getBaseline(int tab)
+
+
+
+
+
+*javax.swing.plaf.synth.SynthTabbedPaneUI.getContext(JComponent)*
+
+public |javax.swing.plaf.synth.SynthContext| getContext(javax.swing.JComponent c)
+
+
+
+
+
+*javax.swing.plaf.synth.SynthTabbedPaneUI.getFontMetrics()*
+
+protected |java.awt.FontMetrics| getFontMetrics()
+
+
+
+
+
+*javax.swing.plaf.synth.SynthTabbedPaneUI.getTabInsets(int,int)*
+
+protected |java.awt.Insets| getTabInsets(
+  int tabPlacement,
+  int tabIndex)
+
+
+
+
+
+*javax.swing.plaf.synth.SynthTabbedPaneUI.getTabLabelShiftX(int,int,boolean)*
+
+protected int getTabLabelShiftX(
+  int tabPlacement,
+  int tabIndex,
+  boolean isSelected)
+
+
+
+
+
+*javax.swing.plaf.synth.SynthTabbedPaneUI.getTabLabelShiftY(int,int,boolean)*
+
+protected int getTabLabelShiftY(
+  int tabPlacement,
+  int tabIndex,
+  boolean isSelected)
+
+
+
+
+
+*javax.swing.plaf.synth.SynthTabbedPaneUI.installDefaults()*
+
+protected void installDefaults()
+
+
+
+
+
+*javax.swing.plaf.synth.SynthTabbedPaneUI.installListeners()*
+
+protected void installListeners()
+
+
+
+
+
+*javax.swing.plaf.synth.SynthTabbedPaneUI.paint(Graphics,JComponent)*
+
+public void paint(
+  java.awt.Graphics g,
+  javax.swing.JComponent c)
+
+Paints the specified component according to the Look and Feel. This method is 
+not used by Synth Look and Feel. Painting is handled by the 
+(|javax.swing.plaf.synth.SynthTabbedPaneUI|) method. 
+
+
+    g - the {@code Graphics} object used for painting 
+    c - the component being painted 
+
+*javax.swing.plaf.synth.SynthTabbedPaneUI.paint(SynthContext,Graphics)*
+
+protected void paint(
+  javax.swing.plaf.synth.SynthContext context,
+  java.awt.Graphics g)
+
+Paints the specified component. 
+
+
+    context - context for the component being painted 
+    g - the {@code Graphics} object used for painting 
+
+*javax.swing.plaf.synth.SynthTabbedPaneUI.paintBorder(SynthContext,Graphics,int,int,int,int)*
+
+public void paintBorder(
+  javax.swing.plaf.synth.SynthContext context,
+  java.awt.Graphics g,
+  int x,
+  int y,
+  int w,
+  int h)
+
+
+
+
+
+*javax.swing.plaf.synth.SynthTabbedPaneUI.paintTabArea(Graphics,int,int)*
+
+protected void paintTabArea(
+  java.awt.Graphics g,
+  int tabPlacement,
+  int selectedIndex)
+
+
+
+
+
+*javax.swing.plaf.synth.SynthTabbedPaneUI.propertyChange(PropertyChangeEvent)*
+
+public void propertyChange(java.beans.PropertyChangeEvent e)
+
+
+
+
+
+*javax.swing.plaf.synth.SynthTabbedPaneUI.setRolloverTab(int)*
+
+protected void setRolloverTab(int index)
+
+
+
+
+
+*javax.swing.plaf.synth.SynthTabbedPaneUI.uninstallDefaults()*
+
+protected void uninstallDefaults()
+
+
+
+
+
+*javax.swing.plaf.synth.SynthTabbedPaneUI.uninstallListeners()*
+
+protected void uninstallListeners()
+
+
+
+
+
+*javax.swing.plaf.synth.SynthTabbedPaneUI.update(Graphics,JComponent)*
+
+public void update(
+  java.awt.Graphics g,
+  javax.swing.JComponent c)
+
+Notifies this UI delegate to repaint the specified component. This method 
+paints the component background, then calls the 
+(|javax.swing.plaf.synth.SynthTabbedPaneUI|) method. 
+
+In general, this method does not need to be overridden by subclasses. All Look 
+and Feel rendering code should reside in thepaintmethod. 
+
+
+    g - the {@code Graphics} object used for painting 
+    c - the component being painted 
+
+

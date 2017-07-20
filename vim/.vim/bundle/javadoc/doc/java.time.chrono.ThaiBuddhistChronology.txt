@@ -1,0 +1,294 @@
+*java.time.chrono.ThaiBuddhistChronology* *ThaiBuddhistChronology* The Thai Budd
+
+public final class ThaiBuddhistChronology
+  extends    |java.time.chrono.AbstractChronology|
+  implements |java.io.Serializable|
+
+|java.time.chrono.ThaiBuddhistChronology_Description|
+|java.time.chrono.ThaiBuddhistChronology_Fields|
+|java.time.chrono.ThaiBuddhistChronology_Constructors|
+|java.time.chrono.ThaiBuddhistChronology_Methods|
+
+================================================================================
+
+*java.time.chrono.ThaiBuddhistChronology_Fields*
+|java.time.chrono.ThaiBuddhistChronology_java.time.chrono.ThaiBuddhistChronology.INSTANCE|
+
+*java.time.chrono.ThaiBuddhistChronology_Methods*
+|java.time.chrono.ThaiBuddhistChronology.date(Era,int,int,int)|Obtains a local 
+|java.time.chrono.ThaiBuddhistChronology.date(int,int,int)|Obtains a local date
+|java.time.chrono.ThaiBuddhistChronology.date(TemporalAccessor)|
+|java.time.chrono.ThaiBuddhistChronology.dateEpochDay(long)|Obtains a local dat
+|java.time.chrono.ThaiBuddhistChronology.dateNow()|
+|java.time.chrono.ThaiBuddhistChronology.dateNow(Clock)|
+|java.time.chrono.ThaiBuddhistChronology.dateNow(ZoneId)|
+|java.time.chrono.ThaiBuddhistChronology.dateYearDay(Era,int,int)|Obtains a loc
+|java.time.chrono.ThaiBuddhistChronology.dateYearDay(int,int)|Obtains a local d
+|java.time.chrono.ThaiBuddhistChronology.eraOf(int)|
+|java.time.chrono.ThaiBuddhistChronology.eras()|
+|java.time.chrono.ThaiBuddhistChronology.getCalendarType()|Gets the calendar ty
+|java.time.chrono.ThaiBuddhistChronology.getId()|Gets the ID of the chronology 
+|java.time.chrono.ThaiBuddhistChronology.isLeapYear(long)|Checks if the specifi
+|java.time.chrono.ThaiBuddhistChronology.localDateTime(TemporalAccessor)|
+|java.time.chrono.ThaiBuddhistChronology.prolepticYear(Era,int)|
+|java.time.chrono.ThaiBuddhistChronology.range(ChronoField)|
+|java.time.chrono.ThaiBuddhistChronology.resolveDate(Map<TemporalField,Long>,ResolverStyle)|
+|java.time.chrono.ThaiBuddhistChronology.zonedDateTime(Instant,ZoneId)|
+|java.time.chrono.ThaiBuddhistChronology.zonedDateTime(TemporalAccessor)|
+
+*java.time.chrono.ThaiBuddhistChronology_Description*
+
+The Thai Buddhist calendar system. 
+
+This chronology defines the rules of the Thai Buddhist calendar system. This 
+calendar system is primarily used in Thailand. Dates are aligned such 
+that2484-01-01 (Buddhist)is1941-01-01 (ISO). 
+
+The fields are defined as follows: 
+
+era - There are two eras, the current 'Buddhist' (ERA_BE) and the previous era 
+(ERA_BEFORE_BE). year-of-era - The year-of-era for the current era increases 
+uniformly from the epoch at year one. For the previous era the year increases 
+from one as time goes backwards. The value for the current era is equal to the 
+ISO proleptic-year plus 543. proleptic-year - The proleptic year is the same as 
+the year-of-era for the current era. For the previous era, years have zero, 
+then negative values. The value is equal to the ISO proleptic-year plus 543. 
+month-of-year - The ThaiBuddhist month-of-year exactly matches ISO. 
+day-of-month - The ThaiBuddhist day-of-month exactly matches ISO. day-of-year - 
+The ThaiBuddhist day-of-year exactly matches ISO. leap-year - The ThaiBuddhist 
+leap-year pattern exactly matches ISO, such that the two calendars are never 
+out of step. 
+
+
+
+*java.time.chrono.ThaiBuddhistChronology_java.time.chrono.ThaiBuddhistChronology.INSTANCE*
+
+Singleton instance of the Buddhist chronology. 
+
+
+
+*java.time.chrono.ThaiBuddhistChronology.date(Era,int,int,int)*
+
+public |java.time.chrono.ThaiBuddhistDate| date(
+  java.time.chrono.Era era,
+  int yearOfEra,
+  int month,
+  int dayOfMonth)
+
+Obtains a local date in Thai Buddhist calendar system from the era, 
+year-of-era, month-of-year and day-of-month fields. 
+
+
+    era - the Thai Buddhist era, not null 
+    yearOfEra - the year-of-era 
+    month - the month-of-year 
+    dayOfMonth - the day-of-month 
+
+    Returns: the Thai Buddhist local date, not null 
+
+*java.time.chrono.ThaiBuddhistChronology.date(int,int,int)*
+
+public |java.time.chrono.ThaiBuddhistDate| date(
+  int prolepticYear,
+  int month,
+  int dayOfMonth)
+
+Obtains a local date in Thai Buddhist calendar system from the proleptic-year, 
+month-of-year and day-of-month fields. 
+
+
+    prolepticYear - the proleptic-year 
+    month - the month-of-year 
+    dayOfMonth - the day-of-month 
+
+    Returns: the Thai Buddhist local date, not null 
+
+*java.time.chrono.ThaiBuddhistChronology.date(TemporalAccessor)*
+
+public |java.time.chrono.ThaiBuddhistDate| date(java.time.temporal.TemporalAccessor temporal)
+
+
+
+
+
+*java.time.chrono.ThaiBuddhistChronology.dateEpochDay(long)*
+
+public |java.time.chrono.ThaiBuddhistDate| dateEpochDay(long epochDay)
+
+Obtains a local date in the Thai Buddhist calendar system from the epoch-day. 
+
+
+    epochDay - the epoch day 
+
+    Returns: the Thai Buddhist local date, not null 
+
+*java.time.chrono.ThaiBuddhistChronology.dateNow()*
+
+public |java.time.chrono.ThaiBuddhistDate| dateNow()
+
+
+
+
+
+*java.time.chrono.ThaiBuddhistChronology.dateNow(Clock)*
+
+public |java.time.chrono.ThaiBuddhistDate| dateNow(java.time.Clock clock)
+
+
+
+
+
+*java.time.chrono.ThaiBuddhistChronology.dateNow(ZoneId)*
+
+public |java.time.chrono.ThaiBuddhistDate| dateNow(java.time.ZoneId zone)
+
+
+
+
+
+*java.time.chrono.ThaiBuddhistChronology.dateYearDay(Era,int,int)*
+
+public |java.time.chrono.ThaiBuddhistDate| dateYearDay(
+  java.time.chrono.Era era,
+  int yearOfEra,
+  int dayOfYear)
+
+Obtains a local date in Thai Buddhist calendar system from the era, year-of-era 
+and day-of-year fields. 
+
+
+    era - the Thai Buddhist era, not null 
+    yearOfEra - the year-of-era 
+    dayOfYear - the day-of-year 
+
+    Returns: the Thai Buddhist local date, not null 
+
+*java.time.chrono.ThaiBuddhistChronology.dateYearDay(int,int)*
+
+public |java.time.chrono.ThaiBuddhistDate| dateYearDay(
+  int prolepticYear,
+  int dayOfYear)
+
+Obtains a local date in Thai Buddhist calendar system from the proleptic-year 
+and day-of-year fields. 
+
+
+    prolepticYear - the proleptic-year 
+    dayOfYear - the day-of-year 
+
+    Returns: the Thai Buddhist local date, not null 
+
+*java.time.chrono.ThaiBuddhistChronology.eraOf(int)*
+
+public |java.time.chrono.ThaiBuddhistEra| eraOf(int eraValue)
+
+
+
+
+
+*java.time.chrono.ThaiBuddhistChronology.eras()*
+
+public |java.util.List|<Era> eras()
+
+
+
+
+
+*java.time.chrono.ThaiBuddhistChronology.getCalendarType()*
+
+public |java.lang.String| getCalendarType()
+
+Gets the calendar type of the underlying calendar system - 'buddhist'. 
+
+The calendar type is an identifier defined by the Unicode Locale Data Markup 
+Language (LDML) specification. It can be used to lookup theChronologyusing 
+(|java.time.chrono.ThaiBuddhistChronology|) . It can also be used as part of a 
+locale, accessible via (|java.util.Locale|) with the key 'ca'. 
+
+
+
+    Returns: the calendar system type - 'buddhist' 
+
+*java.time.chrono.ThaiBuddhistChronology.getId()*
+
+public |java.lang.String| getId()
+
+Gets the ID of the chronology - 'ThaiBuddhist'. 
+
+The ID uniquely identifies theChronology. It can be used to lookup 
+theChronologyusing (|java.time.chrono.ThaiBuddhistChronology|) . 
+
+
+
+    Returns: the chronology ID - 'ThaiBuddhist' 
+
+*java.time.chrono.ThaiBuddhistChronology.isLeapYear(long)*
+
+public boolean isLeapYear(long prolepticYear)
+
+Checks if the specified year is a leap year. 
+
+Thai Buddhist leap years occur exactly in line with ISO leap years. This method 
+does not validate the year passed in, and only has a well-defined result for 
+years in the supported range. 
+
+
+    prolepticYear - the proleptic-year to check, not validated for range 
+
+    Returns: true if the year is a leap year 
+
+*java.time.chrono.ThaiBuddhistChronology.localDateTime(TemporalAccessor)*
+
+public |java.time.chrono.ChronoLocalDateTime|<ThaiBuddhistDate> localDateTime(java.time.temporal.TemporalAccessor temporal)
+
+
+
+
+
+*java.time.chrono.ThaiBuddhistChronology.prolepticYear(Era,int)*
+
+public int prolepticYear(
+  java.time.chrono.Era era,
+  int yearOfEra)
+
+
+
+
+
+*java.time.chrono.ThaiBuddhistChronology.range(ChronoField)*
+
+public |java.time.temporal.ValueRange| range(java.time.temporal.ChronoField field)
+
+
+
+
+
+*java.time.chrono.ThaiBuddhistChronology.resolveDate(Map<TemporalField,Long>,ResolverStyle)*
+
+public |java.time.chrono.ThaiBuddhistDate| resolveDate(
+  java.util.Map<java.time.temporal.TemporalField, java.lang.Long> fieldValues,
+  java.time.format.ResolverStyle resolverStyle)
+
+
+
+
+
+*java.time.chrono.ThaiBuddhistChronology.zonedDateTime(Instant,ZoneId)*
+
+public |java.time.chrono.ChronoZonedDateTime|<ThaiBuddhistDate> zonedDateTime(
+  java.time.Instant instant,
+  java.time.ZoneId zone)
+
+
+
+
+
+*java.time.chrono.ThaiBuddhistChronology.zonedDateTime(TemporalAccessor)*
+
+public |java.time.chrono.ChronoZonedDateTime|<ThaiBuddhistDate> zonedDateTime(java.time.temporal.TemporalAccessor temporal)
+
+
+
+
+
+

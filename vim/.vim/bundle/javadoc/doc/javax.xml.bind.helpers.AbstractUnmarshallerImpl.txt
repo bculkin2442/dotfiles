@@ -1,0 +1,402 @@
+*javax.xml.bind.helpers.AbstractUnmarshallerImpl* *AbstractUnmarshallerImpl* Par
+
+public abstract class AbstractUnmarshallerImpl
+  extends    |java.lang.Object|
+  implements |javax.xml.bind.Unmarshaller|
+
+|javax.xml.bind.helpers.AbstractUnmarshallerImpl_Description|
+|javax.xml.bind.helpers.AbstractUnmarshallerImpl_Fields|
+|javax.xml.bind.helpers.AbstractUnmarshallerImpl_Constructors|
+|javax.xml.bind.helpers.AbstractUnmarshallerImpl_Methods|
+
+================================================================================
+
+*javax.xml.bind.helpers.AbstractUnmarshallerImpl_Fields*
+|boolean_javax.xml.bind.helpers.AbstractUnmarshallerImpl.validating|
+
+*javax.xml.bind.helpers.AbstractUnmarshallerImpl_Constructors*
+|javax.xml.bind.helpers.AbstractUnmarshallerImpl()|
+
+*javax.xml.bind.helpers.AbstractUnmarshallerImpl_Methods*
+|javax.xml.bind.helpers.AbstractUnmarshallerImpl.createUnmarshalException(SAXException)|
+|javax.xml.bind.helpers.AbstractUnmarshallerImpl.getAdapter(Class<A>)|
+|javax.xml.bind.helpers.AbstractUnmarshallerImpl.getAttachmentUnmarshaller()|
+|javax.xml.bind.helpers.AbstractUnmarshallerImpl.getEventHandler()|Return the c
+|javax.xml.bind.helpers.AbstractUnmarshallerImpl.getListener()|
+|javax.xml.bind.helpers.AbstractUnmarshallerImpl.getProperty(String)|Default im
+|javax.xml.bind.helpers.AbstractUnmarshallerImpl.getSchema()|
+|javax.xml.bind.helpers.AbstractUnmarshallerImpl.getXMLReader()|Obtains a confi
+|javax.xml.bind.helpers.AbstractUnmarshallerImpl.isValidating()|Indicates wheth
+|javax.xml.bind.helpers.AbstractUnmarshallerImpl.setAdapter(Class<A>,A)|
+|javax.xml.bind.helpers.AbstractUnmarshallerImpl.setAdapter(XmlAdapter)|
+|javax.xml.bind.helpers.AbstractUnmarshallerImpl.setAttachmentUnmarshaller(AttachmentUnmarshaller)|
+|javax.xml.bind.helpers.AbstractUnmarshallerImpl.setEventHandler(ValidationEventHandler)|
+|javax.xml.bind.helpers.AbstractUnmarshallerImpl.setListener(Unmarshaller.Listener)|
+|javax.xml.bind.helpers.AbstractUnmarshallerImpl.setProperty(String,Object)|Def
+|javax.xml.bind.helpers.AbstractUnmarshallerImpl.setSchema(Schema)|
+|javax.xml.bind.helpers.AbstractUnmarshallerImpl.setValidating(boolean)|Specifi
+|javax.xml.bind.helpers.AbstractUnmarshallerImpl.unmarshal(File)|
+|javax.xml.bind.helpers.AbstractUnmarshallerImpl.unmarshal(InputSource)|
+|javax.xml.bind.helpers.AbstractUnmarshallerImpl.unmarshal(InputStream)|
+|javax.xml.bind.helpers.AbstractUnmarshallerImpl.unmarshal(Node,Class<T>)|
+|javax.xml.bind.helpers.AbstractUnmarshallerImpl.unmarshal(Reader)|
+|javax.xml.bind.helpers.AbstractUnmarshallerImpl.unmarshal(Source)|
+|javax.xml.bind.helpers.AbstractUnmarshallerImpl.unmarshal(Source,Class<T>)|
+|javax.xml.bind.helpers.AbstractUnmarshallerImpl.unmarshal(URL)|
+|javax.xml.bind.helpers.AbstractUnmarshallerImpl.unmarshal(XMLEventReader)|
+|javax.xml.bind.helpers.AbstractUnmarshallerImpl.unmarshal(XMLEventReader,Class<T>)|
+|javax.xml.bind.helpers.AbstractUnmarshallerImpl.unmarshal(XMLReader,InputSource)|
+|javax.xml.bind.helpers.AbstractUnmarshallerImpl.unmarshal(XMLStreamReader)|
+|javax.xml.bind.helpers.AbstractUnmarshallerImpl.unmarshal(XMLStreamReader,Class<T>)|
+
+*javax.xml.bind.helpers.AbstractUnmarshallerImpl_Description*
+
+Partial default Unmarshaller implementation. 
+
+This class provides a partial default implementation for the 
+(|javax.xml.bind.Unmarshaller|) interface. 
+
+A JAXB Provider has to implement five methods (getUnmarshallerHandler, 
+unmarshal(Node), unmarshal(XMLReader,InputSource), unmarshal(XMLStreamReader), 
+and unmarshal(XMLEventReader). 
+
+
+
+*boolean_javax.xml.bind.helpers.AbstractUnmarshallerImpl.validating*
+
+whether or not the unmarshaller will validate 
+
+
+
+*javax.xml.bind.helpers.AbstractUnmarshallerImpl()*
+
+public AbstractUnmarshallerImpl()
+
+
+
+
+*javax.xml.bind.helpers.AbstractUnmarshallerImpl.createUnmarshalException(SAXException)*
+
+protected |javax.xml.bind.UnmarshalException| createUnmarshalException(org.xml.sax.SAXException e)
+
+Creates an UnmarshalException from a SAXException. 
+
+This is an utility method provided for the derived classes. 
+
+When a provider-implemented ContentHandler wants to throw a JAXBException, it 
+needs to wrap the exception by a SAXException. If the unmarshaller 
+implementation blindly wrap SAXException by JAXBException, such an exception 
+will be a JAXBException wrapped by a SAXException wrapped by another 
+JAXBException. This is silly. 
+
+This method checks the nested exception of SAXException and reduce those 
+excessive wrapping. 
+
+
+
+    Returns: the resulting UnmarshalException 
+
+*javax.xml.bind.helpers.AbstractUnmarshallerImpl.getAdapter(Class<A>)*
+
+public |A| getAdapter(java.lang.Class<A> type)
+
+
+
+
+
+*javax.xml.bind.helpers.AbstractUnmarshallerImpl.getAttachmentUnmarshaller()*
+
+public |javax.xml.bind.attachment.AttachmentUnmarshaller| getAttachmentUnmarshaller()
+
+
+
+
+
+*javax.xml.bind.helpers.AbstractUnmarshallerImpl.getEventHandler()*
+
+public |javax.xml.bind.ValidationEventHandler| getEventHandler()
+  throws |javax.xml.bind.JAXBException|
+         
+Return the current event handler or the default event handler if one hasn't 
+been set. 
+
+
+
+    Returns: the current ValidationEventHandler or the default event handler if it hasn't 
+             been set 
+
+*javax.xml.bind.helpers.AbstractUnmarshallerImpl.getListener()*
+
+public |javax.xml.bind.Unmarshaller.Listener| getListener()
+
+
+
+
+
+*javax.xml.bind.helpers.AbstractUnmarshallerImpl.getProperty(String)*
+
+public |java.lang.Object| getProperty(java.lang.String name)
+  throws |javax.xml.bind.PropertyException|
+         
+Default implementation of the getProperty method always throws 
+PropertyException since there are no required properties. If a provider needs 
+to handle additional properties, it should override this method in a derived 
+class. 
+
+
+
+*javax.xml.bind.helpers.AbstractUnmarshallerImpl.getSchema()*
+
+public |javax.xml.validation.Schema| getSchema()
+
+
+
+
+
+*javax.xml.bind.helpers.AbstractUnmarshallerImpl.getXMLReader()*
+
+protected |org.xml.sax.XMLReader| getXMLReader()
+  throws |javax.xml.bind.JAXBException|
+         
+Obtains a configured XMLReader. 
+
+This method is used when the client-specified 
+(|javax.xml.transform.sax.SAXSource|) object doesn't have XMLReader. 
+(|javax.xml.bind.Unmarshaller|) is not re-entrant, so we will only use one 
+instance of XMLReader. 
+
+
+
+*javax.xml.bind.helpers.AbstractUnmarshallerImpl.isValidating()*
+
+public boolean isValidating()
+  throws |javax.xml.bind.JAXBException|
+         
+Indicates whether or not the Unmarshaller is configured to validate during 
+unmarshal operations. 
+
+Note: I named this method isValidating() to stay in-line with JAXP, as opposed 
+to naming it getValidating(). 
+
+
+
+    Returns: true if the Unmarshaller is configured to validate during unmarshal operations, 
+             false otherwise 
+
+*javax.xml.bind.helpers.AbstractUnmarshallerImpl.setAdapter(Class<A>,A)*
+
+public void setAdapter(
+  java.lang.Class<A> type,
+  A extends javax.xml.bind.annotation.adapters.XmlAdapter adapter)
+
+
+
+
+
+*javax.xml.bind.helpers.AbstractUnmarshallerImpl.setAdapter(XmlAdapter)*
+
+public void setAdapter(javax.xml.bind.annotation.adapters.XmlAdapter adapter)
+
+
+
+
+
+*javax.xml.bind.helpers.AbstractUnmarshallerImpl.setAttachmentUnmarshaller(AttachmentUnmarshaller)*
+
+public void setAttachmentUnmarshaller(javax.xml.bind.attachment.AttachmentUnmarshaller au)
+
+
+
+
+
+*javax.xml.bind.helpers.AbstractUnmarshallerImpl.setEventHandler(ValidationEventHandler)*
+
+public void setEventHandler(javax.xml.bind.ValidationEventHandler handler)
+  throws |javax.xml.bind.JAXBException|
+         
+Allow an application to register a validation event handler. 
+
+The validation event handler will be called by the JAXB Provider if any 
+validation errors are encountered during calls to any of the unmarshal methods. 
+If the client application does not register a validation event handler before 
+invoking the unmarshal methods, then all validation events will be silently 
+ignored and may result in unexpected behaviour. 
+
+
+    handler - the validation event handler 
+
+*javax.xml.bind.helpers.AbstractUnmarshallerImpl.setListener(Unmarshaller.Listener)*
+
+public void setListener(javax.xml.bind.Unmarshaller.Listener listener)
+
+
+
+
+
+*javax.xml.bind.helpers.AbstractUnmarshallerImpl.setProperty(String,Object)*
+
+public void setProperty(
+  java.lang.String name,
+  java.lang.Object value)
+  throws |javax.xml.bind.PropertyException|
+         
+Default implementation of the setProperty method always throws 
+PropertyException since there are no required properties. If a provider needs 
+to handle additional properties, it should override this method in a derived 
+class. 
+
+
+
+*javax.xml.bind.helpers.AbstractUnmarshallerImpl.setSchema(Schema)*
+
+public void setSchema(javax.xml.validation.Schema schema)
+
+
+
+
+
+*javax.xml.bind.helpers.AbstractUnmarshallerImpl.setValidating(boolean)*
+
+public void setValidating(boolean validating)
+  throws |javax.xml.bind.JAXBException|
+         
+Specifies whether or not the Unmarshaller should validate during unmarshal 
+operations. By default, the Unmarshaller does not validate. 
+
+This method may only be invoked before or after calling one of the unmarshal 
+methods. 
+
+
+    validating - true if the Unmarshaller should validate during unmarshal, false otherwise 
+
+*javax.xml.bind.helpers.AbstractUnmarshallerImpl.unmarshal(File)*
+
+public final |java.lang.Object| unmarshal(java.io.File f)
+  throws |javax.xml.bind.JAXBException|
+         
+
+
+
+
+*javax.xml.bind.helpers.AbstractUnmarshallerImpl.unmarshal(InputSource)*
+
+public final |java.lang.Object| unmarshal(org.xml.sax.InputSource source)
+  throws |javax.xml.bind.JAXBException|
+         
+
+
+
+
+*javax.xml.bind.helpers.AbstractUnmarshallerImpl.unmarshal(InputStream)*
+
+public final |java.lang.Object| unmarshal(java.io.InputStream is)
+  throws |javax.xml.bind.JAXBException|
+         
+
+
+
+
+*javax.xml.bind.helpers.AbstractUnmarshallerImpl.unmarshal(Node,Class<T>)*
+
+public |javax.xml.bind.JAXBElement|<T> unmarshal(
+  org.w3c.dom.Node node,
+  java.lang.Class<T> expectedType)
+  throws |javax.xml.bind.JAXBException|
+         
+
+
+
+
+*javax.xml.bind.helpers.AbstractUnmarshallerImpl.unmarshal(Reader)*
+
+public final |java.lang.Object| unmarshal(java.io.Reader reader)
+  throws |javax.xml.bind.JAXBException|
+         
+
+
+
+
+*javax.xml.bind.helpers.AbstractUnmarshallerImpl.unmarshal(Source)*
+
+public |java.lang.Object| unmarshal(javax.xml.transform.Source source)
+  throws |javax.xml.bind.JAXBException|
+         
+
+
+
+
+*javax.xml.bind.helpers.AbstractUnmarshallerImpl.unmarshal(Source,Class<T>)*
+
+public |javax.xml.bind.JAXBElement|<T> unmarshal(
+  javax.xml.transform.Source source,
+  java.lang.Class<T> expectedType)
+  throws |javax.xml.bind.JAXBException|
+         
+
+
+
+
+*javax.xml.bind.helpers.AbstractUnmarshallerImpl.unmarshal(URL)*
+
+public final |java.lang.Object| unmarshal(java.net.URL url)
+  throws |javax.xml.bind.JAXBException|
+         
+
+
+
+
+*javax.xml.bind.helpers.AbstractUnmarshallerImpl.unmarshal(XMLEventReader)*
+
+public |java.lang.Object| unmarshal(javax.xml.stream.XMLEventReader reader)
+  throws |javax.xml.bind.JAXBException|
+         
+
+
+
+
+*javax.xml.bind.helpers.AbstractUnmarshallerImpl.unmarshal(XMLEventReader,Class<T>)*
+
+public |javax.xml.bind.JAXBElement|<T> unmarshal(
+  javax.xml.stream.XMLEventReader reader,
+  java.lang.Class<T> expectedType)
+  throws |javax.xml.bind.JAXBException|
+         
+
+
+
+
+*javax.xml.bind.helpers.AbstractUnmarshallerImpl.unmarshal(XMLReader,InputSource)*
+
+protected abstract |java.lang.Object| unmarshal(
+  org.xml.sax.XMLReader reader,
+  org.xml.sax.InputSource source)
+  throws |javax.xml.bind.JAXBException|
+         
+Unmarshals an object by using the specified XMLReader and the InputSource. 
+
+The callee should call the setErrorHandler method of the XMLReader so that 
+errors are passed to the client-specified ValidationEventHandler. 
+
+
+
+*javax.xml.bind.helpers.AbstractUnmarshallerImpl.unmarshal(XMLStreamReader)*
+
+public |java.lang.Object| unmarshal(javax.xml.stream.XMLStreamReader reader)
+  throws |javax.xml.bind.JAXBException|
+         
+
+
+
+
+*javax.xml.bind.helpers.AbstractUnmarshallerImpl.unmarshal(XMLStreamReader,Class<T>)*
+
+public |javax.xml.bind.JAXBElement|<T> unmarshal(
+  javax.xml.stream.XMLStreamReader reader,
+  java.lang.Class<T> expectedType)
+  throws |javax.xml.bind.JAXBException|
+         
+
+
+
+
+

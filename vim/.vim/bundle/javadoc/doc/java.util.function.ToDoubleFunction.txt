@@ -1,0 +1,38 @@
+*java.util.function.ToDoubleFunction* *ToDoubleFunction* Represents a function t
+
+public interface interface ToDoubleFunction<T>
+
+
+|java.util.function.ToDoubleFunction_Description|
+|java.util.function.ToDoubleFunction_Fields|
+|java.util.function.ToDoubleFunction_Constructors|
+|java.util.function.ToDoubleFunction_Methods|
+
+================================================================================
+
+*java.util.function.ToDoubleFunction_Methods*
+|java.util.function.ToDoubleFunction.applyAsDouble(T)|Applies this function to 
+
+*java.util.function.ToDoubleFunction_Description*
+
+Represents a function that produces a double-valued result. This is 
+thedouble-producing primitive specialization for 
+(|java.util.function.Function|) . 
+
+This is a functional interface whose functional method is 
+(|java.util.function.ToDoubleFunction|) . 
+
+
+
+*java.util.function.ToDoubleFunction.applyAsDouble(T)*
+
+public double applyAsDouble(T value)
+
+Applies this function to the given argument. 
+
+
+    value - the function argument 
+
+    Returns: the function result 
+
+

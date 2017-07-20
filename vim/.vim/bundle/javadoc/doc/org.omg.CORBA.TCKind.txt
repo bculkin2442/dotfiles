@@ -1,0 +1,482 @@
+*org.omg.CORBA.TCKind* *TCKind* The Java mapping of the IDL enum TCKind, which
+ 
+
+public class TCKind
+  extends    |java.lang.Object|
+
+|org.omg.CORBA.TCKind_Description|
+|org.omg.CORBA.TCKind_Fields|
+|org.omg.CORBA.TCKind_Constructors|
+|org.omg.CORBA.TCKind_Methods|
+
+================================================================================
+
+*org.omg.CORBA.TCKind_Fields*
+|int_org.omg.CORBA.TCKind._tk_abstract_interface|
+|int_org.omg.CORBA.TCKind._tk_alias|
+|int_org.omg.CORBA.TCKind._tk_any|
+|int_org.omg.CORBA.TCKind._tk_array|
+|int_org.omg.CORBA.TCKind._tk_boolean|
+|int_org.omg.CORBA.TCKind._tk_char|
+|int_org.omg.CORBA.TCKind._tk_double|
+|int_org.omg.CORBA.TCKind._tk_enum|
+|int_org.omg.CORBA.TCKind._tk_except|
+|int_org.omg.CORBA.TCKind._tk_fixed|
+|int_org.omg.CORBA.TCKind._tk_float|
+|int_org.omg.CORBA.TCKind._tk_long|
+|int_org.omg.CORBA.TCKind._tk_longdouble|
+|int_org.omg.CORBA.TCKind._tk_longlong|
+|int_org.omg.CORBA.TCKind._tk_native|
+|int_org.omg.CORBA.TCKind._tk_null|
+|int_org.omg.CORBA.TCKind._tk_objref|
+|int_org.omg.CORBA.TCKind._tk_octet|
+|int_org.omg.CORBA.TCKind._tk_Principal|
+|int_org.omg.CORBA.TCKind._tk_sequence|
+|int_org.omg.CORBA.TCKind._tk_short|
+|int_org.omg.CORBA.TCKind._tk_string|
+|int_org.omg.CORBA.TCKind._tk_struct|
+|int_org.omg.CORBA.TCKind._tk_TypeCode|
+|int_org.omg.CORBA.TCKind._tk_ulong|
+|int_org.omg.CORBA.TCKind._tk_ulonglong|
+|int_org.omg.CORBA.TCKind._tk_union|
+|int_org.omg.CORBA.TCKind._tk_ushort|
+|int_org.omg.CORBA.TCKind._tk_value|
+|int_org.omg.CORBA.TCKind._tk_value_box|
+|int_org.omg.CORBA.TCKind._tk_void|
+|int_org.omg.CORBA.TCKind._tk_wchar|
+|int_org.omg.CORBA.TCKind._tk_wstring|
+|org.omg.CORBA.TCKind_org.omg.CORBA.TCKind.tk_abstract_interface|
+|org.omg.CORBA.TCKind_org.omg.CORBA.TCKind.tk_alias|
+|org.omg.CORBA.TCKind_org.omg.CORBA.TCKind.tk_any|
+|org.omg.CORBA.TCKind_org.omg.CORBA.TCKind.tk_array|
+|org.omg.CORBA.TCKind_org.omg.CORBA.TCKind.tk_boolean|
+|org.omg.CORBA.TCKind_org.omg.CORBA.TCKind.tk_char|
+|org.omg.CORBA.TCKind_org.omg.CORBA.TCKind.tk_double|
+|org.omg.CORBA.TCKind_org.omg.CORBA.TCKind.tk_enum|
+|org.omg.CORBA.TCKind_org.omg.CORBA.TCKind.tk_except|
+|org.omg.CORBA.TCKind_org.omg.CORBA.TCKind.tk_fixed|
+|org.omg.CORBA.TCKind_org.omg.CORBA.TCKind.tk_float|
+|org.omg.CORBA.TCKind_org.omg.CORBA.TCKind.tk_long|
+|org.omg.CORBA.TCKind_org.omg.CORBA.TCKind.tk_longdouble|
+|org.omg.CORBA.TCKind_org.omg.CORBA.TCKind.tk_longlong|
+|org.omg.CORBA.TCKind_org.omg.CORBA.TCKind.tk_native|
+|org.omg.CORBA.TCKind_org.omg.CORBA.TCKind.tk_null|
+|org.omg.CORBA.TCKind_org.omg.CORBA.TCKind.tk_objref|
+|org.omg.CORBA.TCKind_org.omg.CORBA.TCKind.tk_octet|
+|org.omg.CORBA.TCKind_org.omg.CORBA.TCKind.tk_Principal|
+|org.omg.CORBA.TCKind_org.omg.CORBA.TCKind.tk_sequence|
+|org.omg.CORBA.TCKind_org.omg.CORBA.TCKind.tk_short|
+|org.omg.CORBA.TCKind_org.omg.CORBA.TCKind.tk_string|
+|org.omg.CORBA.TCKind_org.omg.CORBA.TCKind.tk_struct|
+|org.omg.CORBA.TCKind_org.omg.CORBA.TCKind.tk_TypeCode|
+|org.omg.CORBA.TCKind_org.omg.CORBA.TCKind.tk_ulong|
+|org.omg.CORBA.TCKind_org.omg.CORBA.TCKind.tk_ulonglong|
+|org.omg.CORBA.TCKind_org.omg.CORBA.TCKind.tk_union|
+|org.omg.CORBA.TCKind_org.omg.CORBA.TCKind.tk_ushort|
+|org.omg.CORBA.TCKind_org.omg.CORBA.TCKind.tk_value|
+|org.omg.CORBA.TCKind_org.omg.CORBA.TCKind.tk_value_box|
+|org.omg.CORBA.TCKind_org.omg.CORBA.TCKind.tk_void|
+|org.omg.CORBA.TCKind_org.omg.CORBA.TCKind.tk_wchar|
+|org.omg.CORBA.TCKind_org.omg.CORBA.TCKind.tk_wstring|
+
+*org.omg.CORBA.TCKind_Constructors*
+|org.omg.CORBA.TCKind(int)|Creates a new TCKind instance initialized with the g
+
+*org.omg.CORBA.TCKind_Methods*
+|org.omg.CORBA.TCKind.from_int(int)|Converts the given int to the corresponding
+|org.omg.CORBA.TCKind.value()|Retrieves the value of this TCKind instance.
+
+*org.omg.CORBA.TCKind_Description*
+
+The Java mapping of the IDL enum TCKind, which specifies the kind of a TypeCode 
+object. There is one kind for each primitive and essential IDL data type. 
+
+The class TCKind consists of: 
+
+a set of int constants, one for each kind of IDL data type. These int constants 
+make it possible to use a switch statement. a set of TCKind constants, one for 
+each kind of IDL data type. The value field for each TCKind instance is 
+initialized with the int constant that corresponds with the IDL data type that 
+the instance represents. the method from_intfor converting an int to its 
+corresponding TCKind instance Example: 
+
+org.omg.CORBA.TCKind k = org.omg.CORBA.TCKind.from_int( 
+org.omg.CORBA.TCKind._tk_string); 
+
+The variable k represents the TCKind instance for the IDL type string, which is 
+tk_string. 
+
+the method value for accessing the _value field of a TCKind constant Example: 
+
+int i = org.omg.CORBA.TCKind.tk_char.value(); 
+
+The variable i represents 9, the value for the IDL data type char. 
+
+The value field of a TCKind instance is the CDR encoding used for a TypeCode 
+object in an IIOP message. 
+
+
+
+*int_org.omg.CORBA.TCKind._tk_abstract_interface*
+
+The int constant for the IDL data type abstract interface. 
+
+
+*int_org.omg.CORBA.TCKind._tk_alias*
+
+The int constant for the IDL data type alias. 
+
+
+*int_org.omg.CORBA.TCKind._tk_any*
+
+The int constant for the IDL data type any. 
+
+
+*int_org.omg.CORBA.TCKind._tk_array*
+
+The int constant for the IDL data type array. 
+
+
+*int_org.omg.CORBA.TCKind._tk_boolean*
+
+The int constant for the IDL data type boolean. 
+
+
+*int_org.omg.CORBA.TCKind._tk_char*
+
+The int constant for the IDL data type char. 
+
+
+*int_org.omg.CORBA.TCKind._tk_double*
+
+The int constant for the IDL data type double. 
+
+
+*int_org.omg.CORBA.TCKind._tk_enum*
+
+The int constant for the IDL data type enum. 
+
+
+*int_org.omg.CORBA.TCKind._tk_except*
+
+The int constant for the IDL data type except. 
+
+
+*int_org.omg.CORBA.TCKind._tk_fixed*
+
+The int constant for the IDL data type fixed. 
+
+
+*int_org.omg.CORBA.TCKind._tk_float*
+
+The int constant for the IDL data type float. 
+
+
+*int_org.omg.CORBA.TCKind._tk_long*
+
+The int constant for the IDL data type long. 
+
+
+*int_org.omg.CORBA.TCKind._tk_longdouble*
+
+The int constant for the IDL data type longdouble. 
+
+
+*int_org.omg.CORBA.TCKind._tk_longlong*
+
+The int constant for the IDL data type longlong. 
+
+
+*int_org.omg.CORBA.TCKind._tk_native*
+
+The int constant for the IDL data type native. 
+
+
+*int_org.omg.CORBA.TCKind._tk_null*
+
+The int constant for a null IDL data type. 
+
+
+*int_org.omg.CORBA.TCKind._tk_objref*
+
+The int constant for the IDL data type objref. 
+
+
+*int_org.omg.CORBA.TCKind._tk_octet*
+
+The int constant for the IDL data type octet. 
+
+
+*int_org.omg.CORBA.TCKind._tk_Principal*
+
+The int constant for the IDL data type Principal. 
+
+
+*int_org.omg.CORBA.TCKind._tk_sequence*
+
+The int constant for the IDL data type sequence. 
+
+
+*int_org.omg.CORBA.TCKind._tk_short*
+
+The int constant for the IDL data type short. 
+
+
+*int_org.omg.CORBA.TCKind._tk_string*
+
+The int constant for the IDL data type string. 
+
+
+*int_org.omg.CORBA.TCKind._tk_struct*
+
+The int constant for the IDL data type struct. 
+
+
+*int_org.omg.CORBA.TCKind._tk_TypeCode*
+
+The int constant for the IDL data type TypeCode. 
+
+
+*int_org.omg.CORBA.TCKind._tk_ulong*
+
+The int constant for the IDL data type ulong. 
+
+
+*int_org.omg.CORBA.TCKind._tk_ulonglong*
+
+The int constant for the IDL data type ulonglong. 
+
+
+*int_org.omg.CORBA.TCKind._tk_union*
+
+The int constant for the IDL data type union. 
+
+
+*int_org.omg.CORBA.TCKind._tk_ushort*
+
+The int constant for the IDL data type ushort. 
+
+
+*int_org.omg.CORBA.TCKind._tk_value*
+
+The int constant for the IDL data type value. 
+
+
+*int_org.omg.CORBA.TCKind._tk_value_box*
+
+The int constant for the IDL data type value_box. 
+
+
+*int_org.omg.CORBA.TCKind._tk_void*
+
+The int constant for the IDL data type void. 
+
+
+*int_org.omg.CORBA.TCKind._tk_wchar*
+
+The int constant for the IDL data type wchar. 
+
+
+*int_org.omg.CORBA.TCKind._tk_wstring*
+
+The int constant for the IDL data type wstring. 
+
+
+*org.omg.CORBA.TCKind_org.omg.CORBA.TCKind.tk_abstract_interface*
+
+The TCKind constant whose value field is initialized with 
+TCKind._tk_abstract_interface. 
+
+
+*org.omg.CORBA.TCKind_org.omg.CORBA.TCKind.tk_alias*
+
+The TCKind constant whose value field is initialized with TCKind._tk_alias. 
+
+
+*org.omg.CORBA.TCKind_org.omg.CORBA.TCKind.tk_any*
+
+The TCKind constant whose value field is initialized with TCKind._tk_any. 
+
+
+*org.omg.CORBA.TCKind_org.omg.CORBA.TCKind.tk_array*
+
+The TCKind constant whose value field is initialized with TCKind._tk_array. 
+
+
+*org.omg.CORBA.TCKind_org.omg.CORBA.TCKind.tk_boolean*
+
+The TCKind constant whose value field is initialized with TCKind._tk_boolean. 
+
+
+*org.omg.CORBA.TCKind_org.omg.CORBA.TCKind.tk_char*
+
+The TCKind constant whose value field is initialized with TCKind._tk_char. 
+
+
+*org.omg.CORBA.TCKind_org.omg.CORBA.TCKind.tk_double*
+
+The TCKind constant whose value field is initialized with TCKind._tk_double. 
+
+
+*org.omg.CORBA.TCKind_org.omg.CORBA.TCKind.tk_enum*
+
+The TCKind constant whose value field is initialized with TCKind._tk_enum. 
+
+
+*org.omg.CORBA.TCKind_org.omg.CORBA.TCKind.tk_except*
+
+The TCKind constant whose value field is initialized with TCKind._tk_except. 
+
+
+*org.omg.CORBA.TCKind_org.omg.CORBA.TCKind.tk_fixed*
+
+The TCKind constant whose value field is initialized with TCKind._tk_fixed. 
+
+
+*org.omg.CORBA.TCKind_org.omg.CORBA.TCKind.tk_float*
+
+The TCKind constant whose value field is initialized with TCKind._tk_float. 
+
+
+*org.omg.CORBA.TCKind_org.omg.CORBA.TCKind.tk_long*
+
+The TCKind constant whose value field is initialized with TCKind._tk_long. 
+
+
+*org.omg.CORBA.TCKind_org.omg.CORBA.TCKind.tk_longdouble*
+
+The TCKind constant whose value field is initialized with 
+TCKind._tk_longdouble. 
+
+
+*org.omg.CORBA.TCKind_org.omg.CORBA.TCKind.tk_longlong*
+
+The TCKind constant whose value field is initialized with TCKind._tk_longlong. 
+
+
+*org.omg.CORBA.TCKind_org.omg.CORBA.TCKind.tk_native*
+
+The TCKind constant whose value field is initialized with TCKind._tk_native. 
+
+
+*org.omg.CORBA.TCKind_org.omg.CORBA.TCKind.tk_null*
+
+The TCKind constant whose value field is initialized with TCKind._tk_null. 
+
+
+*org.omg.CORBA.TCKind_org.omg.CORBA.TCKind.tk_objref*
+
+The TCKind constant whose value field is initialized with TCKind._tk_objref. 
+
+
+*org.omg.CORBA.TCKind_org.omg.CORBA.TCKind.tk_octet*
+
+The TCKind constant whose value field is initialized with TCKind._tk_octet. 
+
+
+*org.omg.CORBA.TCKind_org.omg.CORBA.TCKind.tk_Principal*
+
+The TCKind constant whose value field is initialized with TCKind._tk_Principal. 
+
+
+*org.omg.CORBA.TCKind_org.omg.CORBA.TCKind.tk_sequence*
+
+The TCKind constant whose value field is initialized with TCKind._tk_sequence. 
+
+
+*org.omg.CORBA.TCKind_org.omg.CORBA.TCKind.tk_short*
+
+The TCKind constant whose value field is initialized with TCKind._tk_short. 
+
+
+*org.omg.CORBA.TCKind_org.omg.CORBA.TCKind.tk_string*
+
+The TCKind constant whose value field is initialized with TCKind._tk_string. 
+
+
+*org.omg.CORBA.TCKind_org.omg.CORBA.TCKind.tk_struct*
+
+The TCKind constant whose value field is initialized with TCKind._tk_struct. 
+
+
+*org.omg.CORBA.TCKind_org.omg.CORBA.TCKind.tk_TypeCode*
+
+The TCKind constant whose value field is initialized with TCKind._tk_TypeCode. 
+
+
+*org.omg.CORBA.TCKind_org.omg.CORBA.TCKind.tk_ulong*
+
+The TCKind constant whose value field is initialized with TCKind._tk_ulong. 
+
+
+*org.omg.CORBA.TCKind_org.omg.CORBA.TCKind.tk_ulonglong*
+
+The TCKind constant whose value field is initialized with TCKind._tk_ulonglong. 
+
+
+*org.omg.CORBA.TCKind_org.omg.CORBA.TCKind.tk_union*
+
+The TCKind constant whose value field is initialized with TCKind._tk_union. 
+
+
+*org.omg.CORBA.TCKind_org.omg.CORBA.TCKind.tk_ushort*
+
+The TCKind constant whose value field is initialized with TCKind._tk_ushort. 
+
+
+*org.omg.CORBA.TCKind_org.omg.CORBA.TCKind.tk_value*
+
+The TCKind constant whose value field is initialized with TCKind._tk_value. 
+
+
+*org.omg.CORBA.TCKind_org.omg.CORBA.TCKind.tk_value_box*
+
+The TCKind constant whose value field is initialized with TCKind._tk_value_box. 
+
+
+*org.omg.CORBA.TCKind_org.omg.CORBA.TCKind.tk_void*
+
+The TCKind constant whose value field is initialized with TCKind._tk_void. 
+
+
+*org.omg.CORBA.TCKind_org.omg.CORBA.TCKind.tk_wchar*
+
+The TCKind constant whose value field is initialized with TCKind._tk_wchar. 
+
+
+*org.omg.CORBA.TCKind_org.omg.CORBA.TCKind.tk_wstring*
+
+The TCKind constant whose value field is initialized with TCKind._tk_wstring. 
+
+
+
+*org.omg.CORBA.TCKind(int)*
+
+protected TCKind(int _value)
+
+Creates a new TCKind instance initialized with the given int. 
+
+    _value - the int to convert. It must be one of the int constants in the class TCKind. 
+
+*org.omg.CORBA.TCKind.from_int(int)*
+
+public static |org.omg.CORBA.TCKind| from_int(int i)
+
+Converts the given int to the corresponding TCKind instance. 
+
+
+    i - the int to convert. It must be one of the int constants in the class TCKind. 
+
+    Returns: the TCKind instance whose value field matches the given int 
+
+*org.omg.CORBA.TCKind.value()*
+
+public int value()
+
+Retrieves the value of this TCKind instance. 
+
+
+
+    Returns: the int that represents the kind of IDL data type for this TCKind instance 
+
+

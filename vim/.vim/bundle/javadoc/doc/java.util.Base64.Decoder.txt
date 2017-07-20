@@ -1,0 +1,131 @@
+*java.util.Base64.Decoder* *Base64.Decoder* This class implements a decoder for 
+
+public static class Base64.Decoder
+  extends    |java.lang.Object|
+
+|java.util.Base64.Decoder_Description|
+|java.util.Base64.Decoder_Fields|
+|java.util.Base64.Decoder_Constructors|
+|java.util.Base64.Decoder_Methods|
+
+================================================================================
+
+*java.util.Base64.Decoder_Methods*
+|java.util.Base64.Decoder.decode(byte[])|Decodes all bytes from the input byte 
+|java.util.Base64.Decoder.decode(byte[],byte[])|Decodes all bytes from the inpu
+|java.util.Base64.Decoder.decode(ByteBuffer)|Decodes all bytes from the input b
+|java.util.Base64.Decoder.decode(String)|Decodes a Base64 encoded String into a
+|java.util.Base64.Decoder.wrap(InputStream)|Returns an input stream for decodin
+
+*java.util.Base64.Decoder_Description*
+
+This class implements a decoder for decoding byte data using the Base64 
+encoding scheme as specified in RFC 4648 and RFC 2045. 
+
+The Base64 padding character'='is accepted and interpreted as the end of the 
+encoded byte data, but is not required. So if the final unit of the encoded 
+byte data only has two or three Base64 characters (without the corresponding 
+padding character(s) padded), they are decoded as if followed by padding 
+character(s). If there is a padding character present in the final unit, the 
+correct number of padding character(s) must be present, 
+otherwiseIllegalArgumentException(IOExceptionwhen reading from a Base64 stream) 
+is thrown during decoding. 
+
+Instances of (|java.util.Base64.Decoder|) class are safe for use by multiple 
+concurrent threads. 
+
+Unless otherwise noted, passing anullargument to a method of this class will 
+cause a NullPointerException(|java.lang.NullPointerException|) to be thrown. 
+
+
+
+*java.util.Base64.Decoder.decode(byte[])*
+
+public byte[] decode(byte[] src)
+
+Decodes all bytes from the input byte array using the (|java.util.Base64|) 
+encoding scheme, writing the results into a newly-allocated output byte array. 
+The returned byte array is of the length of the resulting bytes. 
+
+
+    src - the byte array to decode 
+
+    Returns: A newly-allocated byte array containing the decoded bytes. 
+
+*java.util.Base64.Decoder.decode(byte[],byte[])*
+
+public int decode(
+  byte[] src,
+  byte[] dst)
+
+Decodes all bytes from the input byte array using the (|java.util.Base64|) 
+encoding scheme, writing the results into the given output byte array, starting 
+at offset 0. 
+
+It is the responsibility of the invoker of this method to make sure the output 
+byte arraydsthas enough space for decoding all bytes from the input byte array. 
+No bytes will be be written to the output byte array if the output byte array 
+is not big enough. 
+
+If the input byte array is not in valid Base64 encoding scheme then some bytes 
+may have been written to the output byte array before IllegalargumentException 
+is thrown. 
+
+
+    src - the byte array to decode 
+    dst - the output byte array 
+
+    Returns: The number of bytes written to the output byte array 
+
+*java.util.Base64.Decoder.decode(ByteBuffer)*
+
+public |java.nio.ByteBuffer| decode(java.nio.ByteBuffer buffer)
+
+Decodes all bytes from the input byte buffer using the (|java.util.Base64|) 
+encoding scheme, writing the results into a newly-allocated ByteBuffer. 
+
+Upon return, the source buffer's position will be updated to its limit; its 
+limit will not have been changed. The returned output buffer's position will be 
+zero and its limit will be the number of resulting decoded bytes 
+
+IllegalArgumentExceptionis thrown if the input buffer is not in valid Base64 
+encoding scheme. The position of the input buffer will not be advanced in this 
+case. 
+
+
+    buffer - the ByteBuffer to decode 
+
+    Returns: A newly-allocated byte buffer containing the decoded bytes 
+
+*java.util.Base64.Decoder.decode(String)*
+
+public byte[] decode(java.lang.String src)
+
+Decodes a Base64 encoded String into a newly-allocated byte array using the 
+(|java.util.Base64|) encoding scheme. 
+
+An invocation of this method has exactly the same effect as 
+invokingdecode(src.getBytes(StandardCharsets.ISO_8859_1)) 
+
+
+    src - the string to decode 
+
+    Returns: A newly-allocated byte array containing the decoded bytes. 
+
+*java.util.Base64.Decoder.wrap(InputStream)*
+
+public |java.io.InputStream| wrap(java.io.InputStream is)
+
+Returns an input stream for decoding (|java.util.Base64|) encoded byte stream. 
+
+Thereadmethods of the returnedInputStreamwill throwIOExceptionwhen reading 
+bytes that cannot be decoded. 
+
+Closing the returned input stream will close the underlying input stream. 
+
+
+    is - the input stream 
+
+    Returns: the input stream for decoding the specified Base64 encoded byte stream 
+
+

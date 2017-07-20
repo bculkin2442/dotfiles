@@ -1,0 +1,32 @@
+*org.omg.PortableInterceptor.ServerRequestInterceptor* *ServerRequestInterceptor* 
+
+public interface interface ServerRequestInterceptor
+
+  implements |org.omg.PortableInterceptor.ServerRequestInterceptorOperations|
+             |org.omg.PortableInterceptor.Interceptor|
+             |org.omg.CORBA.portable.IDLEntity|
+
+|org.omg.PortableInterceptor.ServerRequestInterceptor_Description|
+|org.omg.PortableInterceptor.ServerRequestInterceptor_Fields|
+|org.omg.PortableInterceptor.ServerRequestInterceptor_Constructors|
+|org.omg.PortableInterceptor.ServerRequestInterceptor_Methods|
+
+================================================================================
+
+*org.omg.PortableInterceptor.ServerRequestInterceptor_Description*
+
+Server-side request interceptor. 
+
+A request Interceptor is designed to intercept the flow of a request/reply 
+sequence through the ORB at specific points so that services can query the 
+request information and manipulate the service contexts which are propagated 
+between clients and servers. The primary use of request Interceptors is to 
+enable ORB services to transfer context information between clients and 
+servers. There are two types of request Interceptors: client-side and 
+server-side. 
+
+To write a server-side Interceptor, implement the ServerRequestInterceptor 
+interface. 
+
+
+

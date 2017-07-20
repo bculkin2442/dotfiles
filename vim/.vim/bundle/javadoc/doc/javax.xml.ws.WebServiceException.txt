@@ -1,0 +1,65 @@
+*javax.xml.ws.WebServiceException* *WebServiceException* The WebServiceException
+
+public class WebServiceException
+  extends    |java.lang.RuntimeException|
+
+|javax.xml.ws.WebServiceException_Description|
+|javax.xml.ws.WebServiceException_Fields|
+|javax.xml.ws.WebServiceException_Constructors|
+|javax.xml.ws.WebServiceException_Methods|
+
+================================================================================
+
+*javax.xml.ws.WebServiceException_Constructors*
+|javax.xml.ws.WebServiceException()|Constructs a new exception with null as its
+|javax.xml.ws.WebServiceException(String)|Constructs a new exception with the s
+|javax.xml.ws.WebServiceException(String,Throwable)|Constructs a new exception 
+|javax.xml.ws.WebServiceException(Throwable)|Constructs a new WebServiceExcepti
+
+*javax.xml.ws.WebServiceException_Description*
+
+The WebServiceException class is the base exception class for all JAX-WS API 
+runtime exceptions. 
+
+
+
+*javax.xml.ws.WebServiceException()*
+
+public WebServiceException()
+
+Constructs a new exception with null as its detail message. The cause is not 
+initialized. 
+
+
+*javax.xml.ws.WebServiceException(String)*
+
+public WebServiceException(java.lang.String message)
+
+Constructs a new exception with the specified detail message. The cause is not 
+initialized. 
+
+    message - The detail message which is later retrieved using the getMessage method 
+
+*javax.xml.ws.WebServiceException(String,Throwable)*
+
+public WebServiceException(
+  java.lang.String message,
+  java.lang.Throwable cause)
+
+Constructs a new exception with the specified detail message and cause. 
+
+    message - The detail message which is later retrieved using the getMessage method 
+    cause - The cause which is saved for the later retrieval throw by the getCause method 
+
+*javax.xml.ws.WebServiceException(Throwable)*
+
+public WebServiceException(java.lang.Throwable cause)
+
+Constructs a new WebServiceException with the specified cause and a detail 
+message of (cause==null ? null : cause.toString()) (which typically contains 
+the class and detail message of cause). 
+
+    cause - The cause which is saved for the later retrieval throw by the getCause method. 
+       (A null value is permitted, and indicates that the cause is nonexistent 
+       or unknown.) 
+

@@ -1,0 +1,25 @@
+*org.omg.CosNaming.BindingIterator* *BindingIterator* The BindingIterator interf
+
+public interface interface BindingIterator
+
+  implements |org.omg.CosNaming.BindingIteratorOperations|
+             |org.omg.CORBA.Object|
+             |org.omg.CORBA.portable.IDLEntity|
+
+|org.omg.CosNaming.BindingIterator_Description|
+|org.omg.CosNaming.BindingIterator_Fields|
+|org.omg.CosNaming.BindingIterator_Constructors|
+|org.omg.CosNaming.BindingIterator_Methods|
+
+================================================================================
+
+*org.omg.CosNaming.BindingIterator_Description*
+
+The BindingIterator interface allows a client to iterate through the bindings 
+using the next_one or next_n operations. 
+
+The bindings iterator is obtained by using the list method on the 
+NamingContext. 
+
+
+

@@ -1,0 +1,91 @@
+*java.time.chrono.ThaiBuddhistEra* *ThaiBuddhistEra* An era in the Thai Buddhist
+
+public final enumThaiBuddhistEra
+  extends    |java.lang.Enum|
+  implements |java.time.chrono.Era|
+
+|java.time.chrono.ThaiBuddhistEra_Description|
+|java.time.chrono.ThaiBuddhistEra_Fields|
+|java.time.chrono.ThaiBuddhistEra_Constructors|
+|java.time.chrono.ThaiBuddhistEra_Methods|
+
+================================================================================
+
+*java.time.chrono.ThaiBuddhistEra_Methods*
+|java.time.chrono.ThaiBuddhistEra.getValue()|Gets the numeric eraintvalue.
+|java.time.chrono.ThaiBuddhistEra.of(int)|Obtains an instance ofThaiBuddhistEra
+|java.time.chrono.ThaiBuddhistEra.valueOf(String)|
+|java.time.chrono.ThaiBuddhistEra.values()|
+
+*java.time.chrono.ThaiBuddhistEra_Description*
+
+An era in the Thai Buddhist calendar system. 
+
+The Thai Buddhist calendar system has two eras. The current era, for years from 
+1 onwards, is known as the 'Buddhist' era. All previous years, zero or earlier 
+in the proleptic count or one and greater in the year-of-era count, are part of 
+the 'Before Buddhist' era. 
+
+
+
+year-of-era era proleptic-year ISO proleptic-year 
+
+
+
+2BE2-542 
+
+1BE1-543 
+
+1BEFORE_BE0-544 
+
+2BEFORE_BE-1-545 
+
+
+
+Do not useordinal()to obtain the numeric representation ofThaiBuddhistEra. 
+UsegetValue()instead. 
+
+
+
+*java.time.chrono.ThaiBuddhistEra.getValue()*
+
+public int getValue()
+
+Gets the numeric eraintvalue. 
+
+The era BEFORE_BE has the value 0, while the era BE has the value 1. 
+
+
+
+    Returns: the era value, from 0 (BEFORE_BE) to 1 (BE) 
+
+*java.time.chrono.ThaiBuddhistEra.of(int)*
+
+public static |java.time.chrono.ThaiBuddhistEra| of(int thaiBuddhistEra)
+
+Obtains an instance ofThaiBuddhistErafrom anintvalue. ThaiBuddhistErais an enum 
+representing the Thai Buddhist eras of BEFORE_BE/BE. This factory allows the 
+enum to be obtained from theintvalue. 
+
+
+    thaiBuddhistEra - the era to represent, from 0 to 1 
+
+    Returns: the BuddhistEra singleton, never null 
+
+*java.time.chrono.ThaiBuddhistEra.valueOf(String)*
+
+public static |java.time.chrono.ThaiBuddhistEra| valueOf(java.lang.String name)
+
+
+
+
+
+*java.time.chrono.ThaiBuddhistEra.values()*
+
+public static |java.time.chrono.ThaiBuddhistEra|[] values()
+
+
+
+
+
+

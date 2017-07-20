@@ -1,0 +1,38 @@
+*java.util.function.IntToDoubleFunction* *IntToDoubleFunction* Represents a func
+
+public interface interface IntToDoubleFunction
+
+
+|java.util.function.IntToDoubleFunction_Description|
+|java.util.function.IntToDoubleFunction_Fields|
+|java.util.function.IntToDoubleFunction_Constructors|
+|java.util.function.IntToDoubleFunction_Methods|
+
+================================================================================
+
+*java.util.function.IntToDoubleFunction_Methods*
+|java.util.function.IntToDoubleFunction.applyAsDouble(int)|Applies this functio
+
+*java.util.function.IntToDoubleFunction_Description*
+
+Represents a function that accepts an int-valued argument and produces a 
+double-valued result. This is theint-to-doubleprimitive specialization for 
+(|java.util.function.Function|) . 
+
+This is a functional interface whose functional method is 
+(|java.util.function.IntToDoubleFunction|) . 
+
+
+
+*java.util.function.IntToDoubleFunction.applyAsDouble(int)*
+
+public double applyAsDouble(int value)
+
+Applies this function to the given argument. 
+
+
+    value - the function argument 
+
+    Returns: the function result 
+
+

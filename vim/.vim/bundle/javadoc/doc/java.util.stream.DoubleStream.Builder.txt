@@ -1,0 +1,63 @@
+*java.util.stream.DoubleStream.Builder* *DoubleStream.Builder* A mutable builder
+
+public static interface interface DoubleStream.Builder
+
+  implements |java.util.function.DoubleConsumer|
+
+|java.util.stream.DoubleStream.Builder_Description|
+|java.util.stream.DoubleStream.Builder_Fields|
+|java.util.stream.DoubleStream.Builder_Constructors|
+|java.util.stream.DoubleStream.Builder_Methods|
+
+================================================================================
+
+*java.util.stream.DoubleStream.Builder_Methods*
+|java.util.stream.DoubleStream.Builder.accept(double)|Adds an element to the st
+|java.util.stream.DoubleStream.Builder.add(double)|Adds an element to the strea
+|java.util.stream.DoubleStream.Builder.build()|Builds the stream, transitioning
+
+*java.util.stream.DoubleStream.Builder_Description*
+
+A mutable builder for aDoubleStream. 
+
+A stream builder has a lifecycle, which starts in a building phase, during 
+which elements can be added, and then transitions to a built phase, after which 
+elements may not be added. The built phase begins when the 
+(|java.util.stream.DoubleStream.Builder|) method is called, which creates an 
+ordered stream whose elements are the elements that were added to the stream 
+builder, in the order they were added. 
+
+
+
+*java.util.stream.DoubleStream.Builder.accept(double)*
+
+public void accept(double t)
+
+Adds an element to the stream being built. 
+
+
+
+*java.util.stream.DoubleStream.Builder.add(double)*
+
+public |java.util.stream.DoubleStream.Builder| add(double t)
+
+Adds an element to the stream being built. 
+
+
+    t - the element to add 
+
+    Returns: {@code this} builder 
+
+*java.util.stream.DoubleStream.Builder.build()*
+
+public |java.util.stream.DoubleStream| build()
+
+Builds the stream, transitioning this builder to the built state. 
+AnIllegalStateExceptionis thrown if there are further attempts to operate on 
+the builder after it has entered the built state. 
+
+
+
+    Returns: the built stream 
+
+

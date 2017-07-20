@@ -1,0 +1,89 @@
+*org.omg.IOP.MultipleComponentProfileHelper* *MultipleComponentProfileHelper* An
+
+public abstract class MultipleComponentProfileHelper
+  extends    |java.lang.Object|
+
+|org.omg.IOP.MultipleComponentProfileHelper_Description|
+|org.omg.IOP.MultipleComponentProfileHelper_Fields|
+|org.omg.IOP.MultipleComponentProfileHelper_Constructors|
+|org.omg.IOP.MultipleComponentProfileHelper_Methods|
+
+================================================================================
+
+*org.omg.IOP.MultipleComponentProfileHelper_Constructors*
+|org.omg.IOP.MultipleComponentProfileHelper()|
+
+*org.omg.IOP.MultipleComponentProfileHelper_Methods*
+|org.omg.IOP.MultipleComponentProfileHelper.extract(Any)|
+|org.omg.IOP.MultipleComponentProfileHelper.id()|
+|org.omg.IOP.MultipleComponentProfileHelper.insert(Any,TaggedComponent[])|
+|org.omg.IOP.MultipleComponentProfileHelper.read(InputStream)|
+|org.omg.IOP.MultipleComponentProfileHelper.type()|
+|org.omg.IOP.MultipleComponentProfileHelper.write(OutputStream,TaggedComponent[])|
+
+*org.omg.IOP.MultipleComponentProfileHelper_Description*
+
+An array of tagged components, forming a multiple component profile. 
+
+
+
+*org.omg.IOP.MultipleComponentProfileHelper()*
+
+public MultipleComponentProfileHelper()
+
+
+
+
+*org.omg.IOP.MultipleComponentProfileHelper.extract(Any)*
+
+public static |org.omg.IOP.TaggedComponent|[] extract(org.omg.CORBA.Any a)
+
+
+
+
+
+*org.omg.IOP.MultipleComponentProfileHelper.id()*
+
+public static |java.lang.String| id()
+
+
+
+
+
+*org.omg.IOP.MultipleComponentProfileHelper.insert(Any,TaggedComponent[])*
+
+public static void insert(
+  org.omg.CORBA.Any a,
+  org.omg.IOP.TaggedComponent[] that)
+
+
+
+
+
+*org.omg.IOP.MultipleComponentProfileHelper.read(InputStream)*
+
+public static |org.omg.IOP.TaggedComponent|[] read(org.omg.CORBA.portable.InputStream istream)
+
+
+
+
+
+*org.omg.IOP.MultipleComponentProfileHelper.type()*
+
+public static synchronized |org.omg.CORBA.TypeCode| type()
+
+
+
+
+
+*org.omg.IOP.MultipleComponentProfileHelper.write(OutputStream,TaggedComponent[])*
+
+public static void write(
+  org.omg.CORBA.portable.OutputStream ostream,
+  org.omg.IOP.TaggedComponent[] value)
+
+
+
+
+
+

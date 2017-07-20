@@ -1,0 +1,785 @@
+*java.awt.List* *List* The List component presents the user with a
+ scrolling li
+
+public class List
+  extends    |java.awt.Component|
+  implements |java.awt.ItemSelectable|
+             |javax.accessibility.Accessible|
+
+|java.awt.List_Description|
+|java.awt.List_Fields|
+|java.awt.List_Constructors|
+|java.awt.List_Methods|
+
+================================================================================
+
+*java.awt.List_Constructors*
+|java.awt.List()|Creates a new scrolling list.
+|java.awt.List(int)|Creates a new scrolling list initialized with the specified
+|java.awt.List(int,boolean)|Creates a new scrolling list initialized to display
+
+*java.awt.List_Methods*
+|java.awt.List.add(String)|Adds the specified item to the end of scrolling list
+|java.awt.List.add(String,int)|Adds the specified item to the the scrolling lis
+|java.awt.List.addActionListener(ActionListener)|Adds the specified action list
+|java.awt.List.addItem(String)|
+|java.awt.List.addItem(String,int)|
+|java.awt.List.addItemListener(ItemListener)|Adds the specified item listener t
+|java.awt.List.addNotify()|Creates the peer for the list.
+|java.awt.List.allowsMultipleSelections()|
+|java.awt.List.clear()|
+|java.awt.List.countItems()|
+|java.awt.List.delItem(int)|
+|java.awt.List.delItems(int,int)|
+|java.awt.List.deselect(int)|Deselects the item at the specified index.
+|java.awt.List.getAccessibleContext()|Gets the AccessibleContext associated wit
+|java.awt.List.getActionListeners()|Returns an array of all the action listener
+|java.awt.List.getItem(int)|Gets the item associated with the specified index.
+|java.awt.List.getItemCount()|Gets the number of items in the list.
+|java.awt.List.getItemListeners()|Returns an array of all the item listeners  r
+|java.awt.List.getItems()|Gets the items in the list.
+|java.awt.List.getListeners(Class<T>)|Returns an array of all the objects curre
+|java.awt.List.getMinimumSize()|Determines the minimum size of this scrolling l
+|java.awt.List.getMinimumSize(int)|Gets the minimum dimensions for a list with 
+|java.awt.List.getPreferredSize()|Gets the preferred size of this scrolling lis
+|java.awt.List.getPreferredSize(int)|Gets the preferred dimensions for a list w
+|java.awt.List.getRows()|Gets the number of visible lines in this list.
+|java.awt.List.getSelectedIndex()|Gets the index of the selected item on the li
+|java.awt.List.getSelectedIndexes()|Gets the selected indexes on the list.
+|java.awt.List.getSelectedItem()|Gets the selected item on this scrolling list.
+|java.awt.List.getSelectedItems()|Gets the selected items on this scrolling lis
+|java.awt.List.getSelectedObjects()|Gets the selected items on this scrolling l
+|java.awt.List.getVisibleIndex()|Gets the index of the item that was last made 
+|java.awt.List.isIndexSelected(int)|Determines if the specified item in this sc
+|java.awt.List.isMultipleMode()|Determines whether this list allows multiple se
+|java.awt.List.isSelected(int)|
+|java.awt.List.makeVisible(int)|Makes the item at the specified index visible.
+|java.awt.List.minimumSize()|
+|java.awt.List.minimumSize(int)|
+|java.awt.List.paramString()|Returns the parameter string representing the stat
+|java.awt.List.preferredSize()|
+|java.awt.List.preferredSize(int)|
+|java.awt.List.processActionEvent(ActionEvent)|Processes action events occurrin
+|java.awt.List.processEvent(AWTEvent)|Processes events on this scrolling list.
+|java.awt.List.processItemEvent(ItemEvent)|Processes item events occurring on t
+|java.awt.List.remove(int)|Removes the item at the specified position  from thi
+|java.awt.List.remove(String)|Removes the first occurrence of an item from the 
+|java.awt.List.removeActionListener(ActionListener)|Removes the specified actio
+|java.awt.List.removeAll()|Removes all items from this list.
+|java.awt.List.removeItemListener(ItemListener)|Removes the specified item list
+|java.awt.List.removeNotify()|Removes the peer for this list.
+|java.awt.List.replaceItem(String,int)|Replaces the item at the specified index
+|java.awt.List.select(int)|Selects the item at the specified index in the scrol
+|java.awt.List.setMultipleMode(boolean)|Sets the flag that determines whether t
+|java.awt.List.setMultipleSelections(boolean)|
+
+*java.awt.List_Description*
+
+The List component presents the user with a scrolling list of text items. The 
+list can be set up so that the user can choose either one item or multiple 
+items. 
+
+For example, the code... 
+
+
+
+List lst = new List(4, false); lst.add("Mercury"); lst.add("Venus"); 
+lst.add("Earth"); lst.add("JavaSoft"); lst.add("Mars"); lst.add("Jupiter"); 
+lst.add("Saturn"); lst.add("Uranus"); lst.add("Neptune"); lst.add("Pluto"); 
+cnt.add(lst); 
+
+where cnt is a container, produces the following scrolling list: 
+
+
+
+If the List allows multiple selections, then clicking on an item that is 
+already selected deselects it. In the preceding example, only one item from the 
+scrolling list can be selected at a time, since the second argument when 
+creating the new scrolling list is false. If the List does not allow multiple 
+selections, selecting an item causes any other selected item to be deselected. 
+
+Note that the list in the example shown was created with four visible rows. 
+Once the list has been created, the number of visible rows cannot be changed. A 
+default List is created with four rows, so that lst = new List() is equivalent 
+to list = new List(4, false). 
+
+Beginning with Java1.1, the Abstract Window Toolkit sends the List object all 
+mouse, keyboard, and focus events that occur over it. (The old AWT event model 
+is being maintained only for backwards compatibility, and its use is 
+discouraged.) 
+
+When an item is selected or deselected by the user, AWT sends an instance of 
+ItemEvent to the list. When the user double-clicks on an item in a scrolling 
+list, AWT sends an instance of ActionEvent to the list following the item 
+event. AWT also generates an action event when the user presses the return key 
+while an item in the list is selected. 
+
+If an application wants to perform some action based on an item in this list 
+being selected or activated by the user, it should implement ItemListener or 
+ActionListener as appropriate and register the new listener to receive events 
+from this list. 
+
+For multiple-selection scrolling lists, it is considered a better user 
+interface to use an external gesture (such as clicking on a button) to trigger 
+the action. 
+
+
+
+*java.awt.List()*
+
+public List()
+  throws |java.awt.HeadlessException|
+         
+Creates a new scrolling list. By default, there are four visible lines and 
+multiple selections are not allowed. Note that this is a convenience method for 
+List(0, false). Also note that the number of visible lines in the list cannot 
+be changed after it has been created. 
+
+
+*java.awt.List(int)*
+
+public List(int rows)
+  throws |java.awt.HeadlessException|
+         
+Creates a new scrolling list initialized with the specified number of visible 
+lines. By default, multiple selections are not allowed. Note that this is a 
+convenience method for List(rows, false). Also note that the number of visible 
+rows in the list cannot be changed after it has been created. 
+
+    rows - the number of items to show. 
+
+*java.awt.List(int,boolean)*
+
+public List(
+  int rows,
+  boolean multipleMode)
+  throws |java.awt.HeadlessException|
+         
+Creates a new scrolling list initialized to display the specified number of 
+rows. Note that if zero rows are specified, then the list will be created with 
+a default of four rows. Also note that the number of visible rows in the list 
+cannot be changed after it has been created. If the value of multipleMode is 
+true, then the user can select multiple items from the list. If it is false, 
+only one item at a time can be selected. 
+
+    rows - the number of items to show. 
+    multipleMode - if true, then multiple selections are allowed; otherwise, only one item can be 
+       selected at a time. 
+
+*java.awt.List.add(String)*
+
+public void add(java.lang.String item)
+
+Adds the specified item to the end of scrolling list. 
+
+
+    item - the item to be added 
+
+*java.awt.List.add(String,int)*
+
+public void add(
+  java.lang.String item,
+  int index)
+
+Adds the specified item to the the scrolling list at the position indicated by 
+the index. The index is zero-based. If the value of the index is less than 
+zero, or if the value of the index is greater than or equal to the number of 
+items in the list, then the item is added to the end of the list. 
+
+
+    item - the item to be added; if this parameter is null then the item is treated as an 
+       empty string, "" 
+    index - the position at which to add the item 
+
+*java.awt.List.addActionListener(ActionListener)*
+
+public synchronized void addActionListener(java.awt.event.ActionListener l)
+
+Adds the specified action listener to receive action events from this list. 
+Action events occur when a user double-clicks on a list item or types Enter 
+when the list has the keyboard focus. 
+
+If listener l is null, no exception is thrown and no action is performed. Refer 
+to AWT Threading Issues for details on AWT's threading model. 
+
+
+    l - the action listener 
+
+*java.awt.List.addItem(String)*
+
+public void addItem(java.lang.String item)
+
+
+
+    Deprecated: replaced by <code>add(String)</code>.
+
+
+*java.awt.List.addItem(String,int)*
+
+public synchronized void addItem(
+  java.lang.String item,
+  int index)
+
+
+
+    Deprecated: replaced by <code>add(String, int)</code>.
+
+
+*java.awt.List.addItemListener(ItemListener)*
+
+public synchronized void addItemListener(java.awt.event.ItemListener l)
+
+Adds the specified item listener to receive item events from this list. Item 
+events are sent in response to user input, but not in response to calls to 
+select or deselect. If listener l is null, no exception is thrown and no action 
+is performed. Refer to AWT Threading Issues for details on AWT's threading 
+model. 
+
+
+    l - the item listener 
+
+*java.awt.List.addNotify()*
+
+public void addNotify()
+
+Creates the peer for the list. The peer allows us to modify the list's 
+appearance without changing its functionality. 
+
+
+
+*java.awt.List.allowsMultipleSelections()*
+
+public boolean allowsMultipleSelections()
+
+
+
+    Deprecated: As of JDK version 1.1,
+ replaced by <code>isMultipleMode()</code>.
+
+
+*java.awt.List.clear()*
+
+public synchronized void clear()
+
+
+
+    Deprecated: As of JDK version 1.1,
+ replaced by <code>removeAll()</code>.
+
+
+*java.awt.List.countItems()*
+
+public int countItems()
+
+
+
+    Deprecated: As of JDK version 1.1,
+ replaced by <code>getItemCount()</code>.
+
+
+*java.awt.List.delItem(int)*
+
+public void delItem(int position)
+
+
+
+    Deprecated: replaced by <code>remove(String)</code>
+                         and <code>remove(int)</code>.
+
+
+*java.awt.List.delItems(int,int)*
+
+public synchronized void delItems(
+  int start,
+  int end)
+
+
+
+    Deprecated: As of JDK version 1.1,
+ Not for public use in the future.
+ This method is expected to be retained only as a package
+ private method.
+
+
+*java.awt.List.deselect(int)*
+
+public synchronized void deselect(int index)
+
+Deselects the item at the specified index. 
+
+Note that passing out of range parameters is invalid, and will result in 
+unspecified behavior. 
+
+If the item at the specified index is not selected, then the operation is 
+ignored. 
+
+
+    index - the position of the item to deselect 
+
+*java.awt.List.getAccessibleContext()*
+
+public |javax.accessibility.AccessibleContext| getAccessibleContext()
+
+Gets the AccessibleContext associated with this List. For lists, the 
+AccessibleContext takes the form of an AccessibleAWTList. A new 
+AccessibleAWTList instance is created, if necessary. 
+
+
+
+    Returns: an AccessibleAWTList that serves as the AccessibleContext of this List 
+
+*java.awt.List.getActionListeners()*
+
+public synchronized |java.awt.event.ActionListener|[] getActionListeners()
+
+Returns an array of all the action listeners registered on this list. 
+
+
+
+    Returns: all of this list's ActionListeners or an empty array if no action listeners are 
+             currently registered 
+
+*java.awt.List.getItem(int)*
+
+public |java.lang.String| getItem(int index)
+
+Gets the item associated with the specified index. 
+
+
+    index - the position of the item 
+
+    Returns: an item that is associated with the specified index 
+
+*java.awt.List.getItemCount()*
+
+public int getItemCount()
+
+Gets the number of items in the list. 
+
+
+
+    Returns: the number of items in the list 
+
+*java.awt.List.getItemListeners()*
+
+public synchronized |java.awt.event.ItemListener|[] getItemListeners()
+
+Returns an array of all the item listeners registered on this list. 
+
+
+
+    Returns: all of this list's ItemListeners or an empty array if no item listeners are 
+             currently registered 
+
+*java.awt.List.getItems()*
+
+public synchronized |java.lang.String|[] getItems()
+
+Gets the items in the list. 
+
+
+
+    Returns: a string array containing items of the list 
+
+*java.awt.List.getListeners(Class<T>)*
+
+public |T|[] getListeners(java.lang.Class<T> listenerType)
+
+Returns an array of all the objects currently registered as FooListeners upon 
+this List. FooListeners are registered using the addFooListener method. 
+
+You can specify the listenerType argument with a class literal, such as 
+FooListener.class. For example, you can query a List l for its item listeners 
+with the following code: 
+
+ItemListener[] ils = (ItemListener[])(l.getListeners(ItemListener.class)); 
+
+If no such listeners exist, this method returns an empty array. 
+
+
+    listenerType - the type of listeners requested; this parameter should specify an interface 
+       that descends from java.util.EventListener 
+
+    Returns: an array of all objects registered as FooListeners on this list, or an empty 
+             array if no such listeners have been added 
+
+*java.awt.List.getMinimumSize()*
+
+public |java.awt.Dimension| getMinimumSize()
+
+Determines the minimum size of this scrolling list. 
+
+
+
+    Returns: the minimum dimensions needed to display this scrolling list 
+
+*java.awt.List.getMinimumSize(int)*
+
+public |java.awt.Dimension| getMinimumSize(int rows)
+
+Gets the minimum dimensions for a list with the specified number of rows. 
+
+
+    rows - number of rows in the list 
+
+    Returns: the minimum dimensions for displaying this scrolling list given that the 
+             specified number of rows must be visible 
+
+*java.awt.List.getPreferredSize()*
+
+public |java.awt.Dimension| getPreferredSize()
+
+Gets the preferred size of this scrolling list. 
+
+
+
+    Returns: the preferred dimensions for displaying this scrolling list 
+
+*java.awt.List.getPreferredSize(int)*
+
+public |java.awt.Dimension| getPreferredSize(int rows)
+
+Gets the preferred dimensions for a list with the specified number of rows. 
+
+
+    rows - number of rows in the list 
+
+    Returns: the preferred dimensions for displaying this scrolling list given that the 
+             specified number of rows must be visible 
+
+*java.awt.List.getRows()*
+
+public int getRows()
+
+Gets the number of visible lines in this list. Note that once the List has been 
+created, this number will never change. 
+
+
+
+    Returns: the number of visible lines in this scrolling list 
+
+*java.awt.List.getSelectedIndex()*
+
+public synchronized int getSelectedIndex()
+
+Gets the index of the selected item on the list, 
+
+
+
+    Returns: the index of the selected item; if no item is selected, or if multiple items 
+             are selected, -1 is returned. 
+
+*java.awt.List.getSelectedIndexes()*
+
+public synchronized int[] getSelectedIndexes()
+
+Gets the selected indexes on the list. 
+
+
+
+    Returns: an array of the selected indexes on this scrolling list; if no item is 
+             selected, a zero-length array is returned. 
+
+*java.awt.List.getSelectedItem()*
+
+public synchronized |java.lang.String| getSelectedItem()
+
+Gets the selected item on this scrolling list. 
+
+
+
+    Returns: the selected item on the list; if no item is selected, or if multiple items are 
+             selected, null is returned. 
+
+*java.awt.List.getSelectedItems()*
+
+public synchronized |java.lang.String|[] getSelectedItems()
+
+Gets the selected items on this scrolling list. 
+
+
+
+    Returns: an array of the selected items on this scrolling list; if no item is selected, 
+             a zero-length array is returned. 
+
+*java.awt.List.getSelectedObjects()*
+
+public |java.lang.Object|[] getSelectedObjects()
+
+Gets the selected items on this scrolling list in an array of Objects. 
+
+
+
+    Returns: an array of Objects representing the selected items on this scrolling list; if 
+             no item is selected, a zero-length array is returned. 
+
+*java.awt.List.getVisibleIndex()*
+
+public int getVisibleIndex()
+
+Gets the index of the item that was last made visible by the method 
+makeVisible. 
+
+
+
+    Returns: the index of the item that was last made visible 
+
+*java.awt.List.isIndexSelected(int)*
+
+public boolean isIndexSelected(int index)
+
+Determines if the specified item in this scrolling list is selected. 
+
+
+    index - the item to be checked 
+
+    Returns: true if the specified item has been selected; false otherwise 
+
+*java.awt.List.isMultipleMode()*
+
+public boolean isMultipleMode()
+
+Determines whether this list allows multiple selections. 
+
+
+
+    Returns: true if this list allows multiple selections; otherwise, false 
+
+*java.awt.List.isSelected(int)*
+
+public boolean isSelected(int index)
+
+
+
+    Deprecated: As of JDK version 1.1,
+ replaced by <code>isIndexSelected(int)</code>.
+
+
+*java.awt.List.makeVisible(int)*
+
+public synchronized void makeVisible(int index)
+
+Makes the item at the specified index visible. 
+
+
+    index - the position of the item 
+
+*java.awt.List.minimumSize()*
+
+public |java.awt.Dimension| minimumSize()
+
+
+
+    Deprecated: As of JDK version 1.1,
+ replaced by <code>getMinimumSize()</code>.
+
+
+*java.awt.List.minimumSize(int)*
+
+public |java.awt.Dimension| minimumSize(int rows)
+
+
+
+    Deprecated: As of JDK version 1.1,
+ replaced by <code>getMinimumSize(int)</code>.
+
+
+*java.awt.List.paramString()*
+
+protected |java.lang.String| paramString()
+
+Returns the parameter string representing the state of this scrolling list. 
+This string is useful for debugging. 
+
+
+
+    Returns: the parameter string of this scrolling list 
+
+*java.awt.List.preferredSize()*
+
+public |java.awt.Dimension| preferredSize()
+
+
+
+    Deprecated: As of JDK version 1.1,
+ replaced by <code>getPreferredSize()</code>.
+
+
+*java.awt.List.preferredSize(int)*
+
+public |java.awt.Dimension| preferredSize(int rows)
+
+
+
+    Deprecated: As of JDK version 1.1,
+ replaced by <code>getPreferredSize(int)</code>.
+
+
+*java.awt.List.processActionEvent(ActionEvent)*
+
+protected void processActionEvent(java.awt.event.ActionEvent e)
+
+Processes action events occurring on this component by dispatching them to any 
+registered ActionListener objects. 
+
+This method is not called unless action events are enabled for this component. 
+Action events are enabled when one of the following occurs: 
+
+An ActionListener object is registered via addActionListener. Action events are 
+enabled via enableEvents. 
+
+Note that if the event parameter is null the behavior is unspecified and may 
+result in an exception. 
+
+
+    e - the action event 
+
+*java.awt.List.processEvent(AWTEvent)*
+
+protected void processEvent(java.awt.AWTEvent e)
+
+Processes events on this scrolling list. If an event is an instance of 
+ItemEvent, it invokes the processItemEvent method. Else, if the event is an 
+instance of ActionEvent, it invokes processActionEvent. If the event is not an 
+item event or an action event, it invokes processEvent on the superclass. Note 
+that if the event parameter is null the behavior is unspecified and may result 
+in an exception. 
+
+
+    e - the event 
+
+*java.awt.List.processItemEvent(ItemEvent)*
+
+protected void processItemEvent(java.awt.event.ItemEvent e)
+
+Processes item events occurring on this list by dispatching them to any 
+registered ItemListener objects. 
+
+This method is not called unless item events are enabled for this component. 
+Item events are enabled when one of the following occurs: 
+
+An ItemListener object is registered via addItemListener. Item events are 
+enabled via enableEvents. 
+
+Note that if the event parameter is null the behavior is unspecified and may 
+result in an exception. 
+
+
+    e - the item event 
+
+*java.awt.List.remove(int)*
+
+public void remove(int position)
+
+Removes the item at the specified position from this scrolling list. If the 
+item with the specified position is selected, and is the only selected item in 
+the list, the list is set to have no selection. 
+
+
+    position - the index of the item to delete 
+
+*java.awt.List.remove(String)*
+
+public synchronized void remove(java.lang.String item)
+
+Removes the first occurrence of an item from the list. If the specified item is 
+selected, and is the only selected item in the list, the list is set to have no 
+selection. 
+
+
+    item - the item to remove from the list 
+
+*java.awt.List.removeActionListener(ActionListener)*
+
+public synchronized void removeActionListener(java.awt.event.ActionListener l)
+
+Removes the specified action listener so that it no longer receives action 
+events from this list. Action events occur when a user double-clicks on a list 
+item. If listener l is null, no exception is thrown and no action is performed. 
+Refer to AWT Threading Issues for details on AWT's threading model. 
+
+
+    l - the action listener 
+
+*java.awt.List.removeAll()*
+
+public void removeAll()
+
+Removes all items from this list. 
+
+
+
+*java.awt.List.removeItemListener(ItemListener)*
+
+public synchronized void removeItemListener(java.awt.event.ItemListener l)
+
+Removes the specified item listener so that it no longer receives item events 
+from this list. If listener l is null, no exception is thrown and no action is 
+performed. Refer to AWT Threading Issues for details on AWT's threading model. 
+
+
+    l - the item listener 
+
+*java.awt.List.removeNotify()*
+
+public void removeNotify()
+
+Removes the peer for this list. The peer allows us to modify the list's 
+appearance without changing its functionality. 
+
+
+
+*java.awt.List.replaceItem(String,int)*
+
+public synchronized void replaceItem(
+  java.lang.String newValue,
+  int index)
+
+Replaces the item at the specified index in the scrolling list with the new 
+string. 
+
+
+    newValue - a new string to replace an existing item 
+    index - the position of the item to replace 
+
+*java.awt.List.select(int)*
+
+public void select(int index)
+
+Selects the item at the specified index in the scrolling list. 
+
+Note that passing out of range parameters is invalid, and will result in 
+unspecified behavior. 
+
+Note that this method should be primarily used to initially select an item in 
+this component. Programmatically calling this method will not trigger an 
+ItemEvent. The only way to trigger an ItemEvent is by user interaction. 
+
+
+    index - the position of the item to select 
+
+*java.awt.List.setMultipleMode(boolean)*
+
+public void setMultipleMode(boolean b)
+
+Sets the flag that determines whether this list allows multiple selections. 
+When the selection mode is changed from multiple-selection to single-selection, 
+the selected items change as follows: If a selected item has the location 
+cursor, only that item will remain selected. If no selected item has the 
+location cursor, all items will be deselected. 
+
+
+    b - if true then multiple selections are allowed; otherwise, only one item from the 
+       list can be selected at once 
+
+*java.awt.List.setMultipleSelections(boolean)*
+
+public synchronized void setMultipleSelections(boolean b)
+
+
+
+    Deprecated: As of JDK version 1.1,
+ replaced by <code>setMultipleMode(boolean)</code>.
+
+
+

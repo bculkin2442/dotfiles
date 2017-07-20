@@ -1,0 +1,21 @@
+*org.omg.DynamicAny.DynSequence* *DynSequence* DynSequence objects support the m
+
+public interface interface DynSequence
+
+  implements |org.omg.DynamicAny.DynSequenceOperations|
+             |org.omg.DynamicAny.DynAny|
+             |org.omg.CORBA.portable.IDLEntity|
+
+|org.omg.DynamicAny.DynSequence_Description|
+|org.omg.DynamicAny.DynSequence_Fields|
+|org.omg.DynamicAny.DynSequence_Constructors|
+|org.omg.DynamicAny.DynSequence_Methods|
+
+================================================================================
+
+*org.omg.DynamicAny.DynSequence_Description*
+
+DynSequence objects support the manipulation of IDL sequences. 
+
+
+

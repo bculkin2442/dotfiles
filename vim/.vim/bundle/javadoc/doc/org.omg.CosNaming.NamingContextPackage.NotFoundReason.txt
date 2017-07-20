@@ -1,0 +1,89 @@
+*org.omg.CosNaming.NamingContextPackage.NotFoundReason* *NotFoundReason* Indicat
+
+public class NotFoundReason
+  extends    |java.lang.Object|
+  implements |org.omg.CORBA.portable.IDLEntity|
+
+|org.omg.CosNaming.NamingContextPackage.NotFoundReason_Description|
+|org.omg.CosNaming.NamingContextPackage.NotFoundReason_Fields|
+|org.omg.CosNaming.NamingContextPackage.NotFoundReason_Constructors|
+|org.omg.CosNaming.NamingContextPackage.NotFoundReason_Methods|
+
+================================================================================
+
+*org.omg.CosNaming.NamingContextPackage.NotFoundReason_Fields*
+|int_org.omg.CosNaming.NamingContextPackage.NotFoundReason._missing_node|
+|int_org.omg.CosNaming.NamingContextPackage.NotFoundReason._not_context|
+|int_org.omg.CosNaming.NamingContextPackage.NotFoundReason._not_object|
+|org.omg.CosNaming.NamingContextPackage.NotFoundReason_org.omg.CosNaming.NamingContextPackage.NotFoundReason.missing_node|
+|org.omg.CosNaming.NamingContextPackage.NotFoundReason_org.omg.CosNaming.NamingContextPackage.NotFoundReason.not_context|
+|org.omg.CosNaming.NamingContextPackage.NotFoundReason_org.omg.CosNaming.NamingContextPackage.NotFoundReason.not_object|
+
+*org.omg.CosNaming.NamingContextPackage.NotFoundReason_Constructors*
+|org.omg.CosNaming.NamingContextPackage.NotFoundReason(int)|
+
+*org.omg.CosNaming.NamingContextPackage.NotFoundReason_Methods*
+|org.omg.CosNaming.NamingContextPackage.NotFoundReason.from_int(int)|
+|org.omg.CosNaming.NamingContextPackage.NotFoundReason.value()|
+
+*org.omg.CosNaming.NamingContextPackage.NotFoundReason_Description*
+
+Indicates the reason for not able to resolve. 
+
+
+
+*int_org.omg.CosNaming.NamingContextPackage.NotFoundReason._missing_node*
+
+
+
+
+*int_org.omg.CosNaming.NamingContextPackage.NotFoundReason._not_context*
+
+
+
+
+*int_org.omg.CosNaming.NamingContextPackage.NotFoundReason._not_object*
+
+
+
+
+*org.omg.CosNaming.NamingContextPackage.NotFoundReason_org.omg.CosNaming.NamingContextPackage.NotFoundReason.missing_node*
+
+
+
+
+*org.omg.CosNaming.NamingContextPackage.NotFoundReason_org.omg.CosNaming.NamingContextPackage.NotFoundReason.not_context*
+
+
+
+
+*org.omg.CosNaming.NamingContextPackage.NotFoundReason_org.omg.CosNaming.NamingContextPackage.NotFoundReason.not_object*
+
+
+
+
+
+*org.omg.CosNaming.NamingContextPackage.NotFoundReason(int)*
+
+protected NotFoundReason(int value)
+
+
+
+
+*org.omg.CosNaming.NamingContextPackage.NotFoundReason.from_int(int)*
+
+public static |org.omg.CosNaming.NamingContextPackage.NotFoundReason| from_int(int value)
+
+
+
+
+
+*org.omg.CosNaming.NamingContextPackage.NotFoundReason.value()*
+
+public int value()
+
+
+
+
+
+

@@ -1,0 +1,21 @@
+*javax.xml.soap.DetailEntry* *DetailEntry* The content for a Detail object, givi
+
+public interface interface DetailEntry
+
+  implements |javax.xml.soap.SOAPElement|
+
+|javax.xml.soap.DetailEntry_Description|
+|javax.xml.soap.DetailEntry_Fields|
+|javax.xml.soap.DetailEntry_Constructors|
+|javax.xml.soap.DetailEntry_Methods|
+
+================================================================================
+
+*javax.xml.soap.DetailEntry_Description*
+
+The content for a Detail object, giving details for a SOAPFault object. A 
+DetailEntry object, which carries information about errors related to the 
+SOAPBody object that contains it, is application-specific. 
+
+
+

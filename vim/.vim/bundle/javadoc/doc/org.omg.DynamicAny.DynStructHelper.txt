@@ -1,0 +1,108 @@
+*org.omg.DynamicAny.DynStructHelper* *DynStructHelper* DynStruct objects support
+
+public abstract class DynStructHelper
+  extends    |java.lang.Object|
+
+|org.omg.DynamicAny.DynStructHelper_Description|
+|org.omg.DynamicAny.DynStructHelper_Fields|
+|org.omg.DynamicAny.DynStructHelper_Constructors|
+|org.omg.DynamicAny.DynStructHelper_Methods|
+
+================================================================================
+
+*org.omg.DynamicAny.DynStructHelper_Constructors*
+|org.omg.DynamicAny.DynStructHelper()|
+
+*org.omg.DynamicAny.DynStructHelper_Methods*
+|org.omg.DynamicAny.DynStructHelper.extract(Any)|
+|org.omg.DynamicAny.DynStructHelper.id()|
+|org.omg.DynamicAny.DynStructHelper.insert(Any,DynStruct)|
+|org.omg.DynamicAny.DynStructHelper.narrow(Object)|
+|org.omg.DynamicAny.DynStructHelper.read(InputStream)|
+|org.omg.DynamicAny.DynStructHelper.type()|
+|org.omg.DynamicAny.DynStructHelper.unchecked_narrow(Object)|
+|org.omg.DynamicAny.DynStructHelper.write(OutputStream,DynStruct)|
+
+*org.omg.DynamicAny.DynStructHelper_Description*
+
+DynStruct objects support the manipulation of IDL struct and exception values. 
+Members of the exceptions are handled in the same way as members of a struct. 
+
+
+
+*org.omg.DynamicAny.DynStructHelper()*
+
+public DynStructHelper()
+
+
+
+
+*org.omg.DynamicAny.DynStructHelper.extract(Any)*
+
+public static |org.omg.DynamicAny.DynStruct| extract(org.omg.CORBA.Any a)
+
+
+
+
+
+*org.omg.DynamicAny.DynStructHelper.id()*
+
+public static |java.lang.String| id()
+
+
+
+
+
+*org.omg.DynamicAny.DynStructHelper.insert(Any,DynStruct)*
+
+public static void insert(
+  org.omg.CORBA.Any a,
+  org.omg.DynamicAny.DynStruct that)
+
+
+
+
+
+*org.omg.DynamicAny.DynStructHelper.narrow(Object)*
+
+public static |org.omg.DynamicAny.DynStruct| narrow(org.omg.CORBA.Object obj)
+
+
+
+
+
+*org.omg.DynamicAny.DynStructHelper.read(InputStream)*
+
+public static |org.omg.DynamicAny.DynStruct| read(org.omg.CORBA.portable.InputStream istream)
+
+
+
+
+
+*org.omg.DynamicAny.DynStructHelper.type()*
+
+public static synchronized |org.omg.CORBA.TypeCode| type()
+
+
+
+
+
+*org.omg.DynamicAny.DynStructHelper.unchecked_narrow(Object)*
+
+public static |org.omg.DynamicAny.DynStruct| unchecked_narrow(org.omg.CORBA.Object obj)
+
+
+
+
+
+*org.omg.DynamicAny.DynStructHelper.write(OutputStream,DynStruct)*
+
+public static void write(
+  org.omg.CORBA.portable.OutputStream ostream,
+  org.omg.DynamicAny.DynStruct value)
+
+
+
+
+
+

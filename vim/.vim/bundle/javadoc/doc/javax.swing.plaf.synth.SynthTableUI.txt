@@ -1,0 +1,163 @@
+*javax.swing.plaf.synth.SynthTableUI* *SynthTableUI* Provides the Synth L and F 
+
+public class SynthTableUI
+  extends    |javax.swing.plaf.basic.BasicTableUI|
+  implements |javax.swing.plaf.synth.SynthUI|
+             |java.beans.PropertyChangeListener|
+
+|javax.swing.plaf.synth.SynthTableUI_Description|
+|javax.swing.plaf.synth.SynthTableUI_Fields|
+|javax.swing.plaf.synth.SynthTableUI_Constructors|
+|javax.swing.plaf.synth.SynthTableUI_Methods|
+
+================================================================================
+
+*javax.swing.plaf.synth.SynthTableUI_Constructors*
+|javax.swing.plaf.synth.SynthTableUI()|
+
+*javax.swing.plaf.synth.SynthTableUI_Methods*
+|javax.swing.plaf.synth.SynthTableUI.createUI(JComponent)|Creates a new UI obje
+|javax.swing.plaf.synth.SynthTableUI.getContext(JComponent)|
+|javax.swing.plaf.synth.SynthTableUI.installDefaults()|Initializes JTable prope
+|javax.swing.plaf.synth.SynthTableUI.installListeners()|Attaches listeners to t
+|javax.swing.plaf.synth.SynthTableUI.paint(Graphics,JComponent)|Paints the spec
+|javax.swing.plaf.synth.SynthTableUI.paint(SynthContext,Graphics)|Paints the sp
+|javax.swing.plaf.synth.SynthTableUI.paintBorder(SynthContext,Graphics,int,int,int,int)|
+|javax.swing.plaf.synth.SynthTableUI.propertyChange(PropertyChangeEvent)|
+|javax.swing.plaf.synth.SynthTableUI.uninstallDefaults()|
+|javax.swing.plaf.synth.SynthTableUI.uninstallListeners()|
+|javax.swing.plaf.synth.SynthTableUI.update(Graphics,JComponent)|Notifies this 
+
+*javax.swing.plaf.synth.SynthTableUI_Description*
+
+Provides the Synth L and F UI delegate for (|javax.swing.JTable|) . 
+
+
+
+*javax.swing.plaf.synth.SynthTableUI()*
+
+public SynthTableUI()
+
+
+
+
+*javax.swing.plaf.synth.SynthTableUI.createUI(JComponent)*
+
+public static |javax.swing.plaf.ComponentUI| createUI(javax.swing.JComponent c)
+
+Creates a new UI object for the given component. 
+
+
+    c - component to create UI object for 
+
+    Returns: the UI object 
+
+*javax.swing.plaf.synth.SynthTableUI.getContext(JComponent)*
+
+public |javax.swing.plaf.synth.SynthContext| getContext(javax.swing.JComponent c)
+
+
+
+
+
+*javax.swing.plaf.synth.SynthTableUI.installDefaults()*
+
+protected void installDefaults()
+
+Initializes JTable properties, such as font, foreground, and background. The 
+font, foreground, and background properties are only set if their current value 
+is either null or a UIResource, other properties are set if the current value 
+is null. 
+
+
+
+*javax.swing.plaf.synth.SynthTableUI.installListeners()*
+
+protected void installListeners()
+
+Attaches listeners to the JTable. 
+
+
+
+*javax.swing.plaf.synth.SynthTableUI.paint(Graphics,JComponent)*
+
+public void paint(
+  java.awt.Graphics g,
+  javax.swing.JComponent c)
+
+Paints the specified component according to the Look and Feel. This method is 
+not used by Synth Look and Feel. Painting is handled by the 
+(|javax.swing.plaf.synth.SynthTableUI|) method. 
+
+
+    g - the {@code Graphics} object used for painting 
+    c - the component being painted 
+
+*javax.swing.plaf.synth.SynthTableUI.paint(SynthContext,Graphics)*
+
+protected void paint(
+  javax.swing.plaf.synth.SynthContext context,
+  java.awt.Graphics g)
+
+Paints the specified component. 
+
+
+    context - context for the component being painted 
+    g - the {@code Graphics} object used for painting 
+
+*javax.swing.plaf.synth.SynthTableUI.paintBorder(SynthContext,Graphics,int,int,int,int)*
+
+public void paintBorder(
+  javax.swing.plaf.synth.SynthContext context,
+  java.awt.Graphics g,
+  int x,
+  int y,
+  int w,
+  int h)
+
+
+
+
+
+*javax.swing.plaf.synth.SynthTableUI.propertyChange(PropertyChangeEvent)*
+
+public void propertyChange(java.beans.PropertyChangeEvent event)
+
+
+
+
+
+*javax.swing.plaf.synth.SynthTableUI.uninstallDefaults()*
+
+protected void uninstallDefaults()
+
+
+
+
+
+*javax.swing.plaf.synth.SynthTableUI.uninstallListeners()*
+
+protected void uninstallListeners()
+
+
+
+
+
+*javax.swing.plaf.synth.SynthTableUI.update(Graphics,JComponent)*
+
+public void update(
+  java.awt.Graphics g,
+  javax.swing.JComponent c)
+
+Notifies this UI delegate to repaint the specified component. This method 
+paints the component background, then calls the 
+(|javax.swing.plaf.synth.SynthTableUI|) method. 
+
+In general, this method does not need to be overridden by subclasses. All Look 
+and Feel rendering code should reside in thepaintmethod. 
+
+
+    g - the {@code Graphics} object used for painting 
+    c - the component being painted 
+
+

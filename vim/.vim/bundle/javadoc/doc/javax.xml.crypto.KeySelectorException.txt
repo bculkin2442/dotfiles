@@ -1,0 +1,117 @@
+*javax.xml.crypto.KeySelectorException* *KeySelectorException* Indicates an exce
+
+public class KeySelectorException
+  extends    |java.lang.Exception|
+
+|javax.xml.crypto.KeySelectorException_Description|
+|javax.xml.crypto.KeySelectorException_Fields|
+|javax.xml.crypto.KeySelectorException_Constructors|
+|javax.xml.crypto.KeySelectorException_Methods|
+
+================================================================================
+
+*javax.xml.crypto.KeySelectorException_Constructors*
+|javax.xml.crypto.KeySelectorException()|Constructs a new KeySelectorException 
+|javax.xml.crypto.KeySelectorException(String)|Constructs a new KeySelectorExce
+|javax.xml.crypto.KeySelectorException(String,Throwable)|Constructs a new KeySe
+|javax.xml.crypto.KeySelectorException(Throwable)|Constructs a new KeySelectorE
+
+*javax.xml.crypto.KeySelectorException_Methods*
+|javax.xml.crypto.KeySelectorException.getCause()|Returns the cause of this Key
+|javax.xml.crypto.KeySelectorException.printStackTrace()|Prints this KeySelecto
+|javax.xml.crypto.KeySelectorException.printStackTrace(PrintStream)|Prints this
+|javax.xml.crypto.KeySelectorException.printStackTrace(PrintWriter)|Prints this
+
+*javax.xml.crypto.KeySelectorException_Description*
+
+Indicates an exceptional condition thrown by a (|javax.xml.crypto.KeySelector|) 
+. 
+
+A KeySelectorException can contain a cause: another throwable that caused this 
+KeySelectorException to get thrown. 
+
+
+
+*javax.xml.crypto.KeySelectorException()*
+
+public KeySelectorException()
+
+Constructs a new KeySelectorException with null as its detail message. 
+
+
+*javax.xml.crypto.KeySelectorException(String)*
+
+public KeySelectorException(java.lang.String message)
+
+Constructs a new KeySelectorException with the specified detail message. 
+
+    message - the detail message 
+
+*javax.xml.crypto.KeySelectorException(String,Throwable)*
+
+public KeySelectorException(
+  java.lang.String message,
+  java.lang.Throwable cause)
+
+Constructs a new KeySelectorException with the specified detail message and 
+cause. Note that the detail message associated with cause is not automatically 
+incorporated in this exception's detail message. 
+
+    message - the detail message 
+    cause - the cause (A null value is permitted, and indicates that the cause is 
+       nonexistent or unknown.) 
+
+*javax.xml.crypto.KeySelectorException(Throwable)*
+
+public KeySelectorException(java.lang.Throwable cause)
+
+Constructs a new KeySelectorException with the specified cause and a detail 
+message of (cause==null ? null : cause.toString()) (which typically contains 
+the class and detail message of cause). 
+
+    cause - the cause (A null value is permitted, and indicates that the cause is 
+       nonexistent or unknown.) 
+
+*javax.xml.crypto.KeySelectorException.getCause()*
+
+public |java.lang.Throwable| getCause()
+
+Returns the cause of this KeySelectorException or null if the cause is 
+nonexistent or unknown. (The cause is the throwable that caused this 
+KeySelectorException to get thrown.) 
+
+
+
+    Returns: the cause of this KeySelectorException or null if the cause is nonexistent or 
+             unknown. 
+
+*javax.xml.crypto.KeySelectorException.printStackTrace()*
+
+public void printStackTrace()
+
+Prints this KeySelectorException, its backtrace and the cause's backtrace to 
+the standard error stream. 
+
+
+
+*javax.xml.crypto.KeySelectorException.printStackTrace(PrintStream)*
+
+public void printStackTrace(java.io.PrintStream s)
+
+Prints this KeySelectorException, its backtrace and the cause's backtrace to 
+the specified print stream. 
+
+
+    s - PrintStream to use for output 
+
+*javax.xml.crypto.KeySelectorException.printStackTrace(PrintWriter)*
+
+public void printStackTrace(java.io.PrintWriter s)
+
+Prints this KeySelectorException, its backtrace and the cause's backtrace to 
+the specified print writer. 
+
+
+    s - PrintWriter to use for output 
+
+

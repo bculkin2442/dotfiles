@@ -1,0 +1,94 @@
+*java.security.cert.CertPathValidatorSpi* *CertPathValidatorSpi* The Service Pro
+
+public abstract class CertPathValidatorSpi
+  extends    |java.lang.Object|
+
+|java.security.cert.CertPathValidatorSpi_Description|
+|java.security.cert.CertPathValidatorSpi_Fields|
+|java.security.cert.CertPathValidatorSpi_Constructors|
+|java.security.cert.CertPathValidatorSpi_Methods|
+
+================================================================================
+
+*java.security.cert.CertPathValidatorSpi_Constructors*
+|java.security.cert.CertPathValidatorSpi()|The default constructor.
+
+*java.security.cert.CertPathValidatorSpi_Methods*
+|java.security.cert.CertPathValidatorSpi.engineGetRevocationChecker()|Returns a
+|java.security.cert.CertPathValidatorSpi.engineValidate(CertPath,CertPathParameters)|
+
+*java.security.cert.CertPathValidatorSpi_Description*
+
+The Service Provider Interface (SPI) for the 
+CertPathValidator(|java.security.cert.CertPathValidator|) class. 
+AllCertPathValidatorimplementations must include a class (the SPI class) that 
+extends this class (CertPathValidatorSpi) and implements all of its methods. In 
+general, instances of this class should only be accessed through 
+theCertPathValidatorclass. For details, see the Java Cryptography Architecture. 
+
+Concurrent Access 
+
+Instances of this class need not be protected against concurrent access from 
+multiple threads. Threads that need to access a 
+singleCertPathValidatorSpiinstance concurrently should synchronize amongst 
+themselves and provide the necessary locking before calling the 
+wrappingCertPathValidatorobject. 
+
+However, implementations ofCertPathValidatorSpimay still encounter concurrency 
+issues, since multiple threads each manipulating a 
+differentCertPathValidatorSpiinstance need not synchronize. 
+
+
+
+*java.security.cert.CertPathValidatorSpi()*
+
+public CertPathValidatorSpi()
+
+The default constructor. 
+
+
+*java.security.cert.CertPathValidatorSpi.engineGetRevocationChecker()*
+
+public |java.security.cert.CertPathChecker| engineGetRevocationChecker()
+
+Returns aCertPathCheckerthat this implementation uses to check the revocation 
+status of certificates. A PKIX implementation returns objects of 
+typePKIXRevocationChecker. 
+
+The primary purpose of this method is to allow callers to specify additional 
+input parameters and options specific to revocation checking. See the class 
+description ofCertPathValidatorfor an example. 
+
+This method was added to version 1.8 of the Java Platform Standard Edition. In 
+order to maintain backwards compatibility with existing service providers, this 
+method cannot be abstract and by default throws 
+anUnsupportedOperationException. 
+
+
+
+    Returns: a {@code CertPathChecker} that this implementation uses to check the revocation 
+             status of certificates 
+
+*java.security.cert.CertPathValidatorSpi.engineValidate(CertPath,CertPathParameters)*
+
+public abstract |java.security.cert.CertPathValidatorResult| engineValidate(
+  java.security.cert.CertPath certPath,
+  java.security.cert.CertPathParameters params)
+  throws |java.security.cert.CertPathValidatorException|
+         |java.security.InvalidAlgorithmParameterException|
+         
+Validates the specified certification path using the specified algorithm 
+parameter set. 
+
+TheCertPathspecified must be of a type that is supported by the validation 
+algorithm, otherwise anInvalidAlgorithmParameterExceptionwill be thrown. For 
+example, aCertPathValidatorthat implements the PKIX algorithm 
+validatesCertPathobjects of type X.509. 
+
+
+    certPath - the {@code CertPath} to be validated 
+    params - the algorithm parameters 
+
+    Returns: the result of the validation algorithm 
+
+

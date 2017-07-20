@@ -1,0 +1,92 @@
+*org.omg.PortableServer.POAPackage.AdapterAlreadyExistsHelper* *AdapterAlreadyExistsHelper* 
+
+public abstract class AdapterAlreadyExistsHelper
+  extends    |java.lang.Object|
+
+|org.omg.PortableServer.POAPackage.AdapterAlreadyExistsHelper_Description|
+|org.omg.PortableServer.POAPackage.AdapterAlreadyExistsHelper_Fields|
+|org.omg.PortableServer.POAPackage.AdapterAlreadyExistsHelper_Constructors|
+|org.omg.PortableServer.POAPackage.AdapterAlreadyExistsHelper_Methods|
+
+================================================================================
+
+*org.omg.PortableServer.POAPackage.AdapterAlreadyExistsHelper_Constructors*
+|org.omg.PortableServer.POAPackage.AdapterAlreadyExistsHelper()|
+
+*org.omg.PortableServer.POAPackage.AdapterAlreadyExistsHelper_Methods*
+|org.omg.PortableServer.POAPackage.AdapterAlreadyExistsHelper.extract(Any)|
+|org.omg.PortableServer.POAPackage.AdapterAlreadyExistsHelper.id()|
+|org.omg.PortableServer.POAPackage.AdapterAlreadyExistsHelper.insert(Any,AdapterAlreadyExists)|
+|org.omg.PortableServer.POAPackage.AdapterAlreadyExistsHelper.read(InputStream)|
+|org.omg.PortableServer.POAPackage.AdapterAlreadyExistsHelper.type()|
+|org.omg.PortableServer.POAPackage.AdapterAlreadyExistsHelper.write(OutputStream,AdapterAlreadyExists)|
+
+*org.omg.PortableServer.POAPackage.AdapterAlreadyExistsHelper_Description*
+
+org/omg/PortableServer/POAPackage/AdapterAlreadyExistsHelper.java . Generated 
+by the IDL-to-Java compiler (portable), version "3.2" from 
+/HUDSON/workspace/8-2-build-macosx-x86_64/jdk8u5/2488/corba/src/share/classes/org/omg/PortableServer/poa.idl
+Tuesday, March 18, 2014 12:37:22 AM PDT 
+
+
+
+*org.omg.PortableServer.POAPackage.AdapterAlreadyExistsHelper()*
+
+public AdapterAlreadyExistsHelper()
+
+
+
+
+*org.omg.PortableServer.POAPackage.AdapterAlreadyExistsHelper.extract(Any)*
+
+public static |org.omg.PortableServer.POAPackage.AdapterAlreadyExists| extract(org.omg.CORBA.Any a)
+
+
+
+
+
+*org.omg.PortableServer.POAPackage.AdapterAlreadyExistsHelper.id()*
+
+public static |java.lang.String| id()
+
+
+
+
+
+*org.omg.PortableServer.POAPackage.AdapterAlreadyExistsHelper.insert(Any,AdapterAlreadyExists)*
+
+public static void insert(
+  org.omg.CORBA.Any a,
+  org.omg.PortableServer.POAPackage.AdapterAlreadyExists that)
+
+
+
+
+
+*org.omg.PortableServer.POAPackage.AdapterAlreadyExistsHelper.read(InputStream)*
+
+public static |org.omg.PortableServer.POAPackage.AdapterAlreadyExists| read(org.omg.CORBA.portable.InputStream istream)
+
+
+
+
+
+*org.omg.PortableServer.POAPackage.AdapterAlreadyExistsHelper.type()*
+
+public static synchronized |org.omg.CORBA.TypeCode| type()
+
+
+
+
+
+*org.omg.PortableServer.POAPackage.AdapterAlreadyExistsHelper.write(OutputStream,AdapterAlreadyExists)*
+
+public static void write(
+  org.omg.CORBA.portable.OutputStream ostream,
+  org.omg.PortableServer.POAPackage.AdapterAlreadyExists value)
+
+
+
+
+
+

@@ -1,0 +1,50 @@
+*javax.xml.crypto.dsig.spec.XPathFilter2ParameterSpec* *XPathFilter2ParameterSpec* 
+
+public final class XPathFilter2ParameterSpec
+  extends    |java.lang.Object|
+  implements |javax.xml.crypto.dsig.spec.TransformParameterSpec|
+
+|javax.xml.crypto.dsig.spec.XPathFilter2ParameterSpec_Description|
+|javax.xml.crypto.dsig.spec.XPathFilter2ParameterSpec_Fields|
+|javax.xml.crypto.dsig.spec.XPathFilter2ParameterSpec_Constructors|
+|javax.xml.crypto.dsig.spec.XPathFilter2ParameterSpec_Methods|
+
+================================================================================
+
+*javax.xml.crypto.dsig.spec.XPathFilter2ParameterSpec_Constructors*
+|javax.xml.crypto.dsig.spec.XPathFilter2ParameterSpec(List)|Creates an XPathFil
+
+*javax.xml.crypto.dsig.spec.XPathFilter2ParameterSpec_Methods*
+|javax.xml.crypto.dsig.spec.XPathFilter2ParameterSpec.getXPathList()|Returns a 
+
+*javax.xml.crypto.dsig.spec.XPathFilter2ParameterSpec_Description*
+
+Parameters for the W3C Recommendation 
+
+XPath Filter 2.0 Transform Algorithm. The parameters include a list of one or 
+more (|javax.xml.crypto.dsig.spec.XPathType|) objects. 
+
+
+
+*javax.xml.crypto.dsig.spec.XPathFilter2ParameterSpec(List)*
+
+public XPathFilter2ParameterSpec(java.util.List xPathList)
+
+Creates an XPathFilter2ParameterSpec. 
+
+    xPathList - a list of one or more {@link XPathType} objects. The list is defensively copied 
+       to protect against subsequent modification. 
+
+*javax.xml.crypto.dsig.spec.XPathFilter2ParameterSpec.getXPathList()*
+
+public |java.util.List| getXPathList()
+
+Returns a list of one or more (|javax.xml.crypto.dsig.spec.XPathType|) objects. 
+
+This implementation returns an unmodifiable list(|java.util.Collections|) . 
+
+
+
+    Returns: a List of XPathType objects (never null or empty) 
+
+

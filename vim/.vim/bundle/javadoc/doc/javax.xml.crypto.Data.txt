@@ -1,0 +1,21 @@
+*javax.xml.crypto.Data* *Data* An abstract representation of the result of deref
+
+public interface interface Data
+
+
+|javax.xml.crypto.Data_Description|
+|javax.xml.crypto.Data_Fields|
+|javax.xml.crypto.Data_Constructors|
+|javax.xml.crypto.Data_Methods|
+
+================================================================================
+
+*javax.xml.crypto.Data_Description*
+
+An abstract representation of the result of dereferencing a 
+(|javax.xml.crypto.URIReference|) or the input/output of subsequent 
+(|javax.xml.crypto.dsig.Transform|) s. The primary purpose of this interface is 
+to group and provide type safety for all Data subtypes. 
+
+
+

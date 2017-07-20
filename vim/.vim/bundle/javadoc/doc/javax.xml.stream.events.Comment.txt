@@ -1,0 +1,32 @@
+*javax.xml.stream.events.Comment* *Comment* An interface for comment events
+
+public interface interface Comment
+
+  implements |javax.xml.stream.events.XMLEvent|
+
+|javax.xml.stream.events.Comment_Description|
+|javax.xml.stream.events.Comment_Fields|
+|javax.xml.stream.events.Comment_Constructors|
+|javax.xml.stream.events.Comment_Methods|
+
+================================================================================
+
+*javax.xml.stream.events.Comment_Methods*
+|javax.xml.stream.events.Comment.getText()|Return the string data of the commen
+
+*javax.xml.stream.events.Comment_Description*
+
+An interface for comment events 
+
+
+
+*javax.xml.stream.events.Comment.getText()*
+
+public |java.lang.String| getText()
+
+Return the string data of the comment, returns empty string if it does not 
+exist 
+
+
+
+

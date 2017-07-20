@@ -1,0 +1,104 @@
+*javax.xml.stream.FactoryConfigurationError* *FactoryConfigurationError* An erro
+
+public class FactoryConfigurationError
+  extends    |java.lang.Error|
+
+|javax.xml.stream.FactoryConfigurationError_Description|
+|javax.xml.stream.FactoryConfigurationError_Fields|
+|javax.xml.stream.FactoryConfigurationError_Constructors|
+|javax.xml.stream.FactoryConfigurationError_Methods|
+
+================================================================================
+
+*javax.xml.stream.FactoryConfigurationError_Constructors*
+|javax.xml.stream.FactoryConfigurationError()|Default constructor
+|javax.xml.stream.FactoryConfigurationError(Exception)|Construct an exception w
+|javax.xml.stream.FactoryConfigurationError(Exception,String)|Construct an exce
+|javax.xml.stream.FactoryConfigurationError(String)|Construct an exception with
+|javax.xml.stream.FactoryConfigurationError(String,Exception)|Construct an exce
+
+*javax.xml.stream.FactoryConfigurationError_Methods*
+|javax.xml.stream.FactoryConfigurationError.getCause()|use the exception chaini
+|javax.xml.stream.FactoryConfigurationError.getException()|Return the nested ex
+|javax.xml.stream.FactoryConfigurationError.getMessage()|Report the message ass
+
+*javax.xml.stream.FactoryConfigurationError_Description*
+
+An error class for reporting factory configuration errors. 
+
+
+
+*javax.xml.stream.FactoryConfigurationError()*
+
+public FactoryConfigurationError()
+
+Default constructor 
+
+
+*javax.xml.stream.FactoryConfigurationError(Exception)*
+
+public FactoryConfigurationError(java.lang.Exception e)
+
+Construct an exception with a nested inner exception 
+
+    e - the exception to nest 
+
+*javax.xml.stream.FactoryConfigurationError(Exception,String)*
+
+public FactoryConfigurationError(
+  java.lang.Exception e,
+  java.lang.String msg)
+
+Construct an exception with a nested inner exception and a message 
+
+    e - the exception to nest 
+    msg - the message to report 
+
+*javax.xml.stream.FactoryConfigurationError(String)*
+
+public FactoryConfigurationError(java.lang.String msg)
+
+Construct an exception with associated message 
+
+    msg - the message to report 
+
+*javax.xml.stream.FactoryConfigurationError(String,Exception)*
+
+public FactoryConfigurationError(
+  java.lang.String msg,
+  java.lang.Exception e)
+
+Construct an exception with a nested inner exception and a message 
+
+    msg - the message to report 
+    e - the exception to nest 
+
+*javax.xml.stream.FactoryConfigurationError.getCause()*
+
+public |java.lang.Throwable| getCause()
+
+use the exception chaining mechanism of JDK1.4 
+
+
+
+*javax.xml.stream.FactoryConfigurationError.getException()*
+
+public |java.lang.Exception| getException()
+
+Return the nested exception (if any) 
+
+
+
+    Returns: the nested exception or null 
+
+*javax.xml.stream.FactoryConfigurationError.getMessage()*
+
+public |java.lang.String| getMessage()
+
+Report the message associated with this error 
+
+
+
+    Returns: the string value of the message 
+
+

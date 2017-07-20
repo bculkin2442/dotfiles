@@ -1,0 +1,311 @@
+*java.time.temporal.TemporalField* *TemporalField* A field of date-time, such as
+
+public interface interface TemporalField
+
+
+|java.time.temporal.TemporalField_Description|
+|java.time.temporal.TemporalField_Fields|
+|java.time.temporal.TemporalField_Constructors|
+|java.time.temporal.TemporalField_Methods|
+
+================================================================================
+
+*java.time.temporal.TemporalField_Methods*
+|java.time.temporal.TemporalField.adjustInto(R,long)|Returns a copy of the spec
+|java.time.temporal.TemporalField.getBaseUnit()|Gets the unit that the field is
+|java.time.temporal.TemporalField.getDisplayName(Locale)|Gets the display name 
+|java.time.temporal.TemporalField.getFrom(TemporalAccessor)|Gets the value of t
+|java.time.temporal.TemporalField.getRangeUnit()|Gets the range that the field 
+|java.time.temporal.TemporalField.isDateBased()|Checks if this field represents
+|java.time.temporal.TemporalField.isSupportedBy(TemporalAccessor)|Checks if thi
+|java.time.temporal.TemporalField.isTimeBased()|Checks if this field represents
+|java.time.temporal.TemporalField.range()|Gets the range of valid values for th
+|java.time.temporal.TemporalField.rangeRefinedBy(TemporalAccessor)|Get the rang
+|java.time.temporal.TemporalField.resolve(Map<TemporalField,Long>,TemporalAccessor,ResolverStyle)|
+|java.time.temporal.TemporalField.toString()|Gets a descriptive name for the fi
+
+*java.time.temporal.TemporalField_Description*
+
+A field of date-time, such as month-of-year or hour-of-minute. 
+
+Date and time is expressed using fields which partition the time-line into 
+something meaningful for humans. Implementations of this interface represent 
+those fields. 
+
+The most commonly used units are defined in (|java.time.temporal.ChronoField|) 
+. Further fields are supplied in (|java.time.temporal.IsoFields|) , 
+(|java.time.temporal.WeekFields|) and (|java.time.temporal.JulianFields|) . 
+Fields can also be written by application code by implementing this interface. 
+
+The field works using double dispatch. Client code calls methods on a date-time 
+likeLocalDateTimewhich check if the field is aChronoField. If it is, then the 
+date-time must handle it. Otherwise, the method call is re-dispatched to the 
+matching method in this interface. 
+
+
+
+*java.time.temporal.TemporalField.adjustInto(R,long)*
+
+public |R| adjustInto(
+  R extends java.time.temporal.Temporal temporal,
+  long newValue)
+
+Returns a copy of the specified temporal object with the value of this field 
+set. 
+
+This returns a new temporal object based on the specified one with the value 
+for this field changed. For example, on aLocalDate, this could be used to set 
+the year, month or day-of-month. The returned object has the same observable 
+type as the specified object. 
+
+In some cases, changing a field is not fully defined. For example, if the 
+target object is a date representing the 31st January, then changing the month 
+to February would be unclear. In cases like this, the implementation is 
+responsible for resolving the result. Typically it will choose the previous 
+valid date, which would be the last valid day of February in this example. 
+
+There are two equivalent ways of using this method. The first is to invoke this 
+method directly. The second is to use (|java.time.temporal.Temporal|) : 
+
+// these two lines are equivalent, but the second approach is recommended 
+temporal = thisField.adjustInto(temporal); temporal = temporal.with(thisField); 
+
+It is recommended to use the second approach,with(TemporalField), as it is a 
+lot clearer to read in code. 
+
+Implementations should perform any queries or calculations using the fields 
+available in (|java.time.temporal.ChronoField|) . If the field is not supported 
+anUnsupportedTemporalTypeExceptionmust be thrown. 
+
+Implementations must not alter the specified temporal object. Instead, an 
+adjusted copy of the original must be returned. This provides equivalent, safe 
+behavior for immutable and mutable implementations. 
+
+
+    temporal - the temporal object to adjust, not null 
+    newValue - the new value of the field 
+
+    Returns: the adjusted temporal object, not null 
+
+*java.time.temporal.TemporalField.getBaseUnit()*
+
+public |java.time.temporal.TemporalUnit| getBaseUnit()
+
+Gets the unit that the field is measured in. 
+
+The unit of the field is the period that varies within the range. For example, 
+in the field 'MonthOfYear', the unit is 'Months'. See also 
+(|java.time.temporal.TemporalField|) . 
+
+
+
+    Returns: the period unit defining the base unit of the field, not null 
+
+*java.time.temporal.TemporalField.getDisplayName(Locale)*
+
+public |java.lang.String| getDisplayName(java.util.Locale locale)
+
+Gets the display name for the field in the requested locale. 
+
+If there is no display name for the locale then a suitable default must be 
+returned. 
+
+The default implementation must check the locale is not null and 
+returntoString(). 
+
+
+    locale - the locale to use, not null 
+
+    Returns: the display name for the locale or a suitable default, not null 
+
+*java.time.temporal.TemporalField.getFrom(TemporalAccessor)*
+
+public long getFrom(java.time.temporal.TemporalAccessor temporal)
+
+Gets the value of this field from the specified temporal object. 
+
+This queries the temporal object for the value of this field. 
+
+There are two equivalent ways of using this method. The first is to invoke this 
+method directly. The second is to use (|java.time.temporal.TemporalAccessor|) 
+(or (|java.time.temporal.TemporalAccessor|) ): 
+
+// these two lines are equivalent, but the second approach is recommended 
+temporal = thisField.getFrom(temporal); temporal = temporal.getLong(thisField); 
+
+It is recommended to use the second approach,getLong(TemporalField), as it is a 
+lot clearer to read in code. 
+
+Implementations should perform any queries or calculations using the fields 
+available in (|java.time.temporal.ChronoField|) . If the field is not supported 
+anUnsupportedTemporalTypeExceptionmust be thrown. 
+
+
+    temporal - the temporal object to query, not null 
+
+    Returns: the value of this field, not null 
+
+*java.time.temporal.TemporalField.getRangeUnit()*
+
+public |java.time.temporal.TemporalUnit| getRangeUnit()
+
+Gets the range that the field is bound by. 
+
+The range of the field is the period that the field varies within. For example, 
+in the field 'MonthOfYear', the range is 'Years'. See also 
+(|java.time.temporal.TemporalField|) . 
+
+The range is never null. For example, the 'Year' field is shorthand for 
+'YearOfForever'. It therefore has a unit of 'Years' and a range of 'Forever'. 
+
+
+
+    Returns: the period unit defining the range of the field, not null 
+
+*java.time.temporal.TemporalField.isDateBased()*
+
+public boolean isDateBased()
+
+Checks if this field represents a component of a date. 
+
+A field is date-based if it can be derived from 
+EPOCH_DAY(|java.time.temporal.ChronoField|) . Note that it is valid for 
+bothisDateBased()andisTimeBased()to return false, such as when representing a 
+field like minute-of-week. 
+
+
+
+    Returns: true if this field is a component of a date 
+
+*java.time.temporal.TemporalField.isSupportedBy(TemporalAccessor)*
+
+public boolean isSupportedBy(java.time.temporal.TemporalAccessor temporal)
+
+Checks if this field is supported by the temporal object. 
+
+This determines whether the temporal accessor supports this field. If this 
+returns false, the the temporal cannot be queried for this field. 
+
+There are two equivalent ways of using this method. The first is to invoke this 
+method directly. The second is to use (|java.time.temporal.TemporalAccessor|) : 
+
+// these two lines are equivalent, but the second approach is recommended 
+temporal = thisField.isSupportedBy(temporal); temporal = 
+temporal.isSupported(thisField); 
+
+It is recommended to use the second approach,isSupported(TemporalField), as it 
+is a lot clearer to read in code. 
+
+Implementations should determine whether they are supported using the fields 
+available in (|java.time.temporal.ChronoField|) . 
+
+
+    temporal - the temporal object to query, not null 
+
+    Returns: true if the date-time can be queried for this field, false if not 
+
+*java.time.temporal.TemporalField.isTimeBased()*
+
+public boolean isTimeBased()
+
+Checks if this field represents a component of a time. 
+
+A field is time-based if it can be derived from 
+NANO_OF_DAY(|java.time.temporal.ChronoField|) . Note that it is valid for 
+bothisDateBased()andisTimeBased()to return false, such as when representing a 
+field like minute-of-week. 
+
+
+
+    Returns: true if this field is a component of a time 
+
+*java.time.temporal.TemporalField.range()*
+
+public |java.time.temporal.ValueRange| range()
+
+Gets the range of valid values for the field. 
+
+All fields can be expressed as alonginteger. This method returns an object that 
+describes the valid range for that value. This method is generally only 
+applicable to the ISO-8601 calendar system. 
+
+Note that the result only describes the minimum and maximum valid values and it 
+is important not to read too much into them. For example, there could be values 
+within the range that are invalid for the field. 
+
+
+
+    Returns: the range of valid values for the field, not null 
+
+*java.time.temporal.TemporalField.rangeRefinedBy(TemporalAccessor)*
+
+public |java.time.temporal.ValueRange| rangeRefinedBy(java.time.temporal.TemporalAccessor temporal)
+
+Get the range of valid values for this field using the temporal object to 
+refine the result. 
+
+This uses the temporal object to find the range of valid values for the field. 
+This is similar to (|java.time.temporal.TemporalField|) , however this method 
+refines the result using the temporal. For example, if the field 
+isDAY_OF_MONTHtherangemethod is not accurate as there are four possible month 
+lengths, 28, 29, 30 and 31 days. Using this method with a date allows the range 
+to be accurate, returning just one of those four options. 
+
+There are two equivalent ways of using this method. The first is to invoke this 
+method directly. The second is to use (|java.time.temporal.TemporalAccessor|) : 
+
+// these two lines are equivalent, but the second approach is recommended 
+temporal = thisField.rangeRefinedBy(temporal); temporal = 
+temporal.range(thisField); 
+
+It is recommended to use the second approach,range(TemporalField), as it is a 
+lot clearer to read in code. 
+
+Implementations should perform any queries or calculations using the fields 
+available in (|java.time.temporal.ChronoField|) . If the field is not supported 
+anUnsupportedTemporalTypeExceptionmust be thrown. 
+
+
+    temporal - the temporal object used to refine the result, not null 
+
+    Returns: the range of valid values for this field, not null 
+
+*java.time.temporal.TemporalField.resolve(Map<TemporalField,Long>,TemporalAccessor,ResolverStyle)*
+
+public |java.time.temporal.TemporalAccessor| resolve(
+  java.util.Map<java.time.temporal.TemporalField, java.lang.Long> fieldValues,
+  java.time.temporal.TemporalAccessor partialTemporal,
+  java.time.format.ResolverStyle resolverStyle)
+
+Resolves this field to provide a simpler alternative or a date. 
+
+This method is invoked during the resolve phase of parsing. It is designed to 
+allow application defined fields to be simplified into more standard fields, 
+such as those onChronoField, or into a date. 
+
+Applications should not normally invoke this method directly. 
+
+
+    fieldValues - the map of fields to values, which can be updated, not null 
+    partialTemporal - the partially complete temporal to query for zone and chronology; querying for 
+       other things is undefined and not recommended, not null 
+    resolverStyle - the requested type of resolve, not null 
+
+    Returns: the resolved temporal object; null if resolving only changed the map, or no 
+             resolve occurred 
+
+*java.time.temporal.TemporalField.toString()*
+
+public |java.lang.String| toString()
+
+Gets a descriptive name for the field. 
+
+The should be of the format 'BaseOfRange', such as 'MonthOfYear', unless the 
+field has a range ofFOREVER, when only the base unit is mentioned, such as 
+'Year' or 'Era'. 
+
+
+
+    Returns: the name of the field, not null 
+
+

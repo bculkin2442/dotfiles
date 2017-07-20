@@ -1,0 +1,23 @@
+*javax.xml.soap.SOAPFaultElement* *SOAPFaultElement* A representation of the con
+
+public interface interface SOAPFaultElement
+
+  implements |javax.xml.soap.SOAPElement|
+
+|javax.xml.soap.SOAPFaultElement_Description|
+|javax.xml.soap.SOAPFaultElement_Fields|
+|javax.xml.soap.SOAPFaultElement_Constructors|
+|javax.xml.soap.SOAPFaultElement_Methods|
+
+================================================================================
+
+*javax.xml.soap.SOAPFaultElement_Description*
+
+A representation of the contents in a SOAPFault object. The Detail interface is 
+a SOAPFaultElement. 
+
+Content is added to a SOAPFaultElement using the SOAPElement method 
+addTextNode. 
+
+
+

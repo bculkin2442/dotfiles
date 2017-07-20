@@ -1,0 +1,80 @@
+*org.omg.PortableServer.ThreadPolicyValue* *ThreadPolicyValue* The ThreadPolicyV
+
+public class ThreadPolicyValue
+  extends    |java.lang.Object|
+  implements |org.omg.CORBA.portable.IDLEntity|
+
+|org.omg.PortableServer.ThreadPolicyValue_Description|
+|org.omg.PortableServer.ThreadPolicyValue_Fields|
+|org.omg.PortableServer.ThreadPolicyValue_Constructors|
+|org.omg.PortableServer.ThreadPolicyValue_Methods|
+
+================================================================================
+
+*org.omg.PortableServer.ThreadPolicyValue_Fields*
+|int_org.omg.PortableServer.ThreadPolicyValue._ORB_CTRL_MODEL|
+|int_org.omg.PortableServer.ThreadPolicyValue._SINGLE_THREAD_MODEL|
+|org.omg.PortableServer.ThreadPolicyValue_org.omg.PortableServer.ThreadPolicyValue.ORB_CTRL_MODEL|
+|org.omg.PortableServer.ThreadPolicyValue_org.omg.PortableServer.ThreadPolicyValue.SINGLE_THREAD_MODEL|
+
+*org.omg.PortableServer.ThreadPolicyValue_Constructors*
+|org.omg.PortableServer.ThreadPolicyValue(int)|
+
+*org.omg.PortableServer.ThreadPolicyValue_Methods*
+|org.omg.PortableServer.ThreadPolicyValue.from_int(int)|
+|org.omg.PortableServer.ThreadPolicyValue.value()|
+
+*org.omg.PortableServer.ThreadPolicyValue_Description*
+
+The ThreadPolicyValue can have the following values. ORB_CTRL_MODEL - The ORB 
+is responsible for assigning requests for an ORB- controlled POA to threads. 
+SINGLE_THREAD_MODEL - Requests for a single-threaded POA are processed 
+sequentially. 
+
+
+
+*int_org.omg.PortableServer.ThreadPolicyValue._ORB_CTRL_MODEL*
+
+
+
+
+*int_org.omg.PortableServer.ThreadPolicyValue._SINGLE_THREAD_MODEL*
+
+
+
+
+*org.omg.PortableServer.ThreadPolicyValue_org.omg.PortableServer.ThreadPolicyValue.ORB_CTRL_MODEL*
+
+
+
+
+*org.omg.PortableServer.ThreadPolicyValue_org.omg.PortableServer.ThreadPolicyValue.SINGLE_THREAD_MODEL*
+
+
+
+
+
+*org.omg.PortableServer.ThreadPolicyValue(int)*
+
+protected ThreadPolicyValue(int value)
+
+
+
+
+*org.omg.PortableServer.ThreadPolicyValue.from_int(int)*
+
+public static |org.omg.PortableServer.ThreadPolicyValue| from_int(int value)
+
+
+
+
+
+*org.omg.PortableServer.ThreadPolicyValue.value()*
+
+public int value()
+
+
+
+
+
+

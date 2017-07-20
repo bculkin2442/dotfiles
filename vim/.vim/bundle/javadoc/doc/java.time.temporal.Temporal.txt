@@ -1,0 +1,296 @@
+*java.time.temporal.Temporal* *Temporal* Framework-level interface defining read
+
+public interface interface Temporal
+
+  implements |java.time.temporal.TemporalAccessor|
+
+|java.time.temporal.Temporal_Description|
+|java.time.temporal.Temporal_Fields|
+|java.time.temporal.Temporal_Constructors|
+|java.time.temporal.Temporal_Methods|
+
+================================================================================
+
+*java.time.temporal.Temporal_Methods*
+|java.time.temporal.Temporal.isSupported(TemporalUnit)|Checks if the specified 
+|java.time.temporal.Temporal.minus(long,TemporalUnit)|Returns an object of the 
+|java.time.temporal.Temporal.minus(TemporalAmount)|Returns an object of the sam
+|java.time.temporal.Temporal.plus(long,TemporalUnit)|Returns an object of the s
+|java.time.temporal.Temporal.plus(TemporalAmount)|Returns an object of the same
+|java.time.temporal.Temporal.until(Temporal,TemporalUnit)|Calculates the amount
+|java.time.temporal.Temporal.with(TemporalAdjuster)|Returns an adjusted object 
+|java.time.temporal.Temporal.with(TemporalField,long)|Returns an object of the 
+
+*java.time.temporal.Temporal_Description*
+
+Framework-level interface defining read-write access to a temporal object, such 
+as a date, time, offset or some combination of these. 
+
+This is the base interface type for date, time and offset objects that are 
+complete enough to be manipulated using plus and minus. It is implemented by 
+those classes that can provide and manipulate information as 
+fields(|java.time.temporal.TemporalField|) or 
+queries(|java.time.temporal.TemporalQuery|) . See 
+(|java.time.temporal.TemporalAccessor|) for the read-only version of this 
+interface. 
+
+Most date and time information can be represented as a number. These are 
+modeled usingTemporalFieldwith the number held using alongto handle large 
+values. Year, month and day-of-month are simple examples of fields, but they 
+also include instant and offsets. See (|java.time.temporal.ChronoField|) for 
+the standard set of fields. 
+
+Two pieces of date/time information cannot be represented by numbers, the 
+chronology(|java.time.chrono.Chronology|) and the time-zone(|java.time.ZoneId|) 
+. These can be accessed via queries(|java.time.temporal.Temporal|) using the 
+static methods defined on (|java.time.temporal.TemporalQuery|) . 
+
+This interface is a framework-level interface that should not be widely used in 
+application code. Instead, applications should create and pass around instances 
+of concrete types, such asLocalDate. There are many reasons for this, part of 
+which is that implementations of this interface may be in calendar systems 
+other than ISO. See (|java.time.chrono.ChronoLocalDate|) for a fuller 
+discussion of the issues. 
+
+When to implement 
+
+A class should implement this interface if it meets three criteria: 
+
+it provides access to date/time/offset information, as perTemporalAccessorthe 
+set of fields are contiguous from the largest to the smallest the set of fields 
+are complete, such that no other field is needed to define the valid range of 
+values for the fields that are represented 
+
+Four examples make this clear: 
+
+LocalDateimplements this interface as it represents a set of fields that are 
+contiguous from days to forever and require no external information to 
+determine the validity of each date. It is therefore able to implement 
+plus/minus correctly. LocalTimeimplements this interface as it represents a set 
+of fields that are contiguous from nanos to within days and require no external 
+information to determine validity. It is able to implement plus/minus 
+correctly, by wrapping around the day. MonthDay, the combination of 
+month-of-year and day-of-month, does not implement this interface. While the 
+combination is contiguous, from days to months within years, the combination 
+does not have sufficient information to define the valid range of values for 
+day-of-month. As such, it is unable to implement plus/minus correctly. The 
+combination day-of-week and day-of-month ("Friday the 13th") should not 
+implement this interface. It does not represent a contiguous set of fields, as 
+days to weeks overlaps days to months. 
+
+
+
+*java.time.temporal.Temporal.isSupported(TemporalUnit)*
+
+public boolean isSupported(java.time.temporal.TemporalUnit unit)
+
+Checks if the specified unit is supported. 
+
+This checks if the specified unit can be added to, or subtracted from, this 
+date-time. If false, then calling the (|java.time.temporal.Temporal|) and 
+minus(|java.time.temporal.Temporal|) methods will throw an exception. 
+
+
+    unit - the unit to check, null returns false 
+
+    Returns: true if the unit can be added/subtracted, false if not 
+
+*java.time.temporal.Temporal.minus(long,TemporalUnit)*
+
+public |java.time.temporal.Temporal| minus(
+  long amountToSubtract,
+  java.time.temporal.TemporalUnit unit)
+
+Returns an object of the same type as this object with the specified period 
+subtracted. 
+
+This method returns a new object based on this one with the specified period 
+subtracted. For example, on aLocalDate, this could be used to subtract a number 
+of years, months or days. The returned object will have the same observable 
+type as this object. 
+
+In some cases, changing a field is not fully defined. For example, if the 
+target object is a date representing the 31st March, then subtracting one month 
+would be unclear. In cases like this, the field is responsible for resolving 
+the result. Typically it will choose the previous valid date, which would be 
+the last valid day of February in this example. 
+
+
+    amountToSubtract - the amount of the specified unit to subtract, may be negative 
+    unit - the unit of the period to subtract, not null 
+
+    Returns: an object of the same type with the specified period subtracted, not null 
+
+*java.time.temporal.Temporal.minus(TemporalAmount)*
+
+public |java.time.temporal.Temporal| minus(java.time.temporal.TemporalAmount amount)
+
+Returns an object of the same type as this object with an amount subtracted. 
+
+This adjusts this temporal, subtracting according to the rules of the specified 
+amount. The amount is typically a (|java.time.Period|) but may be any other 
+type implementing the (|java.time.temporal.TemporalAmount|) interface, such as 
+(|java.time.Duration|) . 
+
+Some example code indicating how and why this method is used: 
+
+date = date.minus(period); // subtract a Period instance date = 
+date.minus(duration); // subtract a Duration instance date = 
+date.minus(workingDays(6)); // example user-written workingDays method 
+
+Note that callingplusfollowed byminusis not guaranteed to return the same 
+date-time. 
+
+
+    amount - the amount to subtract, not null 
+
+    Returns: an object of the same type with the specified adjustment made, not null 
+
+*java.time.temporal.Temporal.plus(long,TemporalUnit)*
+
+public |java.time.temporal.Temporal| plus(
+  long amountToAdd,
+  java.time.temporal.TemporalUnit unit)
+
+Returns an object of the same type as this object with the specified period 
+added. 
+
+This method returns a new object based on this one with the specified period 
+added. For example, on aLocalDate, this could be used to add a number of years, 
+months or days. The returned object will have the same observable type as this 
+object. 
+
+In some cases, changing a field is not fully defined. For example, if the 
+target object is a date representing the 31st January, then adding one month 
+would be unclear. In cases like this, the field is responsible for resolving 
+the result. Typically it will choose the previous valid date, which would be 
+the last valid day of February in this example. 
+
+
+    amountToAdd - the amount of the specified unit to add, may be negative 
+    unit - the unit of the period to add, not null 
+
+    Returns: an object of the same type with the specified period added, not null 
+
+*java.time.temporal.Temporal.plus(TemporalAmount)*
+
+public |java.time.temporal.Temporal| plus(java.time.temporal.TemporalAmount amount)
+
+Returns an object of the same type as this object with an amount added. 
+
+This adjusts this temporal, adding according to the rules of the specified 
+amount. The amount is typically a (|java.time.Period|) but may be any other 
+type implementing the (|java.time.temporal.TemporalAmount|) interface, such as 
+(|java.time.Duration|) . 
+
+Some example code indicating how and why this method is used: 
+
+date = date.plus(period); // add a Period instance date = date.plus(duration); 
+// add a Duration instance date = date.plus(workingDays(6)); // example 
+user-written workingDays method 
+
+Note that callingplusfollowed byminusis not guaranteed to return the same 
+date-time. 
+
+
+    amount - the amount to add, not null 
+
+    Returns: an object of the same type with the specified adjustment made, not null 
+
+*java.time.temporal.Temporal.until(Temporal,TemporalUnit)*
+
+public long until(
+  java.time.temporal.Temporal endExclusive,
+  java.time.temporal.TemporalUnit unit)
+
+Calculates the amount of time until another temporal in terms of the specified 
+unit. 
+
+This calculates the amount of time between two temporal objects in terms of a 
+singleTemporalUnit. The start and end points arethisand the specified temporal. 
+The end point is converted to be of the same type as the start point if 
+different. The result will be negative if the end is before the start. For 
+example, the period in hours between two temporal objects can be calculated 
+usingstartTime.until(endTime, HOURS). 
+
+The calculation returns a whole number, representing the number of complete 
+units between the two temporals. For example, the period in hours between the 
+times 11:30 and 13:29 will only be one hour as it is one minute short of two 
+hours. 
+
+There are two equivalent ways of using this method. The first is to invoke this 
+method directly. The second is to use (|java.time.temporal.TemporalUnit|) : 
+
+// these two lines are equivalent temporal = start.until(end, unit); temporal = 
+unit.between(start, end); 
+
+The choice should be made based on which makes the code more readable. 
+
+For example, this method allows the number of days between two dates to be 
+calculated: 
+
+long daysBetween = start.until(end, DAYS); // or alternatively long daysBetween 
+= DAYS.between(start, end); 
+
+
+    endExclusive - the end temporal, exclusive, converted to be of the same type as this object, 
+       not null 
+    unit - the unit to measure the amount in, not null 
+
+    Returns: the amount of time between this temporal object and the specified one in terms 
+             of the unit; positive if the specified object is later than this 
+             one, negative if it is earlier than this one 
+
+*java.time.temporal.Temporal.with(TemporalAdjuster)*
+
+public |java.time.temporal.Temporal| with(java.time.temporal.TemporalAdjuster adjuster)
+
+Returns an adjusted object of the same type as this object with the adjustment 
+made. 
+
+This adjusts this date-time according to the rules of the specified adjuster. A 
+simple adjuster might simply set the one of the fields, such as the year field. 
+A more complex adjuster might set the date to the last day of the month. A 
+selection of common adjustments is provided in 
+(|java.time.temporal.TemporalAdjuster|) . These include finding the "last day 
+of the month" and "next Wednesday". The adjuster is responsible for handling 
+special cases, such as the varying lengths of month and leap years. 
+
+Some example code indicating how and why this method is used: 
+
+date = date.with(Month.JULY); // most key classes implement TemporalAdjuster 
+date = date.with(lastDayOfMonth()); // static import from Adjusters date = 
+date.with(next(WEDNESDAY)); // static import from Adjusters and DayOfWeek 
+
+
+    adjuster - the adjuster to use, not null 
+
+    Returns: an object of the same type with the specified adjustment made, not null 
+
+*java.time.temporal.Temporal.with(TemporalField,long)*
+
+public |java.time.temporal.Temporal| with(
+  java.time.temporal.TemporalField field,
+  long newValue)
+
+Returns an object of the same type as this object with the specified field 
+altered. 
+
+This returns a new object based on this one with the value for the specified 
+field changed. For example, on aLocalDate, this could be used to set the year, 
+month or day-of-month. The returned object will have the same observable type 
+as this object. 
+
+In some cases, changing a field is not fully defined. For example, if the 
+target object is a date representing the 31st January, then changing the month 
+to February would be unclear. In cases like this, the field is responsible for 
+resolving the result. Typically it will choose the previous valid date, which 
+would be the last valid day of February in this example. 
+
+
+    field - the field to set in the result, not null 
+    newValue - the new value of the field in the result 
+
+    Returns: an object of the same type with the specified field set, not null 
+
+

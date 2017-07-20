@@ -1,0 +1,41 @@
+*java.util.function.ToIntBiFunction* *ToIntBiFunction* Represents a function tha
+
+public interface interface ToIntBiFunction<T,U>
+
+
+|java.util.function.ToIntBiFunction_Description|
+|java.util.function.ToIntBiFunction_Fields|
+|java.util.function.ToIntBiFunction_Constructors|
+|java.util.function.ToIntBiFunction_Methods|
+
+================================================================================
+
+*java.util.function.ToIntBiFunction_Methods*
+|java.util.function.ToIntBiFunction.applyAsInt(T,U)|Applies this function to th
+
+*java.util.function.ToIntBiFunction_Description*
+
+Represents a function that accepts two arguments and produces an int-valued 
+result. This is theint-producing primitive specialization for 
+(|java.util.function.BiFunction|) . 
+
+This is a functional interface whose functional method is 
+(|java.util.function.ToIntBiFunction|) . 
+
+
+
+*java.util.function.ToIntBiFunction.applyAsInt(T,U)*
+
+public int applyAsInt(
+  T t,
+  U u)
+
+Applies this function to the given arguments. 
+
+
+    t - the first function argument 
+    u - the second function argument 
+
+    Returns: the function result 
+
+

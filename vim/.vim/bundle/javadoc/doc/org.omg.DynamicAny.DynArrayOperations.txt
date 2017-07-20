@@ -1,0 +1,65 @@
+*org.omg.DynamicAny.DynArrayOperations* *DynArrayOperations* DynArray objects su
+
+public interface interface DynArrayOperations
+
+  implements |org.omg.DynamicAny.DynAnyOperations|
+
+|org.omg.DynamicAny.DynArrayOperations_Description|
+|org.omg.DynamicAny.DynArrayOperations_Fields|
+|org.omg.DynamicAny.DynArrayOperations_Constructors|
+|org.omg.DynamicAny.DynArrayOperations_Methods|
+
+================================================================================
+
+*org.omg.DynamicAny.DynArrayOperations_Methods*
+|org.omg.DynamicAny.DynArrayOperations.get_elements_as_dyn_any()|Returns the el
+|org.omg.DynamicAny.DynArrayOperations.get_elements()|Returns the elements of t
+|org.omg.DynamicAny.DynArrayOperations.set_elements_as_dyn_any(DynAny[])|Sets t
+|org.omg.DynamicAny.DynArrayOperations.set_elements(Any[])|Sets the DynArray to
+
+*org.omg.DynamicAny.DynArrayOperations_Description*
+
+DynArray objects support the manipulation of IDL arrays. Note that the 
+dimension of the array is contained in the TypeCode which is accessible through 
+the type attribute. It can also be obtained by calling the component_count 
+operation. 
+
+
+
+*org.omg.DynamicAny.DynArrayOperations.get_elements_as_dyn_any()*
+
+public |org.omg.DynamicAny.DynAny|[] get_elements_as_dyn_any()
+
+Returns the elements of the DynArray as DynAnys. 
+
+
+
+*org.omg.DynamicAny.DynArrayOperations.get_elements()*
+
+public |org.omg.CORBA.Any|[] get_elements()
+
+Returns the elements of the DynArray. 
+
+
+
+*org.omg.DynamicAny.DynArrayOperations.set_elements_as_dyn_any(DynAny[])*
+
+public void set_elements_as_dyn_any(org.omg.DynamicAny.DynAny[] value)
+  throws |org.omg.DynamicAny.DynAnyPackage.InvalidValue|
+         |org.omg.DynamicAny.DynAnyPackage.TypeMismatch|
+         
+Sets the DynArray to contain the passed elements. 
+
+
+
+*org.omg.DynamicAny.DynArrayOperations.set_elements(Any[])*
+
+public void set_elements(org.omg.CORBA.Any[] value)
+  throws |org.omg.DynamicAny.DynAnyPackage.InvalidValue|
+         |org.omg.DynamicAny.DynAnyPackage.TypeMismatch|
+         
+Sets the DynArray to contain the passed elements. 
+
+
+
+

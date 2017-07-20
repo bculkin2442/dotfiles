@@ -1,0 +1,57 @@
+*javax.xml.bind.helpers.NotIdentifiableEventImpl* *NotIdentifiableEventImpl* Def
+
+public class NotIdentifiableEventImpl
+  extends    |javax.xml.bind.helpers.ValidationEventImpl|
+  implements |javax.xml.bind.NotIdentifiableEvent|
+
+|javax.xml.bind.helpers.NotIdentifiableEventImpl_Description|
+|javax.xml.bind.helpers.NotIdentifiableEventImpl_Fields|
+|javax.xml.bind.helpers.NotIdentifiableEventImpl_Constructors|
+|javax.xml.bind.helpers.NotIdentifiableEventImpl_Methods|
+
+================================================================================
+
+*javax.xml.bind.helpers.NotIdentifiableEventImpl_Constructors*
+|javax.xml.bind.helpers.NotIdentifiableEventImpl(int,String,ValidationEventLocator)|
+|javax.xml.bind.helpers.NotIdentifiableEventImpl(int,String,ValidationEventLocator,Throwable)|
+
+*javax.xml.bind.helpers.NotIdentifiableEventImpl_Description*
+
+Default implementation of the NotIdentifiableEvent interface. 
+
+JAXB providers are allowed to use whatever class that implements the 
+ValidationEvent interface. This class is just provided for a convenience. 
+
+
+
+*javax.xml.bind.helpers.NotIdentifiableEventImpl(int,String,ValidationEventLocator)*
+
+public NotIdentifiableEventImpl(
+  int _severity,
+  java.lang.String _message,
+  javax.xml.bind.ValidationEventLocator _locator)
+
+Create a new NotIdentifiableEventImpl. 
+
+    _severity - The severity value for this event. Must be one of ValidationEvent.WARNING, 
+       ValidationEvent.ERROR, or ValidationEvent.FATAL_ERROR 
+    _message - The text message for this event - may be null. 
+    _locator - The locator object for this event - may be null. 
+
+*javax.xml.bind.helpers.NotIdentifiableEventImpl(int,String,ValidationEventLocator,Throwable)*
+
+public NotIdentifiableEventImpl(
+  int _severity,
+  java.lang.String _message,
+  javax.xml.bind.ValidationEventLocator _locator,
+  java.lang.Throwable _linkedException)
+
+Create a new NotIdentifiableEventImpl. 
+
+    _severity - The severity value for this event. Must be one of ValidationEvent.WARNING, 
+       ValidationEvent.ERROR, or ValidationEvent.FATAL_ERROR 
+    _message - The text message for this event - may be null. 
+    _locator - The locator object for this event - may be null. 
+    _linkedException - An optional linked exception that may provide additional information about the 
+       event - may be null. 
+

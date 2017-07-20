@@ -1,0 +1,134 @@
+*javax.xml.soap.SOAPHeaderElement* *SOAPHeaderElement* An object representing th
+
+public interface interface SOAPHeaderElement
+
+  implements |javax.xml.soap.SOAPElement|
+
+|javax.xml.soap.SOAPHeaderElement_Description|
+|javax.xml.soap.SOAPHeaderElement_Fields|
+|javax.xml.soap.SOAPHeaderElement_Constructors|
+|javax.xml.soap.SOAPHeaderElement_Methods|
+
+================================================================================
+
+*javax.xml.soap.SOAPHeaderElement_Methods*
+|javax.xml.soap.SOAPHeaderElement.getActor()|Returns the uri of the actor attri
+|javax.xml.soap.SOAPHeaderElement.getMustUnderstand()|Returns the boolean value
+|javax.xml.soap.SOAPHeaderElement.getRelay()|Returns the boolean value of the r
+|javax.xml.soap.SOAPHeaderElement.getRole()|Returns the value of the Role attri
+|javax.xml.soap.SOAPHeaderElement.setActor(String)|Sets the actor associated wi
+|javax.xml.soap.SOAPHeaderElement.setMustUnderstand(boolean)|Sets the mustUnder
+|javax.xml.soap.SOAPHeaderElement.setRelay(boolean)|Sets the relay attribute fo
+|javax.xml.soap.SOAPHeaderElement.setRole(String)|Sets the Role associated with
+
+*javax.xml.soap.SOAPHeaderElement_Description*
+
+An object representing the contents in the SOAP header part of the SOAP 
+envelope. The immediate children of a SOAPHeader object can be represented only 
+as SOAPHeaderElement objects. 
+
+A SOAPHeaderElement object can have other SOAPElement objects as its children. 
+
+
+
+*javax.xml.soap.SOAPHeaderElement.getActor()*
+
+public |java.lang.String| getActor()
+
+Returns the uri of the actor attribute of this SOAPHeaderElement. 
+
+If this SOAPHeaderElement supports SOAP 1.2 then this call is equivalent to 
+(|javax.xml.soap.SOAPHeaderElement|) 
+
+
+
+    Returns: a String giving the URI of the actor 
+
+*javax.xml.soap.SOAPHeaderElement.getMustUnderstand()*
+
+public boolean getMustUnderstand()
+
+Returns the boolean value of the mustUnderstand attribute for this 
+SOAPHeaderElement. 
+
+
+
+    Returns: true if the mustUnderstand attribute of this SOAPHeaderElement object is turned 
+             on; false otherwise 
+
+*javax.xml.soap.SOAPHeaderElement.getRelay()*
+
+public boolean getRelay()
+
+Returns the boolean value of the relay attribute for this SOAPHeaderElement 
+
+
+
+    Returns: true if the relay attribute is turned on; false otherwise 
+
+*javax.xml.soap.SOAPHeaderElement.getRole()*
+
+public |java.lang.String| getRole()
+
+Returns the value of the Role attribute of this SOAPHeaderElement. 
+
+
+
+    Returns: a String giving the URI of the Role 
+
+*javax.xml.soap.SOAPHeaderElement.setActor(String)*
+
+public void setActor(java.lang.String actorURI)
+
+Sets the actor associated with this SOAPHeaderElement object to the specified 
+actor. The default value of an actor is: SOAPConstants.URI_SOAP_ACTOR_NEXT 
+
+If this SOAPHeaderElement supports SOAP 1.2 then this call is equivalent to 
+(|javax.xml.soap.SOAPHeaderElement|) 
+
+
+    actorURI - a String giving the URI of the actor to set 
+
+*javax.xml.soap.SOAPHeaderElement.setMustUnderstand(boolean)*
+
+public void setMustUnderstand(boolean mustUnderstand)
+
+Sets the mustUnderstand attribute for this SOAPHeaderElement object to be 
+either true or false. 
+
+If the mustUnderstand attribute is on, the actor who receives the 
+SOAPHeaderElement must process it correctly. This ensures, for example, that if 
+the SOAPHeaderElement object modifies the message, that the message is being 
+modified correctly. 
+
+
+    mustUnderstand - true to set the mustUnderstand attribute to true; false to set it to false 
+
+*javax.xml.soap.SOAPHeaderElement.setRelay(boolean)*
+
+public void setRelay(boolean relay)
+  throws |javax.xml.soap.SOAPException|
+         
+Sets the relay attribute for this SOAPHeaderElement to be either true or false. 
+
+The SOAP relay attribute is set to true to indicate that the SOAP header block 
+must be relayed by any node that is targeted by the header block but not 
+actually process it. This attribute is ignored on header blocks whose 
+mustUnderstand attribute is set to true or that are targeted at the ultimate 
+reciever (which is the default). The default value of this attribute is false. 
+
+
+    relay - the new value of the relay attribute 
+
+*javax.xml.soap.SOAPHeaderElement.setRole(String)*
+
+public void setRole(java.lang.String uri)
+  throws |javax.xml.soap.SOAPException|
+         
+Sets the Role associated with this SOAPHeaderElement object to the specified 
+Role. 
+
+
+    uri - - the URI of the Role 
+
+

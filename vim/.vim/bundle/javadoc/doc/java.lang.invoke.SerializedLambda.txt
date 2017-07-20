@@ -1,0 +1,210 @@
+*java.lang.invoke.SerializedLambda* *SerializedLambda* Serialized form of a lamb
+
+public final class SerializedLambda
+  extends    |java.lang.Object|
+  implements |java.io.Serializable|
+
+|java.lang.invoke.SerializedLambda_Description|
+|java.lang.invoke.SerializedLambda_Fields|
+|java.lang.invoke.SerializedLambda_Constructors|
+|java.lang.invoke.SerializedLambda_Methods|
+
+================================================================================
+
+*java.lang.invoke.SerializedLambda_Constructors*
+|java.lang.invoke.SerializedLambda(Class<?>,String,String,String,int,String,String,String,String,Object[])|
+
+*java.lang.invoke.SerializedLambda_Methods*
+|java.lang.invoke.SerializedLambda.getCapturedArg(int)|Get a dynamic argument t
+|java.lang.invoke.SerializedLambda.getCapturedArgCount()|Get the count of dynam
+|java.lang.invoke.SerializedLambda.getCapturingClass()|Get the name of the clas
+|java.lang.invoke.SerializedLambda.getFunctionalInterfaceClass()|Get the name o
+|java.lang.invoke.SerializedLambda.getFunctionalInterfaceMethodName()|Get the n
+|java.lang.invoke.SerializedLambda.getFunctionalInterfaceMethodSignature()|Get 
+|java.lang.invoke.SerializedLambda.getImplClass()|Get the name of the class con
+|java.lang.invoke.SerializedLambda.getImplMethodKind()|Get the method handle ki
+|java.lang.invoke.SerializedLambda.getImplMethodName()|Get the name of the impl
+|java.lang.invoke.SerializedLambda.getImplMethodSignature()|Get the signature o
+|java.lang.invoke.SerializedLambda.getInstantiatedMethodType()|Get the signatur
+|java.lang.invoke.SerializedLambda.toString()|
+
+*java.lang.invoke.SerializedLambda_Description*
+
+Serialized form of a lambda expression. The properties of this class represent 
+the information that is present at the lambda factory site, including static 
+metafactory arguments such as the identity of the primary functional interface 
+method and the identity of the implementation method, as well as dynamic 
+metafactory arguments such as values captured from the lexical scope at the 
+time of lambda capture. 
+
+Implementors of serializable lambdas, such as compilers or language runtime 
+libraries, are expected to ensure that instances deserialize properly. One 
+means to do so is to ensure that thewriteReplacemethod returns an instance 
+ofSerializedLambda, rather than allowing default serialization to proceed. 
+
+SerializedLambdahas areadResolvemethod that looks for a (possibly private) 
+static method called$deserializeLambda$(SerializedLambda)in the capturing 
+class, invokes that with itself as the first argument, and returns the result. 
+Lambda classes implementing$deserializeLambda$are responsible for validating 
+that the properties of theSerializedLambdaare consistent with a lambda actually 
+captured by that class. 
+
+
+
+*java.lang.invoke.SerializedLambda(Class<?>,String,String,String,int,String,String,String,String,Object[])*
+
+public SerializedLambda(
+  java.lang.Class<?> capturingClass,
+  java.lang.String functionalInterfaceClass,
+  java.lang.String functionalInterfaceMethodName,
+  java.lang.String functionalInterfaceMethodSignature,
+  int implMethodKind,
+  java.lang.String implClass,
+  java.lang.String implMethodName,
+  java.lang.String implMethodSignature,
+  java.lang.String instantiatedMethodType,
+  java.lang.Object[] capturedArgs)
+
+Create aSerializedLambdafrom the low-level information present at the lambda 
+factory site. 
+
+    capturingClass - The class in which the lambda expression appears 
+    functionalInterfaceClass - Name, in slash-delimited form, of static type of the returned lambda object 
+    functionalInterfaceMethodName - Name of the functional interface method for the present at the lambda factory 
+       site 
+    functionalInterfaceMethodSignature - Signature of the functional interface method present at the lambda factory site 
+    implMethodKind - Method handle kind for the implementation method 
+    implClass - Name, in slash-delimited form, for the class holding the implementation method 
+    implMethodName - Name of the implementation method 
+    implMethodSignature - Signature of the implementation method 
+    instantiatedMethodType - The signature of the primary functional interface method after type variables 
+       are substituted with their instantiation from the capture site 
+    capturedArgs - The dynamic arguments to the lambda factory site, which represent variables 
+       captured by the lambda 
+
+*java.lang.invoke.SerializedLambda.getCapturedArg(int)*
+
+public |java.lang.Object| getCapturedArg(int i)
+
+Get a dynamic argument to the lambda capture site. 
+
+
+    i - the argument to capture 
+
+    Returns: a dynamic argument to the lambda capture site 
+
+*java.lang.invoke.SerializedLambda.getCapturedArgCount()*
+
+public int getCapturedArgCount()
+
+Get the count of dynamic arguments to the lambda capture site. 
+
+
+
+    Returns: the count of dynamic arguments to the lambda capture site 
+
+*java.lang.invoke.SerializedLambda.getCapturingClass()*
+
+public |java.lang.String| getCapturingClass()
+
+Get the name of the class that captured this lambda. 
+
+
+
+    Returns: the name of the class that captured this lambda 
+
+*java.lang.invoke.SerializedLambda.getFunctionalInterfaceClass()*
+
+public |java.lang.String| getFunctionalInterfaceClass()
+
+Get the name of the invoked type to which this lambda has been converted 
+
+
+
+    Returns: the name of the functional interface class to which this lambda has been 
+             converted 
+
+*java.lang.invoke.SerializedLambda.getFunctionalInterfaceMethodName()*
+
+public |java.lang.String| getFunctionalInterfaceMethodName()
+
+Get the name of the primary method for the functional interface to which this 
+lambda has been converted. 
+
+
+
+    Returns: the name of the primary methods of the functional interface 
+
+*java.lang.invoke.SerializedLambda.getFunctionalInterfaceMethodSignature()*
+
+public |java.lang.String| getFunctionalInterfaceMethodSignature()
+
+Get the signature of the primary method for the functional interface to which 
+this lambda has been converted. 
+
+
+
+    Returns: the signature of the primary method of the functional interface 
+
+*java.lang.invoke.SerializedLambda.getImplClass()*
+
+public |java.lang.String| getImplClass()
+
+Get the name of the class containing the implementation method. 
+
+
+
+    Returns: the name of the class containing the implementation method 
+
+*java.lang.invoke.SerializedLambda.getImplMethodKind()*
+
+public int getImplMethodKind()
+
+Get the method handle kind (see (|java.lang.invoke.MethodHandleInfo|) ) of the 
+implementation method. 
+
+
+
+    Returns: the method handle kind of the implementation method 
+
+*java.lang.invoke.SerializedLambda.getImplMethodName()*
+
+public |java.lang.String| getImplMethodName()
+
+Get the name of the implementation method. 
+
+
+
+    Returns: the name of the implementation method 
+
+*java.lang.invoke.SerializedLambda.getImplMethodSignature()*
+
+public |java.lang.String| getImplMethodSignature()
+
+Get the signature of the implementation method. 
+
+
+
+    Returns: the signature of the implementation method 
+
+*java.lang.invoke.SerializedLambda.getInstantiatedMethodType()*
+
+public final |java.lang.String| getInstantiatedMethodType()
+
+Get the signature of the primary functional interface method after type 
+variables are substituted with their instantiation from the capture site. 
+
+
+
+    Returns: the signature of the primary functional interface method after type variable 
+             processing 
+
+*java.lang.invoke.SerializedLambda.toString()*
+
+public |java.lang.String| toString()
+
+
+
+
+
+

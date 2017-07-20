@@ -1,0 +1,35 @@
+*java.lang.reflect.AnnotatedTypeVariable* *AnnotatedTypeVariable* AnnotatedTypeV
+
+public interface interface AnnotatedTypeVariable
+
+  implements |java.lang.reflect.AnnotatedType|
+
+|java.lang.reflect.AnnotatedTypeVariable_Description|
+|java.lang.reflect.AnnotatedTypeVariable_Fields|
+|java.lang.reflect.AnnotatedTypeVariable_Constructors|
+|java.lang.reflect.AnnotatedTypeVariable_Methods|
+
+================================================================================
+
+*java.lang.reflect.AnnotatedTypeVariable_Methods*
+|java.lang.reflect.AnnotatedTypeVariable.getAnnotatedBounds()|Returns the poten
+
+*java.lang.reflect.AnnotatedTypeVariable_Description*
+
+AnnotatedTypeVariablerepresents the potentially annotated use of a type 
+variable, whose declaration may have bounds which themselves represent 
+annotated uses of types. 
+
+
+
+*java.lang.reflect.AnnotatedTypeVariable.getAnnotatedBounds()*
+
+public |java.lang.reflect.AnnotatedType|[] getAnnotatedBounds()
+
+Returns the potentially annotated bounds of this type variable. 
+
+
+
+    Returns: the potentially annotated bounds of this type variable 
+
+

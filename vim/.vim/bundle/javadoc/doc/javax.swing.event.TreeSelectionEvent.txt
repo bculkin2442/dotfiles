@@ -1,0 +1,184 @@
+*javax.swing.event.TreeSelectionEvent* *TreeSelectionEvent* An event that charac
+
+public class TreeSelectionEvent
+  extends    |java.util.EventObject|
+
+|javax.swing.event.TreeSelectionEvent_Description|
+|javax.swing.event.TreeSelectionEvent_Fields|
+|javax.swing.event.TreeSelectionEvent_Constructors|
+|javax.swing.event.TreeSelectionEvent_Methods|
+
+================================================================================
+
+*javax.swing.event.TreeSelectionEvent_Fields*
+|boolean[]_javax.swing.event.TreeSelectionEvent.areNew|
+|javax.swing.tree.TreePath_javax.swing.event.TreeSelectionEvent.newLeadSelectionPath|
+|javax.swing.tree.TreePath_javax.swing.event.TreeSelectionEvent.oldLeadSelectionPath|
+|javax.swing.tree.TreePath[]_javax.swing.event.TreeSelectionEvent.paths|
+
+*javax.swing.event.TreeSelectionEvent_Constructors*
+|javax.swing.event.TreeSelectionEvent(Object,TreePath[],boolean[],TreePath,TreePath)|
+|javax.swing.event.TreeSelectionEvent(Object,TreePath,boolean,TreePath,TreePath)|
+
+*javax.swing.event.TreeSelectionEvent_Methods*
+|javax.swing.event.TreeSelectionEvent.cloneWithSource(Object)|Returns a copy of
+|javax.swing.event.TreeSelectionEvent.getNewLeadSelectionPath()|Returns the cur
+|javax.swing.event.TreeSelectionEvent.getOldLeadSelectionPath()|Returns the pat
+|javax.swing.event.TreeSelectionEvent.getPath()|Returns the first path element.
+|javax.swing.event.TreeSelectionEvent.getPaths()|Returns the paths that have be
+|javax.swing.event.TreeSelectionEvent.isAddedPath()|Returns whether the path id
+|javax.swing.event.TreeSelectionEvent.isAddedPath(int)|Returns whether the path
+|javax.swing.event.TreeSelectionEvent.isAddedPath(TreePath)|Returns whether the
+
+*javax.swing.event.TreeSelectionEvent_Description*
+
+An event that characterizes a change in the current selection. The change is 
+based on any number of paths. TreeSelectionListeners will generally query the 
+source of the event for the new selected status of each potentially changed 
+row. 
+
+Warning: Serialized objects of this class will not be compatible with future 
+Swing releases. The current serialization support is appropriate for short term 
+storage or RMI between applications running the same version of Swing. As of 
+1.4, support for long term storage of all JavaBeans has been added to the 
+java.beans package. Please see (|java.beans.XMLEncoder|) . 
+
+
+
+*boolean[]_javax.swing.event.TreeSelectionEvent.areNew*
+
+For each path identifies if that path is in fact new. 
+
+
+*javax.swing.tree.TreePath_javax.swing.event.TreeSelectionEvent.newLeadSelectionPath*
+
+leadSelectionPath after the paths changed, may be null. 
+
+
+*javax.swing.tree.TreePath_javax.swing.event.TreeSelectionEvent.oldLeadSelectionPath*
+
+leadSelectionPath before the paths changed, may be null. 
+
+
+*javax.swing.tree.TreePath[]_javax.swing.event.TreeSelectionEvent.paths*
+
+Paths this event represents. 
+
+
+
+*javax.swing.event.TreeSelectionEvent(Object,TreePath[],boolean[],TreePath,TreePath)*
+
+public TreeSelectionEvent(
+  java.lang.Object source,
+  javax.swing.tree.TreePath[] paths,
+  boolean[] areNew,
+  javax.swing.tree.TreePath oldLeadSelectionPath,
+  javax.swing.tree.TreePath newLeadSelectionPath)
+
+Represents a change in the selection of a TreeSelectionModel. paths identifies 
+the paths that have been either added or removed from the selection. 
+
+    source - source of event 
+    paths - the paths that have changed in the selection 
+
+*javax.swing.event.TreeSelectionEvent(Object,TreePath,boolean,TreePath,TreePath)*
+
+public TreeSelectionEvent(
+  java.lang.Object source,
+  javax.swing.tree.TreePath path,
+  boolean isNew,
+  javax.swing.tree.TreePath oldLeadSelectionPath,
+  javax.swing.tree.TreePath newLeadSelectionPath)
+
+Represents a change in the selection of a TreeSelectionModel. path identifies 
+the path that have been either added or removed from the selection. 
+
+    source - source of event 
+    path - the path that has changed in the selection 
+    isNew - whether or not the path is new to the selection, false means path was removed 
+       from the selection. 
+
+*javax.swing.event.TreeSelectionEvent.cloneWithSource(Object)*
+
+public |java.lang.Object| cloneWithSource(java.lang.Object newSource)
+
+Returns a copy of the receiver, but with the source being newSource. 
+
+
+
+*javax.swing.event.TreeSelectionEvent.getNewLeadSelectionPath()*
+
+public |javax.swing.tree.TreePath| getNewLeadSelectionPath()
+
+Returns the current lead path. 
+
+
+
+*javax.swing.event.TreeSelectionEvent.getOldLeadSelectionPath()*
+
+public |javax.swing.tree.TreePath| getOldLeadSelectionPath()
+
+Returns the path that was previously the lead path. 
+
+
+
+*javax.swing.event.TreeSelectionEvent.getPath()*
+
+public |javax.swing.tree.TreePath| getPath()
+
+Returns the first path element. 
+
+
+
+*javax.swing.event.TreeSelectionEvent.getPaths()*
+
+public |javax.swing.tree.TreePath|[] getPaths()
+
+Returns the paths that have been added or removed from the selection. 
+
+
+
+*javax.swing.event.TreeSelectionEvent.isAddedPath()*
+
+public boolean isAddedPath()
+
+Returns whether the path identified bygetPathwas added to the selection. A 
+return value oftrueindicates the path identified bygetPathwas added to the 
+selection. A return value offalseindicatesgetPathwas selected, but is no longer 
+selected. 
+
+
+
+    Returns: {@code true} if {@code getPath} was added to the selection, {@code false} 
+             otherwise 
+
+*javax.swing.event.TreeSelectionEvent.isAddedPath(int)*
+
+public boolean isAddedPath(int index)
+
+Returns whether the path atgetPaths()[index]was added to the selection. A 
+return value oftrueindicates the path was added to the selection. A return 
+value offalseindicates the path is no longer selected. 
+
+
+    index - the index of the path to test 
+
+    Returns: {@code true} if the path was added to the selection, {@code false} otherwise 
+
+*javax.swing.event.TreeSelectionEvent.isAddedPath(TreePath)*
+
+public boolean isAddedPath(javax.swing.tree.TreePath path)
+
+Returns whether the specified path was added to the selection. A return value 
+oftrueindicates the path identified bypathwas added to the selection. A return 
+value offalseindicatespathis no longer selected. This method is only valid for 
+the paths returned fromgetPaths(); invoking with a path not included 
+ingetPaths()throws anIllegalArgumentException. 
+
+
+    path - the path to test 
+
+    Returns: {@code true} if {@code path} was added to the selection, {@code false} 
+             otherwise 
+
+

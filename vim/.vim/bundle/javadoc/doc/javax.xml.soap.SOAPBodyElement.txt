@@ -1,0 +1,26 @@
+*javax.xml.soap.SOAPBodyElement* *SOAPBodyElement* A SOAPBodyElement object repr
+
+public interface interface SOAPBodyElement
+
+  implements |javax.xml.soap.SOAPElement|
+
+|javax.xml.soap.SOAPBodyElement_Description|
+|javax.xml.soap.SOAPBodyElement_Fields|
+|javax.xml.soap.SOAPBodyElement_Constructors|
+|javax.xml.soap.SOAPBodyElement_Methods|
+
+================================================================================
+
+*javax.xml.soap.SOAPBodyElement_Description*
+
+A SOAPBodyElement object represents the contents in a SOAPBody object. The 
+SOAPFault interface is a SOAPBodyElement object that has been defined. 
+
+A new SOAPBodyElement object can be created and added to a SOAPBody object with 
+the SOAPBody method addBodyElement. In the following line of code, sb is a 
+SOAPBody object, and myName is a Name object. 
+
+SOAPBodyElement sbe = sb.addBodyElement(myName); 
+
+
+

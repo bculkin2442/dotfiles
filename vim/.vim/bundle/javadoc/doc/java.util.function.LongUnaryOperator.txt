@@ -1,0 +1,79 @@
+*java.util.function.LongUnaryOperator* *LongUnaryOperator* Represents an operati
+
+public interface interface LongUnaryOperator
+
+
+|java.util.function.LongUnaryOperator_Description|
+|java.util.function.LongUnaryOperator_Fields|
+|java.util.function.LongUnaryOperator_Constructors|
+|java.util.function.LongUnaryOperator_Methods|
+
+================================================================================
+
+*java.util.function.LongUnaryOperator_Methods*
+|java.util.function.LongUnaryOperator.andThen(LongUnaryOperator)|Returns a comp
+|java.util.function.LongUnaryOperator.applyAsLong(long)|Applies this operator t
+|java.util.function.LongUnaryOperator.compose(LongUnaryOperator)|Returns a comp
+|java.util.function.LongUnaryOperator.identity()|Returns a unary operator that 
+
+*java.util.function.LongUnaryOperator_Description*
+
+Represents an operation on a singlelong-valued operand that produces 
+along-valued result. This is the primitive type specialization of 
+(|java.util.function.UnaryOperator|) forlong. 
+
+This is a functional interface whose functional method is 
+(|java.util.function.LongUnaryOperator|) . 
+
+
+
+*java.util.function.LongUnaryOperator.andThen(LongUnaryOperator)*
+
+public |java.util.function.LongUnaryOperator| andThen(java.util.function.LongUnaryOperator after)
+
+Returns a composed operator that first applies this operator to its input, and 
+then applies theafteroperator to the result. If evaluation of either operator 
+throws an exception, it is relayed to the caller of the composed operator. 
+
+
+    after - the operator to apply after this operator is applied 
+
+    Returns: a composed operator that first applies this operator and then applies the 
+             {@code after} operator 
+
+*java.util.function.LongUnaryOperator.applyAsLong(long)*
+
+public long applyAsLong(long operand)
+
+Applies this operator to the given operand. 
+
+
+    operand - the operand 
+
+    Returns: the operator result 
+
+*java.util.function.LongUnaryOperator.compose(LongUnaryOperator)*
+
+public |java.util.function.LongUnaryOperator| compose(java.util.function.LongUnaryOperator before)
+
+Returns a composed operator that first applies thebeforeoperator to its input, 
+and then applies this operator to the result. If evaluation of either operator 
+throws an exception, it is relayed to the caller of the composed operator. 
+
+
+    before - the operator to apply before this operator is applied 
+
+    Returns: a composed operator that first applies the {@code before} operator and then 
+             applies this operator 
+
+*java.util.function.LongUnaryOperator.identity()*
+
+public static |java.util.function.LongUnaryOperator| identity()
+
+Returns a unary operator that always returns its input argument. 
+
+
+
+    Returns: a unary operator that always returns its input argument 
+
+

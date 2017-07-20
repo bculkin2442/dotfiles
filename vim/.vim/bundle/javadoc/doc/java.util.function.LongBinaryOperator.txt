@@ -1,0 +1,41 @@
+*java.util.function.LongBinaryOperator* *LongBinaryOperator* Represents an opera
+
+public interface interface LongBinaryOperator
+
+
+|java.util.function.LongBinaryOperator_Description|
+|java.util.function.LongBinaryOperator_Fields|
+|java.util.function.LongBinaryOperator_Constructors|
+|java.util.function.LongBinaryOperator_Methods|
+
+================================================================================
+
+*java.util.function.LongBinaryOperator_Methods*
+|java.util.function.LongBinaryOperator.applyAsLong(long,long)|Applies this oper
+
+*java.util.function.LongBinaryOperator_Description*
+
+Represents an operation upon twolong-valued operands and producing along-valued 
+result. This is the primitive type specialization of 
+(|java.util.function.BinaryOperator|) forlong. 
+
+This is a functional interface whose functional method is 
+(|java.util.function.LongBinaryOperator|) . 
+
+
+
+*java.util.function.LongBinaryOperator.applyAsLong(long,long)*
+
+public long applyAsLong(
+  long left,
+  long right)
+
+Applies this operator to the given operands. 
+
+
+    left - the first operand 
+    right - the second operand 
+
+    Returns: the operator result 
+
+

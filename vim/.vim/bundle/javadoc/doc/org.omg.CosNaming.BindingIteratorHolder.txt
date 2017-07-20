@@ -1,0 +1,80 @@
+*org.omg.CosNaming.BindingIteratorHolder* *BindingIteratorHolder* The BindingIte
+
+public final class BindingIteratorHolder
+  extends    |java.lang.Object|
+  implements |org.omg.CORBA.portable.Streamable|
+
+|org.omg.CosNaming.BindingIteratorHolder_Description|
+|org.omg.CosNaming.BindingIteratorHolder_Fields|
+|org.omg.CosNaming.BindingIteratorHolder_Constructors|
+|org.omg.CosNaming.BindingIteratorHolder_Methods|
+
+================================================================================
+
+*org.omg.CosNaming.BindingIteratorHolder_Fields*
+|org.omg.CosNaming.BindingIterator_org.omg.CosNaming.BindingIteratorHolder.value|
+
+*org.omg.CosNaming.BindingIteratorHolder_Constructors*
+|org.omg.CosNaming.BindingIteratorHolder()|
+|org.omg.CosNaming.BindingIteratorHolder(BindingIterator)|
+
+*org.omg.CosNaming.BindingIteratorHolder_Methods*
+|org.omg.CosNaming.BindingIteratorHolder._read(InputStream)|
+|org.omg.CosNaming.BindingIteratorHolder._type()|
+|org.omg.CosNaming.BindingIteratorHolder._write(OutputStream)|
+
+*org.omg.CosNaming.BindingIteratorHolder_Description*
+
+The BindingIterator interface allows a client to iterate through the bindings 
+using the next_one or next_n operations. 
+
+The bindings iterator is obtained by using the list method on the 
+NamingContext. 
+
+
+
+*org.omg.CosNaming.BindingIterator_org.omg.CosNaming.BindingIteratorHolder.value*
+
+
+
+
+
+*org.omg.CosNaming.BindingIteratorHolder()*
+
+public BindingIteratorHolder()
+
+
+
+
+*org.omg.CosNaming.BindingIteratorHolder(BindingIterator)*
+
+public BindingIteratorHolder(org.omg.CosNaming.BindingIterator initialValue)
+
+
+
+
+*org.omg.CosNaming.BindingIteratorHolder._read(InputStream)*
+
+public void _read(org.omg.CORBA.portable.InputStream i)
+
+
+
+
+
+*org.omg.CosNaming.BindingIteratorHolder._type()*
+
+public |org.omg.CORBA.TypeCode| _type()
+
+
+
+
+
+*org.omg.CosNaming.BindingIteratorHolder._write(OutputStream)*
+
+public void _write(org.omg.CORBA.portable.OutputStream o)
+
+
+
+
+
+

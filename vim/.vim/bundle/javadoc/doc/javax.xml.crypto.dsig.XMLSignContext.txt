@@ -1,0 +1,37 @@
+*javax.xml.crypto.dsig.XMLSignContext* *XMLSignContext* Contains context informa
+
+public interface interface XMLSignContext
+
+  implements |javax.xml.crypto.XMLCryptoContext|
+
+|javax.xml.crypto.dsig.XMLSignContext_Description|
+|javax.xml.crypto.dsig.XMLSignContext_Fields|
+|javax.xml.crypto.dsig.XMLSignContext_Constructors|
+|javax.xml.crypto.dsig.XMLSignContext_Methods|
+
+================================================================================
+
+*javax.xml.crypto.dsig.XMLSignContext_Description*
+
+Contains context information for generating XML Signatures. This interface is 
+primarily intended for type-safety. 
+
+Note that XMLSignContext instances can contain information and state specific 
+to the XML signature structure it is used with. The results are unpredictable 
+if an XMLSignContext is used with different signature structures (for example, 
+you should not use the same XMLSignContext instance to sign two different 
+(|javax.xml.crypto.dsig.XMLSignature|) objects). 
+
+Supported Properties The following properties can be set using the 
+setProperty(|javax.xml.crypto.dsig.XMLSignContext|) method. 
+
+javax.xml.crypto.dsig.cacheReference: value must be a (|java.lang.Boolean|) . 
+This property controls whether or not the digested 
+(|javax.xml.crypto.dsig.Reference|) objects will cache the dereferenced content 
+and pre-digested input for subsequent retrieval via the 
+Reference.getDereferencedData(|javax.xml.crypto.dsig.Reference|) and 
+Reference.getDigestInputStream(|javax.xml.crypto.dsig.Reference|) methods. The 
+default value if not specified is Boolean.FALSE. 
+
+
+

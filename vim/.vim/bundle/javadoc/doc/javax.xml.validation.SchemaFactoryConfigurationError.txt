@@ -1,0 +1,63 @@
+*javax.xml.validation.SchemaFactoryConfigurationError* *SchemaFactoryConfigurationError* 
+
+public final class SchemaFactoryConfigurationError
+  extends    |java.lang.Error|
+
+|javax.xml.validation.SchemaFactoryConfigurationError_Description|
+|javax.xml.validation.SchemaFactoryConfigurationError_Fields|
+|javax.xml.validation.SchemaFactoryConfigurationError_Constructors|
+|javax.xml.validation.SchemaFactoryConfigurationError_Methods|
+
+================================================================================
+
+*javax.xml.validation.SchemaFactoryConfigurationError_Constructors*
+|javax.xml.validation.SchemaFactoryConfigurationError()|Create a new SchemaFact
+|javax.xml.validation.SchemaFactoryConfigurationError(String)|Create a new Sche
+|javax.xml.validation.SchemaFactoryConfigurationError(String,Throwable)|Create 
+|javax.xml.validation.SchemaFactoryConfigurationError(Throwable)|Create a new S
+
+*javax.xml.validation.SchemaFactoryConfigurationError_Description*
+
+Thrown when a problem with configuration with the Schema Factories exists. This 
+error will typically be thrown when the class of a schema factory specified in 
+the system properties cannot be found or instantiated. 
+
+
+
+*javax.xml.validation.SchemaFactoryConfigurationError()*
+
+public SchemaFactoryConfigurationError()
+
+Create a new SchemaFactoryConfigurationError with no detail message. 
+
+
+*javax.xml.validation.SchemaFactoryConfigurationError(String)*
+
+public SchemaFactoryConfigurationError(java.lang.String message)
+
+Create a new SchemaFactoryConfigurationError with the String specified as an 
+error message. 
+
+    message - The error message for the exception. 
+
+*javax.xml.validation.SchemaFactoryConfigurationError(String,Throwable)*
+
+public SchemaFactoryConfigurationError(
+  java.lang.String message,
+  java.lang.Throwable cause)
+
+Create a new SchemaFactoryConfigurationError with the given Throwable base 
+cause and detail message. 
+
+    cause - The exception or error to be encapsulated in a SchemaFactoryConfigurationError. 
+    message - The detail message. 
+
+*javax.xml.validation.SchemaFactoryConfigurationError(Throwable)*
+
+public SchemaFactoryConfigurationError(java.lang.Throwable cause)
+
+Create a new SchemaFactoryConfigurationError with the given Throwable base 
+cause. 
+
+    cause - The exception or error to be encapsulated in a SchemaFactoryConfigurationError. 
+

@@ -1,0 +1,67 @@
+*javax.swing.plaf.synth.SynthToggleButtonUI* *SynthToggleButtonUI* Provides the 
+
+public class SynthToggleButtonUI
+  extends    |javax.swing.plaf.synth.SynthButtonUI|
+
+|javax.swing.plaf.synth.SynthToggleButtonUI_Description|
+|javax.swing.plaf.synth.SynthToggleButtonUI_Fields|
+|javax.swing.plaf.synth.SynthToggleButtonUI_Constructors|
+|javax.swing.plaf.synth.SynthToggleButtonUI_Methods|
+
+================================================================================
+
+*javax.swing.plaf.synth.SynthToggleButtonUI_Constructors*
+|javax.swing.plaf.synth.SynthToggleButtonUI()|
+
+*javax.swing.plaf.synth.SynthToggleButtonUI_Methods*
+|javax.swing.plaf.synth.SynthToggleButtonUI.createUI(JComponent)|Creates a new 
+|javax.swing.plaf.synth.SynthToggleButtonUI.getPropertyPrefix()|
+|javax.swing.plaf.synth.SynthToggleButtonUI.paintBorder(SynthContext,Graphics,int,int,int,int)|
+
+*javax.swing.plaf.synth.SynthToggleButtonUI_Description*
+
+Provides the Synth L and F UI delegate for (|javax.swing.JToggleButton|) . 
+
+
+
+*javax.swing.plaf.synth.SynthToggleButtonUI()*
+
+public SynthToggleButtonUI()
+
+
+
+
+*javax.swing.plaf.synth.SynthToggleButtonUI.createUI(JComponent)*
+
+public static |javax.swing.plaf.ComponentUI| createUI(javax.swing.JComponent b)
+
+Creates a new UI object for the given component. 
+
+
+    b - component to create UI object for 
+
+    Returns: the UI object 
+
+*javax.swing.plaf.synth.SynthToggleButtonUI.getPropertyPrefix()*
+
+protected |java.lang.String| getPropertyPrefix()
+
+
+
+
+
+*javax.swing.plaf.synth.SynthToggleButtonUI.paintBorder(SynthContext,Graphics,int,int,int,int)*
+
+public void paintBorder(
+  javax.swing.plaf.synth.SynthContext context,
+  java.awt.Graphics g,
+  int x,
+  int y,
+  int w,
+  int h)
+
+
+
+
+
+

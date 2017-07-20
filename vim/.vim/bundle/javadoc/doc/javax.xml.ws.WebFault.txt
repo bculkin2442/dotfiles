@@ -1,0 +1,20 @@
+*javax.xml.ws.WebFault* *WebFault* Used to annotate service specific exception c
+
+public interface class WebFault
+
+  implements |java.lang.annotation.Annotation|
+
+|javax.xml.ws.WebFault_Description|
+|javax.xml.ws.WebFault_Fields|
+|javax.xml.ws.WebFault_Constructors|
+|javax.xml.ws.WebFault_Methods|
+
+================================================================================
+
+*javax.xml.ws.WebFault_Description*
+
+Used to annotate service specific exception classes to customize to the local 
+and namespace name of the fault element and the name of the fault bean. 
+
+
+

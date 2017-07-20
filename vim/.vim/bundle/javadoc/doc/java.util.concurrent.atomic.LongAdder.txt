@@ -1,0 +1,174 @@
+*java.util.concurrent.atomic.LongAdder* *LongAdder* One or more variables that t
+
+public class LongAdder
+  extends    |java.util.concurrent.atomic.Striped64|
+  implements |java.io.Serializable|
+
+|java.util.concurrent.atomic.LongAdder_Description|
+|java.util.concurrent.atomic.LongAdder_Fields|
+|java.util.concurrent.atomic.LongAdder_Constructors|
+|java.util.concurrent.atomic.LongAdder_Methods|
+
+================================================================================
+
+*java.util.concurrent.atomic.LongAdder_Constructors*
+|java.util.concurrent.atomic.LongAdder()|Creates a new adder with initial sum o
+
+*java.util.concurrent.atomic.LongAdder_Methods*
+|java.util.concurrent.atomic.LongAdder.add(long)|Adds the given value.
+|java.util.concurrent.atomic.LongAdder.decrement()|Equivalent toadd(-1).
+|java.util.concurrent.atomic.LongAdder.doubleValue()|Returns the#sumas adoublea
+|java.util.concurrent.atomic.LongAdder.floatValue()|Returns the#sumas afloataft
+|java.util.concurrent.atomic.LongAdder.increment()|Equivalent toadd(1).
+|java.util.concurrent.atomic.LongAdder.intValue()|Returns the#sumas anintafter 
+|java.util.concurrent.atomic.LongAdder.longValue()|Equivalent to#sum.
+|java.util.concurrent.atomic.LongAdder.reset()|Resets variables maintaining the
+|java.util.concurrent.atomic.LongAdder.sum()|Returns the current sum.
+|java.util.concurrent.atomic.LongAdder.sumThenReset()|Equivalent in effect to#s
+|java.util.concurrent.atomic.LongAdder.toString()|Returns the String representa
+
+*java.util.concurrent.atomic.LongAdder_Description*
+
+One or more variables that together maintain an initially zerolongsum. When 
+updates (method (|java.util.concurrent.atomic.LongAdder|) ) are contended 
+across threads, the set of variables may grow dynamically to reduce contention. 
+Method (|java.util.concurrent.atomic.LongAdder|) (or, equivalently, 
+(|java.util.concurrent.atomic.LongAdder|) ) returns the current total combined 
+across the variables maintaining the sum. 
+
+This class is usually preferable to (|java.util.concurrent.atomic.AtomicLong|) 
+when multiple threads update a common sum that is used for purposes such as 
+collecting statistics, not for fine-grained synchronization control. Under low 
+update contention, the two classes have similar characteristics. But under high 
+contention, expected throughput of this class is significantly higher, at the 
+expense of higher space consumption. 
+
+LongAdders can be used with a (|java.util.concurrent.ConcurrentHashMap|) to 
+maintain a scalable frequency map (a form of histogram or multiset). For 
+example, to add a count to aConcurrentHashMap freqs, initializing if not 
+already present, you can usefreqs.computeIfAbsent(k -> new 
+LongAdder()).increment();This class extends (|java.lang.Number|) , but does not 
+define methods such asequals,hashCodeandcompareTobecause instances are expected 
+to be mutated, and so are not useful as collection keys. 
+
+
+
+*java.util.concurrent.atomic.LongAdder()*
+
+public LongAdder()
+
+Creates a new adder with initial sum of zero. 
+
+
+*java.util.concurrent.atomic.LongAdder.add(long)*
+
+public void add(long x)
+
+Adds the given value. 
+
+
+    x - the value to add 
+
+*java.util.concurrent.atomic.LongAdder.decrement()*
+
+public void decrement()
+
+Equivalent toadd(-1). 
+
+
+
+*java.util.concurrent.atomic.LongAdder.doubleValue()*
+
+public double doubleValue()
+
+Returns the (|java.util.concurrent.atomic.LongAdder|) as adoubleafter a 
+widening primitive conversion. 
+
+
+
+*java.util.concurrent.atomic.LongAdder.floatValue()*
+
+public float floatValue()
+
+Returns the (|java.util.concurrent.atomic.LongAdder|) as afloatafter a widening 
+primitive conversion. 
+
+
+
+*java.util.concurrent.atomic.LongAdder.increment()*
+
+public void increment()
+
+Equivalent toadd(1). 
+
+
+
+*java.util.concurrent.atomic.LongAdder.intValue()*
+
+public int intValue()
+
+Returns the (|java.util.concurrent.atomic.LongAdder|) as anintafter a narrowing 
+primitive conversion. 
+
+
+
+*java.util.concurrent.atomic.LongAdder.longValue()*
+
+public long longValue()
+
+Equivalent to (|java.util.concurrent.atomic.LongAdder|) . 
+
+
+
+    Returns: 
+
+*java.util.concurrent.atomic.LongAdder.reset()*
+
+public void reset()
+
+Resets variables maintaining the sum to zero. This method may be a useful 
+alternative to creating a new adder, but is only effective if there are no 
+concurrent updates. Because this method is intrinsically racy, it should only 
+be used when it is known that no threads are concurrently updating. 
+
+
+
+*java.util.concurrent.atomic.LongAdder.sum()*
+
+public long sum()
+
+Returns the current sum. The returned value is NOT an atomic snapshot; 
+invocation in the absence of concurrent updates returns an accurate result, but 
+concurrent updates that occur while the sum is being calculated might not be 
+incorporated. 
+
+
+
+    Returns: 
+
+*java.util.concurrent.atomic.LongAdder.sumThenReset()*
+
+public long sumThenReset()
+
+Equivalent in effect to (|java.util.concurrent.atomic.LongAdder|) followed by 
+(|java.util.concurrent.atomic.LongAdder|) . This method may apply for example 
+during quiescent points between multithreaded computations. If there are 
+updates concurrent with this method, the returned value is not guaranteed to be 
+the final value occurring before the reset. 
+
+
+
+    Returns: 
+
+*java.util.concurrent.atomic.LongAdder.toString()*
+
+public |java.lang.String| toString()
+
+Returns the String representation of the 
+(|java.util.concurrent.atomic.LongAdder|) . 
+
+
+
+    Returns: the String representation of the {@link #sum} 
+
+

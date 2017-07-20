@@ -1,0 +1,60 @@
+*javax.xml.crypto.KeySelector.Purpose* *KeySelector.Purpose* The purpose of the 
+
+public static class KeySelector.Purpose
+  extends    |java.lang.Object|
+
+|javax.xml.crypto.KeySelector.Purpose_Description|
+|javax.xml.crypto.KeySelector.Purpose_Fields|
+|javax.xml.crypto.KeySelector.Purpose_Constructors|
+|javax.xml.crypto.KeySelector.Purpose_Methods|
+
+================================================================================
+
+*javax.xml.crypto.KeySelector.Purpose_Fields*
+|javax.xml.crypto.KeySelector.Purpose_javax.xml.crypto.KeySelector.Purpose.DECRYPT|
+|javax.xml.crypto.KeySelector.Purpose_javax.xml.crypto.KeySelector.Purpose.ENCRYPT|
+|javax.xml.crypto.KeySelector.Purpose_javax.xml.crypto.KeySelector.Purpose.SIGN|
+|javax.xml.crypto.KeySelector.Purpose_javax.xml.crypto.KeySelector.Purpose.VERIFY|
+
+*javax.xml.crypto.KeySelector.Purpose_Methods*
+|javax.xml.crypto.KeySelector.Purpose.toString()|Returns a string representatio
+
+*javax.xml.crypto.KeySelector.Purpose_Description*
+
+The purpose of the key that is to be selected. 
+
+
+
+*javax.xml.crypto.KeySelector.Purpose_javax.xml.crypto.KeySelector.Purpose.DECRYPT*
+
+A key for decrypting. 
+
+
+*javax.xml.crypto.KeySelector.Purpose_javax.xml.crypto.KeySelector.Purpose.ENCRYPT*
+
+A key for encrypting. 
+
+
+*javax.xml.crypto.KeySelector.Purpose_javax.xml.crypto.KeySelector.Purpose.SIGN*
+
+A key for signing. 
+
+
+*javax.xml.crypto.KeySelector.Purpose_javax.xml.crypto.KeySelector.Purpose.VERIFY*
+
+A key for verifying. 
+
+
+
+*javax.xml.crypto.KeySelector.Purpose.toString()*
+
+public |java.lang.String| toString()
+
+Returns a string representation of this purpose ("sign", "verify", "encrypt", 
+or "decrypt"). 
+
+
+
+    Returns: a string representation of this purpose 
+
+

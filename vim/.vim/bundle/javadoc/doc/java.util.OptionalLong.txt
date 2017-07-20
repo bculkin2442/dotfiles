@@ -1,0 +1,170 @@
+*java.util.OptionalLong* *OptionalLong* A container object which may or may not 
+
+public final class OptionalLong
+  extends    |java.lang.Object|
+
+|java.util.OptionalLong_Description|
+|java.util.OptionalLong_Fields|
+|java.util.OptionalLong_Constructors|
+|java.util.OptionalLong_Methods|
+
+================================================================================
+
+*java.util.OptionalLong_Methods*
+|java.util.OptionalLong.empty()|Returns an emptyOptionalLonginstance.
+|java.util.OptionalLong.equals(Object)|Indicates whether some other object is "
+|java.util.OptionalLong.getAsLong()|If a value is present in thisOptionalLong, 
+|java.util.OptionalLong.hashCode()|Returns the hash code value of the present v
+|java.util.OptionalLong.ifPresent(LongConsumer)|Have the specified consumer acc
+|java.util.OptionalLong.isPresent()|Returntrueif there is a value present, othe
+|java.util.OptionalLong.of(long)|Return anOptionalLongwith the specified value 
+|java.util.OptionalLong.orElse(long)|Return the value if present, otherwise ret
+|java.util.OptionalLong.orElseGet(LongSupplier)|Return the value if present, ot
+|java.util.OptionalLong.orElseThrow(Supplier<X>)|Return the contained value, if
+|java.util.OptionalLong.toString()|Returns a non-empty string representation of
+
+*java.util.OptionalLong_Description*
+
+A container object which may or may not contain alongvalue. If a value is 
+present,isPresent()will returntrueandgetAsLong()will return the value. 
+
+Additional methods that depend on the presence or absence of a contained value 
+are provided, such as orElse()(|java.util.OptionalLong|) (return a default 
+value if value not present) and ifPresent()(|java.util.OptionalLong|) (execute 
+a block of code if the value is present). 
+
+This is a value-based class; use of identity-sensitive operations (including 
+reference equality (==), identity hash code, or synchronization) on instances 
+ofOptionalLongmay have unpredictable results and should be avoided. 
+
+
+
+*java.util.OptionalLong.empty()*
+
+public static |java.util.OptionalLong| empty()
+
+Returns an emptyOptionalLonginstance. No value is present for this 
+OptionalLong. 
+
+
+
+    Returns: an empty {@code OptionalLong}. 
+
+*java.util.OptionalLong.equals(Object)*
+
+public boolean equals(java.lang.Object obj)
+
+Indicates whether some other object is "equal to" this OptionalLong. The other 
+object is considered equal if: 
+
+it is also anOptionalLongand; both instances have no value present or; the 
+present values are "equal to" each other via==. 
+
+
+    obj - an object to be tested for equality 
+
+    Returns: {code true} if the other object is "equal to" this object otherwise {@code 
+             false} 
+
+*java.util.OptionalLong.getAsLong()*
+
+public long getAsLong()
+
+If a value is present in thisOptionalLong, returns the value, otherwise 
+throwsNoSuchElementException. 
+
+
+
+    Returns: the value held by this {@code OptionalLong} 
+
+*java.util.OptionalLong.hashCode()*
+
+public int hashCode()
+
+Returns the hash code value of the present value, if any, or 0 (zero) if no 
+value is present. 
+
+
+
+    Returns: hash code value of the present value or 0 if no value is present 
+
+*java.util.OptionalLong.ifPresent(LongConsumer)*
+
+public void ifPresent(java.util.function.LongConsumer consumer)
+
+Have the specified consumer accept the value if a value is present, otherwise 
+do nothing. 
+
+
+    consumer - block to be executed if a value is present 
+
+*java.util.OptionalLong.isPresent()*
+
+public boolean isPresent()
+
+Returntrueif there is a value present, otherwisefalse. 
+
+
+
+    Returns: {@code true} if there is a value present, otherwise {@code false} 
+
+*java.util.OptionalLong.of(long)*
+
+public static |java.util.OptionalLong| of(long value)
+
+Return anOptionalLongwith the specified value present. 
+
+
+    value - the value to be present 
+
+    Returns: an {@code OptionalLong} with the value present 
+
+*java.util.OptionalLong.orElse(long)*
+
+public long orElse(long other)
+
+Return the value if present, otherwise returnother. 
+
+
+    other - the value to be returned if there is no value present 
+
+    Returns: the value, if present, otherwise {@code other} 
+
+*java.util.OptionalLong.orElseGet(LongSupplier)*
+
+public long orElseGet(java.util.function.LongSupplier other)
+
+Return the value if present, otherwise invokeotherand return the result of that 
+invocation. 
+
+
+    other - a {@code LongSupplier} whose result is returned if no value is present 
+
+    Returns: the value if present otherwise the result of {@code other.getAsLong()} 
+
+*java.util.OptionalLong.orElseThrow(Supplier<X>)*
+
+public long orElseThrow(java.util.function.Supplier<X> exceptionSupplier)
+  throws |java.lang.Throwable|
+         
+Return the contained value, if present, otherwise throw an exception to be 
+created by the provided supplier. 
+
+
+    exceptionSupplier - The supplier which will return the exception to be thrown 
+
+    Returns: the present value 
+
+*java.util.OptionalLong.toString()*
+
+public |java.lang.String| toString()
+
+Returns a non-empty string representation of this object suitable for 
+debugging. The exact presentation format is unspecified and may vary between 
+implementations and versions. 
+
+
+
+    Returns: the string representation of this instance 
+
+

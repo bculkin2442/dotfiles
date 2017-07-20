@@ -1,0 +1,71 @@
+*javax.xml.ws.WebServiceFeature* *WebServiceFeature* A WebServiceFeature is used
+
+public abstract class WebServiceFeature
+  extends    |java.lang.Object|
+
+|javax.xml.ws.WebServiceFeature_Description|
+|javax.xml.ws.WebServiceFeature_Fields|
+|javax.xml.ws.WebServiceFeature_Constructors|
+|javax.xml.ws.WebServiceFeature_Methods|
+
+================================================================================
+
+*javax.xml.ws.WebServiceFeature_Fields*
+|boolean_javax.xml.ws.WebServiceFeature.enabled|
+
+*javax.xml.ws.WebServiceFeature_Constructors*
+|javax.xml.ws.WebServiceFeature()|
+
+*javax.xml.ws.WebServiceFeature_Methods*
+|javax.xml.ws.WebServiceFeature.getID()|Get the unique identifier for this WebS
+|javax.xml.ws.WebServiceFeature.isEnabled()|Returns true if this feature is ena
+
+*javax.xml.ws.WebServiceFeature_Description*
+
+A WebServiceFeature is used to represent a feature that can be enabled or 
+disabled for a web service. 
+
+The JAX-WS specification will define some standard features and JAX-WS 
+implementors are free to define additional features if necessary. Vendor 
+specific features may not be portable so caution should be used when using 
+them. Each Feature definition MUST define a public static final String ID that 
+can be used in the Feature annotation to refer to the feature. This ID MUST be 
+unique across all features of all vendors. When defining a vendor specific 
+feature ID, use a vendor specific namespace in the ID string. 
+
+
+
+*boolean_javax.xml.ws.WebServiceFeature.enabled*
+
+Specifies if the feature is enabled or disabled 
+
+
+
+*javax.xml.ws.WebServiceFeature()*
+
+protected WebServiceFeature()
+
+
+
+
+*javax.xml.ws.WebServiceFeature.getID()*
+
+public abstract |java.lang.String| getID()
+
+Get the unique identifier for this WebServiceFeature. 
+
+
+
+    Returns: the unique identifier for this feature. 
+
+*javax.xml.ws.WebServiceFeature.isEnabled()*
+
+public boolean isEnabled()
+
+Returns true if this feature is enabled. 
+
+
+
+    Returns: true if and only if the feature is enabled . 
+
+

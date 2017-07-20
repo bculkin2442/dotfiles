@@ -1,0 +1,67 @@
+*javax.swing.plaf.synth.SynthCheckBoxUI* *SynthCheckBoxUI* Provides the Synth L 
+
+public class SynthCheckBoxUI
+  extends    |javax.swing.plaf.synth.SynthRadioButtonUI|
+
+|javax.swing.plaf.synth.SynthCheckBoxUI_Description|
+|javax.swing.plaf.synth.SynthCheckBoxUI_Fields|
+|javax.swing.plaf.synth.SynthCheckBoxUI_Constructors|
+|javax.swing.plaf.synth.SynthCheckBoxUI_Methods|
+
+================================================================================
+
+*javax.swing.plaf.synth.SynthCheckBoxUI_Constructors*
+|javax.swing.plaf.synth.SynthCheckBoxUI()|
+
+*javax.swing.plaf.synth.SynthCheckBoxUI_Methods*
+|javax.swing.plaf.synth.SynthCheckBoxUI.createUI(JComponent)|Creates a new UI o
+|javax.swing.plaf.synth.SynthCheckBoxUI.getPropertyPrefix()|
+|javax.swing.plaf.synth.SynthCheckBoxUI.paintBorder(SynthContext,Graphics,int,int,int,int)|
+
+*javax.swing.plaf.synth.SynthCheckBoxUI_Description*
+
+Provides the Synth L and F UI delegate for (|javax.swing.JCheckBox|) . 
+
+
+
+*javax.swing.plaf.synth.SynthCheckBoxUI()*
+
+public SynthCheckBoxUI()
+
+
+
+
+*javax.swing.plaf.synth.SynthCheckBoxUI.createUI(JComponent)*
+
+public static |javax.swing.plaf.ComponentUI| createUI(javax.swing.JComponent b)
+
+Creates a new UI object for the given component. 
+
+
+    b - component to create UI object for 
+
+    Returns: the UI object 
+
+*javax.swing.plaf.synth.SynthCheckBoxUI.getPropertyPrefix()*
+
+protected |java.lang.String| getPropertyPrefix()
+
+
+
+
+
+*javax.swing.plaf.synth.SynthCheckBoxUI.paintBorder(SynthContext,Graphics,int,int,int,int)*
+
+public void paintBorder(
+  javax.swing.plaf.synth.SynthContext context,
+  java.awt.Graphics g,
+  int x,
+  int y,
+  int w,
+  int h)
+
+
+
+
+
+

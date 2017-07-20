@@ -1,0 +1,148 @@
+*java.util.LongSummaryStatistics* *LongSummaryStatistics* A state object for col
+
+public class LongSummaryStatistics
+  extends    |java.lang.Object|
+  implements |java.util.function.LongConsumer|
+             |java.util.function.IntConsumer|
+
+|java.util.LongSummaryStatistics_Description|
+|java.util.LongSummaryStatistics_Fields|
+|java.util.LongSummaryStatistics_Constructors|
+|java.util.LongSummaryStatistics_Methods|
+
+================================================================================
+
+*java.util.LongSummaryStatistics_Constructors*
+|java.util.LongSummaryStatistics()|Construct an empty instance with zero count,
+
+*java.util.LongSummaryStatistics_Methods*
+|java.util.LongSummaryStatistics.accept(int)|Records a newintvalue into the sum
+|java.util.LongSummaryStatistics.accept(long)|Records a newlongvalue into the s
+|java.util.LongSummaryStatistics.combine(LongSummaryStatistics)|Combines the st
+|java.util.LongSummaryStatistics.getAverage()|Returns the arithmetic mean of va
+|java.util.LongSummaryStatistics.getCount()|Returns the count of values recorde
+|java.util.LongSummaryStatistics.getMax()|Returns the maximum value recorded, o
+|java.util.LongSummaryStatistics.getMin()|Returns the minimum value recorded, o
+|java.util.LongSummaryStatistics.getSum()|Returns the sum of values recorded, o
+|java.util.LongSummaryStatistics.toString()|
+
+*java.util.LongSummaryStatistics_Description*
+
+A state object for collecting statistics such as count, min, max, sum, and 
+average. 
+
+This class is designed to work with (though does not require) 
+streams(|java.util.stream|) . For example, you can compute summary statistics 
+on a stream of longs with: 
+
+LongSummaryStatistics stats = longStream.collect(LongSummaryStatistics::new, 
+LongSummaryStatistics::accept, LongSummaryStatistics::combine); 
+
+LongSummaryStatisticscan be used as a (|java.util.stream.Stream|) reduction} 
+target for a stream(|java.util.stream.Stream|) . For example: 
+
+LongSummaryStatistics stats = people.stream() 
+.collect(Collectors.summarizingLong(Person::getAge)); 
+
+This computes, in a single pass, the count of people, as well as the minimum, 
+maximum, sum, and average of their ages. 
+
+
+
+*java.util.LongSummaryStatistics()*
+
+public LongSummaryStatistics()
+
+Construct an empty instance with zero count, zero 
+sum,Long.MAX_VALUEmin,Long.MIN_VALUEmax and zero average. 
+
+
+*java.util.LongSummaryStatistics.accept(int)*
+
+public void accept(int value)
+
+Records a newintvalue into the summary information. 
+
+
+    value - the input value 
+
+*java.util.LongSummaryStatistics.accept(long)*
+
+public void accept(long value)
+
+Records a newlongvalue into the summary information. 
+
+
+    value - the input value 
+
+*java.util.LongSummaryStatistics.combine(LongSummaryStatistics)*
+
+public void combine(java.util.LongSummaryStatistics other)
+
+Combines the state of anotherLongSummaryStatisticsinto this one. 
+
+
+    other - another {@code LongSummaryStatistics} 
+
+*java.util.LongSummaryStatistics.getAverage()*
+
+public final double getAverage()
+
+Returns the arithmetic mean of values recorded, or zero if no values have been 
+recorded. 
+
+
+
+    Returns: The arithmetic mean of values, or zero if none 
+
+*java.util.LongSummaryStatistics.getCount()*
+
+public final long getCount()
+
+Returns the count of values recorded. 
+
+
+
+    Returns: the count of values 
+
+*java.util.LongSummaryStatistics.getMax()*
+
+public final long getMax()
+
+Returns the maximum value recorded, orLong.MIN_VALUEif no values have been 
+recorded 
+
+
+
+    Returns: the maximum value, or {@code Long.MIN_VALUE} if none 
+
+*java.util.LongSummaryStatistics.getMin()*
+
+public final long getMin()
+
+Returns the minimum value recorded, orLong.MAX_VALUEif no values have been 
+recorded. 
+
+
+
+    Returns: the minimum value, or {@code Long.MAX_VALUE} if none 
+
+*java.util.LongSummaryStatistics.getSum()*
+
+public final long getSum()
+
+Returns the sum of values recorded, or zero if no values have been recorded. 
+
+
+
+    Returns: the sum of values, or zero if none 
+
+*java.util.LongSummaryStatistics.toString()*
+
+public |java.lang.String| toString()
+
+
+
+
+
+

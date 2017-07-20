@@ -1,0 +1,57 @@
+*org.omg.PortableServer.CurrentOperations* *CurrentOperations* The PortableServe
+
+public interface interface CurrentOperations
+
+  implements |org.omg.CORBA.CurrentOperations|
+
+|org.omg.PortableServer.CurrentOperations_Description|
+|org.omg.PortableServer.CurrentOperations_Fields|
+|org.omg.PortableServer.CurrentOperations_Constructors|
+|org.omg.PortableServer.CurrentOperations_Methods|
+
+================================================================================
+
+*org.omg.PortableServer.CurrentOperations_Methods*
+|org.omg.PortableServer.CurrentOperations.get_object_id()|Returns the ObjectId 
+|org.omg.PortableServer.CurrentOperations.get_POA()|Returns reference to the PO
+
+*org.omg.PortableServer.CurrentOperations_Description*
+
+The PortableServer::Current interface, derived from CORBA::Current, provides 
+method implementations with access to the identity of the object on which the 
+method was invoked. The Current interface is provided to support servants that 
+implement multiple objects, but can be used within the context of 
+POA-dispatched method invocations on any servant. To provide location 
+transparency, ORBs are required to support use of Current in the context of 
+both locally and remotely invoked operations. An instance of Current can be 
+obtained by the application by issuing the 
+CORBA::ORB::resolve_initial_references("POACurrent") operation. Thereafter, it 
+can be used within the context of a method dispatched by the POA to obtain the 
+POA and ObjectId that identify the object on which that operation was invoked. 
+
+
+
+*org.omg.PortableServer.CurrentOperations.get_object_id()*
+
+public byte[] get_object_id()
+  throws |org.omg.PortableServer.CurrentPackage.NoContext|
+         
+Returns the ObjectId identifying the object in whose context it is called. 
+
+
+
+    Returns: the ObjectId of the object 
+
+*org.omg.PortableServer.CurrentOperations.get_POA()*
+
+public |org.omg.PortableServer.POA| get_POA()
+  throws |org.omg.PortableServer.CurrentPackage.NoContext|
+         
+Returns reference to the POA implementing the object in whose context it is 
+called. 
+
+
+
+    Returns: The poa implementing the object 
+
+

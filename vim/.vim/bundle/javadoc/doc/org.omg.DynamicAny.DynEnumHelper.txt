@@ -1,0 +1,108 @@
+*org.omg.DynamicAny.DynEnumHelper* *DynEnumHelper* DynEnum objects support the m
+
+public abstract class DynEnumHelper
+  extends    |java.lang.Object|
+
+|org.omg.DynamicAny.DynEnumHelper_Description|
+|org.omg.DynamicAny.DynEnumHelper_Fields|
+|org.omg.DynamicAny.DynEnumHelper_Constructors|
+|org.omg.DynamicAny.DynEnumHelper_Methods|
+
+================================================================================
+
+*org.omg.DynamicAny.DynEnumHelper_Constructors*
+|org.omg.DynamicAny.DynEnumHelper()|
+
+*org.omg.DynamicAny.DynEnumHelper_Methods*
+|org.omg.DynamicAny.DynEnumHelper.extract(Any)|
+|org.omg.DynamicAny.DynEnumHelper.id()|
+|org.omg.DynamicAny.DynEnumHelper.insert(Any,DynEnum)|
+|org.omg.DynamicAny.DynEnumHelper.narrow(Object)|
+|org.omg.DynamicAny.DynEnumHelper.read(InputStream)|
+|org.omg.DynamicAny.DynEnumHelper.type()|
+|org.omg.DynamicAny.DynEnumHelper.unchecked_narrow(Object)|
+|org.omg.DynamicAny.DynEnumHelper.write(OutputStream,DynEnum)|
+
+*org.omg.DynamicAny.DynEnumHelper_Description*
+
+DynEnum objects support the manipulation of IDL enumerated values. The current 
+position of a DynEnum is always -1. 
+
+
+
+*org.omg.DynamicAny.DynEnumHelper()*
+
+public DynEnumHelper()
+
+
+
+
+*org.omg.DynamicAny.DynEnumHelper.extract(Any)*
+
+public static |org.omg.DynamicAny.DynEnum| extract(org.omg.CORBA.Any a)
+
+
+
+
+
+*org.omg.DynamicAny.DynEnumHelper.id()*
+
+public static |java.lang.String| id()
+
+
+
+
+
+*org.omg.DynamicAny.DynEnumHelper.insert(Any,DynEnum)*
+
+public static void insert(
+  org.omg.CORBA.Any a,
+  org.omg.DynamicAny.DynEnum that)
+
+
+
+
+
+*org.omg.DynamicAny.DynEnumHelper.narrow(Object)*
+
+public static |org.omg.DynamicAny.DynEnum| narrow(org.omg.CORBA.Object obj)
+
+
+
+
+
+*org.omg.DynamicAny.DynEnumHelper.read(InputStream)*
+
+public static |org.omg.DynamicAny.DynEnum| read(org.omg.CORBA.portable.InputStream istream)
+
+
+
+
+
+*org.omg.DynamicAny.DynEnumHelper.type()*
+
+public static synchronized |org.omg.CORBA.TypeCode| type()
+
+
+
+
+
+*org.omg.DynamicAny.DynEnumHelper.unchecked_narrow(Object)*
+
+public static |org.omg.DynamicAny.DynEnum| unchecked_narrow(org.omg.CORBA.Object obj)
+
+
+
+
+
+*org.omg.DynamicAny.DynEnumHelper.write(OutputStream,DynEnum)*
+
+public static void write(
+  org.omg.CORBA.portable.OutputStream ostream,
+  org.omg.DynamicAny.DynEnum value)
+
+
+
+
+
+

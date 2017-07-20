@@ -1,0 +1,32 @@
+*org.omg.PortableServer.ServantRetentionPolicyOperations* *ServantRetentionPolicyOperations* 
+
+public interface interface ServantRetentionPolicyOperations
+
+  implements |org.omg.CORBA.PolicyOperations|
+
+|org.omg.PortableServer.ServantRetentionPolicyOperations_Description|
+|org.omg.PortableServer.ServantRetentionPolicyOperations_Fields|
+|org.omg.PortableServer.ServantRetentionPolicyOperations_Constructors|
+|org.omg.PortableServer.ServantRetentionPolicyOperations_Methods|
+
+================================================================================
+
+*org.omg.PortableServer.ServantRetentionPolicyOperations_Methods*
+|org.omg.PortableServer.ServantRetentionPolicyOperations.value()|specifies the 
+
+*org.omg.PortableServer.ServantRetentionPolicyOperations_Description*
+
+This policy specifies whether the created POA retains active servants in an 
+Active Object Map. 
+
+
+
+*org.omg.PortableServer.ServantRetentionPolicyOperations.value()*
+
+public |org.omg.PortableServer.ServantRetentionPolicyValue| value()
+
+specifies the policy value 
+
+
+
+

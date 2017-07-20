@@ -1,0 +1,441 @@
+*java.time.chrono.IsoChronology* *IsoChronology* The ISO calendar system.
+
+public final class IsoChronology
+  extends    |java.time.chrono.AbstractChronology|
+  implements |java.io.Serializable|
+
+|java.time.chrono.IsoChronology_Description|
+|java.time.chrono.IsoChronology_Fields|
+|java.time.chrono.IsoChronology_Constructors|
+|java.time.chrono.IsoChronology_Methods|
+
+================================================================================
+
+*java.time.chrono.IsoChronology_Fields*
+|java.time.chrono.IsoChronology_java.time.chrono.IsoChronology.INSTANCE|
+
+*java.time.chrono.IsoChronology_Methods*
+|java.time.chrono.IsoChronology.date(Era,int,int,int)|Obtains an ISO local date
+|java.time.chrono.IsoChronology.date(int,int,int)|Obtains an ISO local date fro
+|java.time.chrono.IsoChronology.date(TemporalAccessor)|Obtains an ISO local dat
+|java.time.chrono.IsoChronology.dateEpochDay(long)|Obtains an ISO local date fr
+|java.time.chrono.IsoChronology.dateNow()|Obtains the current ISO local date fr
+|java.time.chrono.IsoChronology.dateNow(Clock)|Obtains the current ISO local da
+|java.time.chrono.IsoChronology.dateNow(ZoneId)|Obtains the current ISO local d
+|java.time.chrono.IsoChronology.dateYearDay(Era,int,int)|Obtains an ISO local d
+|java.time.chrono.IsoChronology.dateYearDay(int,int)|Obtains an ISO local date 
+|java.time.chrono.IsoChronology.eraOf(int)|
+|java.time.chrono.IsoChronology.eras()|
+|java.time.chrono.IsoChronology.getCalendarType()|Gets the calendar type of the
+|java.time.chrono.IsoChronology.getId()|Gets the ID of the chronology - 'ISO'.
+|java.time.chrono.IsoChronology.isLeapYear(long)|Checks if the year is a leap y
+|java.time.chrono.IsoChronology.localDateTime(TemporalAccessor)|Obtains an ISO 
+|java.time.chrono.IsoChronology.period(int,int,int)|Obtains a period for this c
+|java.time.chrono.IsoChronology.prolepticYear(Era,int)|
+|java.time.chrono.IsoChronology.range(ChronoField)|
+|java.time.chrono.IsoChronology.resolveDate(Map<TemporalField,Long>,ResolverStyle)|
+|java.time.chrono.IsoChronology.zonedDateTime(Instant,ZoneId)|Obtains an ISO zo
+|java.time.chrono.IsoChronology.zonedDateTime(TemporalAccessor)|Obtains an ISO 
+
+*java.time.chrono.IsoChronology_Description*
+
+The ISO calendar system. 
+
+This chronology defines the rules of the ISO calendar system. This calendar 
+system is based on the ISO-8601 standard, which is the de facto world calendar. 
+
+The fields are defined as follows: 
+
+era - There are two eras, 'Current Era' (CE) and 'Before Current Era' (BCE). 
+year-of-era - The year-of-era is the same as the proleptic-year for the current 
+CE era. For the BCE era before the ISO epoch the year increases from 1 upwards 
+as time goes backwards. proleptic-year - The proleptic year is the same as the 
+year-of-era for the current era. For the previous era, years have zero, then 
+negative values. month-of-year - There are 12 months in an ISO year, numbered 
+from 1 to 12. day-of-month - There are between 28 and 31 days in each of the 
+ISO month, numbered from 1 to 31. Months 4, 6, 9 and 11 have 30 days, Months 1, 
+3, 5, 7, 8, 10 and 12 have 31 days. Month 2 has 28 days, or 29 in a leap year. 
+day-of-year - There are 365 days in a standard ISO year and 366 in a leap year. 
+The days are numbered from 1 to 365 or 1 to 366. leap-year - Leap years occur 
+every 4 years, except where the year is divisble by 100 and not divisble by 
+400. 
+
+
+
+*java.time.chrono.IsoChronology_java.time.chrono.IsoChronology.INSTANCE*
+
+Singleton instance of the ISO chronology. 
+
+
+
+*java.time.chrono.IsoChronology.date(Era,int,int,int)*
+
+public |java.time.LocalDate| date(
+  java.time.chrono.Era era,
+  int yearOfEra,
+  int month,
+  int dayOfMonth)
+
+Obtains an ISO local date from the era, year-of-era, month-of-year and 
+day-of-month fields. 
+
+
+    era - the ISO era, not null 
+    yearOfEra - the ISO year-of-era 
+    month - the ISO month-of-year 
+    dayOfMonth - the ISO day-of-month 
+
+    Returns: the ISO local date, not null 
+
+*java.time.chrono.IsoChronology.date(int,int,int)*
+
+public |java.time.LocalDate| date(
+  int prolepticYear,
+  int month,
+  int dayOfMonth)
+
+Obtains an ISO local date from the proleptic-year, month-of-year and 
+day-of-month fields. 
+
+This is equivalent to (|java.time.LocalDate|) . 
+
+
+    prolepticYear - the ISO proleptic-year 
+    month - the ISO month-of-year 
+    dayOfMonth - the ISO day-of-month 
+
+    Returns: the ISO local date, not null 
+
+*java.time.chrono.IsoChronology.date(TemporalAccessor)*
+
+public |java.time.LocalDate| date(java.time.temporal.TemporalAccessor temporal)
+
+Obtains an ISO local date from another date-time object. 
+
+This is equivalent to (|java.time.LocalDate|) . 
+
+
+    temporal - the date-time object to convert, not null 
+
+    Returns: the ISO local date, not null 
+
+*java.time.chrono.IsoChronology.dateEpochDay(long)*
+
+public |java.time.LocalDate| dateEpochDay(long epochDay)
+
+Obtains an ISO local date from the epoch-day. 
+
+This is equivalent to (|java.time.LocalDate|) . 
+
+
+    epochDay - the epoch day 
+
+    Returns: the ISO local date, not null 
+
+*java.time.chrono.IsoChronology.dateNow()*
+
+public |java.time.LocalDate| dateNow()
+
+Obtains the current ISO local date from the system clock in the default 
+time-zone. 
+
+This will query the system clock(|java.time.Clock|) in the default time-zone to 
+obtain the current date. 
+
+Using this method will prevent the ability to use an alternate clock for 
+testing because the clock is hard-coded. 
+
+
+
+    Returns: the current ISO local date using the system clock and default time-zone, not 
+             null 
+
+*java.time.chrono.IsoChronology.dateNow(Clock)*
+
+public |java.time.LocalDate| dateNow(java.time.Clock clock)
+
+Obtains the current ISO local date from the specified clock. 
+
+This will query the specified clock to obtain the current date - today. Using 
+this method allows the use of an alternate clock for testing. The alternate 
+clock may be introduced using dependency injection(|java.time.Clock|) . 
+
+
+    clock - the clock to use, not null 
+
+    Returns: the current ISO local date, not null 
+
+*java.time.chrono.IsoChronology.dateNow(ZoneId)*
+
+public |java.time.LocalDate| dateNow(java.time.ZoneId zone)
+
+Obtains the current ISO local date from the system clock in the specified 
+time-zone. 
+
+This will query the system clock(|java.time.Clock|) to obtain the current date. 
+Specifying the time-zone avoids dependence on the default time-zone. 
+
+Using this method will prevent the ability to use an alternate clock for 
+testing because the clock is hard-coded. 
+
+
+
+    Returns: the current ISO local date using the system clock, not null 
+
+*java.time.chrono.IsoChronology.dateYearDay(Era,int,int)*
+
+public |java.time.LocalDate| dateYearDay(
+  java.time.chrono.Era era,
+  int yearOfEra,
+  int dayOfYear)
+
+Obtains an ISO local date from the era, year-of-era and day-of-year fields. 
+
+
+    era - the ISO era, not null 
+    yearOfEra - the ISO year-of-era 
+    dayOfYear - the ISO day-of-year 
+
+    Returns: the ISO local date, not null 
+
+*java.time.chrono.IsoChronology.dateYearDay(int,int)*
+
+public |java.time.LocalDate| dateYearDay(
+  int prolepticYear,
+  int dayOfYear)
+
+Obtains an ISO local date from the proleptic-year and day-of-year fields. 
+
+This is equivalent to (|java.time.LocalDate|) . 
+
+
+    prolepticYear - the ISO proleptic-year 
+    dayOfYear - the ISO day-of-year 
+
+    Returns: the ISO local date, not null 
+
+*java.time.chrono.IsoChronology.eraOf(int)*
+
+public |java.time.chrono.IsoEra| eraOf(int eraValue)
+
+
+
+
+
+*java.time.chrono.IsoChronology.eras()*
+
+public |java.util.List|<Era> eras()
+
+
+
+
+
+*java.time.chrono.IsoChronology.getCalendarType()*
+
+public |java.lang.String| getCalendarType()
+
+Gets the calendar type of the underlying calendar system - 'iso8601'. 
+
+The calendar type is an identifier defined by the Unicode Locale Data Markup 
+Language (LDML) specification. It can be used to lookup theChronologyusing 
+(|java.time.chrono.IsoChronology|) . It can also be used as part of a locale, 
+accessible via (|java.util.Locale|) with the key 'ca'. 
+
+
+
+    Returns: the calendar system type - 'iso8601' 
+
+*java.time.chrono.IsoChronology.getId()*
+
+public |java.lang.String| getId()
+
+Gets the ID of the chronology - 'ISO'. 
+
+The ID uniquely identifies theChronology. It can be used to lookup 
+theChronologyusing (|java.time.chrono.IsoChronology|) . 
+
+
+
+    Returns: the chronology ID - 'ISO' 
+
+*java.time.chrono.IsoChronology.isLeapYear(long)*
+
+public boolean isLeapYear(long prolepticYear)
+
+Checks if the year is a leap year, according to the ISO proleptic calendar 
+system rules. 
+
+This method applies the current rules for leap years across the whole 
+time-line. In general, a year is a leap year if it is divisible by four without 
+remainder. However, years divisible by 100, are not leap years, with the 
+exception of years divisible by 400 which are. 
+
+For example, 1904 is a leap year it is divisible by 4. 1900 was not a leap year 
+as it is divisible by 100, however 2000 was a leap year as it is divisible by 
+400. 
+
+The calculation is proleptic - applying the same rules into the far future and 
+far past. This is historically inaccurate, but is correct for the ISO-8601 
+standard. 
+
+
+    prolepticYear - the ISO proleptic year to check 
+
+    Returns: true if the year is leap, false otherwise 
+
+*java.time.chrono.IsoChronology.localDateTime(TemporalAccessor)*
+
+public |java.time.LocalDateTime| localDateTime(java.time.temporal.TemporalAccessor temporal)
+
+Obtains an ISO local date-time from another date-time object. 
+
+This is equivalent to (|java.time.LocalDateTime|) . 
+
+
+    temporal - the date-time object to convert, not null 
+
+    Returns: the ISO local date-time, not null 
+
+*java.time.chrono.IsoChronology.period(int,int,int)*
+
+public |java.time.Period| period(
+  int years,
+  int months,
+  int days)
+
+Obtains a period for this chronology based on years, months and days. 
+
+This returns a period tied to the ISO chronology using the specified years, 
+months and days. See (|java.time.Period|) for further details. 
+
+
+    years - the number of years, may be negative 
+    months - the number of years, may be negative 
+    days - the number of years, may be negative 
+
+    Returns: the period in terms of this chronology, not null 
+    Returns: the ISO period, not null 
+
+*java.time.chrono.IsoChronology.prolepticYear(Era,int)*
+
+public int prolepticYear(
+  java.time.chrono.Era era,
+  int yearOfEra)
+
+
+
+
+
+*java.time.chrono.IsoChronology.range(ChronoField)*
+
+public |java.time.temporal.ValueRange| range(java.time.temporal.ChronoField field)
+
+
+
+
+
+*java.time.chrono.IsoChronology.resolveDate(Map<TemporalField,Long>,ResolverStyle)*
+
+public |java.time.LocalDate| resolveDate(
+  java.util.Map<java.time.temporal.TemporalField, java.lang.Long> fieldValues,
+  java.time.format.ResolverStyle resolverStyle)
+
+Resolves parsedChronoFieldvalues into a date during parsing. 
+
+MostTemporalFieldimplementations are resolved using the resolve method on the 
+field. By contrast, theChronoFieldclass defines fields that only have meaning 
+relative to the chronology. As such,ChronoFielddate fields are resolved here in 
+the context of a specific chronology. ChronoFieldinstances on the ISO calendar 
+system are resolved as follows. 
+
+EPOCH_DAY- If present, this is converted to aLocalDateand all other date fields 
+are then cross-checked against the date. PROLEPTIC_MONTH- If present, then it 
+is split into theYEARandMONTH_OF_YEAR. If the mode is strict or smart then the 
+field is validated. YEAR_OF_ERAandERA- If both are present, then they are 
+combined to form aYEAR. In lenient mode, theYEAR_OF_ERArange is not validated, 
+in smart and strict mode it is. TheERAis validated for range in all three 
+modes. If only theYEAR_OF_ERAis present, and the mode is smart or lenient, then 
+the current era (CE/AD) is assumed. In strict mode, no era is assumed and 
+theYEAR_OF_ERAis left untouched. If only theERAis present, then it is left 
+untouched. YEAR,MONTH_OF_YEARandDAY_OF_MONTH- If all three are present, then 
+they are combined to form aLocalDate. In all three modes, theYEARis validated. 
+If the mode is smart or strict, then the month and day are validated, with the 
+day validated from 1 to 31. If the mode is lenient, then the date is combined 
+in a manner equivalent to creating a date on the first of January in the 
+requested year, then adding the difference in months, then the difference in 
+days. If the mode is smart, and the day-of-month is greater than the maximum 
+for the year-month, then the day-of-month is adjusted to the last day-of-month. 
+If the mode is strict, then the three fields must form a valid date. 
+YEARandDAY_OF_YEAR- If both are present, then they are combined to form 
+aLocalDate. In all three modes, theYEARis validated. If the mode is lenient, 
+then the date is combined in a manner equivalent to creating a date on the 
+first of January in the requested year, then adding the difference in days. If 
+the mode is smart or strict, then the two fields must form a valid date. 
+YEAR,MONTH_OF_YEAR,ALIGNED_WEEK_OF_MONTHandALIGNED_DAY_OF_WEEK_IN_MONTH- If all 
+four are present, then they are combined to form aLocalDate. In all three 
+modes, theYEARis validated. If the mode is lenient, then the date is combined 
+in a manner equivalent to creating a date on the first of January in the 
+requested year, then adding the difference in months, then the difference in 
+weeks, then in days. If the mode is smart or strict, then the all four fields 
+are validated to their outer ranges. The date is then combined in a manner 
+equivalent to creating a date on the first day of the requested year and month, 
+then adding the amount in weeks and days to reach their values. If the mode is 
+strict, the date is additionally validated to check that the day and week 
+adjustment did not change the month. 
+YEAR,MONTH_OF_YEAR,ALIGNED_WEEK_OF_MONTHandDAY_OF_WEEK- If all four are 
+present, then they are combined to form aLocalDate. The approach is the same as 
+described above for years, months and weeks inALIGNED_DAY_OF_WEEK_IN_MONTH. The 
+day-of-week is adjusted as the next or same matching day-of-week once the 
+years, months and weeks have been handled. 
+YEAR,ALIGNED_WEEK_OF_YEARandALIGNED_DAY_OF_WEEK_IN_YEAR- If all three are 
+present, then they are combined to form aLocalDate. In all three modes, 
+theYEARis validated. If the mode is lenient, then the date is combined in a 
+manner equivalent to creating a date on the first of January in the requested 
+year, then adding the difference in weeks, then in days. If the mode is smart 
+or strict, then the all three fields are validated to their outer ranges. The 
+date is then combined in a manner equivalent to creating a date on the first 
+day of the requested year, then adding the amount in weeks and days to reach 
+their values. If the mode is strict, the date is additionally validated to 
+check that the day and week adjustment did not change the year. 
+YEAR,ALIGNED_WEEK_OF_YEARandDAY_OF_WEEK- If all three are present, then they 
+are combined to form aLocalDate. The approach is the same as described above 
+for years and weeks inALIGNED_DAY_OF_WEEK_IN_YEAR. The day-of-week is adjusted 
+as the next or same matching day-of-week once the years and weeks have been 
+handled. 
+
+
+    fieldValues - the map of fields to values, which can be updated, not null 
+    resolverStyle - the requested type of resolve, not null 
+
+    Returns: the resolved date, null if insufficient information to create a date 
+
+*java.time.chrono.IsoChronology.zonedDateTime(Instant,ZoneId)*
+
+public |java.time.ZonedDateTime| zonedDateTime(
+  java.time.Instant instant,
+  java.time.ZoneId zone)
+
+Obtains an ISO zoned date-time in this chronology from anInstant. 
+
+This is equivalent to (|java.time.ZonedDateTime|) . 
+
+
+    instant - the instant to create the date-time from, not null 
+    zone - the time-zone, not null 
+
+    Returns: the zoned date-time, not null 
+
+*java.time.chrono.IsoChronology.zonedDateTime(TemporalAccessor)*
+
+public |java.time.ZonedDateTime| zonedDateTime(java.time.temporal.TemporalAccessor temporal)
+
+Obtains an ISO zoned date-time from another date-time object. 
+
+This is equivalent to (|java.time.ZonedDateTime|) . 
+
+
+    temporal - the date-time object to convert, not null 
+
+    Returns: the ISO zoned date-time, not null 
+
+

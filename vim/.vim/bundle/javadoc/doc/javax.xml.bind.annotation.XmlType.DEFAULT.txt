@@ -1,0 +1,30 @@
+*javax.xml.bind.annotation.XmlType.DEFAULT* *XmlType.DEFAULT* Used inXmlType#fac
+
+public static final class XmlType.DEFAULT
+  extends    |java.lang.Object|
+
+|javax.xml.bind.annotation.XmlType.DEFAULT_Description|
+|javax.xml.bind.annotation.XmlType.DEFAULT_Fields|
+|javax.xml.bind.annotation.XmlType.DEFAULT_Constructors|
+|javax.xml.bind.annotation.XmlType.DEFAULT_Methods|
+
+================================================================================
+
+*javax.xml.bind.annotation.XmlType.DEFAULT_Constructors*
+|javax.xml.bind.annotation.XmlType.DEFAULT()|
+
+*javax.xml.bind.annotation.XmlType.DEFAULT_Description*
+
+Used in (|javax.xml.bind.annotation.XmlType|) to signal that either factory 
+mehod is not used or that it's in the class with this 
+(|javax.xml.bind.annotation.XmlType|) itself. 
+
+
+
+*javax.xml.bind.annotation.XmlType.DEFAULT()*
+
+public DEFAULT()
+
+
+
+

@@ -1,0 +1,46 @@
+*java.lang.reflect.AnnotatedWildcardType* *AnnotatedWildcardType* AnnotatedWildc
+
+public interface interface AnnotatedWildcardType
+
+  implements |java.lang.reflect.AnnotatedType|
+
+|java.lang.reflect.AnnotatedWildcardType_Description|
+|java.lang.reflect.AnnotatedWildcardType_Fields|
+|java.lang.reflect.AnnotatedWildcardType_Constructors|
+|java.lang.reflect.AnnotatedWildcardType_Methods|
+
+================================================================================
+
+*java.lang.reflect.AnnotatedWildcardType_Methods*
+|java.lang.reflect.AnnotatedWildcardType.getAnnotatedLowerBounds()|Returns the 
+|java.lang.reflect.AnnotatedWildcardType.getAnnotatedUpperBounds()|Returns the 
+
+*java.lang.reflect.AnnotatedWildcardType_Description*
+
+AnnotatedWildcardTyperepresents the potentially annotated use of a wildcard 
+type argument, whose upper or lower bounds may themselves represent annotated 
+uses of types. 
+
+
+
+*java.lang.reflect.AnnotatedWildcardType.getAnnotatedLowerBounds()*
+
+public |java.lang.reflect.AnnotatedType|[] getAnnotatedLowerBounds()
+
+Returns the potentially annotated lower bounds of this wildcard type. 
+
+
+
+    Returns: the potentially annotated lower bounds of this wildcard type 
+
+*java.lang.reflect.AnnotatedWildcardType.getAnnotatedUpperBounds()*
+
+public |java.lang.reflect.AnnotatedType|[] getAnnotatedUpperBounds()
+
+Returns the potentially annotated upper bounds of this wildcard type. 
+
+
+
+    Returns: the potentially annotated upper bounds of this wildcard type 
+
+

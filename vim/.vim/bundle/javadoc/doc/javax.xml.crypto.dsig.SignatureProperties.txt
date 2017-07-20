@@ -1,0 +1,74 @@
+*javax.xml.crypto.dsig.SignatureProperties* *SignatureProperties* A representati
+
+public interface interface SignatureProperties
+
+  implements |javax.xml.crypto.XMLStructure|
+
+|javax.xml.crypto.dsig.SignatureProperties_Description|
+|javax.xml.crypto.dsig.SignatureProperties_Fields|
+|javax.xml.crypto.dsig.SignatureProperties_Constructors|
+|javax.xml.crypto.dsig.SignatureProperties_Methods|
+
+================================================================================
+
+*javax.xml.crypto.dsig.SignatureProperties_Fields*
+|java.lang.String_javax.xml.crypto.dsig.SignatureProperties.TYPE|
+
+*javax.xml.crypto.dsig.SignatureProperties_Methods*
+|javax.xml.crypto.dsig.SignatureProperties.getId()|Returns the Id of this Signa
+|javax.xml.crypto.dsig.SignatureProperties.getProperties()|Returns anjava.util.
+
+*javax.xml.crypto.dsig.SignatureProperties_Description*
+
+A representation of the XML SignatureProperties element as defined in the W3C 
+Recommendation for XML-Signature Syntax and Processing. The XML Schema 
+Definition is defined as: 
+
+<element name="SignatureProperties" type="ds:SignaturePropertiesType"/> 
+<complexType name="SignaturePropertiesType"> <sequence> <element 
+ref="ds:SignatureProperty" maxOccurs="unbounded"/> </sequence> <attribute 
+name="Id" type="ID" use="optional"/> </complexType> 
+
+A SignatureProperties instance may be created by invoking the 
+newSignatureProperties(|javax.xml.crypto.dsig.XMLSignatureFactory|) method of 
+the (|javax.xml.crypto.dsig.XMLSignatureFactory|) class; for example: 
+
+
+
+XMLSignatureFactory factory = XMLSignatureFactory.getInstance("DOM"); 
+SignatureProperties properties = factory.newSignatureProperties(props, 
+"signature-properties-1"); 
+
+
+
+*java.lang.String_javax.xml.crypto.dsig.SignatureProperties.TYPE*
+
+URI that identifies the SignatureProperties element (this can be specified as 
+the value of the type parameter of the (|javax.xml.crypto.dsig.Reference|) 
+class to identify the referent's type). 
+
+
+
+*javax.xml.crypto.dsig.SignatureProperties.getId()*
+
+public |java.lang.String| getId()
+
+Returns the Id of this SignatureProperties. 
+
+
+
+    Returns: the Id of this SignatureProperties (or null if not specified) 
+
+*javax.xml.crypto.dsig.SignatureProperties.getProperties()*
+
+public |java.util.List| getProperties()
+
+Returns an unmodifiable list(|java.util.Collections|) of one or more 
+(|javax.xml.crypto.dsig.SignatureProperty|) s that are contained in this 
+SignatureProperties. 
+
+
+
+    Returns: an unmodifiable list of one or more SignaturePropertys 
+
+

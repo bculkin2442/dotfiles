@@ -1,0 +1,32 @@
+*org.omg.PortableServer.IdUniquenessPolicyOperations* *IdUniquenessPolicyOperations* 
+
+public interface interface IdUniquenessPolicyOperations
+
+  implements |org.omg.CORBA.PolicyOperations|
+
+|org.omg.PortableServer.IdUniquenessPolicyOperations_Description|
+|org.omg.PortableServer.IdUniquenessPolicyOperations_Fields|
+|org.omg.PortableServer.IdUniquenessPolicyOperations_Constructors|
+|org.omg.PortableServer.IdUniquenessPolicyOperations_Methods|
+
+================================================================================
+
+*org.omg.PortableServer.IdUniquenessPolicyOperations_Methods*
+|org.omg.PortableServer.IdUniquenessPolicyOperations.value()|specifies the poli
+
+*org.omg.PortableServer.IdUniquenessPolicyOperations_Description*
+
+The IdUniquenessPolicy specifies whether the servants activated in the created 
+POA must have unique object i identities. The default is UNIQUE_ID. 
+
+
+
+*org.omg.PortableServer.IdUniquenessPolicyOperations.value()*
+
+public |org.omg.PortableServer.IdUniquenessPolicyValue| value()
+
+specifies the policy value 
+
+
+
+

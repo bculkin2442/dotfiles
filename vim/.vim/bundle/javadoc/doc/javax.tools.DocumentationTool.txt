@@ -1,0 +1,83 @@
+*javax.tools.DocumentationTool* *DocumentationTool* Interface to invoke Java pro
+
+public interface interface DocumentationTool
+
+  implements |javax.tools.Tool|
+             |javax.tools.OptionChecker|
+
+|javax.tools.DocumentationTool_Description|
+|javax.tools.DocumentationTool_Fields|
+|javax.tools.DocumentationTool_Constructors|
+|javax.tools.DocumentationTool_Methods|
+
+================================================================================
+
+*javax.tools.DocumentationTool_Methods*
+|javax.tools.DocumentationTool.getStandardFileManager(DiagnosticListener<?superJavaFileObject>,Locale,Charset)|
+|javax.tools.DocumentationTool.getTask(Writer,JavaFileManager,DiagnosticListener<?superJavaFileObject>,Class<?>,Iterable<String>,Iterable<?extendsJavaFileObject>)|
+
+*javax.tools.DocumentationTool_Description*
+
+Interface to invoke Java programming language documentation tools from 
+programs. 
+
+
+
+*javax.tools.DocumentationTool.getStandardFileManager(DiagnosticListener<?superJavaFileObject>,Locale,Charset)*
+
+public |javax.tools.StandardJavaFileManager| getStandardFileManager(
+  javax.tools.DiagnosticListener<? super javax.tools.JavaFileObject> diagnosticListener,
+  java.util.Locale locale,
+  java.nio.charset.Charset charset)
+
+Gets a new instance of the standard file manager implementation for this tool. 
+The file manager will use the given diagnostic listener for producing any 
+non-fatal diagnostics. Fatal errors will be signaled with the appropriate 
+exceptions. 
+
+The standard file manager will be automatically reopened if it is accessed 
+after calls toflushorclose. The standard file manager must be usable with other 
+tools. 
+
+
+    diagnosticListener - a diagnostic listener for non-fatal diagnostics; if {@code null} use the 
+       compiler's default method for reporting diagnostics 
+    locale - the locale to apply when formatting diagnostics; {@code null} means the 
+       {@linkplain Locale#getDefault() default locale}. 
+    charset - the character set used for decoding bytes; if {@code null} use the platform 
+       default 
+
+    Returns: the standard file manager 
+
+*javax.tools.DocumentationTool.getTask(Writer,JavaFileManager,DiagnosticListener<?superJavaFileObject>,Class<?>,Iterable<String>,Iterable<?extendsJavaFileObject>)*
+
+public |javax.tools.DocumentationTool.DocumentationTask| getTask(
+  java.io.Writer out,
+  javax.tools.JavaFileManager fileManager,
+  javax.tools.DiagnosticListener<? super javax.tools.JavaFileObject> diagnosticListener,
+  java.lang.Class<?> docletClass,
+  java.lang.Iterable<java.lang.String> options,
+  java.lang.Iterable<? extends javax.tools.JavaFileObject> compilationUnits)
+
+Creates a future for a documentation task with the given components and 
+arguments. The task might not have completed as described in the 
+DocumentationTask interface. 
+
+If a file manager is provided, it must be able to handle all locations defined 
+in (|javax.tools.DocumentationTool.Location|) , as well as 
+(|javax.tools.StandardLocation|) , (|javax.tools.StandardLocation|) , and 
+(|javax.tools.StandardLocation|) . 
+
+
+    out - a Writer for additional output from the tool; use {@code System.err} if {@code 
+       null} 
+    fileManager - a file manager; if {@code null} use the tool's standard filemanager 
+    diagnosticListener - a diagnostic listener; if {@code null} use the tool's default method for 
+       reporting diagnostics 
+    docletClass - a class providing the necessary methods required of a doclet 
+    options - documentation tool options and doclet options, {@code null} means no options 
+    compilationUnits - the compilation units to compile, {@code null} means no compilation units 
+
+    Returns: an object representing the compilation 
+
+

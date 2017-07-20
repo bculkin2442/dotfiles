@@ -1,0 +1,58 @@
+*org.omg.PortableInterceptor.ORBInitInfoPackage.DuplicateName* *DuplicateName* o
+
+public final class DuplicateName
+  extends    |org.omg.CORBA.UserException|
+
+|org.omg.PortableInterceptor.ORBInitInfoPackage.DuplicateName_Description|
+|org.omg.PortableInterceptor.ORBInitInfoPackage.DuplicateName_Fields|
+|org.omg.PortableInterceptor.ORBInitInfoPackage.DuplicateName_Constructors|
+|org.omg.PortableInterceptor.ORBInitInfoPackage.DuplicateName_Methods|
+
+================================================================================
+
+*org.omg.PortableInterceptor.ORBInitInfoPackage.DuplicateName_Fields*
+|java.lang.String_org.omg.PortableInterceptor.ORBInitInfoPackage.DuplicateName.name|
+
+*org.omg.PortableInterceptor.ORBInitInfoPackage.DuplicateName_Constructors*
+|org.omg.PortableInterceptor.ORBInitInfoPackage.DuplicateName()|
+|org.omg.PortableInterceptor.ORBInitInfoPackage.DuplicateName(String)|
+|org.omg.PortableInterceptor.ORBInitInfoPackage.DuplicateName(String,String)|
+
+*org.omg.PortableInterceptor.ORBInitInfoPackage.DuplicateName_Description*
+
+org/omg/PortableInterceptor/ORBInitInfoPackage/DuplicateName.java . Generated 
+by the IDL-to-Java compiler (portable), version "3.2" from 
+/HUDSON/workspace/8-2-build-macosx-x86_64/jdk8u5/2488/corba/src/share/classes/org/omg/PortableInterceptor/Interceptors.idl
+Tuesday, March 18, 2014 12:37:22 AM PDT 
+
+
+
+*java.lang.String_org.omg.PortableInterceptor.ORBInitInfoPackage.DuplicateName.name*
+
+The name for which there was already an interceptor registered. 
+
+
+
+*org.omg.PortableInterceptor.ORBInitInfoPackage.DuplicateName()*
+
+public DuplicateName()
+
+
+
+
+*org.omg.PortableInterceptor.ORBInitInfoPackage.DuplicateName(String)*
+
+public DuplicateName(java.lang.String _name)
+
+
+
+
+*org.omg.PortableInterceptor.ORBInitInfoPackage.DuplicateName(String,String)*
+
+public DuplicateName(
+  java.lang.String $reason,
+  java.lang.String _name)
+
+
+
+

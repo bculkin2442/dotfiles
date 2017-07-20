@@ -1,0 +1,49 @@
+*java.security.cert.CertPath.CertPathRep* *CertPath.CertPathRep* AlternateCertPa
+
+protected static class CertPath.CertPathRep
+  extends    |java.lang.Object|
+  implements |java.io.Serializable|
+
+|java.security.cert.CertPath.CertPathRep_Description|
+|java.security.cert.CertPath.CertPathRep_Fields|
+|java.security.cert.CertPath.CertPathRep_Constructors|
+|java.security.cert.CertPath.CertPathRep_Methods|
+
+================================================================================
+
+*java.security.cert.CertPath.CertPathRep_Constructors*
+|java.security.cert.CertPath.CertPathRep(String,byte[])|Creates aCertPathRepwit
+
+*java.security.cert.CertPath.CertPathRep_Methods*
+|java.security.cert.CertPath.CertPathRep.readResolve()|Returns aCertPathconstru
+
+*java.security.cert.CertPath.CertPathRep_Description*
+
+AlternateCertPathclass for serialization. 
+
+
+
+*java.security.cert.CertPath.CertPathRep(String,byte[])*
+
+protected CertPathRep(
+  java.lang.String type,
+  byte[] data)
+
+Creates aCertPathRepwith the specified type and encoded form of a certification 
+path. 
+
+    type - the standard name of a {@code CertPath} type 
+    data - the encoded form of the certification path 
+
+*java.security.cert.CertPath.CertPathRep.readResolve()*
+
+protected |java.lang.Object| readResolve()
+  throws |java.io.ObjectStreamException|
+         
+Returns aCertPathconstructed from the type and data. 
+
+
+
+    Returns: the resolved {@code CertPath} object 
+
+

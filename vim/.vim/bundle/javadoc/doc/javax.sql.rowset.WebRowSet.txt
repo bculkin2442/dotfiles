@@ -1,0 +1,383 @@
+*javax.sql.rowset.WebRowSet* *WebRowSet* The standard interface that all impleme
+
+public interface interface WebRowSet
+
+  implements |javax.sql.rowset.CachedRowSet|
+
+|javax.sql.rowset.WebRowSet_Description|
+|javax.sql.rowset.WebRowSet_Fields|
+|javax.sql.rowset.WebRowSet_Constructors|
+|javax.sql.rowset.WebRowSet_Methods|
+
+================================================================================
+
+*javax.sql.rowset.WebRowSet_Fields*
+|java.lang.String_javax.sql.rowset.WebRowSet.PUBLIC_XML_SCHEMA|
+|java.lang.String_javax.sql.rowset.WebRowSet.SCHEMA_SYSTEM_ID|
+
+*javax.sql.rowset.WebRowSet_Methods*
+|javax.sql.rowset.WebRowSet.readXml(InputStream)|Reads a stream based XML input
+|javax.sql.rowset.WebRowSet.readXml(Reader)|Reads aWebRowSetobject in its XML f
+|javax.sql.rowset.WebRowSet.writeXml(OutputStream)|Writes the data, properties,
+|javax.sql.rowset.WebRowSet.writeXml(ResultSet,OutputStream)|Populates thisWebR
+|javax.sql.rowset.WebRowSet.writeXml(ResultSet,Writer)|Populates thisWebRowSeto
+|javax.sql.rowset.WebRowSet.writeXml(Writer)|Writes the data, properties, and m
+
+*javax.sql.rowset.WebRowSet_Description*
+
+The standard interface that all implementations of aWebRowSetmust implement. 
+
+1.0 Overview TheWebRowSetImplprovides the standard reference implementation, 
+which may be extended if required. 
+
+The standard WebRowSet XML Schema definition is available at the following URI: 
+
+http://java.sun.com/xml/ns/jdbc/webrowset.xsd 
+
+It describes the standard XML document format required when describing 
+aRowSetobject in XML and must be used be all standard implementations of 
+theWebRowSetinterface to ensure interoperability. In addition, 
+theWebRowSetschema uses specific SQL/XML Schema annotations, thus ensuring 
+greater cross platform inter-operability. This is an effort currently under way 
+at the ISO organization. The SQL/XML definition is available at the following 
+URI: 
+
+http://standards.iso.org/iso/9075/2002/12/sqlxml 
+
+The schema definition describes the internal data of aRowSetobject in three 
+distinct areas: 
+
+properties - These properties describe the standard synchronization provider 
+properties in addition to the more generalRowSetproperties. 
+
+metadata - This describes the metadata associated with the tabular structure 
+governed by aWebRowSetobject. The metadata described is closely aligned with 
+the metadata accessible in the underlyingjava.sql.ResultSetinterface. 
+
+data - This describes the original data (the state of data since the last 
+population or last synchronization of theWebRowSetobject) and the current data. 
+By keeping track of the delta between the original data and the current data, 
+aWebRowSetmaintains the ability to synchronize changes in its data back to the 
+originating data source. 
+
+
+
+2.0 WebRowSet States The following sections demonstrates how 
+aWebRowSetimplementation should use the XML Schema to describe update, insert, 
+and delete operations and to describe the state of aWebRowSetobject in XML. 
+
+2.1 State 1 - Outputting aWebRowSetObject to XML In this example, 
+aWebRowSetobject is created and populated with a simple 2 column, 5 row table 
+from a data source. Having the 5 rows in aWebRowSetobject makes it possible to 
+describe them in XML. The metadata describing the various standard JavaBeans 
+properties as defined in the RowSet interface plus the standard properties 
+defined in theCachedRowSet interface provide key details that describe 
+WebRowSet properties. Outputting the WebRowSet object to XML using the 
+standardwriteXmlmethods describes the internal properties as follows: 
+
+select co1, col2 from test_table 1 
+
+true 0 0 1 
+
+0 0 0 false TRANSACTION_READ_UNCOMMITED false 
+
+jdbc:thin:oracle 
+
+.com.rowset.provider.RIOptimisticProvider Oracle Corporation 1.0 LOW NONE 
+
+
+
+The meta-data describing the make up of the WebRowSet is described in XML as 
+detailed below. Note both columns are described between 
+thecolumn-definitiontags. 
+
+2 
+
+1 false true false 1 false true 10 COL1 COL1 
+
+10 0 
+
+1 CHAR 
+
+2 false false false 1 true true 39 COL2 COL2 
+
+38 0 
+
+3 NUMBER 
+
+
+
+Having detailed how the properties and metadata are described, the following 
+details how the contents of aWebRowSetobject is described in XML. Note, that 
+this describes aWebRowSetobject that has not undergone any modifications since 
+its instantiation. AcurrentRowtag is mapped to each row of the table structure 
+that theWebRowSetobject provides. AcolumnValuetag may contain either 
+thestringDataorbinaryDatatag, according to the SQL type that the XML value is 
+mapping back to. ThebinaryDatatag contains data in the Base64 encoding and is 
+typically used forBLOBandCLOBtype data. 
+
+
+
+firstrow 
+
+1 
+
+
+
+secondrow 
+
+2 
+
+
+
+thirdrow 
+
+3 
+
+
+
+fourthrow 
+
+4 
+
+
+
+2.2 State 2 - Deleting a Row Deleting a row in aWebRowSetobject involves simply 
+moving to the row to be deleted and then calling the methoddeleteRow, as in any 
+otherRowSetobject. The following two lines of code, in which wrs is 
+aWebRowSetobject, delete the third row. 
+
+wrs.absolute(3); wrs.deleteRow(); 
+
+The XML description shows the third row is marked as adeleteRow, which 
+eliminates the third row in theWebRowSetobject. 
+
+
+
+firstrow 
+
+1 
+
+
+
+secondrow 
+
+2 
+
+
+
+thirdrow 
+
+3 
+
+
+
+fourthrow 
+
+4 
+
+
+
+2.3 State 3 - Inserting a Row AWebRowSetobject can insert a new row by moving 
+to the insert row, calling the appropriate updater methods for each column in 
+the row, and then calling the methodinsertRow. 
+
+wrs.moveToInsertRow(); wrs.updateString(1, "fifththrow"); wrs.updateString(2, 
+"5"); wrs.insertRow(); 
+
+The following code fragment changes the second column value in the row just 
+inserted. Note that this code applies when new rows are inserted right after 
+the current row, which is why the methodnextmoves the cursor to the correct 
+row. Calling the methodacceptChangeswrites the change to the data source. 
+
+wrs.moveToCurrentRow(); wrs.next(); wrs.updateString(2, "V"); 
+wrs.acceptChanges(); 
+
+Describing this in XML demonstrates where the Java code inserts a new row and 
+then performs an update on the newly inserted row on an individual field. 
+
+
+
+firstrow 
+
+1 
+
+
+
+secondrow 
+
+2 
+
+
+
+newthirdrow 
+
+III 
+
+
+
+fifthrow 
+
+5 
+
+V 
+
+
+
+fourthrow 
+
+4 
+
+
+
+2.4 State 4 - Modifying a Row Modifying a row produces specific XML that 
+records both the new value and the value that was replaced. The value that was 
+replaced becomes the original value, and the new value becomes the current 
+value. The following code moves the cursor to a specific row, performs some 
+modifications, and updates the row when complete. 
+
+wrs.absolute(5); wrs.updateString(1, "new4thRow"); wrs.updateString(2, "IV"); 
+wrs.updateRow(); 
+
+In XML, this is described by themodifyRowtag. Both the original and new values 
+are contained within the tag for original row tracking purposes. 
+
+
+
+firstrow 
+
+1 
+
+
+
+secondrow 
+
+2 
+
+
+
+newthirdrow 
+
+III 
+
+
+
+fifthrow 
+
+5 
+
+
+
+fourthrow 
+
+new4thRow 
+
+4 
+
+IV 
+
+
+
+
+
+*java.lang.String_javax.sql.rowset.WebRowSet.PUBLIC_XML_SCHEMA*
+
+The public identifier for the XML Schema definition that defines the XML tags 
+and their valid values for aWebRowSetimplementation. 
+
+
+*java.lang.String_javax.sql.rowset.WebRowSet.SCHEMA_SYSTEM_ID*
+
+The URL for the XML Schema definition file that defines the XML tags and their 
+valid values for aWebRowSetimplementation. 
+
+
+
+*javax.sql.rowset.WebRowSet.readXml(InputStream)*
+
+public void readXml(java.io.InputStream iStream)
+  throws |java.io.IOException|
+         |java.sql.SQLException|
+         
+Reads a stream based XML input to populate thisWebRowSetobject. 
+
+
+    iStream - the {@code java.io.InputStream} from which this {@code WebRowSet} object will 
+       be populated 
+
+*javax.sql.rowset.WebRowSet.readXml(Reader)*
+
+public void readXml(java.io.Reader reader)
+  throws |java.sql.SQLException|
+         
+Reads aWebRowSetobject in its XML format from the givenReaderobject. 
+
+
+    reader - the {@code java.io.Reader} stream from which this {@code WebRowSet} object will 
+       be populated 
+
+*javax.sql.rowset.WebRowSet.writeXml(OutputStream)*
+
+public void writeXml(java.io.OutputStream oStream)
+  throws |java.io.IOException|
+         |java.sql.SQLException|
+         
+Writes the data, properties, and metadata for thisWebRowSetobject to the 
+givenOutputStreamobject in XML format. 
+
+
+    oStream - the {@code java.io.OutputStream} stream to write to 
+
+*javax.sql.rowset.WebRowSet.writeXml(ResultSet,OutputStream)*
+
+public void writeXml(
+  java.sql.ResultSet rs,
+  java.io.OutputStream oStream)
+  throws |java.io.IOException|
+         |java.sql.SQLException|
+         
+Populates thisWebRowSetobject with the contents of the givenResultSetobject and 
+writes its data, properties, and metadata to the givenOutputStreamobject in XML 
+format. 
+
+NOTE: TheWebRowSetcursor may be moved to write out the contents to the XML data 
+source. If implemented in this way, the cursor must be returned to its position 
+just prior to thewriteXml()call. 
+
+
+    rs - the {@code ResultSet} object with which to populate this {@code WebRowSet} 
+       object 
+    oStream - the {@code java.io.OutputStream} to write to 
+
+*javax.sql.rowset.WebRowSet.writeXml(ResultSet,Writer)*
+
+public void writeXml(
+  java.sql.ResultSet rs,
+  java.io.Writer writer)
+  throws |java.sql.SQLException|
+         
+Populates thisWebRowSetobject with the contents of the givenResultSetobject and 
+writes its data, properties, and metadata to the givenWriterobject in XML 
+format. 
+
+NOTE: TheWebRowSetcursor may be moved to write out the contents to the XML data 
+source. If implemented in this way, the cursor must be returned to its position 
+just prior to thewriteXml()call. 
+
+
+    rs - the {@code ResultSet} object with which to populate this {@code WebRowSet} 
+       object 
+    writer - the {@code java.io.Writer} object to write to. 
+
+*javax.sql.rowset.WebRowSet.writeXml(Writer)*
+
+public void writeXml(java.io.Writer writer)
+  throws |java.sql.SQLException|
+         
+Writes the data, properties, and metadata for thisWebRowSetobject to the 
+givenWriterobject in XML format. 
+
+
+    writer - the {@code java.io.Writer} stream to write to 
+
+

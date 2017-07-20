@@ -1,0 +1,147 @@
+*javax.swing.DefaultComboBoxModel* *DefaultComboBoxModel* The default model for 
+
+public class DefaultComboBoxModel<E>
+  extends    |javax.swing.AbstractListModel|
+  implements |javax.swing.MutableComboBoxModel|
+             |java.io.Serializable|
+
+|javax.swing.DefaultComboBoxModel_Description|
+|javax.swing.DefaultComboBoxModel_Fields|
+|javax.swing.DefaultComboBoxModel_Constructors|
+|javax.swing.DefaultComboBoxModel_Methods|
+
+================================================================================
+
+*javax.swing.DefaultComboBoxModel_Constructors*
+|javax.swing.DefaultComboBoxModel()|Constructs an empty DefaultComboBoxModel ob
+|javax.swing.DefaultComboBoxModel(E[])|Constructs a DefaultComboBoxModel object
+|javax.swing.DefaultComboBoxModel(Vector<E>)|Constructs a DefaultComboBoxModel 
+
+*javax.swing.DefaultComboBoxModel_Methods*
+|javax.swing.DefaultComboBoxModel.addElement(E)|
+|javax.swing.DefaultComboBoxModel.getElementAt(int)|
+|javax.swing.DefaultComboBoxModel.getIndexOf(Object)|Returns the index-position
+|javax.swing.DefaultComboBoxModel.getSelectedItem()|
+|javax.swing.DefaultComboBoxModel.getSize()|
+|javax.swing.DefaultComboBoxModel.insertElementAt(E,int)|
+|javax.swing.DefaultComboBoxModel.removeAllElements()|Empties the list.
+|javax.swing.DefaultComboBoxModel.removeElement(Object)|
+|javax.swing.DefaultComboBoxModel.removeElementAt(int)|
+|javax.swing.DefaultComboBoxModel.setSelectedItem(Object)|Set the value of the 
+
+*javax.swing.DefaultComboBoxModel_Description*
+
+The default model for combo boxes. 
+
+
+
+*javax.swing.DefaultComboBoxModel()*
+
+public DefaultComboBoxModel()
+
+Constructs an empty DefaultComboBoxModel object. 
+
+
+*javax.swing.DefaultComboBoxModel(E[])*
+
+public DefaultComboBoxModel(E[] items)
+
+Constructs a DefaultComboBoxModel object initialized with an array of objects. 
+
+    items - an array of Object objects 
+
+*javax.swing.DefaultComboBoxModel(Vector<E>)*
+
+public DefaultComboBoxModel(java.util.Vector<E> v)
+
+Constructs a DefaultComboBoxModel object initialized with a vector. 
+
+    v - a Vector object ... 
+
+*javax.swing.DefaultComboBoxModel.addElement(E)*
+
+public void addElement(E anObject)
+
+
+
+
+
+*javax.swing.DefaultComboBoxModel.getElementAt(int)*
+
+public |E| getElementAt(int index)
+
+
+
+
+
+*javax.swing.DefaultComboBoxModel.getIndexOf(Object)*
+
+public int getIndexOf(java.lang.Object anObject)
+
+Returns the index-position of the specified object in the list. 
+
+
+    anObject - 
+
+    Returns: an int representing the index position, where 0 is the first position 
+
+*javax.swing.DefaultComboBoxModel.getSelectedItem()*
+
+public |java.lang.Object| getSelectedItem()
+
+
+
+
+
+*javax.swing.DefaultComboBoxModel.getSize()*
+
+public int getSize()
+
+
+
+
+
+*javax.swing.DefaultComboBoxModel.insertElementAt(E,int)*
+
+public void insertElementAt(
+  E anObject,
+  int index)
+
+
+
+
+
+*javax.swing.DefaultComboBoxModel.removeAllElements()*
+
+public void removeAllElements()
+
+Empties the list. 
+
+
+
+*javax.swing.DefaultComboBoxModel.removeElement(Object)*
+
+public void removeElement(java.lang.Object anObject)
+
+
+
+
+
+*javax.swing.DefaultComboBoxModel.removeElementAt(int)*
+
+public void removeElementAt(int index)
+
+
+
+
+
+*javax.swing.DefaultComboBoxModel.setSelectedItem(Object)*
+
+public void setSelectedItem(java.lang.Object anObject)
+
+Set the value of the selected item. The selected item may be null. 
+
+
+    anObject - The combo box value or null for no selection. 
+
+

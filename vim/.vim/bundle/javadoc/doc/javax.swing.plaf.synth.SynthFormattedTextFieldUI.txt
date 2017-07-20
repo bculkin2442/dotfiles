@@ -1,0 +1,71 @@
+*javax.swing.plaf.synth.SynthFormattedTextFieldUI* *SynthFormattedTextFieldUI* P
+
+public class SynthFormattedTextFieldUI
+  extends    |javax.swing.plaf.synth.SynthTextFieldUI|
+
+|javax.swing.plaf.synth.SynthFormattedTextFieldUI_Description|
+|javax.swing.plaf.synth.SynthFormattedTextFieldUI_Fields|
+|javax.swing.plaf.synth.SynthFormattedTextFieldUI_Constructors|
+|javax.swing.plaf.synth.SynthFormattedTextFieldUI_Methods|
+
+================================================================================
+
+*javax.swing.plaf.synth.SynthFormattedTextFieldUI_Constructors*
+|javax.swing.plaf.synth.SynthFormattedTextFieldUI()|
+
+*javax.swing.plaf.synth.SynthFormattedTextFieldUI_Methods*
+|javax.swing.plaf.synth.SynthFormattedTextFieldUI.createUI(JComponent)|Creates 
+|javax.swing.plaf.synth.SynthFormattedTextFieldUI.getPropertyPrefix()|Fetches t
+|javax.swing.plaf.synth.SynthFormattedTextFieldUI.paintBorder(SynthContext,Graphics,int,int,int,int)|
+
+*javax.swing.plaf.synth.SynthFormattedTextFieldUI_Description*
+
+Provides the Synth L and F UI delegate for (|javax.swing.JFormattedTextField|) 
+. 
+
+
+
+*javax.swing.plaf.synth.SynthFormattedTextFieldUI()*
+
+public SynthFormattedTextFieldUI()
+
+
+
+
+*javax.swing.plaf.synth.SynthFormattedTextFieldUI.createUI(JComponent)*
+
+public static |javax.swing.plaf.ComponentUI| createUI(javax.swing.JComponent c)
+
+Creates a UI for a JFormattedTextField. 
+
+
+    c - the formatted text field 
+
+    Returns: 
+
+*javax.swing.plaf.synth.SynthFormattedTextFieldUI.getPropertyPrefix()*
+
+protected |java.lang.String| getPropertyPrefix()
+
+Fetches the name used as a key to lookup properties through the UIManager. This 
+is used as a prefix to all the standard text properties. 
+
+
+
+    Returns: the name "FormattedTextField" 
+
+*javax.swing.plaf.synth.SynthFormattedTextFieldUI.paintBorder(SynthContext,Graphics,int,int,int,int)*
+
+public void paintBorder(
+  javax.swing.plaf.synth.SynthContext context,
+  java.awt.Graphics g,
+  int x,
+  int y,
+  int w,
+  int h)
+
+
+
+
+
+

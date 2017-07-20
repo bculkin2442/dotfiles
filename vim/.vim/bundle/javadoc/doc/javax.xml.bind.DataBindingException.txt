@@ -1,0 +1,41 @@
+*javax.xml.bind.DataBindingException* *DataBindingException* Exception that repr
+
+public class DataBindingException
+  extends    |java.lang.RuntimeException|
+
+|javax.xml.bind.DataBindingException_Description|
+|javax.xml.bind.DataBindingException_Fields|
+|javax.xml.bind.DataBindingException_Constructors|
+|javax.xml.bind.DataBindingException_Methods|
+
+================================================================================
+
+*javax.xml.bind.DataBindingException_Constructors*
+|javax.xml.bind.DataBindingException(String,Throwable)|
+|javax.xml.bind.DataBindingException(Throwable)|
+
+*javax.xml.bind.DataBindingException_Description*
+
+Exception that represents a failure in a JAXB operation. 
+
+This exception differs from (|javax.xml.bind.JAXBException|) in that this is an 
+unchecked exception, while JAXBException is a checked exception. 
+
+
+
+*javax.xml.bind.DataBindingException(String,Throwable)*
+
+public DataBindingException(
+  java.lang.String message,
+  java.lang.Throwable cause)
+
+
+
+
+*javax.xml.bind.DataBindingException(Throwable)*
+
+public DataBindingException(java.lang.Throwable cause)
+
+
+
+

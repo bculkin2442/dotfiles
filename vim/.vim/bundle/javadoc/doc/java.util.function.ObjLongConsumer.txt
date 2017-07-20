@@ -1,0 +1,40 @@
+*java.util.function.ObjLongConsumer* *ObjLongConsumer* Represents an operation t
+
+public interface interface ObjLongConsumer<T>
+
+
+|java.util.function.ObjLongConsumer_Description|
+|java.util.function.ObjLongConsumer_Fields|
+|java.util.function.ObjLongConsumer_Constructors|
+|java.util.function.ObjLongConsumer_Methods|
+
+================================================================================
+
+*java.util.function.ObjLongConsumer_Methods*
+|java.util.function.ObjLongConsumer.accept(T,long)|Performs this operation on t
+
+*java.util.function.ObjLongConsumer_Description*
+
+Represents an operation that accepts an object-valued and along-valued 
+argument, and returns no result. This is the(reference, long)specialization of 
+(|java.util.function.BiConsumer|) . Unlike most other functional 
+interfaces,ObjLongConsumeris expected to operate via side-effects. 
+
+This is a functional interface whose functional method is 
+(|java.util.function.ObjLongConsumer|) . 
+
+
+
+*java.util.function.ObjLongConsumer.accept(T,long)*
+
+public void accept(
+  T t,
+  long value)
+
+Performs this operation on the given arguments. 
+
+
+    t - the first input argument 
+    value - the second input argument 
+
+

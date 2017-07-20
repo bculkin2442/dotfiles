@@ -1,0 +1,67 @@
+*javax.xml.bind.annotation.XmlList* *XmlList* Used to map a property to a list s
+
+public interface class XmlList
+
+  implements |java.lang.annotation.Annotation|
+
+|javax.xml.bind.annotation.XmlList_Description|
+|javax.xml.bind.annotation.XmlList_Fields|
+|javax.xml.bind.annotation.XmlList_Constructors|
+|javax.xml.bind.annotation.XmlList_Methods|
+
+================================================================================
+
+*javax.xml.bind.annotation.XmlList_Description*
+
+Used to map a property to a list simple type. 
+
+Usage 
+
+The @XmlList annotation can be used with the following program elements: 
+
+JavaBean property field 
+
+When a collection property is annotated just with @XmlElement, each item in the 
+collection will be wrapped by an element. For example, 
+
+
+
+XmlRootElement class Foo { XmlElement List<String> data; } 
+
+would produce XML like this: 
+
+
+
+<foo> <data>abc <data>def </foo> 
+
+XmlList annotation, on the other hand, allows multiple values to be represented 
+as whitespace-separated tokens in a single element. For example, 
+
+
+
+XmlRootElement class Foo { XmlElement XmlList List<String> data; } 
+
+the above code will produce XML like this: 
+
+
+
+<foo> <data>abc def </foo> 
+
+This annotation can be used with the following annotations: 
+(|javax.xml.bind.annotation.XmlElement|) , 
+(|javax.xml.bind.annotation.XmlAttribute|) , 
+(|javax.xml.bind.annotation.XmlValue|) , (|javax.xml.bind.annotation.XmlIDREF|) 
+. 
+
+The use of @XmlList with (|javax.xml.bind.annotation.XmlValue|) while allowed, 
+is redundant since (|javax.xml.bind.annotation.XmlList|) maps a collection type 
+to a simple schema type that derives by list just as 
+(|javax.xml.bind.annotation.XmlValue|) would. 
+
+The use of @XmlList with (|javax.xml.bind.annotation.XmlAttribute|) while 
+allowed, is redundant since (|javax.xml.bind.annotation.XmlList|) maps a 
+collection type to a simple schema type that derives by list just as 
+(|javax.xml.bind.annotation.XmlAttribute|) would. 
+
+
+

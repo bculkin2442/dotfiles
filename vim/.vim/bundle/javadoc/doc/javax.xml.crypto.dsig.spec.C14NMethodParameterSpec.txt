@@ -1,0 +1,23 @@
+*javax.xml.crypto.dsig.spec.C14NMethodParameterSpec* *C14NMethodParameterSpec* A
+
+public interface interface C14NMethodParameterSpec
+
+  implements |javax.xml.crypto.dsig.spec.TransformParameterSpec|
+
+|javax.xml.crypto.dsig.spec.C14NMethodParameterSpec_Description|
+|javax.xml.crypto.dsig.spec.C14NMethodParameterSpec_Fields|
+|javax.xml.crypto.dsig.spec.C14NMethodParameterSpec_Constructors|
+|javax.xml.crypto.dsig.spec.C14NMethodParameterSpec_Methods|
+
+================================================================================
+
+*javax.xml.crypto.dsig.spec.C14NMethodParameterSpec_Description*
+
+A specification of algorithm parameters for a 
+(|javax.xml.crypto.dsig.CanonicalizationMethod|) Algorithm. The purpose of this 
+interface is to group (and provide type safety for) all canonicalization (C14N) 
+parameter specifications. All canonicalization parameter specifications must 
+implement this interface. 
+
+
+

@@ -1,0 +1,164 @@
+*javax.xml.soap.SOAPConstants* *SOAPConstants* The definition of constants perta
+
+public interface interface SOAPConstants
+
+
+|javax.xml.soap.SOAPConstants_Description|
+|javax.xml.soap.SOAPConstants_Fields|
+|javax.xml.soap.SOAPConstants_Constructors|
+|javax.xml.soap.SOAPConstants_Methods|
+
+================================================================================
+
+*javax.xml.soap.SOAPConstants_Fields*
+|java.lang.String_javax.xml.soap.SOAPConstants.DEFAULT_SOAP_PROTOCOL|
+|java.lang.String_javax.xml.soap.SOAPConstants.DYNAMIC_SOAP_PROTOCOL|
+|java.lang.String_javax.xml.soap.SOAPConstants.SOAP_1_1_CONTENT_TYPE|
+|java.lang.String_javax.xml.soap.SOAPConstants.SOAP_1_1_PROTOCOL|
+|java.lang.String_javax.xml.soap.SOAPConstants.SOAP_1_2_CONTENT_TYPE|
+|java.lang.String_javax.xml.soap.SOAPConstants.SOAP_1_2_PROTOCOL|
+|javax.xml.namespace.QName_javax.xml.soap.SOAPConstants.SOAP_DATAENCODINGUNKNOWN_FAULT|
+|java.lang.String_javax.xml.soap.SOAPConstants.SOAP_ENV_PREFIX|
+|javax.xml.namespace.QName_javax.xml.soap.SOAPConstants.SOAP_MUSTUNDERSTAND_FAULT|
+|javax.xml.namespace.QName_javax.xml.soap.SOAPConstants.SOAP_RECEIVER_FAULT|
+|javax.xml.namespace.QName_javax.xml.soap.SOAPConstants.SOAP_SENDER_FAULT|
+|javax.xml.namespace.QName_javax.xml.soap.SOAPConstants.SOAP_VERSIONMISMATCH_FAULT|
+|java.lang.String_javax.xml.soap.SOAPConstants.URI_NS_SOAP_1_1_ENVELOPE|
+|java.lang.String_javax.xml.soap.SOAPConstants.URI_NS_SOAP_1_2_ENCODING|
+|java.lang.String_javax.xml.soap.SOAPConstants.URI_NS_SOAP_1_2_ENVELOPE|
+|java.lang.String_javax.xml.soap.SOAPConstants.URI_NS_SOAP_ENCODING|
+|java.lang.String_javax.xml.soap.SOAPConstants.URI_NS_SOAP_ENVELOPE|
+|java.lang.String_javax.xml.soap.SOAPConstants.URI_SOAP_1_2_ROLE_NEXT|
+|java.lang.String_javax.xml.soap.SOAPConstants.URI_SOAP_1_2_ROLE_NONE|
+|java.lang.String_javax.xml.soap.SOAPConstants.URI_SOAP_1_2_ROLE_ULTIMATE_RECEIVER|
+|java.lang.String_javax.xml.soap.SOAPConstants.URI_SOAP_ACTOR_NEXT|
+
+*javax.xml.soap.SOAPConstants_Description*
+
+The definition of constants pertaining to the SOAP protocol. 
+
+
+
+*java.lang.String_javax.xml.soap.SOAPConstants.DEFAULT_SOAP_PROTOCOL*
+
+The default protocol: SOAP 1.1 for backwards compatibility. 
+
+
+*java.lang.String_javax.xml.soap.SOAPConstants.DYNAMIC_SOAP_PROTOCOL*
+
+Used to create MessageFactory instances that create SOAPMessages whose concrete 
+type is based on the Content-Type MIME header passed to the createMessage 
+method. If no Content-Type header is passed then the createMessage may throw an 
+IllegalArgumentException or, in the case of the no argument version of 
+createMessage, an UnsupportedOperationException. 
+
+
+*java.lang.String_javax.xml.soap.SOAPConstants.SOAP_1_1_CONTENT_TYPE*
+
+The media type of the Content-Type MIME header in SOAP 1.1. 
+
+
+*java.lang.String_javax.xml.soap.SOAPConstants.SOAP_1_1_PROTOCOL*
+
+Used to create MessageFactory instances that create SOAPMessages whose behavior 
+supports the SOAP 1.1 specification. 
+
+
+*java.lang.String_javax.xml.soap.SOAPConstants.SOAP_1_2_CONTENT_TYPE*
+
+The media type of the Content-Type MIME header in SOAP 1.2. 
+
+
+*java.lang.String_javax.xml.soap.SOAPConstants.SOAP_1_2_PROTOCOL*
+
+Used to create MessageFactory instances that create SOAPMessages whose behavior 
+supports the SOAP 1.2 specification 
+
+
+*javax.xml.namespace.QName_javax.xml.soap.SOAPConstants.SOAP_DATAENCODINGUNKNOWN_FAULT*
+
+SOAP 1.2 DataEncodingUnknown Fault 
+
+
+*java.lang.String_javax.xml.soap.SOAPConstants.SOAP_ENV_PREFIX*
+
+The default namespace prefix for http://www.w3.org/2003/05/soap-envelope 
+
+
+*javax.xml.namespace.QName_javax.xml.soap.SOAPConstants.SOAP_MUSTUNDERSTAND_FAULT*
+
+SOAP 1.2 MustUnderstand Fault 
+
+
+*javax.xml.namespace.QName_javax.xml.soap.SOAPConstants.SOAP_RECEIVER_FAULT*
+
+SOAP 1.2 Receiver Fault 
+
+
+*javax.xml.namespace.QName_javax.xml.soap.SOAPConstants.SOAP_SENDER_FAULT*
+
+SOAP 1.2 Sender Fault 
+
+
+*javax.xml.namespace.QName_javax.xml.soap.SOAPConstants.SOAP_VERSIONMISMATCH_FAULT*
+
+SOAP 1.2 VersionMismatch Fault 
+
+
+*java.lang.String_javax.xml.soap.SOAPConstants.URI_NS_SOAP_1_1_ENVELOPE*
+
+The namespace identifier for the SOAP 1.1 envelope. 
+
+
+*java.lang.String_javax.xml.soap.SOAPConstants.URI_NS_SOAP_1_2_ENCODING*
+
+The namespace identifier for the SOAP 1.2 encoding. 
+
+
+*java.lang.String_javax.xml.soap.SOAPConstants.URI_NS_SOAP_1_2_ENVELOPE*
+
+The namespace identifier for the SOAP 1.2 envelope. 
+
+
+*java.lang.String_javax.xml.soap.SOAPConstants.URI_NS_SOAP_ENCODING*
+
+The namespace identifier for the SOAP 1.1 encoding. An attribute named 
+encodingStyle in the URI_NS_SOAP_ENVELOPE namespace and set to the value 
+URI_NS_SOAP_ENCODING can be added to an element to indicate that it is encoded 
+using the rules in section 5 of the SOAP 1.1 specification. 
+
+
+*java.lang.String_javax.xml.soap.SOAPConstants.URI_NS_SOAP_ENVELOPE*
+
+The namespace identifier for the SOAP 1.1 envelope, All SOAPElements in this 
+namespace are defined by the SOAP 1.1 specification. 
+
+
+*java.lang.String_javax.xml.soap.SOAPConstants.URI_SOAP_1_2_ROLE_NEXT*
+
+The URI identifying the next application processing a SOAP request as the 
+intended role for a SOAP 1.2 header entry (see section 2.2 of part 1 of the 
+SOAP 1.2 specification). 
+
+
+*java.lang.String_javax.xml.soap.SOAPConstants.URI_SOAP_1_2_ROLE_NONE*
+
+The URI specifying the role None in SOAP 1.2. 
+
+
+*java.lang.String_javax.xml.soap.SOAPConstants.URI_SOAP_1_2_ROLE_ULTIMATE_RECEIVER*
+
+The URI identifying the ultimate receiver of the SOAP 1.2 message. 
+
+
+*java.lang.String_javax.xml.soap.SOAPConstants.URI_SOAP_ACTOR_NEXT*
+
+The URI identifying the next application processing a SOAP request as the 
+intended actor for a SOAP 1.1 header entry (see section 4.2.2 of the SOAP 1.1 
+specification). 
+
+This value can be passed to (|javax.xml.soap.SOAPHeader|) , 
+(|javax.xml.soap.SOAPHeader|) and (|javax.xml.soap.SOAPHeader|) 
+
+
+

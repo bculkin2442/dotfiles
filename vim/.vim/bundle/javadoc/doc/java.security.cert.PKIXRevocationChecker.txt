@@ -1,0 +1,234 @@
+*java.security.cert.PKIXRevocationChecker* *PKIXRevocationChecker* APKIXCertPath
+
+public abstract class PKIXRevocationChecker
+  extends    |java.security.cert.PKIXCertPathChecker|
+
+|java.security.cert.PKIXRevocationChecker_Description|
+|java.security.cert.PKIXRevocationChecker_Fields|
+|java.security.cert.PKIXRevocationChecker_Constructors|
+|java.security.cert.PKIXRevocationChecker_Methods|
+
+================================================================================
+
+*java.security.cert.PKIXRevocationChecker_Constructors*
+|java.security.cert.PKIXRevocationChecker()|Default constructor.
+
+*java.security.cert.PKIXRevocationChecker_Methods*
+|java.security.cert.PKIXRevocationChecker.clone()|
+|java.security.cert.PKIXRevocationChecker.getOcspExtensions()|Gets the optional
+|java.security.cert.PKIXRevocationChecker.getOcspResponder()|Gets the URI that 
+|java.security.cert.PKIXRevocationChecker.getOcspResponderCert()|Gets the OCSP 
+|java.security.cert.PKIXRevocationChecker.getOcspResponses()|Gets the OCSP resp
+|java.security.cert.PKIXRevocationChecker.getOptions()|Gets the revocation opti
+|java.security.cert.PKIXRevocationChecker.getSoftFailExceptions()|Returns a lis
+|java.security.cert.PKIXRevocationChecker.setOcspExtensions(List<Extension>)|Se
+|java.security.cert.PKIXRevocationChecker.setOcspResponder(URI)|Sets the URI th
+|java.security.cert.PKIXRevocationChecker.setOcspResponderCert(X509Certificate)|
+|java.security.cert.PKIXRevocationChecker.setOcspResponses(Map<X509Certificate,byte[]>)|
+|java.security.cert.PKIXRevocationChecker.setOptions(Set<PKIXRevocationChecker.Option>)|
+
+*java.security.cert.PKIXRevocationChecker_Description*
+
+APKIXCertPathCheckerfor checking the revocation status of certificates with the 
+PKIX algorithm. 
+
+APKIXRevocationCheckerchecks the revocation status of certificates with the 
+Online Certificate Status Protocol (OCSP) or Certificate Revocation Lists 
+(CRLs). OCSP is described in RFC 2560 and is a network protocol for determining 
+the status of a certificate. A CRL is a time-stamped list identifying revoked 
+certificates, and RFC 5280 describes an algorithm for determining the 
+revocation status of certificates using CRLs. 
+
+EachPKIXRevocationCheckermust be able to check the revocation status of 
+certificates with OCSP and CRLs. By default, OCSP is the preferred mechanism 
+for checking revocation status, with CRLs as the fallback mechanism. However, 
+this preference can be switched to CRLs with the 
+PREFER_CRLS(|java.security.cert.PKIXRevocationChecker.Option|) option. In 
+addition, the fallback mechanism can be disabled with the 
+NO_FALLBACK(|java.security.cert.PKIXRevocationChecker.Option|) option. 
+
+APKIXRevocationCheckeris obtained by calling the 
+getRevocationChecker(|java.security.cert.CertPathValidator|) method of a 
+PKIXCertPathValidator. Additional parameters and options specific to revocation 
+can be set (by calling the 
+setOcspResponder(|java.security.cert.PKIXRevocationChecker|) method for 
+instance). ThePKIXRevocationCheckeris added to aPKIXParametersobject using the 
+addCertPathChecker(|java.security.cert.PKIXParameters|) or 
+setCertPathCheckers(|java.security.cert.PKIXParameters|) method, and then 
+thePKIXParametersis passed along with theCertPathto be validated to the 
+validate(|java.security.cert.CertPathValidator|) method of a 
+PKIXCertPathValidator. When supplying a revocation checker in this manner, it 
+will be used to check revocation irrespective of the setting of the 
+RevocationEnabled(|java.security.cert.PKIXParameters|) flag. Similarly, 
+aPKIXRevocationCheckermay be added to aPKIXBuilderParametersobject for use with 
+a PKIXCertPathBuilder. 
+
+Note that when aPKIXRevocationCheckeris added toPKIXParameters, it clones 
+thePKIXRevocationChecker; thus any subsequent modifications to 
+thePKIXRevocationCheckerhave no effect. 
+
+Any parameter that is not set (or is set tonull) will be set to the default 
+value for that parameter. 
+
+Concurrent Access 
+
+Unless otherwise specified, the methods defined in this class are not 
+thread-safe. Multiple threads that need to access a single object concurrently 
+should synchronize amongst themselves and provide the necessary locking. 
+Multiple threads each manipulating separate objects need not synchronize. 
+
+
+
+*java.security.cert.PKIXRevocationChecker()*
+
+protected PKIXRevocationChecker()
+
+Default constructor. 
+
+
+*java.security.cert.PKIXRevocationChecker.clone()*
+
+public |java.security.cert.PKIXRevocationChecker| clone()
+
+
+
+
+
+*java.security.cert.PKIXRevocationChecker.getOcspExtensions()*
+
+public |java.util.List|<Extension> getOcspExtensions()
+
+Gets the optional OCSP request extensions. 
+
+
+
+    Returns: an unmodifiable list of extensions. The list is empty if no extensions have 
+             been specified. 
+
+*java.security.cert.PKIXRevocationChecker.getOcspResponder()*
+
+public |java.net.URI| getOcspResponder()
+
+Gets the URI that identifies the location of the OCSP responder. This overrides 
+theocsp.responderURLsecurity property. If this parameter or 
+theocsp.responderURLproperty is not set, the location is determined from the 
+certificate's Authority Information Access Extension, as defined in RFC 5280. 
+
+
+
+    Returns: the responder URI, or {@code null} if not set 
+
+*java.security.cert.PKIXRevocationChecker.getOcspResponderCert()*
+
+public |java.security.cert.X509Certificate| getOcspResponderCert()
+
+Gets the OCSP responder's certificate. This overrides 
+theocsp.responderCertSubjectName,ocsp.responderCertIssuerName, 
+andocsp.responderCertSerialNumbersecurity properties. If this parameter or the 
+aforementioned properties are not set, then the responder's certificate is 
+determined as specified in RFC 2560. 
+
+
+
+    Returns: the responder's certificate, or {@code null} if not set 
+
+*java.security.cert.PKIXRevocationChecker.getOcspResponses()*
+
+public |java.util.Map|<X509Certificate,byte[]> getOcspResponses()
+
+Gets the OCSP responses. These responses are used to determine the revocation 
+status of the specified certificates when OCSP is used. 
+
+
+
+    Returns: a map of OCSP responses. Each key is an {@code X509Certificate} that maps to 
+             the corresponding DER-encoded OCSP response for that certificate. 
+             A deep copy of the map is returned to protect against subsequent 
+             modification. Returns an empty map if no responses have been 
+             specified. 
+
+*java.security.cert.PKIXRevocationChecker.getOptions()*
+
+public |java.util.Set|<Option> getOptions()
+
+Gets the revocation options. 
+
+
+
+    Returns: an unmodifiable set of revocation options. The set is empty if no options have 
+             been specified. 
+
+*java.security.cert.PKIXRevocationChecker.getSoftFailExceptions()*
+
+public abstract |java.util.List|<CertPathValidatorException> getSoftFailExceptions()
+
+Returns a list containing the exceptions that are ignored by the revocation 
+checker when the SOFT_FAIL(|java.security.cert.PKIXRevocationChecker.Option|) 
+option is set. The list is cleared each time 
+init(|java.security.cert.PKIXRevocationChecker|) is called. The list is ordered 
+in ascending order according to the certificate index returned by 
+getIndex(|java.security.cert.CertPathValidatorException|) method of each entry. 
+
+An implementation ofPKIXRevocationCheckeris responsible for adding the ignored 
+exceptions to the list. 
+
+
+
+    Returns: an unmodifiable list containing the ignored exceptions. The list is empty if no 
+             exceptions have been ignored. 
+
+*java.security.cert.PKIXRevocationChecker.setOcspExtensions(List<Extension>)*
+
+public void setOcspExtensions(java.util.List<java.security.cert.Extension> extensions)
+
+Sets the optional OCSP request extensions. 
+
+
+    extensions - a list of extensions. The list is copied to protect against subsequent 
+       modification. 
+
+*java.security.cert.PKIXRevocationChecker.setOcspResponder(URI)*
+
+public void setOcspResponder(java.net.URI uri)
+
+Sets the URI that identifies the location of the OCSP responder. This overrides 
+theocsp.responderURLsecurity property and any responder specified in a 
+certificate's Authority Information Access Extension, as defined in RFC 5280. 
+
+
+    uri - the responder URI 
+
+*java.security.cert.PKIXRevocationChecker.setOcspResponderCert(X509Certificate)*
+
+public void setOcspResponderCert(java.security.cert.X509Certificate cert)
+
+Sets the OCSP responder's certificate. This overrides 
+theocsp.responderCertSubjectName,ocsp.responderCertIssuerName, 
+andocsp.responderCertSerialNumbersecurity properties. 
+
+
+    cert - the responder's certificate 
+
+*java.security.cert.PKIXRevocationChecker.setOcspResponses(Map<X509Certificate,byte[]>)*
+
+public void setOcspResponses(java.util.Map<java.security.cert.X509Certificate, byte[]> responses)
+
+Sets the OCSP responses. These responses are used to determine the revocation 
+status of the specified certificates when OCSP is used. 
+
+
+    responses - a map of OCSP responses. Each key is an {@code X509Certificate} that maps to 
+       the corresponding DER-encoded OCSP response for that certificate. A deep 
+       copy of the map is performed to protect against subsequent modification. 
+
+*java.security.cert.PKIXRevocationChecker.setOptions(Set<PKIXRevocationChecker.Option>)*
+
+public void setOptions(java.util.Set<java.security.cert.PKIXRevocationChecker.Option> options)
+
+Sets the revocation options. 
+
+
+    options - a set of revocation options. The set is copied to protect against subsequent 
+       modification. 
+
+

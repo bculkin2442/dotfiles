@@ -1,0 +1,35 @@
+*javax.xml.ws.spi.WebServiceFeatureAnnotation* *WebServiceFeatureAnnotation* Ann
+
+public interface class WebServiceFeatureAnnotation
+
+  implements |java.lang.annotation.Annotation|
+
+|javax.xml.ws.spi.WebServiceFeatureAnnotation_Description|
+|javax.xml.ws.spi.WebServiceFeatureAnnotation_Fields|
+|javax.xml.ws.spi.WebServiceFeatureAnnotation_Constructors|
+|javax.xml.ws.spi.WebServiceFeatureAnnotation_Methods|
+
+================================================================================
+
+*javax.xml.ws.spi.WebServiceFeatureAnnotation_Description*
+
+Annotation used to identify other annotations as a WebServiceFeature. 
+
+Each WebServiceFeature annotation annotated with this annotation MUST contain 
+an enabled property of type boolean with a default value of true. 
+
+JAX-WS defines the following WebServiceFeature annotations (Addressing, MTOM, 
+RespectBinding), however, an implementation may define vendors specific 
+annotations for other features. 
+
+Annotations annotated with WebServiceFeatureAnnotation MUST have the same 
+@Target of (|javax.xml.ws.WebServiceRef|) annotation, so that the resulting 
+feature annotation can be used in conjunction with the 
+(|javax.xml.ws.WebServiceRef|) annotation if necessary. 
+
+If a JAX-WS implementation encounters an annotation annotated with the 
+WebServiceFeatureAnnotation that it does not recognize/support an error MUST be 
+given. 
+
+
+

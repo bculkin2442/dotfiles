@@ -1,0 +1,40 @@
+*javax.xml.ws.Service.Mode* *Service.Mode* The orientation of a dynamic client o
+
+public static final enumService.Mode
+  extends    |java.lang.Enum|
+
+|javax.xml.ws.Service.Mode_Description|
+|javax.xml.ws.Service.Mode_Fields|
+|javax.xml.ws.Service.Mode_Constructors|
+|javax.xml.ws.Service.Mode_Methods|
+
+================================================================================
+
+*javax.xml.ws.Service.Mode_Methods*
+|javax.xml.ws.Service.Mode.valueOf(String)|
+|javax.xml.ws.Service.Mode.values()|
+
+*javax.xml.ws.Service.Mode_Description*
+
+The orientation of a dynamic client or service. MESSAGE provides access to 
+entire protocol message, PAYLOAD to protocol message payload only. 
+
+
+
+*javax.xml.ws.Service.Mode.valueOf(String)*
+
+public static |javax.xml.ws.Service.Mode| valueOf(java.lang.String name)
+
+
+
+
+
+*javax.xml.ws.Service.Mode.values()*
+
+public static |javax.xml.ws.Service.Mode|[] values()
+
+
+
+
+
+

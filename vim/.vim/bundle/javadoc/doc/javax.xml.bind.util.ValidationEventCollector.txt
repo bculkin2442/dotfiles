@@ -1,0 +1,81 @@
+*javax.xml.bind.util.ValidationEventCollector* *ValidationEventCollector* javax.
+
+public class ValidationEventCollector
+  extends    |java.lang.Object|
+  implements |javax.xml.bind.ValidationEventHandler|
+
+|javax.xml.bind.util.ValidationEventCollector_Description|
+|javax.xml.bind.util.ValidationEventCollector_Fields|
+|javax.xml.bind.util.ValidationEventCollector_Constructors|
+|javax.xml.bind.util.ValidationEventCollector_Methods|
+
+================================================================================
+
+*javax.xml.bind.util.ValidationEventCollector_Constructors*
+|javax.xml.bind.util.ValidationEventCollector()|
+
+*javax.xml.bind.util.ValidationEventCollector_Methods*
+|javax.xml.bind.util.ValidationEventCollector.getEvents()|Return an array of Va
+|javax.xml.bind.util.ValidationEventCollector.handleEvent(ValidationEvent)|
+|javax.xml.bind.util.ValidationEventCollector.hasEvents()|Returns true if this 
+|javax.xml.bind.util.ValidationEventCollector.reset()|Clear all collected error
+
+*javax.xml.bind.util.ValidationEventCollector_Description*
+
+ValidationEventHandler(|javax.xml.bind.ValidationEventHandler|) implementation 
+that collects all events. 
+
+To use this class, create a new instance and pass it to the setEventHandler 
+method of the Validator, Unmarshaller, Marshaller class. After the call to 
+validate or unmarshal completes, call the getEvents method to retrieve all the 
+reported errors and warnings. 
+
+
+
+*javax.xml.bind.util.ValidationEventCollector()*
+
+public ValidationEventCollector()
+
+
+
+
+*javax.xml.bind.util.ValidationEventCollector.getEvents()*
+
+public |javax.xml.bind.ValidationEvent|[] getEvents()
+
+Return an array of ValidationEvent objects containing a copy of each of the 
+collected errors and warnings. 
+
+
+
+    Returns: a copy of all the collected errors and warnings or an empty array if there 
+             weren't any 
+
+*javax.xml.bind.util.ValidationEventCollector.handleEvent(ValidationEvent)*
+
+public boolean handleEvent(javax.xml.bind.ValidationEvent event)
+
+
+
+
+
+*javax.xml.bind.util.ValidationEventCollector.hasEvents()*
+
+public boolean hasEvents()
+
+Returns true if this event collector contains at least one ValidationEvent. 
+
+
+
+    Returns: true if this event collector contains at least one ValidationEvent, false 
+             otherwise 
+
+*javax.xml.bind.util.ValidationEventCollector.reset()*
+
+public void reset()
+
+Clear all collected errors and warnings. 
+
+
+
+

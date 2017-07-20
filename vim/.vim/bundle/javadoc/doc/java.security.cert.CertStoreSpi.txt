@@ -1,0 +1,104 @@
+*java.security.cert.CertStoreSpi* *CertStoreSpi* The Service Provider Interface 
+
+public abstract class CertStoreSpi
+  extends    |java.lang.Object|
+
+|java.security.cert.CertStoreSpi_Description|
+|java.security.cert.CertStoreSpi_Fields|
+|java.security.cert.CertStoreSpi_Constructors|
+|java.security.cert.CertStoreSpi_Methods|
+
+================================================================================
+
+*java.security.cert.CertStoreSpi_Constructors*
+|java.security.cert.CertStoreSpi(CertStoreParameters)|The sole constructor.
+
+*java.security.cert.CertStoreSpi_Methods*
+|java.security.cert.CertStoreSpi.engineGetCertificates(CertSelector)|Returns aC
+|java.security.cert.CertStoreSpi.engineGetCRLs(CRLSelector)|Returns aCollection
+
+*java.security.cert.CertStoreSpi_Description*
+
+The Service Provider Interface (SPI) for the 
+CertStore(|java.security.cert.CertStore|) class. AllCertStoreimplementations 
+must include a class (the SPI class) that extends this class (CertStoreSpi), 
+provides a constructor with a single argument of typeCertStoreParameters, and 
+implements all of its methods. In general, instances of this class should only 
+be accessed through theCertStoreclass. For details, see the Java Cryptography 
+Architecture. 
+
+Concurrent Access 
+
+The public methods of allCertStoreSpiobjects must be thread-safe. That is, 
+multiple threads may concurrently invoke these methods on a 
+singleCertStoreSpiobject (or more than one) with no ill effects. This allows 
+aCertPathBuilderto search for a CRL while simultaneously searching for further 
+certificates, for instance. 
+
+SimpleCertStoreSpiimplementations will probably ensure thread safety by adding 
+asynchronizedkeyword to theirengineGetCertificatesandengineGetCRLsmethods. More 
+sophisticated ones may allow truly concurrent access. 
+
+
+
+*java.security.cert.CertStoreSpi(CertStoreParameters)*
+
+public CertStoreSpi(java.security.cert.CertStoreParameters params)
+  throws |java.security.InvalidAlgorithmParameterException|
+         
+The sole constructor. 
+
+    params - the initialization parameters (may be {@code null}) 
+
+*java.security.cert.CertStoreSpi.engineGetCertificates(CertSelector)*
+
+public abstract |java.util.Collection|<? extends java.security.cert.Certificate> engineGetCertificates(java.security.cert.CertSelector selector)
+  throws |java.security.cert.CertStoreException|
+         
+Returns aCollectionofCertificates that match the specified selector. If 
+noCertificates match the selector, an emptyCollectionwill be returned. 
+
+For someCertStoretypes, the resultingCollectionmay not contain all of 
+theCertificates that match the selector. For instance, an LDAPCertStoremay not 
+search all entries in the directory. Instead, it may just search entries that 
+are likely to contain theCertificates it is looking for. 
+
+SomeCertStoreimplementations (especially LDAPCertStores) may throw 
+aCertStoreExceptionunless a non-nullCertSelectoris provided that includes 
+specific criteria that can be used to find the certificates. Issuer and/or 
+subject names are especially useful criteria. 
+
+
+    selector - A {@code CertSelector} used to select which {@code Certificate}s should be 
+       returned. Specify {@code null} to return all {@code Certificate}s (if 
+       supported). 
+
+    Returns: A {@code Collection} of {@code Certificate}s that match the specified selector 
+             (never {@code null}) 
+
+*java.security.cert.CertStoreSpi.engineGetCRLs(CRLSelector)*
+
+public abstract |java.util.Collection|<? extends java.security.cert.CRL> engineGetCRLs(java.security.cert.CRLSelector selector)
+  throws |java.security.cert.CertStoreException|
+         
+Returns aCollectionofCRLs that match the specified selector. If noCRLs match 
+the selector, an emptyCollectionwill be returned. 
+
+For someCertStoretypes, the resultingCollectionmay not contain all of theCRLs 
+that match the selector. For instance, an LDAPCertStoremay not search all 
+entries in the directory. Instead, it may just search entries that are likely 
+to contain theCRLs it is looking for. 
+
+SomeCertStoreimplementations (especially LDAPCertStores) may throw 
+aCertStoreExceptionunless a non-nullCRLSelectoris provided that includes 
+specific criteria that can be used to find the CRLs. Issuer names and/or the 
+certificate to be checked are especially useful. 
+
+
+    selector - A {@code CRLSelector} used to select which {@code CRL}s should be returned. 
+       Specify {@code null} to return all {@code CRL}s (if supported). 
+
+    Returns: A {@code Collection} of {@code CRL}s that match the specified selector (never 
+             {@code null}) 
+
+

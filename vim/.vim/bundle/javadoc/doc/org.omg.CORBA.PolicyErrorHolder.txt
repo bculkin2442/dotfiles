@@ -1,0 +1,77 @@
+*org.omg.CORBA.PolicyErrorHolder* *PolicyErrorHolder* Thrown to indicate problem
+
+public final class PolicyErrorHolder
+  extends    |java.lang.Object|
+  implements |org.omg.CORBA.portable.Streamable|
+
+|org.omg.CORBA.PolicyErrorHolder_Description|
+|org.omg.CORBA.PolicyErrorHolder_Fields|
+|org.omg.CORBA.PolicyErrorHolder_Constructors|
+|org.omg.CORBA.PolicyErrorHolder_Methods|
+
+================================================================================
+
+*org.omg.CORBA.PolicyErrorHolder_Fields*
+|org.omg.CORBA.PolicyError_org.omg.CORBA.PolicyErrorHolder.value|
+
+*org.omg.CORBA.PolicyErrorHolder_Constructors*
+|org.omg.CORBA.PolicyErrorHolder()|
+|org.omg.CORBA.PolicyErrorHolder(PolicyError)|
+
+*org.omg.CORBA.PolicyErrorHolder_Methods*
+|org.omg.CORBA.PolicyErrorHolder._read(InputStream)|
+|org.omg.CORBA.PolicyErrorHolder._type()|
+|org.omg.CORBA.PolicyErrorHolder._write(OutputStream)|
+
+*org.omg.CORBA.PolicyErrorHolder_Description*
+
+Thrown to indicate problems with parameter values passed to the 
+ORB.create_policy operation. 
+
+
+
+*org.omg.CORBA.PolicyError_org.omg.CORBA.PolicyErrorHolder.value*
+
+
+
+
+
+*org.omg.CORBA.PolicyErrorHolder()*
+
+public PolicyErrorHolder()
+
+
+
+
+*org.omg.CORBA.PolicyErrorHolder(PolicyError)*
+
+public PolicyErrorHolder(org.omg.CORBA.PolicyError initialValue)
+
+
+
+
+*org.omg.CORBA.PolicyErrorHolder._read(InputStream)*
+
+public void _read(org.omg.CORBA.portable.InputStream i)
+
+
+
+
+
+*org.omg.CORBA.PolicyErrorHolder._type()*
+
+public |org.omg.CORBA.TypeCode| _type()
+
+
+
+
+
+*org.omg.CORBA.PolicyErrorHolder._write(OutputStream)*
+
+public void _write(org.omg.CORBA.portable.OutputStream o)
+
+
+
+
+
+

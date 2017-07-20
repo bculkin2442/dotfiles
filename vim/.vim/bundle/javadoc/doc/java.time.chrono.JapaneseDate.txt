@@ -1,0 +1,384 @@
+*java.time.chrono.JapaneseDate* *JapaneseDate* A date in the Japanese Imperial c
+
+public final class JapaneseDate
+  extends    |java.time.chrono.ChronoLocalDateImpl|
+  implements |java.time.chrono.ChronoLocalDate|
+             |java.io.Serializable|
+
+|java.time.chrono.JapaneseDate_Description|
+|java.time.chrono.JapaneseDate_Fields|
+|java.time.chrono.JapaneseDate_Constructors|
+|java.time.chrono.JapaneseDate_Methods|
+
+================================================================================
+
+*java.time.chrono.JapaneseDate_Methods*
+|java.time.chrono.JapaneseDate.atTime(LocalTime)|
+|java.time.chrono.JapaneseDate.equals(Object)|Compares this date to another dat
+|java.time.chrono.JapaneseDate.from(TemporalAccessor)|Obtains aJapaneseDatefrom
+|java.time.chrono.JapaneseDate.getChronology()|Gets the chronology of this date
+|java.time.chrono.JapaneseDate.getEra()|Gets the era applicable at this date.
+|java.time.chrono.JapaneseDate.getLong(TemporalField)|
+|java.time.chrono.JapaneseDate.hashCode()|A hash code for this date.
+|java.time.chrono.JapaneseDate.isSupported(TemporalField)|Checks if the specifi
+|java.time.chrono.JapaneseDate.lengthOfMonth()|Returns the length of the month 
+|java.time.chrono.JapaneseDate.lengthOfYear()|
+|java.time.chrono.JapaneseDate.minus(long,TemporalUnit)|
+|java.time.chrono.JapaneseDate.minus(TemporalAmount)|
+|java.time.chrono.JapaneseDate.now()|Obtains the currentJapaneseDatefrom the sy
+|java.time.chrono.JapaneseDate.now(Clock)|Obtains the currentJapaneseDatefrom t
+|java.time.chrono.JapaneseDate.now(ZoneId)|Obtains the currentJapaneseDatefrom 
+|java.time.chrono.JapaneseDate.of(int,int,int)|Obtains aJapaneseDaterepresentin
+|java.time.chrono.JapaneseDate.of(JapaneseEra,int,int,int)|Obtains aJapaneseDat
+|java.time.chrono.JapaneseDate.plus(long,TemporalUnit)|
+|java.time.chrono.JapaneseDate.plus(TemporalAmount)|
+|java.time.chrono.JapaneseDate.range(TemporalField)|
+|java.time.chrono.JapaneseDate.toEpochDay()|
+|java.time.chrono.JapaneseDate.until(ChronoLocalDate)|
+|java.time.chrono.JapaneseDate.with(TemporalAdjuster)|
+|java.time.chrono.JapaneseDate.with(TemporalField,long)|
+
+*java.time.chrono.JapaneseDate_Description*
+
+A date in the Japanese Imperial calendar system. 
+
+This date operates using the Japanese Imperial 
+calendar(|java.time.chrono.JapaneseChronology|) . This calendar system is 
+primarily used in Japan. 
+
+The Japanese Imperial calendar system is the same as the ISO calendar system 
+apart from the era-based year numbering. The proleptic-year is defined to be 
+equal to the ISO proleptic-year. 
+
+Japan introduced the Gregorian calendar starting with Meiji 6. Only Meiji and 
+later eras are supported; dates before Meiji 6, January 1 are not supported. 
+
+For example, the Japanese year "Heisei 24" corresponds to ISO year "2012". 
+CallingjapaneseDate.get(YEAR_OF_ERA)will return 24. 
+CallingjapaneseDate.get(YEAR)will return 2012. CallingjapaneseDate.get(ERA)will 
+return 2, corresponding toJapaneseChronology.ERA_HEISEI. 
+
+This is a <a href="/java/lang/doc-files/ValueBased.html">value-based class; use 
+of identity-sensitive operations (including reference equality (==), identity 
+hash code, or synchronization) on instances ofJapaneseDatemay have 
+unpredictable results and should be avoided. Theequalsmethod should be used for 
+comparisons. 
+
+
+
+*java.time.chrono.JapaneseDate.atTime(LocalTime)*
+
+public final |java.time.chrono.ChronoLocalDateTime|<JapaneseDate> atTime(java.time.LocalTime localTime)
+
+
+
+
+
+*java.time.chrono.JapaneseDate.equals(Object)*
+
+public boolean equals(java.lang.Object obj)
+
+Compares this date to another date, including the chronology. 
+
+Compares thisJapaneseDatewith another ensuring that the date is the same. 
+
+Only objects of typeJapaneseDateare compared, other types return false. To 
+compare the dates of twoTemporalAccessorinstances, including dates in two 
+different chronologies, use (|java.time.temporal.ChronoField|) as a comparator. 
+
+
+    obj - the object to check, null returns false 
+
+    Returns: true if this is equal to the other date 
+
+*java.time.chrono.JapaneseDate.from(TemporalAccessor)*
+
+public static |java.time.chrono.JapaneseDate| from(java.time.temporal.TemporalAccessor temporal)
+
+Obtains aJapaneseDatefrom a temporal object. 
+
+This obtains a date in the Japanese calendar system based on the specified 
+temporal. ATemporalAccessorrepresents an arbitrary set of date and time 
+information, which this factory converts to an instance ofJapaneseDate. 
+
+The conversion typically uses the EPOCH_DAY(|java.time.temporal.ChronoField|) 
+field, which is standardized across calendar systems. 
+
+This method matches the signature of the functional interface 
+(|java.time.temporal.TemporalQuery|) allowing it to be used as a query via 
+method reference,JapaneseDate::from. 
+
+
+    temporal - the temporal object to convert, not null 
+
+    Returns: the date in Japanese calendar system, not null 
+
+*java.time.chrono.JapaneseDate.getChronology()*
+
+public |java.time.chrono.JapaneseChronology| getChronology()
+
+Gets the chronology of this date, which is the Japanese calendar system. 
+
+TheChronologyrepresents the calendar system in use. The era and other fields in 
+(|java.time.temporal.ChronoField|) are defined by the chronology. 
+
+
+
+    Returns: the Japanese chronology, not null 
+
+*java.time.chrono.JapaneseDate.getEra()*
+
+public |java.time.chrono.JapaneseEra| getEra()
+
+Gets the era applicable at this date. 
+
+The Japanese calendar system has multiple eras defined by 
+(|java.time.chrono.JapaneseEra|) . 
+
+
+
+    Returns: the era applicable at this date, not null 
+
+*java.time.chrono.JapaneseDate.getLong(TemporalField)*
+
+public long getLong(java.time.temporal.TemporalField field)
+
+
+
+
+
+*java.time.chrono.JapaneseDate.hashCode()*
+
+public int hashCode()
+
+A hash code for this date. 
+
+
+
+    Returns: a suitable hash code based only on the Chronology and the date 
+
+*java.time.chrono.JapaneseDate.isSupported(TemporalField)*
+
+public boolean isSupported(java.time.temporal.TemporalField field)
+
+Checks if the specified field is supported. 
+
+This checks if this date can be queried for the specified field. If false, then 
+calling the range(|java.time.chrono.JapaneseDate|) and 
+get(|java.time.chrono.JapaneseDate|) methods will throw an exception. 
+
+If the field is a (|java.time.temporal.ChronoField|) then the query is 
+implemented here. The supported fields are: 
+
+DAY_OF_WEEKDAY_OF_MONTHDAY_OF_YEAREPOCH_DAYMONTH_OF_YEARPROLEPTIC_MONTHYEAR_OF_ERAYEARERA
+All otherChronoFieldinstances will return false. 
+
+If the field is not aChronoField, then the result of this method is obtained by 
+invokingTemporalField.isSupportedBy(TemporalAccessor)passingthisas the 
+argument. Whether the field is supported is determined by the field. 
+
+
+    field - the field to check, null returns false 
+
+    Returns: true if the field is supported on this date, false if not 
+
+*java.time.chrono.JapaneseDate.lengthOfMonth()*
+
+public int lengthOfMonth()
+
+Returns the length of the month represented by this date. 
+
+This returns the length of the month in days. Month lengths match those of the 
+ISO calendar system. 
+
+
+
+    Returns: the length of the month in days 
+
+*java.time.chrono.JapaneseDate.lengthOfYear()*
+
+public int lengthOfYear()
+
+
+
+
+
+*java.time.chrono.JapaneseDate.minus(long,TemporalUnit)*
+
+public |java.time.chrono.JapaneseDate| minus(
+  long amountToAdd,
+  java.time.temporal.TemporalUnit unit)
+
+
+
+
+
+*java.time.chrono.JapaneseDate.minus(TemporalAmount)*
+
+public |java.time.chrono.JapaneseDate| minus(java.time.temporal.TemporalAmount amount)
+
+
+
+
+
+*java.time.chrono.JapaneseDate.now()*
+
+public static |java.time.chrono.JapaneseDate| now()
+
+Obtains the currentJapaneseDatefrom the system clock in the default time-zone. 
+
+This will query the system clock(|java.time.Clock|) in the default time-zone to 
+obtain the current date. 
+
+Using this method will prevent the ability to use an alternate clock for 
+testing because the clock is hard-coded. 
+
+
+
+    Returns: the current date using the system clock and default time-zone, not null 
+
+*java.time.chrono.JapaneseDate.now(Clock)*
+
+public static |java.time.chrono.JapaneseDate| now(java.time.Clock clock)
+
+Obtains the currentJapaneseDatefrom the specified clock. 
+
+This will query the specified clock to obtain the current date - today. Using 
+this method allows the use of an alternate clock for testing. The alternate 
+clock may be introduced using dependency injection(|java.time.Clock|) . 
+
+
+    clock - the clock to use, not null 
+
+    Returns: the current date, not null 
+
+*java.time.chrono.JapaneseDate.now(ZoneId)*
+
+public static |java.time.chrono.JapaneseDate| now(java.time.ZoneId zone)
+
+Obtains the currentJapaneseDatefrom the system clock in the specified 
+time-zone. 
+
+This will query the system clock(|java.time.Clock|) to obtain the current date. 
+Specifying the time-zone avoids dependence on the default time-zone. 
+
+Using this method will prevent the ability to use an alternate clock for 
+testing because the clock is hard-coded. 
+
+
+    zone - the zone ID to use, not null 
+
+    Returns: the current date using the system clock, not null 
+
+*java.time.chrono.JapaneseDate.of(int,int,int)*
+
+public static |java.time.chrono.JapaneseDate| of(
+  int prolepticYear,
+  int month,
+  int dayOfMonth)
+
+Obtains aJapaneseDaterepresenting a date in the Japanese calendar system from 
+the proleptic-year, month-of-year and day-of-month fields. 
+
+This returns aJapaneseDatewith the specified fields. The day must be valid for 
+the year and month, otherwise an exception will be thrown. 
+
+The Japanese proleptic year, month and day-of-month are the same as those in 
+the ISO calendar system. They are not reset when the era changes. 
+
+
+    prolepticYear - the Japanese proleptic-year 
+    month - the Japanese month-of-year, from 1 to 12 
+    dayOfMonth - the Japanese day-of-month, from 1 to 31 
+
+    Returns: the date in Japanese calendar system, not null 
+
+*java.time.chrono.JapaneseDate.of(JapaneseEra,int,int,int)*
+
+public static |java.time.chrono.JapaneseDate| of(
+  java.time.chrono.JapaneseEra era,
+  int yearOfEra,
+  int month,
+  int dayOfMonth)
+
+Obtains aJapaneseDaterepresenting a date in the Japanese calendar system from 
+the era, year-of-era, month-of-year and day-of-month fields. 
+
+This returns aJapaneseDatewith the specified fields. The day must be valid for 
+the year and month, otherwise an exception will be thrown. 
+
+The Japanese month and day-of-month are the same as those in the ISO calendar 
+system. They are not reset when the era changes. For example: 
+
+6th Jan Showa 64 = ISO 1989-01-06 7th Jan Showa 64 = ISO 1989-01-07 8th Jan 
+Heisei 1 = ISO 1989-01-08 9th Jan Heisei 1 = ISO 1989-01-09 
+
+
+    era - the Japanese era, not null 
+    yearOfEra - the Japanese year-of-era 
+    month - the Japanese month-of-year, from 1 to 12 
+    dayOfMonth - the Japanese day-of-month, from 1 to 31 
+
+    Returns: the date in Japanese calendar system, not null 
+
+*java.time.chrono.JapaneseDate.plus(long,TemporalUnit)*
+
+public |java.time.chrono.JapaneseDate| plus(
+  long amountToAdd,
+  java.time.temporal.TemporalUnit unit)
+
+
+
+
+
+*java.time.chrono.JapaneseDate.plus(TemporalAmount)*
+
+public |java.time.chrono.JapaneseDate| plus(java.time.temporal.TemporalAmount amount)
+
+
+
+
+
+*java.time.chrono.JapaneseDate.range(TemporalField)*
+
+public |java.time.temporal.ValueRange| range(java.time.temporal.TemporalField field)
+
+
+
+
+
+*java.time.chrono.JapaneseDate.toEpochDay()*
+
+public long toEpochDay()
+
+
+
+
+
+*java.time.chrono.JapaneseDate.until(ChronoLocalDate)*
+
+public |java.time.chrono.ChronoPeriod| until(java.time.chrono.ChronoLocalDate endDate)
+
+
+
+
+
+*java.time.chrono.JapaneseDate.with(TemporalAdjuster)*
+
+public |java.time.chrono.JapaneseDate| with(java.time.temporal.TemporalAdjuster adjuster)
+
+
+
+
+
+*java.time.chrono.JapaneseDate.with(TemporalField,long)*
+
+public |java.time.chrono.JapaneseDate| with(
+  java.time.temporal.TemporalField field,
+  long newValue)
+
+
+
+
+
+

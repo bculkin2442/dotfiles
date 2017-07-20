@@ -1,0 +1,159 @@
+*java.time.chrono.JapaneseEra* *JapaneseEra* An era in the Japanese Imperial cal
+
+public final class JapaneseEra
+  extends    |java.lang.Object|
+  implements |java.time.chrono.Era|
+             |java.io.Serializable|
+
+|java.time.chrono.JapaneseEra_Description|
+|java.time.chrono.JapaneseEra_Fields|
+|java.time.chrono.JapaneseEra_Constructors|
+|java.time.chrono.JapaneseEra_Methods|
+
+================================================================================
+
+*java.time.chrono.JapaneseEra_Fields*
+|java.time.chrono.JapaneseEra_java.time.chrono.JapaneseEra.HEISEI|
+|java.time.chrono.JapaneseEra_java.time.chrono.JapaneseEra.MEIJI|
+|java.time.chrono.JapaneseEra_java.time.chrono.JapaneseEra.SHOWA|
+|java.time.chrono.JapaneseEra_java.time.chrono.JapaneseEra.TAISHO|
+
+*java.time.chrono.JapaneseEra_Methods*
+|java.time.chrono.JapaneseEra.getValue()|Gets the numeric eraintvalue.
+|java.time.chrono.JapaneseEra.of(int)|Obtains an instance ofJapaneseErafrom ani
+|java.time.chrono.JapaneseEra.range(TemporalField)|Gets the range of valid valu
+|java.time.chrono.JapaneseEra.toString()|
+|java.time.chrono.JapaneseEra.valueOf(String)|Returns theJapaneseErawith the na
+|java.time.chrono.JapaneseEra.values()|Returns an array of JapaneseEras.
+
+*java.time.chrono.JapaneseEra_Description*
+
+An era in the Japanese Imperial calendar system. 
+
+This class defines the valid eras for the Japanese chronology. Japan introduced 
+the Gregorian calendar starting with Meiji 6. Only Meiji and later eras are 
+supported; dates before Meiji 6, January 1 are not supported. 
+
+
+
+*java.time.chrono.JapaneseEra_java.time.chrono.JapaneseEra.HEISEI*
+
+The singleton instance for the 'Heisei' era (1989-01-08 - current) which has 
+the value 2. 
+
+
+*java.time.chrono.JapaneseEra_java.time.chrono.JapaneseEra.MEIJI*
+
+The singleton instance for the 'Meiji' era (1868-01-01 - 1912-07-29) which has 
+the value -1. 
+
+
+*java.time.chrono.JapaneseEra_java.time.chrono.JapaneseEra.SHOWA*
+
+The singleton instance for the 'Showa' era (1926-12-25 - 1989-01-07) which has 
+the value 1. 
+
+
+*java.time.chrono.JapaneseEra_java.time.chrono.JapaneseEra.TAISHO*
+
+The singleton instance for the 'Taisho' era (1912-07-30 - 1926-12-24) which has 
+the value 0. 
+
+
+
+*java.time.chrono.JapaneseEra.getValue()*
+
+public int getValue()
+
+Gets the numeric eraintvalue. 
+
+The (|java.time.chrono.JapaneseEra|) era that contains 1970-01-01 (ISO calendar 
+system) has the value 1. Later eras are numbered from 2 ( 
+(|java.time.chrono.JapaneseEra|) ). Earlier eras are numbered 0 ( 
+(|java.time.chrono.JapaneseEra|) ), -1 ( (|java.time.chrono.JapaneseEra|) )). 
+
+
+
+    Returns: the era value 
+
+*java.time.chrono.JapaneseEra.of(int)*
+
+public static |java.time.chrono.JapaneseEra| of(int japaneseEra)
+
+Obtains an instance ofJapaneseErafrom anintvalue. 
+
+The (|java.time.chrono.JapaneseEra|) era that contains 1970-01-01 (ISO calendar 
+system) has the value 1 Later era is numbered 2 ( 
+(|java.time.chrono.JapaneseEra|) ). Earlier eras are numbered 0 ( 
+(|java.time.chrono.JapaneseEra|) ), -1 ( (|java.time.chrono.JapaneseEra|) ), 
+only Meiji and later eras are supported. 
+
+
+    japaneseEra - the era to represent 
+
+    Returns: the {@code JapaneseEra} singleton, not null 
+
+*java.time.chrono.JapaneseEra.range(TemporalField)*
+
+public |java.time.temporal.ValueRange| range(java.time.temporal.TemporalField field)
+
+Gets the range of valid values for the specified field. 
+
+The range object expresses the minimum and maximum valid values for a field. 
+This era is used to enhance the accuracy of the returned range. If it is not 
+possible to return the range, because the field is not supported or for some 
+other reason, an exception is thrown. 
+
+If the field is a (|java.time.temporal.ChronoField|) then the query is 
+implemented here. TheERAfield returns the range. All otherChronoFieldinstances 
+will throw anUnsupportedTemporalTypeException. 
+
+If the field is not aChronoField, then the result of this method is obtained by 
+invokingTemporalField.rangeRefinedBy(TemporalAccessor)passingthisas the 
+argument. Whether the range can be obtained is determined by the field. 
+
+The range of valid Japanese eras can change over time due to the nature of the 
+Japanese calendar system. 
+
+
+    field - the field to query the range for, not null 
+
+    Returns: the range of valid values for the field, not null 
+
+*java.time.chrono.JapaneseEra.toString()*
+
+public |java.lang.String| toString()
+
+
+
+
+
+*java.time.chrono.JapaneseEra.valueOf(String)*
+
+public static |java.time.chrono.JapaneseEra| valueOf(java.lang.String japaneseEra)
+
+Returns theJapaneseErawith the name. 
+
+The string must match exactly the name of the era. (Extraneous whitespace 
+characters are not permitted.) 
+
+
+    japaneseEra - the japaneseEra name; non-null 
+
+    Returns: the {@code JapaneseEra} singleton, never null 
+
+*java.time.chrono.JapaneseEra.values()*
+
+public static |java.time.chrono.JapaneseEra|[] values()
+
+Returns an array of JapaneseEras. 
+
+This method may be used to iterate over the JapaneseEras as follows: 
+
+for (JapaneseEra c : JapaneseEra.values()) System.out.println(c); 
+
+
+
+    Returns: an array of JapaneseEras 
+
+

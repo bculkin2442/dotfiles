@@ -1,0 +1,347 @@
+*javax.xml.stream.XMLOutputFactory* *XMLOutputFactory* Defines an abstract imple
+
+public abstract class XMLOutputFactory
+  extends    |java.lang.Object|
+
+|javax.xml.stream.XMLOutputFactory_Description|
+|javax.xml.stream.XMLOutputFactory_Fields|
+|javax.xml.stream.XMLOutputFactory_Constructors|
+|javax.xml.stream.XMLOutputFactory_Methods|
+
+================================================================================
+
+*javax.xml.stream.XMLOutputFactory_Fields*
+|java.lang.String_javax.xml.stream.XMLOutputFactory.IS_REPAIRING_NAMESPACES|
+
+*javax.xml.stream.XMLOutputFactory_Constructors*
+|javax.xml.stream.XMLOutputFactory()|
+
+*javax.xml.stream.XMLOutputFactory_Methods*
+|javax.xml.stream.XMLOutputFactory.createXMLEventWriter(OutputStream)|Create a 
+|javax.xml.stream.XMLOutputFactory.createXMLEventWriter(OutputStream,String)|Cr
+|javax.xml.stream.XMLOutputFactory.createXMLEventWriter(Result)|Create a new XM
+|javax.xml.stream.XMLOutputFactory.createXMLEventWriter(Writer)|Create a new XM
+|javax.xml.stream.XMLOutputFactory.createXMLStreamWriter(OutputStream)|Create a
+|javax.xml.stream.XMLOutputFactory.createXMLStreamWriter(OutputStream,String)|C
+|javax.xml.stream.XMLOutputFactory.createXMLStreamWriter(Result)|Create a new X
+|javax.xml.stream.XMLOutputFactory.createXMLStreamWriter(Writer)|Create a new X
+|javax.xml.stream.XMLOutputFactory.getProperty(String)|Get a feature/property o
+|javax.xml.stream.XMLOutputFactory.isPropertySupported(String)|Query the set of
+|javax.xml.stream.XMLOutputFactory.newFactory()|Create a new instance of the fa
+|javax.xml.stream.XMLOutputFactory.newFactory(String,ClassLoader)|Create a new 
+|javax.xml.stream.XMLOutputFactory.newInstance()|Creates a new instance of the 
+|javax.xml.stream.XMLOutputFactory.newInstance(String,ClassLoader)|Create a new
+|javax.xml.stream.XMLOutputFactory.setProperty(String,Object)|Allows the user t
+
+*javax.xml.stream.XMLOutputFactory_Description*
+
+Defines an abstract implementation of a factory for getting XMLEventWriters and 
+XMLStreamWriters. 
+
+The following table defines the standard properties of this specification. Each 
+property varies in the level of support required by each implementation. The 
+level of support required is described in the 'Required' column. 
+
+
+
+
+
+Configuration parameters 
+
+
+
+
+
+Property Name Behavior Return type Default Value Required 
+
+javax.xml.stream.isRepairingNamespacesdefaults prefixes on the output 
+sideBooleanFalseYes 
+
+
+
+The following paragraphs describe the namespace and prefix repair algorithm: 
+
+The property can be set with the following code line: 
+setProperty("javax.xml.stream.isRepairingNamespaces",new Boolean(true|false)); 
+
+This property specifies that the writer default namespace prefix declarations. 
+The default value is false. 
+
+If a writer isRepairingNamespaces it will create a namespace declaration on the 
+current StartElement for any attribute that does not currently have a namespace 
+declaration in scope. If the StartElement has a uri but no prefix specified a 
+prefix will be assigned, if the prefix has not been declared in a parent of the 
+current StartElement it will be declared on the current StartElement. If the 
+defaultNamespace is bound and in scope and the default namespace matches the 
+URI of the attribute or StartElement QName no prefix will be assigned. 
+
+If an element or attribute name has a prefix, but is not bound to any namespace 
+URI, then the prefix will be removed during serialization. 
+
+If element and/or attribute names in the same start or empty-element tag are 
+bound to different namespace URIs and are using the same prefix then the 
+element or the first occurring attribute retains the original prefix and the 
+following attributes have their prefixes replaced with a new prefix that is 
+bound to the namespace URIs of those attributes. 
+
+If an element or attribute name uses a prefix that is bound to a different URI 
+than that inherited from the namespace context of the parent of that element 
+and there is no namespace declaration in the context of the current element 
+then such a namespace declaration is added. 
+
+If an element or attribute name is bound to a prefix and there is a namespace 
+declaration that binds that prefix to a different URI then that namespace 
+declaration is either removed if the correct mapping is inherited from the 
+parent context of that element, or changed to the namespace URI of the element 
+or attribute using that prefix. 
+
+
+
+*java.lang.String_javax.xml.stream.XMLOutputFactory.IS_REPAIRING_NAMESPACES*
+
+Property used to set prefix defaulting on the output side 
+
+
+
+*javax.xml.stream.XMLOutputFactory()*
+
+protected XMLOutputFactory()
+
+
+
+
+*javax.xml.stream.XMLOutputFactory.createXMLEventWriter(OutputStream)*
+
+public abstract |javax.xml.stream.XMLEventWriter| createXMLEventWriter(java.io.OutputStream stream)
+  throws |javax.xml.stream.XMLStreamException|
+         
+Create a new XMLEventWriter that writes to a stream 
+
+
+    stream - the stream to write to 
+
+*javax.xml.stream.XMLOutputFactory.createXMLEventWriter(OutputStream,String)*
+
+public abstract |javax.xml.stream.XMLEventWriter| createXMLEventWriter(
+  java.io.OutputStream stream,
+  java.lang.String encoding)
+  throws |javax.xml.stream.XMLStreamException|
+         
+Create a new XMLEventWriter that writes to a stream 
+
+
+    stream - the stream to write to 
+    encoding - the encoding to use 
+
+*javax.xml.stream.XMLOutputFactory.createXMLEventWriter(Result)*
+
+public abstract |javax.xml.stream.XMLEventWriter| createXMLEventWriter(javax.xml.transform.Result result)
+  throws |javax.xml.stream.XMLStreamException|
+         
+Create a new XMLEventWriter that writes to a JAXP result. This method is 
+optional. 
+
+
+    result - the result to write to 
+
+*javax.xml.stream.XMLOutputFactory.createXMLEventWriter(Writer)*
+
+public abstract |javax.xml.stream.XMLEventWriter| createXMLEventWriter(java.io.Writer stream)
+  throws |javax.xml.stream.XMLStreamException|
+         
+Create a new XMLEventWriter that writes to a writer 
+
+
+    stream - the stream to write to 
+
+*javax.xml.stream.XMLOutputFactory.createXMLStreamWriter(OutputStream)*
+
+public abstract |javax.xml.stream.XMLStreamWriter| createXMLStreamWriter(java.io.OutputStream stream)
+  throws |javax.xml.stream.XMLStreamException|
+         
+Create a new XMLStreamWriter that writes to a stream 
+
+
+    stream - the stream to write to 
+
+*javax.xml.stream.XMLOutputFactory.createXMLStreamWriter(OutputStream,String)*
+
+public abstract |javax.xml.stream.XMLStreamWriter| createXMLStreamWriter(
+  java.io.OutputStream stream,
+  java.lang.String encoding)
+  throws |javax.xml.stream.XMLStreamException|
+         
+Create a new XMLStreamWriter that writes to a stream 
+
+
+    stream - the stream to write to 
+    encoding - the encoding to use 
+
+*javax.xml.stream.XMLOutputFactory.createXMLStreamWriter(Result)*
+
+public abstract |javax.xml.stream.XMLStreamWriter| createXMLStreamWriter(javax.xml.transform.Result result)
+  throws |javax.xml.stream.XMLStreamException|
+         
+Create a new XMLStreamWriter that writes to a JAXP result. This method is 
+optional. 
+
+
+    result - the result to write to 
+
+*javax.xml.stream.XMLOutputFactory.createXMLStreamWriter(Writer)*
+
+public abstract |javax.xml.stream.XMLStreamWriter| createXMLStreamWriter(java.io.Writer stream)
+  throws |javax.xml.stream.XMLStreamException|
+         
+Create a new XMLStreamWriter that writes to a writer 
+
+
+    stream - the writer to write to 
+
+*javax.xml.stream.XMLOutputFactory.getProperty(String)*
+
+public abstract |java.lang.Object| getProperty(java.lang.String name)
+  throws |java.lang.IllegalArgumentException|
+         
+Get a feature/property on the underlying implementation 
+
+
+    name - The name of the property 
+
+    Returns: The value of the property 
+
+*javax.xml.stream.XMLOutputFactory.isPropertySupported(String)*
+
+public abstract boolean isPropertySupported(java.lang.String name)
+
+Query the set of properties that this factory supports. 
+
+
+    name - The name of the property (may not be null) 
+
+    Returns: true if the property is supported and false otherwise 
+
+*javax.xml.stream.XMLOutputFactory.newFactory()*
+
+public static |javax.xml.stream.XMLOutputFactory| newFactory()
+  throws |javax.xml.stream.FactoryConfigurationError|
+         
+Create a new instance of the factory. 
+
+This static method creates a new factory instance. This method uses the 
+following ordered lookup procedure to determine the XMLOutputFactory 
+implementation class to load: 
+
+
+
+Use the javax.xml.stream.XMLOutputFactory system property. 
+
+Use the properties file "lib/stax.properties" in the JRE directory. This 
+configuration file is in standard java.util.Properties format and contains the 
+fully qualified name of the implementation class with the key being the system 
+property defined above. 
+
+Use the service-provider loading facilities, defined by the 
+(|java.util.ServiceLoader|) class, to attempt to locate and load an 
+implementation of the service using the default loading 
+mechanism(|java.util.ServiceLoader|) : the service-provider loading facility 
+will use the current thread's context class loader(|java.lang.Thread|) to 
+attempt to load the service. If the context class loader is null, the system 
+class loader(|java.lang.ClassLoader|) will be used. 
+
+Otherwise, the system-default implementation is returned. 
+
+Once an application has obtained a reference to a XMLOutputFactory it can use 
+the factory to configure and obtain stream instances. 
+
+Note that this is a new method that replaces the deprecated newInstance() 
+method. No changes in behavior are defined by this replacement method relative 
+to the deprecated method. 
+
+
+
+*javax.xml.stream.XMLOutputFactory.newFactory(String,ClassLoader)*
+
+public static |javax.xml.stream.XMLOutputFactory| newFactory(
+  java.lang.String factoryId,
+  java.lang.ClassLoader classLoader)
+  throws |javax.xml.stream.FactoryConfigurationError|
+         
+Create a new instance of the factory. If the classLoader argument is null, then 
+the ContextClassLoader is used. 
+
+This method uses the following ordered lookup procedure to determine the 
+XMLOutputFactory implementation class to load: 
+
+
+
+Use the value of the system property identified byfactoryId. 
+
+Use the properties file "lib/stax.properties" in the JRE directory. This 
+configuration file is in standard java.util.Properties format and contains the 
+fully qualified name of the implementation class with the key being the 
+givenfactoryId. 
+
+IffactoryIdis "javax.xml.stream.XMLOutputFactory", use the service-provider 
+loading facilities, defined by the (|java.util.ServiceLoader|) class, to 
+attempt to locate and load an implementation of the service using the 
+specifiedClassLoader. IfclassLoaderis null, the default loading 
+mechanism(|java.util.ServiceLoader|) will apply: That is, the service-provider 
+loading facility will use the current thread's context class 
+loader(|java.lang.Thread|) to attempt to load the service. If the context class 
+loader is null, the system class loader(|java.lang.ClassLoader|) will be used. 
+
+Otherwise, throws a (|javax.xml.stream.FactoryConfigurationError|) . 
+
+
+
+
+    factoryId - Name of the factory to find, same as a property name 
+    classLoader - classLoader to use 
+
+    Returns: the factory implementation 
+
+*javax.xml.stream.XMLOutputFactory.newInstance()*
+
+public static |javax.xml.stream.XMLOutputFactory| newInstance()
+  throws |javax.xml.stream.FactoryConfigurationError|
+         
+Creates a new instance of the factory in exactly the same manner as the 
+(|javax.xml.stream.XMLOutputFactory|) method. 
+
+
+
+*javax.xml.stream.XMLOutputFactory.newInstance(String,ClassLoader)*
+
+public static |javax.xml.stream.XMLInputFactory| newInstance(
+  java.lang.String factoryId,
+  java.lang.ClassLoader classLoader)
+  throws |javax.xml.stream.FactoryConfigurationError|
+         
+Create a new instance of the factory. 
+
+    Deprecated: This method has been deprecated because it returns an
+              instance of XMLInputFactory, which is of the wrong class.
+              Use the new method {@link #newFactory(java.lang.String,
+              java.lang.ClassLoader)} instead.
+
+    factoryId - Name of the factory to find, same as a property name 
+    classLoader - classLoader to use 
+
+    Returns: the factory implementation 
+
+*javax.xml.stream.XMLOutputFactory.setProperty(String,Object)*
+
+public abstract void setProperty(
+  java.lang.String name,
+  java.lang.Object value)
+  throws |java.lang.IllegalArgumentException|
+         
+Allows the user to set specific features/properties on the underlying 
+implementation. 
+
+
+    name - The name of the property 
+    value - The value of the property 
+
+

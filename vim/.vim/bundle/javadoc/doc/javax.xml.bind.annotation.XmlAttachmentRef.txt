@@ -1,0 +1,42 @@
+*javax.xml.bind.annotation.XmlAttachmentRef* *XmlAttachmentRef* Marks a field/pr
+
+public interface class XmlAttachmentRef
+
+  implements |java.lang.annotation.Annotation|
+
+|javax.xml.bind.annotation.XmlAttachmentRef_Description|
+|javax.xml.bind.annotation.XmlAttachmentRef_Fields|
+|javax.xml.bind.annotation.XmlAttachmentRef_Constructors|
+|javax.xml.bind.annotation.XmlAttachmentRef_Methods|
+
+================================================================================
+
+*javax.xml.bind.annotation.XmlAttachmentRef_Description*
+
+Marks a field/property that its XML form is a uri reference to mime content. 
+The mime content is optimally stored out-of-line as an attachment. 
+
+A field/property must always map to the (|javax.activation.DataHandler|) class. 
+
+Usage 
+
+(|javax.xml.bind.annotation.XmlRootElement|) class Foo { 
+(|javax.xml.bind.annotation.XmlAttachmentRef|) 
+(|javax.xml.bind.annotation.XmlAttribute|) (|javax.activation.DataHandler|) 
+data; 
+
+(|javax.xml.bind.annotation.XmlAttachmentRef|) 
+(|javax.xml.bind.annotation.XmlElement|) (|javax.activation.DataHandler|) body; 
+} 
+
+The above code maps to the following XML: 
+
+<xs:element name="foo" xmlns:ref="http://ws-i.org/profiles/basic/1.1/xsd"> 
+<xs:complexType> <xs:sequence> <xs:element name="body" type="ref:swaRef" 
+minOccurs="0" /> </xs:sequence> <xs:attribute name="data" type="ref:swaRef" 
+use="optional" /> </xs:complexType> </xs:element> 
+
+The above binding supports WS-I AP 1.0 WS-I Attachments Profile Version 1.0. 
+
+
+

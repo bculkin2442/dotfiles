@@ -1,0 +1,754 @@
+*java.time.Period* *Period* A date-based amount of time in the ISO-8601 calendar
+
+public final class Period
+  extends    |java.lang.Object|
+  implements |java.time.chrono.ChronoPeriod|
+             |java.io.Serializable|
+
+|java.time.Period_Description|
+|java.time.Period_Fields|
+|java.time.Period_Constructors|
+|java.time.Period_Methods|
+
+================================================================================
+
+*java.time.Period_Fields*
+|java.time.Period_java.time.Period.ZERO|
+
+*java.time.Period_Methods*
+|java.time.Period.addTo(Temporal)|Adds this period to the specified temporal ob
+|java.time.Period.between(LocalDate,LocalDate)|Obtains aPeriodconsisting of the
+|java.time.Period.equals(Object)|Checks if this period is equal to another peri
+|java.time.Period.from(TemporalAmount)|Obtains an instance ofPeriodfrom a tempo
+|java.time.Period.get(TemporalUnit)|Gets the value of the requested unit.
+|java.time.Period.getChronology()|Gets the chronology of this period, which is 
+|java.time.Period.getDays()|Gets the amount of days of this period.
+|java.time.Period.getMonths()|Gets the amount of months of this period.
+|java.time.Period.getUnits()|Gets the set of units supported by this period.
+|java.time.Period.getYears()|Gets the amount of years of this period.
+|java.time.Period.hashCode()|A hash code for this period.
+|java.time.Period.isNegative()|Checks if any of the three units of this period 
+|java.time.Period.isZero()|Checks if all three units of this period are zero.
+|java.time.Period.minus(TemporalAmount)|Returns a copy of this period with the 
+|java.time.Period.minusDays(long)|Returns a copy of this period with the specif
+|java.time.Period.minusMonths(long)|Returns a copy of this period with the spec
+|java.time.Period.minusYears(long)|Returns a copy of this period with the speci
+|java.time.Period.multipliedBy(int)|Returns a new instance with each element in
+|java.time.Period.negated()|Returns a new instance with each amount in this per
+|java.time.Period.normalized()|Returns a copy of this period with the years and
+|java.time.Period.of(int,int,int)|Obtains aPeriodrepresenting a number of years
+|java.time.Period.ofDays(int)|Obtains aPeriodrepresenting a number of days.
+|java.time.Period.ofMonths(int)|Obtains aPeriodrepresenting a number of months.
+|java.time.Period.ofWeeks(int)|Obtains aPeriodrepresenting a number of weeks.
+|java.time.Period.ofYears(int)|Obtains aPeriodrepresenting a number of years.
+|java.time.Period.parse(CharSequence)|Obtains aPeriodfrom a text string such as
+|java.time.Period.plus(TemporalAmount)|Returns a copy of this period with the s
+|java.time.Period.plusDays(long)|Returns a copy of this period with the specifi
+|java.time.Period.plusMonths(long)|Returns a copy of this period with the speci
+|java.time.Period.plusYears(long)|Returns a copy of this period with the specif
+|java.time.Period.subtractFrom(Temporal)|Subtracts this period from the specifi
+|java.time.Period.toString()|Outputs this period as aString, such asP6Y3M1D.
+|java.time.Period.toTotalMonths()|Gets the total number of months in this perio
+|java.time.Period.withDays(int)|Returns a copy of this period with the specifie
+|java.time.Period.withMonths(int)|Returns a copy of this period with the specif
+|java.time.Period.withYears(int)|Returns a copy of this period with the specifi
+
+*java.time.Period_Description*
+
+A date-based amount of time in the ISO-8601 calendar system, such as '2 years, 
+3 months and 4 days'. 
+
+This class models a quantity or amount of time in terms of years, months and 
+days. See (|java.time.Duration|) for the time-based equivalent to this class. 
+
+Durations and periods differ in their treatment of daylight savings time when 
+added to (|java.time.ZonedDateTime|) . ADurationwill add an exact number of 
+seconds, thus a duration of one day is always exactly 24 hours. By contrast, 
+aPeriodwill add a conceptual day, trying to maintain the local time. 
+
+For example, consider adding a period of one day and a duration of one day to 
+18:00 on the evening before a daylight savings gap. ThePeriodwill add the 
+conceptual day and result in aZonedDateTimeat 18:00 the following day. By 
+contrast, theDurationwill add exactly 24 hours, resulting in aZonedDateTimeat 
+19:00 the following day (assuming a one hour DST gap). 
+
+The supported units of a period are YEARS(|java.time.temporal.ChronoUnit|) , 
+MONTHS(|java.time.temporal.ChronoUnit|) and 
+DAYS(|java.time.temporal.ChronoUnit|) . All three fields are always present, 
+but may be set to zero. 
+
+The ISO-8601 calendar system is the modern civil calendar system used today in 
+most of the world. It is equivalent to the proleptic Gregorian calendar system, 
+in which today's rules for leap years are applied for all time. 
+
+The period is modeled as a directed amount of time, meaning that individual 
+parts of the period may be negative. 
+
+This is a <a href="/java/lang/doc-files/ValueBased.html">value-based class; use 
+of identity-sensitive operations (including reference equality (==), identity 
+hash code, or synchronization) on instances ofPeriodmay have unpredictable 
+results and should be avoided. Theequalsmethod should be used for comparisons. 
+
+
+
+*java.time.Period_java.time.Period.ZERO*
+
+A constant for a period of zero. 
+
+
+
+*java.time.Period.addTo(Temporal)*
+
+public |java.time.temporal.Temporal| addTo(java.time.temporal.Temporal temporal)
+
+Adds this period to the specified temporal object. 
+
+This returns a temporal object of the same observable type as the input with 
+this period added. If the temporal has a chronology, it must be the ISO 
+chronology. 
+
+In most cases, it is clearer to reverse the calling pattern by using 
+(|java.time.temporal.Temporal|) . 
+
+// these two lines are equivalent, but the second approach is recommended 
+dateTime = thisPeriod.addTo(dateTime); dateTime = dateTime.plus(thisPeriod); 
+
+The calculation operates as follows. First, the chronology of the temporal is 
+checked to ensure it is ISO chronology or null. Second, if the months are zero, 
+the years are added if non-zero, otherwise the combination of years and months 
+is added if non-zero. Finally, any days are added. 
+
+This approach ensures that a partial period can be added to a partial date. For 
+example, a period of years and/or months can be added to aYearMonth, but a 
+period including days cannot. The approach also adds years and months together 
+when necessary, which ensures correct behaviour at the end of the month. 
+
+This instance is immutable and unaffected by this method call. 
+
+
+    temporal - the temporal object to adjust, not null 
+
+    Returns: an object of the same type with the adjustment made, not null 
+
+*java.time.Period.between(LocalDate,LocalDate)*
+
+public static |java.time.Period| between(
+  java.time.LocalDate startDateInclusive,
+  java.time.LocalDate endDateExclusive)
+
+Obtains aPeriodconsisting of the number of years, months, and days between two 
+dates. 
+
+The start date is included, but the end date is not. The period is calculated 
+by removing complete months, then calculating the remaining number of days, 
+adjusting to ensure that both have the same sign. The number of months is then 
+split into years and months based on a 12 month year. A month is considered if 
+the end day-of-month is greater than or equal to the start day-of-month. For 
+example, from2010-01-15to2011-03-18is one year, two months and three days. 
+
+The result of this method can be a negative period if the end is before the 
+start. The negative sign will be the same in each of year, month and day. 
+
+
+    startDateInclusive - the start date, inclusive, not null 
+    endDateExclusive - the end date, exclusive, not null 
+
+    Returns: the period between this date and the end date, not null 
+
+*java.time.Period.equals(Object)*
+
+public boolean equals(java.lang.Object obj)
+
+Checks if this period is equal to another period. 
+
+The comparison is based on the typePeriodand each of the three amounts. To be 
+equal, the years, months and days units must be individually equal. Note that 
+this means that a period of "15 Months" is not equal to a period of "1 Year and 
+3 Months". 
+
+
+    obj - the object to check, null returns false 
+
+    Returns: true if this is equal to the other period 
+
+*java.time.Period.from(TemporalAmount)*
+
+public static |java.time.Period| from(java.time.temporal.TemporalAmount amount)
+
+Obtains an instance ofPeriodfrom a temporal amount. 
+
+This obtains a period based on the specified amount. ATemporalAmountrepresents 
+an amount of time, which may be date-based or time-based, which this factory 
+extracts to aPeriod. 
+
+The conversion loops around the set of units from the amount and uses the 
+YEARS(|java.time.temporal.ChronoUnit|) , 
+MONTHS(|java.time.temporal.ChronoUnit|) and 
+DAYS(|java.time.temporal.ChronoUnit|) units to create a period. If any other 
+units are found then an exception is thrown. 
+
+If the amount is aChronoPeriodthen it must use the ISO chronology. 
+
+
+    amount - the temporal amount to convert, not null 
+
+    Returns: the equivalent period, not null 
+
+*java.time.Period.get(TemporalUnit)*
+
+public long get(java.time.temporal.TemporalUnit unit)
+
+Gets the value of the requested unit. 
+
+This returns a value for each of the three supported units, 
+YEARS(|java.time.temporal.ChronoUnit|) , 
+MONTHS(|java.time.temporal.ChronoUnit|) and 
+DAYS(|java.time.temporal.ChronoUnit|) . All other units throw an exception. 
+
+
+    unit - the {@code TemporalUnit} for which to return the value 
+
+    Returns: the long value of the unit 
+
+*java.time.Period.getChronology()*
+
+public |java.time.chrono.IsoChronology| getChronology()
+
+Gets the chronology of this period, which is the ISO calendar system. 
+
+TheChronologyrepresents the calendar system in use. The ISO-8601 calendar 
+system is the modern civil calendar system used today in most of the world. It 
+is equivalent to the proleptic Gregorian calendar system, in which today's 
+rules for leap years are applied for all time. 
+
+
+
+    Returns: the ISO chronology, not null 
+
+*java.time.Period.getDays()*
+
+public int getDays()
+
+Gets the amount of days of this period. 
+
+This returns the days unit. 
+
+
+
+    Returns: the amount of days of this period, may be negative 
+
+*java.time.Period.getMonths()*
+
+public int getMonths()
+
+Gets the amount of months of this period. 
+
+This returns the months unit. 
+
+The months unit is not automatically normalized with the years unit. This means 
+that a period of "15 months" is different to a period of "1 year and 3 months". 
+
+
+
+    Returns: the amount of months of this period, may be negative 
+
+*java.time.Period.getUnits()*
+
+public |java.util.List|<TemporalUnit> getUnits()
+
+Gets the set of units supported by this period. 
+
+The supported units are YEARS(|java.time.temporal.ChronoUnit|) , 
+MONTHS(|java.time.temporal.ChronoUnit|) and 
+DAYS(|java.time.temporal.ChronoUnit|) . They are returned in the order years, 
+months, days. 
+
+This set can be used in conjunction with (|java.time.Period|) to access the 
+entire state of the period. 
+
+
+
+    Returns: a list containing the years, months and days units, not null 
+
+*java.time.Period.getYears()*
+
+public int getYears()
+
+Gets the amount of years of this period. 
+
+This returns the years unit. 
+
+The months unit is not automatically normalized with the years unit. This means 
+that a period of "15 months" is different to a period of "1 year and 3 months". 
+
+
+
+    Returns: the amount of years of this period, may be negative 
+
+*java.time.Period.hashCode()*
+
+public int hashCode()
+
+A hash code for this period. 
+
+
+
+    Returns: a suitable hash code 
+
+*java.time.Period.isNegative()*
+
+public boolean isNegative()
+
+Checks if any of the three units of this period are negative. 
+
+This checks whether the years, months or days units are less than zero. 
+
+
+
+    Returns: true if any unit of this period is negative 
+
+*java.time.Period.isZero()*
+
+public boolean isZero()
+
+Checks if all three units of this period are zero. 
+
+A zero period has the value zero for the years, months and days units. 
+
+
+
+    Returns: true if this period is zero-length 
+
+*java.time.Period.minus(TemporalAmount)*
+
+public |java.time.Period| minus(java.time.temporal.TemporalAmount amountToSubtract)
+
+Returns a copy of this period with the specified period subtracted. 
+
+This operates separately on the years, months and days. No normalization is 
+performed. 
+
+For example, "1 year, 6 months and 3 days" minus "2 years, 2 months and 2 days" 
+returns "-1 years, 4 months and 1 day". 
+
+The specified amount is typically an instance ofPeriod. Other types are 
+interpreted using (|java.time.Period|) . 
+
+This instance is immutable and unaffected by this method call. 
+
+
+    amountToSubtract - the period to subtract, not null 
+
+    Returns: a {@code Period} based on this period with the requested period subtracted, not 
+             null 
+
+*java.time.Period.minusDays(long)*
+
+public |java.time.Period| minusDays(long daysToSubtract)
+
+Returns a copy of this period with the specified days subtracted. 
+
+This subtracts the amount from the days unit in a copy of this period. The 
+years and months units are unaffected. For example, "1 year, 6 months and 3 
+days" minus 2 days returns "1 year, 6 months and 1 day". 
+
+This instance is immutable and unaffected by this method call. 
+
+
+    daysToSubtract - the months to subtract, positive or negative 
+
+    Returns: a {@code Period} based on this period with the specified days subtracted, not 
+             null 
+
+*java.time.Period.minusMonths(long)*
+
+public |java.time.Period| minusMonths(long monthsToSubtract)
+
+Returns a copy of this period with the specified months subtracted. 
+
+This subtracts the amount from the months unit in a copy of this period. The 
+years and days units are unaffected. For example, "1 year, 6 months and 3 days" 
+minus 2 months returns "1 year, 4 months and 3 days". 
+
+This instance is immutable and unaffected by this method call. 
+
+
+    monthsToSubtract - the years to subtract, positive or negative 
+
+    Returns: a {@code Period} based on this period with the specified months subtracted, not 
+             null 
+
+*java.time.Period.minusYears(long)*
+
+public |java.time.Period| minusYears(long yearsToSubtract)
+
+Returns a copy of this period with the specified years subtracted. 
+
+This subtracts the amount from the years unit in a copy of this period. The 
+months and days units are unaffected. For example, "1 year, 6 months and 3 
+days" minus 2 years returns "-1 years, 6 months and 3 days". 
+
+This instance is immutable and unaffected by this method call. 
+
+
+    yearsToSubtract - the years to subtract, positive or negative 
+
+    Returns: a {@code Period} based on this period with the specified years subtracted, not 
+             null 
+
+*java.time.Period.multipliedBy(int)*
+
+public |java.time.Period| multipliedBy(int scalar)
+
+Returns a new instance with each element in this period multiplied by the 
+specified scalar. 
+
+This returns a period with each of the years, months and days units 
+individually multiplied. For example, a period of "2 years, -3 months and 4 
+days" multiplied by 3 will return "6 years, -9 months and 12 days". No 
+normalization is performed. 
+
+
+    scalar - the scalar to multiply by, not null 
+
+    Returns: a {@code Period} based on this period with the amounts multiplied by the 
+             scalar, not null 
+
+*java.time.Period.negated()*
+
+public |java.time.Period| negated()
+
+Returns a new instance with each amount in this period negated. 
+
+This returns a period with each of the years, months and days units 
+individually negated. For example, a period of "2 years, -3 months and 4 days" 
+will be negated to "-2 years, 3 months and -4 days". No normalization is 
+performed. 
+
+
+
+    Returns: a {@code Period} based on this period with the amounts negated, not null 
+
+*java.time.Period.normalized()*
+
+public |java.time.Period| normalized()
+
+Returns a copy of this period with the years and months normalized. 
+
+This normalizes the years and months units, leaving the days unit unchanged. 
+The months unit is adjusted to have an absolute value less than 11, with the 
+years unit being adjusted to compensate. For example, a period of "1 Year and 
+15 months" will be normalized to "2 years and 3 months". 
+
+The sign of the years and months units will be the same after normalization. 
+For example, a period of "1 year and -25 months" will be normalized to "-1 year 
+and -1 month". 
+
+This instance is immutable and unaffected by this method call. 
+
+
+
+    Returns: a {@code Period} based on this period with excess months normalized to years, 
+             not null 
+
+*java.time.Period.of(int,int,int)*
+
+public static |java.time.Period| of(
+  int years,
+  int months,
+  int days)
+
+Obtains aPeriodrepresenting a number of years, months and days. 
+
+This creates an instance based on years, months and days. 
+
+
+    years - the amount of years, may be negative 
+    months - the amount of months, may be negative 
+    days - the amount of days, may be negative 
+
+    Returns: the period of years, months and days, not null 
+
+*java.time.Period.ofDays(int)*
+
+public static |java.time.Period| ofDays(int days)
+
+Obtains aPeriodrepresenting a number of days. 
+
+The resulting period will have the specified days. The years and months units 
+will be zero. 
+
+
+    days - the number of days, positive or negative 
+
+    Returns: the period of days, not null 
+
+*java.time.Period.ofMonths(int)*
+
+public static |java.time.Period| ofMonths(int months)
+
+Obtains aPeriodrepresenting a number of months. 
+
+The resulting period will have the specified months. The years and days units 
+will be zero. 
+
+
+    months - the number of months, positive or negative 
+
+    Returns: the period of months, not null 
+
+*java.time.Period.ofWeeks(int)*
+
+public static |java.time.Period| ofWeeks(int weeks)
+
+Obtains aPeriodrepresenting a number of weeks. 
+
+The resulting period will be day-based, with the amount of days equal to the 
+number of weeks multiplied by 7. The years and months units will be zero. 
+
+
+    weeks - the number of weeks, positive or negative 
+
+    Returns: the period, with the input weeks converted to days, not null 
+
+*java.time.Period.ofYears(int)*
+
+public static |java.time.Period| ofYears(int years)
+
+Obtains aPeriodrepresenting a number of years. 
+
+The resulting period will have the specified years. The months and days units 
+will be zero. 
+
+
+    years - the number of years, positive or negative 
+
+    Returns: the period of years, not null 
+
+*java.time.Period.parse(CharSequence)*
+
+public static |java.time.Period| parse(java.lang.CharSequence text)
+
+Obtains aPeriodfrom a text string such asPnYnMnD. 
+
+This will parse the string produced bytoString()which is based on the ISO-8601 
+period formatsPnYnMnDandPnW. 
+
+The string starts with an optional sign, denoted by the ASCII negative or 
+positive symbol. If negative, the whole period is negated. The ASCII letter "P" 
+is next in upper or lower case. There are then four sections, each consisting 
+of a number and a suffix. At least one of the four sections must be present. 
+The sections have suffixes in ASCII of "Y", "M", "W" and "D" for years, months, 
+weeks and days, accepted in upper or lower case. The suffixes must occur in 
+order. The number part of each section must consist of ASCII digits. The number 
+may be prefixed by the ASCII negative or positive symbol. The number must parse 
+to anint. 
+
+The leading plus/minus sign, and negative values for other units are not part 
+of the ISO-8601 standard. In addition, ISO-8601 does not permit mixing between 
+thePnYnMnDandPnWformats. Any week-based input is multiplied by 7 and treated as 
+a number of days. 
+
+For example, the following are valid inputs: 
+
+"P2Y" -- Period.ofYears(2) "P3M" -- Period.ofMonths(3) "P4W" -- 
+Period.ofWeeks(4) "P5D" -- Period.ofDays(5) "P1Y2M3D" -- Period.of(1, 2, 3) 
+"P1Y2M3W4D" -- Period.of(1, 2, 25) "P-1Y2M" -- Period.of(-1, 2, 0) "-P1Y2M" -- 
+Period.of(-1, -2, 0) 
+
+
+    text - the text to parse, not null 
+
+    Returns: the parsed period, not null 
+
+*java.time.Period.plus(TemporalAmount)*
+
+public |java.time.Period| plus(java.time.temporal.TemporalAmount amountToAdd)
+
+Returns a copy of this period with the specified period added. 
+
+This operates separately on the years, months and days. No normalization is 
+performed. 
+
+For example, "1 year, 6 months and 3 days" plus "2 years, 2 months and 2 days" 
+returns "3 years, 8 months and 5 days". 
+
+The specified amount is typically an instance ofPeriod. Other types are 
+interpreted using (|java.time.Period|) . 
+
+This instance is immutable and unaffected by this method call. 
+
+
+    amountToAdd - the period to add, not null 
+
+    Returns: a {@code Period} based on this period with the requested period added, not null 
+
+*java.time.Period.plusDays(long)*
+
+public |java.time.Period| plusDays(long daysToAdd)
+
+Returns a copy of this period with the specified days added. 
+
+This adds the amount to the days unit in a copy of this period. The years and 
+months units are unaffected. For example, "1 year, 6 months and 3 days" plus 2 
+days returns "1 year, 6 months and 5 days". 
+
+This instance is immutable and unaffected by this method call. 
+
+
+    daysToAdd - the days to add, positive or negative 
+
+    Returns: a {@code Period} based on this period with the specified days added, not null 
+
+*java.time.Period.plusMonths(long)*
+
+public |java.time.Period| plusMonths(long monthsToAdd)
+
+Returns a copy of this period with the specified months added. 
+
+This adds the amount to the months unit in a copy of this period. The years and 
+days units are unaffected. For example, "1 year, 6 months and 3 days" plus 2 
+months returns "1 year, 8 months and 3 days". 
+
+This instance is immutable and unaffected by this method call. 
+
+
+    monthsToAdd - the months to add, positive or negative 
+
+    Returns: a {@code Period} based on this period with the specified months added, not null 
+
+*java.time.Period.plusYears(long)*
+
+public |java.time.Period| plusYears(long yearsToAdd)
+
+Returns a copy of this period with the specified years added. 
+
+This adds the amount to the years unit in a copy of this period. The months and 
+days units are unaffected. For example, "1 year, 6 months and 3 days" plus 2 
+years returns "3 years, 6 months and 3 days". 
+
+This instance is immutable and unaffected by this method call. 
+
+
+    yearsToAdd - the years to add, positive or negative 
+
+    Returns: a {@code Period} based on this period with the specified years added, not null 
+
+*java.time.Period.subtractFrom(Temporal)*
+
+public |java.time.temporal.Temporal| subtractFrom(java.time.temporal.Temporal temporal)
+
+Subtracts this period from the specified temporal object. 
+
+This returns a temporal object of the same observable type as the input with 
+this period subtracted. If the temporal has a chronology, it must be the ISO 
+chronology. 
+
+In most cases, it is clearer to reverse the calling pattern by using 
+(|java.time.temporal.Temporal|) . 
+
+// these two lines are equivalent, but the second approach is recommended 
+dateTime = thisPeriod.subtractFrom(dateTime); dateTime = 
+dateTime.minus(thisPeriod); 
+
+The calculation operates as follows. First, the chronology of the temporal is 
+checked to ensure it is ISO chronology or null. Second, if the months are zero, 
+the years are subtracted if non-zero, otherwise the combination of years and 
+months is subtracted if non-zero. Finally, any days are subtracted. 
+
+This approach ensures that a partial period can be subtracted from a partial 
+date. For example, a period of years and/or months can be subtracted from 
+aYearMonth, but a period including days cannot. The approach also subtracts 
+years and months together when necessary, which ensures correct behaviour at 
+the end of the month. 
+
+This instance is immutable and unaffected by this method call. 
+
+
+    temporal - the temporal object to adjust, not null 
+
+    Returns: an object of the same type with the adjustment made, not null 
+
+*java.time.Period.toString()*
+
+public |java.lang.String| toString()
+
+Outputs this period as aString, such asP6Y3M1D. 
+
+The output will be in the ISO-8601 period format. A zero period will be 
+represented as zero days, 'P0D'. 
+
+
+
+    Returns: a string representation of this period, not null 
+
+*java.time.Period.toTotalMonths()*
+
+public long toTotalMonths()
+
+Gets the total number of months in this period. 
+
+This returns the total number of months in the period by multiplying the number 
+of years by 12 and adding the number of months. 
+
+This instance is immutable and unaffected by this method call. 
+
+
+
+    Returns: the total number of months in the period, may be negative 
+
+*java.time.Period.withDays(int)*
+
+public |java.time.Period| withDays(int days)
+
+Returns a copy of this period with the specified amount of days. 
+
+This sets the amount of the days unit in a copy of this period. The years and 
+months units are unaffected. 
+
+This instance is immutable and unaffected by this method call. 
+
+
+    days - the days to represent, may be negative 
+
+    Returns: a {@code Period} based on this period with the requested days, not null 
+
+*java.time.Period.withMonths(int)*
+
+public |java.time.Period| withMonths(int months)
+
+Returns a copy of this period with the specified amount of months. 
+
+This sets the amount of the months unit in a copy of this period. The years and 
+days units are unaffected. 
+
+The months unit is not automatically normalized with the years unit. This means 
+that a period of "15 months" is different to a period of "1 year and 3 months". 
+
+This instance is immutable and unaffected by this method call. 
+
+
+    months - the months to represent, may be negative 
+
+    Returns: a {@code Period} based on this period with the requested months, not null 
+
+*java.time.Period.withYears(int)*
+
+public |java.time.Period| withYears(int years)
+
+Returns a copy of this period with the specified amount of years. 
+
+This sets the amount of the years unit in a copy of this period. The months and 
+days units are unaffected. 
+
+The months unit is not automatically normalized with the years unit. This means 
+that a period of "15 months" is different to a period of "1 year and 3 months". 
+
+This instance is immutable and unaffected by this method call. 
+
+
+    years - the years to represent, may be negative 
+
+    Returns: a {@code Period} based on this period with the requested years, not null 
+
+

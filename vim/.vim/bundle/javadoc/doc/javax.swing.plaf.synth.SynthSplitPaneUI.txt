@@ -1,0 +1,189 @@
+*javax.swing.plaf.synth.SynthSplitPaneUI* *SynthSplitPaneUI* Provides the Synth 
+
+public class SynthSplitPaneUI
+  extends    |javax.swing.plaf.basic.BasicSplitPaneUI|
+  implements |java.beans.PropertyChangeListener|
+             |javax.swing.plaf.synth.SynthUI|
+
+|javax.swing.plaf.synth.SynthSplitPaneUI_Description|
+|javax.swing.plaf.synth.SynthSplitPaneUI_Fields|
+|javax.swing.plaf.synth.SynthSplitPaneUI_Constructors|
+|javax.swing.plaf.synth.SynthSplitPaneUI_Methods|
+
+================================================================================
+
+*javax.swing.plaf.synth.SynthSplitPaneUI_Constructors*
+|javax.swing.plaf.synth.SynthSplitPaneUI()|
+
+*javax.swing.plaf.synth.SynthSplitPaneUI_Methods*
+|javax.swing.plaf.synth.SynthSplitPaneUI.createDefaultDivider()|Creates the def
+|javax.swing.plaf.synth.SynthSplitPaneUI.createDefaultNonContinuousLayoutDivider()|
+|javax.swing.plaf.synth.SynthSplitPaneUI.createUI(JComponent)|Creates a new Syn
+|javax.swing.plaf.synth.SynthSplitPaneUI.finishedPaintingChildren(JSplitPane,Graphics)|
+|javax.swing.plaf.synth.SynthSplitPaneUI.getContext(JComponent)|
+|javax.swing.plaf.synth.SynthSplitPaneUI.installDefaults()|Installs the UI defa
+|javax.swing.plaf.synth.SynthSplitPaneUI.installListeners()|Installs the event 
+|javax.swing.plaf.synth.SynthSplitPaneUI.paint(Graphics,JComponent)|Paints the 
+|javax.swing.plaf.synth.SynthSplitPaneUI.paint(SynthContext,Graphics)|Paints th
+|javax.swing.plaf.synth.SynthSplitPaneUI.paintBorder(SynthContext,Graphics,int,int,int,int)|
+|javax.swing.plaf.synth.SynthSplitPaneUI.propertyChange(PropertyChangeEvent)|
+|javax.swing.plaf.synth.SynthSplitPaneUI.uninstallDefaults()|Uninstalls the UI 
+|javax.swing.plaf.synth.SynthSplitPaneUI.uninstallListeners()|Uninstalls the ev
+|javax.swing.plaf.synth.SynthSplitPaneUI.update(Graphics,JComponent)|Notifies t
+
+*javax.swing.plaf.synth.SynthSplitPaneUI_Description*
+
+Provides the Synth L and F UI delegate for (|javax.swing.JSplitPane|) . 
+
+
+
+*javax.swing.plaf.synth.SynthSplitPaneUI()*
+
+public SynthSplitPaneUI()
+
+
+
+
+*javax.swing.plaf.synth.SynthSplitPaneUI.createDefaultDivider()*
+
+public |javax.swing.plaf.basic.BasicSplitPaneDivider| createDefaultDivider()
+
+Creates the default divider. 
+
+
+
+*javax.swing.plaf.synth.SynthSplitPaneUI.createDefaultNonContinuousLayoutDivider()*
+
+protected |java.awt.Component| createDefaultNonContinuousLayoutDivider()
+
+
+
+
+
+*javax.swing.plaf.synth.SynthSplitPaneUI.createUI(JComponent)*
+
+public static |javax.swing.plaf.ComponentUI| createUI(javax.swing.JComponent x)
+
+Creates a new SynthSplitPaneUI instance 
+
+
+    x - component to create UI object for 
+
+    Returns: the UI object 
+
+*javax.swing.plaf.synth.SynthSplitPaneUI.finishedPaintingChildren(JSplitPane,Graphics)*
+
+public void finishedPaintingChildren(
+  javax.swing.JSplitPane jc,
+  java.awt.Graphics g)
+
+
+
+
+
+*javax.swing.plaf.synth.SynthSplitPaneUI.getContext(JComponent)*
+
+public |javax.swing.plaf.synth.SynthContext| getContext(javax.swing.JComponent c)
+
+
+
+
+
+*javax.swing.plaf.synth.SynthSplitPaneUI.installDefaults()*
+
+protected void installDefaults()
+
+Installs the UI defaults. 
+
+
+
+*javax.swing.plaf.synth.SynthSplitPaneUI.installListeners()*
+
+protected void installListeners()
+
+Installs the event listeners for the UI. 
+
+
+
+*javax.swing.plaf.synth.SynthSplitPaneUI.paint(Graphics,JComponent)*
+
+public void paint(
+  java.awt.Graphics g,
+  javax.swing.JComponent c)
+
+Paints the specified component according to the Look and Feel. This method is 
+not used by Synth Look and Feel. Painting is handled by the 
+(|javax.swing.plaf.synth.SynthSplitPaneUI|) method. 
+
+
+    g - the {@code Graphics} object used for painting 
+    c - the component being painted 
+
+*javax.swing.plaf.synth.SynthSplitPaneUI.paint(SynthContext,Graphics)*
+
+protected void paint(
+  javax.swing.plaf.synth.SynthContext context,
+  java.awt.Graphics g)
+
+Paints the specified component. This implementation does nothing. 
+
+
+    context - context for the component being painted 
+    g - the {@code Graphics} object used for painting 
+
+*javax.swing.plaf.synth.SynthSplitPaneUI.paintBorder(SynthContext,Graphics,int,int,int,int)*
+
+public void paintBorder(
+  javax.swing.plaf.synth.SynthContext context,
+  java.awt.Graphics g,
+  int x,
+  int y,
+  int w,
+  int h)
+
+
+
+
+
+*javax.swing.plaf.synth.SynthSplitPaneUI.propertyChange(PropertyChangeEvent)*
+
+public void propertyChange(java.beans.PropertyChangeEvent e)
+
+
+
+
+
+*javax.swing.plaf.synth.SynthSplitPaneUI.uninstallDefaults()*
+
+protected void uninstallDefaults()
+
+Uninstalls the UI defaults. 
+
+
+
+*javax.swing.plaf.synth.SynthSplitPaneUI.uninstallListeners()*
+
+protected void uninstallListeners()
+
+Uninstalls the event listeners from the UI. 
+
+
+
+*javax.swing.plaf.synth.SynthSplitPaneUI.update(Graphics,JComponent)*
+
+public void update(
+  java.awt.Graphics g,
+  javax.swing.JComponent c)
+
+Notifies this UI delegate to repaint the specified component. This method 
+paints the component background, then calls the 
+(|javax.swing.plaf.synth.SynthSplitPaneUI|) method. 
+
+In general, this method does not need to be overridden by subclasses. All Look 
+and Feel rendering code should reside in thepaintmethod. 
+
+
+    g - the {@code Graphics} object used for painting 
+    c - the component being painted 
+
+

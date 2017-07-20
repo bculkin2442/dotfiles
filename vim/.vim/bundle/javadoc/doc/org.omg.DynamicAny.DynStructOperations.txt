@@ -1,0 +1,111 @@
+*org.omg.DynamicAny.DynStructOperations* *DynStructOperations* DynStruct objects
+
+public interface interface DynStructOperations
+
+  implements |org.omg.DynamicAny.DynAnyOperations|
+
+|org.omg.DynamicAny.DynStructOperations_Description|
+|org.omg.DynamicAny.DynStructOperations_Fields|
+|org.omg.DynamicAny.DynStructOperations_Constructors|
+|org.omg.DynamicAny.DynStructOperations_Methods|
+
+================================================================================
+
+*org.omg.DynamicAny.DynStructOperations_Methods*
+|org.omg.DynamicAny.DynStructOperations.current_member_kind()|Returns the TCKin
+|org.omg.DynamicAny.DynStructOperations.current_member_name()|Returns the name 
+|org.omg.DynamicAny.DynStructOperations.get_members_as_dyn_any()|Returns a sequ
+|org.omg.DynamicAny.DynStructOperations.get_members()|Returns a sequence of Nam
+|org.omg.DynamicAny.DynStructOperations.set_members_as_dyn_any(NameDynAnyPair[])|
+|org.omg.DynamicAny.DynStructOperations.set_members(NameValuePair[])|Initialize
+
+*org.omg.DynamicAny.DynStructOperations_Description*
+
+DynStruct objects support the manipulation of IDL struct and exception values. 
+Members of the exceptions are handled in the same way as members of a struct. 
+
+
+
+*org.omg.DynamicAny.DynStructOperations.current_member_kind()*
+
+public |org.omg.CORBA.TCKind| current_member_kind()
+  throws |org.omg.DynamicAny.DynAnyPackage.InvalidValue|
+         |org.omg.DynamicAny.DynAnyPackage.TypeMismatch|
+         
+Returns the TCKind associated with the member at the current position. 
+
+
+
+*org.omg.DynamicAny.DynStructOperations.current_member_name()*
+
+public |java.lang.String| current_member_name()
+  throws |org.omg.DynamicAny.DynAnyPackage.InvalidValue|
+         |org.omg.DynamicAny.DynAnyPackage.TypeMismatch|
+         
+Returns the name of the member at the current position. This operation may 
+return an empty string since the TypeCode of the value being manipulated may 
+not contain the names of members. 
+
+
+
+*org.omg.DynamicAny.DynStructOperations.get_members_as_dyn_any()*
+
+public |org.omg.DynamicAny.NameDynAnyPair|[] get_members_as_dyn_any()
+
+Returns a sequence of NameDynAnyPairs describing the name and the value of each 
+member in the struct associated with a DynStruct object. The sequence contains 
+members in the same order as the declaration order of members as indicated by 
+the DynStruct's TypeCode. The current position is not affected. The member 
+names in the returned sequence will be empty strings if the DynStruct's 
+TypeCode does not contain member names. 
+
+
+
+*org.omg.DynamicAny.DynStructOperations.get_members()*
+
+public |org.omg.DynamicAny.NameValuePair|[] get_members()
+
+Returns a sequence of NameValuePairs describing the name and the value of each 
+member in the struct associated with a DynStruct object. The sequence contains 
+members in the same order as the declaration order of members as indicated by 
+the DynStruct's TypeCode. The current position is not affected. The member 
+names in the returned sequence will be empty strings if the DynStruct's 
+TypeCode does not contain member names. 
+
+
+
+*org.omg.DynamicAny.DynStructOperations.set_members_as_dyn_any(NameDynAnyPair[])*
+
+public void set_members_as_dyn_any(org.omg.DynamicAny.NameDynAnyPair[] value)
+  throws |org.omg.DynamicAny.DynAnyPackage.InvalidValue|
+         |org.omg.DynamicAny.DynAnyPackage.TypeMismatch|
+         
+Initializes the struct data value associated with a DynStruct object from a 
+sequence of NameDynAnyPairs. The operation sets the current position to zero if 
+the passed sequences has non-zero length. Otherwise, if an empty sequence is 
+passed, the current position is set to -1. Members must appear in the 
+NameDynAnyPairs in the order in which they appear in the IDL specification of 
+the struct as indicated by the DynStruct's TypeCode or they must be empty 
+strings. The operation makes no attempt to assign member values based on member 
+names. 
+
+
+
+*org.omg.DynamicAny.DynStructOperations.set_members(NameValuePair[])*
+
+public void set_members(org.omg.DynamicAny.NameValuePair[] value)
+  throws |org.omg.DynamicAny.DynAnyPackage.InvalidValue|
+         |org.omg.DynamicAny.DynAnyPackage.TypeMismatch|
+         
+Initializes the struct data value associated with a DynStruct object from a 
+sequence of NameValuePairs. The operation sets the current position to zero if 
+the passed sequences has non-zero length. Otherwise, if an empty sequence is 
+passed, the current position is set to -1. Members must appear in the 
+NameValuePairs in the order in which they appear in the IDL specification of 
+the struct as indicated by the DynStruct's TypeCode or they must be empty 
+strings. The operation makes no attempt to assign member values based on member 
+names. 
+
+
+
+

@@ -1,0 +1,49 @@
+*org.w3c.dom.events.EventException* *EventException* Event operations may throw 
+
+public class EventException
+  extends    |java.lang.RuntimeException|
+
+|org.w3c.dom.events.EventException_Description|
+|org.w3c.dom.events.EventException_Fields|
+|org.w3c.dom.events.EventException_Constructors|
+|org.w3c.dom.events.EventException_Methods|
+
+================================================================================
+
+*org.w3c.dom.events.EventException_Fields*
+|short_org.w3c.dom.events.EventException.code|
+|short_org.w3c.dom.events.EventException.UNSPECIFIED_EVENT_TYPE_ERR|
+
+*org.w3c.dom.events.EventException_Constructors*
+|org.w3c.dom.events.EventException(short,String)|
+
+*org.w3c.dom.events.EventException_Description*
+
+Event operations may throw an EventException as specified in their method 
+descriptions. See also the Document Object Model (DOM) Level 2 Events 
+Specification. 
+
+
+
+*short_org.w3c.dom.events.EventException.code*
+
+
+
+
+*short_org.w3c.dom.events.EventException.UNSPECIFIED_EVENT_TYPE_ERR*
+
+If the Event's type was not specified by initializing the event before the 
+method was called. Specification of the Event's type as null or an empty string 
+will also trigger this exception. 
+
+
+
+*org.w3c.dom.events.EventException(short,String)*
+
+public EventException(
+  short code,
+  java.lang.String message)
+
+
+
+

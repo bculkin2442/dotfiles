@@ -1,0 +1,111 @@
+*org.omg.CosNaming.NamingContextHelper* *NamingContextHelper* A naming context i
+
+public abstract class NamingContextHelper
+  extends    |java.lang.Object|
+
+|org.omg.CosNaming.NamingContextHelper_Description|
+|org.omg.CosNaming.NamingContextHelper_Fields|
+|org.omg.CosNaming.NamingContextHelper_Constructors|
+|org.omg.CosNaming.NamingContextHelper_Methods|
+
+================================================================================
+
+*org.omg.CosNaming.NamingContextHelper_Constructors*
+|org.omg.CosNaming.NamingContextHelper()|
+
+*org.omg.CosNaming.NamingContextHelper_Methods*
+|org.omg.CosNaming.NamingContextHelper.extract(Any)|
+|org.omg.CosNaming.NamingContextHelper.id()|
+|org.omg.CosNaming.NamingContextHelper.insert(Any,NamingContext)|
+|org.omg.CosNaming.NamingContextHelper.narrow(Object)|
+|org.omg.CosNaming.NamingContextHelper.read(InputStream)|
+|org.omg.CosNaming.NamingContextHelper.type()|
+|org.omg.CosNaming.NamingContextHelper.unchecked_narrow(Object)|
+|org.omg.CosNaming.NamingContextHelper.write(OutputStream,NamingContext)|
+
+*org.omg.CosNaming.NamingContextHelper_Description*
+
+A naming context is an object that contains a set of name bindings in which 
+each name is unique. Different names can be bound to an object in the same or 
+different contexts at the same time. 
+
+See CORBA COS Naming Specification. 
+
+
+
+*org.omg.CosNaming.NamingContextHelper()*
+
+public NamingContextHelper()
+
+
+
+
+*org.omg.CosNaming.NamingContextHelper.extract(Any)*
+
+public static |org.omg.CosNaming.NamingContext| extract(org.omg.CORBA.Any a)
+
+
+
+
+
+*org.omg.CosNaming.NamingContextHelper.id()*
+
+public static |java.lang.String| id()
+
+
+
+
+
+*org.omg.CosNaming.NamingContextHelper.insert(Any,NamingContext)*
+
+public static void insert(
+  org.omg.CORBA.Any a,
+  org.omg.CosNaming.NamingContext that)
+
+
+
+
+
+*org.omg.CosNaming.NamingContextHelper.narrow(Object)*
+
+public static |org.omg.CosNaming.NamingContext| narrow(org.omg.CORBA.Object obj)
+
+
+
+
+
+*org.omg.CosNaming.NamingContextHelper.read(InputStream)*
+
+public static |org.omg.CosNaming.NamingContext| read(org.omg.CORBA.portable.InputStream istream)
+
+
+
+
+
+*org.omg.CosNaming.NamingContextHelper.type()*
+
+public static synchronized |org.omg.CORBA.TypeCode| type()
+
+
+
+
+
+*org.omg.CosNaming.NamingContextHelper.unchecked_narrow(Object)*
+
+public static |org.omg.CosNaming.NamingContext| unchecked_narrow(org.omg.CORBA.Object obj)
+
+
+
+
+
+*org.omg.CosNaming.NamingContextHelper.write(OutputStream,NamingContext)*
+
+public static void write(
+  org.omg.CORBA.portable.OutputStream ostream,
+  org.omg.CosNaming.NamingContext value)
+
+
+
+
+
+

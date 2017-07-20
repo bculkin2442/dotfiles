@@ -1,0 +1,108 @@
+*org.omg.IOP.CodecFactoryHelper* *CodecFactoryHelper* Codecs are obtained from t
+
+public abstract class CodecFactoryHelper
+  extends    |java.lang.Object|
+
+|org.omg.IOP.CodecFactoryHelper_Description|
+|org.omg.IOP.CodecFactoryHelper_Fields|
+|org.omg.IOP.CodecFactoryHelper_Constructors|
+|org.omg.IOP.CodecFactoryHelper_Methods|
+
+================================================================================
+
+*org.omg.IOP.CodecFactoryHelper_Constructors*
+|org.omg.IOP.CodecFactoryHelper()|
+
+*org.omg.IOP.CodecFactoryHelper_Methods*
+|org.omg.IOP.CodecFactoryHelper.extract(Any)|
+|org.omg.IOP.CodecFactoryHelper.id()|
+|org.omg.IOP.CodecFactoryHelper.insert(Any,CodecFactory)|
+|org.omg.IOP.CodecFactoryHelper.narrow(Object)|
+|org.omg.IOP.CodecFactoryHelper.read(InputStream)|
+|org.omg.IOP.CodecFactoryHelper.type()|
+|org.omg.IOP.CodecFactoryHelper.unchecked_narrow(Object)|
+|org.omg.IOP.CodecFactoryHelper.write(OutputStream,CodecFactory)|
+
+*org.omg.IOP.CodecFactoryHelper_Description*
+
+Codecs are obtained from the CodecFactory. The CodecFactory is obtained through 
+a call to ORB.resolve_initial_references( "CodecFactory" ). 
+
+
+
+*org.omg.IOP.CodecFactoryHelper()*
+
+public CodecFactoryHelper()
+
+
+
+
+*org.omg.IOP.CodecFactoryHelper.extract(Any)*
+
+public static |org.omg.IOP.CodecFactory| extract(org.omg.CORBA.Any a)
+
+
+
+
+
+*org.omg.IOP.CodecFactoryHelper.id()*
+
+public static |java.lang.String| id()
+
+
+
+
+
+*org.omg.IOP.CodecFactoryHelper.insert(Any,CodecFactory)*
+
+public static void insert(
+  org.omg.CORBA.Any a,
+  org.omg.IOP.CodecFactory that)
+
+
+
+
+
+*org.omg.IOP.CodecFactoryHelper.narrow(Object)*
+
+public static |org.omg.IOP.CodecFactory| narrow(org.omg.CORBA.Object obj)
+
+
+
+
+
+*org.omg.IOP.CodecFactoryHelper.read(InputStream)*
+
+public static |org.omg.IOP.CodecFactory| read(org.omg.CORBA.portable.InputStream istream)
+
+
+
+
+
+*org.omg.IOP.CodecFactoryHelper.type()*
+
+public static synchronized |org.omg.CORBA.TypeCode| type()
+
+
+
+
+
+*org.omg.IOP.CodecFactoryHelper.unchecked_narrow(Object)*
+
+public static |org.omg.IOP.CodecFactory| unchecked_narrow(org.omg.CORBA.Object obj)
+
+
+
+
+
+*org.omg.IOP.CodecFactoryHelper.write(OutputStream,CodecFactory)*
+
+public static void write(
+  org.omg.CORBA.portable.OutputStream ostream,
+  org.omg.IOP.CodecFactory value)
+
+
+
+
+
+

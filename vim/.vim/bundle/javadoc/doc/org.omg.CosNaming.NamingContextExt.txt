@@ -1,0 +1,27 @@
+*org.omg.CosNaming.NamingContextExt* *NamingContextExt* NamingContextExt is the 
+
+public interface interface NamingContextExt
+
+  implements |org.omg.CosNaming.NamingContextExtOperations|
+             |org.omg.CosNaming.NamingContext|
+             |org.omg.CORBA.portable.IDLEntity|
+
+|org.omg.CosNaming.NamingContextExt_Description|
+|org.omg.CosNaming.NamingContextExt_Fields|
+|org.omg.CosNaming.NamingContextExt_Constructors|
+|org.omg.CosNaming.NamingContextExt_Methods|
+
+================================================================================
+
+*org.omg.CosNaming.NamingContextExt_Description*
+
+NamingContextExt is the extension of NamingContext which contains a set of name 
+bindings in which each name is unique and is part of Interoperable Naming 
+Service. Different names can be bound to an object in the same or different 
+contexts at the same time. Using NamingContextExt, you can use URL-based names 
+to bind and resolve. 
+
+See CORBA COS Naming Specification. 
+
+
+

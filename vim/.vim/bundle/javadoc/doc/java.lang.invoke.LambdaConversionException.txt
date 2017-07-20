@@ -1,0 +1,74 @@
+*java.lang.invoke.LambdaConversionException* *LambdaConversionException* LambdaC
+
+public class LambdaConversionException
+  extends    |java.lang.Exception|
+
+|java.lang.invoke.LambdaConversionException_Description|
+|java.lang.invoke.LambdaConversionException_Fields|
+|java.lang.invoke.LambdaConversionException_Constructors|
+|java.lang.invoke.LambdaConversionException_Methods|
+
+================================================================================
+
+*java.lang.invoke.LambdaConversionException_Constructors*
+|java.lang.invoke.LambdaConversionException()|Constructs aLambdaConversionExcep
+|java.lang.invoke.LambdaConversionException(String)|Constructs aLambdaConversio
+|java.lang.invoke.LambdaConversionException(String,Throwable)|Constructs aLambd
+|java.lang.invoke.LambdaConversionException(String,Throwable,boolean,boolean)|C
+|java.lang.invoke.LambdaConversionException(Throwable)|Constructs aLambdaConver
+
+*java.lang.invoke.LambdaConversionException_Description*
+
+LambdaConversionException 
+
+
+
+*java.lang.invoke.LambdaConversionException()*
+
+public LambdaConversionException()
+
+Constructs aLambdaConversionException. 
+
+
+*java.lang.invoke.LambdaConversionException(String)*
+
+public LambdaConversionException(java.lang.String message)
+
+Constructs aLambdaConversionExceptionwith a message. 
+
+    message - the detail message 
+
+*java.lang.invoke.LambdaConversionException(String,Throwable)*
+
+public LambdaConversionException(
+  java.lang.String message,
+  java.lang.Throwable cause)
+
+Constructs aLambdaConversionExceptionwith a message and cause. 
+
+    message - the detail message 
+    cause - the cause 
+
+*java.lang.invoke.LambdaConversionException(String,Throwable,boolean,boolean)*
+
+public LambdaConversionException(
+  java.lang.String message,
+  java.lang.Throwable cause,
+  boolean enableSuppression,
+  boolean writableStackTrace)
+
+Constructs aLambdaConversionExceptionwith a message, cause, and other settings. 
+
+    message - the detail message 
+    cause - the cause 
+    enableSuppression - whether or not suppressed exceptions are enabled 
+    writableStackTrace - whether or not the stack trace is writable 
+
+*java.lang.invoke.LambdaConversionException(Throwable)*
+
+public LambdaConversionException(java.lang.Throwable cause)
+
+Constructs aLambdaConversionExceptionwith a cause. 
+
+    cause - the cause 
+

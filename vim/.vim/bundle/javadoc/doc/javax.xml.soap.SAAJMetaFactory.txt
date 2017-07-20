@@ -1,0 +1,62 @@
+*javax.xml.soap.SAAJMetaFactory* *SAAJMetaFactory* The access point for the impl
+
+public abstract class SAAJMetaFactory
+  extends    |java.lang.Object|
+
+|javax.xml.soap.SAAJMetaFactory_Description|
+|javax.xml.soap.SAAJMetaFactory_Fields|
+|javax.xml.soap.SAAJMetaFactory_Constructors|
+|javax.xml.soap.SAAJMetaFactory_Methods|
+
+================================================================================
+
+*javax.xml.soap.SAAJMetaFactory_Constructors*
+|javax.xml.soap.SAAJMetaFactory()|
+
+*javax.xml.soap.SAAJMetaFactory_Methods*
+|javax.xml.soap.SAAJMetaFactory.newMessageFactory(String)|Creates a MessageFact
+|javax.xml.soap.SAAJMetaFactory.newSOAPFactory(String)|Creates a SOAPFactory ob
+
+*javax.xml.soap.SAAJMetaFactory_Description*
+
+The access point for the implementation classes of the factories defined in the 
+SAAJ API. All of the newInstance methods defined on factories in SAAJ 1.3 defer 
+to instances of this class to do the actual object creation. The 
+implementations of newInstance() methods (in SOAPFactory and MessageFactory) 
+that existed in SAAJ 1.2 have been updated to also delegate to the 
+SAAJMetaFactory when the SAAJ 1.2 defined lookup fails to locate the Factory 
+implementation class name. 
+
+SAAJMetaFactory is a service provider interface. There are no public methods on 
+this class. 
+
+
+
+*javax.xml.soap.SAAJMetaFactory()*
+
+protected SAAJMetaFactory()
+
+
+
+
+*javax.xml.soap.SAAJMetaFactory.newMessageFactory(String)*
+
+protected abstract |javax.xml.soap.MessageFactory| newMessageFactory(java.lang.String protocol)
+  throws |javax.xml.soap.SOAPException|
+         
+Creates a MessageFactory object for the given String protocol. 
+
+
+    protocol - a String indicating the protocol 
+
+*javax.xml.soap.SAAJMetaFactory.newSOAPFactory(String)*
+
+protected abstract |javax.xml.soap.SOAPFactory| newSOAPFactory(java.lang.String protocol)
+  throws |javax.xml.soap.SOAPException|
+         
+Creates a SOAPFactory object for the given String protocol. 
+
+
+    protocol - a String indicating the protocol 
+
+

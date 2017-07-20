@@ -1,0 +1,41 @@
+*java.util.function.IntBinaryOperator* *IntBinaryOperator* Represents an operati
+
+public interface interface IntBinaryOperator
+
+
+|java.util.function.IntBinaryOperator_Description|
+|java.util.function.IntBinaryOperator_Fields|
+|java.util.function.IntBinaryOperator_Constructors|
+|java.util.function.IntBinaryOperator_Methods|
+
+================================================================================
+
+*java.util.function.IntBinaryOperator_Methods*
+|java.util.function.IntBinaryOperator.applyAsInt(int,int)|Applies this operator
+
+*java.util.function.IntBinaryOperator_Description*
+
+Represents an operation upon twoint-valued operands and producing anint-valued 
+result. This is the primitive type specialization of 
+(|java.util.function.BinaryOperator|) forint. 
+
+This is a functional interface whose functional method is 
+(|java.util.function.IntBinaryOperator|) . 
+
+
+
+*java.util.function.IntBinaryOperator.applyAsInt(int,int)*
+
+public int applyAsInt(
+  int left,
+  int right)
+
+Applies this operator to the given operands. 
+
+
+    left - the first operand 
+    right - the second operand 
+
+    Returns: the operator result 
+
+

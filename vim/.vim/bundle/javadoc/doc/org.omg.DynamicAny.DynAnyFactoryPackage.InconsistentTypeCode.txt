@@ -1,0 +1,39 @@
+*org.omg.DynamicAny.DynAnyFactoryPackage.InconsistentTypeCode* *InconsistentTypeCode* 
+
+public final class InconsistentTypeCode
+  extends    |org.omg.CORBA.UserException|
+
+|org.omg.DynamicAny.DynAnyFactoryPackage.InconsistentTypeCode_Description|
+|org.omg.DynamicAny.DynAnyFactoryPackage.InconsistentTypeCode_Fields|
+|org.omg.DynamicAny.DynAnyFactoryPackage.InconsistentTypeCode_Constructors|
+|org.omg.DynamicAny.DynAnyFactoryPackage.InconsistentTypeCode_Methods|
+
+================================================================================
+
+*org.omg.DynamicAny.DynAnyFactoryPackage.InconsistentTypeCode_Constructors*
+|org.omg.DynamicAny.DynAnyFactoryPackage.InconsistentTypeCode()|
+|org.omg.DynamicAny.DynAnyFactoryPackage.InconsistentTypeCode(String)|
+
+*org.omg.DynamicAny.DynAnyFactoryPackage.InconsistentTypeCode_Description*
+
+org/omg/DynamicAny/DynAnyFactoryPackage/InconsistentTypeCode.java . Generated 
+by the IDL-to-Java compiler (portable), version "3.2" from 
+/HUDSON/workspace/8-2-build-macosx-x86_64/jdk8u5/2488/corba/src/share/classes/org/omg/DynamicAny/DynamicAny.idl
+Tuesday, March 18, 2014 12:37:22 AM PDT 
+
+
+
+*org.omg.DynamicAny.DynAnyFactoryPackage.InconsistentTypeCode()*
+
+public InconsistentTypeCode()
+
+
+
+
+*org.omg.DynamicAny.DynAnyFactoryPackage.InconsistentTypeCode(String)*
+
+public InconsistentTypeCode(java.lang.String $reason)
+
+
+
+

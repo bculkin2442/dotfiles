@@ -1,0 +1,86 @@
+*javax.xml.stream.events.StartDocument* *StartDocument* An interface for the sta
+
+public interface interface StartDocument
+
+  implements |javax.xml.stream.events.XMLEvent|
+
+|javax.xml.stream.events.StartDocument_Description|
+|javax.xml.stream.events.StartDocument_Fields|
+|javax.xml.stream.events.StartDocument_Constructors|
+|javax.xml.stream.events.StartDocument_Methods|
+
+================================================================================
+
+*javax.xml.stream.events.StartDocument_Methods*
+|javax.xml.stream.events.StartDocument.encodingSet()|Returns true if CharacterE
+|javax.xml.stream.events.StartDocument.getCharacterEncodingScheme()|Returns the
+|javax.xml.stream.events.StartDocument.getSystemId()|Returns the system ID of t
+|javax.xml.stream.events.StartDocument.getVersion()|Returns the version of XML 
+|javax.xml.stream.events.StartDocument.isStandalone()|Returns if this XML is st
+|javax.xml.stream.events.StartDocument.standaloneSet()|Returns true if the stan
+
+*javax.xml.stream.events.StartDocument_Description*
+
+An interface for the start document event 
+
+
+
+*javax.xml.stream.events.StartDocument.encodingSet()*
+
+public boolean encodingSet()
+
+Returns true if CharacterEncodingScheme was set in the encoding declaration of 
+the document 
+
+
+
+*javax.xml.stream.events.StartDocument.getCharacterEncodingScheme()*
+
+public |java.lang.String| getCharacterEncodingScheme()
+
+Returns the encoding style of the XML data 
+
+
+
+    Returns: the character encoding, defaults to "UTF-8" 
+
+*javax.xml.stream.events.StartDocument.getSystemId()*
+
+public |java.lang.String| getSystemId()
+
+Returns the system ID of the XML data 
+
+
+
+    Returns: the system ID, defaults to "" 
+
+*javax.xml.stream.events.StartDocument.getVersion()*
+
+public |java.lang.String| getVersion()
+
+Returns the version of XML of this XML stream 
+
+
+
+    Returns: the version of XML, defaults to "1.0" 
+
+*javax.xml.stream.events.StartDocument.isStandalone()*
+
+public boolean isStandalone()
+
+Returns if this XML is standalone 
+
+
+
+    Returns: the standalone state of XML, defaults to "no" 
+
+*javax.xml.stream.events.StartDocument.standaloneSet()*
+
+public boolean standaloneSet()
+
+Returns true if the standalone attribute was set in the encoding declaration of 
+the document. 
+
+
+
+

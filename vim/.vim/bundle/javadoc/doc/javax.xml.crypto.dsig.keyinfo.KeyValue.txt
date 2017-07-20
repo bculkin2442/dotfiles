@@ -1,0 +1,99 @@
+*javax.xml.crypto.dsig.keyinfo.KeyValue* *KeyValue* A representation of the XML 
+
+public interface interface KeyValue
+
+  implements |javax.xml.crypto.XMLStructure|
+
+|javax.xml.crypto.dsig.keyinfo.KeyValue_Description|
+|javax.xml.crypto.dsig.keyinfo.KeyValue_Fields|
+|javax.xml.crypto.dsig.keyinfo.KeyValue_Constructors|
+|javax.xml.crypto.dsig.keyinfo.KeyValue_Methods|
+
+================================================================================
+
+*javax.xml.crypto.dsig.keyinfo.KeyValue_Fields*
+|java.lang.String_javax.xml.crypto.dsig.keyinfo.KeyValue.DSA_TYPE|
+|java.lang.String_javax.xml.crypto.dsig.keyinfo.KeyValue.RSA_TYPE|
+
+*javax.xml.crypto.dsig.keyinfo.KeyValue_Methods*
+|javax.xml.crypto.dsig.keyinfo.KeyValue.getPublicKey()|Returns the public key o
+
+*javax.xml.crypto.dsig.keyinfo.KeyValue_Description*
+
+A representation of the XML KeyValue element as defined in the W3C 
+Recommendation for XML-Signature Syntax and Processing. A KeyValue object 
+contains a single public key that may be useful in validating the signature. 
+The XML schema definition is defined as: 
+
+
+
+<element name="KeyValue" type="ds:KeyValueType"/> <complexType 
+name="KeyValueType" mixed="true"> <choice> <element ref="ds:DSAKeyValue"/> 
+<element ref="ds:RSAKeyValue"/> <any namespace="##other" 
+processContents="lax"/> </choice> </complexType> 
+
+<element name="DSAKeyValue" type="ds:DSAKeyValueType"/> <complexType 
+name="DSAKeyValueType"> <sequence> <sequence minOccurs="0"> <element name="P" 
+type="ds:CryptoBinary"/> <element name="Q" type="ds:CryptoBinary"/> </sequence> 
+<element name="G" type="ds:CryptoBinary" minOccurs="0"/> <element name="Y" 
+type="ds:CryptoBinary"/> <element name="J" type="ds:CryptoBinary" 
+minOccurs="0"/> <sequence minOccurs="0"> <element name="Seed" 
+type="ds:CryptoBinary"/> <element name="PgenCounter" type="ds:CryptoBinary"/> 
+</sequence> </sequence> </complexType> 
+
+<element name="RSAKeyValue" type="ds:RSAKeyValueType"/> <complexType 
+name="RSAKeyValueType"> <sequence> <element name="Modulus" 
+type="ds:CryptoBinary"/> <element name="Exponent" type="ds:CryptoBinary"/> 
+</sequence> </complexType> 
+
+A KeyValue instance may be created by invoking the 
+newKeyValue(|javax.xml.crypto.dsig.keyinfo.KeyInfoFactory|) method of the 
+(|javax.xml.crypto.dsig.keyinfo.KeyInfoFactory|) class, and passing it a 
+(|java.security.PublicKey|) representing the value of the public key. Here is 
+an example of creating a KeyValue from a 
+(|java.security.interfaces.DSAPublicKey|) of a 
+(|java.security.cert.Certificate|) stored in a (|java.security.KeyStore|) : 
+
+KeyStore keyStore = KeyStore.getInstance(KeyStore.getDefaultType()); PublicKey 
+dsaPublicKey = keyStore.getCertificate("myDSASigningCert").getPublicKey(); 
+KeyInfoFactory factory = KeyInfoFactory.getInstance("DOM"); KeyValue keyValue = 
+factory.newKeyValue(dsaPublicKey); 
+
+This class returns the DSAKeyValue and RSAKeyValue elements as objects of type 
+(|java.security.interfaces.DSAPublicKey|) and 
+(|java.security.interfaces.RSAPublicKey|) , respectively. Note that not all of 
+the fields in the schema are accessible as parameters of these types. 
+
+
+
+*java.lang.String_javax.xml.crypto.dsig.keyinfo.KeyValue.DSA_TYPE*
+
+URI identifying the DSA KeyValue KeyInfo type: 
+http://www.w3.org/2000/09/xmldsig#DSAKeyValue. This can be specified as the 
+value of the type parameter of the 
+(|javax.xml.crypto.dsig.keyinfo.RetrievalMethod|) class to describe a remote 
+DSAKeyValue structure. 
+
+
+*java.lang.String_javax.xml.crypto.dsig.keyinfo.KeyValue.RSA_TYPE*
+
+URI identifying the RSA KeyValue KeyInfo type: 
+http://www.w3.org/2000/09/xmldsig#RSAKeyValue. This can be specified as the 
+value of the type parameter of the 
+(|javax.xml.crypto.dsig.keyinfo.RetrievalMethod|) class to describe a remote 
+RSAKeyValue structure. 
+
+
+
+*javax.xml.crypto.dsig.keyinfo.KeyValue.getPublicKey()*
+
+public |java.security.PublicKey| getPublicKey()
+  throws |java.security.KeyException|
+         
+Returns the public key of this KeyValue. 
+
+
+
+    Returns: the public key of this KeyValue 
+
+

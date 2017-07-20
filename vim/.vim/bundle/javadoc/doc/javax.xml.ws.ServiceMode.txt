@@ -1,0 +1,20 @@
+*javax.xml.ws.ServiceMode* *ServiceMode* Used to indicate whether aProviderimple
+
+public interface class ServiceMode
+
+  implements |java.lang.annotation.Annotation|
+
+|javax.xml.ws.ServiceMode_Description|
+|javax.xml.ws.ServiceMode_Fields|
+|javax.xml.ws.ServiceMode_Constructors|
+|javax.xml.ws.ServiceMode_Methods|
+
+================================================================================
+
+*javax.xml.ws.ServiceMode_Description*
+
+Used to indicate whether a (|javax.xml.ws.Provider|) implementation wishes to 
+work with entire protocol messages or just with protocol message payloads. 
+
+
+

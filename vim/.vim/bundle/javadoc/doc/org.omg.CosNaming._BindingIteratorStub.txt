@@ -1,0 +1,78 @@
+*org.omg.CosNaming._BindingIteratorStub* *_BindingIteratorStub* The BindingItera
+
+public class _BindingIteratorStub
+  extends    |org.omg.CORBA.portable.ObjectImpl|
+  implements |org.omg.CosNaming.BindingIterator|
+
+|org.omg.CosNaming._BindingIteratorStub_Description|
+|org.omg.CosNaming._BindingIteratorStub_Fields|
+|org.omg.CosNaming._BindingIteratorStub_Constructors|
+|org.omg.CosNaming._BindingIteratorStub_Methods|
+
+================================================================================
+
+*org.omg.CosNaming._BindingIteratorStub_Constructors*
+|org.omg.CosNaming._BindingIteratorStub()|
+
+*org.omg.CosNaming._BindingIteratorStub_Methods*
+|org.omg.CosNaming._BindingIteratorStub._ids()|
+|org.omg.CosNaming._BindingIteratorStub.destroy()|This operation destroys the i
+|org.omg.CosNaming._BindingIteratorStub.next_n(int,BindingListHolder)|This oper
+|org.omg.CosNaming._BindingIteratorStub.next_one(BindingHolder)|This operation 
+
+*org.omg.CosNaming._BindingIteratorStub_Description*
+
+The BindingIterator interface allows a client to iterate through the bindings 
+using the next_one or next_n operations. 
+
+The bindings iterator is obtained by using the list method on the 
+NamingContext. 
+
+
+
+*org.omg.CosNaming._BindingIteratorStub()*
+
+public _BindingIteratorStub()
+
+
+
+
+*org.omg.CosNaming._BindingIteratorStub._ids()*
+
+public |java.lang.String|[] _ids()
+
+
+
+
+
+*org.omg.CosNaming._BindingIteratorStub.destroy()*
+
+public void destroy()
+
+This operation destroys the iterator. 
+
+
+
+*org.omg.CosNaming._BindingIteratorStub.next_n(int,BindingListHolder)*
+
+public boolean next_n(
+  int how_many,
+  org.omg.CosNaming.BindingListHolder bl)
+
+This operation returns at most the requested number of bindings. 
+
+
+    how_many - the maximum number of bindings tro return 
+    bl - the returned bindings 
+
+*org.omg.CosNaming._BindingIteratorStub.next_one(BindingHolder)*
+
+public boolean next_one(org.omg.CosNaming.BindingHolder b)
+
+This operation returns the next binding. If there are no more bindings, false 
+is returned. 
+
+
+    b - the returned binding 
+
+

@@ -1,0 +1,115 @@
+*javax.xml.transform.stax.StAXResult* *StAXResult* Acts as a holder for an XMLRe
+
+public class StAXResult
+  extends    |java.lang.Object|
+  implements |javax.xml.transform.Result|
+
+|javax.xml.transform.stax.StAXResult_Description|
+|javax.xml.transform.stax.StAXResult_Fields|
+|javax.xml.transform.stax.StAXResult_Constructors|
+|javax.xml.transform.stax.StAXResult_Methods|
+
+================================================================================
+
+*javax.xml.transform.stax.StAXResult_Fields*
+|java.lang.String_javax.xml.transform.stax.StAXResult.FEATURE|
+
+*javax.xml.transform.stax.StAXResult_Constructors*
+|javax.xml.transform.stax.StAXResult(XMLEventWriter)|Creates a new instance of 
+|javax.xml.transform.stax.StAXResult(XMLStreamWriter)|Creates a new instance of
+
+*javax.xml.transform.stax.StAXResult_Methods*
+|javax.xml.transform.stax.StAXResult.getSystemId()|The returned system identifi
+|javax.xml.transform.stax.StAXResult.getXMLEventWriter()|Get the XMLEventWriter
+|javax.xml.transform.stax.StAXResult.getXMLStreamWriter()|Get the XMLStreamWrit
+|javax.xml.transform.stax.StAXResult.setSystemId(String)|In the context of a St
+
+*javax.xml.transform.stax.StAXResult_Description*
+
+Acts as a holder for an XML (|javax.xml.transform.Result|) in the form of a 
+StAX writer,i.e. (|javax.xml.stream.XMLStreamWriter|) or 
+(|javax.xml.stream.XMLEventWriter|) . StAXResult can be used in all cases that 
+accept a Result, e.g. (|javax.xml.transform.Transformer|) , 
+(|javax.xml.validation.Validator|) which accept Result as input. 
+
+
+
+*java.lang.String_javax.xml.transform.stax.StAXResult.FEATURE*
+
+If (|javax.xml.transform.TransformerFactory|) returns true when passed this 
+value as an argument, the Transformer supports Result output of this type. 
+
+
+
+*javax.xml.transform.stax.StAXResult(XMLEventWriter)*
+
+public StAXResult(javax.xml.stream.XMLEventWriter xmlEventWriter)
+
+Creates a new instance of a StAXResult by supplying an 
+(|javax.xml.stream.XMLEventWriter|) . 
+
+XMLEventWriter must be a non-null reference. 
+
+    xmlEventWriter - XMLEventWriter used to create this StAXResult. 
+
+*javax.xml.transform.stax.StAXResult(XMLStreamWriter)*
+
+public StAXResult(javax.xml.stream.XMLStreamWriter xmlStreamWriter)
+
+Creates a new instance of a StAXResult by supplying an 
+(|javax.xml.stream.XMLStreamWriter|) . 
+
+XMLStreamWriter must be a non-null reference. 
+
+    xmlStreamWriter - XMLStreamWriter used to create this StAXResult. 
+
+*javax.xml.transform.stax.StAXResult.getSystemId()*
+
+public |java.lang.String| getSystemId()
+
+The returned system identifier is always null. 
+
+
+
+    Returns: The returned system identifier is always null. 
+
+*javax.xml.transform.stax.StAXResult.getXMLEventWriter()*
+
+public |javax.xml.stream.XMLEventWriter| getXMLEventWriter()
+
+Get the XMLEventWriter used by this StAXResult. 
+
+XMLEventWriter will be null if this StAXResult was created with a 
+XMLStreamWriter. 
+
+
+
+    Returns: XMLEventWriter used by this StAXResult. 
+
+*javax.xml.transform.stax.StAXResult.getXMLStreamWriter()*
+
+public |javax.xml.stream.XMLStreamWriter| getXMLStreamWriter()
+
+Get the XMLStreamWriter used by this StAXResult. 
+
+XMLStreamWriter will be null if this StAXResult was created with a 
+XMLEventWriter. 
+
+
+
+    Returns: XMLStreamWriter used by this StAXResult. 
+
+*javax.xml.transform.stax.StAXResult.setSystemId(String)*
+
+public void setSystemId(java.lang.String systemId)
+
+In the context of a StAXResult, it is not appropriate to explicitly set the 
+system identifier. The XMLEventWriter or XMLStreamWriter used to construct this 
+StAXResult determines the system identifier of the XML result. 
+
+An (|java.lang.UnsupportedOperationException|) is always thrown by this method. 
+
+
+    systemId - Ignored. 
+
+

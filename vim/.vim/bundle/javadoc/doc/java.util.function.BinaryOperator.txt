@@ -1,0 +1,56 @@
+*java.util.function.BinaryOperator* *BinaryOperator* Represents an operation upo
+
+public interface interface BinaryOperator<T>
+
+  implements |java.util.function.BiFunction|
+
+|java.util.function.BinaryOperator_Description|
+|java.util.function.BinaryOperator_Fields|
+|java.util.function.BinaryOperator_Constructors|
+|java.util.function.BinaryOperator_Methods|
+
+================================================================================
+
+*java.util.function.BinaryOperator_Methods*
+|java.util.function.BinaryOperator.maxBy(Comparator<?superT>)|Returns aBinaryOp
+|java.util.function.BinaryOperator.minBy(Comparator<?superT>)|Returns aBinaryOp
+
+*java.util.function.BinaryOperator_Description*
+
+Represents an operation upon two operands of the same type, producing a result 
+of the same type as the operands. This is a specialization of 
+(|java.util.function.BiFunction|) for the case where the operands and the 
+result are all of the same type. 
+
+This is a functional interface whose functional method is 
+(|java.util.function.BinaryOperator|) . 
+
+
+
+*java.util.function.BinaryOperator.maxBy(Comparator<?superT>)*
+
+public static |java.util.function.BinaryOperator|<T> maxBy(java.util.Comparator<? super T> comparator)
+
+Returns a (|java.util.function.BinaryOperator|) which returns the greater of 
+two elements according to the specifiedComparator. 
+
+
+    comparator - a {@code Comparator} for comparing the two values 
+
+    Returns: a {@code BinaryOperator} which returns the greater of its operands, according 
+             to the supplied {@code Comparator} 
+
+*java.util.function.BinaryOperator.minBy(Comparator<?superT>)*
+
+public static |java.util.function.BinaryOperator|<T> minBy(java.util.Comparator<? super T> comparator)
+
+Returns a (|java.util.function.BinaryOperator|) which returns the lesser of two 
+elements according to the specifiedComparator. 
+
+
+    comparator - a {@code Comparator} for comparing the two values 
+
+    Returns: a {@code BinaryOperator} which returns the lesser of its operands, according to 
+             the supplied {@code Comparator} 
+
+

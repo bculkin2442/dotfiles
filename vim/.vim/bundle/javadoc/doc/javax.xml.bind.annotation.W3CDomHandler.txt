@@ -1,0 +1,94 @@
+*javax.xml.bind.annotation.W3CDomHandler* *W3CDomHandler* DomHandlerimplementati
+
+public class W3CDomHandler
+  extends    |java.lang.Object|
+  implements |javax.xml.bind.annotation.DomHandler|
+
+|javax.xml.bind.annotation.W3CDomHandler_Description|
+|javax.xml.bind.annotation.W3CDomHandler_Fields|
+|javax.xml.bind.annotation.W3CDomHandler_Constructors|
+|javax.xml.bind.annotation.W3CDomHandler_Methods|
+
+================================================================================
+
+*javax.xml.bind.annotation.W3CDomHandler_Constructors*
+|javax.xml.bind.annotation.W3CDomHandler()|Default constructor.
+|javax.xml.bind.annotation.W3CDomHandler(DocumentBuilder)|Constructor that allo
+
+*javax.xml.bind.annotation.W3CDomHandler_Methods*
+|javax.xml.bind.annotation.W3CDomHandler.createUnmarshaller(ValidationEventHandler)|
+|javax.xml.bind.annotation.W3CDomHandler.getBuilder()|
+|javax.xml.bind.annotation.W3CDomHandler.getElement(DOMResult)|
+|javax.xml.bind.annotation.W3CDomHandler.marshal(Element,ValidationEventHandler)|
+|javax.xml.bind.annotation.W3CDomHandler.setBuilder(DocumentBuilder)|
+
+*javax.xml.bind.annotation.W3CDomHandler_Description*
+
+(|javax.xml.bind.annotation.DomHandler|) implementation for W3C DOM 
+(org.w3c.dom package.) 
+
+
+
+*javax.xml.bind.annotation.W3CDomHandler()*
+
+public W3CDomHandler()
+
+Default constructor. 
+
+It is up to a JAXB provider to decide which DOM implementation to use or how 
+that is configured. 
+
+
+*javax.xml.bind.annotation.W3CDomHandler(DocumentBuilder)*
+
+public W3CDomHandler(javax.xml.parsers.DocumentBuilder builder)
+
+Constructor that allows applications to specify which DOM implementation to be 
+used. 
+
+    builder - must not be null. JAXB uses this {@link DocumentBuilder} to create a new 
+       element. 
+
+*javax.xml.bind.annotation.W3CDomHandler.createUnmarshaller(ValidationEventHandler)*
+
+public |javax.xml.transform.dom.DOMResult| createUnmarshaller(javax.xml.bind.ValidationEventHandler errorHandler)
+
+
+
+
+
+*javax.xml.bind.annotation.W3CDomHandler.getBuilder()*
+
+public |javax.xml.parsers.DocumentBuilder| getBuilder()
+
+
+
+
+
+*javax.xml.bind.annotation.W3CDomHandler.getElement(DOMResult)*
+
+public |org.w3c.dom.Element| getElement(javax.xml.transform.dom.DOMResult r)
+
+
+
+
+
+*javax.xml.bind.annotation.W3CDomHandler.marshal(Element,ValidationEventHandler)*
+
+public |javax.xml.transform.Source| marshal(
+  org.w3c.dom.Element element,
+  javax.xml.bind.ValidationEventHandler errorHandler)
+
+
+
+
+
+*javax.xml.bind.annotation.W3CDomHandler.setBuilder(DocumentBuilder)*
+
+public void setBuilder(javax.xml.parsers.DocumentBuilder builder)
+
+
+
+
+
+

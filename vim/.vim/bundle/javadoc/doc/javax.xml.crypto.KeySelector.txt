@@ -1,0 +1,77 @@
+*javax.xml.crypto.KeySelector* *KeySelector* A selector that finds and returns a
+
+public abstract class KeySelector
+  extends    |java.lang.Object|
+
+|javax.xml.crypto.KeySelector_Description|
+|javax.xml.crypto.KeySelector_Fields|
+|javax.xml.crypto.KeySelector_Constructors|
+|javax.xml.crypto.KeySelector_Methods|
+
+================================================================================
+
+*javax.xml.crypto.KeySelector_Constructors*
+|javax.xml.crypto.KeySelector()|Default no-args constructor; intended for invoc
+
+*javax.xml.crypto.KeySelector_Methods*
+|javax.xml.crypto.KeySelector.select(KeyInfo,KeySelector.Purpose,AlgorithmMethod,XMLCryptoContext)|
+|javax.xml.crypto.KeySelector.singletonKeySelector(Key)|Returns a KeySelector t
+
+*javax.xml.crypto.KeySelector_Description*
+
+A selector that finds and returns a key using the data contained in a 
+(|javax.xml.crypto.dsig.keyinfo.KeyInfo|) object. An example of an 
+implementation of this class is one that searches a (|java.security.KeyStore|) 
+for trusted keys that match information contained in a KeyInfo. 
+
+Whether or not the returned key is trusted and the mechanisms used to determine 
+that is implementation-specific. 
+
+
+
+*javax.xml.crypto.KeySelector()*
+
+protected KeySelector()
+
+Default no-args constructor; intended for invocation by subclasses only. 
+
+
+*javax.xml.crypto.KeySelector.select(KeyInfo,KeySelector.Purpose,AlgorithmMethod,XMLCryptoContext)*
+
+public abstract |javax.xml.crypto.KeySelectorResult| select(
+  javax.xml.crypto.dsig.keyinfo.KeyInfo keyInfo,
+  javax.xml.crypto.KeySelector.Purpose purpose,
+  javax.xml.crypto.AlgorithmMethod method,
+  javax.xml.crypto.XMLCryptoContext context)
+  throws |javax.xml.crypto.KeySelectorException|
+         
+Attempts to find a key that satisfies the specified constraints. 
+
+
+    keyInfo - a KeyInfo (may be null) 
+    purpose - the key's purpose ({@link Purpose#SIGN}, {@link Purpose#VERIFY}, {@link 
+       Purpose#ENCRYPT}, or {@link Purpose#DECRYPT}) 
+    method - the algorithm method that this key is to be used for. Only keys that are 
+       compatible with the algorithm and meet the constraints of the specified 
+       algorithm should be returned. 
+    context - an XMLCryptoContext that may contain useful information for finding an 
+       appropriate key. If this key selector supports resolving {@link 
+       RetrievalMethod} types, the context's baseURI and dereferencer 
+       parameters (if specified) should be used by the selector to resolve and 
+       dereference the URI. 
+
+    Returns: the result of the key selector 
+
+*javax.xml.crypto.KeySelector.singletonKeySelector(Key)*
+
+public static |javax.xml.crypto.KeySelector| singletonKeySelector(java.security.Key key)
+
+Returns a KeySelector that always selects the specified key, regardless of the 
+KeyInfo passed to it. 
+
+
+    key - the sole key to be stored in the key selector 
+
+    Returns: a key selector that always selects the specified key 
+
+

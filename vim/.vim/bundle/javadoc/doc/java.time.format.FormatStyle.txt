@@ -1,0 +1,43 @@
+*java.time.format.FormatStyle* *FormatStyle* Enumeration of the style of a local
+
+public final enumFormatStyle
+  extends    |java.lang.Enum|
+
+|java.time.format.FormatStyle_Description|
+|java.time.format.FormatStyle_Fields|
+|java.time.format.FormatStyle_Constructors|
+|java.time.format.FormatStyle_Methods|
+
+================================================================================
+
+*java.time.format.FormatStyle_Methods*
+|java.time.format.FormatStyle.valueOf(String)|
+|java.time.format.FormatStyle.values()|
+
+*java.time.format.FormatStyle_Description*
+
+Enumeration of the style of a localized date, time or date-time formatter. 
+
+These styles are used when obtaining a date-time style from configuration. See 
+(|java.time.format.DateTimeFormatter|) and 
+(|java.time.format.DateTimeFormatterBuilder|) for usage. 
+
+
+
+*java.time.format.FormatStyle.valueOf(String)*
+
+public static |java.time.format.FormatStyle| valueOf(java.lang.String name)
+
+
+
+
+
+*java.time.format.FormatStyle.values()*
+
+public static |java.time.format.FormatStyle|[] values()
+
+
+
+
+
+

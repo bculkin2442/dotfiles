@@ -1,0 +1,22 @@
+*org.omg.IOP.CodecFactory* *CodecFactory* Codecs are obtained from the CodecFact
+
+public interface interface CodecFactory
+
+  implements |org.omg.IOP.CodecFactoryOperations|
+             |org.omg.CORBA.Object|
+             |org.omg.CORBA.portable.IDLEntity|
+
+|org.omg.IOP.CodecFactory_Description|
+|org.omg.IOP.CodecFactory_Fields|
+|org.omg.IOP.CodecFactory_Constructors|
+|org.omg.IOP.CodecFactory_Methods|
+
+================================================================================
+
+*org.omg.IOP.CodecFactory_Description*
+
+Codecs are obtained from the CodecFactory. The CodecFactory is obtained through 
+a call to ORB.resolve_initial_references( "CodecFactory" ). 
+
+
+

@@ -1,0 +1,307 @@
+*java.time.chrono.ThaiBuddhistDate* *ThaiBuddhistDate* A date in the Thai Buddhi
+
+public final class ThaiBuddhistDate
+  extends    |java.time.chrono.ChronoLocalDateImpl|
+  implements |java.time.chrono.ChronoLocalDate|
+             |java.io.Serializable|
+
+|java.time.chrono.ThaiBuddhistDate_Description|
+|java.time.chrono.ThaiBuddhistDate_Fields|
+|java.time.chrono.ThaiBuddhistDate_Constructors|
+|java.time.chrono.ThaiBuddhistDate_Methods|
+
+================================================================================
+
+*java.time.chrono.ThaiBuddhistDate_Methods*
+|java.time.chrono.ThaiBuddhistDate.atTime(LocalTime)|
+|java.time.chrono.ThaiBuddhistDate.equals(Object)|Compares this date to another
+|java.time.chrono.ThaiBuddhistDate.from(TemporalAccessor)|Obtains aThaiBuddhist
+|java.time.chrono.ThaiBuddhistDate.getChronology()|Gets the chronology of this 
+|java.time.chrono.ThaiBuddhistDate.getEra()|Gets the era applicable at this dat
+|java.time.chrono.ThaiBuddhistDate.getLong(TemporalField)|
+|java.time.chrono.ThaiBuddhistDate.hashCode()|A hash code for this date.
+|java.time.chrono.ThaiBuddhistDate.lengthOfMonth()|Returns the length of the mo
+|java.time.chrono.ThaiBuddhistDate.minus(long,TemporalUnit)|
+|java.time.chrono.ThaiBuddhistDate.minus(TemporalAmount)|
+|java.time.chrono.ThaiBuddhistDate.now()|Obtains the currentThaiBuddhistDatefro
+|java.time.chrono.ThaiBuddhistDate.now(Clock)|Obtains the currentThaiBuddhistDa
+|java.time.chrono.ThaiBuddhistDate.now(ZoneId)|Obtains the currentThaiBuddhistD
+|java.time.chrono.ThaiBuddhistDate.of(int,int,int)|Obtains aThaiBuddhistDaterep
+|java.time.chrono.ThaiBuddhistDate.plus(long,TemporalUnit)|
+|java.time.chrono.ThaiBuddhistDate.plus(TemporalAmount)|
+|java.time.chrono.ThaiBuddhistDate.range(TemporalField)|
+|java.time.chrono.ThaiBuddhistDate.toEpochDay()|
+|java.time.chrono.ThaiBuddhistDate.until(ChronoLocalDate)|
+|java.time.chrono.ThaiBuddhistDate.with(TemporalAdjuster)|
+|java.time.chrono.ThaiBuddhistDate.with(TemporalField,long)|
+
+*java.time.chrono.ThaiBuddhistDate_Description*
+
+A date in the Thai Buddhist calendar system. 
+
+This date operates using the Thai Buddhist 
+calendar(|java.time.chrono.ThaiBuddhistChronology|) . This calendar system is 
+primarily used in Thailand. Dates are aligned such that2484-01-01 
+(Buddhist)is1941-01-01 (ISO). 
+
+This is a <a href="/java/lang/doc-files/ValueBased.html">value-based class; use 
+of identity-sensitive operations (including reference equality (==), identity 
+hash code, or synchronization) on instances ofThaiBuddhistDatemay have 
+unpredictable results and should be avoided. Theequalsmethod should be used for 
+comparisons. 
+
+
+
+*java.time.chrono.ThaiBuddhistDate.atTime(LocalTime)*
+
+public final |java.time.chrono.ChronoLocalDateTime|<ThaiBuddhistDate> atTime(java.time.LocalTime localTime)
+
+
+
+
+
+*java.time.chrono.ThaiBuddhistDate.equals(Object)*
+
+public boolean equals(java.lang.Object obj)
+
+Compares this date to another date, including the chronology. 
+
+Compares thisThaiBuddhistDatewith another ensuring that the date is the same. 
+
+Only objects of typeThaiBuddhistDateare compared, other types return false. To 
+compare the dates of twoTemporalAccessorinstances, including dates in two 
+different chronologies, use (|java.time.temporal.ChronoField|) as a comparator. 
+
+
+    obj - the object to check, null returns false 
+
+    Returns: true if this is equal to the other date 
+
+*java.time.chrono.ThaiBuddhistDate.from(TemporalAccessor)*
+
+public static |java.time.chrono.ThaiBuddhistDate| from(java.time.temporal.TemporalAccessor temporal)
+
+Obtains aThaiBuddhistDatefrom a temporal object. 
+
+This obtains a date in the Thai Buddhist calendar system based on the specified 
+temporal. ATemporalAccessorrepresents an arbitrary set of date and time 
+information, which this factory converts to an instance ofThaiBuddhistDate. 
+
+The conversion typically uses the EPOCH_DAY(|java.time.temporal.ChronoField|) 
+field, which is standardized across calendar systems. 
+
+This method matches the signature of the functional interface 
+(|java.time.temporal.TemporalQuery|) allowing it to be used as a query via 
+method reference,ThaiBuddhistDate::from. 
+
+
+    temporal - the temporal object to convert, not null 
+
+    Returns: the date in Thai Buddhist calendar system, not null 
+
+*java.time.chrono.ThaiBuddhistDate.getChronology()*
+
+public |java.time.chrono.ThaiBuddhistChronology| getChronology()
+
+Gets the chronology of this date, which is the Thai Buddhist calendar system. 
+
+TheChronologyrepresents the calendar system in use. The era and other fields in 
+(|java.time.temporal.ChronoField|) are defined by the chronology. 
+
+
+
+    Returns: the Thai Buddhist chronology, not null 
+
+*java.time.chrono.ThaiBuddhistDate.getEra()*
+
+public |java.time.chrono.ThaiBuddhistEra| getEra()
+
+Gets the era applicable at this date. 
+
+The Thai Buddhist calendar system has two eras, 'BE' and 'BEFORE_BE', defined 
+by (|java.time.chrono.ThaiBuddhistEra|) . 
+
+
+
+    Returns: the era applicable at this date, not null 
+
+*java.time.chrono.ThaiBuddhistDate.getLong(TemporalField)*
+
+public long getLong(java.time.temporal.TemporalField field)
+
+
+
+
+
+*java.time.chrono.ThaiBuddhistDate.hashCode()*
+
+public int hashCode()
+
+A hash code for this date. 
+
+
+
+    Returns: a suitable hash code based only on the Chronology and the date 
+
+*java.time.chrono.ThaiBuddhistDate.lengthOfMonth()*
+
+public int lengthOfMonth()
+
+Returns the length of the month represented by this date. 
+
+This returns the length of the month in days. Month lengths match those of the 
+ISO calendar system. 
+
+
+
+    Returns: the length of the month in days 
+
+*java.time.chrono.ThaiBuddhistDate.minus(long,TemporalUnit)*
+
+public |java.time.chrono.ThaiBuddhistDate| minus(
+  long amountToAdd,
+  java.time.temporal.TemporalUnit unit)
+
+
+
+
+
+*java.time.chrono.ThaiBuddhistDate.minus(TemporalAmount)*
+
+public |java.time.chrono.ThaiBuddhistDate| minus(java.time.temporal.TemporalAmount amount)
+
+
+
+
+
+*java.time.chrono.ThaiBuddhistDate.now()*
+
+public static |java.time.chrono.ThaiBuddhistDate| now()
+
+Obtains the currentThaiBuddhistDatefrom the system clock in the default 
+time-zone. 
+
+This will query the system clock(|java.time.Clock|) in the default time-zone to 
+obtain the current date. 
+
+Using this method will prevent the ability to use an alternate clock for 
+testing because the clock is hard-coded. 
+
+
+
+    Returns: the current date using the system clock and default time-zone, not null 
+
+*java.time.chrono.ThaiBuddhistDate.now(Clock)*
+
+public static |java.time.chrono.ThaiBuddhistDate| now(java.time.Clock clock)
+
+Obtains the currentThaiBuddhistDatefrom the specified clock. 
+
+This will query the specified clock to obtain the current date - today. Using 
+this method allows the use of an alternate clock for testing. The alternate 
+clock may be introduced using dependency injection(|java.time.Clock|) . 
+
+
+    clock - the clock to use, not null 
+
+    Returns: the current date, not null 
+
+*java.time.chrono.ThaiBuddhistDate.now(ZoneId)*
+
+public static |java.time.chrono.ThaiBuddhistDate| now(java.time.ZoneId zone)
+
+Obtains the currentThaiBuddhistDatefrom the system clock in the specified 
+time-zone. 
+
+This will query the system clock(|java.time.Clock|) to obtain the current date. 
+Specifying the time-zone avoids dependence on the default time-zone. 
+
+Using this method will prevent the ability to use an alternate clock for 
+testing because the clock is hard-coded. 
+
+
+    zone - the zone ID to use, not null 
+
+    Returns: the current date using the system clock, not null 
+
+*java.time.chrono.ThaiBuddhistDate.of(int,int,int)*
+
+public static |java.time.chrono.ThaiBuddhistDate| of(
+  int prolepticYear,
+  int month,
+  int dayOfMonth)
+
+Obtains aThaiBuddhistDaterepresenting a date in the Thai Buddhist calendar 
+system from the proleptic-year, month-of-year and day-of-month fields. 
+
+This returns aThaiBuddhistDatewith the specified fields. The day must be valid 
+for the year and month, otherwise an exception will be thrown. 
+
+
+    prolepticYear - the Thai Buddhist proleptic-year 
+    month - the Thai Buddhist month-of-year, from 1 to 12 
+    dayOfMonth - the Thai Buddhist day-of-month, from 1 to 31 
+
+    Returns: the date in Thai Buddhist calendar system, not null 
+
+*java.time.chrono.ThaiBuddhistDate.plus(long,TemporalUnit)*
+
+public |java.time.chrono.ThaiBuddhistDate| plus(
+  long amountToAdd,
+  java.time.temporal.TemporalUnit unit)
+
+
+
+
+
+*java.time.chrono.ThaiBuddhistDate.plus(TemporalAmount)*
+
+public |java.time.chrono.ThaiBuddhistDate| plus(java.time.temporal.TemporalAmount amount)
+
+
+
+
+
+*java.time.chrono.ThaiBuddhistDate.range(TemporalField)*
+
+public |java.time.temporal.ValueRange| range(java.time.temporal.TemporalField field)
+
+
+
+
+
+*java.time.chrono.ThaiBuddhistDate.toEpochDay()*
+
+public long toEpochDay()
+
+
+
+
+
+*java.time.chrono.ThaiBuddhistDate.until(ChronoLocalDate)*
+
+public |java.time.chrono.ChronoPeriod| until(java.time.chrono.ChronoLocalDate endDate)
+
+
+
+
+
+*java.time.chrono.ThaiBuddhistDate.with(TemporalAdjuster)*
+
+public |java.time.chrono.ThaiBuddhistDate| with(java.time.temporal.TemporalAdjuster adjuster)
+
+
+
+
+
+*java.time.chrono.ThaiBuddhistDate.with(TemporalField,long)*
+
+public |java.time.chrono.ThaiBuddhistDate| with(
+  java.time.temporal.TemporalField field,
+  long newValue)
+
+
+
+
+
+

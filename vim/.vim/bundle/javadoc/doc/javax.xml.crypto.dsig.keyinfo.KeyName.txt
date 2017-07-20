@@ -1,0 +1,48 @@
+*javax.xml.crypto.dsig.keyinfo.KeyName* *KeyName* A representation of the XML Ke
+
+public interface interface KeyName
+
+  implements |javax.xml.crypto.XMLStructure|
+
+|javax.xml.crypto.dsig.keyinfo.KeyName_Description|
+|javax.xml.crypto.dsig.keyinfo.KeyName_Fields|
+|javax.xml.crypto.dsig.keyinfo.KeyName_Constructors|
+|javax.xml.crypto.dsig.keyinfo.KeyName_Methods|
+
+================================================================================
+
+*javax.xml.crypto.dsig.keyinfo.KeyName_Methods*
+|javax.xml.crypto.dsig.keyinfo.KeyName.getName()|Returns the name of this KeyNa
+
+*javax.xml.crypto.dsig.keyinfo.KeyName_Description*
+
+A representation of the XML KeyName element as defined in the W3C 
+Recommendation for XML-Signature Syntax and Processing. A KeyName object 
+contains a string value which may be used by the signer to communicate a key 
+identifier to the recipient. The XML Schema Definition is defined as: 
+
+
+
+<element name="KeyName" type="string"/> 
+
+A KeyName instance may be created by invoking the 
+newKeyName(|javax.xml.crypto.dsig.keyinfo.KeyInfoFactory|) method of the 
+(|javax.xml.crypto.dsig.keyinfo.KeyInfoFactory|) class, and passing it a String 
+representing the name of the key; for example: 
+
+KeyInfoFactory factory = KeyInfoFactory.getInstance("DOM"); KeyName keyName = 
+factory.newKeyName("Alice"); 
+
+
+
+*javax.xml.crypto.dsig.keyinfo.KeyName.getName()*
+
+public |java.lang.String| getName()
+
+Returns the name of this KeyName. 
+
+
+
+    Returns: the name of this KeyName (never null) 
+
+

@@ -1,0 +1,36 @@
+*javax.xml.bind.annotation.XmlSchemaTypes* *XmlSchemaTypes* 
+ A container for mu
+
+public interface class XmlSchemaTypes
+
+  implements |java.lang.annotation.Annotation|
+
+|javax.xml.bind.annotation.XmlSchemaTypes_Description|
+|javax.xml.bind.annotation.XmlSchemaTypes_Fields|
+|javax.xml.bind.annotation.XmlSchemaTypes_Constructors|
+|javax.xml.bind.annotation.XmlSchemaTypes_Methods|
+
+================================================================================
+
+*javax.xml.bind.annotation.XmlSchemaTypes_Description*
+
+A container for multiple @ (|javax.xml.bind.annotation.XmlSchemaType|) 
+annotations. 
+
+Multiple annotations of the same type are not allowed on a program element. 
+This annotation therefore serves as a container annotation for multiple 
+XmlSchemaType annotations as follows: 
+
+
+
+XmlSchemaTypes({ @XmlSchemaType(...), @XmlSchemaType(...) }) 
+
+The @XmlSchemaTypes annnotation can be used to define 
+(|javax.xml.bind.annotation.XmlSchemaType|) for different types at the package 
+level. 
+
+See "Package Specification" in javax.xml.bind.package javadoc for additional 
+common information. 
+
+
+

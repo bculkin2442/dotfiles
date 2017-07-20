@@ -1,0 +1,80 @@
+*org.omg.PortableInterceptor.ObjectReferenceTemplateHolder* *ObjectReferenceTemplateHolder* 
+
+public final class ObjectReferenceTemplateHolder
+  extends    |java.lang.Object|
+  implements |org.omg.CORBA.portable.Streamable|
+
+|org.omg.PortableInterceptor.ObjectReferenceTemplateHolder_Description|
+|org.omg.PortableInterceptor.ObjectReferenceTemplateHolder_Fields|
+|org.omg.PortableInterceptor.ObjectReferenceTemplateHolder_Constructors|
+|org.omg.PortableInterceptor.ObjectReferenceTemplateHolder_Methods|
+
+================================================================================
+
+*org.omg.PortableInterceptor.ObjectReferenceTemplateHolder_Fields*
+|org.omg.PortableInterceptor.ObjectReferenceTemplate_org.omg.PortableInterceptor.ObjectReferenceTemplateHolder.value|
+
+*org.omg.PortableInterceptor.ObjectReferenceTemplateHolder_Constructors*
+|org.omg.PortableInterceptor.ObjectReferenceTemplateHolder()|
+|org.omg.PortableInterceptor.ObjectReferenceTemplateHolder(ObjectReferenceTemplate)|
+
+*org.omg.PortableInterceptor.ObjectReferenceTemplateHolder_Methods*
+|org.omg.PortableInterceptor.ObjectReferenceTemplateHolder._read(InputStream)|
+|org.omg.PortableInterceptor.ObjectReferenceTemplateHolder._type()|
+|org.omg.PortableInterceptor.ObjectReferenceTemplateHolder._write(OutputStream)|
+
+*org.omg.PortableInterceptor.ObjectReferenceTemplateHolder_Description*
+
+The object reference template. An instance of this must exist for each object 
+adapter created in an ORB. The server_id, orb_id, and adapter_name attributes 
+uniquely identify this template within the scope of an IMR. Note that 
+adapter_id is similarly unique within the same scope, but it is opaque, and 
+less useful in many cases. 
+
+
+
+*org.omg.PortableInterceptor.ObjectReferenceTemplate_org.omg.PortableInterceptor.ObjectReferenceTemplateHolder.value*
+
+
+
+
+
+*org.omg.PortableInterceptor.ObjectReferenceTemplateHolder()*
+
+public ObjectReferenceTemplateHolder()
+
+
+
+
+*org.omg.PortableInterceptor.ObjectReferenceTemplateHolder(ObjectReferenceTemplate)*
+
+public ObjectReferenceTemplateHolder(org.omg.PortableInterceptor.ObjectReferenceTemplate initialValue)
+
+
+
+
+*org.omg.PortableInterceptor.ObjectReferenceTemplateHolder._read(InputStream)*
+
+public void _read(org.omg.CORBA.portable.InputStream i)
+
+
+
+
+
+*org.omg.PortableInterceptor.ObjectReferenceTemplateHolder._type()*
+
+public |org.omg.CORBA.TypeCode| _type()
+
+
+
+
+
+*org.omg.PortableInterceptor.ObjectReferenceTemplateHolder._write(OutputStream)*
+
+public void _write(org.omg.CORBA.portable.OutputStream o)
+
+
+
+
+
+

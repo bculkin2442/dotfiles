@@ -1,0 +1,72 @@
+*java.util.Spliterators.AbstractIntSpliterator* *Spliterators.AbstractIntSpliterator* 
+
+public abstract static class Spliterators.AbstractIntSpliterator
+  extends    |java.lang.Object|
+  implements |java.util.Spliterator.OfInt|
+
+|java.util.Spliterators.AbstractIntSpliterator_Description|
+|java.util.Spliterators.AbstractIntSpliterator_Fields|
+|java.util.Spliterators.AbstractIntSpliterator_Constructors|
+|java.util.Spliterators.AbstractIntSpliterator_Methods|
+
+================================================================================
+
+*java.util.Spliterators.AbstractIntSpliterator_Constructors*
+|java.util.Spliterators.AbstractIntSpliterator(long,int)|Creates a spliterator 
+
+*java.util.Spliterators.AbstractIntSpliterator_Methods*
+|java.util.Spliterators.AbstractIntSpliterator.characteristics()|
+|java.util.Spliterators.AbstractIntSpliterator.estimateSize()|
+|java.util.Spliterators.AbstractIntSpliterator.trySplit()|This implementation p
+
+*java.util.Spliterators.AbstractIntSpliterator_Description*
+
+An abstractSpliterator.OfIntthat implementstrySplitto permit limited 
+parallelism. 
+
+To implement a spliterator an extending class need only implement 
+(|java.util.Spliterators.AbstractIntSpliterator|) tryAdvance}. The extending 
+class should override (|java.util.Spliterators.AbstractIntSpliterator|) 
+forEach} if it can provide a more performant implementation. 
+
+
+
+*java.util.Spliterators.AbstractIntSpliterator(long,int)*
+
+protected AbstractIntSpliterator(
+  long est,
+  int additionalCharacteristics)
+
+Creates a spliterator reporting the given estimated size and characteristics. 
+
+    est - the estimated size of this spliterator if known, otherwise {@code 
+       Long.MAX_VALUE}. 
+    additionalCharacteristics - properties of this spliterator's source or elements. If {@code SIZED} is 
+       reported then this spliterator will additionally report {@code 
+       SUBSIZED}. 
+
+*java.util.Spliterators.AbstractIntSpliterator.characteristics()*
+
+public int characteristics()
+
+
+
+
+
+*java.util.Spliterators.AbstractIntSpliterator.estimateSize()*
+
+public long estimateSize()
+
+
+
+
+
+*java.util.Spliterators.AbstractIntSpliterator.trySplit()*
+
+public |java.util.Spliterator.OfInt| trySplit()
+
+This implementation permits limited parallelism. 
+
+
+
+

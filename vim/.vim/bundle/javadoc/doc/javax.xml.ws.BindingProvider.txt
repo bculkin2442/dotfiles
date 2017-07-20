@@ -1,0 +1,152 @@
+*javax.xml.ws.BindingProvider* *BindingProvider* The BindingProvider interface p
+
+public interface interface BindingProvider
+
+
+|javax.xml.ws.BindingProvider_Description|
+|javax.xml.ws.BindingProvider_Fields|
+|javax.xml.ws.BindingProvider_Constructors|
+|javax.xml.ws.BindingProvider_Methods|
+
+================================================================================
+
+*javax.xml.ws.BindingProvider_Fields*
+|java.lang.String_javax.xml.ws.BindingProvider.ENDPOINT_ADDRESS_PROPERTY|
+|java.lang.String_javax.xml.ws.BindingProvider.PASSWORD_PROPERTY|
+|java.lang.String_javax.xml.ws.BindingProvider.SESSION_MAINTAIN_PROPERTY|
+|java.lang.String_javax.xml.ws.BindingProvider.SOAPACTION_URI_PROPERTY|
+|java.lang.String_javax.xml.ws.BindingProvider.SOAPACTION_USE_PROPERTY|
+|java.lang.String_javax.xml.ws.BindingProvider.USERNAME_PROPERTY|
+
+*javax.xml.ws.BindingProvider_Methods*
+|javax.xml.ws.BindingProvider.getBinding()|Get the Binding for this binding pro
+|javax.xml.ws.BindingProvider.getEndpointReference()|Returns the EndpointRefere
+|javax.xml.ws.BindingProvider.getEndpointReference(Class<T>)|Returns the Endpoi
+|javax.xml.ws.BindingProvider.getRequestContext()|Get the context that is used 
+|javax.xml.ws.BindingProvider.getResponseContext()|Get the context that resulte
+
+*javax.xml.ws.BindingProvider_Description*
+
+The BindingProvider interface provides access to the protocol binding and 
+associated context objects for request and response message processing. 
+
+
+
+*java.lang.String_javax.xml.ws.BindingProvider.ENDPOINT_ADDRESS_PROPERTY*
+
+Standard property: Target service endpoint address. The URI scheme for the 
+endpoint address specification MUST correspond to the protocol/transport 
+binding for the binding in use. Type: java.lang.String 
+
+
+*java.lang.String_javax.xml.ws.BindingProvider.PASSWORD_PROPERTY*
+
+Standard property: Password for authentication. Type: java.lang.String 
+
+
+*java.lang.String_javax.xml.ws.BindingProvider.SESSION_MAINTAIN_PROPERTY*
+
+Standard property: This boolean property is used by a service client to 
+indicate whether or not it wants to participate in a session with a service 
+endpoint. If this property is set to true, the service client indicates that it 
+wants the session to be maintained. If set to false, the session is not 
+maintained. The default value for this property is false. Type: 
+java.lang.Boolean 
+
+
+*java.lang.String_javax.xml.ws.BindingProvider.SOAPACTION_URI_PROPERTY*
+
+Standard property for SOAPAction. Indicates the SOAPAction URI if the 
+javax.xml.ws.soap.http.soapaction.use property is set to true. If WS-Addressing 
+is enabled, this value will also be used for the value of the WS-Addressing 
+Action header. If this property is not set, the default SOAPAction and 
+WS-Addressing Action will be sent. 
+
+Type: java.lang.String 
+
+
+*java.lang.String_javax.xml.ws.BindingProvider.SOAPACTION_USE_PROPERTY*
+
+Standard property for SOAPAction. This boolean property indicates whether or 
+not the value of the javax.xml.ws.soap.http.soapaction.uri property is used for 
+the value of the SOAPAction. The default value of this property is false 
+indicating that the javax.xml.ws.soap.http.soapaction.uri property is not used 
+for the value of the SOAPAction, however, if WS-Addressing is enabled, the 
+default value is true. 
+
+Type: java.lang.Boolean 
+
+
+*java.lang.String_javax.xml.ws.BindingProvider.USERNAME_PROPERTY*
+
+Standard property: User name for authentication. Type: java.lang.String 
+
+
+
+*javax.xml.ws.BindingProvider.getBinding()*
+
+public |javax.xml.ws.Binding| getBinding()
+
+Get the Binding for this binding provider. 
+
+
+
+    Returns: The Binding for this binding provider. 
+
+*javax.xml.ws.BindingProvider.getEndpointReference()*
+
+public |javax.xml.ws.EndpointReference| getEndpointReference()
+
+Returns the EndpointReference associated with this BindingProvider instance. 
+
+If the Binding for this bindingProvider is either SOAP1.1/HTTP or SOAP1.2/HTTP, 
+then a W3CEndpointReference MUST be returned. 
+
+
+
+    Returns: EndpointReference of the target endpoint associated with this BindingProvider 
+             instance. 
+
+*javax.xml.ws.BindingProvider.getEndpointReference(Class<T>)*
+
+public |T| getEndpointReference(java.lang.Class<T> clazz)
+
+Returns the EndpointReference associated with this BindingProvider instance. 
+The instance returned will be of type clazz. 
+
+
+    clazz - Specifies the type of EndpointReference that MUST be returned. 
+
+    Returns: EndpointReference of the target endpoint associated with this BindingProvider 
+             instance. MUST be of type clazz. 
+
+*javax.xml.ws.BindingProvider.getRequestContext()*
+
+public |java.util.Map|<String,Object> getRequestContext()
+
+Get the context that is used to initialize the message context for request 
+messages. 
+
+Modifications to the request context do not affect the message context of 
+either synchronous or asynchronous operations that have already been started. 
+
+
+
+    Returns: The context that is used in processing request messages. 
+
+*javax.xml.ws.BindingProvider.getResponseContext()*
+
+public |java.util.Map|<String,Object> getResponseContext()
+
+Get the context that resulted from processing a response message. 
+
+The returned context is for the most recently completed synchronous operation. 
+Subsequent synchronous operation invocations overwrite the response context. 
+Asynchronous operations return their response context via the Response 
+interface. 
+
+
+
+    Returns: The context that resulted from processing the latest response messages. 
+
+

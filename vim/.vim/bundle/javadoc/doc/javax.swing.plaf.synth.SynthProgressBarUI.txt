@@ -1,0 +1,214 @@
+*javax.swing.plaf.synth.SynthProgressBarUI* *SynthProgressBarUI* Provides the Sy
+
+public class SynthProgressBarUI
+  extends    |javax.swing.plaf.basic.BasicProgressBarUI|
+  implements |javax.swing.plaf.synth.SynthUI|
+             |java.beans.PropertyChangeListener|
+
+|javax.swing.plaf.synth.SynthProgressBarUI_Description|
+|javax.swing.plaf.synth.SynthProgressBarUI_Fields|
+|javax.swing.plaf.synth.SynthProgressBarUI_Constructors|
+|javax.swing.plaf.synth.SynthProgressBarUI_Methods|
+
+================================================================================
+
+*javax.swing.plaf.synth.SynthProgressBarUI_Constructors*
+|javax.swing.plaf.synth.SynthProgressBarUI()|
+
+*javax.swing.plaf.synth.SynthProgressBarUI_Methods*
+|javax.swing.plaf.synth.SynthProgressBarUI.createUI(JComponent)|Creates a new U
+|javax.swing.plaf.synth.SynthProgressBarUI.getBaseline(JComponent,int,int)|
+|javax.swing.plaf.synth.SynthProgressBarUI.getBox(Rectangle)|
+|javax.swing.plaf.synth.SynthProgressBarUI.getContext(JComponent)|
+|javax.swing.plaf.synth.SynthProgressBarUI.getPreferredSize(JComponent)|
+|javax.swing.plaf.synth.SynthProgressBarUI.installDefaults()|
+|javax.swing.plaf.synth.SynthProgressBarUI.installListeners()|
+|javax.swing.plaf.synth.SynthProgressBarUI.paint(Graphics,JComponent)|Paints th
+|javax.swing.plaf.synth.SynthProgressBarUI.paint(SynthContext,Graphics)|Paints 
+|javax.swing.plaf.synth.SynthProgressBarUI.paintBorder(SynthContext,Graphics,int,int,int,int)|
+|javax.swing.plaf.synth.SynthProgressBarUI.paintText(SynthContext,Graphics,String)|
+|javax.swing.plaf.synth.SynthProgressBarUI.propertyChange(PropertyChangeEvent)|
+|javax.swing.plaf.synth.SynthProgressBarUI.setAnimationIndex(int)|
+|javax.swing.plaf.synth.SynthProgressBarUI.uninstallDefaults()|
+|javax.swing.plaf.synth.SynthProgressBarUI.uninstallListeners()|
+|javax.swing.plaf.synth.SynthProgressBarUI.update(Graphics,JComponent)|Notifies
+
+*javax.swing.plaf.synth.SynthProgressBarUI_Description*
+
+Provides the Synth L and F UI delegate for (|javax.swing.JProgressBar|) . 
+
+
+
+*javax.swing.plaf.synth.SynthProgressBarUI()*
+
+public SynthProgressBarUI()
+
+
+
+
+*javax.swing.plaf.synth.SynthProgressBarUI.createUI(JComponent)*
+
+public static |javax.swing.plaf.ComponentUI| createUI(javax.swing.JComponent x)
+
+Creates a new UI object for the given component. 
+
+
+    x - component to create UI object for 
+
+    Returns: the UI object 
+
+*javax.swing.plaf.synth.SynthProgressBarUI.getBaseline(JComponent,int,int)*
+
+public int getBaseline(
+  javax.swing.JComponent c,
+  int width,
+  int height)
+
+
+
+
+
+*javax.swing.plaf.synth.SynthProgressBarUI.getBox(Rectangle)*
+
+protected |java.awt.Rectangle| getBox(java.awt.Rectangle r)
+
+
+
+
+
+*javax.swing.plaf.synth.SynthProgressBarUI.getContext(JComponent)*
+
+public |javax.swing.plaf.synth.SynthContext| getContext(javax.swing.JComponent c)
+
+
+
+
+
+*javax.swing.plaf.synth.SynthProgressBarUI.getPreferredSize(JComponent)*
+
+public |java.awt.Dimension| getPreferredSize(javax.swing.JComponent c)
+
+
+
+
+
+*javax.swing.plaf.synth.SynthProgressBarUI.installDefaults()*
+
+protected void installDefaults()
+
+
+
+
+
+*javax.swing.plaf.synth.SynthProgressBarUI.installListeners()*
+
+protected void installListeners()
+
+
+
+
+
+*javax.swing.plaf.synth.SynthProgressBarUI.paint(Graphics,JComponent)*
+
+public void paint(
+  java.awt.Graphics g,
+  javax.swing.JComponent c)
+
+Paints the specified component according to the Look and Feel. This method is 
+not used by Synth Look and Feel. Painting is handled by the 
+(|javax.swing.plaf.synth.SynthProgressBarUI|) method. 
+
+
+    g - the {@code Graphics} object used for painting 
+    c - the component being painted 
+
+*javax.swing.plaf.synth.SynthProgressBarUI.paint(SynthContext,Graphics)*
+
+protected void paint(
+  javax.swing.plaf.synth.SynthContext context,
+  java.awt.Graphics g)
+
+Paints the specified component. 
+
+
+    context - context for the component being painted 
+    g - the {@code Graphics} object used for painting 
+
+*javax.swing.plaf.synth.SynthProgressBarUI.paintBorder(SynthContext,Graphics,int,int,int,int)*
+
+public void paintBorder(
+  javax.swing.plaf.synth.SynthContext context,
+  java.awt.Graphics g,
+  int x,
+  int y,
+  int w,
+  int h)
+
+
+
+
+
+*javax.swing.plaf.synth.SynthProgressBarUI.paintText(SynthContext,Graphics,String)*
+
+protected void paintText(
+  javax.swing.plaf.synth.SynthContext context,
+  java.awt.Graphics g,
+  java.lang.String title)
+
+Paints the component's text. 
+
+
+    context - context for the component being painted 
+    g - {@code Graphics} object used for painting 
+    title - the text to paint 
+
+*javax.swing.plaf.synth.SynthProgressBarUI.propertyChange(PropertyChangeEvent)*
+
+public void propertyChange(java.beans.PropertyChangeEvent e)
+
+
+
+
+
+*javax.swing.plaf.synth.SynthProgressBarUI.setAnimationIndex(int)*
+
+protected void setAnimationIndex(int newValue)
+
+
+
+
+
+*javax.swing.plaf.synth.SynthProgressBarUI.uninstallDefaults()*
+
+protected void uninstallDefaults()
+
+
+
+
+
+*javax.swing.plaf.synth.SynthProgressBarUI.uninstallListeners()*
+
+protected void uninstallListeners()
+
+
+
+
+
+*javax.swing.plaf.synth.SynthProgressBarUI.update(Graphics,JComponent)*
+
+public void update(
+  java.awt.Graphics g,
+  javax.swing.JComponent c)
+
+Notifies this UI delegate to repaint the specified component. This method 
+paints the component background, then calls the 
+(|javax.swing.plaf.synth.SynthProgressBarUI|) method. 
+
+In general, this method does not need to be overridden by subclasses. All Look 
+and Feel rendering code should reside in thepaintmethod. 
+
+
+    g - the {@code Graphics} object used for painting 
+    c - the component being painted 
+
+

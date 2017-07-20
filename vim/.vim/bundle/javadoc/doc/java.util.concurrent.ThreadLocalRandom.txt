@@ -1,0 +1,410 @@
+*java.util.concurrent.ThreadLocalRandom* *ThreadLocalRandom* A random number gen
+
+public class ThreadLocalRandom
+  extends    |java.util.Random|
+
+|java.util.concurrent.ThreadLocalRandom_Description|
+|java.util.concurrent.ThreadLocalRandom_Fields|
+|java.util.concurrent.ThreadLocalRandom_Constructors|
+|java.util.concurrent.ThreadLocalRandom_Methods|
+
+================================================================================
+
+*java.util.concurrent.ThreadLocalRandom_Methods*
+|java.util.concurrent.ThreadLocalRandom.current()|Returns the current thread'sT
+|java.util.concurrent.ThreadLocalRandom.doubles()|Returns an effectively unlimi
+|java.util.concurrent.ThreadLocalRandom.doubles(double,double)|Returns an effec
+|java.util.concurrent.ThreadLocalRandom.doubles(long)|Returns a stream producin
+|java.util.concurrent.ThreadLocalRandom.doubles(long,double,double)|Returns a s
+|java.util.concurrent.ThreadLocalRandom.ints()|Returns an effectively unlimited
+|java.util.concurrent.ThreadLocalRandom.ints(int,int)|Returns an effectively un
+|java.util.concurrent.ThreadLocalRandom.ints(long)|Returns a stream producing t
+|java.util.concurrent.ThreadLocalRandom.ints(long,int,int)|Returns a stream pro
+|java.util.concurrent.ThreadLocalRandom.longs()|Returns an effectively unlimite
+|java.util.concurrent.ThreadLocalRandom.longs(long)|Returns a stream producing 
+|java.util.concurrent.ThreadLocalRandom.longs(long,long)|Returns an effectively
+|java.util.concurrent.ThreadLocalRandom.longs(long,long,long)|Returns a stream 
+|java.util.concurrent.ThreadLocalRandom.next(int)|
+|java.util.concurrent.ThreadLocalRandom.nextBoolean()|Returns a pseudorandomboo
+|java.util.concurrent.ThreadLocalRandom.nextDouble()|Returns a pseudorandomdoub
+|java.util.concurrent.ThreadLocalRandom.nextDouble(double)|Returns a pseudorand
+|java.util.concurrent.ThreadLocalRandom.nextDouble(double,double)|Returns a pse
+|java.util.concurrent.ThreadLocalRandom.nextFloat()|Returns a pseudorandomfloat
+|java.util.concurrent.ThreadLocalRandom.nextGaussian()|
+|java.util.concurrent.ThreadLocalRandom.nextInt()|Returns a pseudorandomintvalu
+|java.util.concurrent.ThreadLocalRandom.nextInt(int)|Returns a pseudorandomintv
+|java.util.concurrent.ThreadLocalRandom.nextInt(int,int)|Returns a pseudorandom
+|java.util.concurrent.ThreadLocalRandom.nextLong()|Returns a pseudorandomlongva
+|java.util.concurrent.ThreadLocalRandom.nextLong(long)|Returns a pseudorandomlo
+|java.util.concurrent.ThreadLocalRandom.nextLong(long,long)|Returns a pseudoran
+|java.util.concurrent.ThreadLocalRandom.setSeed(long)|ThrowsUnsupportedOperatio
+
+*java.util.concurrent.ThreadLocalRandom_Description*
+
+A random number generator isolated to the current thread. Like the global 
+(|java.util.Random|) generator used by the (|java.lang.Math|) class, 
+aThreadLocalRandomis initialized with an internally generated seed that may not 
+otherwise be modified. When applicable, use ofThreadLocalRandomrather than 
+sharedRandomobjects in concurrent programs will typically encounter much less 
+overhead and contention. Use ofThreadLocalRandomis particularly appropriate 
+when multiple tasks (for example, each a (|java.util.concurrent.ForkJoinTask|) 
+) use random numbers in parallel in thread pools. 
+
+Usages of this class should typically be of the 
+form:ThreadLocalRandom.current().nextX(...)(whereXisInt,Long, etc). When all 
+usages are of this form, it is never possible to accidently share 
+aThreadLocalRandomacross multiple threads. 
+
+This class also provides additional commonly used bounded random generation 
+methods. 
+
+Instances ofThreadLocalRandomare not cryptographically secure. Consider instead 
+using (|java.security.SecureRandom|) in security-sensitive applications. 
+Additionally, default-constructed instances do not use a cryptographically 
+random seed unless the system property(|java.lang.System|) 
+java.util.secureRandomSeedis set totrue. 
+
+
+
+*java.util.concurrent.ThreadLocalRandom.current()*
+
+public static |java.util.concurrent.ThreadLocalRandom| current()
+
+Returns the current thread'sThreadLocalRandom. 
+
+
+
+    Returns: the current thread's {@code ThreadLocalRandom} 
+
+*java.util.concurrent.ThreadLocalRandom.doubles()*
+
+public |java.util.stream.DoubleStream| doubles()
+
+Returns an effectively unlimited stream of pseudorandomdoublevalues, each 
+between zero (inclusive) and one (exclusive). 
+
+
+
+    Returns: a stream of pseudorandom {@code double} values 
+
+*java.util.concurrent.ThreadLocalRandom.doubles(double,double)*
+
+public |java.util.stream.DoubleStream| doubles(
+  double randomNumberOrigin,
+  double randomNumberBound)
+
+Returns an effectively unlimited stream of pseudorandomdoublevalues, each 
+conforming to the given origin (inclusive) and bound (exclusive). 
+
+
+    randomNumberOrigin - the origin (inclusive) of each random value 
+    randomNumberBound - the bound (exclusive) of each random value 
+
+    Returns: a stream of pseudorandom {@code double} values, each with the given origin 
+             (inclusive) and bound (exclusive) 
+
+*java.util.concurrent.ThreadLocalRandom.doubles(long)*
+
+public |java.util.stream.DoubleStream| doubles(long streamSize)
+
+Returns a stream producing the givenstreamSizenumber of 
+pseudorandomdoublevalues, each between zero (inclusive) and one (exclusive). 
+
+
+    streamSize - the number of values to generate 
+
+    Returns: a stream of {@code double} values 
+
+*java.util.concurrent.ThreadLocalRandom.doubles(long,double,double)*
+
+public |java.util.stream.DoubleStream| doubles(
+  long streamSize,
+  double randomNumberOrigin,
+  double randomNumberBound)
+
+Returns a stream producing the givenstreamSizenumber of 
+pseudorandomdoublevalues, each conforming to the given origin (inclusive) and 
+bound (exclusive). 
+
+
+    streamSize - the number of values to generate 
+    randomNumberOrigin - the origin (inclusive) of each random value 
+    randomNumberBound - the bound (exclusive) of each random value 
+
+    Returns: a stream of pseudorandom {@code double} values, each with the given origin 
+             (inclusive) and bound (exclusive) 
+
+*java.util.concurrent.ThreadLocalRandom.ints()*
+
+public |java.util.stream.IntStream| ints()
+
+Returns an effectively unlimited stream of pseudorandomintvalues. 
+
+
+
+    Returns: a stream of pseudorandom {@code int} values 
+
+*java.util.concurrent.ThreadLocalRandom.ints(int,int)*
+
+public |java.util.stream.IntStream| ints(
+  int randomNumberOrigin,
+  int randomNumberBound)
+
+Returns an effectively unlimited stream of pseudorandomintvalues, each 
+conforming to the given origin (inclusive) and bound (exclusive). 
+
+
+    randomNumberOrigin - the origin (inclusive) of each random value 
+    randomNumberBound - the bound (exclusive) of each random value 
+
+    Returns: a stream of pseudorandom {@code int} values, each with the given origin 
+             (inclusive) and bound (exclusive) 
+
+*java.util.concurrent.ThreadLocalRandom.ints(long)*
+
+public |java.util.stream.IntStream| ints(long streamSize)
+
+Returns a stream producing the givenstreamSizenumber of pseudorandomintvalues. 
+
+
+    streamSize - the number of values to generate 
+
+    Returns: a stream of pseudorandom {@code int} values 
+
+*java.util.concurrent.ThreadLocalRandom.ints(long,int,int)*
+
+public |java.util.stream.IntStream| ints(
+  long streamSize,
+  int randomNumberOrigin,
+  int randomNumberBound)
+
+Returns a stream producing the givenstreamSizenumber of pseudorandomintvalues, 
+each conforming to the given origin (inclusive) and bound (exclusive). 
+
+
+    streamSize - the number of values to generate 
+    randomNumberOrigin - the origin (inclusive) of each random value 
+    randomNumberBound - the bound (exclusive) of each random value 
+
+    Returns: a stream of pseudorandom {@code int} values, each with the given origin 
+             (inclusive) and bound (exclusive) 
+
+*java.util.concurrent.ThreadLocalRandom.longs()*
+
+public |java.util.stream.LongStream| longs()
+
+Returns an effectively unlimited stream of pseudorandomlongvalues. 
+
+
+
+    Returns: a stream of pseudorandom {@code long} values 
+
+*java.util.concurrent.ThreadLocalRandom.longs(long)*
+
+public |java.util.stream.LongStream| longs(long streamSize)
+
+Returns a stream producing the givenstreamSizenumber of pseudorandomlongvalues. 
+
+
+    streamSize - the number of values to generate 
+
+    Returns: a stream of pseudorandom {@code long} values 
+
+*java.util.concurrent.ThreadLocalRandom.longs(long,long)*
+
+public |java.util.stream.LongStream| longs(
+  long randomNumberOrigin,
+  long randomNumberBound)
+
+Returns an effectively unlimited stream of pseudorandomlongvalues, each 
+conforming to the given origin (inclusive) and bound (exclusive). 
+
+
+    randomNumberOrigin - the origin (inclusive) of each random value 
+    randomNumberBound - the bound (exclusive) of each random value 
+
+    Returns: a stream of pseudorandom {@code long} values, each with the given origin 
+             (inclusive) and bound (exclusive) 
+
+*java.util.concurrent.ThreadLocalRandom.longs(long,long,long)*
+
+public |java.util.stream.LongStream| longs(
+  long streamSize,
+  long randomNumberOrigin,
+  long randomNumberBound)
+
+Returns a stream producing the givenstreamSizenumber of pseudorandomlong, each 
+conforming to the given origin (inclusive) and bound (exclusive). 
+
+
+    streamSize - the number of values to generate 
+    randomNumberOrigin - the origin (inclusive) of each random value 
+    randomNumberBound - the bound (exclusive) of each random value 
+
+    Returns: a stream of pseudorandom {@code long} values, each with the given origin 
+             (inclusive) and bound (exclusive) 
+
+*java.util.concurrent.ThreadLocalRandom.next(int)*
+
+protected int next(int bits)
+
+
+
+
+
+*java.util.concurrent.ThreadLocalRandom.nextBoolean()*
+
+public boolean nextBoolean()
+
+Returns a pseudorandombooleanvalue. 
+
+
+
+    Returns: a pseudorandom {@code boolean} value 
+
+*java.util.concurrent.ThreadLocalRandom.nextDouble()*
+
+public double nextDouble()
+
+Returns a pseudorandomdoublevalue between zero (inclusive) and one (exclusive). 
+
+
+
+    Returns: a pseudorandom {@code double} value between zero (inclusive) and one 
+             (exclusive) 
+
+*java.util.concurrent.ThreadLocalRandom.nextDouble(double)*
+
+public double nextDouble(double bound)
+
+Returns a pseudorandomdoublevalue between 0.0 (inclusive) and the specified 
+bound (exclusive). 
+
+
+    bound - the upper bound (exclusive). Must be positive. 
+
+    Returns: a pseudorandom {@code double} value between zero (inclusive) and the bound 
+             (exclusive) 
+
+*java.util.concurrent.ThreadLocalRandom.nextDouble(double,double)*
+
+public double nextDouble(
+  double origin,
+  double bound)
+
+Returns a pseudorandomdoublevalue between the specified origin (inclusive) and 
+bound (exclusive). 
+
+
+    origin - the least value returned 
+    bound - the upper bound (exclusive) 
+
+    Returns: a pseudorandom {@code double} value between the origin (inclusive) and the 
+             bound (exclusive) 
+
+*java.util.concurrent.ThreadLocalRandom.nextFloat()*
+
+public float nextFloat()
+
+Returns a pseudorandomfloatvalue between zero (inclusive) and one (exclusive). 
+
+
+
+    Returns: a pseudorandom {@code float} value between zero (inclusive) and one (exclusive) 
+
+*java.util.concurrent.ThreadLocalRandom.nextGaussian()*
+
+public double nextGaussian()
+
+
+
+
+
+*java.util.concurrent.ThreadLocalRandom.nextInt()*
+
+public int nextInt()
+
+Returns a pseudorandomintvalue. 
+
+
+
+    Returns: a pseudorandom {@code int} value 
+
+*java.util.concurrent.ThreadLocalRandom.nextInt(int)*
+
+public int nextInt(int bound)
+
+Returns a pseudorandomintvalue between zero (inclusive) and the specified bound 
+(exclusive). 
+
+
+    bound - the upper bound (exclusive). Must be positive. 
+
+    Returns: a pseudorandom {@code int} value between zero (inclusive) and the bound 
+             (exclusive) 
+
+*java.util.concurrent.ThreadLocalRandom.nextInt(int,int)*
+
+public int nextInt(
+  int origin,
+  int bound)
+
+Returns a pseudorandomintvalue between the specified origin (inclusive) and the 
+specified bound (exclusive). 
+
+
+    origin - the least value returned 
+    bound - the upper bound (exclusive) 
+
+    Returns: a pseudorandom {@code int} value between the origin (inclusive) and the bound 
+             (exclusive) 
+
+*java.util.concurrent.ThreadLocalRandom.nextLong()*
+
+public long nextLong()
+
+Returns a pseudorandomlongvalue. 
+
+
+
+    Returns: a pseudorandom {@code long} value 
+
+*java.util.concurrent.ThreadLocalRandom.nextLong(long)*
+
+public long nextLong(long bound)
+
+Returns a pseudorandomlongvalue between zero (inclusive) and the specified 
+bound (exclusive). 
+
+
+    bound - the upper bound (exclusive). Must be positive. 
+
+    Returns: a pseudorandom {@code long} value between zero (inclusive) and the bound 
+             (exclusive) 
+
+*java.util.concurrent.ThreadLocalRandom.nextLong(long,long)*
+
+public long nextLong(
+  long origin,
+  long bound)
+
+Returns a pseudorandomlongvalue between the specified origin (inclusive) and 
+the specified bound (exclusive). 
+
+
+    origin - the least value returned 
+    bound - the upper bound (exclusive) 
+
+    Returns: a pseudorandom {@code long} value between the origin (inclusive) and the bound 
+             (exclusive) 
+
+*java.util.concurrent.ThreadLocalRandom.setSeed(long)*
+
+public void setSeed(long seed)
+
+ThrowsUnsupportedOperationException. Setting seeds in this generator is not 
+supported. 
+
+
+
+

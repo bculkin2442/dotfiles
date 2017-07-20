@@ -1,0 +1,229 @@
+*org.w3c.dom.xpath.XPathResult* *XPathResult* The XPathResult interface represen
+
+public interface interface XPathResult
+
+
+|org.w3c.dom.xpath.XPathResult_Description|
+|org.w3c.dom.xpath.XPathResult_Fields|
+|org.w3c.dom.xpath.XPathResult_Constructors|
+|org.w3c.dom.xpath.XPathResult_Methods|
+
+================================================================================
+
+*org.w3c.dom.xpath.XPathResult_Fields*
+|short_org.w3c.dom.xpath.XPathResult.ANY_TYPE|
+|short_org.w3c.dom.xpath.XPathResult.ANY_UNORDERED_NODE_TYPE|
+|short_org.w3c.dom.xpath.XPathResult.BOOLEAN_TYPE|
+|short_org.w3c.dom.xpath.XPathResult.FIRST_ORDERED_NODE_TYPE|
+|short_org.w3c.dom.xpath.XPathResult.NUMBER_TYPE|
+|short_org.w3c.dom.xpath.XPathResult.ORDERED_NODE_ITERATOR_TYPE|
+|short_org.w3c.dom.xpath.XPathResult.ORDERED_NODE_SNAPSHOT_TYPE|
+|short_org.w3c.dom.xpath.XPathResult.STRING_TYPE|
+|short_org.w3c.dom.xpath.XPathResult.UNORDERED_NODE_ITERATOR_TYPE|
+|short_org.w3c.dom.xpath.XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE|
+
+*org.w3c.dom.xpath.XPathResult_Methods*
+|org.w3c.dom.xpath.XPathResult.getBooleanValue()|The value of this boolean resu
+|org.w3c.dom.xpath.XPathResult.getInvalidIteratorState()|Signifies that the ite
+|org.w3c.dom.xpath.XPathResult.getNumberValue()|The value of this number result
+|org.w3c.dom.xpath.XPathResult.getResultType()|A code representing the type of 
+|org.w3c.dom.xpath.XPathResult.getSingleNodeValue()|The value of this single no
+|org.w3c.dom.xpath.XPathResult.getSnapshotLength()|The number of nodes in the r
+|org.w3c.dom.xpath.XPathResult.getStringValue()|The value of this string result
+|org.w3c.dom.xpath.XPathResult.iterateNext()|Iterates and returns the next node
+|org.w3c.dom.xpath.XPathResult.snapshotItem(int)|Returns the indexth item in th
+
+*org.w3c.dom.xpath.XPathResult_Description*
+
+The XPathResult interface represents the result of the evaluation of an XPath 
+1.0 expression within the context of a particular node. Since evaluation of an 
+XPath expression can result in various result types, this object makes it 
+possible to discover and manipulate the type and value of the result. See also 
+the Document Object Model (DOM) Level 3 XPath Specification. 
+
+
+
+*short_org.w3c.dom.xpath.XPathResult.ANY_TYPE*
+
+This code does not represent a specific type. An evaluation of an XPath 
+expression will never produce this type. If this type is requested, then the 
+evaluation returns whatever type naturally results from evaluation of the 
+expression. If the natural result is a node set when ANY_TYPE was requested, 
+then UNORDERED_NODE_ITERATOR_TYPE is always the resulting type. Any other 
+representation of a node set must be explicitly requested. 
+
+
+*short_org.w3c.dom.xpath.XPathResult.ANY_UNORDERED_NODE_TYPE*
+
+The result is a node set as defined by and will be accessed as a single node, 
+which may be nullif the node set is empty. Document modification does not 
+invalidate the node, but may mean that the result node no longer corresponds to 
+the current document. This is a convenience that permits optimization since the 
+implementation can stop once any node in the in the resulting set has been 
+found. If there are more than one node in the actual result, the single node 
+returned might not be the first in document order. 
+
+
+*short_org.w3c.dom.xpath.XPathResult.BOOLEAN_TYPE*
+
+The result is a boolean as defined by . Document modification does not 
+invalidate the boolean, but may mean that reevaluation would not yield the same 
+boolean. 
+
+
+*short_org.w3c.dom.xpath.XPathResult.FIRST_ORDERED_NODE_TYPE*
+
+The result is a node set as defined by and will be accessed as a single node, 
+which may be null if the node set is empty. Document modification does not 
+invalidate the node, but may mean that the result node no longer corresponds to 
+the current document. This is a convenience that permits optimization since the 
+implementation can stop once the first node in document order of the resulting 
+set has been found. If there are more than one node in the actual result, the 
+single node returned will be the first in document order. 
+
+
+*short_org.w3c.dom.xpath.XPathResult.NUMBER_TYPE*
+
+The result is a number as defined by . Document modification does not 
+invalidate the number, but may mean that reevaluation would not yield the same 
+number. 
+
+
+*short_org.w3c.dom.xpath.XPathResult.ORDERED_NODE_ITERATOR_TYPE*
+
+The result is a node set as defined by that will be accessed iteratively, which 
+will produce document-ordered nodes. Document modification invalidates the 
+iteration. 
+
+
+*short_org.w3c.dom.xpath.XPathResult.ORDERED_NODE_SNAPSHOT_TYPE*
+
+The result is a node set as defined by that will be accessed as a snapshot list 
+of nodes that will be in original document order. Document modification does 
+not invalidate the snapshot but may mean that reevaluation would not yield the 
+same snapshot and nodes in the snapshot may have been altered, moved, or 
+removed from the document. 
+
+
+*short_org.w3c.dom.xpath.XPathResult.STRING_TYPE*
+
+The result is a string as defined by . Document modification does not 
+invalidate the string, but may mean that the string no longer corresponds to 
+the current document. 
+
+
+*short_org.w3c.dom.xpath.XPathResult.UNORDERED_NODE_ITERATOR_TYPE*
+
+The result is a node set as defined by that will be accessed iteratively, which 
+may not produce nodes in a particular order. Document modification invalidates 
+the iteration. This is the default type returned if the result is a node set 
+and ANY_TYPE is requested. 
+
+
+*short_org.w3c.dom.xpath.XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE*
+
+The result is a node set as defined by that will be accessed as a snapshot list 
+of nodes that may not be in a particular order. Document modification does not 
+invalidate the snapshot but may mean that reevaluation would not yield the same 
+snapshot and nodes in the snapshot may have been altered, moved, or removed 
+from the document. 
+
+
+
+*org.w3c.dom.xpath.XPathResult.getBooleanValue()*
+
+public boolean getBooleanValue()
+  throws |org.w3c.dom.xpath.XPathException|
+         
+The value of this boolean result. 
+
+
+
+*org.w3c.dom.xpath.XPathResult.getInvalidIteratorState()*
+
+public boolean getInvalidIteratorState()
+
+Signifies that the iterator has become invalid. True if resultType is 
+UNORDERED_NODE_ITERATOR_TYPE or ORDERED_NODE_ITERATOR_TYPE and the document has 
+been modified since this result was returned. 
+
+
+
+*org.w3c.dom.xpath.XPathResult.getNumberValue()*
+
+public double getNumberValue()
+  throws |org.w3c.dom.xpath.XPathException|
+         
+The value of this number result. If the native double type of the DOM binding 
+does not directly support the exact IEEE 754 result of the XPath expression, 
+then it is up to the definition of the binding binding to specify how the XPath 
+number is converted to the native binding number. 
+
+
+
+*org.w3c.dom.xpath.XPathResult.getResultType()*
+
+public short getResultType()
+
+A code representing the type of this result, as defined by the type constants. 
+
+
+
+*org.w3c.dom.xpath.XPathResult.getSingleNodeValue()*
+
+public |org.w3c.dom.Node| getSingleNodeValue()
+  throws |org.w3c.dom.xpath.XPathException|
+         
+The value of this single node result, which may be null. 
+
+
+
+*org.w3c.dom.xpath.XPathResult.getSnapshotLength()*
+
+public int getSnapshotLength()
+  throws |org.w3c.dom.xpath.XPathException|
+         
+The number of nodes in the result snapshot. Valid values for snapshotItem 
+indices are 0 to snapshotLength-1 inclusive. 
+
+
+
+*org.w3c.dom.xpath.XPathResult.getStringValue()*
+
+public |java.lang.String| getStringValue()
+  throws |org.w3c.dom.xpath.XPathException|
+         
+The value of this string result. 
+
+
+
+*org.w3c.dom.xpath.XPathResult.iterateNext()*
+
+public |org.w3c.dom.Node| iterateNext()
+  throws |org.w3c.dom.DOMException|
+         |org.w3c.dom.xpath.XPathException|
+         
+Iterates and returns the next node from the node set or nullif there are no 
+more nodes. 
+
+
+
+    Returns: Returns the next node. 
+
+*org.w3c.dom.xpath.XPathResult.snapshotItem(int)*
+
+public |org.w3c.dom.Node| snapshotItem(int index)
+  throws |org.w3c.dom.xpath.XPathException|
+         
+Returns the indexth item in the snapshot collection. If index is greater than 
+or equal to the number of nodes in the list, this method returns null. Unlike 
+the iterator result, the snapshot does not become invalid, but may not 
+correspond to the current document if it is mutated. 
+
+
+    index - Index into the snapshot collection. 
+
+    Returns: The node at the indexth position in the NodeList, or null if that is not a 
+             valid index. 
+
+

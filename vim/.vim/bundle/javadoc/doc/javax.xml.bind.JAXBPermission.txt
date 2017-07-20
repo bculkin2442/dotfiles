@@ -1,0 +1,57 @@
+*javax.xml.bind.JAXBPermission* *JAXBPermission* This class is for JAXB permissi
+
+public final class JAXBPermission
+  extends    |java.security.BasicPermission|
+
+|javax.xml.bind.JAXBPermission_Description|
+|javax.xml.bind.JAXBPermission_Fields|
+|javax.xml.bind.JAXBPermission_Constructors|
+|javax.xml.bind.JAXBPermission_Methods|
+
+================================================================================
+
+*javax.xml.bind.JAXBPermission_Constructors*
+|javax.xml.bind.JAXBPermission(String)|Creates a new JAXBPermission with the sp
+
+*javax.xml.bind.JAXBPermission_Description*
+
+This class is for JAXB permissions. AJAXBPermissioncontains a name (also 
+referred to as a "target name") but no actions list; you either have the named 
+permission or you don't. 
+
+The target name is the name of the JAXB permission (see below). 
+
+The following table lists all the possibleJAXBPermissiontarget names, and for 
+each provides a description of what the permission allows and a discussion of 
+the risks of granting code the permission. 
+
+
+
+Permission Target Name What the Permission Allows Risks of Allowing this 
+Permission 
+
+setDatatypeConverter 
+
+Allows the code to set VM-wide (|javax.xml.bind.DatatypeConverterInterface|) 
+via the setDatatypeConverter method(|javax.xml.bind.DatatypeConverter|) that 
+all the methods on (|javax.xml.bind.DatatypeConverter|) uses. 
+
+Malicious code can set (|javax.xml.bind.DatatypeConverterInterface|) , which 
+has VM-wide singleton semantics, before a genuine JAXB implementation sets one. 
+This allows malicious code to gain access to objects that it may otherwise not 
+have access to, such as (|java.awt.Frame|) that belongs to another application 
+running in the same JVM. 
+
+
+
+
+
+*javax.xml.bind.JAXBPermission(String)*
+
+public JAXBPermission(java.lang.String name)
+
+Creates a new JAXBPermission with the specified name. 
+
+    name - The name of the JAXBPermission. As of 2.2 only "setDatatypeConverter" is 
+       defined. 
+

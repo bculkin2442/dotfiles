@@ -1,0 +1,210 @@
+*org.omg.PortableInterceptor.ClientRequestInfoOperations* *ClientRequestInfoOperations* 
+
+public interface interface ClientRequestInfoOperations
+
+  implements |org.omg.PortableInterceptor.RequestInfoOperations|
+
+|org.omg.PortableInterceptor.ClientRequestInfoOperations_Description|
+|org.omg.PortableInterceptor.ClientRequestInfoOperations_Fields|
+|org.omg.PortableInterceptor.ClientRequestInfoOperations_Constructors|
+|org.omg.PortableInterceptor.ClientRequestInfoOperations_Methods|
+
+================================================================================
+
+*org.omg.PortableInterceptor.ClientRequestInfoOperations_Methods*
+|org.omg.PortableInterceptor.ClientRequestInfoOperations.add_request_service_context(ServiceContext,boolean)|
+|org.omg.PortableInterceptor.ClientRequestInfoOperations.effective_profile()|Re
+|org.omg.PortableInterceptor.ClientRequestInfoOperations.effective_target()|Ret
+|org.omg.PortableInterceptor.ClientRequestInfoOperations.get_effective_component(int)|
+|org.omg.PortableInterceptor.ClientRequestInfoOperations.get_effective_components(int)|
+|org.omg.PortableInterceptor.ClientRequestInfoOperations.get_request_policy(int)|
+|org.omg.PortableInterceptor.ClientRequestInfoOperations.received_exception_id()|
+|org.omg.PortableInterceptor.ClientRequestInfoOperations.received_exception()|R
+|org.omg.PortableInterceptor.ClientRequestInfoOperations.target()|Returns the o
+
+*org.omg.PortableInterceptor.ClientRequestInfoOperations_Description*
+
+Request Information, accessible to client-side request interceptors. 
+
+Some attributes and operations on ClientRequestInfo are not valid at all 
+interception points. The following table shows the validity of each attribute 
+or operation. If it is not valid, attempting to access it will result in a 
+BAD_INV_ORDER being thrown with a standard minor code of 14. 
+
+
+
+
+
+send_request send_poll receive_reply receive_exception receive_other 
+
+
+
+Inherited from RequestInfo: 
+
+request_id yes yes yes yes yes 
+
+operation yes yes yes yes yes 
+
+arguments yes1 no yes no no 
+
+exceptions yes no yes yes yes 
+
+contexts yes no yes yes yes 
+
+operation_context yes no yes yes yes 
+
+result no no yes no no 
+
+response_expected yes yes yes yes yes 
+
+sync_scope yes no yes yes yes 
+
+reply_status no no yes yes yes 
+
+forward_reference no no no no yes2 
+
+get_slot yes yes yes yes yes 
+
+get_request_service_context yes no yes yes yes 
+
+get_reply_service_context no no yes yes yes 
+
+ClientRequestInfo-specific: 
+
+target yes yes yes yes yes 
+
+effective_target yes yes yes yes yes 
+
+effective_profile yes yes yes yes yes 
+
+received_exception no no no yes no 
+
+received_exception_id no no no yes no 
+
+get_effective_component yes no yes yes yes 
+
+get_effective_components yes no yes yes yes 
+
+get_request_policy yes no yes yes yes 
+
+add_request_service_context yes no no no no 
+
+
+
+When ClientRequestInfo is passed to send_request, there is an entry in the list 
+for every argument, whether in, inout, or out. But only the in and inout 
+arguments will be available. If the reply_status atribute is not 
+LOCATION_FORWARD, accessing this attribute will throw BAD_INV_ORDER with a 
+standard minor code of 14. 
+
+
+
+*org.omg.PortableInterceptor.ClientRequestInfoOperations.add_request_service_context(ServiceContext,boolean)*
+
+public void add_request_service_context(
+  org.omg.IOP.ServiceContext service_context,
+  boolean replace)
+
+Allows Interceptors to add service contexts to the request. 
+
+There is no declaration of the order of the service contexts. They may or may 
+not appear in the order that they are added. 
+
+
+    service_context - The IOP.ServiceContext to be added to the request. 
+    replace - Indicates the behavior of this operation when a service context already exists 
+       with the given ID. If false, then BAD_INV_ORDER with a standard minor 
+       code of 15 is thrown. If true, then the existing service context is 
+       replaced by the new one. 
+
+*org.omg.PortableInterceptor.ClientRequestInfoOperations.effective_profile()*
+
+public |org.omg.IOP.TaggedProfile| effective_profile()
+
+Returns the profile that will be used to send the request. If a location 
+forward has occurred for this operation's object and that object's profile 
+changed accordingly, then this profile will be that located profile. 
+
+
+
+*org.omg.PortableInterceptor.ClientRequestInfoOperations.effective_target()*
+
+public |org.omg.CORBA.Object| effective_target()
+
+Returns the actual object on which the operation will be invoked. If the 
+reply_status is LOCATION_FORWARD, then on subsequent requests, effective_target 
+will contain the forwarded IOR while target will remain unchanged. 
+
+
+
+*org.omg.PortableInterceptor.ClientRequestInfoOperations.get_effective_component(int)*
+
+public |org.omg.IOP.TaggedComponent| get_effective_component(int id)
+
+Returns the IOP.TaggedComponent with the given ID from the profile selected for 
+this request. 
+
+If there is more than one component for a given component ID, it is undefined 
+which component this operation returns. If there is more than one component for 
+a given component ID, get_effective_components should be called instead. 
+
+
+    id - The component id of the component which is to be returned. 
+
+    Returns: The IOP.TaggedComponent obtained with the given identifier. 
+
+*org.omg.PortableInterceptor.ClientRequestInfoOperations.get_effective_components(int)*
+
+public |org.omg.IOP.TaggedComponent|[] get_effective_components(int id)
+
+Returns an array of all tagged components with the given ID from the profile 
+selected for this request. 
+
+
+    id - The component id of the components which are to be returned. 
+
+    Returns: An array of TaggedComponent objects, each of which contains the given 
+             identifier. 
+
+*org.omg.PortableInterceptor.ClientRequestInfoOperations.get_request_policy(int)*
+
+public |org.omg.CORBA.Policy| get_request_policy(int type)
+
+Returns the given policy in effect for this operation. 
+
+
+    type - The policy type which specifies the policy to be returned. 
+
+    Returns: The CORBA.Policy obtained with the given type. 
+
+*org.omg.PortableInterceptor.ClientRequestInfoOperations.received_exception_id()*
+
+public |java.lang.String| received_exception_id()
+
+Returns the repository id of the exception to be returned to the client. 
+
+
+
+*org.omg.PortableInterceptor.ClientRequestInfoOperations.received_exception()*
+
+public |org.omg.CORBA.Any| received_exception()
+
+Returns an any which contains the exception to be returned to the client. 
+
+If the exception is a user exception which cannot be inserted into an any 
+(e.g., it is unknown or the bindings don t provide the TypeCode), then this 
+attribute will be an any containing the system exception UNKNOWN with a 
+standard minor code of 1. However, the repository id of the exception is 
+available in the received_exception_id attribute. 
+
+
+
+*org.omg.PortableInterceptor.ClientRequestInfoOperations.target()*
+
+public |org.omg.CORBA.Object| target()
+
+Returns the object which the client called to perform the operation. 
+
+
+
+

@@ -1,0 +1,92 @@
+*javax.xml.bind.util.JAXBResult* *JAXBResult* JAXPjavax.xml.transform.Resultimpl
+
+public class JAXBResult
+  extends    |javax.xml.transform.sax.SAXResult|
+
+|javax.xml.bind.util.JAXBResult_Description|
+|javax.xml.bind.util.JAXBResult_Fields|
+|javax.xml.bind.util.JAXBResult_Constructors|
+|javax.xml.bind.util.JAXBResult_Methods|
+
+================================================================================
+
+*javax.xml.bind.util.JAXBResult_Constructors*
+|javax.xml.bind.util.JAXBResult(JAXBContext)|Creates a new instance that uses t
+|javax.xml.bind.util.JAXBResult(Unmarshaller)|Creates a new instance that uses 
+
+*javax.xml.bind.util.JAXBResult_Methods*
+|javax.xml.bind.util.JAXBResult.getResult()|Gets the unmarshalled object create
+
+*javax.xml.bind.util.JAXBResult_Description*
+
+JAXP (|javax.xml.transform.Result|) implementation that unmarshals a JAXB 
+object. 
+
+This utility class is useful to combine JAXB with other Java/XML technologies. 
+
+The following example shows how to use JAXB to unmarshal a document resulting 
+from an XSLT transformation. 
+
+
+
+JAXBResult result = new JAXBResult( JAXBContext.newInstance("org.acme.foo") ); 
+
+// set up XSLT transformation TransformerFactory tf = 
+TransformerFactory.newInstance(); Transformer t = tf.newTransformer(new 
+StreamSource("test.xsl")); 
+
+// run transformation t.transform(new StreamSource("document.xml"),result); 
+
+// obtain the unmarshalled content tree Object o = result.getResult(); 
+
+
+
+The fact that JAXBResult derives from SAXResult is an implementation detail. 
+Thus in general applications are strongly discouraged from accessing methods 
+defined on SAXResult. 
+
+In particular it shall never attempt to call the setHandler, setLexicalHandler, 
+and setSystemId methods. 
+
+
+
+*javax.xml.bind.util.JAXBResult(JAXBContext)*
+
+public JAXBResult(javax.xml.bind.JAXBContext context)
+  throws |javax.xml.bind.JAXBException|
+         
+Creates a new instance that uses the specified JAXBContext to unmarshal. 
+
+    context - The JAXBContext that will be used to create the necessary Unmarshaller. This 
+       parameter must not be null. 
+
+*javax.xml.bind.util.JAXBResult(Unmarshaller)*
+
+public JAXBResult(javax.xml.bind.Unmarshaller _unmarshaller)
+  throws |javax.xml.bind.JAXBException|
+         
+Creates a new instance that uses the specified Unmarshaller to unmarshal an 
+object. 
+
+This JAXBResult object will use the specified Unmarshaller instance. It is the 
+caller's responsibility not to use the same Unmarshaller for other purposes 
+while it is being used by this object. 
+
+The primary purpose of this method is to allow the client to configure 
+Unmarshaller. Unless you know what you are doing, it's easier and safer to pass 
+a JAXBContext. 
+
+    _unmarshaller - the unmarshaller. This parameter must not be null. 
+
+*javax.xml.bind.util.JAXBResult.getResult()*
+
+public |java.lang.Object| getResult()
+  throws |javax.xml.bind.JAXBException|
+         
+Gets the unmarshalled object created by the transformation. 
+
+
+
+    Returns: Always return a non-null object. 
+
+

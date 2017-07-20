@@ -1,0 +1,76 @@
+*javax.swing.plaf.synth.SynthRadioButtonUI* *SynthRadioButtonUI* Provides the Sy
+
+public class SynthRadioButtonUI
+  extends    |javax.swing.plaf.synth.SynthToggleButtonUI|
+
+|javax.swing.plaf.synth.SynthRadioButtonUI_Description|
+|javax.swing.plaf.synth.SynthRadioButtonUI_Fields|
+|javax.swing.plaf.synth.SynthRadioButtonUI_Constructors|
+|javax.swing.plaf.synth.SynthRadioButtonUI_Methods|
+
+================================================================================
+
+*javax.swing.plaf.synth.SynthRadioButtonUI_Constructors*
+|javax.swing.plaf.synth.SynthRadioButtonUI()|
+
+*javax.swing.plaf.synth.SynthRadioButtonUI_Methods*
+|javax.swing.plaf.synth.SynthRadioButtonUI.createUI(JComponent)|Creates a new U
+|javax.swing.plaf.synth.SynthRadioButtonUI.getPropertyPrefix()|
+|javax.swing.plaf.synth.SynthRadioButtonUI.getSizingIcon(AbstractButton)|Return
+|javax.swing.plaf.synth.SynthRadioButtonUI.paintBorder(SynthContext,Graphics,int,int,int,int)|
+
+*javax.swing.plaf.synth.SynthRadioButtonUI_Description*
+
+Provides the Synth L and F UI delegate for (|javax.swing.JRadioButton|) . 
+
+
+
+*javax.swing.plaf.synth.SynthRadioButtonUI()*
+
+public SynthRadioButtonUI()
+
+
+
+
+*javax.swing.plaf.synth.SynthRadioButtonUI.createUI(JComponent)*
+
+public static |javax.swing.plaf.ComponentUI| createUI(javax.swing.JComponent b)
+
+Creates a new UI object for the given component. 
+
+
+    b - component to create UI object for 
+
+    Returns: the UI object 
+
+*javax.swing.plaf.synth.SynthRadioButtonUI.getPropertyPrefix()*
+
+protected |java.lang.String| getPropertyPrefix()
+
+
+
+
+
+*javax.swing.plaf.synth.SynthRadioButtonUI.getSizingIcon(AbstractButton)*
+
+protected |javax.swing.Icon| getSizingIcon(javax.swing.AbstractButton b)
+
+Returns the Icon used in calculating the preferred/minimum/maximum size. 
+
+
+
+*javax.swing.plaf.synth.SynthRadioButtonUI.paintBorder(SynthContext,Graphics,int,int,int,int)*
+
+public void paintBorder(
+  javax.swing.plaf.synth.SynthContext context,
+  java.awt.Graphics g,
+  int x,
+  int y,
+  int w,
+  int h)
+
+
+
+
+
+

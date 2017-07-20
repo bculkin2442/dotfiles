@@ -1,0 +1,243 @@
+*java.security.cert.CertPathValidator* *CertPathValidator* A class for validatin
+
+public class CertPathValidator
+  extends    |java.lang.Object|
+
+|java.security.cert.CertPathValidator_Description|
+|java.security.cert.CertPathValidator_Fields|
+|java.security.cert.CertPathValidator_Constructors|
+|java.security.cert.CertPathValidator_Methods|
+
+================================================================================
+
+*java.security.cert.CertPathValidator_Constructors*
+|java.security.cert.CertPathValidator(CertPathValidatorSpi,Provider,String)|Cre
+
+*java.security.cert.CertPathValidator_Methods*
+|java.security.cert.CertPathValidator.getAlgorithm()|Returns the algorithm name
+|java.security.cert.CertPathValidator.getDefaultType()|Returns the defaultCertP
+|java.security.cert.CertPathValidator.getInstance(String)|Returns aCertPathVali
+|java.security.cert.CertPathValidator.getInstance(String,Provider)|Returns aCer
+|java.security.cert.CertPathValidator.getInstance(String,String)|Returns aCertP
+|java.security.cert.CertPathValidator.getProvider()|Returns theProviderof thisC
+|java.security.cert.CertPathValidator.getRevocationChecker()|Returns aCertPathC
+|java.security.cert.CertPathValidator.validate(CertPath,CertPathParameters)|Val
+
+*java.security.cert.CertPathValidator_Description*
+
+A class for validating certification paths (also known as certificate chains). 
+
+This class uses a provider-based architecture. To create aCertPathValidator, 
+call one of the staticgetInstancemethods, passing in the algorithm name of 
+theCertPathValidatordesired and optionally the name of the provider desired. 
+
+Once aCertPathValidatorobject has been created, it can be used to validate 
+certification paths by calling the 
+validate(|java.security.cert.CertPathValidator|) method and passing it 
+theCertPathto be validated and an algorithm-specific set of parameters. If 
+successful, the result is returned in an object that implements 
+theCertPathValidatorResultinterface. 
+
+The (|java.security.cert.CertPathValidator|) method allows an application to 
+specify additional algorithm-specific parameters and options used by 
+theCertPathValidatorwhen checking the revocation status of certificates. Here 
+is an example demonstrating how it is used with the PKIX algorithm: 
+
+
+
+CertPathValidator cpv = CertPathValidator.getInstance("PKIX"); 
+PKIXRevocationChecker rc = (PKIXRevocationChecker)cpv.getRevocationChecker(); 
+rc.setOptions(EnumSet.of(Option.SOFT_FAIL)); params.addCertPathChecker(rc); 
+CertPathValidatorResult cpvr = cpv.validate(path, params); 
+
+Every implementation of the Java platform is required to support the following 
+standardCertPathValidatoralgorithm: 
+
+PKIX 
+
+This algorithm is described in the <a href= 
+"/../technotes/guides/security/StandardNames.html#CertPathValidator"> 
+CertPathValidator section of the Java Cryptography Architecture Standard 
+Algorithm Name Documentation. Consult the release documentation for your 
+implementation to see if any other algorithms are supported. 
+
+Concurrent Access 
+
+The static methods of this class are guaranteed to be thread-safe. Multiple 
+threads may concurrently invoke the static methods defined in this class with 
+no ill effects. 
+
+However, this is not true for the non-static methods defined by this class. 
+Unless otherwise documented by a specific provider, threads that need to access 
+a singleCertPathValidatorinstance concurrently should synchronize amongst 
+themselves and provide the necessary locking. Multiple threads each 
+manipulating a differentCertPathValidatorinstance need not synchronize. 
+
+
+
+*java.security.cert.CertPathValidator(CertPathValidatorSpi,Provider,String)*
+
+protected CertPathValidator(
+  java.security.cert.CertPathValidatorSpi validatorSpi,
+  java.security.Provider provider,
+  java.lang.String algorithm)
+
+Creates aCertPathValidatorobject of the given algorithm, and encapsulates the 
+given provider implementation (SPI object) in it. 
+
+    validatorSpi - the provider implementation 
+    provider - the provider 
+    algorithm - the algorithm name 
+
+*java.security.cert.CertPathValidator.getAlgorithm()*
+
+public final |java.lang.String| getAlgorithm()
+
+Returns the algorithm name of thisCertPathValidator. 
+
+
+
+    Returns: the algorithm name of this {@code CertPathValidator} 
+
+*java.security.cert.CertPathValidator.getDefaultType()*
+
+public static final |java.lang.String| getDefaultType()
+
+Returns the defaultCertPathValidatortype as specified by 
+thecertpathvalidator.typesecurity property, or the string"PKIX"if no such 
+property exists. 
+
+The defaultCertPathValidatortype can be used by applications that do not want 
+to use a hard-coded type when calling one of thegetInstancemethods, and want to 
+provide a default type in case a user does not specify its own. 
+
+The defaultCertPathValidatortype can be changed by setting the value of 
+thecertpathvalidator.typesecurity property to the desired type. 
+
+
+
+    Returns: the default {@code CertPathValidator} type as specified by the {@code 
+             certpathvalidator.type} security property, or the string {@literal 
+             "PKIX"} if no such property exists. 
+
+*java.security.cert.CertPathValidator.getInstance(String)*
+
+public static |java.security.cert.CertPathValidator| getInstance(java.lang.String algorithm)
+  throws |java.security.NoSuchAlgorithmException|
+         
+Returns aCertPathValidatorobject that implements the specified algorithm. 
+
+This method traverses the list of registered security Providers, starting with 
+the most preferred Provider. A new CertPathValidator object encapsulating the 
+CertPathValidatorSpi implementation from the first Provider that supports the 
+specified algorithm is returned. 
+
+Note that the list of registered providers may be retrieved via the 
+Security.getProviders()(|java.security.Security|) method. 
+
+
+    algorithm - the name of the requested {@code CertPathValidator} algorithm. See the 
+       CertPathValidator section in the Java Cryptography Architecture Standard 
+       Algorithm Name Documentation for information about standard algorithm 
+       names. 
+
+    Returns: a {@code CertPathValidator} object that implements the specified algorithm. 
+
+*java.security.cert.CertPathValidator.getInstance(String,Provider)*
+
+public static |java.security.cert.CertPathValidator| getInstance(
+  java.lang.String algorithm,
+  java.security.Provider provider)
+  throws |java.security.NoSuchAlgorithmException|
+         
+Returns aCertPathValidatorobject that implements the specified algorithm. 
+
+A new CertPathValidator object encapsulating the CertPathValidatorSpi 
+implementation from the specified Provider object is returned. Note that the 
+specified Provider object does not have to be registered in the provider list. 
+
+
+    algorithm - the name of the requested {@code CertPathValidator} algorithm. See the 
+       CertPathValidator section in the Java Cryptography Architecture Standard 
+       Algorithm Name Documentation for information about standard algorithm 
+       names. 
+    provider - the provider. 
+
+    Returns: a {@code CertPathValidator} object that implements the specified algorithm. 
+
+*java.security.cert.CertPathValidator.getInstance(String,String)*
+
+public static |java.security.cert.CertPathValidator| getInstance(
+  java.lang.String algorithm,
+  java.lang.String provider)
+  throws |java.security.NoSuchAlgorithmException|
+         |java.security.NoSuchProviderException|
+         
+Returns aCertPathValidatorobject that implements the specified algorithm. 
+
+A new CertPathValidator object encapsulating the CertPathValidatorSpi 
+implementation from the specified provider is returned. The specified provider 
+must be registered in the security provider list. 
+
+Note that the list of registered providers may be retrieved via the 
+Security.getProviders()(|java.security.Security|) method. 
+
+
+    algorithm - the name of the requested {@code CertPathValidator} algorithm. See the 
+       CertPathValidator section in the Java Cryptography Architecture Standard 
+       Algorithm Name Documentation for information about standard algorithm 
+       names. 
+    provider - the name of the provider. 
+
+    Returns: a {@code CertPathValidator} object that implements the specified algorithm. 
+
+*java.security.cert.CertPathValidator.getProvider()*
+
+public final |java.security.Provider| getProvider()
+
+Returns theProviderof thisCertPathValidator. 
+
+
+
+    Returns: the {@code Provider} of this {@code CertPathValidator} 
+
+*java.security.cert.CertPathValidator.getRevocationChecker()*
+
+public final |java.security.cert.CertPathChecker| getRevocationChecker()
+
+Returns aCertPathCheckerthat the encapsulatedCertPathValidatorSpiimplementation 
+uses to check the revocation status of certificates. A PKIX implementation 
+returns objects of typePKIXRevocationChecker. Each invocation of this method 
+returns a new instance ofCertPathChecker. 
+
+The primary purpose of this method is to allow callers to specify additional 
+input parameters and options specific to revocation checking. See the class 
+description for an example. 
+
+
+
+    Returns: a {@code CertPathChecker} 
+
+*java.security.cert.CertPathValidator.validate(CertPath,CertPathParameters)*
+
+public final |java.security.cert.CertPathValidatorResult| validate(
+  java.security.cert.CertPath certPath,
+  java.security.cert.CertPathParameters params)
+  throws |java.security.cert.CertPathValidatorException|
+         |java.security.InvalidAlgorithmParameterException|
+         
+Validates the specified certification path using the specified algorithm 
+parameter set. 
+
+TheCertPathspecified must be of a type that is supported by the validation 
+algorithm, otherwise anInvalidAlgorithmParameterExceptionwill be thrown. For 
+example, aCertPathValidatorthat implements the PKIX algorithm 
+validatesCertPathobjects of type X.509. 
+
+
+    certPath - the {@code CertPath} to be validated 
+    params - the algorithm parameters 
+
+    Returns: the result of the validation algorithm 
+
+

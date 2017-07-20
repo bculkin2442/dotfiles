@@ -1,0 +1,125 @@
+*java.security.DomainLoadStoreParameter* *DomainLoadStoreParameter* Configuratio
+
+public final class DomainLoadStoreParameter
+  extends    |java.lang.Object|
+  implements |java.security.KeyStore.LoadStoreParameter|
+
+|java.security.DomainLoadStoreParameter_Description|
+|java.security.DomainLoadStoreParameter_Fields|
+|java.security.DomainLoadStoreParameter_Constructors|
+|java.security.DomainLoadStoreParameter_Methods|
+
+================================================================================
+
+*java.security.DomainLoadStoreParameter_Constructors*
+|java.security.DomainLoadStoreParameter(URI,Map<String,KeyStore.ProtectionParameter>)|
+
+*java.security.DomainLoadStoreParameter_Methods*
+|java.security.DomainLoadStoreParameter.getConfiguration()|Gets the identifier 
+|java.security.DomainLoadStoreParameter.getProtectionParameter()|Gets the keyst
+|java.security.DomainLoadStoreParameter.getProtectionParams()|Gets the keystore
+
+*java.security.DomainLoadStoreParameter_Description*
+
+Configuration data that specifies the keystores in a keystore domain. A 
+keystore domain is a collection of keystores that are presented as a single 
+logical keystore. The configuration data is used duringKeyStore 
+load(|java.security.KeyStore|) and store(|java.security.KeyStore|) operations. 
+
+The following syntax is supported for configuration data: 
+
+domain [ ...] { keystore [ ...] ; ... }; ... 
+
+wheredomainNameandkeystoreNameare identifiers andpropertyis a key/value 
+pairing. The key and value are separated by an 'equals' symbol and the value is 
+enclosed in double quotes. A property value may be either a printable string or 
+a binary string of colon-separated pairs of hexadecimal digits. Multi-valued 
+properties are represented as a comma-separated list of values, enclosed in 
+square brackets. See (|java.util.Arrays|) . 
+
+To ensure that keystore entries are uniquely identified, each entry's alias is 
+prefixed by itskeystoreNamefollowed by the entry name separator and 
+eachkeystoreNamemust be unique within its domain. Entry name prefixes are 
+omitted when storing a keystore. 
+
+Properties are context-sensitive: properties that apply to all the keystores in 
+a domain are located in the domain clause, and properties that apply only to a 
+specific keystore are located in that keystore's clause. Unless otherwise 
+specified, a property in a keystore clause overrides a property of the same 
+name in the domain clause. All property names are case-insensitive. The 
+following properties are supported: 
+
+keystoreType="" The keystore type. keystoreURI="" The keystore location. 
+keystoreProviderName="" The name of the keystore's JCE provider. 
+keystorePasswordEnv="" The environment variable that stores a keystore 
+password. Alternatively, passwords may be supplied to the constructor method in 
+aMap. entryNameSeparator="" The separator between a keystore name prefix and an 
+entry name. When specified, it applies to all the entries in a domain. Its 
+default value is a space. 
+
+For example, configuration data for a simple keystore domain comprising three 
+keystores is shown below: 
+
+domain app1 { keystore app1-truststore 
+keystoreURI="file:///app1/etc/truststore.jks"; 
+
+keystore system-truststore keystoreURI="${java.home}/lib/security/cacerts"; 
+
+keystore app1-keystore keystoreType="PKCS12" 
+keystoreURI="file:///app1/etc/keystore.p12"; }; 
+
+
+
+
+
+*java.security.DomainLoadStoreParameter(URI,Map<String,KeyStore.ProtectionParameter>)*
+
+public DomainLoadStoreParameter(
+  java.net.URI configuration,
+  java.util.Map<java.lang.String, java.security.KeyStore.ProtectionParameter> protectionParams)
+
+Constructs a DomainLoadStoreParameter for a keystore domain with the parameters 
+used to protect keystore data. 
+
+    configuration - identifier for the domain configuration data. The name of the target domain 
+       should be specified in the {@code java.net.URI} fragment component when 
+       it is necessary to distinguish between several domain configurations at 
+       the same location. 
+    protectionParams - the map from keystore name to the parameter used to protect keystore data. A 
+       {@code java.util.Collections.EMPTY_MAP} should be used when protection 
+       parameters are not required or when they have been specified by 
+       properties in the domain configuration data. It is cloned to prevent 
+       subsequent modification. 
+
+*java.security.DomainLoadStoreParameter.getConfiguration()*
+
+public |java.net.URI| getConfiguration()
+
+Gets the identifier for the domain configuration data. 
+
+
+
+    Returns: the identifier for the configuration data 
+
+*java.security.DomainLoadStoreParameter.getProtectionParameter()*
+
+public |java.security.KeyStore.ProtectionParameter| getProtectionParameter()
+
+Gets the keystore protection parameters for this domain. Keystore domains do 
+not support a protection parameter. 
+
+
+
+    Returns: always returns {@code null} 
+
+*java.security.DomainLoadStoreParameter.getProtectionParams()*
+
+public |java.util.Map|<String,ProtectionParameter> getProtectionParams()
+
+Gets the keystore protection parameters for keystores in this domain. 
+
+
+
+    Returns: an unmodifiable map of keystore names to protection parameters 
+
+

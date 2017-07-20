@@ -1,0 +1,30 @@
+*javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter.DEFAULT* *XmlJavaTypeAdapter.DEFAULT* 
+
+public static final class XmlJavaTypeAdapter.DEFAULT
+  extends    |java.lang.Object|
+
+|javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter.DEFAULT_Description|
+|javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter.DEFAULT_Fields|
+|javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter.DEFAULT_Constructors|
+|javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter.DEFAULT_Methods|
+
+================================================================================
+
+*javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter.DEFAULT_Constructors*
+|javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter.DEFAULT()|
+
+*javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter.DEFAULT_Description*
+
+Used in (|javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter|) to signal 
+that the type be inferred from the signature of the field, property, parameter 
+or the class. 
+
+
+
+*javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter.DEFAULT()*
+
+public DEFAULT()
+
+
+
+

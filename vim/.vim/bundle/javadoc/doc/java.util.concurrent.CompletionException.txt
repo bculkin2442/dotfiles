@@ -1,0 +1,67 @@
+*java.util.concurrent.CompletionException* *CompletionException* Exception throw
+
+public class CompletionException
+  extends    |java.lang.RuntimeException|
+
+|java.util.concurrent.CompletionException_Description|
+|java.util.concurrent.CompletionException_Fields|
+|java.util.concurrent.CompletionException_Constructors|
+|java.util.concurrent.CompletionException_Methods|
+
+================================================================================
+
+*java.util.concurrent.CompletionException_Constructors*
+|java.util.concurrent.CompletionException()|Constructs aCompletionExceptionwith
+|java.util.concurrent.CompletionException(String)|Constructs aCompletionExcepti
+|java.util.concurrent.CompletionException(String,Throwable)|Constructs aComplet
+|java.util.concurrent.CompletionException(Throwable)|Constructs aCompletionExce
+
+*java.util.concurrent.CompletionException_Description*
+
+Exception thrown when an error or other exception is encountered in the course 
+of completing a result or task. 
+
+
+
+*java.util.concurrent.CompletionException()*
+
+protected CompletionException()
+
+Constructs aCompletionExceptionwith no detail message. The cause is not 
+initialized, and may subsequently be initialized by a call to 
+initCause(|java.util.concurrent.CompletionException|) . 
+
+
+*java.util.concurrent.CompletionException(String)*
+
+protected CompletionException(java.lang.String message)
+
+Constructs aCompletionExceptionwith the specified detail message. The cause is 
+not initialized, and may subsequently be initialized by a call to 
+initCause(|java.util.concurrent.CompletionException|) . 
+
+    message - the detail message 
+
+*java.util.concurrent.CompletionException(String,Throwable)*
+
+public CompletionException(
+  java.lang.String message,
+  java.lang.Throwable cause)
+
+Constructs aCompletionExceptionwith the specified detail message and cause. 
+
+    message - the detail message 
+    cause - the cause (which is saved for later retrieval by the {@link #getCause()} 
+       method) 
+
+*java.util.concurrent.CompletionException(Throwable)*
+
+public CompletionException(java.lang.Throwable cause)
+
+Constructs aCompletionExceptionwith the specified cause. The detail message is 
+set to(cause == null ? null : cause.toString())(which typically contains the 
+class and detail message ofcause). 
+
+    cause - the cause (which is saved for later retrieval by the {@link #getCause()} 
+       method) 
+

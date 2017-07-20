@@ -1,0 +1,714 @@
+*org.omg.DynamicAny._DynEnumStub* *_DynEnumStub* DynEnum objects support the man
+
+public class _DynEnumStub
+  extends    |org.omg.CORBA.portable.ObjectImpl|
+  implements |org.omg.DynamicAny.DynEnum|
+
+|org.omg.DynamicAny._DynEnumStub_Description|
+|org.omg.DynamicAny._DynEnumStub_Fields|
+|org.omg.DynamicAny._DynEnumStub_Constructors|
+|org.omg.DynamicAny._DynEnumStub_Methods|
+
+================================================================================
+
+*org.omg.DynamicAny._DynEnumStub_Fields*
+|java.lang.Class_org.omg.DynamicAny._DynEnumStub._opsClass|
+
+*org.omg.DynamicAny._DynEnumStub_Constructors*
+|org.omg.DynamicAny._DynEnumStub()|
+
+*org.omg.DynamicAny._DynEnumStub_Methods*
+|org.omg.DynamicAny._DynEnumStub._ids()|
+|org.omg.DynamicAny._DynEnumStub.assign(DynAny)|Initializes the value associate
+|org.omg.DynamicAny._DynEnumStub.component_count()|Returns the number of compon
+|org.omg.DynamicAny._DynEnumStub.copy()|Creates a new DynAny object whose value
+|org.omg.DynamicAny._DynEnumStub.current_component()|Returns the DynAny for the
+|org.omg.DynamicAny._DynEnumStub.destroy()|Destroys a DynAny object.
+|org.omg.DynamicAny._DynEnumStub.equal(DynAny)|Compares two DynAny values for e
+|org.omg.DynamicAny._DynEnumStub.from_any(Any)|Initializes the value associated
+|org.omg.DynamicAny._DynEnumStub.get_any()|Extracts an Any value contained in t
+|org.omg.DynamicAny._DynEnumStub.get_as_string()|Returns the value of the DynEn
+|org.omg.DynamicAny._DynEnumStub.get_as_ulong()|Returns the value of the DynEnu
+|org.omg.DynamicAny._DynEnumStub.get_boolean()|Extracts the boolean value from 
+|org.omg.DynamicAny._DynEnumStub.get_char()|Extracts the char value from this D
+|org.omg.DynamicAny._DynEnumStub.get_double()|Extracts the double value from th
+|org.omg.DynamicAny._DynEnumStub.get_dyn_any()|Extracts the Any value contained
+|org.omg.DynamicAny._DynEnumStub.get_float()|Extracts the float value from this
+|org.omg.DynamicAny._DynEnumStub.get_long()|Extracts the integer value from thi
+|org.omg.DynamicAny._DynEnumStub.get_longlong()|Extracts the long value from th
+|org.omg.DynamicAny._DynEnumStub.get_octet()|Extracts the byte value from this 
+|org.omg.DynamicAny._DynEnumStub.get_reference()|Extracts the reference to a CO
+|org.omg.DynamicAny._DynEnumStub.get_short()|Extracts the short value from this
+|org.omg.DynamicAny._DynEnumStub.get_string()|Extracts the string value from th
+|org.omg.DynamicAny._DynEnumStub.get_typecode()|Extracts the TypeCode object fr
+|org.omg.DynamicAny._DynEnumStub.get_ulong()|Extracts the integer value from th
+|org.omg.DynamicAny._DynEnumStub.get_ulonglong()|Extracts the long value from t
+|org.omg.DynamicAny._DynEnumStub.get_ushort()|Extracts the short value from thi
+|org.omg.DynamicAny._DynEnumStub.get_val()|Extracts a Serializable object from 
+|org.omg.DynamicAny._DynEnumStub.get_wchar()|Extracts the long value from this 
+|org.omg.DynamicAny._DynEnumStub.get_wstring()|Extracts the string value from t
+|org.omg.DynamicAny._DynEnumStub.insert_any(Any)|Inserts an Any value into the 
+|org.omg.DynamicAny._DynEnumStub.insert_boolean(boolean)|Inserts a boolean valu
+|org.omg.DynamicAny._DynEnumStub.insert_char(char)|Inserts a char value into th
+|org.omg.DynamicAny._DynEnumStub.insert_double(double)|Inserts a double value i
+|org.omg.DynamicAny._DynEnumStub.insert_dyn_any(DynAny)|Inserts the Any value c
+|org.omg.DynamicAny._DynEnumStub.insert_float(float)|Inserts a float value into
+|org.omg.DynamicAny._DynEnumStub.insert_long(int)|Inserts an integer value into
+|org.omg.DynamicAny._DynEnumStub.insert_longlong(long)|Inserts a long value int
+|org.omg.DynamicAny._DynEnumStub.insert_octet(byte)|Inserts a byte value into t
+|org.omg.DynamicAny._DynEnumStub.insert_reference(Object)|Inserts a reference t
+|org.omg.DynamicAny._DynEnumStub.insert_short(short)|Inserts a short value into
+|org.omg.DynamicAny._DynEnumStub.insert_string(String)|Inserts a string value i
+|org.omg.DynamicAny._DynEnumStub.insert_typecode(TypeCode)|Inserts a TypeCode o
+|org.omg.DynamicAny._DynEnumStub.insert_ulong(int)|Inserts an integer value int
+|org.omg.DynamicAny._DynEnumStub.insert_ulonglong(long)|Inserts a long value in
+|org.omg.DynamicAny._DynEnumStub.insert_ushort(short)|Inserts a short value int
+|org.omg.DynamicAny._DynEnumStub.insert_val(Serializable)|Inserts a reference t
+|org.omg.DynamicAny._DynEnumStub.insert_wchar(char)|Inserts a char value into t
+|org.omg.DynamicAny._DynEnumStub.insert_wstring(String)|Inserts a string value 
+|org.omg.DynamicAny._DynEnumStub.next()|Advances the current position to the ne
+|org.omg.DynamicAny._DynEnumStub.rewind()|Is equivalent to seek(0).
+|org.omg.DynamicAny._DynEnumStub.seek(int)|Sets the current position to index.
+|org.omg.DynamicAny._DynEnumStub.set_as_string(String)|Sets the value of the Dy
+|org.omg.DynamicAny._DynEnumStub.set_as_ulong(int)|Sets the value of the DynEnu
+|org.omg.DynamicAny._DynEnumStub.to_any()|Creates an any value from a DynAny ob
+|org.omg.DynamicAny._DynEnumStub.type()|Returns the TypeCode associated with th
+
+*org.omg.DynamicAny._DynEnumStub_Description*
+
+DynEnum objects support the manipulation of IDL enumerated values. The current 
+position of a DynEnum is always -1. 
+
+
+
+*java.lang.Class_org.omg.DynamicAny._DynEnumStub._opsClass*
+
+
+
+
+
+*org.omg.DynamicAny._DynEnumStub()*
+
+public _DynEnumStub()
+
+
+
+
+*org.omg.DynamicAny._DynEnumStub._ids()*
+
+public |java.lang.String|[] _ids()
+
+
+
+
+
+*org.omg.DynamicAny._DynEnumStub.assign(DynAny)*
+
+public void assign(org.omg.DynamicAny.DynAny dyn_any)
+  throws |org.omg.DynamicAny.DynAnyPackage.TypeMismatch|
+         
+Initializes the value associated with a DynAny object with the value associated 
+with another DynAny object. The current position of the target DynAny is set to 
+zero for values that have components and to -1 for values that do not have 
+components. 
+
+
+    dyn_any - 
+
+*org.omg.DynamicAny._DynEnumStub.component_count()*
+
+public int component_count()
+
+Returns the number of components of a DynAny. For a DynAny without components, 
+it returns zero. The operation only counts the components at the top level. For 
+example, if component_count is invoked on a DynStruct with a single member, the 
+return value is 1, irrespective of the type of the member. 
+
+For sequences, the operation returns the current number of elements. For 
+structures, exceptions, and value types, the operation returns the number of 
+members. For arrays, the operation returns the number of elements. For unions, 
+the operation returns 2 if the discriminator indicates that a named member is 
+active, otherwise, it returns 1. For DynFixed and DynEnum, the operation 
+returns zero. 
+
+
+
+*org.omg.DynamicAny._DynEnumStub.copy()*
+
+public |org.omg.DynamicAny.DynAny| copy()
+
+Creates a new DynAny object whose value is a deep copy of the DynAny on which 
+it is invoked. The operation is polymorphic, that is, invoking it on one of the 
+types derived from DynAny, such as DynStruct, creates the derived type but 
+returns its reference as the DynAny base type. 
+
+
+
+    Returns: a deep copy of the DynAny object 
+
+*org.omg.DynamicAny._DynEnumStub.current_component()*
+
+public |org.omg.DynamicAny.DynAny| current_component()
+  throws |org.omg.DynamicAny.DynAnyPackage.TypeMismatch|
+         
+Returns the DynAny for the component at the current position. It does not 
+advance the current position, so repeated calls to current_component without an 
+intervening call to rewind, next, or seek return the same component. The 
+returned DynAny object reference can be used to get/set the value of the 
+current component. If the current component represents a complex type, the 
+returned reference can be narrowed based on the TypeCode to get the interface 
+corresponding to the to the complex type. Calling current_component on a DynAny 
+that cannot have components, such as a DynEnum or an empty exception, raises 
+TypeMismatch. Calling current_component on a DynAny whose current position is 
+-1 returns a nil reference. The iteration operations, together with 
+current_component, can be used to dynamically compose an any value. After 
+creating a dynamic any, such as a DynStruct, current_component and next can be 
+used to initialize all the components of the value. Once the dynamic value is 
+completely initialized, to_any creates the corresponding any value. 
+
+
+
+*org.omg.DynamicAny._DynEnumStub.destroy()*
+
+public void destroy()
+
+Destroys a DynAny object. This operation frees any resources used to represent 
+the data value associated with a DynAny object. It must be invoked on 
+references obtained from one of the creation operations on the ORB interface or 
+on a reference returned by DynAny.copy() to avoid resource leaks. Invoking 
+destroy on component DynAny objects (for example, on objects returned by the 
+current_component operation) does nothing. Destruction of a DynAny object 
+implies destruction of all DynAny objects obtained from it. That is, references 
+to components of a destroyed DynAny become invalid. Invocations on such 
+references raise OBJECT_NOT_EXIST. It is possible to manipulate a component of 
+a DynAny beyond the life time of the DynAny from which the component was 
+obtained by making a copy of the component with the copy operation before 
+destroying the DynAny from which the component was obtained. 
+
+
+
+*org.omg.DynamicAny._DynEnumStub.equal(DynAny)*
+
+public boolean equal(org.omg.DynamicAny.DynAny dyn_any)
+
+Compares two DynAny values for equality. Two DynAny values are equal if their 
+TypeCodes are equivalent and, recursively, all component DynAnys have equal 
+values. The current position of the two DynAnys being compared has no effect on 
+the result of equal. 
+
+
+
+    Returns: true of the DynAnys are equal, false otherwise 
+
+*org.omg.DynamicAny._DynEnumStub.from_any(Any)*
+
+public void from_any(org.omg.CORBA.Any value)
+  throws |org.omg.DynamicAny.DynAnyPackage.InvalidValue|
+         |org.omg.DynamicAny.DynAnyPackage.TypeMismatch|
+         
+Initializes the value associated with a DynAny object with the value contained 
+in an any. The current position of the target DynAny is set to zero for values 
+that have components and to -1 for values that do not have components. 
+
+
+
+*org.omg.DynamicAny._DynEnumStub.get_any()*
+
+public |org.omg.CORBA.Any| get_any()
+  throws |org.omg.DynamicAny.DynAnyPackage.InvalidValue|
+         |org.omg.DynamicAny.DynAnyPackage.TypeMismatch|
+         
+Extracts an Any value contained in the Any represented by this DynAny. 
+
+
+
+*org.omg.DynamicAny._DynEnumStub.get_as_string()*
+
+public |java.lang.String| get_as_string()
+
+Returns the value of the DynEnum as an IDL identifier. 
+
+
+
+*org.omg.DynamicAny._DynEnumStub.get_as_ulong()*
+
+public int get_as_ulong()
+
+Returns the value of the DynEnum as the enumerated value's ordinal value. 
+Enumerators have ordinal values 0 to n-1, as they appear from left to right in 
+the corresponding IDL definition. 
+
+
+
+*org.omg.DynamicAny._DynEnumStub.get_boolean()*
+
+public boolean get_boolean()
+  throws |org.omg.DynamicAny.DynAnyPackage.InvalidValue|
+         |org.omg.DynamicAny.DynAnyPackage.TypeMismatch|
+         
+Extracts the boolean value from this DynAny. 
+
+
+
+*org.omg.DynamicAny._DynEnumStub.get_char()*
+
+public char get_char()
+  throws |org.omg.DynamicAny.DynAnyPackage.InvalidValue|
+         |org.omg.DynamicAny.DynAnyPackage.TypeMismatch|
+         
+Extracts the char value from this DynAny. 
+
+
+
+*org.omg.DynamicAny._DynEnumStub.get_double()*
+
+public double get_double()
+  throws |org.omg.DynamicAny.DynAnyPackage.InvalidValue|
+         |org.omg.DynamicAny.DynAnyPackage.TypeMismatch|
+         
+Extracts the double value from this DynAny. 
+
+
+
+*org.omg.DynamicAny._DynEnumStub.get_dyn_any()*
+
+public |org.omg.DynamicAny.DynAny| get_dyn_any()
+  throws |org.omg.DynamicAny.DynAnyPackage.InvalidValue|
+         |org.omg.DynamicAny.DynAnyPackage.TypeMismatch|
+         
+Extracts the Any value contained in the Any represented by this DynAny and 
+returns it wrapped into a new DynAny. 
+
+
+
+*org.omg.DynamicAny._DynEnumStub.get_float()*
+
+public float get_float()
+  throws |org.omg.DynamicAny.DynAnyPackage.InvalidValue|
+         |org.omg.DynamicAny.DynAnyPackage.TypeMismatch|
+         
+Extracts the float value from this DynAny. 
+
+
+
+*org.omg.DynamicAny._DynEnumStub.get_long()*
+
+public int get_long()
+  throws |org.omg.DynamicAny.DynAnyPackage.InvalidValue|
+         |org.omg.DynamicAny.DynAnyPackage.TypeMismatch|
+         
+Extracts the integer value from this DynAny. The IDL long data type is mapped 
+to the Java int data type. 
+
+
+
+*org.omg.DynamicAny._DynEnumStub.get_longlong()*
+
+public long get_longlong()
+  throws |org.omg.DynamicAny.DynAnyPackage.InvalidValue|
+         |org.omg.DynamicAny.DynAnyPackage.TypeMismatch|
+         
+Extracts the long value from this DynAny. The IDL long long data type is mapped 
+to the Java long data type. 
+
+
+
+*org.omg.DynamicAny._DynEnumStub.get_octet()*
+
+public byte get_octet()
+  throws |org.omg.DynamicAny.DynAnyPackage.InvalidValue|
+         |org.omg.DynamicAny.DynAnyPackage.TypeMismatch|
+         
+Extracts the byte value from this DynAny. The IDL octet data type is mapped to 
+the Java byte data type. 
+
+
+
+*org.omg.DynamicAny._DynEnumStub.get_reference()*
+
+public |org.omg.CORBA.Object| get_reference()
+  throws |org.omg.DynamicAny.DynAnyPackage.InvalidValue|
+         |org.omg.DynamicAny.DynAnyPackage.TypeMismatch|
+         
+Extracts the reference to a CORBA Object from this DynAny. 
+
+
+
+*org.omg.DynamicAny._DynEnumStub.get_short()*
+
+public short get_short()
+  throws |org.omg.DynamicAny.DynAnyPackage.InvalidValue|
+         |org.omg.DynamicAny.DynAnyPackage.TypeMismatch|
+         
+Extracts the short value from this DynAny. 
+
+
+
+*org.omg.DynamicAny._DynEnumStub.get_string()*
+
+public |java.lang.String| get_string()
+  throws |org.omg.DynamicAny.DynAnyPackage.InvalidValue|
+         |org.omg.DynamicAny.DynAnyPackage.TypeMismatch|
+         
+Extracts the string value from this DynAny. Both bounded and unbounded strings 
+are extracted using this method. 
+
+
+
+*org.omg.DynamicAny._DynEnumStub.get_typecode()*
+
+public |org.omg.CORBA.TypeCode| get_typecode()
+  throws |org.omg.DynamicAny.DynAnyPackage.InvalidValue|
+         |org.omg.DynamicAny.DynAnyPackage.TypeMismatch|
+         
+Extracts the TypeCode object from this DynAny. 
+
+
+
+*org.omg.DynamicAny._DynEnumStub.get_ulong()*
+
+public int get_ulong()
+  throws |org.omg.DynamicAny.DynAnyPackage.InvalidValue|
+         |org.omg.DynamicAny.DynAnyPackage.TypeMismatch|
+         
+Extracts the integer value from this DynAny. The IDL ulong data type is mapped 
+to the Java int data type. 
+
+
+
+*org.omg.DynamicAny._DynEnumStub.get_ulonglong()*
+
+public long get_ulonglong()
+  throws |org.omg.DynamicAny.DynAnyPackage.InvalidValue|
+         |org.omg.DynamicAny.DynAnyPackage.TypeMismatch|
+         
+Extracts the long value from this DynAny. The IDL unsigned long long data type 
+is mapped to the Java long data type. 
+
+
+
+*org.omg.DynamicAny._DynEnumStub.get_ushort()*
+
+public short get_ushort()
+  throws |org.omg.DynamicAny.DynAnyPackage.InvalidValue|
+         |org.omg.DynamicAny.DynAnyPackage.TypeMismatch|
+         
+Extracts the short value from this DynAny. The IDL ushort data type is mapped 
+to the Java short data type. 
+
+
+
+*org.omg.DynamicAny._DynEnumStub.get_val()*
+
+public |java.io.Serializable| get_val()
+  throws |org.omg.DynamicAny.DynAnyPackage.InvalidValue|
+         |org.omg.DynamicAny.DynAnyPackage.TypeMismatch|
+         
+Extracts a Serializable object from this DynAny. The IDL ValueBase type is 
+mapped to the Java Serializable type. 
+
+
+
+*org.omg.DynamicAny._DynEnumStub.get_wchar()*
+
+public char get_wchar()
+  throws |org.omg.DynamicAny.DynAnyPackage.InvalidValue|
+         |org.omg.DynamicAny.DynAnyPackage.TypeMismatch|
+         
+Extracts the long value from this DynAny. The IDL wchar data type is mapped to 
+the Java char data type. 
+
+
+
+*org.omg.DynamicAny._DynEnumStub.get_wstring()*
+
+public |java.lang.String| get_wstring()
+  throws |org.omg.DynamicAny.DynAnyPackage.InvalidValue|
+         |org.omg.DynamicAny.DynAnyPackage.TypeMismatch|
+         
+Extracts the string value from this DynAny. Both bounded and unbounded strings 
+are extracted using this method. 
+
+
+
+*org.omg.DynamicAny._DynEnumStub.insert_any(Any)*
+
+public void insert_any(org.omg.CORBA.Any value)
+  throws |org.omg.DynamicAny.DynAnyPackage.InvalidValue|
+         |org.omg.DynamicAny.DynAnyPackage.TypeMismatch|
+         
+Inserts an Any value into the Any represented by this DynAny. 
+
+
+
+*org.omg.DynamicAny._DynEnumStub.insert_boolean(boolean)*
+
+public void insert_boolean(boolean value)
+  throws |org.omg.DynamicAny.DynAnyPackage.InvalidValue|
+         |org.omg.DynamicAny.DynAnyPackage.TypeMismatch|
+         
+Inserts a boolean value into the DynAny. 
+
+
+
+*org.omg.DynamicAny._DynEnumStub.insert_char(char)*
+
+public void insert_char(char value)
+  throws |org.omg.DynamicAny.DynAnyPackage.InvalidValue|
+         |org.omg.DynamicAny.DynAnyPackage.TypeMismatch|
+         
+Inserts a char value into the DynAny. 
+
+
+
+*org.omg.DynamicAny._DynEnumStub.insert_double(double)*
+
+public void insert_double(double value)
+  throws |org.omg.DynamicAny.DynAnyPackage.InvalidValue|
+         |org.omg.DynamicAny.DynAnyPackage.TypeMismatch|
+         
+Inserts a double value into the DynAny. 
+
+
+
+*org.omg.DynamicAny._DynEnumStub.insert_dyn_any(DynAny)*
+
+public void insert_dyn_any(org.omg.DynamicAny.DynAny value)
+  throws |org.omg.DynamicAny.DynAnyPackage.InvalidValue|
+         |org.omg.DynamicAny.DynAnyPackage.TypeMismatch|
+         
+Inserts the Any value contained in the parameter DynAny into the Any 
+represented by this DynAny. 
+
+
+
+*org.omg.DynamicAny._DynEnumStub.insert_float(float)*
+
+public void insert_float(float value)
+  throws |org.omg.DynamicAny.DynAnyPackage.InvalidValue|
+         |org.omg.DynamicAny.DynAnyPackage.TypeMismatch|
+         
+Inserts a float value into the DynAny. 
+
+
+
+*org.omg.DynamicAny._DynEnumStub.insert_long(int)*
+
+public void insert_long(int value)
+  throws |org.omg.DynamicAny.DynAnyPackage.InvalidValue|
+         |org.omg.DynamicAny.DynAnyPackage.TypeMismatch|
+         
+Inserts an integer value into the DynAny. The IDL long data type is mapped to 
+the Java int data type. 
+
+
+
+*org.omg.DynamicAny._DynEnumStub.insert_longlong(long)*
+
+public void insert_longlong(long value)
+  throws |org.omg.DynamicAny.DynAnyPackage.InvalidValue|
+         |org.omg.DynamicAny.DynAnyPackage.TypeMismatch|
+         
+Inserts a long value into the DynAny. The IDL long long data type is mapped to 
+the Java long data type. 
+
+
+
+*org.omg.DynamicAny._DynEnumStub.insert_octet(byte)*
+
+public void insert_octet(byte value)
+  throws |org.omg.DynamicAny.DynAnyPackage.InvalidValue|
+         |org.omg.DynamicAny.DynAnyPackage.TypeMismatch|
+         
+Inserts a byte value into the DynAny. The IDL octet data type is mapped to the 
+Java byte data type. 
+
+
+
+*org.omg.DynamicAny._DynEnumStub.insert_reference(Object)*
+
+public void insert_reference(org.omg.CORBA.Object value)
+  throws |org.omg.DynamicAny.DynAnyPackage.InvalidValue|
+         |org.omg.DynamicAny.DynAnyPackage.TypeMismatch|
+         
+Inserts a reference to a CORBA object into the DynAny. 
+
+
+
+*org.omg.DynamicAny._DynEnumStub.insert_short(short)*
+
+public void insert_short(short value)
+  throws |org.omg.DynamicAny.DynAnyPackage.InvalidValue|
+         |org.omg.DynamicAny.DynAnyPackage.TypeMismatch|
+         
+Inserts a short value into the DynAny. 
+
+
+
+*org.omg.DynamicAny._DynEnumStub.insert_string(String)*
+
+public void insert_string(java.lang.String value)
+  throws |org.omg.DynamicAny.DynAnyPackage.InvalidValue|
+         |org.omg.DynamicAny.DynAnyPackage.TypeMismatch|
+         
+Inserts a string value into the DynAny. Both bounded and unbounded strings are 
+inserted using this method. 
+
+
+
+*org.omg.DynamicAny._DynEnumStub.insert_typecode(TypeCode)*
+
+public void insert_typecode(org.omg.CORBA.TypeCode value)
+  throws |org.omg.DynamicAny.DynAnyPackage.InvalidValue|
+         |org.omg.DynamicAny.DynAnyPackage.TypeMismatch|
+         
+Inserts a TypeCode object into the DynAny. 
+
+
+
+*org.omg.DynamicAny._DynEnumStub.insert_ulong(int)*
+
+public void insert_ulong(int value)
+  throws |org.omg.DynamicAny.DynAnyPackage.InvalidValue|
+         |org.omg.DynamicAny.DynAnyPackage.TypeMismatch|
+         
+Inserts an integer value into the DynAny. The IDL ulong data type is mapped to 
+the Java int data type. 
+
+
+
+*org.omg.DynamicAny._DynEnumStub.insert_ulonglong(long)*
+
+public void insert_ulonglong(long value)
+  throws |org.omg.DynamicAny.DynAnyPackage.InvalidValue|
+         |org.omg.DynamicAny.DynAnyPackage.TypeMismatch|
+         
+Inserts a long value into the DynAny. The IDL unsigned long long data type is 
+mapped to the Java long data type. 
+
+
+
+*org.omg.DynamicAny._DynEnumStub.insert_ushort(short)*
+
+public void insert_ushort(short value)
+  throws |org.omg.DynamicAny.DynAnyPackage.InvalidValue|
+         |org.omg.DynamicAny.DynAnyPackage.TypeMismatch|
+         
+Inserts a short value into the DynAny. The IDL ushort data type is mapped to 
+the Java short data type. 
+
+
+
+*org.omg.DynamicAny._DynEnumStub.insert_val(Serializable)*
+
+public void insert_val(java.io.Serializable value)
+  throws |org.omg.DynamicAny.DynAnyPackage.InvalidValue|
+         |org.omg.DynamicAny.DynAnyPackage.TypeMismatch|
+         
+Inserts a reference to a Serializable object into this DynAny. The IDL 
+ValueBase type is mapped to the Java Serializable type. 
+
+
+
+*org.omg.DynamicAny._DynEnumStub.insert_wchar(char)*
+
+public void insert_wchar(char value)
+  throws |org.omg.DynamicAny.DynAnyPackage.InvalidValue|
+         |org.omg.DynamicAny.DynAnyPackage.TypeMismatch|
+         
+Inserts a char value into the DynAny. The IDL wchar data type is mapped to the 
+Java char data type. 
+
+
+
+*org.omg.DynamicAny._DynEnumStub.insert_wstring(String)*
+
+public void insert_wstring(java.lang.String value)
+  throws |org.omg.DynamicAny.DynAnyPackage.InvalidValue|
+         |org.omg.DynamicAny.DynAnyPackage.TypeMismatch|
+         
+Inserts a string value into the DynAny. Both bounded and unbounded strings are 
+inserted using this method. 
+
+
+
+*org.omg.DynamicAny._DynEnumStub.next()*
+
+public boolean next()
+
+Advances the current position to the next component. The operation returns true 
+while the resulting current position indicates a component, false otherwise. A 
+false return value leaves the current position at -1. Invoking next on a DynAny 
+without components leaves the current position at -1 and returns false. 
+
+
+
+*org.omg.DynamicAny._DynEnumStub.rewind()*
+
+public void rewind()
+
+Is equivalent to seek(0). 
+
+
+
+*org.omg.DynamicAny._DynEnumStub.seek(int)*
+
+public boolean seek(int index)
+
+Sets the current position to index. The current position is indexed 0 to n-1, 
+that is, index zero corresponds to the first component. The operation returns 
+true if the resulting current position indicates a component of the DynAny and 
+false if index indicates a position that does not correspond to a component. 
+Calling seek with a negative index is legal. It sets the current position to -1 
+to indicate no component and returns false. Passing a non-negative index value 
+for a DynAny that does not have a component at the corresponding position sets 
+the current position to -1 and returns false. 
+
+
+
+*org.omg.DynamicAny._DynEnumStub.set_as_string(String)*
+
+public void set_as_string(java.lang.String value)
+  throws |org.omg.DynamicAny.DynAnyPackage.InvalidValue|
+         
+Sets the value of the DynEnum to the enumerated value whose IDL identifier is 
+passed in the value parameter. 
+
+
+
+*org.omg.DynamicAny._DynEnumStub.set_as_ulong(int)*
+
+public void set_as_ulong(int value)
+  throws |org.omg.DynamicAny.DynAnyPackage.InvalidValue|
+         
+Sets the value of the DynEnum as the enumerated value's ordinal value. 
+
+
+
+*org.omg.DynamicAny._DynEnumStub.to_any()*
+
+public |org.omg.CORBA.Any| to_any()
+
+Creates an any value from a DynAny object. A copy of the TypeCode associated 
+with the DynAny object is assigned to the resulting any. The value associated 
+with the DynAny object is copied into the any. 
+
+
+
+    Returns: a new Any object with the same value and TypeCode 
+
+*org.omg.DynamicAny._DynEnumStub.type()*
+
+public |org.omg.CORBA.TypeCode| type()
+
+Returns the TypeCode associated with this DynAny object. A DynAny object is 
+created with a TypeCode value assigned to it. This TypeCode value determines 
+the type of the value handled through the DynAny object. Note that the TypeCode 
+associated with a DynAny object is initialized at the time the DynAny is 
+created and cannot be changed during lifetime of the DynAny object. 
+
+
+
+    Returns: The TypeCode associated with this DynAny object 
+
+

@@ -1,0 +1,66 @@
+*javax.xml.bind.annotation.adapters.CollapsedStringAdapter* *CollapsedStringAdapter* 
+
+public class CollapsedStringAdapter
+  extends    |javax.xml.bind.annotation.adapters.XmlAdapter|
+
+|javax.xml.bind.annotation.adapters.CollapsedStringAdapter_Description|
+|javax.xml.bind.annotation.adapters.CollapsedStringAdapter_Fields|
+|javax.xml.bind.annotation.adapters.CollapsedStringAdapter_Constructors|
+|javax.xml.bind.annotation.adapters.CollapsedStringAdapter_Methods|
+
+================================================================================
+
+*javax.xml.bind.annotation.adapters.CollapsedStringAdapter_Constructors*
+|javax.xml.bind.annotation.adapters.CollapsedStringAdapter()|
+
+*javax.xml.bind.annotation.adapters.CollapsedStringAdapter_Methods*
+|javax.xml.bind.annotation.adapters.CollapsedStringAdapter.isWhiteSpace(char)|r
+|javax.xml.bind.annotation.adapters.CollapsedStringAdapter.marshal(String)|No-o
+|javax.xml.bind.annotation.adapters.CollapsedStringAdapter.unmarshal(String)|Re
+
+*javax.xml.bind.annotation.adapters.CollapsedStringAdapter_Description*
+
+Built-in (|javax.xml.bind.annotation.adapters.XmlAdapter|) to handle xs:token 
+and its derived types. 
+
+This adapter removes leading and trailing whitespaces, then truncate any 
+sequnce of tab, CR, LF, and SP by a single whitespace character ' '. 
+
+
+
+*javax.xml.bind.annotation.adapters.CollapsedStringAdapter()*
+
+public CollapsedStringAdapter()
+
+
+
+
+*javax.xml.bind.annotation.adapters.CollapsedStringAdapter.isWhiteSpace(char)*
+
+protected static boolean isWhiteSpace(char ch)
+
+returns true if the specified char is a white space character. 
+
+
+
+*javax.xml.bind.annotation.adapters.CollapsedStringAdapter.marshal(String)*
+
+public |java.lang.String| marshal(java.lang.String s)
+
+No-op. 
+
+Just return the same string given as the parameter. 
+
+
+
+*javax.xml.bind.annotation.adapters.CollapsedStringAdapter.unmarshal(String)*
+
+public |java.lang.String| unmarshal(java.lang.String text)
+
+Removes leading and trailing whitespaces of the string given as the parameter, 
+then truncate any sequnce of tab, CR, LF, and SP by a single whitespace 
+character ' '. 
+
+
+
+

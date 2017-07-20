@@ -1,0 +1,510 @@
+*javax.swing.JLayer* *JLayer* JLayeris a universal decorator for Swing component
+
+public final class JLayer<V extends java.awt.Component>
+  extends    |javax.swing.JComponent|
+  implements |javax.swing.Scrollable|
+             |java.beans.PropertyChangeListener|
+             |javax.accessibility.Accessible|
+
+|javax.swing.JLayer_Description|
+|javax.swing.JLayer_Fields|
+|javax.swing.JLayer_Constructors|
+|javax.swing.JLayer_Methods|
+
+================================================================================
+
+*javax.swing.JLayer_Constructors*
+|javax.swing.JLayer()|Creates a newJLayerobject with anullview component  and d
+|javax.swing.JLayer(V)|Creates a newJLayerobject  with defaultjavax.swing.plaf.
+|javax.swing.JLayer(V,LayerUI<V>)|Creates a newJLayerobject with the specified 
+
+*javax.swing.JLayer_Methods*
+|javax.swing.JLayer.addImpl(Component,Object,int)|This method is not supported 
+|javax.swing.JLayer.addNotify()|
+|javax.swing.JLayer.createGlassPane()|Called by the constructor methods to crea
+|javax.swing.JLayer.doLayout()|Delegates its functionality to thejavax.swing.pl
+|javax.swing.JLayer.getAccessibleContext()|Gets the AccessibleContext associate
+|javax.swing.JLayer.getGlassPane()|Returns theJLayer's glassPane component ornu
+|javax.swing.JLayer.getLayerEventMask()|Returns the bitmap of event mask to rec
+|javax.swing.JLayer.getPreferredScrollableViewportSize()|Returns the preferred 
+|javax.swing.JLayer.getScrollableBlockIncrement(Rectangle,int,int)|Returns a sc
+|javax.swing.JLayer.getScrollableTracksViewportHeight()|Returnsfalseto indicate
+|javax.swing.JLayer.getScrollableTracksViewportWidth()|Returnsfalseto indicate 
+|javax.swing.JLayer.getScrollableUnitIncrement(Rectangle,int,int)|Returns a scr
+|javax.swing.JLayer.getUI()|Returns thejavax.swing.plaf.LayerUIfor thisJLayer.
+|javax.swing.JLayer.getView()|Returns theJLayer's view component ornull.
+|javax.swing.JLayer.isOptimizedDrawingEnabled()|TheJLayeroverrides the default 
+|javax.swing.JLayer.isPaintingOrigin()|Always returnstrueto cause painting to o
+|javax.swing.JLayer.paint(Graphics)|Delegates all painting to thejavax.swing.pl
+|javax.swing.JLayer.paintComponent(Graphics)|This method is empty, because all 
+|javax.swing.JLayer.paintImmediately(int,int,int,int)|Delegates its functionali
+|javax.swing.JLayer.propertyChange(PropertyChangeEvent)|
+|javax.swing.JLayer.remove(Component)|
+|javax.swing.JLayer.removeAll()|
+|javax.swing.JLayer.removeNotify()|
+|javax.swing.JLayer.setBorder(Border)|A non-nullborder, or non-zero insets, isn
+|javax.swing.JLayer.setGlassPane(JPanel)|Sets theJLayer's glassPane component, 
+|javax.swing.JLayer.setLayerEventMask(long)|Enables the events from JLayer and 
+|javax.swing.JLayer.setLayout(LayoutManager)|Sets the layout manager for this c
+|javax.swing.JLayer.setUI(LayerUI<?superV>)|Sets thejavax.swing.plaf.LayerUIwhi
+|javax.swing.JLayer.setView(V)|Sets theJLayer's view component, which can benul
+|javax.swing.JLayer.updateUI()|Delegates its functionality to thejavax.swing.pl
+
+*javax.swing.JLayer_Description*
+
+JLayeris a universal decorator for Swing components which enables you to 
+implement various advanced painting effects as well as receive notifications of 
+allAWTEvents generated within its borders. JLayerdelegates the handling of 
+painting and input events to a (|javax.swing.plaf.LayerUI|) object, which 
+performs the actual decoration. 
+
+The custom painting implemented in theLayerUIand events notification work for 
+the JLayer itself and all its subcomponents. This combination enables you to 
+enrich existing components by adding new advanced functionality such as 
+temporary locking of a hierarchy, data tips for compound components, enhanced 
+mouse scrolling etc and so on. JLayeris a good solution if you only need to do 
+custom painting over compound component or catch input events from its 
+subcomponents. 
+
+import javax.swing.*; import javax.swing.plaf.LayerUI; import java.awt.*; 
+
+public class JLayerSample { 
+
+private static JLayer<JComponent> createLayer() { // This custom layerUI will 
+fill the layer with translucent green // and print out all mouseMotion events 
+generated within its borders LayerUI<JComponent> layerUI = new 
+LayerUI<JComponent>() { 
+
+public void paint(Graphics g, JComponent c) { // paint the layer as is 
+super.paint(g, c); // fill it with the translucent green g.setColor(new 
+Color(0, 128, 0, 128)); g.fillRect(0, 0, c.getWidth(), c.getHeight()); } 
+
+public void installUI(JComponent c) { super.installUI(c); // enable mouse 
+motion events for the layer's subcomponents ((JLayer) 
+c).setLayerEventMask(AWTEvent.MOUSE_MOTION_EVENT_MASK); } 
+
+public void uninstallUI(JComponent c) { super.uninstallUI(c); // reset the 
+layer event mask ((JLayer) c).setLayerEventMask(0); } 
+
+// overridden method which catches MouseMotion events public void 
+eventDispatched(AWTEvent e, JLayer<? extends JComponent> l) { 
+System.out.println("AWTEvent detected: " + e); } }; // create a component to be 
+decorated with the layer JPanel panel = new JPanel(); panel.add(new 
+JButton("JButton")); 
+
+// create the layer for the panel using our custom layerUI return new 
+JLayer<JComponent>(panel, layerUI); } 
+
+private static void createAndShowGUI() { final JFrame frame = new JFrame(); 
+frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
+
+// work with the layer as with any other Swing component 
+frame.add(createLayer()); 
+
+frame.setSize(200, 200); frame.setLocationRelativeTo(null); 
+frame.setVisible(true); } 
+
+public static void main(String[] args) throws Exception { 
+SwingUtilities.invokeAndWait(new Runnable() { public void run() { 
+createAndShowGUI(); } }); } } 
+
+Note:JLayerdoesn't support the following methods: 
+
+(|java.awt.Container|) (|java.awt.Container|) (|java.awt.Container|) 
+(|java.awt.Container|) (|java.awt.Container|) 
+
+using any of of them will causeUnsupportedOperationExceptionto be thrown, to 
+add a component toJLayeruse (|javax.swing.JLayer|) or (|javax.swing.JLayer|) . 
+
+
+
+*javax.swing.JLayer()*
+
+public JLayer()
+
+Creates a newJLayerobject with anullview component and default 
+(|javax.swing.plaf.LayerUI|) . 
+
+
+*javax.swing.JLayer(V)*
+
+public JLayer(V extends java.awt.Component view)
+
+Creates a newJLayerobject with default (|javax.swing.plaf.LayerUI|) . 
+
+    view - the component to be decorated by this {@code JLayer} 
+
+*javax.swing.JLayer(V,LayerUI<V>)*
+
+public JLayer(
+  V extends java.awt.Component view,
+  javax.swing.plaf.LayerUI<V> ui)
+
+Creates a newJLayerobject with the specified view component and 
+(|javax.swing.plaf.LayerUI|) object. 
+
+    view - the component to be decorated 
+    ui - the {@link javax.swing.plaf.LayerUI} delegate to be used by this {@code JLayer} 
+
+*javax.swing.JLayer.addImpl(Component,Object,int)*
+
+protected void addImpl(
+  java.awt.Component comp,
+  java.lang.Object constraints,
+  int index)
+
+This method is not supported byJLayerand always 
+throwsUnsupportedOperationException 
+
+
+
+*javax.swing.JLayer.addNotify()*
+
+public void addNotify()
+
+
+
+
+
+*javax.swing.JLayer.createGlassPane()*
+
+public |javax.swing.JPanel| createGlassPane()
+
+Called by the constructor methods to create a defaultglassPane. By default this 
+method creates a new JPanel with visibility set to true and opacity set to 
+false. 
+
+
+
+    Returns: the default {@code glassPane} 
+
+*javax.swing.JLayer.doLayout()*
+
+public void doLayout()
+
+Delegates its functionality to the (|javax.swing.plaf.LayerUI|) method, 
+ifLayerUIis set. 
+
+
+
+*javax.swing.JLayer.getAccessibleContext()*
+
+public |javax.accessibility.AccessibleContext| getAccessibleContext()
+
+Gets the AccessibleContext associated with thisJLayer. 
+
+
+
+    Returns: the AccessibleContext associated with this {@code JLayer}. 
+
+*javax.swing.JLayer.getGlassPane()*
+
+public |javax.swing.JPanel| getGlassPane()
+
+Returns theJLayer's glassPane component ornull. This is a bound property. 
+
+
+
+    Returns: the {@code JLayer}'s glassPane component or {@code null} if none exists 
+
+*javax.swing.JLayer.getLayerEventMask()*
+
+public long getLayerEventMask()
+
+Returns the bitmap of event mask to receive by thisJLayerand itsLayerUI. 
+
+It means that (|javax.swing.plaf.LayerUI|) method will only receive events that 
+match the event mask. 
+
+By defaultJLayerreceives no events. 
+
+
+
+    Returns: the bitmask of event types to receive for this {@code JLayer} 
+
+*javax.swing.JLayer.getPreferredScrollableViewportSize()*
+
+public |java.awt.Dimension| getPreferredScrollableViewportSize()
+
+Returns the preferred size of the viewport for a view component. 
+
+If the view component of this layer implements (|javax.swing.Scrollable|) , 
+this method delegates its implementation to the view component. 
+
+
+
+    Returns: the preferred size of the viewport for a view component 
+
+*javax.swing.JLayer.getScrollableBlockIncrement(Rectangle,int,int)*
+
+public int getScrollableBlockIncrement(
+  java.awt.Rectangle visibleRect,
+  int orientation,
+  int direction)
+
+Returns a scroll increment, which is required for components that display 
+logical rows or columns in order to completely expose one block of rows or 
+columns, depending on the value of orientation. 
+
+If the view component of this layer implements (|javax.swing.Scrollable|) , 
+this method delegates its implementation to the view component. 
+
+
+
+    Returns: the "block" increment for scrolling in the specified direction 
+
+*javax.swing.JLayer.getScrollableTracksViewportHeight()*
+
+public boolean getScrollableTracksViewportHeight()
+
+Returnsfalseto indicate that the height of the viewport does not determine the 
+height of the layer, unless the preferred height of the layer is smaller than 
+the height of the viewport. 
+
+If the view component of this layer implements (|javax.swing.Scrollable|) , 
+this method delegates its implementation to the view component. 
+
+
+
+    Returns: whether the layer should track the height of the viewport 
+
+*javax.swing.JLayer.getScrollableTracksViewportWidth()*
+
+public boolean getScrollableTracksViewportWidth()
+
+Returnsfalseto indicate that the width of the viewport does not determine the 
+width of the layer, unless the preferred width of the layer is smaller than the 
+width of the viewport. 
+
+If the view component of this layer implements (|javax.swing.Scrollable|) , 
+this method delegates its implementation to the view component. 
+
+
+
+    Returns: whether the layer should track the width of the viewport 
+
+*javax.swing.JLayer.getScrollableUnitIncrement(Rectangle,int,int)*
+
+public int getScrollableUnitIncrement(
+  java.awt.Rectangle visibleRect,
+  int orientation,
+  int direction)
+
+Returns a scroll increment, which is required for components that display 
+logical rows or columns in order to completely expose one new row or column, 
+depending on the value of orientation. Ideally, components should handle a 
+partially exposed row or column by returning the distance required to 
+completely expose the item. 
+
+Scrolling containers, likeJScrollPane, will use this method each time the user 
+requests a unit scroll. 
+
+If the view component of this layer implements (|javax.swing.Scrollable|) , 
+this method delegates its implementation to the view component. 
+
+
+
+    Returns: The "unit" increment for scrolling in the specified direction. This value 
+             should always be positive. 
+
+*javax.swing.JLayer.getUI()*
+
+public |javax.swing.plaf.LayerUI|<? super V> getUI()
+
+Returns the (|javax.swing.plaf.LayerUI|) for thisJLayer. 
+
+
+
+    Returns: the {@code LayerUI} for this {@code JLayer} 
+
+*javax.swing.JLayer.getView()*
+
+public |V| getView()
+
+Returns theJLayer's view component ornull. This is a bound property. 
+
+
+
+    Returns: the {@code JLayer}'s view component or {@code null} if none exists 
+
+*javax.swing.JLayer.isOptimizedDrawingEnabled()*
+
+public boolean isOptimizedDrawingEnabled()
+
+TheJLayeroverrides the default implementation of this method (inJComponent) to 
+returnfalse. This ensures that the drawing machinery will call 
+theJLayer'spaintimplementation rather than messaging theJLayer's children 
+directly. 
+
+
+
+    Returns: 
+
+*javax.swing.JLayer.isPaintingOrigin()*
+
+protected boolean isPaintingOrigin()
+
+Always returnstrueto cause painting to originate fromJLayer, or one of its 
+ancestors. 
+
+
+
+    Returns: 
+
+*javax.swing.JLayer.paint(Graphics)*
+
+public void paint(java.awt.Graphics g)
+
+Delegates all painting to the (|javax.swing.plaf.LayerUI|) object. 
+
+
+    g - the {@code Graphics} to render to 
+
+*javax.swing.JLayer.paintComponent(Graphics)*
+
+protected void paintComponent(java.awt.Graphics g)
+
+This method is empty, because all painting is done by (|javax.swing.JLayer|) 
+and (|javax.swing.plaf.LayerUI|) methods 
+
+
+
+*javax.swing.JLayer.paintImmediately(int,int,int,int)*
+
+public void paintImmediately(
+  int x,
+  int y,
+  int w,
+  int h)
+
+Delegates its functionality to the (|javax.swing.plaf.LayerUI|) method, 
+ifLayerUIis set. 
+
+
+    x - the x value of the region to be painted 
+    y - the y value of the region to be painted 
+    w - the width of the region to be painted 
+    h - the height of the region to be painted 
+
+*javax.swing.JLayer.propertyChange(PropertyChangeEvent)*
+
+public void propertyChange(java.beans.PropertyChangeEvent evt)
+
+
+
+
+
+*javax.swing.JLayer.remove(Component)*
+
+public void remove(java.awt.Component comp)
+
+
+
+
+
+*javax.swing.JLayer.removeAll()*
+
+public void removeAll()
+
+
+
+
+
+*javax.swing.JLayer.removeNotify()*
+
+public void removeNotify()
+
+
+
+
+
+*javax.swing.JLayer.setBorder(Border)*
+
+public void setBorder(javax.swing.border.Border border)
+
+A non-nullborder, or non-zero insets, isn't supported, to prevent the geometry 
+of this component from becoming complex enough to inhibit subclassing 
+ofLayerUIclass. To create aJLayerwith a border, add it to aJPanelthat has a 
+border. Note: Ifborderis non-null, this method will throw an exception as 
+borders are not supported on aJLayer. 
+
+
+    border - the {@code Border} to set 
+
+*javax.swing.JLayer.setGlassPane(JPanel)*
+
+public void setGlassPane(javax.swing.JPanel glassPane)
+
+Sets theJLayer's glassPane component, which can benull. This is a bound 
+property. 
+
+
+    glassPane - the glassPane component of this {@code JLayer} 
+
+*javax.swing.JLayer.setLayerEventMask(long)*
+
+public void setLayerEventMask(long layerEventMask)
+
+Enables the events from JLayer and all its descendants defined by the specified 
+event mask parameter to be delivered to the (|javax.swing.plaf.LayerUI|) 
+method. 
+
+Events are delivered provided thatLayerUIis set for thisJLayerand theJLayeris 
+displayable. 
+
+The following example shows how to correctly use this method in 
+theLayerUIimplementations: 
+
+public void installUI(JComponent c) { super.installUI(c); JLayer l = (JLayer) 
+c; // this LayerUI will receive only key and focus events 
+l.setLayerEventMask(AWTEvent.KEY_EVENT_MASK | AWTEvent.FOCUS_EVENT_MASK); } 
+
+public void uninstallUI(JComponent c) { super.uninstallUI(c); JLayer l = 
+(JLayer) c; // JLayer must be returned to its initial state 
+l.setLayerEventMask(0); } 
+
+By defaultJLayerreceives no events and its event mask is0. 
+
+
+    layerEventMask - the bitmask of event types to receive 
+
+*javax.swing.JLayer.setLayout(LayoutManager)*
+
+public void setLayout(java.awt.LayoutManager mgr)
+
+Sets the layout manager for this container. This method is overridden to 
+prevent the layout manager from being set. Note: Ifmgris non-null, this method 
+will throw an exception as layout managers are not supported on aJLayer. 
+
+
+    mgr - the specified layout manager 
+
+*javax.swing.JLayer.setUI(LayerUI<?superV>)*
+
+public void setUI(javax.swing.plaf.LayerUI<? super V> ui)
+
+Sets the (|javax.swing.plaf.LayerUI|) which will perform painting and receive 
+input events for thisJLayer. 
+
+
+    ui - the {@link javax.swing.plaf.LayerUI} for this {@code JLayer} 
+
+*javax.swing.JLayer.setView(V)*
+
+public void setView(V extends java.awt.Component view)
+
+Sets theJLayer's view component, which can benull. This is a bound property. 
+
+
+    view - the view component for this {@code JLayer} 
+
+*javax.swing.JLayer.updateUI()*
+
+public void updateUI()
+
+Delegates its functionality to the (|javax.swing.plaf.LayerUI|) method, 
+ifLayerUIis set. 
+
+
+
+

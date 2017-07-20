@@ -1,0 +1,27 @@
+*org.omg.DynamicAny.DynUnion* *DynUnion* DynUnion objects support the manipulati
+
+public interface interface DynUnion
+
+  implements |org.omg.DynamicAny.DynUnionOperations|
+             |org.omg.DynamicAny.DynAny|
+             |org.omg.CORBA.portable.IDLEntity|
+
+|org.omg.DynamicAny.DynUnion_Description|
+|org.omg.DynamicAny.DynUnion_Fields|
+|org.omg.DynamicAny.DynUnion_Constructors|
+|org.omg.DynamicAny.DynUnion_Methods|
+
+================================================================================
+
+*org.omg.DynamicAny.DynUnion_Description*
+
+DynUnion objects support the manipulation of IDL unions. A union can have only 
+two valid current positions: 
+
+zero, which denotes the discriminator one, which denotes the active member 
+
+The component_count value for a union depends on the current discriminator: it 
+is 2 for a union whose discriminator indicates a named member, and 1 otherwise. 
+
+
+

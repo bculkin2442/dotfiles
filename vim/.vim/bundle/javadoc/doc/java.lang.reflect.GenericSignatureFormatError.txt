@@ -1,0 +1,39 @@
+*java.lang.reflect.GenericSignatureFormatError* *GenericSignatureFormatError* Th
+
+public class GenericSignatureFormatError
+  extends    |java.lang.ClassFormatError|
+
+|java.lang.reflect.GenericSignatureFormatError_Description|
+|java.lang.reflect.GenericSignatureFormatError_Fields|
+|java.lang.reflect.GenericSignatureFormatError_Constructors|
+|java.lang.reflect.GenericSignatureFormatError_Methods|
+
+================================================================================
+
+*java.lang.reflect.GenericSignatureFormatError_Constructors*
+|java.lang.reflect.GenericSignatureFormatError()|Constructs a newGenericSignatu
+|java.lang.reflect.GenericSignatureFormatError(String)|Constructs a newGenericS
+
+*java.lang.reflect.GenericSignatureFormatError_Description*
+
+Thrown when a syntactically malformed signature attribute is encountered by a 
+reflective method that needs to interpret the generic signature information for 
+a type, method or constructor. 
+
+
+
+*java.lang.reflect.GenericSignatureFormatError()*
+
+public GenericSignatureFormatError()
+
+Constructs a newGenericSignatureFormatError. 
+
+
+*java.lang.reflect.GenericSignatureFormatError(String)*
+
+public GenericSignatureFormatError(java.lang.String message)
+
+Constructs a newGenericSignatureFormatErrorwith the specified message. 
+
+    message - the detail message, may be {@code null} 
+

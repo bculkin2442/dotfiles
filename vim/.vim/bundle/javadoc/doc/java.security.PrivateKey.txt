@@ -1,0 +1,41 @@
+*java.security.PrivateKey* *PrivateKey* A private key.
+
+public interface interface PrivateKey
+
+  implements |java.security.Key|
+             |javax.security.auth.Destroyable|
+
+|java.security.PrivateKey_Description|
+|java.security.PrivateKey_Fields|
+|java.security.PrivateKey_Constructors|
+|java.security.PrivateKey_Methods|
+
+================================================================================
+
+*java.security.PrivateKey_Fields*
+|long_java.security.PrivateKey.serialVersionUID|
+
+*java.security.PrivateKey_Description*
+
+A private key. The purpose of this interface is to group (and provide type 
+safety for) all private key interfaces. 
+
+Note: The specialized private key interfaces extend this interface. See, for 
+example, theDSAPrivateKeyinterface in (|java.security.interfaces|) . 
+
+Implementations should override the defaultdestroyandisDestroyedmethods from 
+the (|javax.security.auth.Destroyable|) interface to enable sensitive key 
+information to be destroyed, cleared, or in the case where such information is 
+immutable, unreferenced. Finally, sincePrivateKeyisSerializable, 
+implementations should also override (|java.io.ObjectOutputStream|) to prevent 
+keys that have been destroyed from being serialized. 
+
+
+
+*long_java.security.PrivateKey.serialVersionUID*
+
+The class fingerprint that is set to indicate serialization compatibility with 
+a previous version of the class. 
+
+
+

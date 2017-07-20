@@ -1,0 +1,76 @@
+*org.omg.CosNaming.BindingListHolder* *BindingListHolder* List of Bindings.
+
+public final class BindingListHolder
+  extends    |java.lang.Object|
+  implements |org.omg.CORBA.portable.Streamable|
+
+|org.omg.CosNaming.BindingListHolder_Description|
+|org.omg.CosNaming.BindingListHolder_Fields|
+|org.omg.CosNaming.BindingListHolder_Constructors|
+|org.omg.CosNaming.BindingListHolder_Methods|
+
+================================================================================
+
+*org.omg.CosNaming.BindingListHolder_Fields*
+|org.omg.CosNaming.Binding[]_org.omg.CosNaming.BindingListHolder.value|
+
+*org.omg.CosNaming.BindingListHolder_Constructors*
+|org.omg.CosNaming.BindingListHolder()|
+|org.omg.CosNaming.BindingListHolder(Binding[])|
+
+*org.omg.CosNaming.BindingListHolder_Methods*
+|org.omg.CosNaming.BindingListHolder._read(InputStream)|
+|org.omg.CosNaming.BindingListHolder._type()|
+|org.omg.CosNaming.BindingListHolder._write(OutputStream)|
+
+*org.omg.CosNaming.BindingListHolder_Description*
+
+List of Bindings. 
+
+
+
+*org.omg.CosNaming.Binding[]_org.omg.CosNaming.BindingListHolder.value*
+
+
+
+
+
+*org.omg.CosNaming.BindingListHolder()*
+
+public BindingListHolder()
+
+
+
+
+*org.omg.CosNaming.BindingListHolder(Binding[])*
+
+public BindingListHolder(org.omg.CosNaming.Binding[] initialValue)
+
+
+
+
+*org.omg.CosNaming.BindingListHolder._read(InputStream)*
+
+public void _read(org.omg.CORBA.portable.InputStream i)
+
+
+
+
+
+*org.omg.CosNaming.BindingListHolder._type()*
+
+public |org.omg.CORBA.TypeCode| _type()
+
+
+
+
+
+*org.omg.CosNaming.BindingListHolder._write(OutputStream)*
+
+public void _write(org.omg.CORBA.portable.OutputStream o)
+
+
+
+
+
+

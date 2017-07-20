@@ -1,0 +1,87 @@
+*org.omg.PortableServer.POAManagerOperations* *POAManagerOperations* Each POA ob
+
+public interface interface POAManagerOperations
+
+
+|org.omg.PortableServer.POAManagerOperations_Description|
+|org.omg.PortableServer.POAManagerOperations_Fields|
+|org.omg.PortableServer.POAManagerOperations_Constructors|
+|org.omg.PortableServer.POAManagerOperations_Methods|
+
+================================================================================
+
+*org.omg.PortableServer.POAManagerOperations_Methods*
+|org.omg.PortableServer.POAManagerOperations.activate()|This operation changes 
+|org.omg.PortableServer.POAManagerOperations.deactivate(boolean,boolean)|This o
+|org.omg.PortableServer.POAManagerOperations.discard_requests(boolean)|This ope
+|org.omg.PortableServer.POAManagerOperations.get_state()|This operation returns
+|org.omg.PortableServer.POAManagerOperations.hold_requests(boolean)|This operat
+
+*org.omg.PortableServer.POAManagerOperations_Description*
+
+Each POA object has an associated POAManager object. A POA manager may be 
+associated with one or more POA objects. A POA manager encapsulates the 
+processing state of the POAs it is associated with. 
+
+
+
+*org.omg.PortableServer.POAManagerOperations.activate()*
+
+public void activate()
+  throws |org.omg.PortableServer.POAManagerPackage.AdapterInactive|
+         
+This operation changes the state of the POA manager to active, causing 
+associated POAs to start processing requests. 
+
+
+
+*org.omg.PortableServer.POAManagerOperations.deactivate(boolean,boolean)*
+
+public void deactivate(
+  boolean etherealize_objects,
+  boolean wait_for_completion)
+  throws |org.omg.PortableServer.POAManagerPackage.AdapterInactive|
+         
+This operation changes the state of the POA manager to inactive, causing 
+associated POAs to reject the requests that have not begun executing as well as 
+as any new requests. 
+
+
+    etherealize_objects - a flag to indicate whether to invoke the etherealize operation of the 
+       associated servant manager for all active objects. 
+    wait_for_completion - if FALSE, the operation returns immediately after changing state. If TRUE, it 
+       waits for all active requests to complete. 
+
+*org.omg.PortableServer.POAManagerOperations.discard_requests(boolean)*
+
+public void discard_requests(boolean wait_for_completion)
+  throws |org.omg.PortableServer.POAManagerPackage.AdapterInactive|
+         
+This operation changes the state of the POA manager to discarding. This causes 
+associated POAs to discard incoming requests. 
+
+
+    wait_for_completion - if FALSE, the operation returns immediately after changing state. If TRUE, it 
+       waits for all active requests to complete. 
+
+*org.omg.PortableServer.POAManagerOperations.get_state()*
+
+public |org.omg.PortableServer.POAManagerPackage.State| get_state()
+
+This operation returns the state of the POA manager. 
+
+
+
+*org.omg.PortableServer.POAManagerOperations.hold_requests(boolean)*
+
+public void hold_requests(boolean wait_for_completion)
+  throws |org.omg.PortableServer.POAManagerPackage.AdapterInactive|
+         
+This operation changes the state of the POA manager to holding, causing 
+associated POAs to queue incoming requests. 
+
+
+    wait_for_completion - if FALSE, the operation returns immediately after changing state. If TRUE, it 
+       waits for all active requests to complete. 
+
+

@@ -1,0 +1,580 @@
+*java.time.MonthDay* *MonthDay* A month-day in the ISO-8601 calendar system, suc
+
+public final class MonthDay
+  extends    |java.lang.Object|
+  implements |java.time.temporal.TemporalAccessor|
+             |java.time.temporal.TemporalAdjuster|
+             |java.lang.Comparable|
+             |java.io.Serializable|
+
+|java.time.MonthDay_Description|
+|java.time.MonthDay_Fields|
+|java.time.MonthDay_Constructors|
+|java.time.MonthDay_Methods|
+
+================================================================================
+
+*java.time.MonthDay_Methods*
+|java.time.MonthDay.adjustInto(Temporal)|Adjusts the specified temporal object 
+|java.time.MonthDay.atYear(int)|Combines this month-day with a year to create a
+|java.time.MonthDay.compareTo(MonthDay)|Compares this month-day to another mont
+|java.time.MonthDay.equals(Object)|Checks if this month-day is equal to another
+|java.time.MonthDay.format(DateTimeFormatter)|Formats this month-day using the 
+|java.time.MonthDay.from(TemporalAccessor)|Obtains an instance ofMonthDayfrom a
+|java.time.MonthDay.get(TemporalField)|Gets the value of the specified field fr
+|java.time.MonthDay.getDayOfMonth()|Gets the day-of-month field.
+|java.time.MonthDay.getLong(TemporalField)|Gets the value of the specified fiel
+|java.time.MonthDay.getMonth()|Gets the month-of-year field using theMonthenum.
+|java.time.MonthDay.getMonthValue()|Gets the month-of-year field from 1 to 12.
+|java.time.MonthDay.hashCode()|A hash code for this month-day.
+|java.time.MonthDay.isAfter(MonthDay)|Is this month-day after the specified mon
+|java.time.MonthDay.isBefore(MonthDay)|Is this month-day before the specified m
+|java.time.MonthDay.isSupported(TemporalField)|Checks if the specified field is
+|java.time.MonthDay.isValidYear(int)|Checks if the year is valid for this month
+|java.time.MonthDay.now()|Obtains the current month-day from the system clock i
+|java.time.MonthDay.now(Clock)|Obtains the current month-day from the specified
+|java.time.MonthDay.now(ZoneId)|Obtains the current month-day from the system c
+|java.time.MonthDay.of(int,int)|Obtains an instance ofMonthDay.
+|java.time.MonthDay.of(Month,int)|Obtains an instance ofMonthDay.
+|java.time.MonthDay.parse(CharSequence)|Obtains an instance ofMonthDayfrom a te
+|java.time.MonthDay.parse(CharSequence,DateTimeFormatter)|Obtains an instance o
+|java.time.MonthDay.query(TemporalQuery<R>)|Queries this month-day using the sp
+|java.time.MonthDay.range(TemporalField)|Gets the range of valid values for the
+|java.time.MonthDay.toString()|Outputs this month-day as aString, such as--12-0
+|java.time.MonthDay.with(Month)|Returns a copy of thisMonthDaywith the month-of
+|java.time.MonthDay.withDayOfMonth(int)|Returns a copy of thisMonthDaywith the 
+|java.time.MonthDay.withMonth(int)|Returns a copy of thisMonthDaywith the month
+
+*java.time.MonthDay_Description*
+
+A month-day in the ISO-8601 calendar system, such as--12-03. MonthDayis an 
+immutable date-time object that represents the combination of a year and month. 
+Any field that can be derived from a month and day, such as quarter-of-year, 
+can be obtained. 
+
+This class does not store or represent a year, time or time-zone. For example, 
+the value "December 3rd" can be stored in aMonthDay. 
+
+Since aMonthDaydoes not possess a year, the leap day of February 29th is 
+considered valid. 
+
+This class implements (|java.time.temporal.TemporalAccessor|) rather than 
+(|java.time.temporal.Temporal|) . This is because it is not possible to define 
+whether February 29th is valid or not without external information, preventing 
+the implementation of plus/minus. Related to this,MonthDayonly provides access 
+to query and set the fieldsMONTH_OF_YEARandDAY_OF_MONTH. 
+
+The ISO-8601 calendar system is the modern civil calendar system used today in 
+most of the world. It is equivalent to the proleptic Gregorian calendar system, 
+in which today's rules for leap years are applied for all time. For most 
+applications written today, the ISO-8601 rules are entirely suitable. However, 
+any application that makes use of historical dates, and requires them to be 
+accurate will find the ISO-8601 approach unsuitable. 
+
+This is a <a href="/java/lang/doc-files/ValueBased.html">value-based class; use 
+of identity-sensitive operations (including reference equality (==), identity 
+hash code, or synchronization) on instances ofMonthDaymay have unpredictable 
+results and should be avoided. Theequalsmethod should be used for comparisons. 
+
+
+
+*java.time.MonthDay.adjustInto(Temporal)*
+
+public |java.time.temporal.Temporal| adjustInto(java.time.temporal.Temporal temporal)
+
+Adjusts the specified temporal object to have this month-day. 
+
+This returns a temporal object of the same observable type as the input with 
+the month and day-of-month changed to be the same as this. 
+
+The adjustment is equivalent to using (|java.time.temporal.Temporal|) twice, 
+passing (|java.time.temporal.ChronoField|) and 
+(|java.time.temporal.ChronoField|) as the fields. If the specified temporal 
+object does not use the ISO calendar system then aDateTimeExceptionis thrown. 
+
+In most cases, it is clearer to reverse the calling pattern by using 
+(|java.time.temporal.Temporal|) : 
+
+// these two lines are equivalent, but the second approach is recommended 
+temporal = thisMonthDay.adjustInto(temporal); temporal = 
+temporal.with(thisMonthDay); 
+
+This instance is immutable and unaffected by this method call. 
+
+
+    temporal - the target object to be adjusted, not null 
+
+    Returns: the adjusted object, not null 
+
+*java.time.MonthDay.atYear(int)*
+
+public |java.time.LocalDate| atYear(int year)
+
+Combines this month-day with a year to create aLocalDate. 
+
+This returns aLocalDateformed from this month-day and the specified year. 
+
+A month-day of February 29th will be adjusted to February 28th in the resulting 
+date if the year is not a leap year. 
+
+This instance is immutable and unaffected by this method call. 
+
+
+    year - the year to use, from MIN_YEAR to MAX_YEAR 
+
+    Returns: the local date formed from this month-day and the specified year, not null 
+
+*java.time.MonthDay.compareTo(MonthDay)*
+
+public int compareTo(java.time.MonthDay other)
+
+Compares this month-day to another month-day. 
+
+The comparison is based first on value of the month, then on the value of the 
+day. It is "consistent with equals", as defined by (|java.lang.Comparable|) . 
+
+
+    other - the other month-day to compare to, not null 
+
+    Returns: the comparator value, negative if less, positive if greater 
+
+*java.time.MonthDay.equals(Object)*
+
+public boolean equals(java.lang.Object obj)
+
+Checks if this month-day is equal to another month-day. 
+
+The comparison is based on the time-line position of the month-day within a 
+year. 
+
+
+    obj - the object to check, null returns false 
+
+    Returns: true if this is equal to the other month-day 
+
+*java.time.MonthDay.format(DateTimeFormatter)*
+
+public |java.lang.String| format(java.time.format.DateTimeFormatter formatter)
+
+Formats this month-day using the specified formatter. 
+
+This month-day will be passed to the formatter to produce a string. 
+
+
+    formatter - the formatter to use, not null 
+
+    Returns: the formatted month-day string, not null 
+
+*java.time.MonthDay.from(TemporalAccessor)*
+
+public static |java.time.MonthDay| from(java.time.temporal.TemporalAccessor temporal)
+
+Obtains an instance ofMonthDayfrom a temporal object. 
+
+This obtains a month-day based on the specified temporal. 
+ATemporalAccessorrepresents an arbitrary set of date and time information, 
+which this factory converts to an instance ofMonthDay. 
+
+The conversion extracts the MONTH_OF_YEAR(|java.time.temporal.ChronoField|) and 
+DAY_OF_MONTH(|java.time.temporal.ChronoField|) fields. The extraction is only 
+permitted if the temporal object has an ISO chronology, or can be converted to 
+aLocalDate. 
+
+This method matches the signature of the functional interface 
+(|java.time.temporal.TemporalQuery|) allowing it to be used in queries via 
+method reference,MonthDay::from. 
+
+
+    temporal - the temporal object to convert, not null 
+
+    Returns: the month-day, not null 
+
+*java.time.MonthDay.get(TemporalField)*
+
+public int get(java.time.temporal.TemporalField field)
+
+Gets the value of the specified field from this month-day as anint. 
+
+This queries this month-day for the value for the specified field. The returned 
+value will always be within the valid range of values for the field. If it is 
+not possible to return the value, because the field is not supported or for 
+some other reason, an exception is thrown. 
+
+If the field is a (|java.time.temporal.ChronoField|) then the query is 
+implemented here. The supported fields(|java.time.MonthDay|) will return valid 
+values based on this month-day. All otherChronoFieldinstances will throw 
+anUnsupportedTemporalTypeException. 
+
+If the field is not aChronoField, then the result of this method is obtained by 
+invokingTemporalField.getFrom(TemporalAccessor)passingthisas the argument. 
+Whether the value can be obtained, and what the value represents, is determined 
+by the field. 
+
+
+    field - the field to get, not null 
+
+    Returns: the value for the field 
+
+*java.time.MonthDay.getDayOfMonth()*
+
+public int getDayOfMonth()
+
+Gets the day-of-month field. 
+
+This method returns the primitiveintvalue for the day-of-month. 
+
+
+
+    Returns: the day-of-month, from 1 to 31 
+
+*java.time.MonthDay.getLong(TemporalField)*
+
+public long getLong(java.time.temporal.TemporalField field)
+
+Gets the value of the specified field from this month-day as along. 
+
+This queries this month-day for the value for the specified field. If it is not 
+possible to return the value, because the field is not supported or for some 
+other reason, an exception is thrown. 
+
+If the field is a (|java.time.temporal.ChronoField|) then the query is 
+implemented here. The supported fields(|java.time.MonthDay|) will return valid 
+values based on this month-day. All otherChronoFieldinstances will throw 
+anUnsupportedTemporalTypeException. 
+
+If the field is not aChronoField, then the result of this method is obtained by 
+invokingTemporalField.getFrom(TemporalAccessor)passingthisas the argument. 
+Whether the value can be obtained, and what the value represents, is determined 
+by the field. 
+
+
+    field - the field to get, not null 
+
+    Returns: the value for the field 
+
+*java.time.MonthDay.getMonth()*
+
+public |java.time.Month| getMonth()
+
+Gets the month-of-year field using theMonthenum. 
+
+This method returns the enum (|java.time.Month|) for the month. This avoids 
+confusion as to whatintvalues mean. If you need access to the primitiveintvalue 
+then the enum provides the int value(|java.time.Month|) . 
+
+
+
+    Returns: the month-of-year, not null 
+
+*java.time.MonthDay.getMonthValue()*
+
+public int getMonthValue()
+
+Gets the month-of-year field from 1 to 12. 
+
+This method returns the month as anintfrom 1 to 12. Application code is 
+frequently clearer if the enum (|java.time.Month|) is used by calling 
+(|java.time.MonthDay|) . 
+
+
+
+    Returns: the month-of-year, from 1 to 12 
+
+*java.time.MonthDay.hashCode()*
+
+public int hashCode()
+
+A hash code for this month-day. 
+
+
+
+    Returns: a suitable hash code 
+
+*java.time.MonthDay.isAfter(MonthDay)*
+
+public boolean isAfter(java.time.MonthDay other)
+
+Is this month-day after the specified month-day. 
+
+
+    other - the other month-day to compare to, not null 
+
+    Returns: true if this is after the specified month-day 
+
+*java.time.MonthDay.isBefore(MonthDay)*
+
+public boolean isBefore(java.time.MonthDay other)
+
+Is this month-day before the specified month-day. 
+
+
+    other - the other month-day to compare to, not null 
+
+    Returns: true if this point is before the specified month-day 
+
+*java.time.MonthDay.isSupported(TemporalField)*
+
+public boolean isSupported(java.time.temporal.TemporalField field)
+
+Checks if the specified field is supported. 
+
+This checks if this month-day can be queried for the specified field. If false, 
+then calling the range(|java.time.MonthDay|) and get(|java.time.MonthDay|) 
+methods will throw an exception. 
+
+If the field is a (|java.time.temporal.ChronoField|) then the query is 
+implemented here. The supported fields are: 
+
+MONTH_OF_YEARYEAR All otherChronoFieldinstances will return false. 
+
+If the field is not aChronoField, then the result of this method is obtained by 
+invokingTemporalField.isSupportedBy(TemporalAccessor)passingthisas the 
+argument. Whether the field is supported is determined by the field. 
+
+
+    field - the field to check, null returns false 
+
+    Returns: true if the field is supported on this month-day, false if not 
+
+*java.time.MonthDay.isValidYear(int)*
+
+public boolean isValidYear(int year)
+
+Checks if the year is valid for this month-day. 
+
+This method checks whether this month and day and the input year form a valid 
+date. This can only return false for February 29th. 
+
+
+    year - the year to validate, an out of range value returns false 
+
+    Returns: true if the year is valid for this month-day 
+
+*java.time.MonthDay.now()*
+
+public static |java.time.MonthDay| now()
+
+Obtains the current month-day from the system clock in the default time-zone. 
+
+This will query the system clock(|java.time.Clock|) in the default time-zone to 
+obtain the current month-day. 
+
+Using this method will prevent the ability to use an alternate clock for 
+testing because the clock is hard-coded. 
+
+
+
+    Returns: the current month-day using the system clock and default time-zone, not null 
+
+*java.time.MonthDay.now(Clock)*
+
+public static |java.time.MonthDay| now(java.time.Clock clock)
+
+Obtains the current month-day from the specified clock. 
+
+This will query the specified clock to obtain the current month-day. Using this 
+method allows the use of an alternate clock for testing. The alternate clock 
+may be introduced using dependency injection(|java.time.Clock|) . 
+
+
+    clock - the clock to use, not null 
+
+    Returns: the current month-day, not null 
+
+*java.time.MonthDay.now(ZoneId)*
+
+public static |java.time.MonthDay| now(java.time.ZoneId zone)
+
+Obtains the current month-day from the system clock in the specified time-zone. 
+
+This will query the system clock(|java.time.Clock|) to obtain the current 
+month-day. Specifying the time-zone avoids dependence on the default time-zone. 
+
+Using this method will prevent the ability to use an alternate clock for 
+testing because the clock is hard-coded. 
+
+
+    zone - the zone ID to use, not null 
+
+    Returns: the current month-day using the system clock, not null 
+
+*java.time.MonthDay.of(int,int)*
+
+public static |java.time.MonthDay| of(
+  int month,
+  int dayOfMonth)
+
+Obtains an instance ofMonthDay. 
+
+The day-of-month must be valid for the month within a leap year. Hence, for 
+month 2 (February), day 29 is valid. 
+
+For example, passing in month 4 (April) and day 31 will throw an exception, as 
+there can never be April 31st in any year. By contrast, passing in February 
+29th is permitted, as that month-day can sometimes be valid. 
+
+
+    month - the month-of-year to represent, from 1 (January) to 12 (December) 
+    dayOfMonth - the day-of-month to represent, from 1 to 31 
+
+    Returns: the month-day, not null 
+
+*java.time.MonthDay.of(Month,int)*
+
+public static |java.time.MonthDay| of(
+  java.time.Month month,
+  int dayOfMonth)
+
+Obtains an instance ofMonthDay. 
+
+The day-of-month must be valid for the month within a leap year. Hence, for 
+February, day 29 is valid. 
+
+For example, passing in April and day 31 will throw an exception, as there can 
+never be April 31st in any year. By contrast, passing in February 29th is 
+permitted, as that month-day can sometimes be valid. 
+
+
+    month - the month-of-year to represent, not null 
+    dayOfMonth - the day-of-month to represent, from 1 to 31 
+
+    Returns: the month-day, not null 
+
+*java.time.MonthDay.parse(CharSequence)*
+
+public static |java.time.MonthDay| parse(java.lang.CharSequence text)
+
+Obtains an instance ofMonthDayfrom a text string such as--12-03. 
+
+The string must represent a valid month-day. The format is--MM-dd. 
+
+
+    text - the text to parse such as "--12-03", not null 
+
+    Returns: the parsed month-day, not null 
+
+*java.time.MonthDay.parse(CharSequence,DateTimeFormatter)*
+
+public static |java.time.MonthDay| parse(
+  java.lang.CharSequence text,
+  java.time.format.DateTimeFormatter formatter)
+
+Obtains an instance ofMonthDayfrom a text string using a specific formatter. 
+
+The text is parsed using the formatter, returning a month-day. 
+
+
+    text - the text to parse, not null 
+    formatter - the formatter to use, not null 
+
+    Returns: the parsed month-day, not null 
+
+*java.time.MonthDay.query(TemporalQuery<R>)*
+
+public |R| query(java.time.temporal.TemporalQuery<R> query)
+
+Queries this month-day using the specified query. 
+
+This queries this month-day using the specified query strategy object. 
+TheTemporalQueryobject defines the logic to be used to obtain the result. Read 
+the documentation of the query to understand what the result of this method 
+will be. 
+
+The result of this method is obtained by invoking the 
+(|java.time.temporal.TemporalQuery|) method on the specified query 
+passingthisas the argument. 
+
+
+    query - the query to invoke, not null 
+
+    Returns: the query result, null may be returned (defined by the query) 
+
+*java.time.MonthDay.range(TemporalField)*
+
+public |java.time.temporal.ValueRange| range(java.time.temporal.TemporalField field)
+
+Gets the range of valid values for the specified field. 
+
+The range object expresses the minimum and maximum valid values for a field. 
+This month-day is used to enhance the accuracy of the returned range. If it is 
+not possible to return the range, because the field is not supported or for 
+some other reason, an exception is thrown. 
+
+If the field is a (|java.time.temporal.ChronoField|) then the query is 
+implemented here. The supported fields(|java.time.MonthDay|) will return 
+appropriate range instances. All otherChronoFieldinstances will throw 
+anUnsupportedTemporalTypeException. 
+
+If the field is not aChronoField, then the result of this method is obtained by 
+invokingTemporalField.rangeRefinedBy(TemporalAccessor)passingthisas the 
+argument. Whether the range can be obtained is determined by the field. 
+
+
+    field - the field to query the range for, not null 
+
+    Returns: the range of valid values for the field, not null 
+
+*java.time.MonthDay.toString()*
+
+public |java.lang.String| toString()
+
+Outputs this month-day as aString, such as--12-03. 
+
+The output will be in the format--MM-dd: 
+
+
+
+    Returns: a string representation of this month-day, not null 
+
+*java.time.MonthDay.with(Month)*
+
+public |java.time.MonthDay| with(java.time.Month month)
+
+Returns a copy of thisMonthDaywith the month-of-year altered. 
+
+This returns a month-day with the specified month. If the day-of-month is 
+invalid for the specified month, the day will be adjusted to the last valid 
+day-of-month. 
+
+This instance is immutable and unaffected by this method call. 
+
+
+    month - the month-of-year to set in the returned month-day, not null 
+
+    Returns: a {@code MonthDay} based on this month-day with the requested month, not null 
+
+*java.time.MonthDay.withDayOfMonth(int)*
+
+public |java.time.MonthDay| withDayOfMonth(int dayOfMonth)
+
+Returns a copy of thisMonthDaywith the day-of-month altered. 
+
+This returns a month-day with the specified day-of-month. If the day-of-month 
+is invalid for the month, an exception is thrown. 
+
+This instance is immutable and unaffected by this method call. 
+
+
+    dayOfMonth - the day-of-month to set in the return month-day, from 1 to 31 
+
+    Returns: a {@code MonthDay} based on this month-day with the requested day, not null 
+
+*java.time.MonthDay.withMonth(int)*
+
+public |java.time.MonthDay| withMonth(int month)
+
+Returns a copy of thisMonthDaywith the month-of-year altered. 
+
+This returns a month-day with the specified month. If the day-of-month is 
+invalid for the specified month, the day will be adjusted to the last valid 
+day-of-month. 
+
+This instance is immutable and unaffected by this method call. 
+
+
+    month - the month-of-year to set in the returned month-day, from 1 (January) to 12 
+       (December) 
+
+    Returns: a {@code MonthDay} based on this month-day with the requested month, not null 
+
+

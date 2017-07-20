@@ -1,0 +1,56 @@
+*java.util.function.BiConsumer* *BiConsumer* Represents an operation that accept
+
+public interface interface BiConsumer<T,U>
+
+
+|java.util.function.BiConsumer_Description|
+|java.util.function.BiConsumer_Fields|
+|java.util.function.BiConsumer_Constructors|
+|java.util.function.BiConsumer_Methods|
+
+================================================================================
+
+*java.util.function.BiConsumer_Methods*
+|java.util.function.BiConsumer.accept(T,U)|Performs this operation on the given
+|java.util.function.BiConsumer.andThen(BiConsumer<?superT,?superU>)|Returns a c
+
+*java.util.function.BiConsumer_Description*
+
+Represents an operation that accepts two input arguments and returns no result. 
+This is the two-arity specialization of (|java.util.function.Consumer|) . 
+Unlike most other functional interfaces,BiConsumeris expected to operate via 
+side-effects. 
+
+This is a functional interface whose functional method is 
+(|java.util.function.BiConsumer|) . 
+
+
+
+*java.util.function.BiConsumer.accept(T,U)*
+
+public void accept(
+  T t,
+  U u)
+
+Performs this operation on the given arguments. 
+
+
+    t - the first input argument 
+    u - the second input argument 
+
+*java.util.function.BiConsumer.andThen(BiConsumer<?superT,?superU>)*
+
+public |java.util.function.BiConsumer|<T,U> andThen(java.util.function.BiConsumer<? super T, ? super U> after)
+
+Returns a composedBiConsumerthat performs, in sequence, this operation followed 
+by theafteroperation. If performing either operation throws an exception, it is 
+relayed to the caller of the composed operation. If performing this operation 
+throws an exception, theafteroperation will not be performed. 
+
+
+    after - the operation to perform after this operation 
+
+    Returns: a composed {@code BiConsumer} that performs in sequence this operation followed 
+             by the {@code after} operation 
+
+

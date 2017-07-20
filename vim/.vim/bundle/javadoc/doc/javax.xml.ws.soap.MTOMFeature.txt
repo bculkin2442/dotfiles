@@ -1,0 +1,118 @@
+*javax.xml.ws.soap.MTOMFeature* *MTOMFeature* This feature represents the use of
+
+public final class MTOMFeature
+  extends    |javax.xml.ws.WebServiceFeature|
+
+|javax.xml.ws.soap.MTOMFeature_Description|
+|javax.xml.ws.soap.MTOMFeature_Fields|
+|javax.xml.ws.soap.MTOMFeature_Constructors|
+|javax.xml.ws.soap.MTOMFeature_Methods|
+
+================================================================================
+
+*javax.xml.ws.soap.MTOMFeature_Fields*
+|java.lang.String_javax.xml.ws.soap.MTOMFeature.ID|
+|int_javax.xml.ws.soap.MTOMFeature.threshold|
+
+*javax.xml.ws.soap.MTOMFeature_Constructors*
+|javax.xml.ws.soap.MTOMFeature()|Create an MTOMFeature.
+|javax.xml.ws.soap.MTOMFeature(boolean)|Creates an MTOMFeature.
+|javax.xml.ws.soap.MTOMFeature(boolean,int)|Creates an MTOMFeature.
+|javax.xml.ws.soap.MTOMFeature(int)|Creates an MTOMFeature.
+
+*javax.xml.ws.soap.MTOMFeature_Methods*
+|javax.xml.ws.soap.MTOMFeature.getID()|
+|javax.xml.ws.soap.MTOMFeature.getThreshold()|Gets the threshold value used to 
+
+*javax.xml.ws.soap.MTOMFeature_Description*
+
+This feature represents the use of MTOM with a web service. 
+
+This feature can be used during the creation of SEI proxy, and 
+(|javax.xml.ws.Dispatch|) instances on the client side and 
+(|javax.xml.ws.Endpoint|) instances on the server side. This feature cannot be 
+used for (|javax.xml.ws.Service|) instance creation on the client side. 
+
+The following describes the affects of this feature with respect to being 
+enabled or disabled: 
+
+ENABLED: In this Mode, MTOM will be enabled. A receiver MUST accept both a 
+non-optimized and an optimized message, and a sender MAY send an optimized 
+message, or a non-optimized message. The heuristics used by a sender to 
+determine whether to use optimization or not are implementation-specific. 
+DISABLED: In this Mode, MTOM will be disabled 
+
+The (|javax.xml.ws.soap.MTOMFeature|) property can be used to set the threshold 
+value used to determine when binary data should be XOP encoded. 
+
+
+
+*java.lang.String_javax.xml.ws.soap.MTOMFeature.ID*
+
+Constant value identifying the MTOMFeature 
+
+
+*int_javax.xml.ws.soap.MTOMFeature.threshold*
+
+Property for MTOM threshold value. This property serves as a hint when MTOM is 
+enabled, binary data above this size in bytes SHOULD be sent as attachment. The 
+value of this property MUST always be >= 0. Default value is 0. 
+
+
+
+*javax.xml.ws.soap.MTOMFeature()*
+
+public MTOMFeature()
+
+Create an MTOMFeature. The instance created will be enabled. 
+
+
+*javax.xml.ws.soap.MTOMFeature(boolean)*
+
+public MTOMFeature(boolean enabled)
+
+Creates an MTOMFeature. 
+
+    enabled - specifies if this feature should be enabled or not 
+
+*javax.xml.ws.soap.MTOMFeature(boolean,int)*
+
+public MTOMFeature(
+  boolean enabled,
+  int threshold)
+
+Creates an MTOMFeature. 
+
+    enabled - specifies if this feature should be enabled or not 
+    threshold - the size in bytes that binary data SHOULD be before being sent as an 
+       attachment. 
+
+*javax.xml.ws.soap.MTOMFeature(int)*
+
+public MTOMFeature(int threshold)
+
+Creates an MTOMFeature. The instance created will be enabled. 
+
+    threshold - the size in bytes that binary data SHOULD be before being sent as an 
+       attachment. 
+
+*javax.xml.ws.soap.MTOMFeature.getID()*
+
+public |java.lang.String| getID()
+
+
+
+
+
+*javax.xml.ws.soap.MTOMFeature.getThreshold()*
+
+public int getThreshold()
+
+Gets the threshold value used to determine when binary data should be sent as 
+an attachment. 
+
+
+
+    Returns: the current threshold size in bytes 
+
+

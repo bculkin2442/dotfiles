@@ -1,0 +1,118 @@
+*javax.security.auth.AuthPermission* *AuthPermission* This class is for authenti
+
+public final class AuthPermission
+  extends    |java.security.BasicPermission|
+
+|javax.security.auth.AuthPermission_Description|
+|javax.security.auth.AuthPermission_Fields|
+|javax.security.auth.AuthPermission_Constructors|
+|javax.security.auth.AuthPermission_Methods|
+
+================================================================================
+
+*javax.security.auth.AuthPermission_Constructors*
+|javax.security.auth.AuthPermission(String)|Creates a new AuthPermission with t
+|javax.security.auth.AuthPermission(String,String)|Creates a new AuthPermission
+
+*javax.security.auth.AuthPermission_Description*
+
+This class is for authentication permissions. An AuthPermission contains a name 
+(also referred to as a "target name") but no actions list; you either have the 
+named permission or you don't. 
+
+The target name is the name of a security configuration parameter (see below). 
+Currently the AuthPermission object is used to guard access to the Policy, 
+Subject, LoginContext, and Configuration objects. 
+
+The possible target names for an Authentication Permission are: 
+
+
+
+doAs - allow the caller to invoke theSubject.doAsmethods. 
+
+doAsPrivileged - allow the caller to invoke theSubject.doAsPrivilegedmethods. 
+
+getSubject - allow for the retrieval of the Subject(s) associated with the 
+current Thread. 
+
+getSubjectFromDomainCombiner - allow for the retrieval of the Subject 
+associated with the aSubjectDomainCombiner. 
+
+setReadOnly - allow the caller to set a Subject to be read-only. 
+
+modifyPrincipals - allow the caller to modify theSetof Principals associated 
+with aSubjectmodifyPublicCredentials - allow the caller to modify theSetof 
+public credentials associated with aSubjectmodifyPrivateCredentials - allow the 
+caller to modify theSetof private credentials associated with 
+aSubjectrefreshCredential - allow code to invoke therefreshmethod on a 
+credential which implements theRefreshableinterface. 
+
+destroyCredential - allow code to invoke thedestroymethod on a 
+credentialobjectwhich implements theDestroyableinterface. 
+
+createLoginContext.{name} - allow code to instantiate aLoginContextwith the 
+specified name. name is used as the index into the installed 
+loginConfiguration(that returned byConfiguration.getConfiguration()). name can 
+be wildcarded (set to '*') to allow for any name. 
+
+getLoginConfiguration - allow for the retrieval of the system-wide login 
+Configuration. 
+
+createLoginConfiguration.{type} - allow code to obtain a Configuration object 
+viaConfiguration.getInstance. 
+
+setLoginConfiguration - allow for the setting of the system-wide login 
+Configuration. 
+
+refreshLoginConfiguration - allow for the refreshing of the system-wide login 
+Configuration. 
+
+The following target name has been deprecated in favor 
+ofcreateLoginContext.{name}. 
+
+
+
+createLoginContext - allow code to instantiate aLoginContext. 
+
+javax.security.auth.Policyhas been deprecated in favor ofjava.security.Policy. 
+Therefore, the following target names have also been deprecated: 
+
+
+
+getPolicy - allow the caller to retrieve the system-wide Subject-based access 
+control policy. 
+
+setPolicy - allow the caller to set the system-wide Subject-based access 
+control policy. 
+
+refreshPolicy - allow the caller to refresh the system-wide Subject-based 
+access control policy. 
+
+
+
+*javax.security.auth.AuthPermission(String)*
+
+public AuthPermission(java.lang.String name)
+
+Creates a new AuthPermission with the specified name. The name is the symbolic 
+name of the AuthPermission. 
+
+
+
+    name - the name of the AuthPermission 
+
+*javax.security.auth.AuthPermission(String,String)*
+
+public AuthPermission(
+  java.lang.String name,
+  java.lang.String actions)
+
+Creates a new AuthPermission object with the specified name. The name is the 
+symbolic name of the AuthPermission, and the actions String is currently unused 
+and should be null. 
+
+
+
+    name - the name of the AuthPermission 
+    actions - should be null. 
+

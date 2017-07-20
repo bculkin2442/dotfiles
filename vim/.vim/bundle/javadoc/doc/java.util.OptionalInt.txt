@@ -1,0 +1,169 @@
+*java.util.OptionalInt* *OptionalInt* A container object which may or may not co
+
+public final class OptionalInt
+  extends    |java.lang.Object|
+
+|java.util.OptionalInt_Description|
+|java.util.OptionalInt_Fields|
+|java.util.OptionalInt_Constructors|
+|java.util.OptionalInt_Methods|
+
+================================================================================
+
+*java.util.OptionalInt_Methods*
+|java.util.OptionalInt.empty()|Returns an emptyOptionalIntinstance.
+|java.util.OptionalInt.equals(Object)|Indicates whether some other object is "e
+|java.util.OptionalInt.getAsInt()|If a value is present in thisOptionalInt, ret
+|java.util.OptionalInt.hashCode()|Returns the hash code value of the present va
+|java.util.OptionalInt.ifPresent(IntConsumer)|Have the specified consumer accep
+|java.util.OptionalInt.isPresent()|Returntrueif there is a value present, other
+|java.util.OptionalInt.of(int)|Return anOptionalIntwith the specified value pre
+|java.util.OptionalInt.orElse(int)|Return the value if present, otherwise retur
+|java.util.OptionalInt.orElseGet(IntSupplier)|Return the value if present, othe
+|java.util.OptionalInt.orElseThrow(Supplier<X>)|Return the contained value, if 
+|java.util.OptionalInt.toString()|Returns a non-empty string representation of 
+
+*java.util.OptionalInt_Description*
+
+A container object which may or may not contain aintvalue. If a value is 
+present,isPresent()will returntrueandgetAsInt()will return the value. 
+
+Additional methods that depend on the presence or absence of a contained value 
+are provided, such as orElse()(|java.util.OptionalInt|) (return a default value 
+if value not present) and ifPresent()(|java.util.OptionalInt|) (execute a block 
+of code if the value is present). 
+
+This is a value-based class; use of identity-sensitive operations (including 
+reference equality (==), identity hash code, or synchronization) on instances 
+ofOptionalIntmay have unpredictable results and should be avoided. 
+
+
+
+*java.util.OptionalInt.empty()*
+
+public static |java.util.OptionalInt| empty()
+
+Returns an emptyOptionalIntinstance. No value is present for this OptionalInt. 
+
+
+
+    Returns: an empty {@code OptionalInt} 
+
+*java.util.OptionalInt.equals(Object)*
+
+public boolean equals(java.lang.Object obj)
+
+Indicates whether some other object is "equal to" this OptionalInt. The other 
+object is considered equal if: 
+
+it is also anOptionalIntand; both instances have no value present or; the 
+present values are "equal to" each other via==. 
+
+
+    obj - an object to be tested for equality 
+
+    Returns: {code true} if the other object is "equal to" this object otherwise {@code 
+             false} 
+
+*java.util.OptionalInt.getAsInt()*
+
+public int getAsInt()
+
+If a value is present in thisOptionalInt, returns the value, otherwise 
+throwsNoSuchElementException. 
+
+
+
+    Returns: the value held by this {@code OptionalInt} 
+
+*java.util.OptionalInt.hashCode()*
+
+public int hashCode()
+
+Returns the hash code value of the present value, if any, or 0 (zero) if no 
+value is present. 
+
+
+
+    Returns: hash code value of the present value or 0 if no value is present 
+
+*java.util.OptionalInt.ifPresent(IntConsumer)*
+
+public void ifPresent(java.util.function.IntConsumer consumer)
+
+Have the specified consumer accept the value if a value is present, otherwise 
+do nothing. 
+
+
+    consumer - block to be executed if a value is present 
+
+*java.util.OptionalInt.isPresent()*
+
+public boolean isPresent()
+
+Returntrueif there is a value present, otherwisefalse. 
+
+
+
+    Returns: {@code true} if there is a value present, otherwise {@code false} 
+
+*java.util.OptionalInt.of(int)*
+
+public static |java.util.OptionalInt| of(int value)
+
+Return anOptionalIntwith the specified value present. 
+
+
+    value - the value to be present 
+
+    Returns: an {@code OptionalInt} with the value present 
+
+*java.util.OptionalInt.orElse(int)*
+
+public int orElse(int other)
+
+Return the value if present, otherwise returnother. 
+
+
+    other - the value to be returned if there is no value present 
+
+    Returns: the value, if present, otherwise {@code other} 
+
+*java.util.OptionalInt.orElseGet(IntSupplier)*
+
+public int orElseGet(java.util.function.IntSupplier other)
+
+Return the value if present, otherwise invokeotherand return the result of that 
+invocation. 
+
+
+    other - a {@code IntSupplier} whose result is returned if no value is present 
+
+    Returns: the value if present otherwise the result of {@code other.getAsInt()} 
+
+*java.util.OptionalInt.orElseThrow(Supplier<X>)*
+
+public int orElseThrow(java.util.function.Supplier<X> exceptionSupplier)
+  throws |java.lang.Throwable|
+         
+Return the contained value, if present, otherwise throw an exception to be 
+created by the provided supplier. 
+
+
+    exceptionSupplier - The supplier which will return the exception to be thrown 
+
+    Returns: the present value 
+
+*java.util.OptionalInt.toString()*
+
+public |java.lang.String| toString()
+
+Returns a non-empty string representation of this object suitable for 
+debugging. The exact presentation format is unspecified and may vary between 
+implementations and versions. 
+
+
+
+    Returns: the string representation of this instance 
+
+

@@ -1,0 +1,178 @@
+*javax.swing.plaf.synth.SynthDesktopPaneUI* *SynthDesktopPaneUI* Provides the Sy
+
+public class SynthDesktopPaneUI
+  extends    |javax.swing.plaf.basic.BasicDesktopPaneUI|
+  implements |java.beans.PropertyChangeListener|
+             |javax.swing.plaf.synth.SynthUI|
+
+|javax.swing.plaf.synth.SynthDesktopPaneUI_Description|
+|javax.swing.plaf.synth.SynthDesktopPaneUI_Fields|
+|javax.swing.plaf.synth.SynthDesktopPaneUI_Constructors|
+|javax.swing.plaf.synth.SynthDesktopPaneUI_Methods|
+
+================================================================================
+
+*javax.swing.plaf.synth.SynthDesktopPaneUI_Constructors*
+|javax.swing.plaf.synth.SynthDesktopPaneUI()|
+
+*javax.swing.plaf.synth.SynthDesktopPaneUI_Methods*
+|javax.swing.plaf.synth.SynthDesktopPaneUI.createUI(JComponent)|Creates a new U
+|javax.swing.plaf.synth.SynthDesktopPaneUI.getContext(JComponent)|
+|javax.swing.plaf.synth.SynthDesktopPaneUI.installDefaults()|
+|javax.swing.plaf.synth.SynthDesktopPaneUI.installDesktopManager()|
+|javax.swing.plaf.synth.SynthDesktopPaneUI.installListeners()|
+|javax.swing.plaf.synth.SynthDesktopPaneUI.paint(Graphics,JComponent)|Paints th
+|javax.swing.plaf.synth.SynthDesktopPaneUI.paint(SynthContext,Graphics)|Paints 
+|javax.swing.plaf.synth.SynthDesktopPaneUI.paintBorder(SynthContext,Graphics,int,int,int,int)|
+|javax.swing.plaf.synth.SynthDesktopPaneUI.propertyChange(PropertyChangeEvent)|
+|javax.swing.plaf.synth.SynthDesktopPaneUI.uninstallDefaults()|
+|javax.swing.plaf.synth.SynthDesktopPaneUI.uninstallDesktopManager()|
+|javax.swing.plaf.synth.SynthDesktopPaneUI.uninstallListeners()|
+|javax.swing.plaf.synth.SynthDesktopPaneUI.update(Graphics,JComponent)|Notifies
+
+*javax.swing.plaf.synth.SynthDesktopPaneUI_Description*
+
+Provides the Synth L and F UI delegate for (|javax.swing.JDesktopPane|) . 
+
+
+
+*javax.swing.plaf.synth.SynthDesktopPaneUI()*
+
+public SynthDesktopPaneUI()
+
+
+
+
+*javax.swing.plaf.synth.SynthDesktopPaneUI.createUI(JComponent)*
+
+public static |javax.swing.plaf.ComponentUI| createUI(javax.swing.JComponent c)
+
+Creates a new UI object for the given component. 
+
+
+    c - component to create UI object for 
+
+    Returns: the UI object 
+
+*javax.swing.plaf.synth.SynthDesktopPaneUI.getContext(JComponent)*
+
+public |javax.swing.plaf.synth.SynthContext| getContext(javax.swing.JComponent c)
+
+
+
+
+
+*javax.swing.plaf.synth.SynthDesktopPaneUI.installDefaults()*
+
+protected void installDefaults()
+
+
+
+
+
+*javax.swing.plaf.synth.SynthDesktopPaneUI.installDesktopManager()*
+
+protected void installDesktopManager()
+
+
+
+
+
+*javax.swing.plaf.synth.SynthDesktopPaneUI.installListeners()*
+
+protected void installListeners()
+
+
+
+
+
+*javax.swing.plaf.synth.SynthDesktopPaneUI.paint(Graphics,JComponent)*
+
+public void paint(
+  java.awt.Graphics g,
+  javax.swing.JComponent c)
+
+Paints the specified component according to the Look and Feel. This method is 
+not used by Synth Look and Feel. Painting is handled by the 
+(|javax.swing.plaf.synth.SynthDesktopPaneUI|) method. 
+
+
+    g - the {@code Graphics} object used for painting 
+    c - the component being painted 
+
+*javax.swing.plaf.synth.SynthDesktopPaneUI.paint(SynthContext,Graphics)*
+
+protected void paint(
+  javax.swing.plaf.synth.SynthContext context,
+  java.awt.Graphics g)
+
+Paints the specified component. This implementation does nothing. 
+
+
+    context - context for the component being painted 
+    g - the {@code Graphics} object used for painting 
+
+*javax.swing.plaf.synth.SynthDesktopPaneUI.paintBorder(SynthContext,Graphics,int,int,int,int)*
+
+public void paintBorder(
+  javax.swing.plaf.synth.SynthContext context,
+  java.awt.Graphics g,
+  int x,
+  int y,
+  int w,
+  int h)
+
+
+
+
+
+*javax.swing.plaf.synth.SynthDesktopPaneUI.propertyChange(PropertyChangeEvent)*
+
+public void propertyChange(java.beans.PropertyChangeEvent evt)
+
+
+
+
+
+*javax.swing.plaf.synth.SynthDesktopPaneUI.uninstallDefaults()*
+
+protected void uninstallDefaults()
+
+
+
+
+
+*javax.swing.plaf.synth.SynthDesktopPaneUI.uninstallDesktopManager()*
+
+protected void uninstallDesktopManager()
+
+
+
+
+
+*javax.swing.plaf.synth.SynthDesktopPaneUI.uninstallListeners()*
+
+protected void uninstallListeners()
+
+
+
+
+
+*javax.swing.plaf.synth.SynthDesktopPaneUI.update(Graphics,JComponent)*
+
+public void update(
+  java.awt.Graphics g,
+  javax.swing.JComponent c)
+
+Notifies this UI delegate to repaint the specified component. This method 
+paints the component background, then calls the 
+(|javax.swing.plaf.synth.SynthDesktopPaneUI|) method. 
+
+In general, this method does not need to be overridden by subclasses. All Look 
+and Feel rendering code should reside in thepaintmethod. 
+
+
+    g - the {@code Graphics} object used for painting 
+    c - the component being painted 
+
+

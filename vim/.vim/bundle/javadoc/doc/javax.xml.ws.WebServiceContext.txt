@@ -1,0 +1,102 @@
+*javax.xml.ws.WebServiceContext* *WebServiceContext* A WebServiceContext makes i
+
+public interface interface WebServiceContext
+
+
+|javax.xml.ws.WebServiceContext_Description|
+|javax.xml.ws.WebServiceContext_Fields|
+|javax.xml.ws.WebServiceContext_Constructors|
+|javax.xml.ws.WebServiceContext_Methods|
+
+================================================================================
+
+*javax.xml.ws.WebServiceContext_Methods*
+|javax.xml.ws.WebServiceContext.getEndpointReference(Class<T>,Element...)|Retur
+|javax.xml.ws.WebServiceContext.getEndpointReference(Element...)|Returns the En
+|javax.xml.ws.WebServiceContext.getMessageContext()|Returns the MessageContext 
+|javax.xml.ws.WebServiceContext.getUserPrincipal()|Returns the Principal that i
+|javax.xml.ws.WebServiceContext.isUserInRole(String)|Returns a boolean indicati
+
+*javax.xml.ws.WebServiceContext_Description*
+
+A WebServiceContext makes it possible for a web service endpoint implementation 
+class to access message context and security information relative to a request 
+being served. 
+
+Typically a WebServiceContext is injected into an endpoint implementation class 
+using the Resource annotation. 
+
+
+
+*javax.xml.ws.WebServiceContext.getEndpointReference(Class<T>,Element...)*
+
+public |T| getEndpointReference(
+  java.lang.Class<T> clazz,
+  org.w3c.dom.Element[] referenceParameters)
+
+Returns the EndpointReference associated with this endpoint. 
+
+
+    clazz - The type of EndpointReference that MUST be returned. 
+    referenceParameters - Reference parameters to be associated with the returned EndpointReference 
+       instance. 
+
+    Returns: EndpointReference of type clazz of the endpoint associated with this 
+             WebServiceContext instance. If the returned EndpointReference is 
+             of type W3CEndpointReference then it MUST contain the the 
+             specified referenceParameters. 
+
+*javax.xml.ws.WebServiceContext.getEndpointReference(Element...)*
+
+public |javax.xml.ws.EndpointReference| getEndpointReference(org.w3c.dom.Element[] referenceParameters)
+
+Returns the EndpointReference for this endpoint. 
+
+If the (|javax.xml.ws.Binding|) for this bindingProvider is either SOAP1.1/HTTP 
+or SOAP1.2/HTTP, then a W3CEndpointReference MUST be returned. 
+
+
+    referenceParameters - Reference parameters to be associated with the returned EndpointReference 
+       instance. 
+
+    Returns: EndpointReference of the endpoint associated with this WebServiceContext. If 
+             the returned EndpointReference is of type W3CEndpointReference 
+             then it MUST contain the the specified referenceParameters. 
+
+*javax.xml.ws.WebServiceContext.getMessageContext()*
+
+public |javax.xml.ws.handler.MessageContext| getMessageContext()
+
+Returns the MessageContext for the request being served at the time this method 
+is called. Only properties with APPLICATION scope will be visible to the 
+application. 
+
+
+
+    Returns: MessageContext The message context. 
+
+*javax.xml.ws.WebServiceContext.getUserPrincipal()*
+
+public |java.security.Principal| getUserPrincipal()
+
+Returns the Principal that identifies the sender of the request currently being 
+serviced. If the sender has not been authenticated, the method returns null. 
+
+
+
+    Returns: Principal The principal object. 
+
+*javax.xml.ws.WebServiceContext.isUserInRole(String)*
+
+public boolean isUserInRole(java.lang.String role)
+
+Returns a boolean indicating whether the authenticated user is included in the 
+specified logical role. If the user has not been authenticated, the method 
+returns false. 
+
+
+    role - A String specifying the name of the role 
+
+    Returns: a boolean indicating whether the sender of the request belongs to a given role 
+
+

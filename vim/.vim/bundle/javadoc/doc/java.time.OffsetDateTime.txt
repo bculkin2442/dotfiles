@@ -1,0 +1,1695 @@
+*java.time.OffsetDateTime* *OffsetDateTime* A date-time with an offset from UTC/
+
+public final class OffsetDateTime
+  extends    |java.lang.Object|
+  implements |java.time.temporal.Temporal|
+             |java.time.temporal.TemporalAdjuster|
+             |java.lang.Comparable|
+             |java.io.Serializable|
+
+|java.time.OffsetDateTime_Description|
+|java.time.OffsetDateTime_Fields|
+|java.time.OffsetDateTime_Constructors|
+|java.time.OffsetDateTime_Methods|
+
+================================================================================
+
+*java.time.OffsetDateTime_Fields*
+|java.time.OffsetDateTime_java.time.OffsetDateTime.MAX|
+|java.time.OffsetDateTime_java.time.OffsetDateTime.MIN|
+
+*java.time.OffsetDateTime_Methods*
+|java.time.OffsetDateTime.adjustInto(Temporal)|Adjusts the specified temporal o
+|java.time.OffsetDateTime.atZoneSameInstant(ZoneId)|Combines this date-time wit
+|java.time.OffsetDateTime.atZoneSimilarLocal(ZoneId)|Combines this date-time wi
+|java.time.OffsetDateTime.compareTo(OffsetDateTime)|Compares thisOffsetDateTime
+|java.time.OffsetDateTime.equals(Object)|Checks if this date-time is equal to a
+|java.time.OffsetDateTime.format(DateTimeFormatter)|Formats this date-time usin
+|java.time.OffsetDateTime.from(TemporalAccessor)|Obtains an instance ofOffsetDa
+|java.time.OffsetDateTime.get(TemporalField)|Gets the value of the specified fi
+|java.time.OffsetDateTime.getDayOfMonth()|Gets the day-of-month field.
+|java.time.OffsetDateTime.getDayOfWeek()|Gets the day-of-week field, which is a
+|java.time.OffsetDateTime.getDayOfYear()|Gets the day-of-year field.
+|java.time.OffsetDateTime.getHour()|Gets the hour-of-day field.
+|java.time.OffsetDateTime.getLong(TemporalField)|Gets the value of the specifie
+|java.time.OffsetDateTime.getMinute()|Gets the minute-of-hour field.
+|java.time.OffsetDateTime.getMonth()|Gets the month-of-year field using theMont
+|java.time.OffsetDateTime.getMonthValue()|Gets the month-of-year field from 1 t
+|java.time.OffsetDateTime.getNano()|Gets the nano-of-second field.
+|java.time.OffsetDateTime.getOffset()|Gets the zone offset, such as '+01:00'.
+|java.time.OffsetDateTime.getSecond()|Gets the second-of-minute field.
+|java.time.OffsetDateTime.getYear()|Gets the year field.
+|java.time.OffsetDateTime.hashCode()|A hash code for this date-time.
+|java.time.OffsetDateTime.isAfter(OffsetDateTime)|Checks if the instant of this
+|java.time.OffsetDateTime.isBefore(OffsetDateTime)|Checks if the instant of thi
+|java.time.OffsetDateTime.isEqual(OffsetDateTime)|Checks if the instant of this
+|java.time.OffsetDateTime.isSupported(TemporalField)|Checks if the specified fi
+|java.time.OffsetDateTime.isSupported(TemporalUnit)|Checks if the specified uni
+|java.time.OffsetDateTime.minus(long,TemporalUnit)|Returns a copy of this date-
+|java.time.OffsetDateTime.minus(TemporalAmount)|Returns a copy of this date-tim
+|java.time.OffsetDateTime.minusDays(long)|Returns a copy of thisOffsetDateTimew
+|java.time.OffsetDateTime.minusHours(long)|Returns a copy of thisOffsetDateTime
+|java.time.OffsetDateTime.minusMinutes(long)|Returns a copy of thisOffsetDateTi
+|java.time.OffsetDateTime.minusMonths(long)|Returns a copy of thisOffsetDateTim
+|java.time.OffsetDateTime.minusNanos(long)|Returns a copy of thisOffsetDateTime
+|java.time.OffsetDateTime.minusSeconds(long)|Returns a copy of thisOffsetDateTi
+|java.time.OffsetDateTime.minusWeeks(long)|Returns a copy of thisOffsetDateTime
+|java.time.OffsetDateTime.minusYears(long)|Returns a copy of thisOffsetDateTime
+|java.time.OffsetDateTime.now()|Obtains the current date-time from the system c
+|java.time.OffsetDateTime.now(Clock)|Obtains the current date-time from the spe
+|java.time.OffsetDateTime.now(ZoneId)|Obtains the current date-time from the sy
+|java.time.OffsetDateTime.of(int,int,int,int,int,int,int,ZoneOffset)|Obtains an
+|java.time.OffsetDateTime.of(LocalDate,LocalTime,ZoneOffset)|Obtains an instanc
+|java.time.OffsetDateTime.of(LocalDateTime,ZoneOffset)|Obtains an instance ofOf
+|java.time.OffsetDateTime.ofInstant(Instant,ZoneId)|Obtains an instance ofOffse
+|java.time.OffsetDateTime.parse(CharSequence)|Obtains an instance ofOffsetDateT
+|java.time.OffsetDateTime.parse(CharSequence,DateTimeFormatter)|Obtains an inst
+|java.time.OffsetDateTime.plus(long,TemporalUnit)|Returns a copy of this date-t
+|java.time.OffsetDateTime.plus(TemporalAmount)|Returns a copy of this date-time
+|java.time.OffsetDateTime.plusDays(long)|Returns a copy of this OffsetDateTime 
+|java.time.OffsetDateTime.plusHours(long)|Returns a copy of thisOffsetDateTimew
+|java.time.OffsetDateTime.plusMinutes(long)|Returns a copy of thisOffsetDateTim
+|java.time.OffsetDateTime.plusMonths(long)|Returns a copy of thisOffsetDateTime
+|java.time.OffsetDateTime.plusNanos(long)|Returns a copy of thisOffsetDateTimew
+|java.time.OffsetDateTime.plusSeconds(long)|Returns a copy of thisOffsetDateTim
+|java.time.OffsetDateTime.plusWeeks(long)|Returns a copy of this OffsetDateTime
+|java.time.OffsetDateTime.plusYears(long)|Returns a copy of thisOffsetDateTimew
+|java.time.OffsetDateTime.query(TemporalQuery<R>)|Queries this date-time using 
+|java.time.OffsetDateTime.range(TemporalField)|Gets the range of valid values f
+|java.time.OffsetDateTime.timeLineOrder()|Gets a comparator that compares twoOf
+|java.time.OffsetDateTime.toEpochSecond()|Converts this date-time to the number
+|java.time.OffsetDateTime.toInstant()|Converts this date-time to anInstant.
+|java.time.OffsetDateTime.toLocalDate()|Gets theLocalDatepart of this date-time
+|java.time.OffsetDateTime.toLocalDateTime()|Gets theLocalDateTimepart of this o
+|java.time.OffsetDateTime.toLocalTime()|Gets theLocalTimepart of this date-time
+|java.time.OffsetDateTime.toOffsetTime()|Converts this date-time to anOffsetTim
+|java.time.OffsetDateTime.toString()|Outputs this date-time as aString, such as
+|java.time.OffsetDateTime.toZonedDateTime()|Converts this date-time to aZonedDa
+|java.time.OffsetDateTime.truncatedTo(TemporalUnit)|Returns a copy of thisOffse
+|java.time.OffsetDateTime.until(Temporal,TemporalUnit)|Calculates the amount of
+|java.time.OffsetDateTime.with(TemporalAdjuster)|Returns an adjusted copy of th
+|java.time.OffsetDateTime.with(TemporalField,long)|Returns a copy of this date-
+|java.time.OffsetDateTime.withDayOfMonth(int)|Returns a copy of thisOffsetDateT
+|java.time.OffsetDateTime.withDayOfYear(int)|Returns a copy of thisOffsetDateTi
+|java.time.OffsetDateTime.withHour(int)|Returns a copy of thisOffsetDateTimewit
+|java.time.OffsetDateTime.withMinute(int)|Returns a copy of thisOffsetDateTimew
+|java.time.OffsetDateTime.withMonth(int)|Returns a copy of thisOffsetDateTimewi
+|java.time.OffsetDateTime.withNano(int)|Returns a copy of thisOffsetDateTimewit
+|java.time.OffsetDateTime.withOffsetSameInstant(ZoneOffset)|Returns a copy of t
+|java.time.OffsetDateTime.withOffsetSameLocal(ZoneOffset)|Returns a copy of thi
+|java.time.OffsetDateTime.withSecond(int)|Returns a copy of thisOffsetDateTimew
+|java.time.OffsetDateTime.withYear(int)|Returns a copy of thisOffsetDateTimewit
+
+*java.time.OffsetDateTime_Description*
+
+A date-time with an offset from UTC/Greenwich in the ISO-8601 calendar system, 
+such as2007-12-03T10:15:30+01:00. OffsetDateTimeis an immutable representation 
+of a date-time with an offset. This class stores all date and time fields, to a 
+precision of nanoseconds, as well as the offset from UTC/Greenwich. For 
+example, the value "2nd October 2007 at 13:45.30.123456789 +02:00" can be 
+stored in anOffsetDateTime. OffsetDateTime, (|java.time.ZonedDateTime|) and 
+(|java.time.Instant|) all store an instant on the time-line to nanosecond 
+precision.Instantis the simplest, simply representing the 
+instant.OffsetDateTimeadds to the instant the offset from UTC/Greenwich, which 
+allows the local date-time to be obtained.ZonedDateTimeadds full time-zone 
+rules. 
+
+It is intended thatZonedDateTimeorInstantis used to model data in simpler 
+applications. This class may be used when modeling date-time concepts in more 
+detail, or when communicating to a database or in a network protocol. 
+
+This is a <a href="/java/lang/doc-files/ValueBased.html">value-based class; use 
+of identity-sensitive operations (including reference equality (==), identity 
+hash code, or synchronization) on instances ofOffsetDateTimemay have 
+unpredictable results and should be avoided. Theequalsmethod should be used for 
+comparisons. 
+
+
+
+*java.time.OffsetDateTime_java.time.OffsetDateTime.MAX*
+
+The maximum supportedOffsetDateTime, 
+'+999999999-12-31T23:59:59.999999999-18:00'. This is the local date-time just 
+before midnight at the end of the maximum date in the minimum offset (larger 
+negative offsets are later on the time-line). This combines 
+(|java.time.LocalDateTime|) and (|java.time.ZoneOffset|) . This could be used 
+by an application as a "far future" date-time. 
+
+
+*java.time.OffsetDateTime_java.time.OffsetDateTime.MIN*
+
+The minimum supportedOffsetDateTime, '-999999999-01-01T00:00:00+18:00'. This is 
+the local date-time of midnight at the start of the minimum date in the maximum 
+offset (larger offsets are earlier on the time-line). This combines 
+(|java.time.LocalDateTime|) and (|java.time.ZoneOffset|) . This could be used 
+by an application as a "far past" date-time. 
+
+
+
+*java.time.OffsetDateTime.adjustInto(Temporal)*
+
+public |java.time.temporal.Temporal| adjustInto(java.time.temporal.Temporal temporal)
+
+Adjusts the specified temporal object to have the same offset, date and time as 
+this object. 
+
+This returns a temporal object of the same observable type as the input with 
+the offset, date and time changed to be the same as this. 
+
+The adjustment is equivalent to using (|java.time.temporal.Temporal|) three 
+times, passing (|java.time.temporal.ChronoField|) , 
+(|java.time.temporal.ChronoField|) and (|java.time.temporal.ChronoField|) as 
+the fields. 
+
+In most cases, it is clearer to reverse the calling pattern by using 
+(|java.time.temporal.Temporal|) : 
+
+// these two lines are equivalent, but the second approach is recommended 
+temporal = thisOffsetDateTime.adjustInto(temporal); temporal = 
+temporal.with(thisOffsetDateTime); 
+
+This instance is immutable and unaffected by this method call. 
+
+
+    temporal - the target object to be adjusted, not null 
+
+    Returns: the adjusted object, not null 
+
+*java.time.OffsetDateTime.atZoneSameInstant(ZoneId)*
+
+public |java.time.ZonedDateTime| atZoneSameInstant(java.time.ZoneId zone)
+
+Combines this date-time with a time-zone to create aZonedDateTimeensuring that 
+the result has the same instant. 
+
+This returns aZonedDateTimeformed from this date-time and the specified 
+time-zone. This conversion will ignore the visible local date-time and use the 
+underlying instant instead. This avoids any problems with local time-line gaps 
+or overlaps. The result might have different values for fields such as hour, 
+minute an even day. 
+
+To attempt to retain the values of the fields, use (|java.time.OffsetDateTime|) 
+. To use the offset as the zone ID, use (|java.time.OffsetDateTime|) . 
+
+
+    zone - the time-zone to use, not null 
+
+    Returns: the zoned date-time formed from this date-time, not null 
+
+*java.time.OffsetDateTime.atZoneSimilarLocal(ZoneId)*
+
+public |java.time.ZonedDateTime| atZoneSimilarLocal(java.time.ZoneId zone)
+
+Combines this date-time with a time-zone to create aZonedDateTimetrying to keep 
+the same local date and time. 
+
+This returns aZonedDateTimeformed from this date-time and the specified 
+time-zone. Where possible, the result will have the same local date-time as 
+this object. 
+
+Time-zone rules, such as daylight savings, mean that not every time on the 
+local time-line exists. If the local date-time is in a gap or overlap according 
+to the rules then a resolver is used to determine the resultant local time and 
+offset. This method uses (|java.time.ZonedDateTime|) to retain the offset from 
+this instance if possible. 
+
+Finer control over gaps and overlaps is available in two ways. If you simply 
+want to use the later offset at overlaps then call (|java.time.ZonedDateTime|) 
+immediately after this method. 
+
+To create a zoned date-time at the same instant irrespective of the local 
+time-line, use (|java.time.OffsetDateTime|) . To use the offset as the zone ID, 
+use (|java.time.OffsetDateTime|) . 
+
+
+    zone - the time-zone to use, not null 
+
+    Returns: the zoned date-time formed from this date and the earliest valid time for the 
+             zone, not null 
+
+*java.time.OffsetDateTime.compareTo(OffsetDateTime)*
+
+public int compareTo(java.time.OffsetDateTime other)
+
+Compares thisOffsetDateTimeto another date-time. 
+
+The comparison is based on the instant then on the local date-time. It is 
+"consistent with equals", as defined by (|java.lang.Comparable|) . 
+
+For example, the following is the comparator order: 
+
+2008-12-03T10:30+01:00 2008-12-03T11:00+01:00 2008-12-03T12:00+02:00 
+2008-12-03T11:30+01:00 2008-12-03T12:00+01:00 2008-12-03T12:30+01:00 
+
+Values #2 and #3 represent the same instant on the time-line. When two values 
+represent the same instant, the local date-time is compared to distinguish 
+them. This step is needed to make the ordering consistent withequals(). 
+
+
+    other - the other date-time to compare to, not null 
+
+    Returns: the comparator value, negative if less, positive if greater 
+
+*java.time.OffsetDateTime.equals(Object)*
+
+public boolean equals(java.lang.Object obj)
+
+Checks if this date-time is equal to another date-time. 
+
+The comparison is based on the local date-time and the offset. To compare for 
+the same instant on the time-line, use (|java.time.OffsetDateTime|) . Only 
+objects of typeOffsetDateTimeare compared, other types return false. 
+
+
+    obj - the object to check, null returns false 
+
+    Returns: true if this is equal to the other date-time 
+
+*java.time.OffsetDateTime.format(DateTimeFormatter)*
+
+public |java.lang.String| format(java.time.format.DateTimeFormatter formatter)
+
+Formats this date-time using the specified formatter. 
+
+This date-time will be passed to the formatter to produce a string. 
+
+
+    formatter - the formatter to use, not null 
+
+    Returns: the formatted date-time string, not null 
+
+*java.time.OffsetDateTime.from(TemporalAccessor)*
+
+public static |java.time.OffsetDateTime| from(java.time.temporal.TemporalAccessor temporal)
+
+Obtains an instance ofOffsetDateTimefrom a temporal object. 
+
+This obtains an offset date-time based on the specified temporal. 
+ATemporalAccessorrepresents an arbitrary set of date and time information, 
+which this factory converts to an instance ofOffsetDateTime. 
+
+The conversion will first obtain aZoneOffsetfrom the temporal object. It will 
+then try to obtain aLocalDateTime, falling back to anInstantif necessary. The 
+result will be the combination ofZoneOffsetwith either 
+withLocalDateTimeorInstant. Implementations are permitted to perform 
+optimizations such as accessing those fields that are equivalent to the 
+relevant objects. 
+
+This method matches the signature of the functional interface 
+(|java.time.temporal.TemporalQuery|) allowing it to be used in queries via 
+method reference,OffsetDateTime::from. 
+
+
+    temporal - the temporal object to convert, not null 
+
+    Returns: the offset date-time, not null 
+
+*java.time.OffsetDateTime.get(TemporalField)*
+
+public int get(java.time.temporal.TemporalField field)
+
+Gets the value of the specified field from this date-time as anint. 
+
+This queries this date-time for the value for the specified field. The returned 
+value will always be within the valid range of values for the field. If it is 
+not possible to return the value, because the field is not supported or for 
+some other reason, an exception is thrown. 
+
+If the field is a (|java.time.temporal.ChronoField|) then the query is 
+implemented here. The supported fields(|java.time.OffsetDateTime|) will return 
+valid values based on this date-time, 
+exceptNANO_OF_DAY,MICRO_OF_DAY,EPOCH_DAY,PROLEPTIC_MONTHandINSTANT_SECONDSwhich 
+are too large to fit in anintand throw aDateTimeException. All 
+otherChronoFieldinstances will throw anUnsupportedTemporalTypeException. 
+
+If the field is not aChronoField, then the result of this method is obtained by 
+invokingTemporalField.getFrom(TemporalAccessor)passingthisas the argument. 
+Whether the value can be obtained, and what the value represents, is determined 
+by the field. 
+
+
+    field - the field to get, not null 
+
+    Returns: the value for the field 
+
+*java.time.OffsetDateTime.getDayOfMonth()*
+
+public int getDayOfMonth()
+
+Gets the day-of-month field. 
+
+This method returns the primitiveintvalue for the day-of-month. 
+
+
+
+    Returns: the day-of-month, from 1 to 31 
+
+*java.time.OffsetDateTime.getDayOfWeek()*
+
+public |java.time.DayOfWeek| getDayOfWeek()
+
+Gets the day-of-week field, which is an enumDayOfWeek. 
+
+This method returns the enum (|java.time.DayOfWeek|) for the day-of-week. This 
+avoids confusion as to whatintvalues mean. If you need access to the 
+primitiveintvalue then the enum provides the int value(|java.time.DayOfWeek|) . 
+
+Additional information can be obtained from theDayOfWeek. This includes textual 
+names of the values. 
+
+
+
+    Returns: the day-of-week, not null 
+
+*java.time.OffsetDateTime.getDayOfYear()*
+
+public int getDayOfYear()
+
+Gets the day-of-year field. 
+
+This method returns the primitiveintvalue for the day-of-year. 
+
+
+
+    Returns: the day-of-year, from 1 to 365, or 366 in a leap year 
+
+*java.time.OffsetDateTime.getHour()*
+
+public int getHour()
+
+Gets the hour-of-day field. 
+
+
+
+    Returns: the hour-of-day, from 0 to 23 
+
+*java.time.OffsetDateTime.getLong(TemporalField)*
+
+public long getLong(java.time.temporal.TemporalField field)
+
+Gets the value of the specified field from this date-time as along. 
+
+This queries this date-time for the value for the specified field. If it is not 
+possible to return the value, because the field is not supported or for some 
+other reason, an exception is thrown. 
+
+If the field is a (|java.time.temporal.ChronoField|) then the query is 
+implemented here. The supported fields(|java.time.OffsetDateTime|) will return 
+valid values based on this date-time. All otherChronoFieldinstances will throw 
+anUnsupportedTemporalTypeException. 
+
+If the field is not aChronoField, then the result of this method is obtained by 
+invokingTemporalField.getFrom(TemporalAccessor)passingthisas the argument. 
+Whether the value can be obtained, and what the value represents, is determined 
+by the field. 
+
+
+    field - the field to get, not null 
+
+    Returns: the value for the field 
+
+*java.time.OffsetDateTime.getMinute()*
+
+public int getMinute()
+
+Gets the minute-of-hour field. 
+
+
+
+    Returns: the minute-of-hour, from 0 to 59 
+
+*java.time.OffsetDateTime.getMonth()*
+
+public |java.time.Month| getMonth()
+
+Gets the month-of-year field using theMonthenum. 
+
+This method returns the enum (|java.time.Month|) for the month. This avoids 
+confusion as to whatintvalues mean. If you need access to the primitiveintvalue 
+then the enum provides the int value(|java.time.Month|) . 
+
+
+
+    Returns: the month-of-year, not null 
+
+*java.time.OffsetDateTime.getMonthValue()*
+
+public int getMonthValue()
+
+Gets the month-of-year field from 1 to 12. 
+
+This method returns the month as anintfrom 1 to 12. Application code is 
+frequently clearer if the enum (|java.time.Month|) is used by calling 
+(|java.time.OffsetDateTime|) . 
+
+
+
+    Returns: the month-of-year, from 1 to 12 
+
+*java.time.OffsetDateTime.getNano()*
+
+public int getNano()
+
+Gets the nano-of-second field. 
+
+
+
+    Returns: the nano-of-second, from 0 to 999,999,999 
+
+*java.time.OffsetDateTime.getOffset()*
+
+public |java.time.ZoneOffset| getOffset()
+
+Gets the zone offset, such as '+01:00'. 
+
+This is the offset of the local date-time from UTC/Greenwich. 
+
+
+
+    Returns: the zone offset, not null 
+
+*java.time.OffsetDateTime.getSecond()*
+
+public int getSecond()
+
+Gets the second-of-minute field. 
+
+
+
+    Returns: the second-of-minute, from 0 to 59 
+
+*java.time.OffsetDateTime.getYear()*
+
+public int getYear()
+
+Gets the year field. 
+
+This method returns the primitiveintvalue for the year. 
+
+The year returned by this method is proleptic as perget(YEAR). To obtain the 
+year-of-era, useget(YEAR_OF_ERA). 
+
+
+
+    Returns: the year, from MIN_YEAR to MAX_YEAR 
+
+*java.time.OffsetDateTime.hashCode()*
+
+public int hashCode()
+
+A hash code for this date-time. 
+
+
+
+    Returns: a suitable hash code 
+
+*java.time.OffsetDateTime.isAfter(OffsetDateTime)*
+
+public boolean isAfter(java.time.OffsetDateTime other)
+
+Checks if the instant of this date-time is after that of the specified 
+date-time. 
+
+This method differs from the comparison in (|java.time.OffsetDateTime|) and 
+(|java.time.OffsetDateTime|) in that it only compares the instant of the 
+date-time. This is equivalent to 
+usingdateTime1.toInstant().isAfter(dateTime2.toInstant());. 
+
+
+    other - the other date-time to compare to, not null 
+
+    Returns: true if this is after the instant of the specified date-time 
+
+*java.time.OffsetDateTime.isBefore(OffsetDateTime)*
+
+public boolean isBefore(java.time.OffsetDateTime other)
+
+Checks if the instant of this date-time is before that of the specified 
+date-time. 
+
+This method differs from the comparison in (|java.time.OffsetDateTime|) in that 
+it only compares the instant of the date-time. This is equivalent to 
+usingdateTime1.toInstant().isBefore(dateTime2.toInstant());. 
+
+
+    other - the other date-time to compare to, not null 
+
+    Returns: true if this is before the instant of the specified date-time 
+
+*java.time.OffsetDateTime.isEqual(OffsetDateTime)*
+
+public boolean isEqual(java.time.OffsetDateTime other)
+
+Checks if the instant of this date-time is equal to that of the specified 
+date-time. 
+
+This method differs from the comparison in (|java.time.OffsetDateTime|) and 
+(|java.time.OffsetDateTime|) in that it only compares the instant of the 
+date-time. This is equivalent to 
+usingdateTime1.toInstant().equals(dateTime2.toInstant());. 
+
+
+    other - the other date-time to compare to, not null 
+
+    Returns: true if the instant equals the instant of the specified date-time 
+
+*java.time.OffsetDateTime.isSupported(TemporalField)*
+
+public boolean isSupported(java.time.temporal.TemporalField field)
+
+Checks if the specified field is supported. 
+
+This checks if this date-time can be queried for the specified field. If false, 
+then calling the range(|java.time.OffsetDateTime|) , 
+get(|java.time.OffsetDateTime|) and (|java.time.OffsetDateTime|) methods will 
+throw an exception. 
+
+If the field is a (|java.time.temporal.ChronoField|) then the query is 
+implemented here. The supported fields are: 
+
+NANO_OF_SECONDNANO_OF_DAYMICRO_OF_SECONDMICRO_OF_DAYMILLI_OF_SECONDMILLI_OF_DAYSECOND_OF_MINUTESECOND_OF_DAYMINUTE_OF_HOURMINUTE_OF_DAYHOUR_OF_AMPMCLOCK_HOUR_OF_AMPMHOUR_OF_DAYCLOCK_HOUR_OF_DAYAMPM_OF_DAYDAY_OF_WEEKALIGNED_DAY_OF_WEEK_IN_MONTHALIGNED_DAY_OF_WEEK_IN_YEARDAY_OF_MONTHDAY_OF_YEAREPOCH_DAYALIGNED_WEEK_OF_MONTHALIGNED_WEEK_OF_YEARMONTH_OF_YEARPROLEPTIC_MONTHYEAR_OF_ERAYEARERAINSTANT_SECONDSOFFSET_SECONDS
+All otherChronoFieldinstances will return false. 
+
+If the field is not aChronoField, then the result of this method is obtained by 
+invokingTemporalField.isSupportedBy(TemporalAccessor)passingthisas the 
+argument. Whether the field is supported is determined by the field. 
+
+
+    field - the field to check, null returns false 
+
+    Returns: true if the field is supported on this date-time, false if not 
+
+*java.time.OffsetDateTime.isSupported(TemporalUnit)*
+
+public boolean isSupported(java.time.temporal.TemporalUnit unit)
+
+Checks if the specified unit is supported. 
+
+This checks if the specified unit can be added to, or subtracted from, this 
+date-time. If false, then calling the (|java.time.OffsetDateTime|) and 
+minus(|java.time.OffsetDateTime|) methods will throw an exception. 
+
+If the unit is a (|java.time.temporal.ChronoUnit|) then the query is 
+implemented here. The supported units are: 
+
+NANOSMICROSMILLISSECONDSMINUTESHOURSHALF_DAYSDAYSWEEKSMONTHSYEARSDECADESCENTURIESMILLENNIAERAS
+All otherChronoUnitinstances will return false. 
+
+If the unit is not aChronoUnit, then the result of this method is obtained by 
+invokingTemporalUnit.isSupportedBy(Temporal)passingthisas the argument. Whether 
+the unit is supported is determined by the unit. 
+
+
+    unit - the unit to check, null returns false 
+
+    Returns: true if the unit can be added/subtracted, false if not 
+
+*java.time.OffsetDateTime.minus(long,TemporalUnit)*
+
+public |java.time.OffsetDateTime| minus(
+  long amountToSubtract,
+  java.time.temporal.TemporalUnit unit)
+
+Returns a copy of this date-time with the specified amount subtracted. 
+
+This returns anOffsetDateTime, based on this one, with the amount in terms of 
+the unit subtracted. If it is not possible to subtract the amount, because the 
+unit is not supported or for some other reason, an exception is thrown. 
+
+This method is equivalent to (|java.time.OffsetDateTime|) with the amount 
+negated. See that method for a full description of how addition, and thus 
+subtraction, works. 
+
+This instance is immutable and unaffected by this method call. 
+
+
+    amountToSubtract - the amount of the unit to subtract from the result, may be negative 
+    unit - the unit of the amount to subtract, not null 
+
+    Returns: an {@code OffsetDateTime} based on this date-time with the specified amount 
+             subtracted, not null 
+
+*java.time.OffsetDateTime.minus(TemporalAmount)*
+
+public |java.time.OffsetDateTime| minus(java.time.temporal.TemporalAmount amountToSubtract)
+
+Returns a copy of this date-time with the specified amount subtracted. 
+
+This returns anOffsetDateTime, based on this one, with the specified amount 
+subtracted. The amount is typically (|java.time.Period|) or 
+(|java.time.Duration|) but may be any other type implementing the 
+(|java.time.temporal.TemporalAmount|) interface. 
+
+The calculation is delegated to the amount object by calling 
+(|java.time.temporal.TemporalAmount|) . The amount implementation is free to 
+implement the subtraction in any way it wishes, however it typically calls back 
+to (|java.time.OffsetDateTime|) . Consult the documentation of the amount 
+implementation to determine if it can be successfully subtracted. 
+
+This instance is immutable and unaffected by this method call. 
+
+
+    amountToSubtract - the amount to subtract, not null 
+
+    Returns: an {@code OffsetDateTime} based on this date-time with the subtraction made, 
+             not null 
+
+*java.time.OffsetDateTime.minusDays(long)*
+
+public |java.time.OffsetDateTime| minusDays(long days)
+
+Returns a copy of thisOffsetDateTimewith the specified period in days 
+subtracted. 
+
+This method subtracts the specified amount from the days field incrementing the 
+month and year fields as necessary to ensure the result remains valid. The 
+result is only invalid if the maximum/minimum year is exceeded. 
+
+For example, 2008-12-31 minus one day would result in the 2009-01-01. 
+
+This instance is immutable and unaffected by this method call. 
+
+
+    days - the days to subtract, may be negative 
+
+    Returns: an {@code OffsetDateTime} based on this date-time with the days subtracted, not 
+             null 
+
+*java.time.OffsetDateTime.minusHours(long)*
+
+public |java.time.OffsetDateTime| minusHours(long hours)
+
+Returns a copy of thisOffsetDateTimewith the specified period in hours 
+subtracted. 
+
+This instance is immutable and unaffected by this method call. 
+
+
+    hours - the hours to subtract, may be negative 
+
+    Returns: an {@code OffsetDateTime} based on this date-time with the hours subtracted, 
+             not null 
+
+*java.time.OffsetDateTime.minusMinutes(long)*
+
+public |java.time.OffsetDateTime| minusMinutes(long minutes)
+
+Returns a copy of thisOffsetDateTimewith the specified period in minutes 
+subtracted. 
+
+This instance is immutable and unaffected by this method call. 
+
+
+    minutes - the minutes to subtract, may be negative 
+
+    Returns: an {@code OffsetDateTime} based on this date-time with the minutes subtracted, 
+             not null 
+
+*java.time.OffsetDateTime.minusMonths(long)*
+
+public |java.time.OffsetDateTime| minusMonths(long months)
+
+Returns a copy of thisOffsetDateTimewith the specified period in months 
+subtracted. 
+
+This method subtracts the specified amount from the months field in three 
+steps: 
+
+Subtract the input months to the month-of-year field Check if the resulting 
+date would be invalid Adjust the day-of-month to the last valid day if 
+necessary 
+
+For example, 2007-03-31 minus one month would result in the invalid date 
+2007-04-31. Instead of returning an invalid result, the last valid day of the 
+month, 2007-04-30, is selected instead. 
+
+This instance is immutable and unaffected by this method call. 
+
+
+    months - the months to subtract, may be negative 
+
+    Returns: an {@code OffsetDateTime} based on this date-time with the months subtracted, 
+             not null 
+
+*java.time.OffsetDateTime.minusNanos(long)*
+
+public |java.time.OffsetDateTime| minusNanos(long nanos)
+
+Returns a copy of thisOffsetDateTimewith the specified period in nanoseconds 
+subtracted. 
+
+This instance is immutable and unaffected by this method call. 
+
+
+    nanos - the nanos to subtract, may be negative 
+
+    Returns: an {@code OffsetDateTime} based on this date-time with the nanoseconds 
+             subtracted, not null 
+
+*java.time.OffsetDateTime.minusSeconds(long)*
+
+public |java.time.OffsetDateTime| minusSeconds(long seconds)
+
+Returns a copy of thisOffsetDateTimewith the specified period in seconds 
+subtracted. 
+
+This instance is immutable and unaffected by this method call. 
+
+
+    seconds - the seconds to subtract, may be negative 
+
+    Returns: an {@code OffsetDateTime} based on this date-time with the seconds subtracted, 
+             not null 
+
+*java.time.OffsetDateTime.minusWeeks(long)*
+
+public |java.time.OffsetDateTime| minusWeeks(long weeks)
+
+Returns a copy of thisOffsetDateTimewith the specified period in weeks 
+subtracted. 
+
+This method subtracts the specified amount in weeks from the days field 
+decrementing the month and year fields as necessary to ensure the result 
+remains valid. The result is only invalid if the maximum/minimum year is 
+exceeded. 
+
+For example, 2008-12-31 minus one week would result in the 2009-01-07. 
+
+This instance is immutable and unaffected by this method call. 
+
+
+    weeks - the weeks to subtract, may be negative 
+
+    Returns: an {@code OffsetDateTime} based on this date-time with the weeks subtracted, 
+             not null 
+
+*java.time.OffsetDateTime.minusYears(long)*
+
+public |java.time.OffsetDateTime| minusYears(long years)
+
+Returns a copy of thisOffsetDateTimewith the specified period in years 
+subtracted. 
+
+This method subtracts the specified amount from the years field in three steps: 
+
+Subtract the input years to the year field Check if the resulting date would be 
+invalid Adjust the day-of-month to the last valid day if necessary 
+
+For example, 2008-02-29 (leap year) minus one year would result in the invalid 
+date 2009-02-29 (standard year). Instead of returning an invalid result, the 
+last valid day of the month, 2009-02-28, is selected instead. 
+
+This instance is immutable and unaffected by this method call. 
+
+
+    years - the years to subtract, may be negative 
+
+    Returns: an {@code OffsetDateTime} based on this date-time with the years subtracted, 
+             not null 
+
+*java.time.OffsetDateTime.now()*
+
+public static |java.time.OffsetDateTime| now()
+
+Obtains the current date-time from the system clock in the default time-zone. 
+
+This will query the system clock(|java.time.Clock|) in the default time-zone to 
+obtain the current date-time. The offset will be calculated from the time-zone 
+in the clock. 
+
+Using this method will prevent the ability to use an alternate clock for 
+testing because the clock is hard-coded. 
+
+
+
+    Returns: the current date-time using the system clock, not null 
+
+*java.time.OffsetDateTime.now(Clock)*
+
+public static |java.time.OffsetDateTime| now(java.time.Clock clock)
+
+Obtains the current date-time from the specified clock. 
+
+This will query the specified clock to obtain the current date-time. The offset 
+will be calculated from the time-zone in the clock. 
+
+Using this method allows the use of an alternate clock for testing. The 
+alternate clock may be introduced using dependency injection(|java.time.Clock|) 
+. 
+
+
+    clock - the clock to use, not null 
+
+    Returns: the current date-time, not null 
+
+*java.time.OffsetDateTime.now(ZoneId)*
+
+public static |java.time.OffsetDateTime| now(java.time.ZoneId zone)
+
+Obtains the current date-time from the system clock in the specified time-zone. 
+
+This will query the system clock(|java.time.Clock|) to obtain the current 
+date-time. Specifying the time-zone avoids dependence on the default time-zone. 
+The offset will be calculated from the specified time-zone. 
+
+Using this method will prevent the ability to use an alternate clock for 
+testing because the clock is hard-coded. 
+
+
+    zone - the zone ID to use, not null 
+
+    Returns: the current date-time using the system clock, not null 
+
+*java.time.OffsetDateTime.of(int,int,int,int,int,int,int,ZoneOffset)*
+
+public static |java.time.OffsetDateTime| of(
+  int year,
+  int month,
+  int dayOfMonth,
+  int hour,
+  int minute,
+  int second,
+  int nanoOfSecond,
+  java.time.ZoneOffset offset)
+
+Obtains an instance ofOffsetDateTimefrom a year, month, day, hour, minute, 
+second, nanosecond and offset. 
+
+This creates an offset date-time with the seven specified fields. 
+
+This method exists primarily for writing test cases. Non test-code will 
+typically use other methods to create an offset time.LocalDateTimehas five 
+additional convenience variants of the equivalent factory method taking fewer 
+arguments. They are not provided here to reduce the footprint of the API. 
+
+
+    year - the year to represent, from MIN_YEAR to MAX_YEAR 
+    month - the month-of-year to represent, from 1 (January) to 12 (December) 
+    dayOfMonth - the day-of-month to represent, from 1 to 31 
+    hour - the hour-of-day to represent, from 0 to 23 
+    minute - the minute-of-hour to represent, from 0 to 59 
+    second - the second-of-minute to represent, from 0 to 59 
+    nanoOfSecond - the nano-of-second to represent, from 0 to 999,999,999 
+    offset - the zone offset, not null 
+
+    Returns: the offset date-time, not null 
+
+*java.time.OffsetDateTime.of(LocalDate,LocalTime,ZoneOffset)*
+
+public static |java.time.OffsetDateTime| of(
+  java.time.LocalDate date,
+  java.time.LocalTime time,
+  java.time.ZoneOffset offset)
+
+Obtains an instance ofOffsetDateTimefrom a date, time and offset. 
+
+This creates an offset date-time with the specified local date, time and 
+offset. 
+
+
+    date - the local date, not null 
+    time - the local time, not null 
+    offset - the zone offset, not null 
+
+    Returns: the offset date-time, not null 
+
+*java.time.OffsetDateTime.of(LocalDateTime,ZoneOffset)*
+
+public static |java.time.OffsetDateTime| of(
+  java.time.LocalDateTime dateTime,
+  java.time.ZoneOffset offset)
+
+Obtains an instance ofOffsetDateTimefrom a date-time and offset. 
+
+This creates an offset date-time with the specified local date-time and offset. 
+
+
+    dateTime - the local date-time, not null 
+    offset - the zone offset, not null 
+
+    Returns: the offset date-time, not null 
+
+*java.time.OffsetDateTime.ofInstant(Instant,ZoneId)*
+
+public static |java.time.OffsetDateTime| ofInstant(
+  java.time.Instant instant,
+  java.time.ZoneId zone)
+
+Obtains an instance ofOffsetDateTimefrom anInstantand zone ID. 
+
+This creates an offset date-time with the same instant as that specified. 
+Finding the offset from UTC/Greenwich is simple as there is only one valid 
+offset for each instant. 
+
+
+    instant - the instant to create the date-time from, not null 
+    zone - the time-zone, which may be an offset, not null 
+
+    Returns: the offset date-time, not null 
+
+*java.time.OffsetDateTime.parse(CharSequence)*
+
+public static |java.time.OffsetDateTime| parse(java.lang.CharSequence text)
+
+Obtains an instance ofOffsetDateTimefrom a text string such 
+as2007-12-03T10:15:30+01:00. 
+
+The string must represent a valid date-time and is parsed using 
+(|java.time.format.DateTimeFormatter|) . 
+
+
+    text - the text to parse such as "2007-12-03T10:15:30+01:00", not null 
+
+    Returns: the parsed offset date-time, not null 
+
+*java.time.OffsetDateTime.parse(CharSequence,DateTimeFormatter)*
+
+public static |java.time.OffsetDateTime| parse(
+  java.lang.CharSequence text,
+  java.time.format.DateTimeFormatter formatter)
+
+Obtains an instance ofOffsetDateTimefrom a text string using a specific 
+formatter. 
+
+The text is parsed using the formatter, returning a date-time. 
+
+
+    text - the text to parse, not null 
+    formatter - the formatter to use, not null 
+
+    Returns: the parsed offset date-time, not null 
+
+*java.time.OffsetDateTime.plus(long,TemporalUnit)*
+
+public |java.time.OffsetDateTime| plus(
+  long amountToAdd,
+  java.time.temporal.TemporalUnit unit)
+
+Returns a copy of this date-time with the specified amount added. 
+
+This returns anOffsetDateTime, based on this one, with the amount in terms of 
+the unit added. If it is not possible to add the amount, because the unit is 
+not supported or for some other reason, an exception is thrown. 
+
+If the field is a (|java.time.temporal.ChronoUnit|) then the addition is 
+implemented by (|java.time.LocalDateTime|) . The offset is not part of the 
+calculation and will be unchanged in the result. 
+
+If the field is not aChronoUnit, then the result of this method is obtained by 
+invokingTemporalUnit.addTo(Temporal, long)passingthisas the argument. In this 
+case, the unit determines whether and how to perform the addition. 
+
+This instance is immutable and unaffected by this method call. 
+
+
+    amountToAdd - the amount of the unit to add to the result, may be negative 
+    unit - the unit of the amount to add, not null 
+
+    Returns: an {@code OffsetDateTime} based on this date-time with the specified amount 
+             added, not null 
+
+*java.time.OffsetDateTime.plus(TemporalAmount)*
+
+public |java.time.OffsetDateTime| plus(java.time.temporal.TemporalAmount amountToAdd)
+
+Returns a copy of this date-time with the specified amount added. 
+
+This returns anOffsetDateTime, based on this one, with the specified amount 
+added. The amount is typically (|java.time.Period|) or (|java.time.Duration|) 
+but may be any other type implementing the 
+(|java.time.temporal.TemporalAmount|) interface. 
+
+The calculation is delegated to the amount object by calling 
+(|java.time.temporal.TemporalAmount|) . The amount implementation is free to 
+implement the addition in any way it wishes, however it typically calls back to 
+(|java.time.OffsetDateTime|) . Consult the documentation of the amount 
+implementation to determine if it can be successfully added. 
+
+This instance is immutable and unaffected by this method call. 
+
+
+    amountToAdd - the amount to add, not null 
+
+    Returns: an {@code OffsetDateTime} based on this date-time with the addition made, not 
+             null 
+
+*java.time.OffsetDateTime.plusDays(long)*
+
+public |java.time.OffsetDateTime| plusDays(long days)
+
+Returns a copy of this OffsetDateTime with the specified period in days added. 
+
+This method adds the specified amount to the days field incrementing the month 
+and year fields as necessary to ensure the result remains valid. The result is 
+only invalid if the maximum/minimum year is exceeded. 
+
+For example, 2008-12-31 plus one day would result in the 2009-01-01. 
+
+This instance is immutable and unaffected by this method call. 
+
+
+    days - the days to add, may be negative 
+
+    Returns: an {@code OffsetDateTime} based on this date-time with the days added, not null 
+
+*java.time.OffsetDateTime.plusHours(long)*
+
+public |java.time.OffsetDateTime| plusHours(long hours)
+
+Returns a copy of thisOffsetDateTimewith the specified period in hours added. 
+
+This instance is immutable and unaffected by this method call. 
+
+
+    hours - the hours to add, may be negative 
+
+    Returns: an {@code OffsetDateTime} based on this date-time with the hours added, not 
+             null 
+
+*java.time.OffsetDateTime.plusMinutes(long)*
+
+public |java.time.OffsetDateTime| plusMinutes(long minutes)
+
+Returns a copy of thisOffsetDateTimewith the specified period in minutes added. 
+
+This instance is immutable and unaffected by this method call. 
+
+
+    minutes - the minutes to add, may be negative 
+
+    Returns: an {@code OffsetDateTime} based on this date-time with the minutes added, not 
+             null 
+
+*java.time.OffsetDateTime.plusMonths(long)*
+
+public |java.time.OffsetDateTime| plusMonths(long months)
+
+Returns a copy of thisOffsetDateTimewith the specified period in months added. 
+
+This method adds the specified amount to the months field in three steps: 
+
+Add the input months to the month-of-year field Check if the resulting date 
+would be invalid Adjust the day-of-month to the last valid day if necessary 
+
+For example, 2007-03-31 plus one month would result in the invalid date 
+2007-04-31. Instead of returning an invalid result, the last valid day of the 
+month, 2007-04-30, is selected instead. 
+
+This instance is immutable and unaffected by this method call. 
+
+
+    months - the months to add, may be negative 
+
+    Returns: an {@code OffsetDateTime} based on this date-time with the months added, not 
+             null 
+
+*java.time.OffsetDateTime.plusNanos(long)*
+
+public |java.time.OffsetDateTime| plusNanos(long nanos)
+
+Returns a copy of thisOffsetDateTimewith the specified period in nanoseconds 
+added. 
+
+This instance is immutable and unaffected by this method call. 
+
+
+    nanos - the nanos to add, may be negative 
+
+    Returns: an {@code OffsetDateTime} based on this date-time with the nanoseconds added, 
+             not null 
+
+*java.time.OffsetDateTime.plusSeconds(long)*
+
+public |java.time.OffsetDateTime| plusSeconds(long seconds)
+
+Returns a copy of thisOffsetDateTimewith the specified period in seconds added. 
+
+This instance is immutable and unaffected by this method call. 
+
+
+    seconds - the seconds to add, may be negative 
+
+    Returns: an {@code OffsetDateTime} based on this date-time with the seconds added, not 
+             null 
+
+*java.time.OffsetDateTime.plusWeeks(long)*
+
+public |java.time.OffsetDateTime| plusWeeks(long weeks)
+
+Returns a copy of this OffsetDateTime with the specified period in weeks added. 
+
+This method adds the specified amount in weeks to the days field incrementing 
+the month and year fields as necessary to ensure the result remains valid. The 
+result is only invalid if the maximum/minimum year is exceeded. 
+
+For example, 2008-12-31 plus one week would result in the 2009-01-07. 
+
+This instance is immutable and unaffected by this method call. 
+
+
+    weeks - the weeks to add, may be negative 
+
+    Returns: an {@code OffsetDateTime} based on this date-time with the weeks added, not 
+             null 
+
+*java.time.OffsetDateTime.plusYears(long)*
+
+public |java.time.OffsetDateTime| plusYears(long years)
+
+Returns a copy of thisOffsetDateTimewith the specified period in years added. 
+
+This method adds the specified amount to the years field in three steps: 
+
+Add the input years to the year field Check if the resulting date would be 
+invalid Adjust the day-of-month to the last valid day if necessary 
+
+For example, 2008-02-29 (leap year) plus one year would result in the invalid 
+date 2009-02-29 (standard year). Instead of returning an invalid result, the 
+last valid day of the month, 2009-02-28, is selected instead. 
+
+This instance is immutable and unaffected by this method call. 
+
+
+    years - the years to add, may be negative 
+
+    Returns: an {@code OffsetDateTime} based on this date-time with the years added, not 
+             null 
+
+*java.time.OffsetDateTime.query(TemporalQuery<R>)*
+
+public |R| query(java.time.temporal.TemporalQuery<R> query)
+
+Queries this date-time using the specified query. 
+
+This queries this date-time using the specified query strategy object. 
+TheTemporalQueryobject defines the logic to be used to obtain the result. Read 
+the documentation of the query to understand what the result of this method 
+will be. 
+
+The result of this method is obtained by invoking the 
+(|java.time.temporal.TemporalQuery|) method on the specified query 
+passingthisas the argument. 
+
+
+    query - the query to invoke, not null 
+
+    Returns: the query result, null may be returned (defined by the query) 
+
+*java.time.OffsetDateTime.range(TemporalField)*
+
+public |java.time.temporal.ValueRange| range(java.time.temporal.TemporalField field)
+
+Gets the range of valid values for the specified field. 
+
+The range object expresses the minimum and maximum valid values for a field. 
+This date-time is used to enhance the accuracy of the returned range. If it is 
+not possible to return the range, because the field is not supported or for 
+some other reason, an exception is thrown. 
+
+If the field is a (|java.time.temporal.ChronoField|) then the query is 
+implemented here. The supported fields(|java.time.OffsetDateTime|) will return 
+appropriate range instances. All otherChronoFieldinstances will throw 
+anUnsupportedTemporalTypeException. 
+
+If the field is not aChronoField, then the result of this method is obtained by 
+invokingTemporalField.rangeRefinedBy(TemporalAccessor)passingthisas the 
+argument. Whether the range can be obtained is determined by the field. 
+
+
+    field - the field to query the range for, not null 
+
+    Returns: the range of valid values for the field, not null 
+
+*java.time.OffsetDateTime.timeLineOrder()*
+
+public static |java.util.Comparator|<OffsetDateTime> timeLineOrder()
+
+Gets a comparator that compares twoOffsetDateTimeinstances based solely on the 
+instant. 
+
+This method differs from the comparison in (|java.time.OffsetDateTime|) in that 
+it only compares the underlying instant. 
+
+
+
+    Returns: a comparator that compares in time-line order 
+
+*java.time.OffsetDateTime.toEpochSecond()*
+
+public long toEpochSecond()
+
+Converts this date-time to the number of seconds from the epoch of 
+1970-01-01T00:00:00Z. 
+
+This allows this date-time to be converted to a value of the 
+epoch-seconds(|java.time.temporal.ChronoField|) field. This is primarily 
+intended for low-level conversions rather than general application usage. 
+
+
+
+    Returns: the number of seconds from the epoch of 1970-01-01T00:00:00Z 
+
+*java.time.OffsetDateTime.toInstant()*
+
+public |java.time.Instant| toInstant()
+
+Converts this date-time to anInstant. 
+
+This returns anInstantrepresenting the same point on the time-line as this 
+date-time. 
+
+
+
+    Returns: an {@code Instant} representing the same instant, not null 
+
+*java.time.OffsetDateTime.toLocalDate()*
+
+public |java.time.LocalDate| toLocalDate()
+
+Gets theLocalDatepart of this date-time. 
+
+This returns aLocalDatewith the same year, month and day as this date-time. 
+
+
+
+    Returns: the date part of this date-time, not null 
+
+*java.time.OffsetDateTime.toLocalDateTime()*
+
+public |java.time.LocalDateTime| toLocalDateTime()
+
+Gets theLocalDateTimepart of this offset date-time. 
+
+This returns aLocalDateTimewith the same year, month, day and time as this 
+date-time. 
+
+
+
+    Returns: the local date-time part of this date-time, not null 
+
+*java.time.OffsetDateTime.toLocalTime()*
+
+public |java.time.LocalTime| toLocalTime()
+
+Gets theLocalTimepart of this date-time. 
+
+This returns aLocalTimewith the same hour, minute, second and nanosecond as 
+this date-time. 
+
+
+
+    Returns: the time part of this date-time, not null 
+
+*java.time.OffsetDateTime.toOffsetTime()*
+
+public |java.time.OffsetTime| toOffsetTime()
+
+Converts this date-time to anOffsetTime. 
+
+This returns an offset time with the same local time and offset. 
+
+
+
+    Returns: an OffsetTime representing the time and offset, not null 
+
+*java.time.OffsetDateTime.toString()*
+
+public |java.lang.String| toString()
+
+Outputs this date-time as aString, such as2007-12-03T10:15:30+01:00. 
+
+The output will be one of the following ISO-8601 formats: 
+
+uuuu-MM-dd'T'HH:mmXXXXX uuuu-MM-dd'T'HH:mm:ssXXXXX 
+uuuu-MM-dd'T'HH:mm:ss.SSSXXXXX uuuu-MM-dd'T'HH:mm:ss.SSSSSSXXXXX 
+uuuu-MM-dd'T'HH:mm:ss.SSSSSSSSSXXXXX 
+
+The format used will be the shortest that outputs the full value of the time 
+where the omitted parts are implied to be zero. 
+
+
+
+    Returns: a string representation of this date-time, not null 
+
+*java.time.OffsetDateTime.toZonedDateTime()*
+
+public |java.time.ZonedDateTime| toZonedDateTime()
+
+Converts this date-time to aZonedDateTimeusing the offset as the zone ID. 
+
+This creates the simplest possibleZonedDateTimeusing the offset as the zone ID. 
+
+To control the time-zone used, see (|java.time.OffsetDateTime|) and 
+(|java.time.OffsetDateTime|) . 
+
+
+
+    Returns: a zoned date-time representing the same local date-time and offset, not null 
+
+*java.time.OffsetDateTime.truncatedTo(TemporalUnit)*
+
+public |java.time.OffsetDateTime| truncatedTo(java.time.temporal.TemporalUnit unit)
+
+Returns a copy of thisOffsetDateTimewith the time truncated. 
+
+Truncation returns a copy of the original date-time with fields smaller than 
+the specified unit set to zero. For example, truncating with the 
+minutes(|java.time.temporal.ChronoUnit|) unit will set the second-of-minute and 
+nano-of-second field to zero. 
+
+The unit must have a duration(|java.time.temporal.TemporalUnit|) that divides 
+into the length of a standard day without remainder. This includes all supplied 
+time units on (|java.time.temporal.ChronoUnit|) and 
+DAYS(|java.time.temporal.ChronoUnit|) . Other units throw an exception. 
+
+The offset does not affect the calculation and will be the same in the result. 
+
+This instance is immutable and unaffected by this method call. 
+
+
+    unit - the unit to truncate to, not null 
+
+    Returns: an {@code OffsetDateTime} based on this date-time with the time truncated, not 
+             null 
+
+*java.time.OffsetDateTime.until(Temporal,TemporalUnit)*
+
+public long until(
+  java.time.temporal.Temporal endExclusive,
+  java.time.temporal.TemporalUnit unit)
+
+Calculates the amount of time until another date-time in terms of the specified 
+unit. 
+
+This calculates the amount of time between twoOffsetDateTimeobjects in terms of 
+a singleTemporalUnit. The start and end points arethisand the specified 
+date-time. The result will be negative if the end is before the start. For 
+example, the period in days between two date-times can be calculated 
+usingstartDateTime.until(endDateTime, DAYS). 
+
+TheTemporalpassed to this method is converted to aOffsetDateTimeusing 
+(|java.time.OffsetDateTime|) . If the offset differs between the two 
+date-times, the specified end date-time is normalized to have the same offset 
+as this date-time. 
+
+The calculation returns a whole number, representing the number of complete 
+units between the two date-times. For example, the period in months between 
+2012-06-15T00:00Z and 2012-08-14T23:59Z will only be one month as it is one 
+minute short of two months. 
+
+There are two equivalent ways of using this method. The first is to invoke this 
+method. The second is to use (|java.time.temporal.TemporalUnit|) : 
+
+// these two lines are equivalent amount = start.until(end, MONTHS); amount = 
+MONTHS.between(start, end); 
+
+The choice should be made based on which makes the code more readable. 
+
+The calculation is implemented in this method for 
+(|java.time.temporal.ChronoUnit|) . The 
+unitsNANOS,MICROS,MILLIS,SECONDS,MINUTES,HOURSandHALF_DAYS,DAYS,WEEKS,MONTHS,YEARS,DECADES,CENTURIES,MILLENNIAandERASare
+supported. OtherChronoUnitvalues will throw an exception. 
+
+If the unit is not aChronoUnit, then the result of this method is obtained by 
+invokingTemporalUnit.between(Temporal, Temporal)passingthisas the first 
+argument and the converted input temporal as the second argument. 
+
+This instance is immutable and unaffected by this method call. 
+
+
+    endExclusive - the end date, exclusive, which is converted to an {@code OffsetDateTime}, not 
+       null 
+    unit - the unit to measure the amount in, not null 
+
+    Returns: the amount of time between this date-time and the end date-time 
+
+*java.time.OffsetDateTime.with(TemporalAdjuster)*
+
+public |java.time.OffsetDateTime| with(java.time.temporal.TemporalAdjuster adjuster)
+
+Returns an adjusted copy of this date-time. 
+
+This returns anOffsetDateTime, based on this one, with the date-time adjusted. 
+The adjustment takes place using the specified adjuster strategy object. Read 
+the documentation of the adjuster to understand what adjustment will be made. 
+
+A simple adjuster might simply set the one of the fields, such as the year 
+field. A more complex adjuster might set the date to the last day of the month. 
+A selection of common adjustments is provided in 
+(|java.time.temporal.TemporalAdjuster|) . These include finding the "last day 
+of the month" and "next Wednesday". Key date-time classes also implement 
+theTemporalAdjusterinterface, such as (|java.time.Month|) and 
+MonthDay(|java.time.MonthDay|) . The adjuster is responsible for handling 
+special cases, such as the varying lengths of month and leap years. 
+
+For example this code returns a date on the last day of July: 
+
+import static java.time.Month.*; import static java.time.temporal.Adjusters.*; 
+
+result = offsetDateTime.with(JULY).with(lastDayOfMonth()); 
+
+The classes (|java.time.LocalDate|) , (|java.time.LocalTime|) and 
+(|java.time.ZoneOffset|) implementTemporalAdjuster, thus this method can be 
+used to change the date, time or offset: 
+
+result = offsetDateTime.with(date); result = offsetDateTime.with(time); result 
+= offsetDateTime.with(offset); 
+
+The result of this method is obtained by invoking the 
+(|java.time.temporal.TemporalAdjuster|) method on the specified adjuster 
+passingthisas the argument. 
+
+This instance is immutable and unaffected by this method call. 
+
+
+    adjuster - the adjuster to use, not null 
+
+    Returns: an {@code OffsetDateTime} based on {@code this} with the adjustment made, not 
+             null 
+
+*java.time.OffsetDateTime.with(TemporalField,long)*
+
+public |java.time.OffsetDateTime| with(
+  java.time.temporal.TemporalField field,
+  long newValue)
+
+Returns a copy of this date-time with the specified field set to a new value. 
+
+TThis returns anOffsetDateTime, based on this one, with the value for the 
+specified field changed. This can be used to change any supported field, such 
+as the year, month or day-of-month. If it is not possible to set the value, 
+because the field is not supported or for some other reason, an exception is 
+thrown. 
+
+In some cases, changing the specified field can cause the resulting date-time 
+to become invalid, such as changing the month from 31st January to February 
+would make the day-of-month invalid. In cases like this, the field is 
+responsible for resolving the date. Typically it will choose the previous valid 
+date, which would be the last valid day of February in this example. 
+
+If the field is a (|java.time.temporal.ChronoField|) then the adjustment is 
+implemented here. 
+
+TheINSTANT_SECONDSfield will return a date-time with the specified instant. The 
+offset and nano-of-second are unchanged. If the new instant value is outside 
+the valid range then aDateTimeExceptionwill be thrown. 
+
+TheOFFSET_SECONDSfield will return a date-time with the specified offset. The 
+local date-time is unaltered. If the new offset value is outside the valid 
+range then aDateTimeExceptionwill be thrown. 
+
+The other supported fields(|java.time.OffsetDateTime|) will behave as per the 
+matching method on LocalDateTime(|java.time.LocalDateTime|) . In this case, the 
+offset is not part of the calculation and will be unchanged. 
+
+All otherChronoFieldinstances will throw anUnsupportedTemporalTypeException. 
+
+If the field is not aChronoField, then the result of this method is obtained by 
+invokingTemporalField.adjustInto(Temporal, long)passingthisas the argument. In 
+this case, the field determines whether and how to adjust the instant. 
+
+This instance is immutable and unaffected by this method call. 
+
+
+    field - the field to set in the result, not null 
+    newValue - the new value of the field in the result 
+
+    Returns: an {@code OffsetDateTime} based on {@code this} with the specified field set, 
+             not null 
+
+*java.time.OffsetDateTime.withDayOfMonth(int)*
+
+public |java.time.OffsetDateTime| withDayOfMonth(int dayOfMonth)
+
+Returns a copy of thisOffsetDateTimewith the day-of-month altered. If the 
+resultingOffsetDateTimeis invalid, an exception is thrown. The offset does not 
+affect the calculation and will be the same in the result. 
+
+This instance is immutable and unaffected by this method call. 
+
+
+    dayOfMonth - the day-of-month to set in the result, from 1 to 28-31 
+
+    Returns: an {@code OffsetDateTime} based on this date-time with the requested day, not 
+             null 
+
+*java.time.OffsetDateTime.withDayOfYear(int)*
+
+public |java.time.OffsetDateTime| withDayOfYear(int dayOfYear)
+
+Returns a copy of thisOffsetDateTimewith the day-of-year altered. If the 
+resultingOffsetDateTimeis invalid, an exception is thrown. 
+
+This instance is immutable and unaffected by this method call. 
+
+
+    dayOfYear - the day-of-year to set in the result, from 1 to 365-366 
+
+    Returns: an {@code OffsetDateTime} based on this date with the requested day, not null 
+
+*java.time.OffsetDateTime.withHour(int)*
+
+public |java.time.OffsetDateTime| withHour(int hour)
+
+Returns a copy of thisOffsetDateTimewith the hour-of-day value altered. 
+
+The offset does not affect the calculation and will be the same in the result. 
+
+This instance is immutable and unaffected by this method call. 
+
+
+    hour - the hour-of-day to set in the result, from 0 to 23 
+
+    Returns: an {@code OffsetDateTime} based on this date-time with the requested hour, not 
+             null 
+
+*java.time.OffsetDateTime.withMinute(int)*
+
+public |java.time.OffsetDateTime| withMinute(int minute)
+
+Returns a copy of thisOffsetDateTimewith the minute-of-hour value altered. 
+
+The offset does not affect the calculation and will be the same in the result. 
+
+This instance is immutable and unaffected by this method call. 
+
+
+    minute - the minute-of-hour to set in the result, from 0 to 59 
+
+    Returns: an {@code OffsetDateTime} based on this date-time with the requested minute, 
+             not null 
+
+*java.time.OffsetDateTime.withMonth(int)*
+
+public |java.time.OffsetDateTime| withMonth(int month)
+
+Returns a copy of thisOffsetDateTimewith the month-of-year altered. The offset 
+does not affect the calculation and will be the same in the result. If the 
+day-of-month is invalid for the year, it will be changed to the last valid day 
+of the month. 
+
+This instance is immutable and unaffected by this method call. 
+
+
+    month - the month-of-year to set in the result, from 1 (January) to 12 (December) 
+
+    Returns: an {@code OffsetDateTime} based on this date-time with the requested month, not 
+             null 
+
+*java.time.OffsetDateTime.withNano(int)*
+
+public |java.time.OffsetDateTime| withNano(int nanoOfSecond)
+
+Returns a copy of thisOffsetDateTimewith the nano-of-second value altered. 
+
+The offset does not affect the calculation and will be the same in the result. 
+
+This instance is immutable and unaffected by this method call. 
+
+
+    nanoOfSecond - the nano-of-second to set in the result, from 0 to 999,999,999 
+
+    Returns: an {@code OffsetDateTime} based on this date-time with the requested 
+             nanosecond, not null 
+
+*java.time.OffsetDateTime.withOffsetSameInstant(ZoneOffset)*
+
+public |java.time.OffsetDateTime| withOffsetSameInstant(java.time.ZoneOffset offset)
+
+Returns a copy of thisOffsetDateTimewith the specified offset ensuring that the 
+result is at the same instant. 
+
+This method returns an object with the specifiedZoneOffsetand 
+aLocalDateTimeadjusted by the difference between the two offsets. This will 
+result in the old and new objects representing the same instant. This is useful 
+for finding the local time in a different offset. For example, if this time 
+represents2007-12-03T10:30+02:00and the offset specified is+03:00, then this 
+method will return2007-12-03T11:30+03:00. 
+
+To change the offset without adjusting the local time use 
+(|java.time.OffsetDateTime|) . 
+
+This instance is immutable and unaffected by this method call. 
+
+
+    offset - the zone offset to change to, not null 
+
+    Returns: an {@code OffsetDateTime} based on this date-time with the requested offset, 
+             not null 
+
+*java.time.OffsetDateTime.withOffsetSameLocal(ZoneOffset)*
+
+public |java.time.OffsetDateTime| withOffsetSameLocal(java.time.ZoneOffset offset)
+
+Returns a copy of thisOffsetDateTimewith the specified offset ensuring that the 
+result has the same local date-time. 
+
+This method returns an object with the sameLocalDateTimeand the 
+specifiedZoneOffset. No calculation is needed or performed. For example, if 
+this time represents2007-12-03T10:30+02:00and the offset specified is+03:00, 
+then this method will return2007-12-03T10:30+03:00. 
+
+To take into account the difference between the offsets, and adjust the time 
+fields, use (|java.time.OffsetDateTime|) . 
+
+This instance is immutable and unaffected by this method call. 
+
+
+    offset - the zone offset to change to, not null 
+
+    Returns: an {@code OffsetDateTime} based on this date-time with the requested offset, 
+             not null 
+
+*java.time.OffsetDateTime.withSecond(int)*
+
+public |java.time.OffsetDateTime| withSecond(int second)
+
+Returns a copy of thisOffsetDateTimewith the second-of-minute value altered. 
+
+The offset does not affect the calculation and will be the same in the result. 
+
+This instance is immutable and unaffected by this method call. 
+
+
+    second - the second-of-minute to set in the result, from 0 to 59 
+
+    Returns: an {@code OffsetDateTime} based on this date-time with the requested second, 
+             not null 
+
+*java.time.OffsetDateTime.withYear(int)*
+
+public |java.time.OffsetDateTime| withYear(int year)
+
+Returns a copy of thisOffsetDateTimewith the year altered. The offset does not 
+affect the calculation and will be the same in the result. If the day-of-month 
+is invalid for the year, it will be changed to the last valid day of the month. 
+
+This instance is immutable and unaffected by this method call. 
+
+
+    year - the year to set in the result, from MIN_YEAR to MAX_YEAR 
+
+    Returns: an {@code OffsetDateTime} based on this date-time with the requested year, not 
+             null 
+
+

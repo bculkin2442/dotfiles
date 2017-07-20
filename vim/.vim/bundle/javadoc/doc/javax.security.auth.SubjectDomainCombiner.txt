@@ -1,0 +1,92 @@
+*javax.security.auth.SubjectDomainCombiner* *SubjectDomainCombiner* ASubjectDoma
+
+public class SubjectDomainCombiner
+  extends    |java.lang.Object|
+  implements |java.security.DomainCombiner|
+
+|javax.security.auth.SubjectDomainCombiner_Description|
+|javax.security.auth.SubjectDomainCombiner_Fields|
+|javax.security.auth.SubjectDomainCombiner_Constructors|
+|javax.security.auth.SubjectDomainCombiner_Methods|
+
+================================================================================
+
+*javax.security.auth.SubjectDomainCombiner_Constructors*
+|javax.security.auth.SubjectDomainCombiner(Subject)|Associate the providedSubje
+
+*javax.security.auth.SubjectDomainCombiner_Methods*
+|javax.security.auth.SubjectDomainCombiner.combine(ProtectionDomain[],ProtectionDomain[])|
+|javax.security.auth.SubjectDomainCombiner.getSubject()|Get theSubjectassociate
+
+*javax.security.auth.SubjectDomainCombiner_Description*
+
+ASubjectDomainCombinerupdates ProtectionDomains with Principals from 
+theSubjectassociated with thisSubjectDomainCombiner. 
+
+
+
+*javax.security.auth.SubjectDomainCombiner(Subject)*
+
+public SubjectDomainCombiner(javax.security.auth.Subject subject)
+
+Associate the providedSubjectwith thisSubjectDomainCombiner. 
+
+
+
+    subject - the {@code Subject} to be associated with with this {@code 
+       SubjectDomainCombiner}. 
+
+*javax.security.auth.SubjectDomainCombiner.combine(ProtectionDomain[],ProtectionDomain[])*
+
+public |java.security.ProtectionDomain|[] combine(
+  java.security.ProtectionDomain[] currentDomains,
+  java.security.ProtectionDomain[] assignedDomains)
+
+Update the relevant ProtectionDomains with the Principals from 
+theSubjectassociated with thisSubjectDomainCombiner. 
+
+A newProtectionDomaininstance is created for eachProtectionDomainin the 
+currentDomains array. Each newProtectionDomaininstance is created using 
+theCodeSource,Permissions andClassLoaderfrom the 
+correspondingProtectionDomainin currentDomains, as well as with the Principals 
+from theSubjectassociated with thisSubjectDomainCombiner. 
+
+All of the newly instantiated ProtectionDomains are combined into a new array. 
+The ProtectionDomains from the assignedDomains array are appended to this new 
+array, and the result is returned. 
+
+Note that optimizations such as the removal of duplicate ProtectionDomains may 
+have occurred. In addition, caching of ProtectionDomains may be permitted. 
+
+
+
+
+    currentDomains - the ProtectionDomains associated with the current execution Thread, up to the 
+       most recent privileged {@code ProtectionDomain}. The ProtectionDomains 
+       are are listed in order of execution, with the most recently executing 
+       {@code ProtectionDomain} residing at the beginning of the array. This 
+       parameter may be {@code null} if the current execution Thread has no 
+       associated ProtectionDomains. 
+    assignedDomains - the ProtectionDomains inherited from the parent Thread, or the 
+       ProtectionDomains from the privileged context, if a call to 
+       AccessController.doPrivileged(..., context) had occurred This parameter 
+       may be {@code null} if there were no ProtectionDomains inherited from 
+       the parent Thread, or from the privileged context. 
+
+    Returns: a new array consisting of the updated ProtectionDomains, or {@code null}. 
+
+*javax.security.auth.SubjectDomainCombiner.getSubject()*
+
+public |javax.security.auth.Subject| getSubject()
+
+Get theSubjectassociated with thisSubjectDomainCombiner. 
+
+
+
+
+
+    Returns: the {@code Subject} associated with this {@code SubjectDomainCombiner}, or 
+             {@code null} if no {@code Subject} is associated with this {@code 
+             SubjectDomainCombiner}. 
+
+

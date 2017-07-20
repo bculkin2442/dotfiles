@@ -1,0 +1,79 @@
+*java.security.cert.CertPathBuilderException* *CertPathBuilderException* An exce
+
+public class CertPathBuilderException
+  extends    |java.security.GeneralSecurityException|
+
+|java.security.cert.CertPathBuilderException_Description|
+|java.security.cert.CertPathBuilderException_Fields|
+|java.security.cert.CertPathBuilderException_Constructors|
+|java.security.cert.CertPathBuilderException_Methods|
+
+================================================================================
+
+*java.security.cert.CertPathBuilderException_Constructors*
+|java.security.cert.CertPathBuilderException()|Creates aCertPathBuilderExceptio
+|java.security.cert.CertPathBuilderException(String)|Creates aCertPathBuilderEx
+|java.security.cert.CertPathBuilderException(String,Throwable)|Creates aCertPat
+|java.security.cert.CertPathBuilderException(Throwable)|Creates aCertPathBuilde
+
+*java.security.cert.CertPathBuilderException_Description*
+
+An exception indicating one of a variety of problems encountered when building 
+a certification path with aCertPathBuilder. 
+
+ACertPathBuilderExceptionprovides support for wrapping exceptions. The 
+getCause(|java.security.cert.CertPathBuilderException|) method returns the 
+throwable, if any, that caused this exception to be thrown. 
+
+Concurrent Access 
+
+Unless otherwise specified, the methods defined in this class are not 
+thread-safe. Multiple threads that need to access a single object concurrently 
+should synchronize amongst themselves and provide the necessary locking. 
+Multiple threads each manipulating separate objects need not synchronize. 
+
+
+
+*java.security.cert.CertPathBuilderException()*
+
+public CertPathBuilderException()
+
+Creates aCertPathBuilderExceptionwithnullas its detail message. 
+
+
+*java.security.cert.CertPathBuilderException(String)*
+
+public CertPathBuilderException(java.lang.String msg)
+
+Creates aCertPathBuilderExceptionwith the given detail message. The detail 
+message is aStringthat describes this particular exception in more detail. 
+
+    msg - the detail message 
+
+*java.security.cert.CertPathBuilderException(String,Throwable)*
+
+public CertPathBuilderException(
+  java.lang.String msg,
+  java.lang.Throwable cause)
+
+Creates aCertPathBuilderExceptionwith the specified detail message and cause. 
+
+    msg - the detail message 
+    cause - the cause (which is saved for later retrieval by the {@link #getCause 
+       getCause()} method). (A {@code null} value is permitted, and indicates 
+       that the cause is nonexistent or unknown.) 
+
+*java.security.cert.CertPathBuilderException(Throwable)*
+
+public CertPathBuilderException(java.lang.Throwable cause)
+
+Creates aCertPathBuilderExceptionthat wraps the specified throwable. This 
+allows any exception to be converted into aCertPathBuilderException, while 
+retaining information about the wrapped exception, which may be useful for 
+debugging. The detail message is set to (cause==null ? null : cause.toString()) 
+(which typically contains the class and detail message of cause). 
+
+    cause - the cause (which is saved for later retrieval by the {@link #getCause 
+       getCause()} method). (A {@code null} value is permitted, and indicates 
+       that the cause is nonexistent or unknown.) 
+

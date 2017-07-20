@@ -1,0 +1,58 @@
+*javax.tools.DocumentationTool.Location* *DocumentationTool.Location* Locations 
+
+public static final enumDocumentationTool.Location
+  extends    |java.lang.Enum|
+  implements |javax.tools.JavaFileManager.Location|
+
+|javax.tools.DocumentationTool.Location_Description|
+|javax.tools.DocumentationTool.Location_Fields|
+|javax.tools.DocumentationTool.Location_Constructors|
+|javax.tools.DocumentationTool.Location_Methods|
+
+================================================================================
+
+*javax.tools.DocumentationTool.Location_Methods*
+|javax.tools.DocumentationTool.Location.getName()|
+|javax.tools.DocumentationTool.Location.isOutputLocation()|
+|javax.tools.DocumentationTool.Location.valueOf(String)|
+|javax.tools.DocumentationTool.Location.values()|
+
+*javax.tools.DocumentationTool.Location_Description*
+
+Locations specific to (|javax.tools.DocumentationTool|) . 
+
+
+
+*javax.tools.DocumentationTool.Location.getName()*
+
+public |java.lang.String| getName()
+
+
+
+
+
+*javax.tools.DocumentationTool.Location.isOutputLocation()*
+
+public boolean isOutputLocation()
+
+
+
+
+
+*javax.tools.DocumentationTool.Location.valueOf(String)*
+
+public static |javax.tools.DocumentationTool.Location| valueOf(java.lang.String name)
+
+
+
+
+
+*javax.tools.DocumentationTool.Location.values()*
+
+public static |javax.tools.DocumentationTool.Location|[] values()
+
+
+
+
+
+

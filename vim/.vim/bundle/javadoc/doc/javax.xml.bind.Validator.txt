@@ -1,0 +1,228 @@
+*javax.xml.bind.Validator* *Validator* As of JAXB 2.0, this class is deprecated 
+
+public interface interface Validator
+
+
+|javax.xml.bind.Validator_Description|
+|javax.xml.bind.Validator_Fields|
+|javax.xml.bind.Validator_Constructors|
+|javax.xml.bind.Validator_Methods|
+
+================================================================================
+
+*javax.xml.bind.Validator_Methods*
+|javax.xml.bind.Validator.getEventHandler()|Return the current event handler or
+|javax.xml.bind.Validator.getProperty(String)|Get the particular property in th
+|javax.xml.bind.Validator.setEventHandler(ValidationEventHandler)|Allow an appl
+|javax.xml.bind.Validator.setProperty(String,Object)|Set the particular propert
+|javax.xml.bind.Validator.validate(Object)|Validate the Java content tree start
+|javax.xml.bind.Validator.validateRoot(Object)|Validate the Java content tree r
+
+*javax.xml.bind.Validator_Description*
+
+As of JAXB 2.0, this class is deprecated and optional. 
+
+The Validator class is responsible for controlling the validation of content 
+trees during runtime. 
+
+
+
+Three Forms of Validation 
+
+Unmarshal-Time Validation This form of validation enables a client application 
+to receive information about validation errors and warnings detected while 
+unmarshalling XML data into a Java content tree and is completely orthogonal to 
+the other types of validation. To enable or disable it, see the javadoc for 
+Unmarshaller.setValidating(|javax.xml.bind.Unmarshaller|) . All JAXB 1.0 
+Providers are required to support this operation. 
+
+On-Demand Validation This form of validation enables a client application to 
+receive information about validation errors and warnings detected in the Java 
+content tree. At any point, client applications can call the 
+Validator.validate(|javax.xml.bind.Validator|) method on the Java content tree 
+(or any sub-tree of it). All JAXB 1.0 Providers are required to support this 
+operation. 
+
+Fail-Fast Validation This form of validation enables a client application to 
+receive immediate feedback about modifications to the Java content tree that 
+violate type constraints on Java Properties as defined in the specification. 
+JAXB Providers are not required support this type of validation. Of the JAXB 
+Providers that do support this type of validation, some may require you to 
+decide at schema compile time whether or not a client application will be 
+allowed to request fail-fast validation at runtime. 
+
+
+
+The Validator class is responsible for managing On-Demand Validation. The 
+Unmarshaller class is responsible for managing Unmarshal-Time Validation during 
+the unmarshal operations. Although there is no formal method of enabling 
+validation during the marshal operations, the Marshaller may detect errors, 
+which will be reported to the ValidationEventHandler registered on it. 
+
+
+
+Using the Default EventHandler 
+
+If the client application does not set an event handler on their Validator, 
+Unmarshaller, or Marshaller prior to calling the validate, unmarshal, or 
+marshal methods, then a default event handler will receive notification of any 
+errors or warnings encountered. The default event handler will cause the 
+current operation to halt after encountering the first error or fatal error 
+(but will attempt to continue after receiving warnings). 
+
+
+
+Handling Validation Events 
+
+There are three ways to handle events encountered during the unmarshal, 
+validate, and marshal operations: 
+
+Use the default event handler The default event handler will be used if you do 
+not specify one via the setEventHandler API's on Validator, Unmarshaller, or 
+Marshaller. 
+
+Implement and register a custom event handler Client applications that require 
+sophisticated event processing can implement the ValidationEventHandler 
+interface and register it with the Unmarshaller and/or Validator. 
+
+Use the 
+ValidationEventCollector(|javax.xml.bind.util.ValidationEventCollector|) 
+utility For convenience, a specialized event handler is provided that simply 
+collects any ValidationEvent objects created during the unmarshal, validate, 
+and marshal operations and returns them to the client application as a 
+java.util.Collection. 
+
+
+
+Validation and Well-Formedness 
+
+Validation events are handled differently depending on how the client 
+application is configured to process them as described in the previous section. 
+However, there are certain cases where a JAXB Provider indicates that it is no 
+longer able to reliably detect and report errors. In these cases, the JAXB 
+Provider will set the severity of the ValidationEvent to FATAL_ERROR to 
+indicate that the unmarshal, validate, or marshal operations should be 
+terminated. The default event handler and ValidationEventCollector utility 
+class must terminate processing after being notified of a fatal error. Client 
+applications that supply their own ValidationEventHandler should also terminate 
+processing after being notified of a fatal error. If not, unexpected behaviour 
+may occur. 
+
+
+
+Supported Properties 
+
+There currently are not any properties required to be supported by all JAXB 
+Providers on Validator. However, some providers may support their own set of 
+provider specific properties. 
+
+
+  Deprecated: since JAXB 2.0
+
+*javax.xml.bind.Validator.getEventHandler()*
+
+public |javax.xml.bind.ValidationEventHandler| getEventHandler()
+  throws |javax.xml.bind.JAXBException|
+         
+Return the current event handler or the default event handler if one hasn't 
+been set. 
+
+    Deprecated: since JAXB2.0
+
+
+    Returns: the current ValidationEventHandler or the default event handler if it hasn't 
+             been set 
+
+*javax.xml.bind.Validator.getProperty(String)*
+
+public |java.lang.Object| getProperty(java.lang.String name)
+  throws |javax.xml.bind.PropertyException|
+         
+Get the particular property in the underlying implementation of Validator. This 
+method can only be used to get one of the standard JAXB defined properties 
+above or a provider specific property. Attempting to get an undefined property 
+will result in a PropertyException being thrown. See Supported Properties. 
+
+    Deprecated: since JAXB2.0
+
+    name - the name of the property to retrieve 
+
+    Returns: the value of the requested property 
+
+*javax.xml.bind.Validator.setEventHandler(ValidationEventHandler)*
+
+public void setEventHandler(javax.xml.bind.ValidationEventHandler handler)
+  throws |javax.xml.bind.JAXBException|
+         
+Allow an application to register a validation event handler. 
+
+The validation event handler will be called by the JAXB Provider if any 
+validation errors are encountered during calls to 
+validate(|javax.xml.bind.Validator|) . If the client application does not 
+register a validation event handler before invoking the validate method, then 
+validation events will be handled by the default event handler which will 
+terminate the validate operation after the first error or fatal error is 
+encountered. 
+
+Calling this method with a null parameter will cause the Validator to revert 
+back to the default default event handler. 
+
+    Deprecated: since JAXB2.0
+
+    handler - the validation event handler 
+
+*javax.xml.bind.Validator.setProperty(String,Object)*
+
+public void setProperty(
+  java.lang.String name,
+  java.lang.Object value)
+  throws |javax.xml.bind.PropertyException|
+         
+Set the particular property in the underlying implementation of Validator. This 
+method can only be used to set one of the standard JAXB defined properties 
+above or a provider specific property. Attempting to set an undefined property 
+will result in a PropertyException being thrown. See Supported Properties. 
+
+    Deprecated: since JAXB2.0
+
+    name - the name of the property to be set. This value can either be specified using 
+       one of the constant fields or a user supplied string. 
+    value - the value of the property to be set 
+
+*javax.xml.bind.Validator.validate(Object)*
+
+public boolean validate(java.lang.Object subrootObj)
+  throws |javax.xml.bind.JAXBException|
+         
+Validate the Java content tree starting at subrootObj. 
+
+Client applications can use this method to validate Java content trees 
+on-demand at runtime. This method can be used to validate any arbitrary subtree 
+of the Java content tree. Global constraint checking will not be performed as 
+part of this operation (i.e. ID/IDREF constraints). 
+
+    Deprecated: since JAXB2.0
+
+    subrootObj - the obj to begin validation at 
+
+    Returns: true if the subtree rooted at subrootObj is valid, false otherwise 
+
+*javax.xml.bind.Validator.validateRoot(Object)*
+
+public boolean validateRoot(java.lang.Object rootObj)
+  throws |javax.xml.bind.JAXBException|
+         
+Validate the Java content tree rooted at rootObj. 
+
+Client applications can use this method to validate Java content trees 
+on-demand at runtime. This method is used to validate an entire Java content 
+tree. Global constraint checking will be performed as part of this operation 
+(i.e. ID/IDREF constraints). 
+
+    Deprecated: since JAXB2.0
+
+    rootObj - the root obj to begin validation at 
+
+    Returns: true if the tree rooted at rootObj is valid, false otherwise 
+
+

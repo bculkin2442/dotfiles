@@ -1,0 +1,572 @@
+*javax.xml.stream.XMLStreamWriter* *XMLStreamWriter* The XMLStreamWriter interfa
+
+public interface interface XMLStreamWriter
+
+
+|javax.xml.stream.XMLStreamWriter_Description|
+|javax.xml.stream.XMLStreamWriter_Fields|
+|javax.xml.stream.XMLStreamWriter_Constructors|
+|javax.xml.stream.XMLStreamWriter_Methods|
+
+================================================================================
+
+*javax.xml.stream.XMLStreamWriter_Methods*
+|javax.xml.stream.XMLStreamWriter.close()|Close this writer and free any resour
+|javax.xml.stream.XMLStreamWriter.flush()|Write any cached data to the underlyi
+|javax.xml.stream.XMLStreamWriter.getNamespaceContext()|Returns the current nam
+|javax.xml.stream.XMLStreamWriter.getPrefix(String)|Gets the prefix the uri is 
+|javax.xml.stream.XMLStreamWriter.getProperty(String)|Get the value of a featur
+|javax.xml.stream.XMLStreamWriter.setDefaultNamespace(String)|Binds a URI to th
+|javax.xml.stream.XMLStreamWriter.setNamespaceContext(NamespaceContext)|Sets th
+|javax.xml.stream.XMLStreamWriter.setPrefix(String,String)|Sets the prefix the 
+|javax.xml.stream.XMLStreamWriter.writeAttribute(String,String)|Writes an attri
+|javax.xml.stream.XMLStreamWriter.writeAttribute(String,String,String)|Writes a
+|javax.xml.stream.XMLStreamWriter.writeAttribute(String,String,String,String)|W
+|javax.xml.stream.XMLStreamWriter.writeCData(String)|Writes a CData section
+|javax.xml.stream.XMLStreamWriter.writeCharacters(char[],int,int)|Write text to
+|javax.xml.stream.XMLStreamWriter.writeCharacters(String)|Write text to the out
+|javax.xml.stream.XMLStreamWriter.writeComment(String)|Writes an xml comment wi
+|javax.xml.stream.XMLStreamWriter.writeDefaultNamespace(String)|Writes the defa
+|javax.xml.stream.XMLStreamWriter.writeDTD(String)|Write a DTD section.
+|javax.xml.stream.XMLStreamWriter.writeEmptyElement(String)|Writes an empty ele
+|javax.xml.stream.XMLStreamWriter.writeEmptyElement(String,String)|Writes an em
+|javax.xml.stream.XMLStreamWriter.writeEmptyElement(String,String,String)|Write
+|javax.xml.stream.XMLStreamWriter.writeEndDocument()|Closes any start tags and 
+|javax.xml.stream.XMLStreamWriter.writeEndElement()|Writes an end tag to the ou
+|javax.xml.stream.XMLStreamWriter.writeEntityRef(String)|Writes an entity refer
+|javax.xml.stream.XMLStreamWriter.writeNamespace(String,String)|Writes a namesp
+|javax.xml.stream.XMLStreamWriter.writeProcessingInstruction(String)|Writes a p
+|javax.xml.stream.XMLStreamWriter.writeProcessingInstruction(String,String)|Wri
+|javax.xml.stream.XMLStreamWriter.writeStartDocument()|Write the XML Declaratio
+|javax.xml.stream.XMLStreamWriter.writeStartDocument(String)|Write the XML Decl
+|javax.xml.stream.XMLStreamWriter.writeStartDocument(String,String)|Write the X
+|javax.xml.stream.XMLStreamWriter.writeStartElement(String)|Writes a start tag 
+|javax.xml.stream.XMLStreamWriter.writeStartElement(String,String)|Writes a sta
+|javax.xml.stream.XMLStreamWriter.writeStartElement(String,String,String)|Write
+
+*javax.xml.stream.XMLStreamWriter_Description*
+
+The XMLStreamWriter interface specifies how to write XML. The XMLStreamWriter 
+does not perform well formedness checking on its input. However the 
+writeCharacters method is required to escape and , < and > For attribute values 
+the writeAttribute method will escape the above characters plus to ensure that 
+all character content and attribute values are well formed. 
+
+Each NAMESPACE and ATTRIBUTE must be individually written. 
+
+
+
+XML Namespaces, javax.xml.stream.isRepairingNamespaces and write method 
+behaviour 
+
+Method isRepairingNamespaces == true isRepairingNamespaces == false 
+
+
+
+namespaceURI bound namespaceURI unbound namespaceURI bound namespaceURI unbound 
+
+
+
+
+
+writeAttribute(namespaceURI, localName, value) 
+
+
+
+prefix:localName="value"[1] 
+
+
+
+xmlns:{generated}="namespaceURI" {generated}:localName="value" 
+
+
+
+prefix:localName="value"[1] 
+
+
+
+XMLStreamException 
+
+
+
+writeAttribute(prefix, namespaceURI, localName, value) 
+
+
+
+bound to same prefix: prefix:localName="value"[1] 
+
+bound to different prefix: xmlns:{generated}="namespaceURI" 
+{generated}:localName="value" 
+
+
+
+xmlns:prefix="namespaceURI" prefix:localName="value"[3] 
+
+
+
+bound to same prefix: prefix:localName="value"[1][2] 
+
+bound to different prefix: XMLStreamException[2] 
+
+
+
+xmlns:prefix="namespaceURI" prefix:localName="value"[2][5] 
+
+
+
+writeStartElement(namespaceURI, localName) 
+
+writeEmptyElement(namespaceURI, localName) 
+
+
+
+<prefix:localName>[1] 
+
+
+
+<{generated}:localName xmlns:{generated}="namespaceURI"> 
+
+
+
+<prefix:localName>[1] 
+
+
+
+XMLStreamException 
+
+
+
+writeStartElement(prefix, localName, namespaceURI) 
+
+writeEmptyElement(prefix, localName, namespaceURI) 
+
+
+
+bound to same prefix: <prefix:localName>[1] 
+
+bound to different prefix: <{generated}:localName 
+xmlns:{generated}="namespaceURI"> 
+
+
+
+<prefix:localName xmlns:prefix="namespaceURI">[4] 
+
+
+
+bound to same prefix: <prefix:localName>[1] 
+
+bound to different prefix: XMLStreamException 
+
+
+
+<prefix:localName> 
+
+
+
+
+
+Notes: 
+
+[1] if namespaceURI == default Namespace URI, then no prefix is written [2] if 
+prefix == "" || null namespaceURI == "", then no prefix or Namespace 
+declaration is generated or written [3] if prefix == "" || null, then a prefix 
+is randomly generated [4] if prefix == "" || null, then it is treated as the 
+default Namespace and no prefix is generated or written, an xmlns declaration 
+is generated and written if the namespaceURI is unbound [5] if prefix == "" || 
+null, then it is treated as an invalid attempt to define the default Namespace 
+and an XMLStreamException is thrown 
+
+
+
+
+
+
+
+*javax.xml.stream.XMLStreamWriter.close()*
+
+public void close()
+  throws |javax.xml.stream.XMLStreamException|
+         
+Close this writer and free any resources associated with the writer. This must 
+not close the underlying output stream. 
+
+
+
+*javax.xml.stream.XMLStreamWriter.flush()*
+
+public void flush()
+  throws |javax.xml.stream.XMLStreamException|
+         
+Write any cached data to the underlying output mechanism. 
+
+
+
+*javax.xml.stream.XMLStreamWriter.getNamespaceContext()*
+
+public |javax.xml.namespace.NamespaceContext| getNamespaceContext()
+
+Returns the current namespace context. 
+
+
+
+    Returns: the current NamespaceContext 
+
+*javax.xml.stream.XMLStreamWriter.getPrefix(String)*
+
+public |java.lang.String| getPrefix(java.lang.String uri)
+  throws |javax.xml.stream.XMLStreamException|
+         
+Gets the prefix the uri is bound to 
+
+
+
+    Returns: the prefix or null 
+
+*javax.xml.stream.XMLStreamWriter.getProperty(String)*
+
+public |java.lang.Object| getProperty(java.lang.String name)
+  throws |java.lang.IllegalArgumentException|
+         
+Get the value of a feature/property from the underlying implementation 
+
+
+    name - The name of the property, may not be null 
+
+    Returns: The value of the property 
+
+*javax.xml.stream.XMLStreamWriter.setDefaultNamespace(String)*
+
+public void setDefaultNamespace(java.lang.String uri)
+  throws |javax.xml.stream.XMLStreamException|
+         
+Binds a URI to the default namespace This URI is bound in the scope of the 
+current START_ELEMENT / END_ELEMENT pair. If this method is called before a 
+START_ELEMENT has been written the uri is bound in the root scope. 
+
+
+    uri - the uri to bind to the default namespace, may be null 
+
+*javax.xml.stream.XMLStreamWriter.setNamespaceContext(NamespaceContext)*
+
+public void setNamespaceContext(javax.xml.namespace.NamespaceContext context)
+  throws |javax.xml.stream.XMLStreamException|
+         
+Sets the current namespace context for prefix and uri bindings. This context 
+becomes the root namespace context for writing and will replace the current 
+root namespace context. Subsequent calls to setPrefix and setDefaultNamespace 
+will bind namespaces using the context passed to the method as the root context 
+for resolving namespaces. This method may only be called once at the start of 
+the document. It does not cause the namespaces to be declared. If a namespace 
+URI to prefix mapping is found in the namespace context it is treated as 
+declared and the prefix may be used by the StreamWriter. 
+
+
+    context - the namespace context to use for this writer, may not be null 
+
+*javax.xml.stream.XMLStreamWriter.setPrefix(String,String)*
+
+public void setPrefix(
+  java.lang.String prefix,
+  java.lang.String uri)
+  throws |javax.xml.stream.XMLStreamException|
+         
+Sets the prefix the uri is bound to. This prefix is bound in the scope of the 
+current START_ELEMENT / END_ELEMENT pair. If this method is called before a 
+START_ELEMENT has been written the prefix is bound in the root scope. 
+
+
+    prefix - the prefix to bind to the uri, may not be null 
+    uri - the uri to bind to the prefix, may be null 
+
+*javax.xml.stream.XMLStreamWriter.writeAttribute(String,String)*
+
+public void writeAttribute(
+  java.lang.String localName,
+  java.lang.String value)
+  throws |javax.xml.stream.XMLStreamException|
+         
+Writes an attribute to the output stream without a prefix. 
+
+
+    localName - the local name of the attribute 
+    value - the value of the attribute 
+
+*javax.xml.stream.XMLStreamWriter.writeAttribute(String,String,String)*
+
+public void writeAttribute(
+  java.lang.String namespaceURI,
+  java.lang.String localName,
+  java.lang.String value)
+  throws |javax.xml.stream.XMLStreamException|
+         
+Writes an attribute to the output stream 
+
+
+    namespaceURI - the uri of the prefix for this attribute 
+    localName - the local name of the attribute 
+    value - the value of the attribute 
+
+*javax.xml.stream.XMLStreamWriter.writeAttribute(String,String,String,String)*
+
+public void writeAttribute(
+  java.lang.String prefix,
+  java.lang.String namespaceURI,
+  java.lang.String localName,
+  java.lang.String value)
+  throws |javax.xml.stream.XMLStreamException|
+         
+Writes an attribute to the output stream 
+
+
+    prefix - the prefix for this attribute 
+    namespaceURI - the uri of the prefix for this attribute 
+    localName - the local name of the attribute 
+    value - the value of the attribute 
+
+*javax.xml.stream.XMLStreamWriter.writeCData(String)*
+
+public void writeCData(java.lang.String data)
+  throws |javax.xml.stream.XMLStreamException|
+         
+Writes a CData section 
+
+
+    data - the data contained in the CData Section, may not be null 
+
+*javax.xml.stream.XMLStreamWriter.writeCharacters(char[],int,int)*
+
+public void writeCharacters(
+  char[] text,
+  int start,
+  int len)
+  throws |javax.xml.stream.XMLStreamException|
+         
+Write text to the output 
+
+
+    text - the value to write 
+    start - the starting position in the array 
+    len - the number of characters to write 
+
+*javax.xml.stream.XMLStreamWriter.writeCharacters(String)*
+
+public void writeCharacters(java.lang.String text)
+  throws |javax.xml.stream.XMLStreamException|
+         
+Write text to the output 
+
+
+    text - the value to write 
+
+*javax.xml.stream.XMLStreamWriter.writeComment(String)*
+
+public void writeComment(java.lang.String data)
+  throws |javax.xml.stream.XMLStreamException|
+         
+Writes an xml comment with the data enclosed 
+
+
+    data - the data contained in the comment, may be null 
+
+*javax.xml.stream.XMLStreamWriter.writeDefaultNamespace(String)*
+
+public void writeDefaultNamespace(java.lang.String namespaceURI)
+  throws |javax.xml.stream.XMLStreamException|
+         
+Writes the default namespace to the stream 
+
+
+    namespaceURI - the uri to bind the default namespace to 
+
+*javax.xml.stream.XMLStreamWriter.writeDTD(String)*
+
+public void writeDTD(java.lang.String dtd)
+  throws |javax.xml.stream.XMLStreamException|
+         
+Write a DTD section. This string represents the entire doctypedecl production 
+from the XML 1.0 specification. 
+
+
+    dtd - the DTD to be written 
+
+*javax.xml.stream.XMLStreamWriter.writeEmptyElement(String)*
+
+public void writeEmptyElement(java.lang.String localName)
+  throws |javax.xml.stream.XMLStreamException|
+         
+Writes an empty element tag to the output 
+
+
+    localName - local name of the tag, may not be null 
+
+*javax.xml.stream.XMLStreamWriter.writeEmptyElement(String,String)*
+
+public void writeEmptyElement(
+  java.lang.String namespaceURI,
+  java.lang.String localName)
+  throws |javax.xml.stream.XMLStreamException|
+         
+Writes an empty element tag to the output 
+
+
+    namespaceURI - the uri to bind the tag to, may not be null 
+    localName - local name of the tag, may not be null 
+
+*javax.xml.stream.XMLStreamWriter.writeEmptyElement(String,String,String)*
+
+public void writeEmptyElement(
+  java.lang.String prefix,
+  java.lang.String localName,
+  java.lang.String namespaceURI)
+  throws |javax.xml.stream.XMLStreamException|
+         
+Writes an empty element tag to the output 
+
+
+    prefix - the prefix of the tag, may not be null 
+    localName - local name of the tag, may not be null 
+    namespaceURI - the uri to bind the tag to, may not be null 
+
+*javax.xml.stream.XMLStreamWriter.writeEndDocument()*
+
+public void writeEndDocument()
+  throws |javax.xml.stream.XMLStreamException|
+         
+Closes any start tags and writes corresponding end tags. 
+
+
+
+*javax.xml.stream.XMLStreamWriter.writeEndElement()*
+
+public void writeEndElement()
+  throws |javax.xml.stream.XMLStreamException|
+         
+Writes an end tag to the output relying on the internal state of the writer to 
+determine the prefix and local name of the event. 
+
+
+
+*javax.xml.stream.XMLStreamWriter.writeEntityRef(String)*
+
+public void writeEntityRef(java.lang.String name)
+  throws |javax.xml.stream.XMLStreamException|
+         
+Writes an entity reference 
+
+
+    name - the name of the entity 
+
+*javax.xml.stream.XMLStreamWriter.writeNamespace(String,String)*
+
+public void writeNamespace(
+  java.lang.String prefix,
+  java.lang.String namespaceURI)
+  throws |javax.xml.stream.XMLStreamException|
+         
+Writes a namespace to the output stream If the prefix argument to this method 
+is the empty string, "xmlns", or null this method will delegate to 
+writeDefaultNamespace 
+
+
+    prefix - the prefix to bind this namespace to 
+    namespaceURI - the uri to bind the prefix to 
+
+*javax.xml.stream.XMLStreamWriter.writeProcessingInstruction(String)*
+
+public void writeProcessingInstruction(java.lang.String target)
+  throws |javax.xml.stream.XMLStreamException|
+         
+Writes a processing instruction 
+
+
+    target - the target of the processing instruction, may not be null 
+
+*javax.xml.stream.XMLStreamWriter.writeProcessingInstruction(String,String)*
+
+public void writeProcessingInstruction(
+  java.lang.String target,
+  java.lang.String data)
+  throws |javax.xml.stream.XMLStreamException|
+         
+Writes a processing instruction 
+
+
+    target - the target of the processing instruction, may not be null 
+    data - the data contained in the processing instruction, may not be null 
+
+*javax.xml.stream.XMLStreamWriter.writeStartDocument()*
+
+public void writeStartDocument()
+  throws |javax.xml.stream.XMLStreamException|
+         
+Write the XML Declaration. Defaults the XML version to 1.0, and the encoding to 
+utf-8 
+
+
+
+*javax.xml.stream.XMLStreamWriter.writeStartDocument(String)*
+
+public void writeStartDocument(java.lang.String version)
+  throws |javax.xml.stream.XMLStreamException|
+         
+Write the XML Declaration. Defaults the XML version to 1.0 
+
+
+    version - version of the xml document 
+
+*javax.xml.stream.XMLStreamWriter.writeStartDocument(String,String)*
+
+public void writeStartDocument(
+  java.lang.String encoding,
+  java.lang.String version)
+  throws |javax.xml.stream.XMLStreamException|
+         
+Write the XML Declaration. Note that the encoding parameter does not set the 
+actual encoding of the underlying output. That must be set when the instance of 
+the XMLStreamWriter is created using the XMLOutputFactory 
+
+
+    encoding - encoding of the xml declaration 
+    version - version of the xml document 
+
+*javax.xml.stream.XMLStreamWriter.writeStartElement(String)*
+
+public void writeStartElement(java.lang.String localName)
+  throws |javax.xml.stream.XMLStreamException|
+         
+Writes a start tag to the output. All writeStartElement methods open a new 
+scope in the internal namespace context. Writing the corresponding EndElement 
+causes the scope to be closed. 
+
+
+    localName - local name of the tag, may not be null 
+
+*javax.xml.stream.XMLStreamWriter.writeStartElement(String,String)*
+
+public void writeStartElement(
+  java.lang.String namespaceURI,
+  java.lang.String localName)
+  throws |javax.xml.stream.XMLStreamException|
+         
+Writes a start tag to the output 
+
+
+    namespaceURI - the namespaceURI of the prefix to use, may not be null 
+    localName - local name of the tag, may not be null 
+
+*javax.xml.stream.XMLStreamWriter.writeStartElement(String,String,String)*
+
+public void writeStartElement(
+  java.lang.String prefix,
+  java.lang.String localName,
+  java.lang.String namespaceURI)
+  throws |javax.xml.stream.XMLStreamException|
+         
+Writes a start tag to the output 
+
+
+    localName - local name of the tag, may not be null 
+    prefix - the prefix of the tag, may not be null 
+    namespaceURI - the uri to bind the prefix to, may not be null 
+
+

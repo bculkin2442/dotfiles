@@ -1,0 +1,125 @@
+*javax.xml.crypto.dsig.Transform* *Transform* A representation of the XML Transf
+
+public interface interface Transform
+
+  implements |javax.xml.crypto.XMLStructure|
+             |javax.xml.crypto.AlgorithmMethod|
+
+|javax.xml.crypto.dsig.Transform_Description|
+|javax.xml.crypto.dsig.Transform_Fields|
+|javax.xml.crypto.dsig.Transform_Constructors|
+|javax.xml.crypto.dsig.Transform_Methods|
+
+================================================================================
+
+*javax.xml.crypto.dsig.Transform_Fields*
+|java.lang.String_javax.xml.crypto.dsig.Transform.BASE64|
+|java.lang.String_javax.xml.crypto.dsig.Transform.ENVELOPED|
+|java.lang.String_javax.xml.crypto.dsig.Transform.XPATH|
+|java.lang.String_javax.xml.crypto.dsig.Transform.XPATH2|
+|java.lang.String_javax.xml.crypto.dsig.Transform.XSLT|
+
+*javax.xml.crypto.dsig.Transform_Methods*
+|javax.xml.crypto.dsig.Transform.getParameterSpec()|Returns the algorithm-speci
+|javax.xml.crypto.dsig.Transform.transform(Data,XMLCryptoContext)|Transforms th
+|javax.xml.crypto.dsig.Transform.transform(Data,XMLCryptoContext,OutputStream)|
+
+*javax.xml.crypto.dsig.Transform_Description*
+
+A representation of the XML Transform element as defined in the W3C 
+Recommendation for XML-Signature Syntax and Processing. The XML Schema 
+Definition is defined as: 
+
+
+
+<element name="Transform" type="ds:TransformType"/> <complexType 
+name="TransformType" mixed="true"> <choice minOccurs="0" maxOccurs="unbounded"> 
+<any namespace="##other" processContents="lax"/> <!-- (1,1) elements from 
+(0,unbounded) namespaces --> <element name="XPath" type="string"/> </choice> 
+<attribute name="Algorithm" type="anyURI" use="required"/> </complexType> 
+
+A Transform instance may be created by invoking the 
+newTransform(|javax.xml.crypto.dsig.XMLSignatureFactory|) method of the 
+(|javax.xml.crypto.dsig.XMLSignatureFactory|) class. 
+
+
+
+*java.lang.String_javax.xml.crypto.dsig.Transform.BASE64*
+
+The Base64 transform algorithm URI. 
+
+
+*java.lang.String_javax.xml.crypto.dsig.Transform.ENVELOPED*
+
+The Enveloped Signature transform algorithm URI. 
+
+
+*java.lang.String_javax.xml.crypto.dsig.Transform.XPATH*
+
+The XPath transform algorithm URI. 
+
+
+*java.lang.String_javax.xml.crypto.dsig.Transform.XPATH2*
+
+The XPath Filter 2 transform algorithm URI. 
+
+
+*java.lang.String_javax.xml.crypto.dsig.Transform.XSLT*
+
+The XSLT transform algorithm URI. 
+
+
+
+*javax.xml.crypto.dsig.Transform.getParameterSpec()*
+
+public |java.security.spec.AlgorithmParameterSpec| getParameterSpec()
+
+Returns the algorithm-specific input parameters associated with this Transform. 
+
+The returned parameters can be typecast to a 
+(|javax.xml.crypto.dsig.spec.TransformParameterSpec|) object. 
+
+
+
+    Returns: the algorithm-specific input parameters (may be null if not specified) 
+
+*javax.xml.crypto.dsig.Transform.transform(Data,XMLCryptoContext)*
+
+public |javax.xml.crypto.Data| transform(
+  javax.xml.crypto.Data data,
+  javax.xml.crypto.XMLCryptoContext context)
+  throws |javax.xml.crypto.dsig.TransformException|
+         
+Transforms the specified data using the underlying transform algorithm. 
+
+
+    data - the data to be transformed 
+    context - the XMLCryptoContext containing additional context (may be null if not 
+       applicable) 
+
+    Returns: the transformed data 
+
+*javax.xml.crypto.dsig.Transform.transform(Data,XMLCryptoContext,OutputStream)*
+
+public |javax.xml.crypto.Data| transform(
+  javax.xml.crypto.Data data,
+  javax.xml.crypto.XMLCryptoContext context,
+  java.io.OutputStream os)
+  throws |javax.xml.crypto.dsig.TransformException|
+         
+Transforms the specified data using the underlying transform algorithm. If the 
+output of this transform is an OctetStreamData, then this method returns null 
+and the bytes are written to the specified OutputStream. Otherwise, the 
+OutputStream is ignored and the method behaves as if 
+(|javax.xml.crypto.dsig.Transform|) were invoked. 
+
+
+    data - the data to be transformed 
+    context - the XMLCryptoContext containing additional context (may be null if not 
+       applicable) 
+    os - the OutputStream that should be used to write the transformed data to 
+
+    Returns: the transformed data (or null if the data was written to the OutputStream 
+             parameter) 
+
+

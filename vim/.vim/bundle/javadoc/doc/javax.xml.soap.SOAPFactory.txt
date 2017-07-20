@@ -1,0 +1,255 @@
+*javax.xml.soap.SOAPFactory* *SOAPFactory* SOAPFactory is a factory for creating
+
+public abstract class SOAPFactory
+  extends    |java.lang.Object|
+
+|javax.xml.soap.SOAPFactory_Description|
+|javax.xml.soap.SOAPFactory_Fields|
+|javax.xml.soap.SOAPFactory_Constructors|
+|javax.xml.soap.SOAPFactory_Methods|
+
+================================================================================
+
+*javax.xml.soap.SOAPFactory_Constructors*
+|javax.xml.soap.SOAPFactory()|
+
+*javax.xml.soap.SOAPFactory_Methods*
+|javax.xml.soap.SOAPFactory.createDetail()|Creates a new Detail object which se
+|javax.xml.soap.SOAPFactory.createElement(Element)|Creates a SOAPElement object
+|javax.xml.soap.SOAPFactory.createElement(Name)|Creates a SOAPElement object in
+|javax.xml.soap.SOAPFactory.createElement(QName)|Creates a SOAPElement object i
+|javax.xml.soap.SOAPFactory.createElement(String)|Creates a SOAPElement object 
+|javax.xml.soap.SOAPFactory.createElement(String,String,String)|Creates a new S
+|javax.xml.soap.SOAPFactory.createFault()|Creates a new default SOAPFault objec
+|javax.xml.soap.SOAPFactory.createFault(String,QName)|Creates a new SOAPFault o
+|javax.xml.soap.SOAPFactory.createName(String)|Creates a new Name object initia
+|javax.xml.soap.SOAPFactory.createName(String,String,String)|Creates a new Name
+|javax.xml.soap.SOAPFactory.newInstance()|Creates a new SOAPFactory object that
+|javax.xml.soap.SOAPFactory.newInstance(String)|Creates a new SOAPFactory objec
+
+*javax.xml.soap.SOAPFactory_Description*
+
+SOAPFactory is a factory for creating various objects that exist in the SOAP 
+XML tree. 
+
+SOAPFactory can be used to create XML fragments that will eventually end up in 
+the SOAP part. These fragments can be inserted as children of the 
+(|javax.xml.soap.SOAPHeaderElement|) or (|javax.xml.soap.SOAPBodyElement|) or 
+(|javax.xml.soap.SOAPEnvelope|) or other (|javax.xml.soap.SOAPElement|) 
+objects. 
+
+SOAPFactory also has methods to create javax.xml.soap.Detail objects as well as 
+java.xml.soap.Name objects. 
+
+
+
+*javax.xml.soap.SOAPFactory()*
+
+public SOAPFactory()
+
+
+
+
+*javax.xml.soap.SOAPFactory.createDetail()*
+
+public abstract |javax.xml.soap.Detail| createDetail()
+  throws |javax.xml.soap.SOAPException|
+         
+Creates a new Detail object which serves as a container for DetailEntry 
+objects. 
+
+This factory method creates Detail objects for use in situations where it is 
+not practical to use the SOAPFault abstraction. 
+
+
+
+    Returns: a Detail object 
+
+*javax.xml.soap.SOAPFactory.createElement(Element)*
+
+public |javax.xml.soap.SOAPElement| createElement(org.w3c.dom.Element domElement)
+  throws |javax.xml.soap.SOAPException|
+         
+Creates a SOAPElement object from an existing DOM Element. If the DOM Element 
+that is passed in as an argument is already a SOAPElement then this method must 
+return it unmodified without any further work. Otherwise, a new SOAPElement is 
+created and a deep copy is made of the domElement argument. The concrete type 
+of the return value will depend on the name of the domElement argument. If any 
+part of the tree rooted in domElement violates SOAP rules, a SOAPException will 
+be thrown. 
+
+
+    domElement - - the Element to be copied. 
+
+    Returns: a new SOAPElement that is a copy of domElement. 
+
+*javax.xml.soap.SOAPFactory.createElement(Name)*
+
+public abstract |javax.xml.soap.SOAPElement| createElement(javax.xml.soap.Name name)
+  throws |javax.xml.soap.SOAPException|
+         
+Creates a SOAPElement object initialized with the given Name object. The 
+concrete type of the return value will depend on the name given to the new 
+SOAPElement. For instance, a new SOAPElement with the name 
+"{http://www.w3.org/2003/05/soap-envelope}Envelope" would cause a SOAPEnvelope 
+that supports SOAP 1.2 behavior to be created. 
+
+
+    name - a Name object with the XML name for the new element 
+
+    Returns: the new SOAPElement object that was created 
+
+*javax.xml.soap.SOAPFactory.createElement(QName)*
+
+public |javax.xml.soap.SOAPElement| createElement(javax.xml.namespace.QName qname)
+  throws |javax.xml.soap.SOAPException|
+         
+Creates a SOAPElement object initialized with the given QName object. The 
+concrete type of the return value will depend on the name given to the new 
+SOAPElement. For instance, a new SOAPElement with the name 
+"{http://www.w3.org/2003/05/soap-envelope}Envelope" would cause a SOAPEnvelope 
+that supports SOAP 1.2 behavior to be created. 
+
+
+    qname - a QName object with the XML name for the new element 
+
+    Returns: the new SOAPElement object that was created 
+
+*javax.xml.soap.SOAPFactory.createElement(String)*
+
+public abstract |javax.xml.soap.SOAPElement| createElement(java.lang.String localName)
+  throws |javax.xml.soap.SOAPException|
+         
+Creates a SOAPElement object initialized with the given local name. 
+
+
+    localName - a String giving the local name for the new element 
+
+    Returns: the new SOAPElement object that was created 
+
+*javax.xml.soap.SOAPFactory.createElement(String,String,String)*
+
+public abstract |javax.xml.soap.SOAPElement| createElement(
+  java.lang.String localName,
+  java.lang.String prefix,
+  java.lang.String uri)
+  throws |javax.xml.soap.SOAPException|
+         
+Creates a new SOAPElement object with the given local name, prefix and uri. The 
+concrete type of the return value will depend on the name given to the new 
+SOAPElement. For instance, a new SOAPElement with the name 
+"{http://www.w3.org/2003/05/soap-envelope}Envelope" would cause a SOAPEnvelope 
+that supports SOAP 1.2 behavior to be created. 
+
+
+    localName - a String giving the local name for the new element 
+    prefix - the prefix for this SOAPElement 
+    uri - a String giving the URI of the namespace to which the new element belongs 
+
+*javax.xml.soap.SOAPFactory.createFault()*
+
+public abstract |javax.xml.soap.SOAPFault| createFault()
+  throws |javax.xml.soap.SOAPException|
+         
+Creates a new default SOAPFault object 
+
+
+
+    Returns: a SOAPFault object 
+
+*javax.xml.soap.SOAPFactory.createFault(String,QName)*
+
+public abstract |javax.xml.soap.SOAPFault| createFault(
+  java.lang.String reasonText,
+  javax.xml.namespace.QName faultCode)
+  throws |javax.xml.soap.SOAPException|
+         
+Creates a new SOAPFault object initialized with the given reasonText and 
+faultCode 
+
+
+    reasonText - the ReasonText/FaultString for the fault 
+    faultCode - the FaultCode for the fault 
+
+    Returns: a SOAPFault object 
+
+*javax.xml.soap.SOAPFactory.createName(String)*
+
+public abstract |javax.xml.soap.Name| createName(java.lang.String localName)
+  throws |javax.xml.soap.SOAPException|
+         
+Creates a new Name object initialized with the given local name. 
+
+This factory method creates Name objects for use in situations where it is not 
+practical to use the SOAPEnvelope abstraction. 
+
+
+    localName - a String giving the local name 
+
+    Returns: a Name object initialized with the given local name 
+
+*javax.xml.soap.SOAPFactory.createName(String,String,String)*
+
+public abstract |javax.xml.soap.Name| createName(
+  java.lang.String localName,
+  java.lang.String prefix,
+  java.lang.String uri)
+  throws |javax.xml.soap.SOAPException|
+         
+Creates a new Name object initialized with the given local name, namespace 
+prefix, and namespace URI. 
+
+This factory method creates Name objects for use in situations where it is not 
+practical to use the SOAPEnvelope abstraction. 
+
+
+    localName - a String giving the local name 
+    prefix - a String giving the prefix of the namespace 
+    uri - a String giving the URI of the namespace 
+
+    Returns: a Name object initialized with the given local name, namespace prefix, and 
+             namespace URI 
+
+*javax.xml.soap.SOAPFactory.newInstance()*
+
+public static |javax.xml.soap.SOAPFactory| newInstance()
+  throws |javax.xml.soap.SOAPException|
+         
+Creates a new SOAPFactory object that is an instance of the default 
+implementation (SOAP 1.1), 
+
+This method uses the following ordered lookup procedure to determine the 
+SOAPFactory implementation class to load: 
+
+Use the javax.xml.soap.SOAPFactory system property. Use the properties file 
+"lib/jaxm.properties" in the JRE directory. This configuration file is in 
+standard java.util.Properties format and contains the fully qualified name of 
+the implementation class with the key being the system property defined above. 
+Use the Services API (as detailed in the JAR specification), if available, to 
+determine the classname. The Services API will look for a classname in the file 
+META-INF/services/javax.xml.soap.SOAPFactory in jars available to the runtime. 
+Use the SAAJMetaFactory instance to locate the SOAPFactory implementation 
+class. 
+
+
+
+    Returns: a new instance of a SOAPFactory 
+
+*javax.xml.soap.SOAPFactory.newInstance(String)*
+
+public static |javax.xml.soap.SOAPFactory| newInstance(java.lang.String protocol)
+  throws |javax.xml.soap.SOAPException|
+         
+Creates a new SOAPFactory object that is an instance of the specified 
+implementation, this method uses the SAAJMetaFactory to locate the 
+implementation class and create the SOAPFactory instance. 
+
+
+    protocol - a string constant representing the protocol of the specified SOAP factory 
+       implementation. May be either DYNAMIC_SOAP_PROTOCOL, 
+       DEFAULT_SOAP_PROTOCOL (which is the same as) SOAP_1_1_PROTOCOL, or 
+       SOAP_1_2_PROTOCOL. 
+
+    Returns: a new instance of a SOAPFactory 
+
+

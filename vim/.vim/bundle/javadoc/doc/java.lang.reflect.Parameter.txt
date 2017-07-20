@@ -1,0 +1,248 @@
+*java.lang.reflect.Parameter* *Parameter* Information about method parameters.
+
+public final class Parameter
+  extends    |java.lang.Object|
+  implements |java.lang.reflect.AnnotatedElement|
+
+|java.lang.reflect.Parameter_Description|
+|java.lang.reflect.Parameter_Fields|
+|java.lang.reflect.Parameter_Constructors|
+|java.lang.reflect.Parameter_Methods|
+
+================================================================================
+
+*java.lang.reflect.Parameter_Methods*
+|java.lang.reflect.Parameter.equals(Object)|Compares based on the executable an
+|java.lang.reflect.Parameter.getAnnotatedType()|Returns an AnnotatedType object
+|java.lang.reflect.Parameter.getAnnotation(Class<T>)|
+|java.lang.reflect.Parameter.getAnnotations()|
+|java.lang.reflect.Parameter.getAnnotationsByType(Class<T>)|
+|java.lang.reflect.Parameter.getDeclaredAnnotation(Class<T>)|
+|java.lang.reflect.Parameter.getDeclaredAnnotations()|
+|java.lang.reflect.Parameter.getDeclaredAnnotationsByType(Class<T>)|
+|java.lang.reflect.Parameter.getDeclaringExecutable()|Return theExecutablewhich
+|java.lang.reflect.Parameter.getModifiers()|Get the modifier flags for this the
+|java.lang.reflect.Parameter.getName()|Returns the name of the parameter.
+|java.lang.reflect.Parameter.getParameterizedType()|Returns aTypeobject that id
+|java.lang.reflect.Parameter.getType()|Returns aClassobject that identifies the
+|java.lang.reflect.Parameter.hashCode()|Returns a hash code based on the execut
+|java.lang.reflect.Parameter.isImplicit()|Returnstrueif this parameter is impli
+|java.lang.reflect.Parameter.isNamePresent()|Returns true if the parameter has 
+|java.lang.reflect.Parameter.isSynthetic()|Returnstrueif this parameter is neit
+|java.lang.reflect.Parameter.isVarArgs()|Returnstrueif this parameter represent
+|java.lang.reflect.Parameter.toString()|Returns a string describing this parame
+
+*java.lang.reflect.Parameter_Description*
+
+Information about method parameters. 
+
+AParameterprovides information about method parameters, including its name and 
+modifiers. It also provides an alternate means of obtaining attributes for the 
+parameter. 
+
+
+
+*java.lang.reflect.Parameter.equals(Object)*
+
+public boolean equals(java.lang.Object obj)
+
+Compares based on the executable and the index. 
+
+
+    obj - The object to compare. 
+
+    Returns: Whether or not this is equal to the argument. 
+
+*java.lang.reflect.Parameter.getAnnotatedType()*
+
+public |java.lang.reflect.AnnotatedType| getAnnotatedType()
+
+Returns an AnnotatedType object that represents the use of a type to specify 
+the type of the formal parameter represented by this Parameter. 
+
+
+
+    Returns: an {@code AnnotatedType} object representing the use of a type to specify the 
+             type of the formal parameter represented by this Parameter 
+
+*java.lang.reflect.Parameter.getAnnotation(Class<T>)*
+
+public |T| getAnnotation(java.lang.Class<T> annotationClass)
+
+
+
+
+
+*java.lang.reflect.Parameter.getAnnotations()*
+
+public |java.lang.annotation.Annotation|[] getAnnotations()
+
+
+
+
+
+*java.lang.reflect.Parameter.getAnnotationsByType(Class<T>)*
+
+public |T|[] getAnnotationsByType(java.lang.Class<T> annotationClass)
+
+
+
+
+
+*java.lang.reflect.Parameter.getDeclaredAnnotation(Class<T>)*
+
+public |T| getDeclaredAnnotation(java.lang.Class<T> annotationClass)
+
+
+
+
+
+*java.lang.reflect.Parameter.getDeclaredAnnotations()*
+
+public |java.lang.annotation.Annotation|[] getDeclaredAnnotations()
+
+
+
+
+
+*java.lang.reflect.Parameter.getDeclaredAnnotationsByType(Class<T>)*
+
+public |T|[] getDeclaredAnnotationsByType(java.lang.Class<T> annotationClass)
+
+
+
+
+
+*java.lang.reflect.Parameter.getDeclaringExecutable()*
+
+public |java.lang.reflect.Executable| getDeclaringExecutable()
+
+Return theExecutablewhich declares this parameter. 
+
+
+
+    Returns: The {@code Executable} declaring this parameter. 
+
+*java.lang.reflect.Parameter.getModifiers()*
+
+public int getModifiers()
+
+Get the modifier flags for this the parameter represented by 
+thisParameterobject. 
+
+
+
+    Returns: The modifier flags for this parameter. 
+
+*java.lang.reflect.Parameter.getName()*
+
+public |java.lang.String| getName()
+
+Returns the name of the parameter. If the parameter's name is 
+present(|java.lang.reflect.Parameter|) , then this method returns the name 
+provided by the class file. Otherwise, this method synthesizes a name of the 
+form argN, where N is the index of the parameter in the descriptor of the 
+method which declares the parameter. 
+
+
+
+    Returns: The name of the parameter, either provided by the class file or synthesized if 
+             the class file does not provide a name. 
+
+*java.lang.reflect.Parameter.getParameterizedType()*
+
+public |java.lang.reflect.Type| getParameterizedType()
+
+Returns aTypeobject that identifies the parameterized type for the parameter 
+represented by thisParameterobject. 
+
+
+
+    Returns: a {@code Type} object identifying the parameterized type of the parameter 
+             represented by this object 
+
+*java.lang.reflect.Parameter.getType()*
+
+public |java.lang.Class|<?> getType()
+
+Returns aClassobject that identifies the declared type for the parameter 
+represented by thisParameterobject. 
+
+
+
+    Returns: a {@code Class} object identifying the declared type of the parameter 
+             represented by this object 
+
+*java.lang.reflect.Parameter.hashCode()*
+
+public int hashCode()
+
+Returns a hash code based on the executable's hash code and the index. 
+
+
+
+    Returns: A hash code based on the executable's hash code. 
+
+*java.lang.reflect.Parameter.isImplicit()*
+
+public boolean isImplicit()
+
+Returnstrueif this parameter is implicitly declared in source code; 
+returnsfalseotherwise. 
+
+
+
+    Returns: true if and only if this parameter is implicitly declared as defined by The 
+             Java Language Specification. 
+
+*java.lang.reflect.Parameter.isNamePresent()*
+
+public boolean isNamePresent()
+
+Returns true if the parameter has a name according to the class file; returns 
+false otherwise. Whether a parameter has a name is determined by 
+theMethodParametersattribute of the method which declares the parameter. 
+
+
+
+    Returns: true if and only if the parameter has a name according to the class file. 
+
+*java.lang.reflect.Parameter.isSynthetic()*
+
+public boolean isSynthetic()
+
+Returnstrueif this parameter is neither implicitly nor explicitly declared in 
+source code; returnsfalseotherwise. 
+
+
+
+    Returns: true if and only if this parameter is a synthetic construct as defined by The 
+             Java Language Specification. 
+
+*java.lang.reflect.Parameter.isVarArgs()*
+
+public boolean isVarArgs()
+
+Returnstrueif this parameter represents a variable argument list; 
+returnsfalseotherwise. 
+
+
+
+    Returns: {@code true} if an only if this parameter represents a variable argument list. 
+
+*java.lang.reflect.Parameter.toString()*
+
+public |java.lang.String| toString()
+
+Returns a string describing this parameter. The format is the modifiers for the 
+parameter, if any, in canonical order as recommended by The Java Language 
+Specification, followed by the fully- qualified type of the parameter 
+(excluding the last [] if the parameter is variable arity), followed by "..." 
+if the parameter is variable arity, followed by a space, followed by the name 
+of the parameter. 
+
+
+
+    Returns: A string representation of the parameter and associated information. 
+
+

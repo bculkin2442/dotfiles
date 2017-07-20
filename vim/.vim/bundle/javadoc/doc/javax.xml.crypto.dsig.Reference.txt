@@ -1,0 +1,153 @@
+*javax.xml.crypto.dsig.Reference* *Reference* A representation of the Reference 
+
+public interface interface Reference
+
+  implements |javax.xml.crypto.URIReference|
+             |javax.xml.crypto.XMLStructure|
+
+|javax.xml.crypto.dsig.Reference_Description|
+|javax.xml.crypto.dsig.Reference_Fields|
+|javax.xml.crypto.dsig.Reference_Constructors|
+|javax.xml.crypto.dsig.Reference_Methods|
+
+================================================================================
+
+*javax.xml.crypto.dsig.Reference_Methods*
+|javax.xml.crypto.dsig.Reference.getCalculatedDigestValue()|Returns the calcula
+|javax.xml.crypto.dsig.Reference.getDereferencedData()|Returns the dereferenced
+|javax.xml.crypto.dsig.Reference.getDigestInputStream()|Returns the pre-digeste
+|javax.xml.crypto.dsig.Reference.getDigestMethod()|Returns the digest method of
+|javax.xml.crypto.dsig.Reference.getDigestValue()|Returns the digest value of t
+|javax.xml.crypto.dsig.Reference.getId()|Returns the optional Id attribute of t
+|javax.xml.crypto.dsig.Reference.getTransforms()|Returns anjava.util.Collection
+|javax.xml.crypto.dsig.Reference.validate(XMLValidateContext)|Validates this re
+
+*javax.xml.crypto.dsig.Reference_Description*
+
+A representation of the Reference element as defined in the 
+
+W3C Recommendation for XML-Signature Syntax and Processing. The XML schema is 
+defined as: 
+
+<element name="Reference" type="ds:ReferenceType"/> <complexType 
+name="ReferenceType"> <sequence> <element ref="ds:Transforms" minOccurs="0"/> 
+<element ref="ds:DigestMethod"/> <element ref="ds:DigestValue"/> </sequence> 
+<attribute name="Id" type="ID" use="optional"/> <attribute name="URI" 
+type="anyURI" use="optional"/> <attribute name="Type" type="anyURI" 
+use="optional"/> </complexType> 
+
+<element name="DigestValue" type="ds:DigestValueType"/> <simpleType 
+name="DigestValueType"> <restriction base="base64Binary"/> </simpleType> 
+
+A Reference instance may be created by invoking one of the 
+newReference(|javax.xml.crypto.dsig.XMLSignatureFactory|) methods of the 
+(|javax.xml.crypto.dsig.XMLSignatureFactory|) class; for example: 
+
+
+
+XMLSignatureFactory factory = XMLSignatureFactory.getInstance("DOM"); Reference 
+ref = factory.newReference ("http://www.ietf.org/rfc/rfc3275.txt", 
+factory.newDigestMethod(DigestMethod.SHA1, null)); 
+
+
+
+*javax.xml.crypto.dsig.Reference.getCalculatedDigestValue()*
+
+public byte[] getCalculatedDigestValue()
+
+Returns the calculated digest value of this Reference after a validation 
+operation. This method is useful for debugging if the reference fails to 
+validate. 
+
+
+
+    Returns: the calculated digest value, or null if this reference has not been validated 
+             yet. Each invocation of this method returns a new clone to protect 
+             against subsequent modification. 
+
+*javax.xml.crypto.dsig.Reference.getDereferencedData()*
+
+public |javax.xml.crypto.Data| getDereferencedData()
+
+Returns the dereferenced data, if reference caching is enabled. This is the 
+result of dereferencing the URI of this reference during a validation or 
+generation operation. 
+
+
+
+    Returns: the dereferenced data, or null if reference caching is not enabled or this 
+             reference has not been generated or validated 
+
+*javax.xml.crypto.dsig.Reference.getDigestInputStream()*
+
+public |java.io.InputStream| getDigestInputStream()
+
+Returns the pre-digested input stream, if reference caching is enabled. This is 
+the input to the digest operation during a validation or signing operation. 
+
+
+
+    Returns: an input stream containing the pre-digested input, or null if reference caching 
+             is not enabled or this reference has not been generated or 
+             validated 
+
+*javax.xml.crypto.dsig.Reference.getDigestMethod()*
+
+public |javax.xml.crypto.dsig.DigestMethod| getDigestMethod()
+
+Returns the digest method of this Reference. 
+
+
+
+    Returns: the digest method 
+
+*javax.xml.crypto.dsig.Reference.getDigestValue()*
+
+public byte[] getDigestValue()
+
+Returns the digest value of this Reference. 
+
+
+
+    Returns: the raw digest value, or null if this reference has not been digested yet. Each 
+             invocation of this method returns a new clone to protect against 
+             subsequent modification. 
+
+*javax.xml.crypto.dsig.Reference.getId()*
+
+public |java.lang.String| getId()
+
+Returns the optional Id attribute of this Reference, which permits this 
+reference to be referenced from elsewhere. 
+
+
+
+    Returns: the Id attribute (may be null if not specified) 
+
+*javax.xml.crypto.dsig.Reference.getTransforms()*
+
+public |java.util.List| getTransforms()
+
+Returns an unmodifiable list(|java.util.Collections|) of 
+(|javax.xml.crypto.dsig.Transform|) s that are contained in this Reference. 
+
+
+
+    Returns: an unmodifiable list of Transforms (may be empty but never null) 
+
+*javax.xml.crypto.dsig.Reference.validate(XMLValidateContext)*
+
+public boolean validate(javax.xml.crypto.dsig.XMLValidateContext validateContext)
+  throws |javax.xml.crypto.dsig.XMLSignatureException|
+         
+Validates this reference. This method verifies the digest of this reference. 
+
+This method only validates the reference the first time it is invoked. On 
+subsequent invocations, it returns a cached result. 
+
+
+    validateContext - the validating context 
+
+    Returns: true if this reference was validated successfully; false otherwise 
+
+

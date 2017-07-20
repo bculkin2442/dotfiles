@@ -1,0 +1,87 @@
+*java.security.DomainCombiner* *DomainCombiner* ADomainCombinerprovides a means 
+
+public interface interface DomainCombiner
+
+
+|java.security.DomainCombiner_Description|
+|java.security.DomainCombiner_Fields|
+|java.security.DomainCombiner_Constructors|
+|java.security.DomainCombiner_Methods|
+
+================================================================================
+
+*java.security.DomainCombiner_Methods*
+|java.security.DomainCombiner.combine(ProtectionDomain[],ProtectionDomain[])|Mo
+
+*java.security.DomainCombiner_Description*
+
+ADomainCombinerprovides a means to dynamically update the ProtectionDomains 
+associated with the currentAccessControlContext. 
+
+ADomainCombineris passed as a parameter to the appropriate constructor 
+forAccessControlContext. The newly constructed context is then passed to 
+theAccessController.doPrivileged(..., context)method to bind the provided 
+context (and associatedDomainCombiner) with the current execution Thread. 
+Subsequent calls 
+toAccessController.getContextorAccessController.checkPermissioncause 
+theDomainCombiner.combineto get invoked. 
+
+The combine method takes two arguments. The first argument represents an array 
+of ProtectionDomains from the current execution Thread, since the most recent 
+call toAccessController.doPrivileged. If no call to doPrivileged was made, then 
+the first argument will contain all the ProtectionDomains from the current 
+execution Thread. The second argument represents an array of inherited 
+ProtectionDomains, which may benull. ProtectionDomains may be inherited from a 
+parent Thread, or from a privileged context. If no call to doPrivileged was 
+made, then the second argument will contain the ProtectionDomains inherited 
+from the parent Thread. If one or more calls to doPrivileged were made, and the 
+most recent call was to doPrivileged(action, context), then the second argument 
+will contain the ProtectionDomains from the privileged context. If the most 
+recent call was to doPrivileged(action), then there is no privileged context, 
+and the second argument will benull. 
+
+Thecombinemethod investigates the two input arrays of ProtectionDomains and 
+returns a single array containing the updated ProtectionDomains. In the 
+simplest case, thecombinemethod merges the two stacks into one. In more complex 
+cases, thecombinemethod returns a modified stack of ProtectionDomains. The 
+modification may have added new ProtectionDomains, removed certain 
+ProtectionDomains, or simply updated existing ProtectionDomains. Re-ordering 
+and other optimizations to the ProtectionDomains are also permitted. Typically 
+thecombinemethod bases its updates on the information encapsulated in 
+theDomainCombiner. 
+
+After theAccessController.getContextmethod receives the combined stack of 
+ProtectionDomains back from theDomainCombiner, it returns a new 
+AccessControlContext that has both the combined ProtectionDomains as well as 
+theDomainCombiner. 
+
+
+
+*java.security.DomainCombiner.combine(ProtectionDomain[],ProtectionDomain[])*
+
+public |java.security.ProtectionDomain|[] combine(
+  java.security.ProtectionDomain[] currentDomains,
+  java.security.ProtectionDomain[] assignedDomains)
+
+Modify or update the provided ProtectionDomains. ProtectionDomains may be added 
+to or removed from the given ProtectionDomains. The ProtectionDomains may be 
+re-ordered. Individual ProtectionDomains may be modified (with a new set of 
+Permissions, for example). 
+
+
+
+
+    currentDomains - the ProtectionDomains associated with the current execution Thread, up to the 
+       most recent privileged {@code ProtectionDomain}. The ProtectionDomains 
+       are are listed in order of execution, with the most recently executing 
+       {@code ProtectionDomain} residing at the beginning of the array. This 
+       parameter may be {@code null} if the current execution Thread has no 
+       associated ProtectionDomains. 
+    assignedDomains - an array of inherited ProtectionDomains. ProtectionDomains may be inherited 
+       from a parent Thread, or from a privileged {@code AccessControlContext}. 
+       This parameter may be {@code null} if there are no inherited 
+       ProtectionDomains. 
+
+    Returns: a new array consisting of the updated ProtectionDomains, or {@code null}. 
+
+

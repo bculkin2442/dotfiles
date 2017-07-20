@@ -1,0 +1,61 @@
+*javax.xml.bind.annotation.XmlNsForm* *XmlNsForm* Enumeration of XML Schema name
+
+public final enumXmlNsForm
+  extends    |java.lang.Enum|
+
+|javax.xml.bind.annotation.XmlNsForm_Description|
+|javax.xml.bind.annotation.XmlNsForm_Fields|
+|javax.xml.bind.annotation.XmlNsForm_Constructors|
+|javax.xml.bind.annotation.XmlNsForm_Methods|
+
+================================================================================
+
+*javax.xml.bind.annotation.XmlNsForm_Methods*
+|javax.xml.bind.annotation.XmlNsForm.valueOf(String)|
+|javax.xml.bind.annotation.XmlNsForm.values()|
+
+*javax.xml.bind.annotation.XmlNsForm_Description*
+
+Enumeration of XML Schema namespace qualifications. 
+
+See "Package Specification" in javax.xml.bind.package javadoc for additional 
+common information. 
+
+Usage 
+
+The namespace qualification values are used in the annotations defined in this 
+packge. The enumeration values are mapped as follows: 
+
+
+
+
+
+Enum Value XML Schema Value 
+
+UNQUALIFIED unqualified 
+
+QUALIFIED qualified 
+
+UNSET namespace qualification attribute is absent from the XML Schema fragment 
+
+
+
+
+
+*javax.xml.bind.annotation.XmlNsForm.valueOf(String)*
+
+public static |javax.xml.bind.annotation.XmlNsForm| valueOf(java.lang.String name)
+
+
+
+
+
+*javax.xml.bind.annotation.XmlNsForm.values()*
+
+public static |javax.xml.bind.annotation.XmlNsForm|[] values()
+
+
+
+
+
+

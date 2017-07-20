@@ -1,0 +1,83 @@
+*javax.xml.crypto.dsig.CanonicalizationMethod* *CanonicalizationMethod* A repres
+
+public interface interface CanonicalizationMethod
+
+  implements |javax.xml.crypto.dsig.Transform|
+
+|javax.xml.crypto.dsig.CanonicalizationMethod_Description|
+|javax.xml.crypto.dsig.CanonicalizationMethod_Fields|
+|javax.xml.crypto.dsig.CanonicalizationMethod_Constructors|
+|javax.xml.crypto.dsig.CanonicalizationMethod_Methods|
+
+================================================================================
+
+*javax.xml.crypto.dsig.CanonicalizationMethod_Fields*
+|java.lang.String_javax.xml.crypto.dsig.CanonicalizationMethod.EXCLUSIVE|
+|java.lang.String_javax.xml.crypto.dsig.CanonicalizationMethod.EXCLUSIVE_WITH_COMMENTS|
+|java.lang.String_javax.xml.crypto.dsig.CanonicalizationMethod.INCLUSIVE|
+|java.lang.String_javax.xml.crypto.dsig.CanonicalizationMethod.INCLUSIVE_WITH_COMMENTS|
+
+*javax.xml.crypto.dsig.CanonicalizationMethod_Methods*
+|javax.xml.crypto.dsig.CanonicalizationMethod.getParameterSpec()|Returns the al
+
+*javax.xml.crypto.dsig.CanonicalizationMethod_Description*
+
+A representation of the XML CanonicalizationMethod element as defined in the 
+
+W3C Recommendation for XML-Signature Syntax and Processing. The XML Schema 
+Definition is defined as: 
+
+
+
+<element name="CanonicalizationMethod" type="ds:CanonicalizationMethodType"/> 
+<complexType name="CanonicalizationMethodType" mixed="true"> <sequence> <any 
+namespace="##any" minOccurs="0" maxOccurs="unbounded"/> <!-- (0,unbounded) 
+elements from (1,1) namespace --> </sequence> <attribute name="Algorithm" 
+type="anyURI" use="required"/> </complexType> 
+
+A CanonicalizationMethod instance may be created by invoking the 
+newCanonicalizationMethod(|javax.xml.crypto.dsig.XMLSignatureFactory|) method 
+of the (|javax.xml.crypto.dsig.XMLSignatureFactory|) class. 
+
+
+
+*java.lang.String_javax.xml.crypto.dsig.CanonicalizationMethod.EXCLUSIVE*
+
+The Exclusive Canonical XML (without comments) canonicalization method 
+algorithm URI. 
+
+
+*java.lang.String_javax.xml.crypto.dsig.CanonicalizationMethod.EXCLUSIVE_WITH_COMMENTS*
+
+The Exclusive Canonical XML with comments canonicalization method algorithm 
+URI. 
+
+
+*java.lang.String_javax.xml.crypto.dsig.CanonicalizationMethod.INCLUSIVE*
+
+The Canonical XML (without comments) canonicalization method algorithm URI. 
+
+
+*java.lang.String_javax.xml.crypto.dsig.CanonicalizationMethod.INCLUSIVE_WITH_COMMENTS*
+
+The 
+
+Canonical XML with comments canonicalization method algorithm URI. 
+
+
+
+*javax.xml.crypto.dsig.CanonicalizationMethod.getParameterSpec()*
+
+public |java.security.spec.AlgorithmParameterSpec| getParameterSpec()
+
+Returns the algorithm-specific input parameters associated with this 
+CanonicalizationMethod. 
+
+The returned parameters can be typecast to a 
+(|javax.xml.crypto.dsig.spec.C14NMethodParameterSpec|) object. 
+
+
+
+    Returns: the algorithm-specific input parameters (may be null if not specified) 
+
+

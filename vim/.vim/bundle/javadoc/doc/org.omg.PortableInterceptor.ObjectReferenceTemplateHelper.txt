@@ -1,0 +1,93 @@
+*org.omg.PortableInterceptor.ObjectReferenceTemplateHelper* *ObjectReferenceTemplateHelper* 
+
+public abstract class ObjectReferenceTemplateHelper
+  extends    |java.lang.Object|
+
+|org.omg.PortableInterceptor.ObjectReferenceTemplateHelper_Description|
+|org.omg.PortableInterceptor.ObjectReferenceTemplateHelper_Fields|
+|org.omg.PortableInterceptor.ObjectReferenceTemplateHelper_Constructors|
+|org.omg.PortableInterceptor.ObjectReferenceTemplateHelper_Methods|
+
+================================================================================
+
+*org.omg.PortableInterceptor.ObjectReferenceTemplateHelper_Constructors*
+|org.omg.PortableInterceptor.ObjectReferenceTemplateHelper()|
+
+*org.omg.PortableInterceptor.ObjectReferenceTemplateHelper_Methods*
+|org.omg.PortableInterceptor.ObjectReferenceTemplateHelper.extract(Any)|
+|org.omg.PortableInterceptor.ObjectReferenceTemplateHelper.id()|
+|org.omg.PortableInterceptor.ObjectReferenceTemplateHelper.insert(Any,ObjectReferenceTemplate)|
+|org.omg.PortableInterceptor.ObjectReferenceTemplateHelper.read(InputStream)|
+|org.omg.PortableInterceptor.ObjectReferenceTemplateHelper.type()|
+|org.omg.PortableInterceptor.ObjectReferenceTemplateHelper.write(OutputStream,ObjectReferenceTemplate)|
+
+*org.omg.PortableInterceptor.ObjectReferenceTemplateHelper_Description*
+
+The object reference template. An instance of this must exist for each object 
+adapter created in an ORB. The server_id, orb_id, and adapter_name attributes 
+uniquely identify this template within the scope of an IMR. Note that 
+adapter_id is similarly unique within the same scope, but it is opaque, and 
+less useful in many cases. 
+
+
+
+*org.omg.PortableInterceptor.ObjectReferenceTemplateHelper()*
+
+public ObjectReferenceTemplateHelper()
+
+
+
+
+*org.omg.PortableInterceptor.ObjectReferenceTemplateHelper.extract(Any)*
+
+public static |org.omg.PortableInterceptor.ObjectReferenceTemplate| extract(org.omg.CORBA.Any a)
+
+
+
+
+
+*org.omg.PortableInterceptor.ObjectReferenceTemplateHelper.id()*
+
+public static |java.lang.String| id()
+
+
+
+
+
+*org.omg.PortableInterceptor.ObjectReferenceTemplateHelper.insert(Any,ObjectReferenceTemplate)*
+
+public static void insert(
+  org.omg.CORBA.Any a,
+  org.omg.PortableInterceptor.ObjectReferenceTemplate that)
+
+
+
+
+
+*org.omg.PortableInterceptor.ObjectReferenceTemplateHelper.read(InputStream)*
+
+public static |org.omg.PortableInterceptor.ObjectReferenceTemplate| read(org.omg.CORBA.portable.InputStream istream)
+
+
+
+
+
+*org.omg.PortableInterceptor.ObjectReferenceTemplateHelper.type()*
+
+public static synchronized |org.omg.CORBA.TypeCode| type()
+
+
+
+
+
+*org.omg.PortableInterceptor.ObjectReferenceTemplateHelper.write(OutputStream,ObjectReferenceTemplate)*
+
+public static void write(
+  org.omg.CORBA.portable.OutputStream ostream,
+  org.omg.PortableInterceptor.ObjectReferenceTemplate value)
+
+
+
+
+
+

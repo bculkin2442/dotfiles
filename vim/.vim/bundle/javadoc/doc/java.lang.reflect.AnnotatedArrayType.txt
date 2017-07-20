@@ -1,0 +1,34 @@
+*java.lang.reflect.AnnotatedArrayType* *AnnotatedArrayType* AnnotatedArrayTypere
+
+public interface interface AnnotatedArrayType
+
+  implements |java.lang.reflect.AnnotatedType|
+
+|java.lang.reflect.AnnotatedArrayType_Description|
+|java.lang.reflect.AnnotatedArrayType_Fields|
+|java.lang.reflect.AnnotatedArrayType_Constructors|
+|java.lang.reflect.AnnotatedArrayType_Methods|
+
+================================================================================
+
+*java.lang.reflect.AnnotatedArrayType_Methods*
+|java.lang.reflect.AnnotatedArrayType.getAnnotatedGenericComponentType()|Return
+
+*java.lang.reflect.AnnotatedArrayType_Description*
+
+AnnotatedArrayTyperepresents the potentially annotated use of an array type, 
+whose component type may itself represent the annotated use of a type. 
+
+
+
+*java.lang.reflect.AnnotatedArrayType.getAnnotatedGenericComponentType()*
+
+public |java.lang.reflect.AnnotatedType| getAnnotatedGenericComponentType()
+
+Returns the potentially annotated generic component type of this array type. 
+
+
+
+    Returns: the potentially annotated generic component type of this array type 
+
+

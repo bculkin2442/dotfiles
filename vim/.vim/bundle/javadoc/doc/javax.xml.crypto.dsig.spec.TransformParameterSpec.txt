@@ -1,0 +1,22 @@
+*javax.xml.crypto.dsig.spec.TransformParameterSpec* *TransformParameterSpec* A s
+
+public interface interface TransformParameterSpec
+
+  implements |java.security.spec.AlgorithmParameterSpec|
+
+|javax.xml.crypto.dsig.spec.TransformParameterSpec_Description|
+|javax.xml.crypto.dsig.spec.TransformParameterSpec_Fields|
+|javax.xml.crypto.dsig.spec.TransformParameterSpec_Constructors|
+|javax.xml.crypto.dsig.spec.TransformParameterSpec_Methods|
+
+================================================================================
+
+*javax.xml.crypto.dsig.spec.TransformParameterSpec_Description*
+
+A specification of algorithm parameters for a 
+(|javax.xml.crypto.dsig.Transform|) algorithm. The purpose of this interface is 
+to group (and provide type safety for) all transform parameter specifications. 
+All transform parameter specifications must implement this interface. 
+
+
+

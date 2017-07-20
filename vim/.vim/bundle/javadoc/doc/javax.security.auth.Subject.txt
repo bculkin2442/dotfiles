@@ -1,0 +1,434 @@
+*javax.security.auth.Subject* *Subject*  ASubjectrepresents a grouping of relate
+
+public final class Subject
+  extends    |java.lang.Object|
+  implements |java.io.Serializable|
+
+|javax.security.auth.Subject_Description|
+|javax.security.auth.Subject_Fields|
+|javax.security.auth.Subject_Constructors|
+|javax.security.auth.Subject_Methods|
+
+================================================================================
+
+*javax.security.auth.Subject_Constructors*
+|javax.security.auth.Subject()|Create an instance of aSubjectwith an emptySetof
+|javax.security.auth.Subject(boolean,Set<?extendsPrincipal>,Set<?>,Set<?>)|Crea
+
+*javax.security.auth.Subject_Methods*
+|javax.security.auth.Subject.doAs(Subject,PrivilegedAction<T>)|Perform work as 
+|javax.security.auth.Subject.doAs(Subject,PrivilegedExceptionAction<T>)|Perform
+|javax.security.auth.Subject.doAsPrivileged(Subject,PrivilegedAction<T>,AccessControlContext)|
+|javax.security.auth.Subject.doAsPrivileged(Subject,PrivilegedExceptionAction<T>,AccessControlContext)|
+|javax.security.auth.Subject.equals(Object)|Compares the specified Object with 
+|javax.security.auth.Subject.getPrincipals()|Return theSetof Principals associa
+|javax.security.auth.Subject.getPrincipals(Class<T>)|Return aSetof Principals a
+|javax.security.auth.Subject.getPrivateCredentials()|Return theSetof private cr
+|javax.security.auth.Subject.getPrivateCredentials(Class<T>)|Return aSetof priv
+|javax.security.auth.Subject.getPublicCredentials()|Return theSetof public cred
+|javax.security.auth.Subject.getPublicCredentials(Class<T>)|Return aSetof publi
+|javax.security.auth.Subject.getSubject(AccessControlContext)|Get theSubjectass
+|javax.security.auth.Subject.hashCode()|Returns a hashcode for thisSubject.
+|javax.security.auth.Subject.isReadOnly()|Query whether thisSubjectis read-only
+|javax.security.auth.Subject.setReadOnly()|Set thisSubjectto be read-only.
+|javax.security.auth.Subject.toString()|Return the String representation of thi
+
+*javax.security.auth.Subject_Description*
+
+ASubjectrepresents a grouping of related information for a single entity, such 
+as a person. Such information includes the Subject's identities as well as its 
+security-related attributes (passwords and cryptographic keys, for example). 
+
+Subjects may potentially have multiple identities. Each identity is represented 
+as aPrincipalwithin theSubject. Principals simply bind names to aSubject. For 
+example, aSubjectthat happens to be a person, Alice, might have two Principals: 
+one which binds "Alice Bar", the name on her driver license, to theSubject, and 
+another which binds, "999-99-9999", the number on her student identification 
+card, to theSubject. Both Principals refer to the sameSubjecteven though each 
+has a different name. 
+
+ASubjectmay also own security-related attributes, which are referred to as 
+credentials. Sensitive credentials that require special protection, such as 
+private cryptographic keys, are stored within a private credentialSet. 
+Credentials intended to be shared, such as public key certificates or Kerberos 
+server tickets are stored within a public credentialSet. Different permissions 
+are required to access and modify the different credential Sets. 
+
+To retrieve all the Principals associated with aSubject, invoke 
+thegetPrincipalsmethod. To retrieve all the public or private credentials 
+belonging to aSubject, invoke thegetPublicCredentialsmethod 
+orgetPrivateCredentialsmethod, respectively. To modify the returnedSetof 
+Principals and credentials, use the methods defined in theSetclass. For 
+example: 
+
+Subject subject; Principal principal; Object credential; 
+
+// add a Principal and credential to the Subject 
+subject.getPrincipals().add(principal); 
+subject.getPublicCredentials().add(credential); 
+
+ThisSubjectclass implementsSerializable. While the Principals associated with 
+theSubjectare serialized, the credentials associated with theSubjectare not. 
+Note that thejava.security.Principalclass does not implementSerializable. 
+Therefore all concretePrincipalimplementations associated with Subjects must 
+implementSerializable. 
+
+
+
+*javax.security.auth.Subject()*
+
+public Subject()
+
+Create an instance of aSubjectwith an emptySetof Principals and empty Sets of 
+public and private credentials. 
+
+The newly constructed Sets check whether thisSubjecthas been set read-only 
+before permitting subsequent modifications. The newly created Sets also prevent 
+illegal modifications by ensuring that callers have sufficient permissions. 
+
+To modify the Principals Set, the caller must 
+haveAuthPermission("modifyPrincipals"). To modify the public credential Set, 
+the caller must haveAuthPermission("modifyPublicCredentials"). To modify the 
+private credential Set, the caller must 
+haveAuthPermission("modifyPrivateCredentials"). 
+
+
+*javax.security.auth.Subject(boolean,Set<?extendsPrincipal>,Set<?>,Set<?>)*
+
+public Subject(
+  boolean readOnly,
+  java.util.Set<? extends java.security.Principal> principals,
+  java.util.Set<?> pubCredentials,
+  java.util.Set<?> privCredentials)
+
+Create an instance of aSubjectwith Principals and credentials. 
+
+The Principals and credentials from the specified Sets are copied into newly 
+constructed Sets. These newly created Sets check whether thisSubjecthas been 
+set read-only before permitting subsequent modifications. The newly created 
+Sets also prevent illegal modifications by ensuring that callers have 
+sufficient permissions. 
+
+To modify the Principals Set, the caller must 
+haveAuthPermission("modifyPrincipals"). To modify the public credential Set, 
+the caller must haveAuthPermission("modifyPublicCredentials"). To modify the 
+private credential Set, the caller must 
+haveAuthPermission("modifyPrivateCredentials"). 
+
+    readOnly - true if the {@code Subject} is to be read-only, and false otherwise. 
+    principals - the {@code Set} of Principals to be associated with this {@code Subject}. 
+    pubCredentials - the {@code Set} of public credentials to be associated with this {@code 
+       Subject}. 
+    privCredentials - the {@code Set} of private credentials to be associated with this {@code 
+       Subject}. 
+
+*javax.security.auth.Subject.doAs(Subject,PrivilegedAction<T>)*
+
+public static |T| doAs(
+  javax.security.auth.Subject subject,
+  java.security.PrivilegedAction<T> action)
+
+Perform work as a particularSubject. 
+
+This method first retrieves the current 
+Thread'sAccessControlContextviaAccessController.getContext, and then 
+instantiates a newAccessControlContextusing the retrieved context along with a 
+newSubjectDomainCombiner(constructed using the providedSubject). Finally, this 
+method invokesAccessController.doPrivileged, passing it the 
+providedPrivilegedAction, as well as the newly constructedAccessControlContext. 
+
+
+
+
+    subject - the {@code Subject} that the specified {@code action} will run as. This 
+       parameter may be {@code null}. 
+    action - the code to be run as the specified {@code Subject}. 
+
+    Returns: the value returned by the PrivilegedAction's {@code run} method. 
+
+*javax.security.auth.Subject.doAs(Subject,PrivilegedExceptionAction<T>)*
+
+public static |T| doAs(
+  javax.security.auth.Subject subject,
+  java.security.PrivilegedExceptionAction<T> action)
+  throws |java.security.PrivilegedActionException|
+         
+Perform work as a particularSubject. 
+
+This method first retrieves the current 
+Thread'sAccessControlContextviaAccessController.getContext, and then 
+instantiates a newAccessControlContextusing the retrieved context along with a 
+newSubjectDomainCombiner(constructed using the providedSubject). Finally, this 
+method invokesAccessController.doPrivileged, passing it the 
+providedPrivilegedExceptionAction, as well as the newly 
+constructedAccessControlContext. 
+
+
+
+
+    subject - the {@code Subject} that the specified {@code action} will run as. This 
+       parameter may be {@code null}. 
+    action - the code to be run as the specified {@code Subject}. 
+
+    Returns: the value returned by the PrivilegedExceptionAction's {@code run} method. 
+
+*javax.security.auth.Subject.doAsPrivileged(Subject,PrivilegedAction<T>,AccessControlContext)*
+
+public static |T| doAsPrivileged(
+  javax.security.auth.Subject subject,
+  java.security.PrivilegedAction<T> action,
+  java.security.AccessControlContext acc)
+
+Perform privileged work as a particularSubject. 
+
+This method behaves exactly asSubject.doAs, except that instead of retrieving 
+the current Thread'sAccessControlContext, it uses the 
+providedAccessControlContext. If the providedAccessControlContextisnull, this 
+method instantiates a newAccessControlContextwith an empty collection of 
+ProtectionDomains. 
+
+
+
+
+    subject - the {@code Subject} that the specified {@code action} will run as. This 
+       parameter may be {@code null}. 
+    action - the code to be run as the specified {@code Subject}. 
+    acc - the {@code AccessControlContext} to be tied to the specified subject and 
+       action. 
+
+    Returns: the value returned by the PrivilegedAction's {@code run} method. 
+
+*javax.security.auth.Subject.doAsPrivileged(Subject,PrivilegedExceptionAction<T>,AccessControlContext)*
+
+public static |T| doAsPrivileged(
+  javax.security.auth.Subject subject,
+  java.security.PrivilegedExceptionAction<T> action,
+  java.security.AccessControlContext acc)
+  throws |java.security.PrivilegedActionException|
+         
+Perform privileged work as a particularSubject. 
+
+This method behaves exactly asSubject.doAs, except that instead of retrieving 
+the current Thread'sAccessControlContext, it uses the 
+providedAccessControlContext. If the providedAccessControlContextisnull, this 
+method instantiates a newAccessControlContextwith an empty collection of 
+ProtectionDomains. 
+
+
+
+
+    subject - the {@code Subject} that the specified {@code action} will run as. This 
+       parameter may be {@code null}. 
+    action - the code to be run as the specified {@code Subject}. 
+    acc - the {@code AccessControlContext} to be tied to the specified subject and 
+       action. 
+
+    Returns: the value returned by the PrivilegedExceptionAction's {@code run} method. 
+
+*javax.security.auth.Subject.equals(Object)*
+
+public boolean equals(java.lang.Object o)
+
+Compares the specified Object with thisSubjectfor equality. Returns true if the 
+given object is also a Subject and the twoSubjectinstances are equivalent. More 
+formally, twoSubjectinstances are equal if theirPrincipalandCredentialSets are 
+equal. 
+
+
+
+
+    o - Object to be compared for equality with this {@code Subject}. 
+
+    Returns: true if the specified Object is equal to this {@code Subject}. 
+
+*javax.security.auth.Subject.getPrincipals()*
+
+public |java.util.Set|<Principal> getPrincipals()
+
+Return theSetof Principals associated with thisSubject. EachPrincipalrepresents 
+an identity for thisSubject. 
+
+The returnedSetis backed by this Subject's internalPrincipalSet. Any 
+modification to the returnedSetaffects the internalPrincipalSetas well. 
+
+
+
+
+
+    Returns: The {@code Set} of Principals associated with this {@code Subject}. 
+
+*javax.security.auth.Subject.getPrincipals(Class<T>)*
+
+public |java.util.Set|<T extends java.security.Principal> getPrincipals(java.lang.Class<T> c)
+
+Return aSetof Principals associated with thisSubjectthat are instances or 
+subclasses of the specifiedClass. 
+
+The returnedSetis not backed by this Subject's internalPrincipalSet. A newSetis 
+created and returned for each method invocation. Modifications to the 
+returnedSetwill not affect the internalPrincipalSet. 
+
+
+
+
+    c - the returned {@code Set} of Principals will all be instances of this class. 
+
+    Returns: a {@code Set} of Principals that are instances of the specified {@code Class}. 
+
+*javax.security.auth.Subject.getPrivateCredentials()*
+
+public |java.util.Set|<Object> getPrivateCredentials()
+
+Return theSetof private credentials held by thisSubject. 
+
+The returnedSetis backed by this Subject's internal private CredentialSet. Any 
+modification to the returnedSetaffects the internal private CredentialSetas 
+well. 
+
+A caller requires permissions to access the Credentials in the returnedSet, or 
+to modify theSetitself. ASecurityExceptionis thrown if the caller does not have 
+the proper permissions. 
+
+While iterating through theSet, aSecurityExceptionis thrown if the caller does 
+not have permission to access a particular Credential. TheIteratoris 
+nevertheless advanced to next element in theSet. 
+
+
+
+
+
+    Returns: A {@code Set} of private credentials held by this {@code Subject}. 
+
+*javax.security.auth.Subject.getPrivateCredentials(Class<T>)*
+
+public |java.util.Set|<T> getPrivateCredentials(java.lang.Class<T> c)
+
+Return aSetof private credentials associated with thisSubjectthat are instances 
+or subclasses of the specifiedClass. 
+
+The caller must have permission to access all of the requested Credentials, or 
+aSecurityExceptionwill be thrown. 
+
+The returnedSetis not backed by this Subject's internal private CredentialSet. 
+A newSetis created and returned for each method invocation. Modifications to 
+the returnedSetwill not affect the internal private CredentialSet. 
+
+
+
+
+    c - the returned {@code Set} of private credentials will all be instances of this 
+       class. 
+
+    Returns: a {@code Set} of private credentials that are instances of the specified {@code 
+             Class}. 
+
+*javax.security.auth.Subject.getPublicCredentials()*
+
+public |java.util.Set|<Object> getPublicCredentials()
+
+Return theSetof public credentials held by thisSubject. 
+
+The returnedSetis backed by this Subject's internal public CredentialSet. Any 
+modification to the returnedSetaffects the internal public CredentialSetas 
+well. 
+
+
+
+
+
+    Returns: A {@code Set} of public credentials held by this {@code Subject}. 
+
+*javax.security.auth.Subject.getPublicCredentials(Class<T>)*
+
+public |java.util.Set|<T> getPublicCredentials(java.lang.Class<T> c)
+
+Return aSetof public credentials associated with thisSubjectthat are instances 
+or subclasses of the specifiedClass. 
+
+The returnedSetis not backed by this Subject's internal public CredentialSet. A 
+newSetis created and returned for each method invocation. Modifications to the 
+returnedSetwill not affect the internal public CredentialSet. 
+
+
+
+
+    c - the returned {@code Set} of public credentials will all be instances of this 
+       class. 
+
+    Returns: a {@code Set} of public credentials that are instances of the specified {@code 
+             Class}. 
+
+*javax.security.auth.Subject.getSubject(AccessControlContext)*
+
+public static |javax.security.auth.Subject| getSubject(java.security.AccessControlContext acc)
+
+Get theSubjectassociated with the providedAccessControlContext. 
+
+TheAccessControlContextmay contain many Subjects (from nesteddoAscalls). In 
+this situation, the most recentSubjectassociated with theAccessControlContextis 
+returned. 
+
+
+
+
+    acc - the {@code AccessControlContext} from which to retrieve the {@code Subject}. 
+
+    Returns: the {@code Subject} associated with the provided {@code AccessControlContext}, 
+             or {@code null} if no {@code Subject} is associated with the 
+             provided {@code AccessControlContext}. 
+
+*javax.security.auth.Subject.hashCode()*
+
+public int hashCode()
+
+Returns a hashcode for thisSubject. 
+
+
+
+
+
+    Returns: a hashcode for this {@code Subject}. 
+
+*javax.security.auth.Subject.isReadOnly()*
+
+public boolean isReadOnly()
+
+Query whether thisSubjectis read-only. 
+
+
+
+
+
+    Returns: true if this {@code Subject} is read-only, false otherwise. 
+
+*javax.security.auth.Subject.setReadOnly()*
+
+public void setReadOnly()
+
+Set thisSubjectto be read-only. 
+
+Modifications (additions and removals) to this Subject'sPrincipalSetand 
+credential Sets will be disallowed. Thedestroyoperation on this Subject's 
+credentials will still be permitted. 
+
+Subsequent attempts to modify the Subject'sPrincipaland credential Sets will 
+result in anIllegalStateExceptionbeing thrown. Also, once aSubjectis read-only, 
+it can not be reset to being writable again. 
+
+
+
+
+
+*javax.security.auth.Subject.toString()*
+
+public |java.lang.String| toString()
+
+Return the String representation of thisSubject. 
+
+
+
+
+
+    Returns: the String representation of this {@code Subject}. 
+
+

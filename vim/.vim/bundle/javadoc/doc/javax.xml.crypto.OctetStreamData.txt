@@ -1,0 +1,82 @@
+*javax.xml.crypto.OctetStreamData* *OctetStreamData* A representation of a Data 
+
+public class OctetStreamData
+  extends    |java.lang.Object|
+  implements |javax.xml.crypto.Data|
+
+|javax.xml.crypto.OctetStreamData_Description|
+|javax.xml.crypto.OctetStreamData_Fields|
+|javax.xml.crypto.OctetStreamData_Constructors|
+|javax.xml.crypto.OctetStreamData_Methods|
+
+================================================================================
+
+*javax.xml.crypto.OctetStreamData_Constructors*
+|javax.xml.crypto.OctetStreamData(InputStream)|Creates a new OctetStreamData.
+|javax.xml.crypto.OctetStreamData(InputStream,String,String)|Creates a new Octe
+
+*javax.xml.crypto.OctetStreamData_Methods*
+|javax.xml.crypto.OctetStreamData.getMimeType()|Returns the MIME type associate
+|javax.xml.crypto.OctetStreamData.getOctetStream()|Returns the input stream of 
+|javax.xml.crypto.OctetStreamData.getURI()|Returns the URI String identifying t
+
+*javax.xml.crypto.OctetStreamData_Description*
+
+A representation of a Data type containing an octet stream. 
+
+
+
+*javax.xml.crypto.OctetStreamData(InputStream)*
+
+public OctetStreamData(java.io.InputStream octetStream)
+
+Creates a new OctetStreamData. 
+
+    octetStream - the input stream containing the octets 
+
+*javax.xml.crypto.OctetStreamData(InputStream,String,String)*
+
+public OctetStreamData(
+  java.io.InputStream octetStream,
+  java.lang.String uri,
+  java.lang.String mimeType)
+
+Creates a new OctetStreamData. 
+
+    octetStream - the input stream containing the octets 
+    uri - the URI String identifying the data object (may be null) 
+    mimeType - the MIME type associated with the data object (may be null) 
+
+*javax.xml.crypto.OctetStreamData.getMimeType()*
+
+public |java.lang.String| getMimeType()
+
+Returns the MIME type associated with the data object represented by this 
+OctetStreamData. 
+
+
+
+    Returns: the MIME type or null if not applicable 
+
+*javax.xml.crypto.OctetStreamData.getOctetStream()*
+
+public |java.io.InputStream| getOctetStream()
+
+Returns the input stream of this OctetStreamData. 
+
+
+
+    Returns: the input stream of this OctetStreamData. 
+
+*javax.xml.crypto.OctetStreamData.getURI()*
+
+public |java.lang.String| getURI()
+
+Returns the URI String identifying the data object represented by this 
+OctetStreamData. 
+
+
+
+    Returns: the URI String or null if not applicable 
+
+

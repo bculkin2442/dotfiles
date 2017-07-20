@@ -1,0 +1,115 @@
+*javax.xml.ws.soap.SOAPBinding* *SOAPBinding* The SOAPBinding interface is an ab
+
+public interface interface SOAPBinding
+
+  implements |javax.xml.ws.Binding|
+
+|javax.xml.ws.soap.SOAPBinding_Description|
+|javax.xml.ws.soap.SOAPBinding_Fields|
+|javax.xml.ws.soap.SOAPBinding_Constructors|
+|javax.xml.ws.soap.SOAPBinding_Methods|
+
+================================================================================
+
+*javax.xml.ws.soap.SOAPBinding_Fields*
+|java.lang.String_javax.xml.ws.soap.SOAPBinding.SOAP11HTTP_BINDING|
+|java.lang.String_javax.xml.ws.soap.SOAPBinding.SOAP11HTTP_MTOM_BINDING|
+|java.lang.String_javax.xml.ws.soap.SOAPBinding.SOAP12HTTP_BINDING|
+|java.lang.String_javax.xml.ws.soap.SOAPBinding.SOAP12HTTP_MTOM_BINDING|
+
+*javax.xml.ws.soap.SOAPBinding_Methods*
+|javax.xml.ws.soap.SOAPBinding.getMessageFactory()|Gets the SAAJ MessageFactory
+|javax.xml.ws.soap.SOAPBinding.getRoles()|Gets the roles played by the SOAP bin
+|javax.xml.ws.soap.SOAPBinding.getSOAPFactory()|Gets the SAAJ SOAPFactory insta
+|javax.xml.ws.soap.SOAPBinding.isMTOMEnabled()|Returns true if the use of MTOM 
+|javax.xml.ws.soap.SOAPBinding.setMTOMEnabled(boolean)|Enables or disables use 
+|javax.xml.ws.soap.SOAPBinding.setRoles(Set<String>)|Sets the roles played by t
+
+*javax.xml.ws.soap.SOAPBinding_Description*
+
+The SOAPBinding interface is an abstraction for the SOAP binding. 
+
+
+
+*java.lang.String_javax.xml.ws.soap.SOAPBinding.SOAP11HTTP_BINDING*
+
+A constant representing the identity of the SOAP 1.1 over HTTP binding. 
+
+
+*java.lang.String_javax.xml.ws.soap.SOAPBinding.SOAP11HTTP_MTOM_BINDING*
+
+A constant representing the identity of the SOAP 1.1 over HTTP binding with 
+MTOM enabled by default. 
+
+
+*java.lang.String_javax.xml.ws.soap.SOAPBinding.SOAP12HTTP_BINDING*
+
+A constant representing the identity of the SOAP 1.2 over HTTP binding. 
+
+
+*java.lang.String_javax.xml.ws.soap.SOAPBinding.SOAP12HTTP_MTOM_BINDING*
+
+A constant representing the identity of the SOAP 1.2 over HTTP binding with 
+MTOM enabled by default. 
+
+
+
+*javax.xml.ws.soap.SOAPBinding.getMessageFactory()*
+
+public |javax.xml.soap.MessageFactory| getMessageFactory()
+
+Gets the SAAJ MessageFactory instance used by this SOAP binding. 
+
+
+
+    Returns: MessageFactory instance used by this SOAP binding. 
+
+*javax.xml.ws.soap.SOAPBinding.getRoles()*
+
+public |java.util.Set|<String> getRoles()
+
+Gets the roles played by the SOAP binding instance. 
+
+
+
+    Returns: Set<String> The set of roles played by the binding instance. 
+
+*javax.xml.ws.soap.SOAPBinding.getSOAPFactory()*
+
+public |javax.xml.soap.SOAPFactory| getSOAPFactory()
+
+Gets the SAAJ SOAPFactory instance used by this SOAP binding. 
+
+
+
+    Returns: SOAPFactory instance used by this SOAP binding. 
+
+*javax.xml.ws.soap.SOAPBinding.isMTOMEnabled()*
+
+public boolean isMTOMEnabled()
+
+Returns true if the use of MTOM is enabled. 
+
+
+
+    Returns: true if and only if the use of MTOM is enabled. 
+
+*javax.xml.ws.soap.SOAPBinding.setMTOMEnabled(boolean)*
+
+public void setMTOMEnabled(boolean flag)
+
+Enables or disables use of MTOM. 
+
+
+    flag - A boolean specifying whether the use of MTOM should be enabled or disabled. 
+
+*javax.xml.ws.soap.SOAPBinding.setRoles(Set<String>)*
+
+public void setRoles(java.util.Set<java.lang.String> roles)
+
+Sets the roles played by the SOAP binding instance. 
+
+
+    roles - The set of roles played by the binding instance. 
+
+

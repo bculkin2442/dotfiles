@@ -1,0 +1,46 @@
+*javax.xml.ws.http.HTTPException* *HTTPException* The HTTPException exception re
+
+public class HTTPException
+  extends    |javax.xml.ws.ProtocolException|
+
+|javax.xml.ws.http.HTTPException_Description|
+|javax.xml.ws.http.HTTPException_Fields|
+|javax.xml.ws.http.HTTPException_Constructors|
+|javax.xml.ws.http.HTTPException_Methods|
+
+================================================================================
+
+*javax.xml.ws.http.HTTPException_Constructors*
+|javax.xml.ws.http.HTTPException(int)|Constructor for the HTTPException
+
+*javax.xml.ws.http.HTTPException_Methods*
+|javax.xml.ws.http.HTTPException.getStatusCode()|Gets the HTTP status code.
+
+*javax.xml.ws.http.HTTPException_Description*
+
+The HTTPException exception represents a XML/HTTP fault. 
+
+Since there is no standard format for faults or exceptions in XML/HTTP 
+messaging, only the HTTP status code is captured. 
+
+
+
+*javax.xml.ws.http.HTTPException(int)*
+
+public HTTPException(int statusCode)
+
+Constructor for the HTTPException 
+
+    statusCode - int for the HTTP status code 
+
+*javax.xml.ws.http.HTTPException.getStatusCode()*
+
+public int getStatusCode()
+
+Gets the HTTP status code. 
+
+
+
+    Returns: HTTP status code 
+
+

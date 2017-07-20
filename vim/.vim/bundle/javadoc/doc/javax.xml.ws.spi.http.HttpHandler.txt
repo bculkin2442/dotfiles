@@ -1,0 +1,49 @@
+*javax.xml.ws.spi.http.HttpHandler* *HttpHandler* A handler which is invoked to 
+
+public abstract class HttpHandler
+  extends    |java.lang.Object|
+
+|javax.xml.ws.spi.http.HttpHandler_Description|
+|javax.xml.ws.spi.http.HttpHandler_Fields|
+|javax.xml.ws.spi.http.HttpHandler_Constructors|
+|javax.xml.ws.spi.http.HttpHandler_Methods|
+
+================================================================================
+
+*javax.xml.ws.spi.http.HttpHandler_Constructors*
+|javax.xml.ws.spi.http.HttpHandler()|
+
+*javax.xml.ws.spi.http.HttpHandler_Methods*
+|javax.xml.ws.spi.http.HttpHandler.handle(HttpExchange)|Handles a given request
+
+*javax.xml.ws.spi.http.HttpHandler_Description*
+
+A handler which is invoked to process HTTP requests. 
+
+JAX-WS runtime provides the implementation for this and sets it using 
+(|javax.xml.ws.spi.http.HttpContext|) during (|javax.xml.ws.Endpoint|) 
+
+
+
+*javax.xml.ws.spi.http.HttpHandler()*
+
+public HttpHandler()
+
+
+
+
+*javax.xml.ws.spi.http.HttpHandler.handle(HttpExchange)*
+
+public abstract void handle(javax.xml.ws.spi.http.HttpExchange exchange)
+  throws |java.io.IOException|
+         
+Handles a given request and generates an appropriate response. See 
+(|javax.xml.ws.spi.http.HttpExchange|) for a description of the steps involved 
+in handling an exchange. Container invokes this method when it receives an 
+incoming request. 
+
+
+    exchange - the exchange containing the request from the client and used to send the 
+       response 
+
+

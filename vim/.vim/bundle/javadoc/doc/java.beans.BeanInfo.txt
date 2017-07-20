@@ -1,0 +1,186 @@
+*java.beans.BeanInfo* *BeanInfo* Use theBeanInfointerface
+ to create aBeanInfocl
+
+public interface interface BeanInfo
+
+
+|java.beans.BeanInfo_Description|
+|java.beans.BeanInfo_Fields|
+|java.beans.BeanInfo_Constructors|
+|java.beans.BeanInfo_Methods|
+
+================================================================================
+
+*java.beans.BeanInfo_Fields*
+|int_java.beans.BeanInfo.ICON_COLOR_16x16|
+|int_java.beans.BeanInfo.ICON_COLOR_32x32|
+|int_java.beans.BeanInfo.ICON_MONO_16x16|
+|int_java.beans.BeanInfo.ICON_MONO_32x32|
+
+*java.beans.BeanInfo_Methods*
+|java.beans.BeanInfo.getAdditionalBeanInfo()|This method enables the currentBea
+|java.beans.BeanInfo.getBeanDescriptor()|Returns the bean descriptor  that prov
+|java.beans.BeanInfo.getDefaultEventIndex()|A bean may have a default event typ
+|java.beans.BeanInfo.getDefaultPropertyIndex()|A bean may have a default proper
+|java.beans.BeanInfo.getEventSetDescriptors()|Returns the event descriptors of 
+|java.beans.BeanInfo.getIcon(int)|Returns an image that can be used to represen
+|java.beans.BeanInfo.getMethodDescriptors()|Returns the method descriptors of t
+|java.beans.BeanInfo.getPropertyDescriptors()|Returns descriptors for all prope
+
+*java.beans.BeanInfo_Description*
+
+Use theBeanInfointerface to create aBeanInfoclass and provide explicit 
+information about the methods, properties, events, and other features of your 
+beans. 
+
+When developing your bean, you can implement the bean features required for 
+your application task omitting the rest of theBeanInfofeatures. They will be 
+obtained through the automatic analysis by using the low-level reflection of 
+the bean methods and applying standard design patterns. You have an opportunity 
+to provide additional bean information through various descriptor classes. 
+
+See the (|java.beans.SimpleBeanInfo|) class that is a convenient basic class 
+forBeanInfoclasses. You can override the methods and properties of 
+theSimpleBeanInfoclass to define specific information. 
+
+See also the (|java.beans.Introspector|) class to learn more about bean 
+behavior. 
+
+
+
+*int_java.beans.BeanInfo.ICON_COLOR_16x16*
+
+Constant to indicate a 16 x 16 color icon. 
+
+
+*int_java.beans.BeanInfo.ICON_COLOR_32x32*
+
+Constant to indicate a 32 x 32 color icon. 
+
+
+*int_java.beans.BeanInfo.ICON_MONO_16x16*
+
+Constant to indicate a 16 x 16 monochrome icon. 
+
+
+*int_java.beans.BeanInfo.ICON_MONO_32x32*
+
+Constant to indicate a 32 x 32 monochrome icon. 
+
+
+
+*java.beans.BeanInfo.getAdditionalBeanInfo()*
+
+public |java.beans.BeanInfo|[] getAdditionalBeanInfo()
+
+This method enables the currentBeanInfoobject to return an arbitrary collection 
+of otherBeanInfoobjects that provide additional information about the current 
+bean. 
+
+If there are conflicts or overlaps between the information provided by 
+differentBeanInfoobjects, the currentBeanInfoobject takes priority over the 
+additionalBeanInfoobjects. Array elements with higher indices take priority 
+over the elements with lower indices. 
+
+
+
+    Returns: an array of {@code BeanInfo} objects, or {@code null} if there are no 
+             additional {@code BeanInfo} objects 
+
+*java.beans.BeanInfo.getBeanDescriptor()*
+
+public |java.beans.BeanDescriptor| getBeanDescriptor()
+
+Returns the bean descriptor that provides overall information about the bean, 
+such as its display name or its customizer. 
+
+
+
+    Returns: a {@link BeanDescriptor} object, or {@code null} if the information is to be 
+             obtained through the automatic analysis 
+
+*java.beans.BeanInfo.getDefaultEventIndex()*
+
+public int getDefaultEventIndex()
+
+A bean may have a default event typically applied when this bean is used. 
+
+
+
+    Returns: index of the default event in the {@code EventSetDescriptor} array returned by 
+             the {@code getEventSetDescriptors} method, or -1 if there is no 
+             default event 
+
+*java.beans.BeanInfo.getDefaultPropertyIndex()*
+
+public int getDefaultPropertyIndex()
+
+A bean may have a default property commonly updated when this bean is 
+customized. 
+
+
+
+    Returns: index of the default property in the {@code PropertyDescriptor} array returned 
+             by the {@code getPropertyDescriptors} method, or -1 if there is no 
+             default property 
+
+*java.beans.BeanInfo.getEventSetDescriptors()*
+
+public |java.beans.EventSetDescriptor|[] getEventSetDescriptors()
+
+Returns the event descriptors of the bean that define the types of events fired 
+by this bean. 
+
+
+
+    Returns: an array of {@link EventSetDescriptor} objects, or {@code null} if the 
+             information is to be obtained through the automatic analysis 
+
+*java.beans.BeanInfo.getIcon(int)*
+
+public |java.awt.Image| getIcon(int iconKind)
+
+Returns an image that can be used to represent the bean in toolboxes or 
+toolbars. 
+
+There are four possible types of icons: 16 x 16 color, 32 x 32 color, 16 x 16 
+mono, and 32 x 32 mono. If you implement a bean so that it supports a single 
+icon, it is recommended to use 16 x 16 color. Another recommendation is to set 
+a transparent background for the icons. 
+
+
+    iconKind - the kind of icon requested 
+
+    Returns: an image object representing the requested icon, or {@code null} if no suitable 
+             icon is available 
+
+*java.beans.BeanInfo.getMethodDescriptors()*
+
+public |java.beans.MethodDescriptor|[] getMethodDescriptors()
+
+Returns the method descriptors of the bean that define the externally visible 
+methods supported by this bean. 
+
+
+
+    Returns: an array of {@link MethodDescriptor} objects, or {@code null} if the 
+             information is to be obtained through the automatic analysis 
+
+*java.beans.BeanInfo.getPropertyDescriptors()*
+
+public |java.beans.PropertyDescriptor|[] getPropertyDescriptors()
+
+Returns descriptors for all properties of the bean. 
+
+If a property is indexed, then its entry in the result array belongs to the 
+(|java.beans.IndexedPropertyDescriptor|) subclass of the 
+(|java.beans.PropertyDescriptor|) class. A client of 
+thegetPropertyDescriptorsmethod can use theinstanceofoperator to check whether 
+a givenPropertyDescriptoris anIndexedPropertyDescriptor. 
+
+
+
+    Returns: an array of {@code PropertyDescriptor} objects, or {@code null} if the 
+             information is to be obtained through the automatic analysis 
+
+

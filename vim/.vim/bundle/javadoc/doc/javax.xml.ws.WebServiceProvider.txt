@@ -1,0 +1,19 @@
+*javax.xml.ws.WebServiceProvider* *WebServiceProvider* Used to annotate a Provid
+
+public interface class WebServiceProvider
+
+  implements |java.lang.annotation.Annotation|
+
+|javax.xml.ws.WebServiceProvider_Description|
+|javax.xml.ws.WebServiceProvider_Fields|
+|javax.xml.ws.WebServiceProvider_Constructors|
+|javax.xml.ws.WebServiceProvider_Methods|
+
+================================================================================
+
+*javax.xml.ws.WebServiceProvider_Description*
+
+Used to annotate a Provider implementation class. 
+
+
+

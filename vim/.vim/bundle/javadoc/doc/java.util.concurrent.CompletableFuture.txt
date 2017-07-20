@@ -1,0 +1,806 @@
+*java.util.concurrent.CompletableFuture* *CompletableFuture* AFuturethat may be 
+
+public class CompletableFuture<T>
+  extends    |java.lang.Object|
+  implements |java.util.concurrent.Future|
+             |java.util.concurrent.CompletionStage|
+
+|java.util.concurrent.CompletableFuture_Description|
+|java.util.concurrent.CompletableFuture_Fields|
+|java.util.concurrent.CompletableFuture_Constructors|
+|java.util.concurrent.CompletableFuture_Methods|
+
+================================================================================
+
+*java.util.concurrent.CompletableFuture_Constructors*
+|java.util.concurrent.CompletableFuture()|Creates a new incomplete CompletableF
+
+*java.util.concurrent.CompletableFuture_Methods*
+|java.util.concurrent.CompletableFuture.acceptEither(CompletionStage<?extendsT>,Consumer<?superT>)|
+|java.util.concurrent.CompletableFuture.acceptEitherAsync(CompletionStage<?extendsT>,Consumer<?superT>)|
+|java.util.concurrent.CompletableFuture.acceptEitherAsync(CompletionStage<?extendsT>,Consumer<?superT>,Executor)|
+|java.util.concurrent.CompletableFuture.allOf(CompletableFuture<?>...)|Returns 
+|java.util.concurrent.CompletableFuture.anyOf(CompletableFuture<?>...)|Returns 
+|java.util.concurrent.CompletableFuture.applyToEither(CompletionStage<?extendsT>,Function<?superT,U>)|
+|java.util.concurrent.CompletableFuture.applyToEitherAsync(CompletionStage<?extendsT>,Function<?superT,U>)|
+|java.util.concurrent.CompletableFuture.applyToEitherAsync(CompletionStage<?extendsT>,Function<?superT,U>,Executor)|
+|java.util.concurrent.CompletableFuture.cancel(boolean)|If not already complete
+|java.util.concurrent.CompletableFuture.complete(T)|If not already completed, s
+|java.util.concurrent.CompletableFuture.completedFuture(U)|Returns a new Comple
+|java.util.concurrent.CompletableFuture.completeExceptionally(Throwable)|If not
+|java.util.concurrent.CompletableFuture.exceptionally(Function<Throwable,?extendsT>)|
+|java.util.concurrent.CompletableFuture.get()|Waits if necessary for this futur
+|java.util.concurrent.CompletableFuture.get(long,TimeUnit)|Waits if necessary f
+|java.util.concurrent.CompletableFuture.getNow(T)|Returns the result value (or 
+|java.util.concurrent.CompletableFuture.getNumberOfDependents()|Returns the est
+|java.util.concurrent.CompletableFuture.handle(BiFunction<?superT,Throwable,?extendsU>)|
+|java.util.concurrent.CompletableFuture.handleAsync(BiFunction<?superT,Throwable,?extendsU>)|
+|java.util.concurrent.CompletableFuture.handleAsync(BiFunction<?superT,Throwable,?extendsU>,Executor)|
+|java.util.concurrent.CompletableFuture.isCancelled()|Returnstrueif this Comple
+|java.util.concurrent.CompletableFuture.isCompletedExceptionally()|Returnstruei
+|java.util.concurrent.CompletableFuture.isDone()|Returnstrueif completed in any
+|java.util.concurrent.CompletableFuture.join()|Returns the result value when co
+|java.util.concurrent.CompletableFuture.obtrudeException(Throwable)|Forcibly ca
+|java.util.concurrent.CompletableFuture.obtrudeValue(T)|Forcibly sets or resets
+|java.util.concurrent.CompletableFuture.runAfterBoth(CompletionStage<?>,Runnable)|
+|java.util.concurrent.CompletableFuture.runAfterBothAsync(CompletionStage<?>,Runnable)|
+|java.util.concurrent.CompletableFuture.runAfterBothAsync(CompletionStage<?>,Runnable,Executor)|
+|java.util.concurrent.CompletableFuture.runAfterEither(CompletionStage<?>,Runnable)|
+|java.util.concurrent.CompletableFuture.runAfterEitherAsync(CompletionStage<?>,Runnable)|
+|java.util.concurrent.CompletableFuture.runAfterEitherAsync(CompletionStage<?>,Runnable,Executor)|
+|java.util.concurrent.CompletableFuture.runAsync(Runnable)|Returns a new Comple
+|java.util.concurrent.CompletableFuture.runAsync(Runnable,Executor)|Returns a n
+|java.util.concurrent.CompletableFuture.supplyAsync(Supplier<U>)|Returns a new 
+|java.util.concurrent.CompletableFuture.supplyAsync(Supplier<U>,Executor)|Retur
+|java.util.concurrent.CompletableFuture.thenAccept(Consumer<?superT>)|
+|java.util.concurrent.CompletableFuture.thenAcceptAsync(Consumer<?superT>)|
+|java.util.concurrent.CompletableFuture.thenAcceptAsync(Consumer<?superT>,Executor)|
+|java.util.concurrent.CompletableFuture.thenAcceptBoth(CompletionStage<?extendsU>,BiConsumer<?superT,?superU>)|
+|java.util.concurrent.CompletableFuture.thenAcceptBothAsync(CompletionStage<?extendsU>,BiConsumer<?superT,?superU>)|
+|java.util.concurrent.CompletableFuture.thenAcceptBothAsync(CompletionStage<?extendsU>,BiConsumer<?superT,?superU>,Executor)|
+|java.util.concurrent.CompletableFuture.thenApply(Function<?superT,?extendsU>)|
+|java.util.concurrent.CompletableFuture.thenApplyAsync(Function<?superT,?extendsU>)|
+|java.util.concurrent.CompletableFuture.thenApplyAsync(Function<?superT,?extendsU>,Executor)|
+|java.util.concurrent.CompletableFuture.thenCombine(CompletionStage<?extendsU>,BiFunction<?superT,?superU,?extendsV>)|
+|java.util.concurrent.CompletableFuture.thenCombineAsync(CompletionStage<?extendsU>,BiFunction<?superT,?superU,?extendsV>)|
+|java.util.concurrent.CompletableFuture.thenCombineAsync(CompletionStage<?extendsU>,BiFunction<?superT,?superU,?extendsV>,Executor)|
+|java.util.concurrent.CompletableFuture.thenCompose(Function<?superT,?extendsCompletionStage<U>>)|
+|java.util.concurrent.CompletableFuture.thenComposeAsync(Function<?superT,?extendsCompletionStage<U>>)|
+|java.util.concurrent.CompletableFuture.thenComposeAsync(Function<?superT,?extendsCompletionStage<U>>,Executor)|
+|java.util.concurrent.CompletableFuture.thenRun(Runnable)|
+|java.util.concurrent.CompletableFuture.thenRunAsync(Runnable)|
+|java.util.concurrent.CompletableFuture.thenRunAsync(Runnable,Executor)|
+|java.util.concurrent.CompletableFuture.toCompletableFuture()|Returns this Comp
+|java.util.concurrent.CompletableFuture.toString()|Returns a string identifying
+|java.util.concurrent.CompletableFuture.whenComplete(BiConsumer<?superT,?superThrowable>)|
+|java.util.concurrent.CompletableFuture.whenCompleteAsync(BiConsumer<?superT,?superThrowable>)|
+|java.util.concurrent.CompletableFuture.whenCompleteAsync(BiConsumer<?superT,?superThrowable>,Executor)|
+
+*java.util.concurrent.CompletableFuture_Description*
+
+A (|java.util.concurrent.Future|) that may be explicitly completed (setting its 
+value and status), and may be used as a 
+(|java.util.concurrent.CompletionStage|) , supporting dependent functions and 
+actions that trigger upon its completion. 
+
+When two or more threads attempt to 
+complete(|java.util.concurrent.CompletableFuture|) , 
+completeExceptionally(|java.util.concurrent.CompletableFuture|) , or 
+cancel(|java.util.concurrent.CompletableFuture|) a CompletableFuture, only one 
+of them succeeds. 
+
+In addition to these and related methods for directly manipulating status and 
+results, CompletableFuture implements interface 
+(|java.util.concurrent.CompletionStage|) with the following policies: 
+
+Actions supplied for dependent completions of non-async methods may be 
+performed by the thread that completes the current CompletableFuture, or by any 
+other caller of a completion method. 
+
+All async methods without an explicit Executor argument are performed using the 
+(|java.util.concurrent.ForkJoinPool|) (unless it does not support a parallelism 
+level of at least two, in which case, a new Thread is used). To simplify 
+monitoring, debugging, and tracking, all generated asynchronous tasks are 
+instances of the marker interface 
+(|java.util.concurrent.CompletableFuture.AsynchronousCompletionTask|) . 
+
+All CompletionStage methods are implemented independently of other public 
+methods, so the behavior of one method is not impacted by overrides of others 
+in subclasses. 
+
+CompletableFuture also implements (|java.util.concurrent.Future|) with the 
+following policies: 
+
+Since (unlike (|java.util.concurrent.FutureTask|) ) this class has no direct 
+control over the computation that causes it to be completed, cancellation is 
+treated as just another form of exceptional completion. Method 
+cancel(|java.util.concurrent.CompletableFuture|) has the same effect 
+ascompleteExceptionally(new CancellationException()). Method 
+(|java.util.concurrent.CompletableFuture|) can be used to determine if a 
+CompletableFuture completed in any exceptional fashion. 
+
+In case of exceptional completion with a CompletionException, methods 
+(|java.util.concurrent.CompletableFuture|) and 
+(|java.util.concurrent.CompletableFuture|) throw an 
+(|java.util.concurrent.ExecutionException|) with the same cause as held in the 
+corresponding CompletionException. To simplify usage in most contexts, this 
+class also defines methods (|java.util.concurrent.CompletableFuture|) and 
+(|java.util.concurrent.CompletableFuture|) that instead throw the 
+CompletionException directly in these cases. 
+
+
+
+*java.util.concurrent.CompletableFuture()*
+
+public CompletableFuture()
+
+Creates a new incomplete CompletableFuture. 
+
+
+*java.util.concurrent.CompletableFuture.acceptEither(CompletionStage<?extendsT>,Consumer<?superT>)*
+
+public |java.util.concurrent.CompletableFuture|<Void> acceptEither(
+  java.util.concurrent.CompletionStage<? extends T> other,
+  java.util.function.Consumer<? super T> action)
+
+
+
+
+
+*java.util.concurrent.CompletableFuture.acceptEitherAsync(CompletionStage<?extendsT>,Consumer<?superT>)*
+
+public |java.util.concurrent.CompletableFuture|<Void> acceptEitherAsync(
+  java.util.concurrent.CompletionStage<? extends T> other,
+  java.util.function.Consumer<? super T> action)
+
+
+
+
+
+*java.util.concurrent.CompletableFuture.acceptEitherAsync(CompletionStage<?extendsT>,Consumer<?superT>,Executor)*
+
+public |java.util.concurrent.CompletableFuture|<Void> acceptEitherAsync(
+  java.util.concurrent.CompletionStage<? extends T> other,
+  java.util.function.Consumer<? super T> action,
+  java.util.concurrent.Executor executor)
+
+
+
+
+
+*java.util.concurrent.CompletableFuture.allOf(CompletableFuture<?>...)*
+
+public static |java.util.concurrent.CompletableFuture|<Void> allOf(java.util.concurrent.CompletableFuture[] cfs)
+
+Returns a new CompletableFuture that is completed when all of the given 
+CompletableFutures complete. If any of the given CompletableFutures complete 
+exceptionally, then the returned CompletableFuture also does so, with a 
+CompletionException holding this exception as its cause. Otherwise, the 
+results, if any, of the given CompletableFutures are not reflected in the 
+returned CompletableFuture, but may be obtained by inspecting them 
+individually. If no CompletableFutures are provided, returns a 
+CompletableFuture completed with the valuenull. 
+
+Among the applications of this method is to await completion of a set of 
+independent CompletableFutures before continuing a program, as 
+in:CompletableFuture.allOf(c1, c2, c3).join();. 
+
+
+    cfs - the CompletableFutures 
+
+    Returns: a new CompletableFuture that is completed when all of the given 
+             CompletableFutures complete 
+
+*java.util.concurrent.CompletableFuture.anyOf(CompletableFuture<?>...)*
+
+public static |java.util.concurrent.CompletableFuture|<Object> anyOf(java.util.concurrent.CompletableFuture[] cfs)
+
+Returns a new CompletableFuture that is completed when any of the given 
+CompletableFutures complete, with the same result. Otherwise, if it completed 
+exceptionally, the returned CompletableFuture also does so, with a 
+CompletionException holding this exception as its cause. If no 
+CompletableFutures are provided, returns an incomplete CompletableFuture. 
+
+
+    cfs - the CompletableFutures 
+
+    Returns: a new CompletableFuture that is completed with the result or exception of any 
+             of the given CompletableFutures when one completes 
+
+*java.util.concurrent.CompletableFuture.applyToEither(CompletionStage<?extendsT>,Function<?superT,U>)*
+
+public |java.util.concurrent.CompletableFuture|<U> applyToEither(
+  java.util.concurrent.CompletionStage<? extends T> other,
+  java.util.function.Function<? super T, U> fn)
+
+
+
+
+
+*java.util.concurrent.CompletableFuture.applyToEitherAsync(CompletionStage<?extendsT>,Function<?superT,U>)*
+
+public |java.util.concurrent.CompletableFuture|<U> applyToEitherAsync(
+  java.util.concurrent.CompletionStage<? extends T> other,
+  java.util.function.Function<? super T, U> fn)
+
+
+
+
+
+*java.util.concurrent.CompletableFuture.applyToEitherAsync(CompletionStage<?extendsT>,Function<?superT,U>,Executor)*
+
+public |java.util.concurrent.CompletableFuture|<U> applyToEitherAsync(
+  java.util.concurrent.CompletionStage<? extends T> other,
+  java.util.function.Function<? super T, U> fn,
+  java.util.concurrent.Executor executor)
+
+
+
+
+
+*java.util.concurrent.CompletableFuture.cancel(boolean)*
+
+public boolean cancel(boolean mayInterruptIfRunning)
+
+If not already completed, completes this CompletableFuture with a 
+(|java.util.concurrent.CancellationException|) . Dependent CompletableFutures 
+that have not already completed will also complete exceptionally, with a 
+(|java.util.concurrent.CompletionException|) caused by 
+thisCancellationException. 
+
+
+    mayInterruptIfRunning - this value has no effect in this implementation because interrupts are not used 
+       to control processing. 
+
+    Returns: {@code true} if this task is now cancelled 
+
+*java.util.concurrent.CompletableFuture.complete(T)*
+
+public boolean complete(T value)
+
+If not already completed, sets the value returned by 
+(|java.util.concurrent.CompletableFuture|) and related methods to the given 
+value. 
+
+
+    value - the result value 
+
+    Returns: {@code true} if this invocation caused this CompletableFuture to transition to 
+             a completed state, else {@code false} 
+
+*java.util.concurrent.CompletableFuture.completedFuture(U)*
+
+public static |java.util.concurrent.CompletableFuture|<U> completedFuture(U value)
+
+Returns a new CompletableFuture that is already completed with the given value. 
+
+
+    value - the value 
+
+    Returns: the completed CompletableFuture 
+
+*java.util.concurrent.CompletableFuture.completeExceptionally(Throwable)*
+
+public boolean completeExceptionally(java.lang.Throwable ex)
+
+If not already completed, causes invocations of 
+(|java.util.concurrent.CompletableFuture|) and related methods to throw the 
+given exception. 
+
+
+    ex - the exception 
+
+    Returns: {@code true} if this invocation caused this CompletableFuture to transition to 
+             a completed state, else {@code false} 
+
+*java.util.concurrent.CompletableFuture.exceptionally(Function<Throwable,?extendsT>)*
+
+public |java.util.concurrent.CompletableFuture|<T> exceptionally(java.util.function.Function<java.lang.Throwable, ? extends T> fn)
+
+Returns a new CompletableFuture that is completed when this CompletableFuture 
+completes, with the result of the given function of the exception triggering 
+this CompletableFuture's completion when it completes exceptionally; otherwise, 
+if this CompletableFuture completes normally, then the returned 
+CompletableFuture also completes normally with the same value. Note: More 
+flexible versions of this functionality are available using 
+methodswhenCompleteandhandle. 
+
+
+    fn - the function to use to compute the value of the returned CompletableFuture if 
+       this CompletableFuture completed exceptionally 
+
+    Returns: the new CompletableFuture 
+
+*java.util.concurrent.CompletableFuture.get()*
+
+public |T| get()
+  throws |java.util.concurrent.ExecutionException|
+         |java.lang.InterruptedException|
+         
+Waits if necessary for this future to complete, and then returns its result. 
+
+
+
+    Returns: the result value 
+
+*java.util.concurrent.CompletableFuture.get(long,TimeUnit)*
+
+public |T| get(
+  long timeout,
+  java.util.concurrent.TimeUnit unit)
+  throws |java.util.concurrent.ExecutionException|
+         |java.lang.InterruptedException|
+         |java.util.concurrent.TimeoutException|
+         
+Waits if necessary for at most the given time for this future to complete, and 
+then returns its result, if available. 
+
+
+    timeout - the maximum time to wait 
+    unit - the time unit of the timeout argument 
+
+    Returns: the result value 
+
+*java.util.concurrent.CompletableFuture.getNow(T)*
+
+public |T| getNow(T valueIfAbsent)
+
+Returns the result value (or throws any encountered exception) if completed, 
+else returns the given valueIfAbsent. 
+
+
+    valueIfAbsent - the value to return if not completed 
+
+    Returns: the result value, if completed, else the given valueIfAbsent 
+
+*java.util.concurrent.CompletableFuture.getNumberOfDependents()*
+
+public int getNumberOfDependents()
+
+Returns the estimated number of CompletableFutures whose completions are 
+awaiting completion of this CompletableFuture. This method is designed for use 
+in monitoring system state, not for synchronization control. 
+
+
+
+    Returns: the number of dependent CompletableFutures 
+
+*java.util.concurrent.CompletableFuture.handle(BiFunction<?superT,Throwable,?extendsU>)*
+
+public |java.util.concurrent.CompletableFuture|<U> handle(java.util.function.BiFunction<? super T, java.lang.Throwable, ? extends U> fn)
+
+
+
+
+
+*java.util.concurrent.CompletableFuture.handleAsync(BiFunction<?superT,Throwable,?extendsU>)*
+
+public |java.util.concurrent.CompletableFuture|<U> handleAsync(java.util.function.BiFunction<? super T, java.lang.Throwable, ? extends U> fn)
+
+
+
+
+
+*java.util.concurrent.CompletableFuture.handleAsync(BiFunction<?superT,Throwable,?extendsU>,Executor)*
+
+public |java.util.concurrent.CompletableFuture|<U> handleAsync(
+  java.util.function.BiFunction<? super T, java.lang.Throwable, ? extends U> fn,
+  java.util.concurrent.Executor executor)
+
+
+
+
+
+*java.util.concurrent.CompletableFuture.isCancelled()*
+
+public boolean isCancelled()
+
+Returnstrueif this CompletableFuture was cancelled before it completed 
+normally. 
+
+
+
+    Returns: {@code true} if this CompletableFuture was cancelled before it completed 
+             normally 
+
+*java.util.concurrent.CompletableFuture.isCompletedExceptionally()*
+
+public boolean isCompletedExceptionally()
+
+Returnstrueif this CompletableFuture completed exceptionally, in any way. 
+Possible causes include cancellation, explicit invocation 
+ofcompleteExceptionally, and abrupt termination of a CompletionStage action. 
+
+
+
+    Returns: {@code true} if this CompletableFuture completed exceptionally 
+
+*java.util.concurrent.CompletableFuture.isDone()*
+
+public boolean isDone()
+
+Returnstrueif completed in any fashion: normally, exceptionally, or via 
+cancellation. 
+
+
+
+    Returns: {@code true} if completed 
+
+*java.util.concurrent.CompletableFuture.join()*
+
+public |T| join()
+
+Returns the result value when complete, or throws an (unchecked) exception if 
+completed exceptionally. To better conform with the use of common functional 
+forms, if a computation involved in the completion of this CompletableFuture 
+threw an exception, this method throws an (unchecked) 
+(|java.util.concurrent.CompletionException|) with the underlying exception as 
+its cause. 
+
+
+
+    Returns: the result value 
+
+*java.util.concurrent.CompletableFuture.obtrudeException(Throwable)*
+
+public void obtrudeException(java.lang.Throwable ex)
+
+Forcibly causes subsequent invocations of method 
+(|java.util.concurrent.CompletableFuture|) and related methods to throw the 
+given exception, whether or not already completed. This method is designed for 
+use only in recovery actions, and even in such situations may result in ongoing 
+dependent completions using established versus overwritten outcomes. 
+
+
+    ex - the exception 
+
+*java.util.concurrent.CompletableFuture.obtrudeValue(T)*
+
+public void obtrudeValue(T value)
+
+Forcibly sets or resets the value subsequently returned by method 
+(|java.util.concurrent.CompletableFuture|) and related methods, whether or not 
+already completed. This method is designed for use only in error recovery 
+actions, and even in such situations may result in ongoing dependent 
+completions using established versus overwritten outcomes. 
+
+
+    value - the completion value 
+
+*java.util.concurrent.CompletableFuture.runAfterBoth(CompletionStage<?>,Runnable)*
+
+public |java.util.concurrent.CompletableFuture|<Void> runAfterBoth(
+  java.util.concurrent.CompletionStage<?> other,
+  java.lang.Runnable action)
+
+
+
+
+
+*java.util.concurrent.CompletableFuture.runAfterBothAsync(CompletionStage<?>,Runnable)*
+
+public |java.util.concurrent.CompletableFuture|<Void> runAfterBothAsync(
+  java.util.concurrent.CompletionStage<?> other,
+  java.lang.Runnable action)
+
+
+
+
+
+*java.util.concurrent.CompletableFuture.runAfterBothAsync(CompletionStage<?>,Runnable,Executor)*
+
+public |java.util.concurrent.CompletableFuture|<Void> runAfterBothAsync(
+  java.util.concurrent.CompletionStage<?> other,
+  java.lang.Runnable action,
+  java.util.concurrent.Executor executor)
+
+
+
+
+
+*java.util.concurrent.CompletableFuture.runAfterEither(CompletionStage<?>,Runnable)*
+
+public |java.util.concurrent.CompletableFuture|<Void> runAfterEither(
+  java.util.concurrent.CompletionStage<?> other,
+  java.lang.Runnable action)
+
+
+
+
+
+*java.util.concurrent.CompletableFuture.runAfterEitherAsync(CompletionStage<?>,Runnable)*
+
+public |java.util.concurrent.CompletableFuture|<Void> runAfterEitherAsync(
+  java.util.concurrent.CompletionStage<?> other,
+  java.lang.Runnable action)
+
+
+
+
+
+*java.util.concurrent.CompletableFuture.runAfterEitherAsync(CompletionStage<?>,Runnable,Executor)*
+
+public |java.util.concurrent.CompletableFuture|<Void> runAfterEitherAsync(
+  java.util.concurrent.CompletionStage<?> other,
+  java.lang.Runnable action,
+  java.util.concurrent.Executor executor)
+
+
+
+
+
+*java.util.concurrent.CompletableFuture.runAsync(Runnable)*
+
+public static |java.util.concurrent.CompletableFuture|<Void> runAsync(java.lang.Runnable runnable)
+
+Returns a new CompletableFuture that is asynchronously completed by a task 
+running in the (|java.util.concurrent.ForkJoinPool|) after it runs the given 
+action. 
+
+
+    runnable - the action to run before completing the returned CompletableFuture 
+
+    Returns: the new CompletableFuture 
+
+*java.util.concurrent.CompletableFuture.runAsync(Runnable,Executor)*
+
+public static |java.util.concurrent.CompletableFuture|<Void> runAsync(
+  java.lang.Runnable runnable,
+  java.util.concurrent.Executor executor)
+
+Returns a new CompletableFuture that is asynchronously completed by a task 
+running in the given executor after it runs the given action. 
+
+
+    runnable - the action to run before completing the returned CompletableFuture 
+    executor - the executor to use for asynchronous execution 
+
+    Returns: the new CompletableFuture 
+
+*java.util.concurrent.CompletableFuture.supplyAsync(Supplier<U>)*
+
+public static |java.util.concurrent.CompletableFuture|<U> supplyAsync(java.util.function.Supplier<U> supplier)
+
+Returns a new CompletableFuture that is asynchronously completed by a task 
+running in the (|java.util.concurrent.ForkJoinPool|) with the value obtained by 
+calling the given Supplier. 
+
+
+    supplier - a function returning the value to be used to complete the returned 
+       CompletableFuture 
+
+    Returns: the new CompletableFuture 
+
+*java.util.concurrent.CompletableFuture.supplyAsync(Supplier<U>,Executor)*
+
+public static |java.util.concurrent.CompletableFuture|<U> supplyAsync(
+  java.util.function.Supplier<U> supplier,
+  java.util.concurrent.Executor executor)
+
+Returns a new CompletableFuture that is asynchronously completed by a task 
+running in the given executor with the value obtained by calling the given 
+Supplier. 
+
+
+    supplier - a function returning the value to be used to complete the returned 
+       CompletableFuture 
+    executor - the executor to use for asynchronous execution 
+
+    Returns: the new CompletableFuture 
+
+*java.util.concurrent.CompletableFuture.thenAccept(Consumer<?superT>)*
+
+public |java.util.concurrent.CompletableFuture|<Void> thenAccept(java.util.function.Consumer<? super T> action)
+
+
+
+
+
+*java.util.concurrent.CompletableFuture.thenAcceptAsync(Consumer<?superT>)*
+
+public |java.util.concurrent.CompletableFuture|<Void> thenAcceptAsync(java.util.function.Consumer<? super T> action)
+
+
+
+
+
+*java.util.concurrent.CompletableFuture.thenAcceptAsync(Consumer<?superT>,Executor)*
+
+public |java.util.concurrent.CompletableFuture|<Void> thenAcceptAsync(
+  java.util.function.Consumer<? super T> action,
+  java.util.concurrent.Executor executor)
+
+
+
+
+
+*java.util.concurrent.CompletableFuture.thenAcceptBoth(CompletionStage<?extendsU>,BiConsumer<?superT,?superU>)*
+
+public |java.util.concurrent.CompletableFuture|<Void> thenAcceptBoth(
+  java.util.concurrent.CompletionStage<? extends U> other,
+  java.util.function.BiConsumer<? super T, ? super U> action)
+
+
+
+
+
+*java.util.concurrent.CompletableFuture.thenAcceptBothAsync(CompletionStage<?extendsU>,BiConsumer<?superT,?superU>)*
+
+public |java.util.concurrent.CompletableFuture|<Void> thenAcceptBothAsync(
+  java.util.concurrent.CompletionStage<? extends U> other,
+  java.util.function.BiConsumer<? super T, ? super U> action)
+
+
+
+
+
+*java.util.concurrent.CompletableFuture.thenAcceptBothAsync(CompletionStage<?extendsU>,BiConsumer<?superT,?superU>,Executor)*
+
+public |java.util.concurrent.CompletableFuture|<Void> thenAcceptBothAsync(
+  java.util.concurrent.CompletionStage<? extends U> other,
+  java.util.function.BiConsumer<? super T, ? super U> action,
+  java.util.concurrent.Executor executor)
+
+
+
+
+
+*java.util.concurrent.CompletableFuture.thenApply(Function<?superT,?extendsU>)*
+
+public |java.util.concurrent.CompletableFuture|<U> thenApply(java.util.function.Function<? super T, ? extends U> fn)
+
+
+
+
+
+*java.util.concurrent.CompletableFuture.thenApplyAsync(Function<?superT,?extendsU>)*
+
+public |java.util.concurrent.CompletableFuture|<U> thenApplyAsync(java.util.function.Function<? super T, ? extends U> fn)
+
+
+
+
+
+*java.util.concurrent.CompletableFuture.thenApplyAsync(Function<?superT,?extendsU>,Executor)*
+
+public |java.util.concurrent.CompletableFuture|<U> thenApplyAsync(
+  java.util.function.Function<? super T, ? extends U> fn,
+  java.util.concurrent.Executor executor)
+
+
+
+
+
+*java.util.concurrent.CompletableFuture.thenCombine(CompletionStage<?extendsU>,BiFunction<?superT,?superU,?extendsV>)*
+
+public |java.util.concurrent.CompletableFuture|<V> thenCombine(
+  java.util.concurrent.CompletionStage<? extends U> other,
+  java.util.function.BiFunction<? super T, ? super U, ? extends V> fn)
+
+
+
+
+
+*java.util.concurrent.CompletableFuture.thenCombineAsync(CompletionStage<?extendsU>,BiFunction<?superT,?superU,?extendsV>)*
+
+public |java.util.concurrent.CompletableFuture|<V> thenCombineAsync(
+  java.util.concurrent.CompletionStage<? extends U> other,
+  java.util.function.BiFunction<? super T, ? super U, ? extends V> fn)
+
+
+
+
+
+*java.util.concurrent.CompletableFuture.thenCombineAsync(CompletionStage<?extendsU>,BiFunction<?superT,?superU,?extendsV>,Executor)*
+
+public |java.util.concurrent.CompletableFuture|<V> thenCombineAsync(
+  java.util.concurrent.CompletionStage<? extends U> other,
+  java.util.function.BiFunction<? super T, ? super U, ? extends V> fn,
+  java.util.concurrent.Executor executor)
+
+
+
+
+
+*java.util.concurrent.CompletableFuture.thenCompose(Function<?superT,?extendsCompletionStage<U>>)*
+
+public |java.util.concurrent.CompletableFuture|<U> thenCompose(java.util.function.Function<? super T, ? extends java.util.concurrent.CompletionStage<U>> fn)
+
+
+
+
+
+*java.util.concurrent.CompletableFuture.thenComposeAsync(Function<?superT,?extendsCompletionStage<U>>)*
+
+public |java.util.concurrent.CompletableFuture|<U> thenComposeAsync(java.util.function.Function<? super T, ? extends java.util.concurrent.CompletionStage<U>> fn)
+
+
+
+
+
+*java.util.concurrent.CompletableFuture.thenComposeAsync(Function<?superT,?extendsCompletionStage<U>>,Executor)*
+
+public |java.util.concurrent.CompletableFuture|<U> thenComposeAsync(
+  java.util.function.Function<? super T, ? extends java.util.concurrent.CompletionStage<U>> fn,
+  java.util.concurrent.Executor executor)
+
+
+
+
+
+*java.util.concurrent.CompletableFuture.thenRun(Runnable)*
+
+public |java.util.concurrent.CompletableFuture|<Void> thenRun(java.lang.Runnable action)
+
+
+
+
+
+*java.util.concurrent.CompletableFuture.thenRunAsync(Runnable)*
+
+public |java.util.concurrent.CompletableFuture|<Void> thenRunAsync(java.lang.Runnable action)
+
+
+
+
+
+*java.util.concurrent.CompletableFuture.thenRunAsync(Runnable,Executor)*
+
+public |java.util.concurrent.CompletableFuture|<Void> thenRunAsync(
+  java.lang.Runnable action,
+  java.util.concurrent.Executor executor)
+
+
+
+
+
+*java.util.concurrent.CompletableFuture.toCompletableFuture()*
+
+public |java.util.concurrent.CompletableFuture|<T> toCompletableFuture()
+
+Returns this CompletableFuture 
+
+
+
+    Returns: this CompletableFuture 
+
+*java.util.concurrent.CompletableFuture.toString()*
+
+public |java.lang.String| toString()
+
+Returns a string identifying this CompletableFuture, as well as its completion 
+state. The state, in brackets, contains the String"Completed Normally"or the 
+String"Completed Exceptionally", or the String"Not completed"followed by the 
+number of CompletableFutures dependent upon its completion, if any. 
+
+
+
+    Returns: a string identifying this CompletableFuture, as well as its state 
+
+*java.util.concurrent.CompletableFuture.whenComplete(BiConsumer<?superT,?superThrowable>)*
+
+public |java.util.concurrent.CompletableFuture|<T> whenComplete(java.util.function.BiConsumer<? super T, ? super java.lang.Throwable> action)
+
+
+
+
+
+*java.util.concurrent.CompletableFuture.whenCompleteAsync(BiConsumer<?superT,?superThrowable>)*
+
+public |java.util.concurrent.CompletableFuture|<T> whenCompleteAsync(java.util.function.BiConsumer<? super T, ? super java.lang.Throwable> action)
+
+
+
+
+
+*java.util.concurrent.CompletableFuture.whenCompleteAsync(BiConsumer<?superT,?superThrowable>,Executor)*
+
+public |java.util.concurrent.CompletableFuture|<T> whenCompleteAsync(
+  java.util.function.BiConsumer<? super T, ? super java.lang.Throwable> action,
+  java.util.concurrent.Executor executor)
+
+
+
+
+
+

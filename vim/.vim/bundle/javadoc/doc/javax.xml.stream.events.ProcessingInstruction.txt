@@ -1,0 +1,44 @@
+*javax.xml.stream.events.ProcessingInstruction* *ProcessingInstruction* An inter
+
+public interface interface ProcessingInstruction
+
+  implements |javax.xml.stream.events.XMLEvent|
+
+|javax.xml.stream.events.ProcessingInstruction_Description|
+|javax.xml.stream.events.ProcessingInstruction_Fields|
+|javax.xml.stream.events.ProcessingInstruction_Constructors|
+|javax.xml.stream.events.ProcessingInstruction_Methods|
+
+================================================================================
+
+*javax.xml.stream.events.ProcessingInstruction_Methods*
+|javax.xml.stream.events.ProcessingInstruction.getData()|The data section of th
+|javax.xml.stream.events.ProcessingInstruction.getTarget()|The target section o
+
+*javax.xml.stream.events.ProcessingInstruction_Description*
+
+An interface that describes the data found in processing instructions 
+
+
+
+*javax.xml.stream.events.ProcessingInstruction.getData()*
+
+public |java.lang.String| getData()
+
+The data section of the processing instruction 
+
+
+
+    Returns: the String value of the PI's data or null 
+
+*javax.xml.stream.events.ProcessingInstruction.getTarget()*
+
+public |java.lang.String| getTarget()
+
+The target section of the processing instruction 
+
+
+
+    Returns: the String value of the PI or null 
+
+

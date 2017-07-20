@@ -1,0 +1,55 @@
+*javax.swing.plaf.synth.SynthUI* *SynthUI* SynthUI is used to fetch the SynthCon
+
+public interface interface SynthUI
+
+  implements |javax.swing.plaf.synth.SynthConstants|
+
+|javax.swing.plaf.synth.SynthUI_Description|
+|javax.swing.plaf.synth.SynthUI_Fields|
+|javax.swing.plaf.synth.SynthUI_Constructors|
+|javax.swing.plaf.synth.SynthUI_Methods|
+
+================================================================================
+
+*javax.swing.plaf.synth.SynthUI_Methods*
+|javax.swing.plaf.synth.SynthUI.getContext(JComponent)|Returns the Context for 
+|javax.swing.plaf.synth.SynthUI.paintBorder(SynthContext,Graphics,int,int,int,int)|
+
+*javax.swing.plaf.synth.SynthUI_Description*
+
+SynthUI is used to fetch the SynthContext for a particular Component. 
+
+
+
+*javax.swing.plaf.synth.SynthUI.getContext(JComponent)*
+
+public |javax.swing.plaf.synth.SynthContext| getContext(javax.swing.JComponent c)
+
+Returns the Context for the specified component. 
+
+
+    c - Component requesting SynthContext. 
+
+    Returns: SynthContext describing component. 
+
+*javax.swing.plaf.synth.SynthUI.paintBorder(SynthContext,Graphics,int,int,int,int)*
+
+public void paintBorder(
+  javax.swing.plaf.synth.SynthContext context,
+  java.awt.Graphics g,
+  int x,
+  int y,
+  int w,
+  int h)
+
+Paints the border. 
+
+
+    context - a component context 
+    g - {@code Graphics} to paint on 
+    x - the X coordinate 
+    y - the Y coordinate 
+    w - width of the border 
+    h - height of the border 
+
+

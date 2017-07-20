@@ -1,0 +1,309 @@
+*java.time.chrono.HijrahChronology* *HijrahChronology* The Hijrah calendar is a 
+
+public final class HijrahChronology
+  extends    |java.time.chrono.AbstractChronology|
+  implements |java.io.Serializable|
+
+|java.time.chrono.HijrahChronology_Description|
+|java.time.chrono.HijrahChronology_Fields|
+|java.time.chrono.HijrahChronology_Constructors|
+|java.time.chrono.HijrahChronology_Methods|
+
+================================================================================
+
+*java.time.chrono.HijrahChronology_Fields*
+|java.time.chrono.HijrahChronology_java.time.chrono.HijrahChronology.INSTANCE|
+
+*java.time.chrono.HijrahChronology_Methods*
+|java.time.chrono.HijrahChronology.date(Era,int,int,int)|Obtains a local date i
+|java.time.chrono.HijrahChronology.date(int,int,int)|Obtains a local date in Hi
+|java.time.chrono.HijrahChronology.date(TemporalAccessor)|
+|java.time.chrono.HijrahChronology.dateEpochDay(long)|Obtains a local date in t
+|java.time.chrono.HijrahChronology.dateNow()|
+|java.time.chrono.HijrahChronology.dateNow(Clock)|
+|java.time.chrono.HijrahChronology.dateNow(ZoneId)|
+|java.time.chrono.HijrahChronology.dateYearDay(Era,int,int)|Obtains a local dat
+|java.time.chrono.HijrahChronology.dateYearDay(int,int)|Obtains a local date in
+|java.time.chrono.HijrahChronology.eraOf(int)|
+|java.time.chrono.HijrahChronology.eras()|
+|java.time.chrono.HijrahChronology.getCalendarType()|Gets the calendar type of 
+|java.time.chrono.HijrahChronology.getId()|Gets the ID of the chronology.
+|java.time.chrono.HijrahChronology.isLeapYear(long)|
+|java.time.chrono.HijrahChronology.localDateTime(TemporalAccessor)|
+|java.time.chrono.HijrahChronology.prolepticYear(Era,int)|
+|java.time.chrono.HijrahChronology.range(ChronoField)|
+|java.time.chrono.HijrahChronology.resolveDate(Map<TemporalField,Long>,ResolverStyle)|
+|java.time.chrono.HijrahChronology.zonedDateTime(Instant,ZoneId)|
+|java.time.chrono.HijrahChronology.zonedDateTime(TemporalAccessor)|
+
+*java.time.chrono.HijrahChronology_Description*
+
+The Hijrah calendar is a lunar calendar supporting Islamic calendars. 
+
+The HijrahChronology follows the rules of the Hijrah calendar system. The 
+Hijrah calendar has several variants based on differences in when the new moon 
+is determined to have occurred and where the observation is made. In some 
+variants the length of each month is computed algorithmically from the 
+astronomical data for the moon and earth and in others the length of the month 
+is determined by an authorized sighting of the new moon. For the 
+algorithmically based calendars the calendar can project into the future. For 
+sighting based calendars only historical data from past sightings is available. 
+
+The length of each month is 29 or 30 days. Ordinary years have 354 days; leap 
+years have 355 days. 
+
+CLDR and LDML identify variants: 
+
+
+
+Chronology ID Calendar Type Locale extension, see (|java.util.Locale|) 
+Description 
+
+
+
+Hijrah-umalqura islamic-umalqura ca-islamic-umalqura Islamic - Umm Al-Qura 
+calendar of Saudi Arabia 
+
+
+
+Additional variants may be available through (|java.time.chrono.Chronology|) . 
+
+Example 
+
+Selecting the chronology from the locale uses (|java.time.chrono.Chronology|) 
+to find the Chronology based on Locale supported BCP 47 extension mechanism to 
+request a specific calendar ("ca"). For example, 
+
+
+
+Locale locale = Locale.forLanguageTag("en-US-u-ca-islamic-umalqura"); 
+Chronology chrono = Chronology.ofLocale(locale); 
+
+
+
+*java.time.chrono.HijrahChronology_java.time.chrono.HijrahChronology.INSTANCE*
+
+Singleton instance of the Islamic Umm Al-Qura calendar of Saudi Arabia. Other 
+Hijrah chronology variants may be available from 
+(|java.time.chrono.Chronology|) . 
+
+
+
+*java.time.chrono.HijrahChronology.date(Era,int,int,int)*
+
+public |java.time.chrono.HijrahDate| date(
+  java.time.chrono.Era era,
+  int yearOfEra,
+  int month,
+  int dayOfMonth)
+
+Obtains a local date in Hijrah calendar system from the era, year-of-era, 
+month-of-year and day-of-month fields. 
+
+
+    era - the Hijrah era, not null 
+    yearOfEra - the year-of-era 
+    month - the month-of-year 
+    dayOfMonth - the day-of-month 
+
+    Returns: the Hijrah local date, not null 
+
+*java.time.chrono.HijrahChronology.date(int,int,int)*
+
+public |java.time.chrono.HijrahDate| date(
+  int prolepticYear,
+  int month,
+  int dayOfMonth)
+
+Obtains a local date in Hijrah calendar system from the proleptic-year, 
+month-of-year and day-of-month fields. 
+
+
+    prolepticYear - the proleptic-year 
+    month - the month-of-year 
+    dayOfMonth - the day-of-month 
+
+    Returns: the Hijrah local date, not null 
+
+*java.time.chrono.HijrahChronology.date(TemporalAccessor)*
+
+public |java.time.chrono.HijrahDate| date(java.time.temporal.TemporalAccessor temporal)
+
+
+
+
+
+*java.time.chrono.HijrahChronology.dateEpochDay(long)*
+
+public |java.time.chrono.HijrahDate| dateEpochDay(long epochDay)
+
+Obtains a local date in the Hijrah calendar system from the epoch-day. 
+
+
+    epochDay - the epoch day 
+
+    Returns: the Hijrah local date, not null 
+
+*java.time.chrono.HijrahChronology.dateNow()*
+
+public |java.time.chrono.HijrahDate| dateNow()
+
+
+
+
+
+*java.time.chrono.HijrahChronology.dateNow(Clock)*
+
+public |java.time.chrono.HijrahDate| dateNow(java.time.Clock clock)
+
+
+
+
+
+*java.time.chrono.HijrahChronology.dateNow(ZoneId)*
+
+public |java.time.chrono.HijrahDate| dateNow(java.time.ZoneId zone)
+
+
+
+
+
+*java.time.chrono.HijrahChronology.dateYearDay(Era,int,int)*
+
+public |java.time.chrono.HijrahDate| dateYearDay(
+  java.time.chrono.Era era,
+  int yearOfEra,
+  int dayOfYear)
+
+Obtains a local date in Hijrah calendar system from the era, year-of-era and 
+day-of-year fields. 
+
+
+    era - the Hijrah era, not null 
+    yearOfEra - the year-of-era 
+    dayOfYear - the day-of-year 
+
+    Returns: the Hijrah local date, not null 
+
+*java.time.chrono.HijrahChronology.dateYearDay(int,int)*
+
+public |java.time.chrono.HijrahDate| dateYearDay(
+  int prolepticYear,
+  int dayOfYear)
+
+Obtains a local date in Hijrah calendar system from the proleptic-year and 
+day-of-year fields. 
+
+
+    prolepticYear - the proleptic-year 
+    dayOfYear - the day-of-year 
+
+    Returns: the Hijrah local date, not null 
+
+*java.time.chrono.HijrahChronology.eraOf(int)*
+
+public |java.time.chrono.HijrahEra| eraOf(int eraValue)
+
+
+
+
+
+*java.time.chrono.HijrahChronology.eras()*
+
+public |java.util.List|<Era> eras()
+
+
+
+
+
+*java.time.chrono.HijrahChronology.getCalendarType()*
+
+public |java.lang.String| getCalendarType()
+
+Gets the calendar type of the Islamic calendar. 
+
+The calendar type is an identifier defined by the Unicode Locale Data Markup 
+Language (LDML) specification. It can be used to lookup theChronologyusing 
+(|java.time.chrono.HijrahChronology|) . 
+
+
+
+    Returns: the calendar system type; non-null if the calendar has a standard type, 
+             otherwise null 
+
+*java.time.chrono.HijrahChronology.getId()*
+
+public |java.lang.String| getId()
+
+Gets the ID of the chronology. 
+
+The ID uniquely identifies theChronology. It can be used to lookup 
+theChronologyusing (|java.time.chrono.HijrahChronology|) . 
+
+
+
+    Returns: the chronology ID, non-null 
+
+*java.time.chrono.HijrahChronology.isLeapYear(long)*
+
+public boolean isLeapYear(long prolepticYear)
+
+
+
+
+
+*java.time.chrono.HijrahChronology.localDateTime(TemporalAccessor)*
+
+public |java.time.chrono.ChronoLocalDateTime|<HijrahDate> localDateTime(java.time.temporal.TemporalAccessor temporal)
+
+
+
+
+
+*java.time.chrono.HijrahChronology.prolepticYear(Era,int)*
+
+public int prolepticYear(
+  java.time.chrono.Era era,
+  int yearOfEra)
+
+
+
+
+
+*java.time.chrono.HijrahChronology.range(ChronoField)*
+
+public |java.time.temporal.ValueRange| range(java.time.temporal.ChronoField field)
+
+
+
+
+
+*java.time.chrono.HijrahChronology.resolveDate(Map<TemporalField,Long>,ResolverStyle)*
+
+public |java.time.chrono.HijrahDate| resolveDate(
+  java.util.Map<java.time.temporal.TemporalField, java.lang.Long> fieldValues,
+  java.time.format.ResolverStyle resolverStyle)
+
+
+
+
+
+*java.time.chrono.HijrahChronology.zonedDateTime(Instant,ZoneId)*
+
+public |java.time.chrono.ChronoZonedDateTime|<HijrahDate> zonedDateTime(
+  java.time.Instant instant,
+  java.time.ZoneId zone)
+
+
+
+
+
+*java.time.chrono.HijrahChronology.zonedDateTime(TemporalAccessor)*
+
+public |java.time.chrono.ChronoZonedDateTime|<HijrahDate> zonedDateTime(java.time.temporal.TemporalAccessor temporal)
+
+
+
+
+
+

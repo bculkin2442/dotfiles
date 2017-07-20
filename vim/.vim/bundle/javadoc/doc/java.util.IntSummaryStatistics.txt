@@ -1,0 +1,137 @@
+*java.util.IntSummaryStatistics* *IntSummaryStatistics* A state object for colle
+
+public class IntSummaryStatistics
+  extends    |java.lang.Object|
+  implements |java.util.function.IntConsumer|
+
+|java.util.IntSummaryStatistics_Description|
+|java.util.IntSummaryStatistics_Fields|
+|java.util.IntSummaryStatistics_Constructors|
+|java.util.IntSummaryStatistics_Methods|
+
+================================================================================
+
+*java.util.IntSummaryStatistics_Constructors*
+|java.util.IntSummaryStatistics()|Construct an empty instance with zero count, 
+
+*java.util.IntSummaryStatistics_Methods*
+|java.util.IntSummaryStatistics.accept(int)|Records a new value into the summar
+|java.util.IntSummaryStatistics.combine(IntSummaryStatistics)|Combines the stat
+|java.util.IntSummaryStatistics.getAverage()|Returns the arithmetic mean of val
+|java.util.IntSummaryStatistics.getCount()|Returns the count of values recorded
+|java.util.IntSummaryStatistics.getMax()|Returns the maximum value recorded, or
+|java.util.IntSummaryStatistics.getMin()|Returns the minimum value recorded, or
+|java.util.IntSummaryStatistics.getSum()|Returns the sum of values recorded, or
+|java.util.IntSummaryStatistics.toString()|
+
+*java.util.IntSummaryStatistics_Description*
+
+A state object for collecting statistics such as count, min, max, sum, and 
+average. 
+
+This class is designed to work with (though does not require) 
+streams(|java.util.stream|) . For example, you can compute summary statistics 
+on a stream of ints with: 
+
+IntSummaryStatistics stats = intStream.collect(IntSummaryStatistics::new, 
+IntSummaryStatistics::accept, IntSummaryStatistics::combine); 
+
+IntSummaryStatisticscan be used as a reduction(|java.util.stream.Stream|) 
+target for a stream(|java.util.stream.Stream|) . For example: 
+
+IntSummaryStatistics stats = people.stream() 
+.collect(Collectors.summarizingInt(Person::getDependents)); 
+
+This computes, in a single pass, the count of people, as well as the minimum, 
+maximum, sum, and average of their number of dependents. 
+
+
+
+*java.util.IntSummaryStatistics()*
+
+public IntSummaryStatistics()
+
+Construct an empty instance with zero count, zero 
+sum,Integer.MAX_VALUEmin,Integer.MIN_VALUEmax and zero average. 
+
+
+*java.util.IntSummaryStatistics.accept(int)*
+
+public void accept(int value)
+
+Records a new value into the summary information 
+
+
+    value - the input value 
+
+*java.util.IntSummaryStatistics.combine(IntSummaryStatistics)*
+
+public void combine(java.util.IntSummaryStatistics other)
+
+Combines the state of anotherIntSummaryStatisticsinto this one. 
+
+
+    other - another {@code IntSummaryStatistics} 
+
+*java.util.IntSummaryStatistics.getAverage()*
+
+public final double getAverage()
+
+Returns the arithmetic mean of values recorded, or zero if no values have been 
+recorded. 
+
+
+
+    Returns: the arithmetic mean of values, or zero if none 
+
+*java.util.IntSummaryStatistics.getCount()*
+
+public final long getCount()
+
+Returns the count of values recorded. 
+
+
+
+    Returns: the count of values 
+
+*java.util.IntSummaryStatistics.getMax()*
+
+public final int getMax()
+
+Returns the maximum value recorded, orInteger.MIN_VALUEif no values have been 
+recorded. 
+
+
+
+    Returns: the maximum value, or {@code Integer.MIN_VALUE} if none 
+
+*java.util.IntSummaryStatistics.getMin()*
+
+public final int getMin()
+
+Returns the minimum value recorded, orInteger.MAX_VALUEif no values have been 
+recorded. 
+
+
+
+    Returns: the minimum value, or {@code Integer.MAX_VALUE} if none 
+
+*java.util.IntSummaryStatistics.getSum()*
+
+public final long getSum()
+
+Returns the sum of values recorded, or zero if no values have been recorded. 
+
+
+
+    Returns: the sum of values, or zero if none 
+
+*java.util.IntSummaryStatistics.toString()*
+
+public |java.lang.String| toString()
+
+
+
+
+
+

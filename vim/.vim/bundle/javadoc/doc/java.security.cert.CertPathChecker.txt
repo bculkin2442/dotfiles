@@ -1,0 +1,68 @@
+*java.security.cert.CertPathChecker* *CertPathChecker* Performs one or more chec
+
+public interface interface CertPathChecker
+
+
+|java.security.cert.CertPathChecker_Description|
+|java.security.cert.CertPathChecker_Fields|
+|java.security.cert.CertPathChecker_Constructors|
+|java.security.cert.CertPathChecker_Methods|
+
+================================================================================
+
+*java.security.cert.CertPathChecker_Methods*
+|java.security.cert.CertPathChecker.check(Certificate)|Performs the check(s) on
+|java.security.cert.CertPathChecker.init(boolean)|Initializes the internal stat
+|java.security.cert.CertPathChecker.isForwardCheckingSupported()|Indicates if f
+
+*java.security.cert.CertPathChecker_Description*
+
+Performs one or more checks on eachCertificateof aCertPath. 
+
+ACertPathCheckerimplementation is typically created to extend a certification 
+path validation algorithm. For example, an implementation may check for and 
+process a critical private extension of each certificate in a certification 
+path. 
+
+
+
+*java.security.cert.CertPathChecker.check(Certificate)*
+
+public void check(java.security.cert.Certificate cert)
+  throws |java.security.cert.CertPathValidatorException|
+         
+Performs the check(s) on the specified certificate using its internal state. 
+The certificates are presented in the order specified by theinitmethod. 
+
+
+    cert - the {@code Certificate} to be checked 
+
+*java.security.cert.CertPathChecker.init(boolean)*
+
+public void init(boolean forward)
+  throws |java.security.cert.CertPathValidatorException|
+         
+Initializes the internal state of thisCertPathChecker. 
+
+Theforwardflag specifies the order that certificates will be passed to the 
+check(|java.security.cert.CertPathChecker|) method (forward or reverse). 
+
+
+    forward - the order that certificates are presented to the {@code check} method. If 
+       {@code true}, certificates are presented from target to trust anchor 
+       (forward); if {@code false}, from trust anchor to target (reverse). 
+
+*java.security.cert.CertPathChecker.isForwardCheckingSupported()*
+
+public boolean isForwardCheckingSupported()
+
+Indicates if forward checking is supported. Forward checking refers to the 
+ability of theCertPathCheckerto perform its checks when certificates are 
+presented to thecheckmethod in the forward direction (from target to trust 
+anchor). 
+
+
+
+    Returns: {@code true} if forward checking is supported, {@code false} otherwise 
+
+

@@ -1,0 +1,28 @@
+*javax.xml.bind.JAXBElement.GlobalScope* *JAXBElement.GlobalScope* Designates gl
+
+public static final class JAXBElement.GlobalScope
+  extends    |java.lang.Object|
+
+|javax.xml.bind.JAXBElement.GlobalScope_Description|
+|javax.xml.bind.JAXBElement.GlobalScope_Fields|
+|javax.xml.bind.JAXBElement.GlobalScope_Constructors|
+|javax.xml.bind.JAXBElement.GlobalScope_Methods|
+
+================================================================================
+
+*javax.xml.bind.JAXBElement.GlobalScope_Constructors*
+|javax.xml.bind.JAXBElement.GlobalScope()|
+
+*javax.xml.bind.JAXBElement.GlobalScope_Description*
+
+Designates global scope for an xml element. 
+
+
+
+*javax.xml.bind.JAXBElement.GlobalScope()*
+
+public GlobalScope()
+
+
+
+

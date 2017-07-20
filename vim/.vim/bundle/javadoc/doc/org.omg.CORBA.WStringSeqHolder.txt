@@ -1,0 +1,76 @@
+*org.omg.CORBA.WStringSeqHolder* *WStringSeqHolder* An array of WStrings
+
+public final class WStringSeqHolder
+  extends    |java.lang.Object|
+  implements |org.omg.CORBA.portable.Streamable|
+
+|org.omg.CORBA.WStringSeqHolder_Description|
+|org.omg.CORBA.WStringSeqHolder_Fields|
+|org.omg.CORBA.WStringSeqHolder_Constructors|
+|org.omg.CORBA.WStringSeqHolder_Methods|
+
+================================================================================
+
+*org.omg.CORBA.WStringSeqHolder_Fields*
+|java.lang.String[]_org.omg.CORBA.WStringSeqHolder.value|
+
+*org.omg.CORBA.WStringSeqHolder_Constructors*
+|org.omg.CORBA.WStringSeqHolder()|
+|org.omg.CORBA.WStringSeqHolder(String[])|
+
+*org.omg.CORBA.WStringSeqHolder_Methods*
+|org.omg.CORBA.WStringSeqHolder._read(InputStream)|
+|org.omg.CORBA.WStringSeqHolder._type()|
+|org.omg.CORBA.WStringSeqHolder._write(OutputStream)|
+
+*org.omg.CORBA.WStringSeqHolder_Description*
+
+An array of WStrings 
+
+
+
+*java.lang.String[]_org.omg.CORBA.WStringSeqHolder.value*
+
+
+
+
+
+*org.omg.CORBA.WStringSeqHolder()*
+
+public WStringSeqHolder()
+
+
+
+
+*org.omg.CORBA.WStringSeqHolder(String[])*
+
+public WStringSeqHolder(java.lang.String[] initialValue)
+
+
+
+
+*org.omg.CORBA.WStringSeqHolder._read(InputStream)*
+
+public void _read(org.omg.CORBA.portable.InputStream i)
+
+
+
+
+
+*org.omg.CORBA.WStringSeqHolder._type()*
+
+public |org.omg.CORBA.TypeCode| _type()
+
+
+
+
+
+*org.omg.CORBA.WStringSeqHolder._write(OutputStream)*
+
+public void _write(org.omg.CORBA.portable.OutputStream o)
+
+
+
+
+
+

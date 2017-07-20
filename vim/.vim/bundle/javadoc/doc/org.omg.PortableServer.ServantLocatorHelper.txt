@@ -1,0 +1,117 @@
+*org.omg.PortableServer.ServantLocatorHelper* *ServantLocatorHelper* When the PO
+
+public abstract class ServantLocatorHelper
+  extends    |java.lang.Object|
+
+|org.omg.PortableServer.ServantLocatorHelper_Description|
+|org.omg.PortableServer.ServantLocatorHelper_Fields|
+|org.omg.PortableServer.ServantLocatorHelper_Constructors|
+|org.omg.PortableServer.ServantLocatorHelper_Methods|
+
+================================================================================
+
+*org.omg.PortableServer.ServantLocatorHelper_Constructors*
+|org.omg.PortableServer.ServantLocatorHelper()|
+
+*org.omg.PortableServer.ServantLocatorHelper_Methods*
+|org.omg.PortableServer.ServantLocatorHelper.extract(Any)|
+|org.omg.PortableServer.ServantLocatorHelper.id()|
+|org.omg.PortableServer.ServantLocatorHelper.insert(Any,ServantLocator)|
+|org.omg.PortableServer.ServantLocatorHelper.narrow(Object)|
+|org.omg.PortableServer.ServantLocatorHelper.read(InputStream)|
+|org.omg.PortableServer.ServantLocatorHelper.type()|
+|org.omg.PortableServer.ServantLocatorHelper.unchecked_narrow(Object)|
+|org.omg.PortableServer.ServantLocatorHelper.write(OutputStream,ServantLocator)|
+
+*org.omg.PortableServer.ServantLocatorHelper_Description*
+
+When the POA has the NON_RETAIN policy it uses servant managers that are 
+ServantLocators. Because the POA knows that the servant returned by this 
+servant manager will be used only for a single request, it can supply extra 
+information to the servant manager's operations and the servant manager's pair 
+of operations may be able to cooperate to do something different than a 
+ServantActivator. When the POA uses the ServantLocator interface, immediately 
+after performing the operation invocation on the servant returned by preinvoke, 
+the POA will invoke postinvoke on the servant manager, passing the ObjectId 
+value and the Servant value as parameters (among others). This feature may be 
+used to force every request for objects associated with a POA to be mediated by 
+the servant manager. 
+
+
+
+*org.omg.PortableServer.ServantLocatorHelper()*
+
+public ServantLocatorHelper()
+
+
+
+
+*org.omg.PortableServer.ServantLocatorHelper.extract(Any)*
+
+public static |org.omg.PortableServer.ServantLocator| extract(org.omg.CORBA.Any a)
+
+
+
+
+
+*org.omg.PortableServer.ServantLocatorHelper.id()*
+
+public static |java.lang.String| id()
+
+
+
+
+
+*org.omg.PortableServer.ServantLocatorHelper.insert(Any,ServantLocator)*
+
+public static void insert(
+  org.omg.CORBA.Any a,
+  org.omg.PortableServer.ServantLocator that)
+
+
+
+
+
+*org.omg.PortableServer.ServantLocatorHelper.narrow(Object)*
+
+public static |org.omg.PortableServer.ServantLocator| narrow(org.omg.CORBA.Object obj)
+
+
+
+
+
+*org.omg.PortableServer.ServantLocatorHelper.read(InputStream)*
+
+public static |org.omg.PortableServer.ServantLocator| read(org.omg.CORBA.portable.InputStream istream)
+
+
+
+
+
+*org.omg.PortableServer.ServantLocatorHelper.type()*
+
+public static synchronized |org.omg.CORBA.TypeCode| type()
+
+
+
+
+
+*org.omg.PortableServer.ServantLocatorHelper.unchecked_narrow(Object)*
+
+public static |org.omg.PortableServer.ServantLocator| unchecked_narrow(org.omg.CORBA.Object obj)
+
+
+
+
+
+*org.omg.PortableServer.ServantLocatorHelper.write(OutputStream,ServantLocator)*
+
+public static void write(
+  org.omg.CORBA.portable.OutputStream ostream,
+  org.omg.PortableServer.ServantLocator value)
+
+
+
+
+
+

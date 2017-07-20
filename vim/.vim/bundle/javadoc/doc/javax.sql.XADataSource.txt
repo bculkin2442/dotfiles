@@ -1,0 +1,59 @@
+*javax.sql.XADataSource* *XADataSource* A factory forXAConnectionobjects that is
+
+public interface interface XADataSource
+
+  implements |javax.sql.CommonDataSource|
+
+|javax.sql.XADataSource_Description|
+|javax.sql.XADataSource_Fields|
+|javax.sql.XADataSource_Constructors|
+|javax.sql.XADataSource_Methods|
+
+================================================================================
+
+*javax.sql.XADataSource_Methods*
+|javax.sql.XADataSource.getXAConnection()|Attempts to establish a physical data
+|javax.sql.XADataSource.getXAConnection(String,String)|Attempts to establish a 
+
+*javax.sql.XADataSource_Description*
+
+A factory forXAConnectionobjects that is used internally. An object that 
+implements theXADataSourceinterface is typically registered with a naming 
+service that uses the Java Naming and Directory Interface (JNDI). 
+
+An implementation ofXADataSourcemust include a public no-arg constructor. 
+
+
+
+*javax.sql.XADataSource.getXAConnection()*
+
+public |javax.sql.XAConnection| getXAConnection()
+  throws |java.sql.SQLException|
+         
+Attempts to establish a physical database connection that can be used in a 
+distributed transaction. 
+
+
+
+    Returns: an {@code XAConnection} object, which represents a physical connection to a 
+             data source, that can be used in a distributed transaction 
+
+*javax.sql.XADataSource.getXAConnection(String,String)*
+
+public |javax.sql.XAConnection| getXAConnection(
+  java.lang.String user,
+  java.lang.String password)
+  throws |java.sql.SQLException|
+         
+Attempts to establish a physical database connection, using the given user name 
+and password. The connection that is returned is one that can be used in a 
+distributed transaction. 
+
+
+    user - the database user on whose behalf the connection is being made 
+    password - the user's password 
+
+    Returns: an {@code XAConnection} object, which represents a physical connection to a 
+             data source, that can be used in a distributed transaction 
+
+

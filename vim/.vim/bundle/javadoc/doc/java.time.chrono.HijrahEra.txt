@@ -1,0 +1,100 @@
+*java.time.chrono.HijrahEra* *HijrahEra* An era in the Hijrah calendar system.
+
+public final enumHijrahEra
+  extends    |java.lang.Enum|
+  implements |java.time.chrono.Era|
+
+|java.time.chrono.HijrahEra_Description|
+|java.time.chrono.HijrahEra_Fields|
+|java.time.chrono.HijrahEra_Constructors|
+|java.time.chrono.HijrahEra_Methods|
+
+================================================================================
+
+*java.time.chrono.HijrahEra_Methods*
+|java.time.chrono.HijrahEra.getValue()|Gets the numeric eraintvalue.
+|java.time.chrono.HijrahEra.of(int)|Obtains an instance ofHijrahErafrom anintva
+|java.time.chrono.HijrahEra.range(TemporalField)|Gets the range of valid values
+|java.time.chrono.HijrahEra.valueOf(String)|
+|java.time.chrono.HijrahEra.values()|
+
+*java.time.chrono.HijrahEra_Description*
+
+An era in the Hijrah calendar system. 
+
+The Hijrah calendar system has only one era covering the proleptic years 
+greater than zero. 
+
+Do not useordinal()to obtain the numeric representation ofHijrahEra. 
+UsegetValue()instead. 
+
+
+
+*java.time.chrono.HijrahEra.getValue()*
+
+public int getValue()
+
+Gets the numeric eraintvalue. 
+
+The era AH has the value 1. 
+
+
+
+    Returns: the era value, 1 (AH) 
+
+*java.time.chrono.HijrahEra.of(int)*
+
+public static |java.time.chrono.HijrahEra| of(int hijrahEra)
+
+Obtains an instance ofHijrahErafrom anintvalue. 
+
+The current era, which is the only accepted value, has the value 1 
+
+
+    hijrahEra - the era to represent, only 1 supported 
+
+    Returns: the HijrahEra.AH singleton, not null 
+
+*java.time.chrono.HijrahEra.range(TemporalField)*
+
+public |java.time.temporal.ValueRange| range(java.time.temporal.TemporalField field)
+
+Gets the range of valid values for the specified field. 
+
+The range object expresses the minimum and maximum valid values for a field. 
+This era is used to enhance the accuracy of the returned range. If it is not 
+possible to return the range, because the field is not supported or for some 
+other reason, an exception is thrown. 
+
+If the field is a (|java.time.temporal.ChronoField|) then the query is 
+implemented here. TheERAfield returns the range. All otherChronoFieldinstances 
+will throw anUnsupportedTemporalTypeException. 
+
+If the field is not aChronoField, then the result of this method is obtained by 
+invokingTemporalField.rangeRefinedBy(TemporalAccessor)passingthisas the 
+argument. Whether the range can be obtained is determined by the field. 
+
+TheERAfield returns a range for the one valid Hijrah era. 
+
+
+    field - the field to query the range for, not null 
+
+    Returns: the range of valid values for the field, not null 
+
+*java.time.chrono.HijrahEra.valueOf(String)*
+
+public static |java.time.chrono.HijrahEra| valueOf(java.lang.String name)
+
+
+
+
+
+*java.time.chrono.HijrahEra.values()*
+
+public static |java.time.chrono.HijrahEra|[] values()
+
+
+
+
+
+

@@ -1,0 +1,39 @@
+*java.util.function.LongSupplier* *LongSupplier* Represents a supplier oflong-va
+
+public interface interface LongSupplier
+
+
+|java.util.function.LongSupplier_Description|
+|java.util.function.LongSupplier_Fields|
+|java.util.function.LongSupplier_Constructors|
+|java.util.function.LongSupplier_Methods|
+
+================================================================================
+
+*java.util.function.LongSupplier_Methods*
+|java.util.function.LongSupplier.getAsLong()|Gets a result.
+
+*java.util.function.LongSupplier_Description*
+
+Represents a supplier oflong-valued results. This is thelong-producing 
+primitive specialization of (|java.util.function.Supplier|) . 
+
+There is no requirement that a distinct result be returned each time the 
+supplier is invoked. 
+
+This is a functional interface whose functional method is 
+(|java.util.function.LongSupplier|) . 
+
+
+
+*java.util.function.LongSupplier.getAsLong()*
+
+public long getAsLong()
+
+Gets a result. 
+
+
+
+    Returns: 
+
+

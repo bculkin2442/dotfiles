@@ -1,0 +1,243 @@
+*javax.swing.plaf.synth.SynthToolBarUI* *SynthToolBarUI* Provides the Synth L an
+
+public class SynthToolBarUI
+  extends    |javax.swing.plaf.basic.BasicToolBarUI|
+  implements |java.beans.PropertyChangeListener|
+             |javax.swing.plaf.synth.SynthUI|
+
+|javax.swing.plaf.synth.SynthToolBarUI_Description|
+|javax.swing.plaf.synth.SynthToolBarUI_Fields|
+|javax.swing.plaf.synth.SynthToolBarUI_Constructors|
+|javax.swing.plaf.synth.SynthToolBarUI_Methods|
+
+================================================================================
+
+*javax.swing.plaf.synth.SynthToolBarUI_Constructors*
+|javax.swing.plaf.synth.SynthToolBarUI()|
+
+*javax.swing.plaf.synth.SynthToolBarUI_Methods*
+|javax.swing.plaf.synth.SynthToolBarUI.createLayout()|Creates aLayoutManagerto 
+|javax.swing.plaf.synth.SynthToolBarUI.createUI(JComponent)|Creates a new UI ob
+|javax.swing.plaf.synth.SynthToolBarUI.getContext(JComponent)|
+|javax.swing.plaf.synth.SynthToolBarUI.installComponents()|
+|javax.swing.plaf.synth.SynthToolBarUI.installDefaults()|
+|javax.swing.plaf.synth.SynthToolBarUI.installListeners()|
+|javax.swing.plaf.synth.SynthToolBarUI.paint(Graphics,JComponent)|Paints the sp
+|javax.swing.plaf.synth.SynthToolBarUI.paint(SynthContext,Graphics)|Paints the 
+|javax.swing.plaf.synth.SynthToolBarUI.paintBorder(SynthContext,Graphics,int,int,int,int)|
+|javax.swing.plaf.synth.SynthToolBarUI.paintContent(SynthContext,Graphics,Rectangle)|
+|javax.swing.plaf.synth.SynthToolBarUI.paintDragWindow(Graphics)|
+|javax.swing.plaf.synth.SynthToolBarUI.propertyChange(PropertyChangeEvent)|
+|javax.swing.plaf.synth.SynthToolBarUI.setBorderToNonRollover(Component)|This i
+|javax.swing.plaf.synth.SynthToolBarUI.setBorderToNormal(Component)|This implem
+|javax.swing.plaf.synth.SynthToolBarUI.setBorderToRollover(Component)|This impl
+|javax.swing.plaf.synth.SynthToolBarUI.uninstallComponents()|
+|javax.swing.plaf.synth.SynthToolBarUI.uninstallDefaults()|
+|javax.swing.plaf.synth.SynthToolBarUI.uninstallListeners()|
+|javax.swing.plaf.synth.SynthToolBarUI.update(Graphics,JComponent)|Notifies thi
+
+*javax.swing.plaf.synth.SynthToolBarUI_Description*
+
+Provides the Synth L and F UI delegate for (|javax.swing.JToolBar|) . 
+
+
+
+*javax.swing.plaf.synth.SynthToolBarUI()*
+
+public SynthToolBarUI()
+
+
+
+
+*javax.swing.plaf.synth.SynthToolBarUI.createLayout()*
+
+protected |java.awt.LayoutManager| createLayout()
+
+Creates aLayoutManagerto use with the toolbar. 
+
+
+
+    Returns: a {@code LayoutManager} instance 
+
+*javax.swing.plaf.synth.SynthToolBarUI.createUI(JComponent)*
+
+public static |javax.swing.plaf.ComponentUI| createUI(javax.swing.JComponent c)
+
+Creates a new UI object for the given component. 
+
+
+    c - component to create UI object for 
+
+    Returns: the UI object 
+
+*javax.swing.plaf.synth.SynthToolBarUI.getContext(JComponent)*
+
+public |javax.swing.plaf.synth.SynthContext| getContext(javax.swing.JComponent c)
+
+
+
+
+
+*javax.swing.plaf.synth.SynthToolBarUI.installComponents()*
+
+protected void installComponents()
+
+
+
+
+
+*javax.swing.plaf.synth.SynthToolBarUI.installDefaults()*
+
+protected void installDefaults()
+
+
+
+
+
+*javax.swing.plaf.synth.SynthToolBarUI.installListeners()*
+
+protected void installListeners()
+
+
+
+
+
+*javax.swing.plaf.synth.SynthToolBarUI.paint(Graphics,JComponent)*
+
+public void paint(
+  java.awt.Graphics g,
+  javax.swing.JComponent c)
+
+Paints the specified component according to the Look and Feel. This method is 
+not used by Synth Look and Feel. Painting is handled by the 
+(|javax.swing.plaf.synth.SynthToolBarUI|) method. 
+
+
+    g - the {@code Graphics} object used for painting 
+    c - the component being painted 
+
+*javax.swing.plaf.synth.SynthToolBarUI.paint(SynthContext,Graphics)*
+
+protected void paint(
+  javax.swing.plaf.synth.SynthContext context,
+  java.awt.Graphics g)
+
+Paints the toolbar. 
+
+
+    context - context for the component being painted 
+    g - the {@code Graphics} object used for painting 
+
+*javax.swing.plaf.synth.SynthToolBarUI.paintBorder(SynthContext,Graphics,int,int,int,int)*
+
+public void paintBorder(
+  javax.swing.plaf.synth.SynthContext context,
+  java.awt.Graphics g,
+  int x,
+  int y,
+  int w,
+  int h)
+
+
+
+
+
+*javax.swing.plaf.synth.SynthToolBarUI.paintContent(SynthContext,Graphics,Rectangle)*
+
+protected void paintContent(
+  javax.swing.plaf.synth.SynthContext context,
+  java.awt.Graphics g,
+  java.awt.Rectangle bounds)
+
+Paints the toolbar content. 
+
+
+    context - context for the component being painted 
+    g - {@code Graphics} object used for painting 
+    bounds - bounding box for the toolbar 
+
+*javax.swing.plaf.synth.SynthToolBarUI.paintDragWindow(Graphics)*
+
+protected void paintDragWindow(java.awt.Graphics g)
+
+
+
+
+
+*javax.swing.plaf.synth.SynthToolBarUI.propertyChange(PropertyChangeEvent)*
+
+public void propertyChange(java.beans.PropertyChangeEvent e)
+
+
+
+
+
+*javax.swing.plaf.synth.SynthToolBarUI.setBorderToNonRollover(Component)*
+
+protected void setBorderToNonRollover(java.awt.Component c)
+
+This implementation does nothing, because therolloverproperty of 
+theJToolBarclass is not used in the Synth Look and Feel. 
+
+
+
+*javax.swing.plaf.synth.SynthToolBarUI.setBorderToNormal(Component)*
+
+protected void setBorderToNormal(java.awt.Component c)
+
+This implementation does nothing, because therolloverproperty of 
+theJToolBarclass is not used in the Synth Look and Feel. 
+
+
+
+*javax.swing.plaf.synth.SynthToolBarUI.setBorderToRollover(Component)*
+
+protected void setBorderToRollover(java.awt.Component c)
+
+This implementation does nothing, because therolloverproperty of 
+theJToolBarclass is not used in the Synth Look and Feel. 
+
+
+
+*javax.swing.plaf.synth.SynthToolBarUI.uninstallComponents()*
+
+protected void uninstallComponents()
+
+
+
+
+
+*javax.swing.plaf.synth.SynthToolBarUI.uninstallDefaults()*
+
+protected void uninstallDefaults()
+
+
+
+
+
+*javax.swing.plaf.synth.SynthToolBarUI.uninstallListeners()*
+
+protected void uninstallListeners()
+
+
+
+
+
+*javax.swing.plaf.synth.SynthToolBarUI.update(Graphics,JComponent)*
+
+public void update(
+  java.awt.Graphics g,
+  javax.swing.JComponent c)
+
+Notifies this UI delegate to repaint the specified component. This method 
+paints the component background, then calls the 
+(|javax.swing.plaf.synth.SynthToolBarUI|) method. 
+
+In general, this method does not need to be overridden by subclasses. All Look 
+and Feel rendering code should reside in thepaintmethod. 
+
+
+    g - the {@code Graphics} object used for painting 
+    c - the component being painted 
+
+

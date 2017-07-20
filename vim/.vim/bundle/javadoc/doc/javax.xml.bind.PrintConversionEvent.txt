@@ -1,0 +1,20 @@
+*javax.xml.bind.PrintConversionEvent* *PrintConversionEvent* This event indicate
+
+public interface interface PrintConversionEvent
+
+  implements |javax.xml.bind.ValidationEvent|
+
+|javax.xml.bind.PrintConversionEvent_Description|
+|javax.xml.bind.PrintConversionEvent_Fields|
+|javax.xml.bind.PrintConversionEvent_Constructors|
+|javax.xml.bind.PrintConversionEvent_Methods|
+
+================================================================================
+
+*javax.xml.bind.PrintConversionEvent_Description*
+
+This event indicates that a problem was encountered while converting data from 
+the Java content tree into its lexical representation. 
+
+
+

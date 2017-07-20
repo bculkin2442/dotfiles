@@ -1,0 +1,78 @@
+*org.omg.CosNaming.BindingType* *BindingType* Specifies whether the given bindin
+
+public class BindingType
+  extends    |java.lang.Object|
+  implements |org.omg.CORBA.portable.IDLEntity|
+
+|org.omg.CosNaming.BindingType_Description|
+|org.omg.CosNaming.BindingType_Fields|
+|org.omg.CosNaming.BindingType_Constructors|
+|org.omg.CosNaming.BindingType_Methods|
+
+================================================================================
+
+*org.omg.CosNaming.BindingType_Fields*
+|int_org.omg.CosNaming.BindingType._ncontext|
+|int_org.omg.CosNaming.BindingType._nobject|
+|org.omg.CosNaming.BindingType_org.omg.CosNaming.BindingType.ncontext|
+|org.omg.CosNaming.BindingType_org.omg.CosNaming.BindingType.nobject|
+
+*org.omg.CosNaming.BindingType_Constructors*
+|org.omg.CosNaming.BindingType(int)|
+
+*org.omg.CosNaming.BindingType_Methods*
+|org.omg.CosNaming.BindingType.from_int(int)|
+|org.omg.CosNaming.BindingType.value()|
+
+*org.omg.CosNaming.BindingType_Description*
+
+Specifies whether the given binding is for a object (that is not a naming 
+context) or for a naming context. 
+
+
+
+*int_org.omg.CosNaming.BindingType._ncontext*
+
+
+
+
+*int_org.omg.CosNaming.BindingType._nobject*
+
+
+
+
+*org.omg.CosNaming.BindingType_org.omg.CosNaming.BindingType.ncontext*
+
+
+
+
+*org.omg.CosNaming.BindingType_org.omg.CosNaming.BindingType.nobject*
+
+
+
+
+
+*org.omg.CosNaming.BindingType(int)*
+
+protected BindingType(int value)
+
+
+
+
+*org.omg.CosNaming.BindingType.from_int(int)*
+
+public static |org.omg.CosNaming.BindingType| from_int(int value)
+
+
+
+
+
+*org.omg.CosNaming.BindingType.value()*
+
+public int value()
+
+
+
+
+
+

@@ -1,0 +1,714 @@
+*java.util.stream.DoubleStream* *DoubleStream* A sequence of primitive double-va
+
+public interface interface DoubleStream
+
+  implements |java.util.stream.BaseStream|
+
+|java.util.stream.DoubleStream_Description|
+|java.util.stream.DoubleStream_Fields|
+|java.util.stream.DoubleStream_Constructors|
+|java.util.stream.DoubleStream_Methods|
+
+================================================================================
+
+*java.util.stream.DoubleStream_Methods*
+|java.util.stream.DoubleStream.allMatch(DoublePredicate)|Returns whether all el
+|java.util.stream.DoubleStream.anyMatch(DoublePredicate)|Returns whether any el
+|java.util.stream.DoubleStream.average()|Returns anOptionalDoubledescribing the
+|java.util.stream.DoubleStream.boxed()|Returns aStreamconsisting of the element
+|java.util.stream.DoubleStream.builder()|Returns a builder for aDoubleStream.
+|java.util.stream.DoubleStream.collect(Supplier<R>,ObjDoubleConsumer<R>,BiConsumer<R,R>)|
+|java.util.stream.DoubleStream.concat(DoubleStream,DoubleStream)|Creates a lazi
+|java.util.stream.DoubleStream.count()|Returns the count of elements in this st
+|java.util.stream.DoubleStream.distinct()|Returns a stream consisting of the di
+|java.util.stream.DoubleStream.empty()|Returns an empty sequentialDoubleStream.
+|java.util.stream.DoubleStream.filter(DoublePredicate)|Returns a stream consist
+|java.util.stream.DoubleStream.findAny()|Returns anOptionalDoubledescribing som
+|java.util.stream.DoubleStream.findFirst()|Returns anOptionalDoubledescribing t
+|java.util.stream.DoubleStream.flatMap(DoubleFunction<?extendsDoubleStream>)|Re
+|java.util.stream.DoubleStream.forEach(DoubleConsumer)|Performs an action for e
+|java.util.stream.DoubleStream.forEachOrdered(DoubleConsumer)|Performs an actio
+|java.util.stream.DoubleStream.generate(DoubleSupplier)|Returns an infinite seq
+|java.util.stream.DoubleStream.iterate(double,DoubleUnaryOperator)|Returns an i
+|java.util.stream.DoubleStream.iterator()|
+|java.util.stream.DoubleStream.limit(long)|Returns a stream consisting of the e
+|java.util.stream.DoubleStream.map(DoubleUnaryOperator)|Returns a stream consis
+|java.util.stream.DoubleStream.mapToInt(DoubleToIntFunction)|Returns anIntStrea
+|java.util.stream.DoubleStream.mapToLong(DoubleToLongFunction)|Returns aLongStr
+|java.util.stream.DoubleStream.mapToObj(DoubleFunction<?extendsU>)|Returns an o
+|java.util.stream.DoubleStream.max()|Returns anOptionalDoubledescribing the max
+|java.util.stream.DoubleStream.min()|Returns anOptionalDoubledescribing the min
+|java.util.stream.DoubleStream.noneMatch(DoublePredicate)|Returns whether no el
+|java.util.stream.DoubleStream.of(double...)|Returns a sequential ordered strea
+|java.util.stream.DoubleStream.of(double)|Returns a sequentialDoubleStreamconta
+|java.util.stream.DoubleStream.parallel()|
+|java.util.stream.DoubleStream.peek(DoubleConsumer)|Returns a stream consisting
+|java.util.stream.DoubleStream.reduce(DoubleBinaryOperator)|Performs a reductio
+|java.util.stream.DoubleStream.reduce(double,DoubleBinaryOperator)|Performs a r
+|java.util.stream.DoubleStream.sequential()|
+|java.util.stream.DoubleStream.skip(long)|Returns a stream consisting of the re
+|java.util.stream.DoubleStream.sorted()|Returns a stream consisting of the elem
+|java.util.stream.DoubleStream.spliterator()|
+|java.util.stream.DoubleStream.sum()|Returns the sum of elements in this stream
+|java.util.stream.DoubleStream.summaryStatistics()|Returns aDoubleSummaryStatis
+|java.util.stream.DoubleStream.toArray()|Returns an array containing the elemen
+
+*java.util.stream.DoubleStream_Description*
+
+A sequence of primitive double-valued elements supporting sequential and 
+parallel aggregate operations. This is thedoubleprimitive specialization of 
+(|java.util.stream.Stream|) . 
+
+The following example illustrates an aggregate operation using 
+(|java.util.stream.Stream|) and (|java.util.stream.DoubleStream|) , computing 
+the sum of the weights of the red widgets: 
+
+double sum = widgets.stream() .filter(w -> w.getColor() == RED) .mapToDouble(w 
+-> w.getWeight()) .sum(); 
+
+See the class documentation for (|java.util.stream.Stream|) and the package 
+documentation for java.util.stream for additional specification of streams, 
+stream operations, stream pipelines, and parallelism. 
+
+
+
+*java.util.stream.DoubleStream.allMatch(DoublePredicate)*
+
+public boolean allMatch(java.util.function.DoublePredicate predicate)
+
+Returns whether all elements of this stream match the provided predicate. May 
+not evaluate the predicate on all elements if not necessary for determining the 
+result. If the stream is empty thentrueis returned and the predicate is not 
+evaluated. 
+
+This is a short-circuiting terminal operation. 
+
+
+    predicate - a non-interfering, stateless predicate to apply to elements of this stream 
+
+    Returns: {@code true} if either all elements of the stream match the provided predicate 
+             or the stream is empty, otherwise {@code false} 
+
+*java.util.stream.DoubleStream.anyMatch(DoublePredicate)*
+
+public boolean anyMatch(java.util.function.DoublePredicate predicate)
+
+Returns whether any elements of this stream match the provided predicate. May 
+not evaluate the predicate on all elements if not necessary for determining the 
+result. If the stream is empty thenfalseis returned and the predicate is not 
+evaluated. 
+
+This is a short-circuiting terminal operation. 
+
+
+    predicate - a non-interfering, stateless predicate to apply to elements of this stream 
+
+    Returns: {@code true} if any elements of the stream match the provided predicate, 
+             otherwise {@code false} 
+
+*java.util.stream.DoubleStream.average()*
+
+public |java.util.OptionalDouble| average()
+
+Returns anOptionalDoubledescribing the arithmetic mean of elements of this 
+stream, or an empty optional if this stream is empty. 
+
+If any recorded value is a NaN or the sum is at any point a NaN then the 
+average will be NaN. 
+
+The average returned can vary depending upon the order in which values are 
+recorded. 
+
+This method may be implemented using compensated summation or other technique 
+to reduce the error bound in the numerical sum(|java.util.stream.DoubleStream|) 
+used to compute the average. 
+
+The average is a special case of a reduction. 
+
+This is a terminal operation. 
+
+
+
+    Returns: an {@code OptionalDouble} containing the average element of this stream, or an 
+             empty optional if the stream is empty 
+
+*java.util.stream.DoubleStream.boxed()*
+
+public |java.util.stream.Stream|<Double> boxed()
+
+Returns aStreamconsisting of the elements of this stream, boxed toDouble. 
+
+This is an intermediate operation. 
+
+
+
+    Returns: a {@code Stream} consistent of the elements of this stream, each boxed to a 
+             {@code Double} 
+
+*java.util.stream.DoubleStream.builder()*
+
+public static |java.util.stream.DoubleStream.Builder| builder()
+
+Returns a builder for aDoubleStream. 
+
+
+
+    Returns: a stream builder 
+
+*java.util.stream.DoubleStream.collect(Supplier<R>,ObjDoubleConsumer<R>,BiConsumer<R,R>)*
+
+public |R| collect(
+  java.util.function.Supplier<R> supplier,
+  java.util.function.ObjDoubleConsumer<R> accumulator,
+  java.util.function.BiConsumer<R, R> combiner)
+
+Performs a mutable reduction operation on the elements of this stream. A 
+mutable reduction is one in which the reduced value is a mutable result 
+container, such as anArrayList, and elements are incorporated by updating the 
+state of the result rather than by replacing the result. This produces a result 
+equivalent to: 
+
+R result = supplier.get(); for (double element : this stream) 
+accumulator.accept(result, element); return result; 
+
+Like (|java.util.stream.DoubleStream|) ,collectoperations can be parallelized 
+without requiring additional synchronization. 
+
+This is a terminal operation. 
+
+
+    supplier - a function that creates a new result container. For a parallel execution, this 
+       function may be called multiple times and must return a fresh value each 
+       time. 
+    accumulator - an associative, non-interfering, stateless function for incorporating an 
+       additional element into a result 
+    combiner - an associative, non-interfering, stateless function for combining two values, 
+       which must be compatible with the accumulator function 
+
+    Returns: the result of the reduction 
+
+*java.util.stream.DoubleStream.concat(DoubleStream,DoubleStream)*
+
+public static |java.util.stream.DoubleStream| concat(
+  java.util.stream.DoubleStream a,
+  java.util.stream.DoubleStream b)
+
+Creates a lazily concatenated stream whose elements are all the elements of the 
+first stream followed by all the elements of the second stream. The resulting 
+stream is ordered if both of the input streams are ordered, and parallel if 
+either of the input streams is parallel. When the resulting stream is closed, 
+the close handlers for both input streams are invoked. 
+
+
+    a - the first stream 
+    b - the second stream 
+
+    Returns: the concatenation of the two input streams 
+
+*java.util.stream.DoubleStream.count()*
+
+public long count()
+
+Returns the count of elements in this stream. This is a special case of a 
+reduction and is equivalent to: 
+
+return mapToLong(e -> 1L).sum(); 
+
+This is a terminal operation. 
+
+
+
+    Returns: the count of elements in this stream 
+
+*java.util.stream.DoubleStream.distinct()*
+
+public |java.util.stream.DoubleStream| distinct()
+
+Returns a stream consisting of the distinct elements of this stream. The 
+elements are compared for equality according to (|java.lang.Double|) . 
+
+This is a stateful intermediate operation. 
+
+
+
+    Returns: the result stream 
+
+*java.util.stream.DoubleStream.empty()*
+
+public static |java.util.stream.DoubleStream| empty()
+
+Returns an empty sequentialDoubleStream. 
+
+
+
+    Returns: an empty sequential stream 
+
+*java.util.stream.DoubleStream.filter(DoublePredicate)*
+
+public |java.util.stream.DoubleStream| filter(java.util.function.DoublePredicate predicate)
+
+Returns a stream consisting of the elements of this stream that match the given 
+predicate. 
+
+This is an intermediate operation. 
+
+
+    predicate - a non-interfering, stateless predicate to apply to each element to determine if 
+       it should be included 
+
+    Returns: the new stream 
+
+*java.util.stream.DoubleStream.findAny()*
+
+public |java.util.OptionalDouble| findAny()
+
+Returns an (|java.util.OptionalDouble|) describing some element of the stream, 
+or an emptyOptionalDoubleif the stream is empty. 
+
+This is a short-circuiting terminal operation. 
+
+The behavior of this operation is explicitly nondeterministic; it is free to 
+select any element in the stream. This is to allow for maximal performance in 
+parallel operations; the cost is that multiple invocations on the same source 
+may not return the same result. (If a stable result is desired, use 
+(|java.util.stream.DoubleStream|) instead.) 
+
+
+
+    Returns: an {@code OptionalDouble} describing some element of this stream, or an empty 
+             {@code OptionalDouble} if the stream is empty 
+
+*java.util.stream.DoubleStream.findFirst()*
+
+public |java.util.OptionalDouble| findFirst()
+
+Returns an (|java.util.OptionalDouble|) describing the first element of this 
+stream, or an emptyOptionalDoubleif the stream is empty. If the stream has no 
+encounter order, then any element may be returned. 
+
+This is a short-circuiting terminal operation. 
+
+
+
+    Returns: an {@code OptionalDouble} describing the first element of this stream, or an 
+             empty {@code OptionalDouble} if the stream is empty 
+
+*java.util.stream.DoubleStream.flatMap(DoubleFunction<?extendsDoubleStream>)*
+
+public |java.util.stream.DoubleStream| flatMap(java.util.function.DoubleFunction<? extends java.util.stream.DoubleStream> mapper)
+
+Returns a stream consisting of the results of replacing each element of this 
+stream with the contents of a mapped stream produced by applying the provided 
+mapping function to each element. Each mapped stream is 
+closed(|java.util.stream.BaseStream|) after its contents have been placed into 
+this stream. (If a mapped stream isnullan empty stream is used, instead.) 
+
+This is an intermediate operation. 
+
+
+    mapper - a non-interfering, stateless function to apply to each element which produces a 
+       {@code DoubleStream} of new values 
+
+    Returns: the new stream 
+
+*java.util.stream.DoubleStream.forEach(DoubleConsumer)*
+
+public void forEach(java.util.function.DoubleConsumer action)
+
+Performs an action for each element of this stream. 
+
+This is a terminal operation. 
+
+For parallel stream pipelines, this operation does not guarantee to respect the 
+encounter order of the stream, as doing so would sacrifice the benefit of 
+parallelism. For any given element, the action may be performed at whatever 
+time and in whatever thread the library chooses. If the action accesses shared 
+state, it is responsible for providing the required synchronization. 
+
+
+    action - a non-interfering action to perform on the elements 
+
+*java.util.stream.DoubleStream.forEachOrdered(DoubleConsumer)*
+
+public void forEachOrdered(java.util.function.DoubleConsumer action)
+
+Performs an action for each element of this stream, guaranteeing that each 
+element is processed in encounter order for streams that have a defined 
+encounter order. 
+
+This is a terminal operation. 
+
+
+    action - a non-interfering action to perform on the elements 
+
+*java.util.stream.DoubleStream.generate(DoubleSupplier)*
+
+public static |java.util.stream.DoubleStream| generate(java.util.function.DoubleSupplier s)
+
+Returns an infinite sequential unordered stream where each element is generated 
+by the providedDoubleSupplier. This is suitable for generating constant 
+streams, streams of random elements, etc. 
+
+
+    s - the {@code DoubleSupplier} for generated elements 
+
+    Returns: a new infinite sequential unordered {@code DoubleStream} 
+
+*java.util.stream.DoubleStream.iterate(double,DoubleUnaryOperator)*
+
+public static |java.util.stream.DoubleStream| iterate(
+  double seed,
+  java.util.function.DoubleUnaryOperator f)
+
+Returns an infinite sequential orderedDoubleStreamproduced by iterative 
+application of a functionfto an initial elementseed, producing 
+aStreamconsisting ofseed,f(seed),f(f(seed)), etc. 
+
+The first element (position0) in theDoubleStreamwill be the providedseed. Forn 
+> 0, the element at positionn, will be the result of applying the functionfto 
+the element at positionn - 1. 
+
+
+    seed - the initial element 
+    f - a function to be applied to to the previous element to produce a new element 
+
+    Returns: a new sequential {@code DoubleStream} 
+
+*java.util.stream.DoubleStream.iterator()*
+
+public |java.util.PrimitiveIterator.OfDouble| iterator()
+
+
+
+
+
+*java.util.stream.DoubleStream.limit(long)*
+
+public |java.util.stream.DoubleStream| limit(long maxSize)
+
+Returns a stream consisting of the elements of this stream, truncated to be no 
+longer thanmaxSizein length. 
+
+This is a short-circuiting stateful intermediate operation. 
+
+
+    maxSize - the number of elements the stream should be limited to 
+
+    Returns: the new stream 
+
+*java.util.stream.DoubleStream.map(DoubleUnaryOperator)*
+
+public |java.util.stream.DoubleStream| map(java.util.function.DoubleUnaryOperator mapper)
+
+Returns a stream consisting of the results of applying the given function to 
+the elements of this stream. 
+
+This is an intermediate operation. 
+
+
+    mapper - a non-interfering, stateless function to apply to each element 
+
+    Returns: the new stream 
+
+*java.util.stream.DoubleStream.mapToInt(DoubleToIntFunction)*
+
+public |java.util.stream.IntStream| mapToInt(java.util.function.DoubleToIntFunction mapper)
+
+Returns anIntStreamconsisting of the results of applying the given function to 
+the elements of this stream. 
+
+This is an intermediate operation. 
+
+
+    mapper - a non-interfering, stateless function to apply to each element 
+
+    Returns: the new stream 
+
+*java.util.stream.DoubleStream.mapToLong(DoubleToLongFunction)*
+
+public |java.util.stream.LongStream| mapToLong(java.util.function.DoubleToLongFunction mapper)
+
+Returns aLongStreamconsisting of the results of applying the given function to 
+the elements of this stream. 
+
+This is an intermediate operation. 
+
+
+    mapper - a non-interfering, stateless function to apply to each element 
+
+    Returns: the new stream 
+
+*java.util.stream.DoubleStream.mapToObj(DoubleFunction<?extendsU>)*
+
+public |java.util.stream.Stream|<U> mapToObj(java.util.function.DoubleFunction<? extends U> mapper)
+
+Returns an object-valuedStreamconsisting of the results of applying the given 
+function to the elements of this stream. 
+
+This is an intermediate operation. 
+
+
+    mapper - a non-interfering, stateless function to apply to each element 
+
+    Returns: the new stream 
+
+*java.util.stream.DoubleStream.max()*
+
+public |java.util.OptionalDouble| max()
+
+Returns anOptionalDoubledescribing the maximum element of this stream, or an 
+empty OptionalDouble if this stream is empty. The maximum element will 
+beDouble.NaNif any stream element was NaN. Unlike the numerical comparison 
+operators, this method considers negative zero to be strictly smaller than 
+positive zero. This is a special case of a reduction and is equivalent to: 
+
+return reduce(Double::max); 
+
+This is a terminal operation. 
+
+
+
+    Returns: an {@code OptionalDouble} containing the maximum element of this stream, or an 
+             empty optional if the stream is empty 
+
+*java.util.stream.DoubleStream.min()*
+
+public |java.util.OptionalDouble| min()
+
+Returns anOptionalDoubledescribing the minimum element of this stream, or an 
+empty OptionalDouble if this stream is empty. The minimum element will 
+beDouble.NaNif any stream element was NaN. Unlike the numerical comparison 
+operators, this method considers negative zero to be strictly smaller than 
+positive zero. This is a special case of a reduction and is equivalent to: 
+
+return reduce(Double::min); 
+
+This is a terminal operation. 
+
+
+
+    Returns: an {@code OptionalDouble} containing the minimum element of this stream, or an 
+             empty optional if the stream is empty 
+
+*java.util.stream.DoubleStream.noneMatch(DoublePredicate)*
+
+public boolean noneMatch(java.util.function.DoublePredicate predicate)
+
+Returns whether no elements of this stream match the provided predicate. May 
+not evaluate the predicate on all elements if not necessary for determining the 
+result. If the stream is empty thentrueis returned and the predicate is not 
+evaluated. 
+
+This is a short-circuiting terminal operation. 
+
+
+    predicate - a non-interfering, stateless predicate to apply to elements of this stream 
+
+    Returns: {@code true} if either no elements of the stream match the provided predicate 
+             or the stream is empty, otherwise {@code false} 
+
+*java.util.stream.DoubleStream.of(double...)*
+
+public static |java.util.stream.DoubleStream| of(double[] values)
+
+Returns a sequential ordered stream whose elements are the specified values. 
+
+
+    values - the elements of the new stream 
+
+    Returns: the new stream 
+
+*java.util.stream.DoubleStream.of(double)*
+
+public static |java.util.stream.DoubleStream| of(double t)
+
+Returns a sequentialDoubleStreamcontaining a single element. 
+
+
+    t - the single element 
+
+    Returns: a singleton sequential stream 
+
+*java.util.stream.DoubleStream.parallel()*
+
+public |java.util.stream.DoubleStream| parallel()
+
+
+
+
+
+*java.util.stream.DoubleStream.peek(DoubleConsumer)*
+
+public |java.util.stream.DoubleStream| peek(java.util.function.DoubleConsumer action)
+
+Returns a stream consisting of the elements of this stream, additionally 
+performing the provided action on each element as elements are consumed from 
+the resulting stream. 
+
+This is an intermediate operation. 
+
+For parallel stream pipelines, the action may be called at whatever time and in 
+whatever thread the element is made available by the upstream operation. If the 
+action modifies shared state, it is responsible for providing the required 
+synchronization. 
+
+
+    action - a non-interfering action to perform on the elements as they are consumed from 
+       the stream 
+
+    Returns: the new stream 
+
+*java.util.stream.DoubleStream.reduce(DoubleBinaryOperator)*
+
+public |java.util.OptionalDouble| reduce(java.util.function.DoubleBinaryOperator op)
+
+Performs a reduction on the elements of this stream, using an associative 
+accumulation function, and returns anOptionalDoubledescribing the reduced 
+value, if any. This is equivalent to: 
+
+boolean foundAny = false; double result = null; for (double element : this 
+stream) { if (!foundAny) { foundAny = true; result = element; } else result = 
+accumulator.applyAsDouble(result, element); } return foundAny ? 
+OptionalDouble.of(result) : OptionalDouble.empty(); 
+
+but is not constrained to execute sequentially. 
+
+Theaccumulatorfunction must be an associative function. 
+
+This is a terminal operation. 
+
+
+    op - an associative, non-interfering, stateless function for combining two values 
+
+    Returns: the result of the reduction 
+
+*java.util.stream.DoubleStream.reduce(double,DoubleBinaryOperator)*
+
+public double reduce(
+  double identity,
+  java.util.function.DoubleBinaryOperator op)
+
+Performs a reduction on the elements of this stream, using the provided 
+identity value and an associative accumulation function, and returns the 
+reduced value. This is equivalent to: 
+
+double result = identity; for (double element : this stream) result = 
+accumulator.applyAsDouble(result, element) return result; 
+
+but is not constrained to execute sequentially. 
+
+Theidentityvalue must be an identity for the accumulator function. This means 
+that for allx,accumulator.apply(identity, x)is equal tox. 
+Theaccumulatorfunction must be an associative function. 
+
+This is a terminal operation. 
+
+
+    identity - the identity value for the accumulating function 
+    op - an associative, non-interfering, stateless function for combining two values 
+
+    Returns: the result of the reduction 
+
+*java.util.stream.DoubleStream.sequential()*
+
+public |java.util.stream.DoubleStream| sequential()
+
+
+
+
+
+*java.util.stream.DoubleStream.skip(long)*
+
+public |java.util.stream.DoubleStream| skip(long n)
+
+Returns a stream consisting of the remaining elements of this stream after 
+discarding the firstnelements of the stream. If this stream contains fewer 
+thannelements then an empty stream will be returned. 
+
+This is a stateful intermediate operation. 
+
+
+    n - the number of leading elements to skip 
+
+    Returns: the new stream 
+
+*java.util.stream.DoubleStream.sorted()*
+
+public |java.util.stream.DoubleStream| sorted()
+
+Returns a stream consisting of the elements of this stream in sorted order. The 
+elements are compared for equality according to (|java.lang.Double|) . 
+
+This is a stateful intermediate operation. 
+
+
+
+    Returns: the result stream 
+
+*java.util.stream.DoubleStream.spliterator()*
+
+public |java.util.Spliterator.OfDouble| spliterator()
+
+
+
+
+
+*java.util.stream.DoubleStream.sum()*
+
+public double sum()
+
+Returns the sum of elements in this stream. 
+
+Summation is a special case of a reduction. If floating-point summation were 
+exact, this method would be equivalent to: 
+
+return reduce(0, Double::sum); 
+
+However, since floating-point summation is not exact, the above code is not 
+necessarily equivalent to the summation computation done by this method. 
+
+If any stream element is a NaN or the sum is at any point a NaN then the sum 
+will be NaN. 
+
+The value of a floating-point sum is a function both of the input values as 
+well as the order of addition operations. The order of addition operations of 
+this method is intentionally not defined to allow for implementation 
+flexibility to improve the speed and accuracy of the computed result. 
+
+In particular, this method may be implemented using compensated summation or 
+other technique to reduce the error bound in the numerical sum compared to a 
+simple summation ofdoublevalues. 
+
+This is a terminal operation. 
+
+
+
+    Returns: the sum of elements in this stream 
+
+*java.util.stream.DoubleStream.summaryStatistics()*
+
+public |java.util.DoubleSummaryStatistics| summaryStatistics()
+
+Returns aDoubleSummaryStatisticsdescribing various summary data about the 
+elements of this stream. This is a special case of a reduction. 
+
+This is a terminal operation. 
+
+
+
+    Returns: a {@code DoubleSummaryStatistics} describing various summary data about the 
+             elements of this stream 
+
+*java.util.stream.DoubleStream.toArray()*
+
+public double[] toArray()
+
+Returns an array containing the elements of this stream. 
+
+This is a terminal operation. 
+
+
+
+    Returns: an array containing the elements of this stream 
+
+

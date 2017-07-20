@@ -1,0 +1,75 @@
+*javax.xml.crypto.dsig.Manifest* *Manifest* A representation of the XML Manifest
+
+public interface interface Manifest
+
+  implements |javax.xml.crypto.XMLStructure|
+
+|javax.xml.crypto.dsig.Manifest_Description|
+|javax.xml.crypto.dsig.Manifest_Fields|
+|javax.xml.crypto.dsig.Manifest_Constructors|
+|javax.xml.crypto.dsig.Manifest_Methods|
+
+================================================================================
+
+*javax.xml.crypto.dsig.Manifest_Fields*
+|java.lang.String_javax.xml.crypto.dsig.Manifest.TYPE|
+
+*javax.xml.crypto.dsig.Manifest_Methods*
+|javax.xml.crypto.dsig.Manifest.getId()|Returns the Id of this Manifest.
+|javax.xml.crypto.dsig.Manifest.getReferences()|Returns anjava.util.Collections
+
+*javax.xml.crypto.dsig.Manifest_Description*
+
+A representation of the XML Manifest element as defined in the W3C 
+Recommendation for XML-Signature Syntax and Processing. The XML Schema 
+Definition is defined as: 
+
+
+
+
+
+
+
+A Manifest instance may be created by invoking one of the 
+newManifest(|javax.xml.crypto.dsig.XMLSignatureFactory|) methods of the 
+(|javax.xml.crypto.dsig.XMLSignatureFactory|) class; for example: 
+
+
+
+XMLSignatureFactory factory = XMLSignatureFactory.getInstance("DOM"); List 
+references = Collections.singletonList(factory.newReference ("#reference-1", 
+DigestMethod.SHA1)); Manifest manifest = factory.newManifest(references, 
+"manifest-1"); 
+
+
+
+*java.lang.String_javax.xml.crypto.dsig.Manifest.TYPE*
+
+URI that identifies the Manifest element (this can be specified as the value of 
+the type parameter of the (|javax.xml.crypto.dsig.Reference|) class to identify 
+the referent's type). 
+
+
+
+*javax.xml.crypto.dsig.Manifest.getId()*
+
+public |java.lang.String| getId()
+
+Returns the Id of this Manifest. 
+
+
+
+    Returns: the Id of this Manifest (or null if not specified) 
+
+*javax.xml.crypto.dsig.Manifest.getReferences()*
+
+public |java.util.List| getReferences()
+
+Returns an unmodifiable list(|java.util.Collections|) of one or more 
+(|javax.xml.crypto.dsig.Reference|) s that are contained in this Manifest. 
+
+
+
+    Returns: an unmodifiable list of one or more References 
+
+

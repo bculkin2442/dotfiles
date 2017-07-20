@@ -1,0 +1,63 @@
+*javax.security.auth.login.AppConfigurationEntry.LoginModuleControlFlag* *AppConfigurationEntry.LoginModuleControlFlag* 
+
+public static class AppConfigurationEntry.LoginModuleControlFlag
+  extends    |java.lang.Object|
+
+|javax.security.auth.login.AppConfigurationEntry.LoginModuleControlFlag_Description|
+|javax.security.auth.login.AppConfigurationEntry.LoginModuleControlFlag_Fields|
+|javax.security.auth.login.AppConfigurationEntry.LoginModuleControlFlag_Constructors|
+|javax.security.auth.login.AppConfigurationEntry.LoginModuleControlFlag_Methods|
+
+================================================================================
+
+*javax.security.auth.login.AppConfigurationEntry.LoginModuleControlFlag_Fields*
+|javax.security.auth.login.AppConfigurationEntry.LoginModuleControlFlag_javax.security.auth.login.AppConfigurationEntry.LoginModuleControlFlag.OPTIONAL|
+|javax.security.auth.login.AppConfigurationEntry.LoginModuleControlFlag_javax.security.auth.login.AppConfigurationEntry.LoginModuleControlFlag.REQUIRED|
+|javax.security.auth.login.AppConfigurationEntry.LoginModuleControlFlag_javax.security.auth.login.AppConfigurationEntry.LoginModuleControlFlag.REQUISITE|
+|javax.security.auth.login.AppConfigurationEntry.LoginModuleControlFlag_javax.security.auth.login.AppConfigurationEntry.LoginModuleControlFlag.SUFFICIENT|
+
+*javax.security.auth.login.AppConfigurationEntry.LoginModuleControlFlag_Methods*
+|javax.security.auth.login.AppConfigurationEntry.LoginModuleControlFlag.toString()|
+
+*javax.security.auth.login.AppConfigurationEntry.LoginModuleControlFlag_Description*
+
+This class represents whether or not aLoginModuleis REQUIRED, REQUISITE, 
+SUFFICIENT or OPTIONAL. 
+
+
+
+*javax.security.auth.login.AppConfigurationEntry.LoginModuleControlFlag_javax.security.auth.login.AppConfigurationEntry.LoginModuleControlFlag.OPTIONAL*
+
+OptionalLoginModule. 
+
+
+*javax.security.auth.login.AppConfigurationEntry.LoginModuleControlFlag_javax.security.auth.login.AppConfigurationEntry.LoginModuleControlFlag.REQUIRED*
+
+RequiredLoginModule. 
+
+
+*javax.security.auth.login.AppConfigurationEntry.LoginModuleControlFlag_javax.security.auth.login.AppConfigurationEntry.LoginModuleControlFlag.REQUISITE*
+
+RequisiteLoginModule. 
+
+
+*javax.security.auth.login.AppConfigurationEntry.LoginModuleControlFlag_javax.security.auth.login.AppConfigurationEntry.LoginModuleControlFlag.SUFFICIENT*
+
+SufficientLoginModule. 
+
+
+
+*javax.security.auth.login.AppConfigurationEntry.LoginModuleControlFlag.toString()*
+
+public |java.lang.String| toString()
+
+Return a String representation of this controlFlag. 
+
+The String has the format, "LoginModuleControlFlag: flag", where flag is either 
+required, requisite, sufficient, or optional. 
+
+
+
+    Returns: a String representation of this controlFlag. 
+
+

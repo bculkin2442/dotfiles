@@ -1,0 +1,78 @@
+*javax.xml.crypto.dsig.SignatureProperty* *SignatureProperty* A representation o
+
+public interface interface SignatureProperty
+
+  implements |javax.xml.crypto.XMLStructure|
+
+|javax.xml.crypto.dsig.SignatureProperty_Description|
+|javax.xml.crypto.dsig.SignatureProperty_Fields|
+|javax.xml.crypto.dsig.SignatureProperty_Constructors|
+|javax.xml.crypto.dsig.SignatureProperty_Methods|
+
+================================================================================
+
+*javax.xml.crypto.dsig.SignatureProperty_Methods*
+|javax.xml.crypto.dsig.SignatureProperty.getContent()|Returns anjava.util.Colle
+|javax.xml.crypto.dsig.SignatureProperty.getId()|Returns the Id of this Signatu
+|javax.xml.crypto.dsig.SignatureProperty.getTarget()|Returns the target URI of 
+
+*javax.xml.crypto.dsig.SignatureProperty_Description*
+
+A representation of the XML SignatureProperty element as defined in the W3C 
+Recommendation for XML-Signature Syntax and Processing. The XML Schema 
+Definition is defined as: 
+
+<element name="SignatureProperty" type="ds:SignaturePropertyType"/> 
+<complexType name="SignaturePropertyType" mixed="true"> <choice 
+maxOccurs="unbounded"> <any namespace="##other" processContents="lax"/> <!-- 
+(1,1) elements from (1, unbounded) namespaces --> </choice> <attribute 
+name="Target" type="anyURI" use="required"/> <attribute name="Id" type="ID" 
+use="optional"/> </complexType> 
+
+A SignatureProperty instance may be created by invoking the 
+newSignatureProperty(|javax.xml.crypto.dsig.XMLSignatureFactory|) method of the 
+(|javax.xml.crypto.dsig.XMLSignatureFactory|) class; for example: 
+
+
+
+XMLSignatureFactory factory = XMLSignatureFactory.getInstance("DOM"); 
+SignatureProperty property = factory.newSignatureProperty 
+(Collections.singletonList(content), "#Signature-1", "TimeStamp"); 
+
+
+
+*javax.xml.crypto.dsig.SignatureProperty.getContent()*
+
+public |java.util.List| getContent()
+
+Returns an unmodifiable list(|java.util.Collections|) of one or more 
+(|javax.xml.crypto.XMLStructure|) s that are contained in this 
+SignatureProperty. These represent additional information items concerning the 
+generation of the (|javax.xml.crypto.dsig.XMLSignature|) (i.e. date/time stamp 
+or serial numbers of cryptographic hardware used in signature generation). 
+
+
+
+    Returns: an unmodifiable list of one or more XMLStructures 
+
+*javax.xml.crypto.dsig.SignatureProperty.getId()*
+
+public |java.lang.String| getId()
+
+Returns the Id of this SignatureProperty. 
+
+
+
+    Returns: the Id of this SignatureProperty (or null if not specified) 
+
+*javax.xml.crypto.dsig.SignatureProperty.getTarget()*
+
+public |java.lang.String| getTarget()
+
+Returns the target URI of this SignatureProperty. 
+
+
+
+    Returns: the target URI of this SignatureProperty (never null) 
+
+

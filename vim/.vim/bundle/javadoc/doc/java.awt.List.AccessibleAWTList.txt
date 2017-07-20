@@ -1,0 +1,206 @@
+*java.awt.List.AccessibleAWTList* *List.AccessibleAWTList* This class implements
+
+protected class List.AccessibleAWTList
+  extends    |java.awt.Component.AccessibleAWTComponent|
+  implements |javax.accessibility.AccessibleSelection|
+             |java.awt.event.ItemListener|
+             |java.awt.event.ActionListener|
+
+|java.awt.List.AccessibleAWTList_Description|
+|java.awt.List.AccessibleAWTList_Fields|
+|java.awt.List.AccessibleAWTList_Constructors|
+|java.awt.List.AccessibleAWTList_Methods|
+
+================================================================================
+
+*java.awt.List.AccessibleAWTList_Constructors*
+|java.awt.List.AccessibleAWTList()|
+
+*java.awt.List.AccessibleAWTList_Methods*
+|java.awt.List.AccessibleAWTList.actionPerformed(ActionEvent)|
+|java.awt.List.AccessibleAWTList.addAccessibleSelection(int)|Adds the specified
+|java.awt.List.AccessibleAWTList.clearAccessibleSelection()|Clears the selectio
+|java.awt.List.AccessibleAWTList.getAccessibleAt(Point)|Returns the Accessible 
+|java.awt.List.AccessibleAWTList.getAccessibleChild(int)|Return the nth Accessi
+|java.awt.List.AccessibleAWTList.getAccessibleChildrenCount()|Returns the numbe
+|java.awt.List.AccessibleAWTList.getAccessibleRole()|Get the role of this objec
+|java.awt.List.AccessibleAWTList.getAccessibleSelection()|Get the AccessibleSel
+|java.awt.List.AccessibleAWTList.getAccessibleSelection(int)|Returns an Accessi
+|java.awt.List.AccessibleAWTList.getAccessibleSelectionCount()|Returns the numb
+|java.awt.List.AccessibleAWTList.getAccessibleStateSet()|Get the state set of t
+|java.awt.List.AccessibleAWTList.isAccessibleChildSelected(int)|Returns true if
+|java.awt.List.AccessibleAWTList.itemStateChanged(ItemEvent)|
+|java.awt.List.AccessibleAWTList.removeAccessibleSelection(int)|Removes the spe
+|java.awt.List.AccessibleAWTList.selectAllAccessibleSelection()|Causes every se
+
+*java.awt.List.AccessibleAWTList_Description*
+
+This class implements accessibility support for the List class. It provides an 
+implementation of the Java Accessibility API appropriate to list user-interface 
+elements. 
+
+
+
+*java.awt.List.AccessibleAWTList()*
+
+public AccessibleAWTList()
+
+
+
+
+*java.awt.List.AccessibleAWTList.actionPerformed(ActionEvent)*
+
+public void actionPerformed(java.awt.event.ActionEvent event)
+
+
+
+
+
+*java.awt.List.AccessibleAWTList.addAccessibleSelection(int)*
+
+public void addAccessibleSelection(int i)
+
+Adds the specified selected item in the object to the object's selection. If 
+the object supports multiple selections, the specified item is added to any 
+existing selection, otherwise it replaces any existing selection in the object. 
+If the specified item is already selected, this method has no effect. 
+
+
+    i - the zero-based index of selectable items 
+
+*java.awt.List.AccessibleAWTList.clearAccessibleSelection()*
+
+public void clearAccessibleSelection()
+
+Clears the selection in the object, so that nothing in the object is selected. 
+
+
+
+*java.awt.List.AccessibleAWTList.getAccessibleAt(Point)*
+
+public |javax.accessibility.Accessible| getAccessibleAt(java.awt.Point p)
+
+Returns the Accessible child contained at the local coordinate Point, if one 
+exists. 
+
+
+
+    Returns: the Accessible at the specified location, if it exists 
+
+*java.awt.List.AccessibleAWTList.getAccessibleChild(int)*
+
+public |javax.accessibility.Accessible| getAccessibleChild(int i)
+
+Return the nth Accessible child of the object. 
+
+
+    i - zero-based index of child 
+
+    Returns: the nth Accessible child of the object 
+
+*java.awt.List.AccessibleAWTList.getAccessibleChildrenCount()*
+
+public int getAccessibleChildrenCount()
+
+Returns the number of accessible children in the object. If all of the children 
+of this object implement Accessible, than this method should return the number 
+of children of this object. 
+
+
+
+    Returns: the number of accessible children in the object. 
+
+*java.awt.List.AccessibleAWTList.getAccessibleRole()*
+
+public |javax.accessibility.AccessibleRole| getAccessibleRole()
+
+Get the role of this object. 
+
+
+
+    Returns: an instance of AccessibleRole describing the role of the object 
+
+*java.awt.List.AccessibleAWTList.getAccessibleSelection()*
+
+public |javax.accessibility.AccessibleSelection| getAccessibleSelection()
+
+Get the AccessibleSelection associated with this object. In the implementation 
+of the Java Accessibility API for this class, return this object, which is 
+responsible for implementing the AccessibleSelection interface on behalf of 
+itself. 
+
+
+
+    Returns: 
+
+*java.awt.List.AccessibleAWTList.getAccessibleSelection(int)*
+
+public |javax.accessibility.Accessible| getAccessibleSelection(int i)
+
+Returns an Accessible representing the specified selected item in the object. 
+If there isn't a selection, or there are fewer items selected than the integer 
+passed in, the return value will be null. 
+
+
+    i - the zero-based index of selected items 
+
+    Returns: an Accessible containing the selected item 
+
+*java.awt.List.AccessibleAWTList.getAccessibleSelectionCount()*
+
+public int getAccessibleSelectionCount()
+
+Returns the number of items currently selected. If no items are selected, the 
+return value will be 0. 
+
+
+
+    Returns: the number of items currently selected. 
+
+*java.awt.List.AccessibleAWTList.getAccessibleStateSet()*
+
+public |javax.accessibility.AccessibleStateSet| getAccessibleStateSet()
+
+Get the state set of this object. 
+
+
+
+    Returns: an instance of AccessibleState containing the current state of the object 
+
+*java.awt.List.AccessibleAWTList.isAccessibleChildSelected(int)*
+
+public boolean isAccessibleChildSelected(int i)
+
+Returns true if the current child of this object is selected. 
+
+
+    i - the zero-based index of the child in this Accessible object. 
+
+*java.awt.List.AccessibleAWTList.itemStateChanged(ItemEvent)*
+
+public void itemStateChanged(java.awt.event.ItemEvent event)
+
+
+
+
+
+*java.awt.List.AccessibleAWTList.removeAccessibleSelection(int)*
+
+public void removeAccessibleSelection(int i)
+
+Removes the specified selected item in the object from the object's selection. 
+If the specified item isn't currently selected, this method has no effect. 
+
+
+    i - the zero-based index of selectable items 
+
+*java.awt.List.AccessibleAWTList.selectAllAccessibleSelection()*
+
+public void selectAllAccessibleSelection()
+
+Causes every selected item in the object to be selected if the object supports 
+multiple selections. 
+
+
+
+

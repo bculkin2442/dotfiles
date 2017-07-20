@@ -1,0 +1,57 @@
+*org.omg.PortableInterceptor.InterceptorOperations* *InterceptorOperations* All 
+
+public interface interface InterceptorOperations
+
+
+|org.omg.PortableInterceptor.InterceptorOperations_Description|
+|org.omg.PortableInterceptor.InterceptorOperations_Fields|
+|org.omg.PortableInterceptor.InterceptorOperations_Constructors|
+|org.omg.PortableInterceptor.InterceptorOperations_Methods|
+
+================================================================================
+
+*org.omg.PortableInterceptor.InterceptorOperations_Methods*
+|org.omg.PortableInterceptor.InterceptorOperations.destroy()|Provides an opport
+|org.omg.PortableInterceptor.InterceptorOperations.name()|Returns the name of t
+
+*org.omg.PortableInterceptor.InterceptorOperations_Description*
+
+All Portable Interceptors implement Interceptor. 
+
+
+
+*org.omg.PortableInterceptor.InterceptorOperations.destroy()*
+
+public void destroy()
+
+Provides an opportunity to destroy this interceptor. The destroy method is 
+called during ORB.destroy. When an application calls ORB.destroy, the ORB: 
+
+waits for all requests in progress to complete calls the Interceptor.destroy 
+operation for each interceptor completes destruction of the ORB 
+
+Method invocations from within Interceptor.destroy on object references for 
+objects implemented on the ORB being destroyed result in undefined behavior. 
+However, method invocations on objects implemented on an ORB other than the one 
+being destroyed are permitted. (This means that the ORB being destroyed is 
+still capable of acting as a client, but not as a server.) 
+
+
+
+*org.omg.PortableInterceptor.InterceptorOperations.name()*
+
+public |java.lang.String| name()
+
+Returns the name of the interceptor. 
+
+Each Interceptor may have a name that may be used administratively to order the 
+lists of Interceptors. Only one Interceptor of a given name can be registered 
+with the ORB for each Interceptor type. An Interceptor may be anonymous, i.e., 
+have an empty string as the name attribute. Any number of anonymous 
+Interceptors may be registered with the ORB. 
+
+
+
+    Returns: the name of the interceptor. 
+
+

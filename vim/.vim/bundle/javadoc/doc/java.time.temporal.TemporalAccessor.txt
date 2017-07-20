@@ -1,0 +1,145 @@
+*java.time.temporal.TemporalAccessor* *TemporalAccessor* Framework-level interfa
+
+public interface interface TemporalAccessor
+
+
+|java.time.temporal.TemporalAccessor_Description|
+|java.time.temporal.TemporalAccessor_Fields|
+|java.time.temporal.TemporalAccessor_Constructors|
+|java.time.temporal.TemporalAccessor_Methods|
+
+================================================================================
+
+*java.time.temporal.TemporalAccessor_Methods*
+|java.time.temporal.TemporalAccessor.get(TemporalField)|Gets the value of the s
+|java.time.temporal.TemporalAccessor.getLong(TemporalField)|Gets the value of t
+|java.time.temporal.TemporalAccessor.isSupported(TemporalField)|Checks if the s
+|java.time.temporal.TemporalAccessor.query(TemporalQuery<R>)|Queries this date-
+|java.time.temporal.TemporalAccessor.range(TemporalField)|Gets the range of val
+
+*java.time.temporal.TemporalAccessor_Description*
+
+Framework-level interface defining read-only access to a temporal object, such 
+as a date, time, offset or some combination of these. 
+
+This is the base interface type for date, time and offset objects. It is 
+implemented by those classes that can provide information as 
+fields(|java.time.temporal.TemporalField|) or 
+queries(|java.time.temporal.TemporalQuery|) . 
+
+Most date and time information can be represented as a number. These are 
+modeled usingTemporalFieldwith the number held using alongto handle large 
+values. Year, month and day-of-month are simple examples of fields, but they 
+also include instant and offsets. See (|java.time.temporal.ChronoField|) for 
+the standard set of fields. 
+
+Two pieces of date/time information cannot be represented by numbers, the 
+chronology(|java.time.chrono.Chronology|) and the time-zone(|java.time.ZoneId|) 
+. These can be accessed via queries(|java.time.temporal.TemporalAccessor|) 
+using the static methods defined on (|java.time.temporal.TemporalQuery|) . 
+
+A sub-interface, (|java.time.temporal.Temporal|) , extends this definition to 
+one that also supports adjustment and manipulation on more complete temporal 
+objects. 
+
+This interface is a framework-level interface that should not be widely used in 
+application code. Instead, applications should create and pass around instances 
+of concrete types, such asLocalDate. There are many reasons for this, part of 
+which is that implementations of this interface may be in calendar systems 
+other than ISO. See (|java.time.chrono.ChronoLocalDate|) for a fuller 
+discussion of the issues. 
+
+
+
+*java.time.temporal.TemporalAccessor.get(TemporalField)*
+
+public int get(java.time.temporal.TemporalField field)
+
+Gets the value of the specified field as anint. 
+
+This queries the date-time for the value for the specified field. The returned 
+value will always be within the valid range of values for the field. If the 
+date-time cannot return the value, because the field is unsupported or for some 
+other reason, an exception will be thrown. 
+
+
+    field - the field to get, not null 
+
+    Returns: the value for the field, within the valid range of values 
+
+*java.time.temporal.TemporalAccessor.getLong(TemporalField)*
+
+public long getLong(java.time.temporal.TemporalField field)
+
+Gets the value of the specified field as along. 
+
+This queries the date-time for the value for the specified field. The returned 
+value may be outside the valid range of values for the field. If the date-time 
+cannot return the value, because the field is unsupported or for some other 
+reason, an exception will be thrown. 
+
+
+    field - the field to get, not null 
+
+    Returns: the value for the field 
+
+*java.time.temporal.TemporalAccessor.isSupported(TemporalField)*
+
+public boolean isSupported(java.time.temporal.TemporalField field)
+
+Checks if the specified field is supported. 
+
+This checks if the date-time can be queried for the specified field. If false, 
+then calling the range(|java.time.temporal.TemporalAccessor|) and 
+get(|java.time.temporal.TemporalAccessor|) methods will throw an exception. 
+
+
+    field - the field to check, null returns false 
+
+    Returns: true if this date-time can be queried for the field, false if not 
+
+*java.time.temporal.TemporalAccessor.query(TemporalQuery<R>)*
+
+public |R| query(java.time.temporal.TemporalQuery<R> query)
+
+Queries this date-time. 
+
+This queries this date-time using the specified query strategy object. 
+
+Queries are a key tool for extracting information from date-times. They exists 
+to externalize the process of querying, permitting different approaches, as per 
+the strategy design pattern. Examples might be a query that checks if the date 
+is the day before February 29th in a leap year, or calculates the number of 
+days to your next birthday. 
+
+The most common query implementations are method references, such 
+asLocalDate::fromandZoneId::from. Additional implementations are provided as 
+static methods on (|java.time.temporal.TemporalQuery|) . 
+
+
+    query - the query to invoke, not null 
+
+    Returns: the query result, null may be returned (defined by the query) 
+
+*java.time.temporal.TemporalAccessor.range(TemporalField)*
+
+public |java.time.temporal.ValueRange| range(java.time.temporal.TemporalField field)
+
+Gets the range of valid values for the specified field. 
+
+All fields can be expressed as alonginteger. This method returns an object that 
+describes the valid range for that value. The value of this temporal object is 
+used to enhance the accuracy of the returned range. If the date-time cannot 
+return the range, because the field is unsupported or for some other reason, an 
+exception will be thrown. 
+
+Note that the result only describes the minimum and maximum valid values and it 
+is important not to read too much into them. For example, there could be values 
+within the range that are invalid for the field. 
+
+
+    field - the field to query the range for, not null 
+
+    Returns: the range of valid values for the field, not null 
+
+

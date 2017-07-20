@@ -1,0 +1,19 @@
+*javax.xml.bind.NotIdentifiableEvent* *NotIdentifiableEvent* This event indicate
+
+public interface interface NotIdentifiableEvent
+
+  implements |javax.xml.bind.ValidationEvent|
+
+|javax.xml.bind.NotIdentifiableEvent_Description|
+|javax.xml.bind.NotIdentifiableEvent_Fields|
+|javax.xml.bind.NotIdentifiableEvent_Constructors|
+|javax.xml.bind.NotIdentifiableEvent_Methods|
+
+================================================================================
+
+*javax.xml.bind.NotIdentifiableEvent_Description*
+
+This event indicates that a problem was encountered resolving an ID/IDREF. 
+
+
+

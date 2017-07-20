@@ -1,0 +1,53 @@
+*org.omg.PortableInterceptor.ObjectReferenceTemplate* *ObjectReferenceTemplate* 
+
+public interface interface ObjectReferenceTemplate
+
+  implements |org.omg.PortableInterceptor.ObjectReferenceFactory|
+
+|org.omg.PortableInterceptor.ObjectReferenceTemplate_Description|
+|org.omg.PortableInterceptor.ObjectReferenceTemplate_Fields|
+|org.omg.PortableInterceptor.ObjectReferenceTemplate_Constructors|
+|org.omg.PortableInterceptor.ObjectReferenceTemplate_Methods|
+
+================================================================================
+
+*org.omg.PortableInterceptor.ObjectReferenceTemplate_Methods*
+|org.omg.PortableInterceptor.ObjectReferenceTemplate.adapter_name()|
+|org.omg.PortableInterceptor.ObjectReferenceTemplate.orb_id()|
+|org.omg.PortableInterceptor.ObjectReferenceTemplate.server_id()|
+
+*org.omg.PortableInterceptor.ObjectReferenceTemplate_Description*
+
+The object reference template. An instance of this must exist for each object 
+adapter created in an ORB. The server_id, orb_id, and adapter_name attributes 
+uniquely identify this template within the scope of an IMR. Note that 
+adapter_id is similarly unique within the same scope, but it is opaque, and 
+less useful in many cases. 
+
+
+
+*org.omg.PortableInterceptor.ObjectReferenceTemplate.adapter_name()*
+
+public |java.lang.String|[] adapter_name()
+
+
+
+
+
+*org.omg.PortableInterceptor.ObjectReferenceTemplate.orb_id()*
+
+public |java.lang.String| orb_id()
+
+
+
+
+
+*org.omg.PortableInterceptor.ObjectReferenceTemplate.server_id()*
+
+public |java.lang.String| server_id()
+
+
+
+
+
+

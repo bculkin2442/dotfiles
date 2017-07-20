@@ -1,0 +1,42 @@
+*javax.xml.bind.annotation.XmlSeeAlso* *XmlSeeAlso* Instructs JAXB to also bind 
+
+public interface class XmlSeeAlso
+
+  implements |java.lang.annotation.Annotation|
+
+|javax.xml.bind.annotation.XmlSeeAlso_Description|
+|javax.xml.bind.annotation.XmlSeeAlso_Fields|
+|javax.xml.bind.annotation.XmlSeeAlso_Constructors|
+|javax.xml.bind.annotation.XmlSeeAlso_Methods|
+
+================================================================================
+
+*javax.xml.bind.annotation.XmlSeeAlso_Description*
+
+Instructs JAXB to also bind other classes when binding this class. 
+
+Java makes it impractical/impossible to list all sub-classes of a given class. 
+This often gets in a way of JAXB users, as it JAXB cannot automatically list up 
+the classes that need to be known to (|javax.xml.bind.JAXBContext|) . 
+
+For example, with the following class definitions: 
+
+
+
+class Animal {} class Dog extends Animal {} class Cat extends Animal {} 
+
+The user would be required to create (|javax.xml.bind.JAXBContext|) as 
+JAXBContext.newInstance(Dog.class,Cat.class) (Animal will be automatically 
+picked up since Dog and Cat refers to it.) 
+
+(|javax.xml.bind.annotation.XmlSeeAlso|) annotation would allow you to write: 
+
+XmlSeeAlso({Dog.class,Cat.class}) class Animal {} class Dog extends Animal {} 
+class Cat extends Animal {} 
+
+This would allow you to do JAXBContext.newInstance(Animal.class). By the help 
+of this annotation, JAXB implementations will be able to correctly bind Dog and 
+Cat. 
+
+
+

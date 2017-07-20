@@ -1,0 +1,92 @@
+*org.omg.CORBA.ParameterMode* *ParameterMode* Enumeration of parameter modes for
+
+public class ParameterMode
+  extends    |java.lang.Object|
+  implements |org.omg.CORBA.portable.IDLEntity|
+
+|org.omg.CORBA.ParameterMode_Description|
+|org.omg.CORBA.ParameterMode_Fields|
+|org.omg.CORBA.ParameterMode_Constructors|
+|org.omg.CORBA.ParameterMode_Methods|
+
+================================================================================
+
+*org.omg.CORBA.ParameterMode_Fields*
+|int_org.omg.CORBA.ParameterMode._PARAM_IN|
+|int_org.omg.CORBA.ParameterMode._PARAM_INOUT|
+|int_org.omg.CORBA.ParameterMode._PARAM_OUT|
+|org.omg.CORBA.ParameterMode_org.omg.CORBA.ParameterMode.PARAM_IN|
+|org.omg.CORBA.ParameterMode_org.omg.CORBA.ParameterMode.PARAM_INOUT|
+|org.omg.CORBA.ParameterMode_org.omg.CORBA.ParameterMode.PARAM_OUT|
+
+*org.omg.CORBA.ParameterMode_Constructors*
+|org.omg.CORBA.ParameterMode(int)|
+
+*org.omg.CORBA.ParameterMode_Methods*
+|org.omg.CORBA.ParameterMode.from_int(int)|
+|org.omg.CORBA.ParameterMode.value()|
+
+*org.omg.CORBA.ParameterMode_Description*
+
+Enumeration of parameter modes for Parameter. Possible vaues: 
+
+PARAM_IN - Represents an "in" parameter. PARAM_OUT - Represents an "out" 
+parameter. PARAM_INOUT - Represents an "inout" parameter. 
+
+
+
+*int_org.omg.CORBA.ParameterMode._PARAM_IN*
+
+
+
+
+*int_org.omg.CORBA.ParameterMode._PARAM_INOUT*
+
+
+
+
+*int_org.omg.CORBA.ParameterMode._PARAM_OUT*
+
+
+
+
+*org.omg.CORBA.ParameterMode_org.omg.CORBA.ParameterMode.PARAM_IN*
+
+
+
+
+*org.omg.CORBA.ParameterMode_org.omg.CORBA.ParameterMode.PARAM_INOUT*
+
+
+
+
+*org.omg.CORBA.ParameterMode_org.omg.CORBA.ParameterMode.PARAM_OUT*
+
+
+
+
+
+*org.omg.CORBA.ParameterMode(int)*
+
+protected ParameterMode(int value)
+
+
+
+
+*org.omg.CORBA.ParameterMode.from_int(int)*
+
+public static |org.omg.CORBA.ParameterMode| from_int(int value)
+
+
+
+
+
+*org.omg.CORBA.ParameterMode.value()*
+
+public int value()
+
+
+
+
+
+

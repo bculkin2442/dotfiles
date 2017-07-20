@@ -1,0 +1,158 @@
+*javax.xml.bind.annotation.XmlAnyElement* *XmlAnyElement* Maps a JavaBean proper
+
+public interface class XmlAnyElement
+
+  implements |java.lang.annotation.Annotation|
+
+|javax.xml.bind.annotation.XmlAnyElement_Description|
+|javax.xml.bind.annotation.XmlAnyElement_Fields|
+|javax.xml.bind.annotation.XmlAnyElement_Constructors|
+|javax.xml.bind.annotation.XmlAnyElement_Methods|
+
+================================================================================
+
+*javax.xml.bind.annotation.XmlAnyElement_Description*
+
+Maps a JavaBean property to XML infoset representation and/or JAXB element. 
+
+This annotation serves as a "catch-all" property while unmarshalling xml 
+content into a instance of a JAXB annotated class. It typically annotates a 
+multi-valued JavaBean property, but it can occur on single value JavaBean 
+property. During unmarshalling, each xml element that does not match a static 
+XmlElement or XmlElementRef annotation for the other JavaBean properties on the 
+class, is added to this "catch-all" property. 
+
+Usages: 
+
+XmlAnyElement public (|org.w3c.dom.Element|) [] others; 
+
+// Collection of (|org.w3c.dom.Element|) or JAXB elements. 
+XmlAnyElement(lax="true") public (|java.lang.Object|) [] others; 
+
+XmlAnyElement private List< (|org.w3c.dom.Element|) > nodes; 
+
+XmlAnyElement private (|org.w3c.dom.Element|) node; 
+
+Restriction usage constraints 
+
+This annotation is mutually exclusive with 
+(|javax.xml.bind.annotation.XmlElement|) , 
+(|javax.xml.bind.annotation.XmlAttribute|) , 
+(|javax.xml.bind.annotation.XmlValue|) , 
+(|javax.xml.bind.annotation.XmlElements|) , (|javax.xml.bind.annotation.XmlID|) 
+, and (|javax.xml.bind.annotation.XmlIDREF|) . 
+
+There can be only one (|javax.xml.bind.annotation.XmlAnyElement|) annotated 
+JavaBean property in a class and its super classes. 
+
+Relationship to other annotations 
+
+This annotation can be used with 
+(|javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter|) , so that users can 
+map their own data structure to DOM, which in turn can be composed into XML. 
+
+This annotation can be used with (|javax.xml.bind.annotation.XmlMixed|) like 
+this: 
+
+// List of java.lang.String or DOM nodes. XmlAnyElement XmlMixed List<Object> 
+others; 
+
+Schema To Java example 
+
+The following schema would produce the following Java class: 
+
+<xs:complexType name="foo"> <xs:sequence> <xs:element name="a" type="xs:int" /> 
+<xs:element name="b" type="xs:int" /> <xs:any namespace="##other" 
+processContents="lax" minOccurs="0" maxOccurs="unbounded" /> </xs:sequence> 
+</xs:complexType> 
+
+
+
+class Foo { int a; int b; (|javax.xml.bind.annotation.XmlAnyElement|) 
+List<Element> any; } 
+
+It can unmarshal instances like 
+
+
+
+<foo xmlns:e="extra"> <a>1 <e:other /> // this will be bound to DOM, because 
+unmarshalling is orderless <b>3 <e:other /> <c>5 // this will be bound to DOM, 
+because the annotation doesn't remember namespaces. </foo> 
+
+The following schema would produce the following Java class: 
+
+<xs:complexType name="bar"> <xs:complexContent> <xs:extension base="foo"> 
+<xs:sequence> <xs:element name="c" type="xs:int" /> <xs:any namespace="##other" 
+processContents="lax" minOccurs="0" maxOccurs="unbounded" /> </xs:sequence> 
+</xs:extension> </xs:complexType> 
+
+
+
+class Bar extends Foo { int c; // Foo.getAny() also represents wildcard content 
+for type definition bar. } 
+
+It can unmarshal instances like 
+
+
+
+<bar xmlns:e="extra"> <a>1 <e:other /> // this will be bound to DOM, because 
+unmarshalling is orderless <b>3 <e:other /> <c>5 // this now goes to Bar.c 
+<e:other /> // this will go to Foo.any </bar> 
+
+Using (|javax.xml.bind.annotation.XmlAnyElement|) with 
+(|javax.xml.bind.annotation.XmlElementRef|) 
+
+The (|javax.xml.bind.annotation.XmlAnyElement|) annotation can be used with 
+(|javax.xml.bind.annotation.XmlElementRef|) s to designate additional elements 
+that can participate in the content tree. 
+
+The following schema would produce the following Java class: 
+
+<xs:complexType name="foo"> <xs:choice maxOccurs="unbounded" minOccurs="0"> 
+<xs:element name="a" type="xs:int" /> <xs:element name="b" type="xs:int" /> 
+<xs:any namespace="##other" processContents="lax" /> </xs:choice> 
+</xs:complexType> 
+
+
+
+class Foo { (|javax.xml.bind.annotation.XmlAnyElement|) (lax="true") 
+(|javax.xml.bind.annotation.XmlElementRefs|) ({ 
+(|javax.xml.bind.annotation.XmlElementRef|) (name="a", 
+type="JAXBElement.class") (|javax.xml.bind.annotation.XmlElementRef|) 
+(name="b", type="JAXBElement.class") }) (|java.util.List|) < 
+(|java.lang.Object|) > others; } 
+
+XmlRegistry class ObjectFactory { ... XmlElementDecl(name = "a", namespace = 
+"", scope = Foo.class) (|javax.xml.bind.JAXBElement|) <Integer> createFooA( 
+Integer i ) { ... } 
+
+XmlElementDecl(name = "b", namespace = "", scope = Foo.class) 
+(|javax.xml.bind.JAXBElement|) <Integer> createFooB( Integer i ) { ... } 
+
+It can unmarshal instances like 
+
+
+
+<foo xmlns:e="extra"> <a>1 // this will unmarshal to a 
+(|javax.xml.bind.JAXBElement|) instance whose value is 1. <e:other /> // this 
+will unmarshal to a DOM (|org.w3c.dom.Element|) . <b>3 // this will unmarshal 
+to a (|javax.xml.bind.JAXBElement|) instance whose value is 1. </foo> 
+
+W3C XML Schema "lax" wildcard emulation The lax element of the annotation 
+enables the emulation of the "lax" wildcard semantics. For example, when the 
+Java source code is annotated like this: 
+
+(|javax.xml.bind.annotation.XmlRootElement|) class Foo { 
+XmlAnyElement(lax=true) public (|java.lang.Object|) [] others; } 
+
+then the following document will unmarshal like this: 
+
+<foo> <unknown /> <foo /> </foo> 
+
+Foo foo = unmarshal(); // 1 for 'unknown', another for 'foo' assert 
+foo.others.length==2; // 'unknown' unmarshals to a DOM element assert 
+foo.others[0] instanceof Element; // because of lax=true, the 'foo' element 
+eagerly // unmarshals to a Foo object. assert foo.others[1] instanceof Foo; 
+
+
+

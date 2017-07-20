@@ -1,0 +1,31 @@
+*javax.xml.ws.soap.MTOM* *MTOM* This feature represents the use of MTOM with a
+ 
+
+public interface class MTOM
+
+  implements |java.lang.annotation.Annotation|
+
+|javax.xml.ws.soap.MTOM_Description|
+|javax.xml.ws.soap.MTOM_Fields|
+|javax.xml.ws.soap.MTOM_Constructors|
+|javax.xml.ws.soap.MTOM_Methods|
+
+================================================================================
+
+*javax.xml.ws.soap.MTOM_Description*
+
+This feature represents the use of MTOM with a web service. 
+
+This annotation MUST only be used in conjunction the javax.jws.WebService, 
+(|javax.xml.ws.WebServiceProvider|) , (|javax.xml.ws.WebServiceRef|) 
+annotations. When used with the javax.jws.WebService annotation this annotation 
+MUST only be used on the service endpoint implementation class. When used with 
+a WebServiceRef annotation, this annotation MUST only be used when a proxy 
+instance is created. The injected SEI proxy, and endpoint MUST honor the values 
+of the MTOM annotation. 
+
+This annotation's behaviour is defined by the corresponding feature 
+(|javax.xml.ws.soap.MTOMFeature|) . 
+
+
+

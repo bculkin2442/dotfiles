@@ -1,0 +1,77 @@
+*org.omg.PortableInterceptor.ObjectReferenceTemplateSeqHolder* *ObjectReferenceTemplateSeqHolder* 
+
+public final class ObjectReferenceTemplateSeqHolder
+  extends    |java.lang.Object|
+  implements |org.omg.CORBA.portable.Streamable|
+
+|org.omg.PortableInterceptor.ObjectReferenceTemplateSeqHolder_Description|
+|org.omg.PortableInterceptor.ObjectReferenceTemplateSeqHolder_Fields|
+|org.omg.PortableInterceptor.ObjectReferenceTemplateSeqHolder_Constructors|
+|org.omg.PortableInterceptor.ObjectReferenceTemplateSeqHolder_Methods|
+
+================================================================================
+
+*org.omg.PortableInterceptor.ObjectReferenceTemplateSeqHolder_Fields*
+|org.omg.PortableInterceptor.ObjectReferenceTemplate[]_org.omg.PortableInterceptor.ObjectReferenceTemplateSeqHolder.value|
+
+*org.omg.PortableInterceptor.ObjectReferenceTemplateSeqHolder_Constructors*
+|org.omg.PortableInterceptor.ObjectReferenceTemplateSeqHolder()|
+|org.omg.PortableInterceptor.ObjectReferenceTemplateSeqHolder(ObjectReferenceTemplate[])|
+
+*org.omg.PortableInterceptor.ObjectReferenceTemplateSeqHolder_Methods*
+|org.omg.PortableInterceptor.ObjectReferenceTemplateSeqHolder._read(InputStream)|
+|org.omg.PortableInterceptor.ObjectReferenceTemplateSeqHolder._type()|
+|org.omg.PortableInterceptor.ObjectReferenceTemplateSeqHolder._write(OutputStream)|
+
+*org.omg.PortableInterceptor.ObjectReferenceTemplateSeqHolder_Description*
+
+Sequence of object reference templates is used for reporting state changes that 
+do not occur on the adapter manager. 
+
+
+
+*org.omg.PortableInterceptor.ObjectReferenceTemplate[]_org.omg.PortableInterceptor.ObjectReferenceTemplateSeqHolder.value*
+
+
+
+
+
+*org.omg.PortableInterceptor.ObjectReferenceTemplateSeqHolder()*
+
+public ObjectReferenceTemplateSeqHolder()
+
+
+
+
+*org.omg.PortableInterceptor.ObjectReferenceTemplateSeqHolder(ObjectReferenceTemplate[])*
+
+public ObjectReferenceTemplateSeqHolder(org.omg.PortableInterceptor.ObjectReferenceTemplate[] initialValue)
+
+
+
+
+*org.omg.PortableInterceptor.ObjectReferenceTemplateSeqHolder._read(InputStream)*
+
+public void _read(org.omg.CORBA.portable.InputStream i)
+
+
+
+
+
+*org.omg.PortableInterceptor.ObjectReferenceTemplateSeqHolder._type()*
+
+public |org.omg.CORBA.TypeCode| _type()
+
+
+
+
+
+*org.omg.PortableInterceptor.ObjectReferenceTemplateSeqHolder._write(OutputStream)*
+
+public void _write(org.omg.CORBA.portable.OutputStream o)
+
+
+
+
+
+

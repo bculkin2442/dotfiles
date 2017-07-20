@@ -1,0 +1,119 @@
+*org.omg.PortableInterceptor.CurrentHelper* *CurrentHelper* Portable Interceptor
+
+public abstract class CurrentHelper
+  extends    |java.lang.Object|
+
+|org.omg.PortableInterceptor.CurrentHelper_Description|
+|org.omg.PortableInterceptor.CurrentHelper_Fields|
+|org.omg.PortableInterceptor.CurrentHelper_Constructors|
+|org.omg.PortableInterceptor.CurrentHelper_Methods|
+
+================================================================================
+
+*org.omg.PortableInterceptor.CurrentHelper_Constructors*
+|org.omg.PortableInterceptor.CurrentHelper()|
+
+*org.omg.PortableInterceptor.CurrentHelper_Methods*
+|org.omg.PortableInterceptor.CurrentHelper.extract(Any)|
+|org.omg.PortableInterceptor.CurrentHelper.id()|
+|org.omg.PortableInterceptor.CurrentHelper.insert(Any,Current)|
+|org.omg.PortableInterceptor.CurrentHelper.narrow(Object)|
+|org.omg.PortableInterceptor.CurrentHelper.read(InputStream)|
+|org.omg.PortableInterceptor.CurrentHelper.type()|
+|org.omg.PortableInterceptor.CurrentHelper.unchecked_narrow(Object)|
+|org.omg.PortableInterceptor.CurrentHelper.write(OutputStream,Current)|
+
+*org.omg.PortableInterceptor.CurrentHelper_Description*
+
+Portable Interceptors Current (also known as PICurrent) is merely a slot table, 
+the slots of which are used by each service to transfer their context data 
+between their context and the request's or reply's service context. Each 
+service which wishes to use PICurrent reserves a slot or slots at 
+initialization time and uses those slots during the processing of requests and 
+replies. 
+
+Before an invocation is made, PICurrent is obtained via a call to 
+ORB.resolve_initial_references( "PICurrent" ). From within the interception 
+points, the data on PICurrent that has moved from the thread scope to the 
+request scope is available via the get_slot operation on the RequestInfo 
+object. A PICurrent can still be obtained via resolve_initial_references, but 
+that is the Interceptor's thread scope PICurrent. 
+
+
+
+*org.omg.PortableInterceptor.CurrentHelper()*
+
+public CurrentHelper()
+
+
+
+
+*org.omg.PortableInterceptor.CurrentHelper.extract(Any)*
+
+public static |org.omg.PortableInterceptor.Current| extract(org.omg.CORBA.Any a)
+
+
+
+
+
+*org.omg.PortableInterceptor.CurrentHelper.id()*
+
+public static |java.lang.String| id()
+
+
+
+
+
+*org.omg.PortableInterceptor.CurrentHelper.insert(Any,Current)*
+
+public static void insert(
+  org.omg.CORBA.Any a,
+  org.omg.PortableInterceptor.Current that)
+
+
+
+
+
+*org.omg.PortableInterceptor.CurrentHelper.narrow(Object)*
+
+public static |org.omg.PortableInterceptor.Current| narrow(org.omg.CORBA.Object obj)
+
+
+
+
+
+*org.omg.PortableInterceptor.CurrentHelper.read(InputStream)*
+
+public static |org.omg.PortableInterceptor.Current| read(org.omg.CORBA.portable.InputStream istream)
+
+
+
+
+
+*org.omg.PortableInterceptor.CurrentHelper.type()*
+
+public static synchronized |org.omg.CORBA.TypeCode| type()
+
+
+
+
+
+*org.omg.PortableInterceptor.CurrentHelper.unchecked_narrow(Object)*
+
+public static |org.omg.PortableInterceptor.Current| unchecked_narrow(org.omg.CORBA.Object obj)
+
+
+
+
+
+*org.omg.PortableInterceptor.CurrentHelper.write(OutputStream,Current)*
+
+public static void write(
+  org.omg.CORBA.portable.OutputStream ostream,
+  org.omg.PortableInterceptor.Current value)
+
+
+
+
+
+

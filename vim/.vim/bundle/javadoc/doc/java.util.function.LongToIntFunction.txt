@@ -1,0 +1,38 @@
+*java.util.function.LongToIntFunction* *LongToIntFunction* Represents a function
+
+public interface interface LongToIntFunction
+
+
+|java.util.function.LongToIntFunction_Description|
+|java.util.function.LongToIntFunction_Fields|
+|java.util.function.LongToIntFunction_Constructors|
+|java.util.function.LongToIntFunction_Methods|
+
+================================================================================
+
+*java.util.function.LongToIntFunction_Methods*
+|java.util.function.LongToIntFunction.applyAsInt(long)|Applies this function to
+
+*java.util.function.LongToIntFunction_Description*
+
+Represents a function that accepts a long-valued argument and produces an 
+int-valued result. This is thelong-to-intprimitive specialization for 
+(|java.util.function.Function|) . 
+
+This is a functional interface whose functional method is 
+(|java.util.function.LongToIntFunction|) . 
+
+
+
+*java.util.function.LongToIntFunction.applyAsInt(long)*
+
+public int applyAsInt(long value)
+
+Applies this function to the given argument. 
+
+
+    value - the function argument 
+
+    Returns: the function result 
+
+

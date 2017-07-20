@@ -1,0 +1,143 @@
+*java.security.PKCS12Attribute* *PKCS12Attribute* An attribute associated with a
+
+public final class PKCS12Attribute
+  extends    |java.lang.Object|
+  implements |java.security.KeyStore.Entry.Attribute|
+
+|java.security.PKCS12Attribute_Description|
+|java.security.PKCS12Attribute_Fields|
+|java.security.PKCS12Attribute_Constructors|
+|java.security.PKCS12Attribute_Methods|
+
+================================================================================
+
+*java.security.PKCS12Attribute_Constructors*
+|java.security.PKCS12Attribute(byte[])|Constructs a PKCS12 attribute from its A
+|java.security.PKCS12Attribute(String,String)|Constructs a PKCS12 attribute fro
+
+*java.security.PKCS12Attribute_Methods*
+|java.security.PKCS12Attribute.equals(Object)|Compares thisPKCS12Attributeand a
+|java.security.PKCS12Attribute.getEncoded()|Returns the attribute's ASN.1 DER e
+|java.security.PKCS12Attribute.getName()|Returns the attribute's ASN.1 Object I
+|java.security.PKCS12Attribute.getValue()|Returns the attribute's ASN.1 DER-enc
+|java.security.PKCS12Attribute.hashCode()|Returns the hashcode for thisPKCS12At
+|java.security.PKCS12Attribute.toString()|Returns a string representation of th
+
+*java.security.PKCS12Attribute_Description*
+
+An attribute associated with a PKCS12 keystore entry. The attribute name is an 
+ASN.1 Object Identifier and the attribute value is a set of ASN.1 types. 
+
+
+
+*java.security.PKCS12Attribute(byte[])*
+
+public PKCS12Attribute(byte[] encoded)
+
+Constructs a PKCS12 attribute from its ASN.1 DER encoding. The DER encoding is 
+specified by the following ASN.1 definition: 
+
+Attribute ::= SEQUENCE { type AttributeType, values SET OF AttributeValue } 
+AttributeType ::= OBJECT IDENTIFIER AttributeValue ::= ANY defined by type 
+
+
+
+    encoded - the attribute's ASN.1 DER encoding. It is cloned to prevent subsequent 
+       modificaion. 
+
+*java.security.PKCS12Attribute(String,String)*
+
+public PKCS12Attribute(
+  java.lang.String name,
+  java.lang.String value)
+
+Constructs a PKCS12 attribute from its name and value. The name is an ASN.1 
+Object Identifier represented as a list of dot-separated integers. A string 
+value is represented as the string itself. A binary value is represented as a 
+string of colon-separated pairs of hexadecimal digits. Multi-valued attributes 
+are represented as a comma-separated list of values, enclosed in square 
+brackets. See (|java.util.Arrays|) . 
+
+A string value will be DER-encoded as an ASN.1 UTF8String and a binary value 
+will be DER-encoded as an ASN.1 Octet String. 
+
+    name - the attribute's identifier 
+    value - the attribute's value 
+
+*java.security.PKCS12Attribute.equals(Object)*
+
+public boolean equals(java.lang.Object obj)
+
+Compares thisPKCS12Attributeand a specified object for equality. 
+
+
+    obj - the comparison object 
+
+    Returns: true if {@code obj} is a {@code PKCS12Attribute} and their DER encodings are 
+             equal. 
+
+*java.security.PKCS12Attribute.getEncoded()*
+
+public byte[] getEncoded()
+
+Returns the attribute's ASN.1 DER encoding. 
+
+
+
+    Returns: a clone of the attribute's DER encoding 
+
+*java.security.PKCS12Attribute.getName()*
+
+public |java.lang.String| getName()
+
+Returns the attribute's ASN.1 Object Identifier represented as a list of 
+dot-separated integers. 
+
+
+
+    Returns: the attribute's identifier 
+
+*java.security.PKCS12Attribute.getValue()*
+
+public |java.lang.String| getValue()
+
+Returns the attribute's ASN.1 DER-encoded value as a string. An ASN.1 
+DER-encoded value is returned in one of the followingStringformats: 
+
+the DER encoding of a basic ASN.1 type that has a natural string representation 
+is returned as the string itself. Such types are currently limited to BOOLEAN, 
+INTEGER, OBJECT IDENTIFIER, UTCTime, GeneralizedTime and the following six 
+ASN.1 string types: UTF8String, PrintableString, T61String, IA5String, 
+BMPString and GeneralString. the DER encoding of any other ASN.1 type is not 
+decoded but returned as a binary string of colon-separated pairs of hexadecimal 
+digits. 
+
+Multi-valued attributes are represented as a comma-separated list of values, 
+enclosed in square brackets. See (|java.util.Arrays|) . 
+
+
+
+    Returns: the attribute value's string encoding 
+
+*java.security.PKCS12Attribute.hashCode()*
+
+public int hashCode()
+
+Returns the hashcode for thisPKCS12Attribute. The hash code is computed from 
+its DER encoding. 
+
+
+
+    Returns: the hash code 
+
+*java.security.PKCS12Attribute.toString()*
+
+public |java.lang.String| toString()
+
+Returns a string representation of thisPKCS12Attribute. 
+
+
+
+    Returns: a name/value pair separated by an 'equals' symbol 
+
+

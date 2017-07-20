@@ -1,0 +1,57 @@
+*javax.xml.ws.WebServicePermission* *WebServicePermission* This class defines we
+
+public final class WebServicePermission
+  extends    |java.security.BasicPermission|
+
+|javax.xml.ws.WebServicePermission_Description|
+|javax.xml.ws.WebServicePermission_Fields|
+|javax.xml.ws.WebServicePermission_Constructors|
+|javax.xml.ws.WebServicePermission_Methods|
+
+================================================================================
+
+*javax.xml.ws.WebServicePermission_Constructors*
+|javax.xml.ws.WebServicePermission(String)|Creates a new permission with the sp
+|javax.xml.ws.WebServicePermission(String,String)|Creates a new permission with
+
+*javax.xml.ws.WebServicePermission_Description*
+
+This class defines web service permissions. 
+
+Web service Permissions are identified by name (also referred to as a "target 
+name") alone. There are no actions associated with them. 
+
+The following permission target name is defined: 
+
+publishEndpoint 
+
+The publishEndpoint permission allows publishing a web service endpoint using 
+the publish methods defined by the javax.xml.ws.Endpoint class. 
+
+Granting publishEndpoint allows the application to be exposed as a network 
+service. Depending on the security of the runtime and the security of the 
+application, this may introduce a security hole that is remotely exploitable. 
+
+
+
+*javax.xml.ws.WebServicePermission(String)*
+
+public WebServicePermission(java.lang.String name)
+
+Creates a new permission with the specified name. 
+
+    name - the name of the WebServicePermission 
+
+*javax.xml.ws.WebServicePermission(String,String)*
+
+public WebServicePermission(
+  java.lang.String name,
+  java.lang.String actions)
+
+Creates a new permission with the specified name and actions. 
+
+The actions parameter is currently unused and it should be null. 
+
+    name - the name of the WebServicePermission 
+    actions - should be null 
+

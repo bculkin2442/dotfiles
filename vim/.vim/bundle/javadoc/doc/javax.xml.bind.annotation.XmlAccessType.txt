@@ -1,0 +1,39 @@
+*javax.xml.bind.annotation.XmlAccessType* *XmlAccessType* Used by XmlAccessorTyp
+
+public final enumXmlAccessType
+  extends    |java.lang.Enum|
+
+|javax.xml.bind.annotation.XmlAccessType_Description|
+|javax.xml.bind.annotation.XmlAccessType_Fields|
+|javax.xml.bind.annotation.XmlAccessType_Constructors|
+|javax.xml.bind.annotation.XmlAccessType_Methods|
+
+================================================================================
+
+*javax.xml.bind.annotation.XmlAccessType_Methods*
+|javax.xml.bind.annotation.XmlAccessType.valueOf(String)|
+|javax.xml.bind.annotation.XmlAccessType.values()|
+
+*javax.xml.bind.annotation.XmlAccessType_Description*
+
+Used by XmlAccessorType to control serialization of fields or properties. 
+
+
+
+*javax.xml.bind.annotation.XmlAccessType.valueOf(String)*
+
+public static |javax.xml.bind.annotation.XmlAccessType| valueOf(java.lang.String name)
+
+
+
+
+
+*javax.xml.bind.annotation.XmlAccessType.values()*
+
+public static |javax.xml.bind.annotation.XmlAccessType|[] values()
+
+
+
+
+
+

@@ -1,0 +1,39 @@
+*java.util.function.DoubleSupplier* *DoubleSupplier* Represents a supplier ofdou
+
+public interface interface DoubleSupplier
+
+
+|java.util.function.DoubleSupplier_Description|
+|java.util.function.DoubleSupplier_Fields|
+|java.util.function.DoubleSupplier_Constructors|
+|java.util.function.DoubleSupplier_Methods|
+
+================================================================================
+
+*java.util.function.DoubleSupplier_Methods*
+|java.util.function.DoubleSupplier.getAsDouble()|Gets a result.
+
+*java.util.function.DoubleSupplier_Description*
+
+Represents a supplier ofdouble-valued results. This is thedouble-producing 
+primitive specialization of (|java.util.function.Supplier|) . 
+
+There is no requirement that a distinct result be returned each time the 
+supplier is invoked. 
+
+This is a functional interface whose functional method is 
+(|java.util.function.DoubleSupplier|) . 
+
+
+
+*java.util.function.DoubleSupplier.getAsDouble()*
+
+public double getAsDouble()
+
+Gets a result. 
+
+
+
+    Returns: 
+
+

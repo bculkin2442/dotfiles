@@ -1,0 +1,92 @@
+*org.omg.CosNaming.NamingContextExtPackage.InvalidAddressHelper* *InvalidAddressHelper* 
+
+public abstract class InvalidAddressHelper
+  extends    |java.lang.Object|
+
+|org.omg.CosNaming.NamingContextExtPackage.InvalidAddressHelper_Description|
+|org.omg.CosNaming.NamingContextExtPackage.InvalidAddressHelper_Fields|
+|org.omg.CosNaming.NamingContextExtPackage.InvalidAddressHelper_Constructors|
+|org.omg.CosNaming.NamingContextExtPackage.InvalidAddressHelper_Methods|
+
+================================================================================
+
+*org.omg.CosNaming.NamingContextExtPackage.InvalidAddressHelper_Constructors*
+|org.omg.CosNaming.NamingContextExtPackage.InvalidAddressHelper()|
+
+*org.omg.CosNaming.NamingContextExtPackage.InvalidAddressHelper_Methods*
+|org.omg.CosNaming.NamingContextExtPackage.InvalidAddressHelper.extract(Any)|
+|org.omg.CosNaming.NamingContextExtPackage.InvalidAddressHelper.id()|
+|org.omg.CosNaming.NamingContextExtPackage.InvalidAddressHelper.insert(Any,InvalidAddress)|
+|org.omg.CosNaming.NamingContextExtPackage.InvalidAddressHelper.read(InputStream)|
+|org.omg.CosNaming.NamingContextExtPackage.InvalidAddressHelper.type()|
+|org.omg.CosNaming.NamingContextExtPackage.InvalidAddressHelper.write(OutputStream,InvalidAddress)|
+
+*org.omg.CosNaming.NamingContextExtPackage.InvalidAddressHelper_Description*
+
+org/omg/CosNaming/NamingContextExtPackage/InvalidAddressHelper.java . Generated 
+by the IDL-to-Java compiler (portable), version "3.2" from 
+/HUDSON/workspace/8-2-build-macosx-x86_64/jdk8u5/2488/corba/src/share/classes/org/omg/CosNaming/nameservice.idl
+Tuesday, March 18, 2014 12:37:21 AM PDT 
+
+
+
+*org.omg.CosNaming.NamingContextExtPackage.InvalidAddressHelper()*
+
+public InvalidAddressHelper()
+
+
+
+
+*org.omg.CosNaming.NamingContextExtPackage.InvalidAddressHelper.extract(Any)*
+
+public static |org.omg.CosNaming.NamingContextExtPackage.InvalidAddress| extract(org.omg.CORBA.Any a)
+
+
+
+
+
+*org.omg.CosNaming.NamingContextExtPackage.InvalidAddressHelper.id()*
+
+public static |java.lang.String| id()
+
+
+
+
+
+*org.omg.CosNaming.NamingContextExtPackage.InvalidAddressHelper.insert(Any,InvalidAddress)*
+
+public static void insert(
+  org.omg.CORBA.Any a,
+  org.omg.CosNaming.NamingContextExtPackage.InvalidAddress that)
+
+
+
+
+
+*org.omg.CosNaming.NamingContextExtPackage.InvalidAddressHelper.read(InputStream)*
+
+public static |org.omg.CosNaming.NamingContextExtPackage.InvalidAddress| read(org.omg.CORBA.portable.InputStream istream)
+
+
+
+
+
+*org.omg.CosNaming.NamingContextExtPackage.InvalidAddressHelper.type()*
+
+public static synchronized |org.omg.CORBA.TypeCode| type()
+
+
+
+
+
+*org.omg.CosNaming.NamingContextExtPackage.InvalidAddressHelper.write(OutputStream,InvalidAddress)*
+
+public static void write(
+  org.omg.CORBA.portable.OutputStream ostream,
+  org.omg.CosNaming.NamingContextExtPackage.InvalidAddress value)
+
+
+
+
+
+

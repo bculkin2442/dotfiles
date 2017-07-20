@@ -1,0 +1,383 @@
+*javax.xml.bind.helpers.AbstractMarshallerImpl* *AbstractMarshallerImpl* Partial
+
+public abstract class AbstractMarshallerImpl
+  extends    |java.lang.Object|
+  implements |javax.xml.bind.Marshaller|
+
+|javax.xml.bind.helpers.AbstractMarshallerImpl_Description|
+|javax.xml.bind.helpers.AbstractMarshallerImpl_Fields|
+|javax.xml.bind.helpers.AbstractMarshallerImpl_Constructors|
+|javax.xml.bind.helpers.AbstractMarshallerImpl_Methods|
+
+================================================================================
+
+*javax.xml.bind.helpers.AbstractMarshallerImpl_Constructors*
+|javax.xml.bind.helpers.AbstractMarshallerImpl()|
+
+*javax.xml.bind.helpers.AbstractMarshallerImpl_Methods*
+|javax.xml.bind.helpers.AbstractMarshallerImpl.getAdapter(Class<A>)|
+|javax.xml.bind.helpers.AbstractMarshallerImpl.getAttachmentMarshaller()|
+|javax.xml.bind.helpers.AbstractMarshallerImpl.getEncoding()|Convenience method
+|javax.xml.bind.helpers.AbstractMarshallerImpl.getEventHandler()|
+|javax.xml.bind.helpers.AbstractMarshallerImpl.getJavaEncoding(String)|Gets the
+|javax.xml.bind.helpers.AbstractMarshallerImpl.getListener()|
+|javax.xml.bind.helpers.AbstractMarshallerImpl.getNode(Object)|By default, the 
+|javax.xml.bind.helpers.AbstractMarshallerImpl.getNoNSSchemaLocation()|Convenie
+|javax.xml.bind.helpers.AbstractMarshallerImpl.getProperty(String)|Default impl
+|javax.xml.bind.helpers.AbstractMarshallerImpl.getSchema()|
+|javax.xml.bind.helpers.AbstractMarshallerImpl.getSchemaLocation()|Convenience 
+|javax.xml.bind.helpers.AbstractMarshallerImpl.isFormattedOutput()|Convenience 
+|javax.xml.bind.helpers.AbstractMarshallerImpl.isFragment()|Convenience method 
+|javax.xml.bind.helpers.AbstractMarshallerImpl.marshal(Object,ContentHandler)|
+|javax.xml.bind.helpers.AbstractMarshallerImpl.marshal(Object,File)|
+|javax.xml.bind.helpers.AbstractMarshallerImpl.marshal(Object,Node)|
+|javax.xml.bind.helpers.AbstractMarshallerImpl.marshal(Object,OutputStream)|
+|javax.xml.bind.helpers.AbstractMarshallerImpl.marshal(Object,Writer)|
+|javax.xml.bind.helpers.AbstractMarshallerImpl.marshal(Object,XMLEventWriter)|
+|javax.xml.bind.helpers.AbstractMarshallerImpl.marshal(Object,XMLStreamWriter)|
+|javax.xml.bind.helpers.AbstractMarshallerImpl.setAdapter(Class<A>,A)|
+|javax.xml.bind.helpers.AbstractMarshallerImpl.setAdapter(XmlAdapter)|
+|javax.xml.bind.helpers.AbstractMarshallerImpl.setAttachmentMarshaller(AttachmentMarshaller)|
+|javax.xml.bind.helpers.AbstractMarshallerImpl.setEncoding(String)|Convenience 
+|javax.xml.bind.helpers.AbstractMarshallerImpl.setEventHandler(ValidationEventHandler)|
+|javax.xml.bind.helpers.AbstractMarshallerImpl.setFormattedOutput(boolean)|Conv
+|javax.xml.bind.helpers.AbstractMarshallerImpl.setFragment(boolean)|Convenience
+|javax.xml.bind.helpers.AbstractMarshallerImpl.setListener(Marshaller.Listener)|
+|javax.xml.bind.helpers.AbstractMarshallerImpl.setNoNSSchemaLocation(String)|Co
+|javax.xml.bind.helpers.AbstractMarshallerImpl.setProperty(String,Object)|Defau
+|javax.xml.bind.helpers.AbstractMarshallerImpl.setSchema(Schema)|
+|javax.xml.bind.helpers.AbstractMarshallerImpl.setSchemaLocation(String)|Conven
+
+*javax.xml.bind.helpers.AbstractMarshallerImpl_Description*
+
+Partial default Marshaller implementation. 
+
+This class provides a partial default implementation for the 
+(|javax.xml.bind.Marshaller|) interface. 
+
+The only methods that a JAXB Provider has to implement are marshal(Object, 
+javax.xml.transform.Result)(|javax.xml.bind.Marshaller|) , marshal(Object, 
+javax.xml.stream.XMLStreamWriter)(|javax.xml.bind.Marshaller|) , and 
+marshal(Object, javax.xml.stream.XMLEventWriter)(|javax.xml.bind.Marshaller|) . 
+
+
+
+*javax.xml.bind.helpers.AbstractMarshallerImpl()*
+
+public AbstractMarshallerImpl()
+
+
+
+
+*javax.xml.bind.helpers.AbstractMarshallerImpl.getAdapter(Class<A>)*
+
+public |A| getAdapter(java.lang.Class<A> type)
+
+
+
+
+
+*javax.xml.bind.helpers.AbstractMarshallerImpl.getAttachmentMarshaller()*
+
+public |javax.xml.bind.attachment.AttachmentMarshaller| getAttachmentMarshaller()
+
+
+
+
+
+*javax.xml.bind.helpers.AbstractMarshallerImpl.getEncoding()*
+
+protected |java.lang.String| getEncoding()
+
+Convenience method for getting the current output encoding. 
+
+
+
+    Returns: the current encoding or "UTF-8" if it hasn't been set. 
+
+*javax.xml.bind.helpers.AbstractMarshallerImpl.getEventHandler()*
+
+public |javax.xml.bind.ValidationEventHandler| getEventHandler()
+  throws |javax.xml.bind.JAXBException|
+         
+
+
+
+
+*javax.xml.bind.helpers.AbstractMarshallerImpl.getJavaEncoding(String)*
+
+protected |java.lang.String| getJavaEncoding(java.lang.String encoding)
+  throws |java.io.UnsupportedEncodingException|
+         
+Gets the corresponding Java encoding name from an IANA name. 
+
+This method is a helper method for the derived class to convert encoding names. 
+
+
+
+*javax.xml.bind.helpers.AbstractMarshallerImpl.getListener()*
+
+public |javax.xml.bind.Marshaller.Listener| getListener()
+
+
+
+
+
+*javax.xml.bind.helpers.AbstractMarshallerImpl.getNode(Object)*
+
+public |org.w3c.dom.Node| getNode(java.lang.Object obj)
+  throws |javax.xml.bind.JAXBException|
+         
+By default, the getNode method is unsupported and throw an 
+(|java.lang.UnsupportedOperationException|) . 
+
+Implementations that choose to support this method must override this method. 
+
+
+
+*javax.xml.bind.helpers.AbstractMarshallerImpl.getNoNSSchemaLocation()*
+
+protected |java.lang.String| getNoNSSchemaLocation()
+
+Convenience method for getting the current noNamespaceSchemaLocation. 
+
+
+
+    Returns: the current noNamespaceSchemaLocation or null if it hasn't been set 
+
+*javax.xml.bind.helpers.AbstractMarshallerImpl.getProperty(String)*
+
+public |java.lang.Object| getProperty(java.lang.String name)
+  throws |javax.xml.bind.PropertyException|
+         
+Default implementation of the getProperty method handles the four defined 
+properties in Marshaller. If a provider needs to support additional provider 
+specific properties, it should override this method in a derived class. 
+
+
+
+*javax.xml.bind.helpers.AbstractMarshallerImpl.getSchema()*
+
+public |javax.xml.validation.Schema| getSchema()
+
+
+
+
+
+*javax.xml.bind.helpers.AbstractMarshallerImpl.getSchemaLocation()*
+
+protected |java.lang.String| getSchemaLocation()
+
+Convenience method for getting the current schemaLocation. 
+
+
+
+    Returns: the current schemaLocation or null if it hasn't been set 
+
+*javax.xml.bind.helpers.AbstractMarshallerImpl.isFormattedOutput()*
+
+protected boolean isFormattedOutput()
+
+Convenience method for getting the formatted output flag. 
+
+
+
+    Returns: the current value of the formatted output flag or false if it hasn't been set. 
+
+*javax.xml.bind.helpers.AbstractMarshallerImpl.isFragment()*
+
+protected boolean isFragment()
+
+Convenience method for getting the fragment flag. 
+
+
+
+    Returns: the current value of the fragment flag or false if it hasn't been set. 
+
+*javax.xml.bind.helpers.AbstractMarshallerImpl.marshal(Object,ContentHandler)*
+
+public final void marshal(
+  java.lang.Object obj,
+  org.xml.sax.ContentHandler handler)
+  throws |javax.xml.bind.JAXBException|
+         
+
+
+
+
+*javax.xml.bind.helpers.AbstractMarshallerImpl.marshal(Object,File)*
+
+public void marshal(
+  java.lang.Object jaxbElement,
+  java.io.File output)
+  throws |javax.xml.bind.JAXBException|
+         
+
+
+
+
+*javax.xml.bind.helpers.AbstractMarshallerImpl.marshal(Object,Node)*
+
+public final void marshal(
+  java.lang.Object obj,
+  org.w3c.dom.Node node)
+  throws |javax.xml.bind.JAXBException|
+         
+
+
+
+
+*javax.xml.bind.helpers.AbstractMarshallerImpl.marshal(Object,OutputStream)*
+
+public final void marshal(
+  java.lang.Object obj,
+  java.io.OutputStream os)
+  throws |javax.xml.bind.JAXBException|
+         
+
+
+
+
+*javax.xml.bind.helpers.AbstractMarshallerImpl.marshal(Object,Writer)*
+
+public final void marshal(
+  java.lang.Object obj,
+  java.io.Writer w)
+  throws |javax.xml.bind.JAXBException|
+         
+
+
+
+
+*javax.xml.bind.helpers.AbstractMarshallerImpl.marshal(Object,XMLEventWriter)*
+
+public void marshal(
+  java.lang.Object obj,
+  javax.xml.stream.XMLEventWriter writer)
+  throws |javax.xml.bind.JAXBException|
+         
+
+
+
+
+*javax.xml.bind.helpers.AbstractMarshallerImpl.marshal(Object,XMLStreamWriter)*
+
+public void marshal(
+  java.lang.Object obj,
+  javax.xml.stream.XMLStreamWriter writer)
+  throws |javax.xml.bind.JAXBException|
+         
+
+
+
+
+*javax.xml.bind.helpers.AbstractMarshallerImpl.setAdapter(Class<A>,A)*
+
+public void setAdapter(
+  java.lang.Class<A> type,
+  A extends javax.xml.bind.annotation.adapters.XmlAdapter adapter)
+
+
+
+
+
+*javax.xml.bind.helpers.AbstractMarshallerImpl.setAdapter(XmlAdapter)*
+
+public void setAdapter(javax.xml.bind.annotation.adapters.XmlAdapter adapter)
+
+
+
+
+
+*javax.xml.bind.helpers.AbstractMarshallerImpl.setAttachmentMarshaller(AttachmentMarshaller)*
+
+public void setAttachmentMarshaller(javax.xml.bind.attachment.AttachmentMarshaller am)
+
+
+
+
+
+*javax.xml.bind.helpers.AbstractMarshallerImpl.setEncoding(String)*
+
+protected void setEncoding(java.lang.String encoding)
+
+Convenience method for setting the output encoding. 
+
+
+    encoding - a valid encoding as specified in the Marshaller class documentation 
+
+*javax.xml.bind.helpers.AbstractMarshallerImpl.setEventHandler(ValidationEventHandler)*
+
+public void setEventHandler(javax.xml.bind.ValidationEventHandler handler)
+  throws |javax.xml.bind.JAXBException|
+         
+
+
+
+
+*javax.xml.bind.helpers.AbstractMarshallerImpl.setFormattedOutput(boolean)*
+
+protected void setFormattedOutput(boolean v)
+
+Convenience method for setting the formatted output flag. 
+
+
+    v - value of the formatted output flag. 
+
+*javax.xml.bind.helpers.AbstractMarshallerImpl.setFragment(boolean)*
+
+protected void setFragment(boolean v)
+
+Convenience method for setting the fragment flag. 
+
+
+    v - value of the fragment flag. 
+
+*javax.xml.bind.helpers.AbstractMarshallerImpl.setListener(Marshaller.Listener)*
+
+public void setListener(javax.xml.bind.Marshaller.Listener listener)
+
+
+
+
+
+*javax.xml.bind.helpers.AbstractMarshallerImpl.setNoNSSchemaLocation(String)*
+
+protected void setNoNSSchemaLocation(java.lang.String location)
+
+Convenience method for setting the noNamespaceSchemaLocation. 
+
+
+    location - the noNamespaceSchemaLocation value 
+
+*javax.xml.bind.helpers.AbstractMarshallerImpl.setProperty(String,Object)*
+
+public void setProperty(
+  java.lang.String name,
+  java.lang.Object value)
+  throws |javax.xml.bind.PropertyException|
+         
+Default implementation of the setProperty method handles the four defined 
+properties in Marshaller. If a provider needs to handle additional properties, 
+it should override this method in a derived class. 
+
+
+
+*javax.xml.bind.helpers.AbstractMarshallerImpl.setSchema(Schema)*
+
+public void setSchema(javax.xml.validation.Schema schema)
+
+
+
+
+
+*javax.xml.bind.helpers.AbstractMarshallerImpl.setSchemaLocation(String)*
+
+protected void setSchemaLocation(java.lang.String location)
+
+Convenience method for setting the schemaLocation. 
+
+
+    location - the schemaLocation value 
+
+

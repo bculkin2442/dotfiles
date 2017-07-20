@@ -1,0 +1,90 @@
+*org.omg.CORBA.PolicyErrorHelper* *PolicyErrorHelper* Thrown to indicate problem
+
+public abstract class PolicyErrorHelper
+  extends    |java.lang.Object|
+
+|org.omg.CORBA.PolicyErrorHelper_Description|
+|org.omg.CORBA.PolicyErrorHelper_Fields|
+|org.omg.CORBA.PolicyErrorHelper_Constructors|
+|org.omg.CORBA.PolicyErrorHelper_Methods|
+
+================================================================================
+
+*org.omg.CORBA.PolicyErrorHelper_Constructors*
+|org.omg.CORBA.PolicyErrorHelper()|
+
+*org.omg.CORBA.PolicyErrorHelper_Methods*
+|org.omg.CORBA.PolicyErrorHelper.extract(Any)|
+|org.omg.CORBA.PolicyErrorHelper.id()|
+|org.omg.CORBA.PolicyErrorHelper.insert(Any,PolicyError)|
+|org.omg.CORBA.PolicyErrorHelper.read(InputStream)|
+|org.omg.CORBA.PolicyErrorHelper.type()|
+|org.omg.CORBA.PolicyErrorHelper.write(OutputStream,PolicyError)|
+
+*org.omg.CORBA.PolicyErrorHelper_Description*
+
+Thrown to indicate problems with parameter values passed to the 
+ORB.create_policy operation. 
+
+
+
+*org.omg.CORBA.PolicyErrorHelper()*
+
+public PolicyErrorHelper()
+
+
+
+
+*org.omg.CORBA.PolicyErrorHelper.extract(Any)*
+
+public static |org.omg.CORBA.PolicyError| extract(org.omg.CORBA.Any a)
+
+
+
+
+
+*org.omg.CORBA.PolicyErrorHelper.id()*
+
+public static |java.lang.String| id()
+
+
+
+
+
+*org.omg.CORBA.PolicyErrorHelper.insert(Any,PolicyError)*
+
+public static void insert(
+  org.omg.CORBA.Any a,
+  org.omg.CORBA.PolicyError that)
+
+
+
+
+
+*org.omg.CORBA.PolicyErrorHelper.read(InputStream)*
+
+public static |org.omg.CORBA.PolicyError| read(org.omg.CORBA.portable.InputStream istream)
+
+
+
+
+
+*org.omg.CORBA.PolicyErrorHelper.type()*
+
+public static synchronized |org.omg.CORBA.TypeCode| type()
+
+
+
+
+
+*org.omg.CORBA.PolicyErrorHelper.write(OutputStream,PolicyError)*
+
+public static void write(
+  org.omg.CORBA.portable.OutputStream ostream,
+  org.omg.CORBA.PolicyError value)
+
+
+
+
+
+

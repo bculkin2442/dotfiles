@@ -1,0 +1,54 @@
+*javax.xml.stream.events.NotationDeclaration* *NotationDeclaration* An interface
+
+public interface interface NotationDeclaration
+
+  implements |javax.xml.stream.events.XMLEvent|
+
+|javax.xml.stream.events.NotationDeclaration_Description|
+|javax.xml.stream.events.NotationDeclaration_Fields|
+|javax.xml.stream.events.NotationDeclaration_Constructors|
+|javax.xml.stream.events.NotationDeclaration_Methods|
+
+================================================================================
+
+*javax.xml.stream.events.NotationDeclaration_Methods*
+|javax.xml.stream.events.NotationDeclaration.getName()|The notation name.
+|javax.xml.stream.events.NotationDeclaration.getPublicId()|The notation's publi
+|javax.xml.stream.events.NotationDeclaration.getSystemId()|The notation's syste
+
+*javax.xml.stream.events.NotationDeclaration_Description*
+
+An interface for handling Notation Declarations 
+
+Receive notification of a notation declaration event. It is up to the 
+application to record the notation for later reference, At least one of 
+publicId and systemId must be non-null. There is no guarantee that the notation 
+declaration will be reported before any unparsed entities that use it. 
+
+
+
+*javax.xml.stream.events.NotationDeclaration.getName()*
+
+public |java.lang.String| getName()
+
+The notation name. 
+
+
+
+*javax.xml.stream.events.NotationDeclaration.getPublicId()*
+
+public |java.lang.String| getPublicId()
+
+The notation's public identifier, or null if none was given. 
+
+
+
+*javax.xml.stream.events.NotationDeclaration.getSystemId()*
+
+public |java.lang.String| getSystemId()
+
+The notation's system identifier, or null if none was given. 
+
+
+
+

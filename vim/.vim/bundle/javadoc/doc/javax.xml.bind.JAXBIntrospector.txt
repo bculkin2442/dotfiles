@@ -1,0 +1,83 @@
+*javax.xml.bind.JAXBIntrospector* *JAXBIntrospector* Provide access to JAXB xml 
+
+public abstract class JAXBIntrospector
+  extends    |java.lang.Object|
+
+|javax.xml.bind.JAXBIntrospector_Description|
+|javax.xml.bind.JAXBIntrospector_Fields|
+|javax.xml.bind.JAXBIntrospector_Constructors|
+|javax.xml.bind.JAXBIntrospector_Methods|
+
+================================================================================
+
+*javax.xml.bind.JAXBIntrospector_Constructors*
+|javax.xml.bind.JAXBIntrospector()|
+
+*javax.xml.bind.JAXBIntrospector_Methods*
+|javax.xml.bind.JAXBIntrospector.getElementName(Object)|Get xml element qname f
+|javax.xml.bind.JAXBIntrospector.getValue(Object)|Get the element value of a JA
+|javax.xml.bind.JAXBIntrospector.isElement(Object)|Return true if object repres
+
+*javax.xml.bind.JAXBIntrospector_Description*
+
+Provide access to JAXB xml binding data for a JAXB object. 
+
+Intially, the intent of this class is to just conceptualize how a JAXB 
+application developer can access xml binding information, independent if 
+binding model is java to schema or schema to java. Since accessing the XML 
+element name related to a JAXB element is a highly requested feature, 
+demonstrate access to this binding information. 
+
+The factory method to get a JAXBIntrospector instance is 
+(|javax.xml.bind.JAXBContext|) . 
+
+
+
+*javax.xml.bind.JAXBIntrospector()*
+
+public JAXBIntrospector()
+
+
+
+
+*javax.xml.bind.JAXBIntrospector.getElementName(Object)*
+
+public abstract |javax.xml.namespace.QName| getElementName(java.lang.Object jaxbElement)
+
+Get xml element qname for jaxbElement. 
+
+
+    jaxbElement - is an object that {@link #isElement(Object)} returned true. 
+
+    Returns: xml element qname associated with jaxbElement; null if jaxbElement is not a 
+             JAXB Element. 
+
+*javax.xml.bind.JAXBIntrospector.getValue(Object)*
+
+public static |java.lang.Object| getValue(java.lang.Object jaxbElement)
+
+Get the element value of a JAXB element. 
+
+Convenience method to abstract whether working with either a 
+javax.xml.bind.JAXBElement instance or an instance of annotated Java class. 
+
+
+    jaxbElement - object that #isElement(Object) returns true. 
+
+    Returns: The element value of the jaxbElement. 
+
+*javax.xml.bind.JAXBIntrospector.isElement(Object)*
+
+public abstract boolean isElement(java.lang.Object object)
+
+Return true if object represents a JAXB element. Parameter object is a JAXB 
+element for following cases: 
+
+It is an instance of javax.xml.bind.JAXBElement. The class of object is 
+annotated with 
+
+
+
+
+
+

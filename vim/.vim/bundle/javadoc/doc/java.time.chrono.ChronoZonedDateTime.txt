@@ -1,0 +1,589 @@
+*java.time.chrono.ChronoZonedDateTime* *ChronoZonedDateTime* A date-time with a 
+
+public interface interface ChronoZonedDateTime<D extends java.time.chrono.ChronoLocalDate>
+
+  implements |java.time.temporal.Temporal|
+             |java.lang.Comparable|
+
+|java.time.chrono.ChronoZonedDateTime_Description|
+|java.time.chrono.ChronoZonedDateTime_Fields|
+|java.time.chrono.ChronoZonedDateTime_Constructors|
+|java.time.chrono.ChronoZonedDateTime_Methods|
+
+================================================================================
+
+*java.time.chrono.ChronoZonedDateTime_Methods*
+|java.time.chrono.ChronoZonedDateTime.compareTo(ChronoZonedDateTime<?>)|Compare
+|java.time.chrono.ChronoZonedDateTime.equals(Object)|Checks if this date-time i
+|java.time.chrono.ChronoZonedDateTime.format(DateTimeFormatter)|Formats this da
+|java.time.chrono.ChronoZonedDateTime.from(TemporalAccessor)|Obtains an instanc
+|java.time.chrono.ChronoZonedDateTime.get(TemporalField)|
+|java.time.chrono.ChronoZonedDateTime.getChronology()|Gets the chronology of th
+|java.time.chrono.ChronoZonedDateTime.getLong(TemporalField)|
+|java.time.chrono.ChronoZonedDateTime.getOffset()|Gets the zone offset, such as
+|java.time.chrono.ChronoZonedDateTime.getZone()|Gets the zone ID, such as 'Euro
+|java.time.chrono.ChronoZonedDateTime.hashCode()|A hash code for this date-time
+|java.time.chrono.ChronoZonedDateTime.isAfter(ChronoZonedDateTime<?>)|Checks if
+|java.time.chrono.ChronoZonedDateTime.isBefore(ChronoZonedDateTime<?>)|Checks i
+|java.time.chrono.ChronoZonedDateTime.isEqual(ChronoZonedDateTime<?>)|Checks if
+|java.time.chrono.ChronoZonedDateTime.isSupported(TemporalField)|Checks if the 
+|java.time.chrono.ChronoZonedDateTime.isSupported(TemporalUnit)|Checks if the s
+|java.time.chrono.ChronoZonedDateTime.minus(long,TemporalUnit)|
+|java.time.chrono.ChronoZonedDateTime.minus(TemporalAmount)|
+|java.time.chrono.ChronoZonedDateTime.plus(long,TemporalUnit)|
+|java.time.chrono.ChronoZonedDateTime.plus(TemporalAmount)|
+|java.time.chrono.ChronoZonedDateTime.query(TemporalQuery<R>)|Queries this date
+|java.time.chrono.ChronoZonedDateTime.range(TemporalField)|
+|java.time.chrono.ChronoZonedDateTime.timeLineOrder()|Gets a comparator that co
+|java.time.chrono.ChronoZonedDateTime.toEpochSecond()|Converts this date-time t
+|java.time.chrono.ChronoZonedDateTime.toInstant()|Converts this date-time to an
+|java.time.chrono.ChronoZonedDateTime.toLocalDate()|Gets the local date part of
+|java.time.chrono.ChronoZonedDateTime.toLocalDateTime()|Gets the local date-tim
+|java.time.chrono.ChronoZonedDateTime.toLocalTime()|Gets the local time part of
+|java.time.chrono.ChronoZonedDateTime.toString()|Outputs this date-time as aStr
+|java.time.chrono.ChronoZonedDateTime.with(TemporalAdjuster)|
+|java.time.chrono.ChronoZonedDateTime.with(TemporalField,long)|
+|java.time.chrono.ChronoZonedDateTime.withEarlierOffsetAtOverlap()|Returns a co
+|java.time.chrono.ChronoZonedDateTime.withLaterOffsetAtOverlap()|Returns a copy
+|java.time.chrono.ChronoZonedDateTime.withZoneSameInstant(ZoneId)|Returns a cop
+|java.time.chrono.ChronoZonedDateTime.withZoneSameLocal(ZoneId)|Returns a copy 
+
+*java.time.chrono.ChronoZonedDateTime_Description*
+
+A date-time with a time-zone in an arbitrary chronology, intended for advanced 
+globalization use cases. 
+
+Most applications should declare method signatures, fields and variables as 
+(|java.time.ZonedDateTime|) , not this interface. 
+
+AChronoZonedDateTimeis the abstract representation of an offset date-time where 
+theChronology chronology, or calendar system, is pluggable. The date-time is 
+defined in terms of fields expressed by (|java.time.temporal.TemporalField|) , 
+where most common implementations are defined in 
+(|java.time.temporal.ChronoField|) . The chronology defines how the calendar 
+system operates and the meaning of the standard fields. 
+
+When to use this interface The design of the API encourages the use 
+ofZonedDateTimerather than this interface, even in the case where the 
+application needs to deal with multiple calendar systems. The rationale for 
+this is explored in detail in (|java.time.chrono.ChronoLocalDate|) . 
+
+Ensure that the discussion inChronoLocalDatehas been read and understood before 
+using this interface. 
+
+
+
+*java.time.chrono.ChronoZonedDateTime.compareTo(ChronoZonedDateTime<?>)*
+
+public int compareTo(java.time.chrono.ChronoZonedDateTime<?> other)
+
+Compares this date-time to another date-time, including the chronology. 
+
+The comparison is based first on the instant, then on the local date-time, then 
+on the zone ID, then on the chronology. It is "consistent with equals", as 
+defined by (|java.lang.Comparable|) . 
+
+If all the date-time objects being compared are in the same chronology, then 
+the additional chronology stage is not required. 
+
+This default implementation performs the comparison defined above. 
+
+
+    other - the other date-time to compare to, not null 
+
+    Returns: the comparator value, negative if less, positive if greater 
+
+*java.time.chrono.ChronoZonedDateTime.equals(Object)*
+
+public boolean equals(java.lang.Object obj)
+
+Checks if this date-time is equal to another date-time. 
+
+The comparison is based on the offset date-time and the zone. To compare for 
+the same instant on the time-line, use (|java.time.chrono.ChronoZonedDateTime|) 
+. Only objects of typeChronoZonedDateTimeare compared, other types return 
+false. 
+
+
+    obj - the object to check, null returns false 
+
+    Returns: true if this is equal to the other date-time 
+
+*java.time.chrono.ChronoZonedDateTime.format(DateTimeFormatter)*
+
+public |java.lang.String| format(java.time.format.DateTimeFormatter formatter)
+
+Formats this date-time using the specified formatter. 
+
+This date-time will be passed to the formatter to produce a string. 
+
+The default implementation must behave as follows: 
+
+return formatter.format(this); 
+
+
+    formatter - the formatter to use, not null 
+
+    Returns: the formatted date-time string, not null 
+
+*java.time.chrono.ChronoZonedDateTime.from(TemporalAccessor)*
+
+public static |java.time.chrono.ChronoZonedDateTime|<?> from(java.time.temporal.TemporalAccessor temporal)
+
+Obtains an instance ofChronoZonedDateTimefrom a temporal object. 
+
+This creates a zoned date-time based on the specified temporal. 
+ATemporalAccessorrepresents an arbitrary set of date and time information, 
+which this factory converts to an instance ofChronoZonedDateTime. 
+
+The conversion extracts and combines the chronology, date, time and zone from 
+the temporal object. The behavior is equivalent to using 
+(|java.time.chrono.Chronology|) with the extracted chronology. Implementations 
+are permitted to perform optimizations such as accessing those fields that are 
+equivalent to the relevant objects. 
+
+This method matches the signature of the functional interface 
+(|java.time.temporal.TemporalQuery|) allowing it to be used as a query via 
+method reference,ChronoZonedDateTime::from. 
+
+
+    temporal - the temporal object to convert, not null 
+
+    Returns: the date-time, not null 
+
+*java.time.chrono.ChronoZonedDateTime.get(TemporalField)*
+
+public int get(java.time.temporal.TemporalField field)
+
+
+
+
+
+*java.time.chrono.ChronoZonedDateTime.getChronology()*
+
+public |java.time.chrono.Chronology| getChronology()
+
+Gets the chronology of this date-time. 
+
+TheChronologyrepresents the calendar system in use. The era and other fields in 
+(|java.time.temporal.ChronoField|) are defined by the chronology. 
+
+
+
+    Returns: the chronology, not null 
+
+*java.time.chrono.ChronoZonedDateTime.getLong(TemporalField)*
+
+public long getLong(java.time.temporal.TemporalField field)
+
+
+
+
+
+*java.time.chrono.ChronoZonedDateTime.getOffset()*
+
+public |java.time.ZoneOffset| getOffset()
+
+Gets the zone offset, such as '+01:00'. 
+
+This is the offset of the local date-time from UTC/Greenwich. 
+
+
+
+    Returns: the zone offset, not null 
+
+*java.time.chrono.ChronoZonedDateTime.getZone()*
+
+public |java.time.ZoneId| getZone()
+
+Gets the zone ID, such as 'Europe/Paris'. 
+
+This returns the stored time-zone id used to determine the time-zone rules. 
+
+
+
+    Returns: the zone ID, not null 
+
+*java.time.chrono.ChronoZonedDateTime.hashCode()*
+
+public int hashCode()
+
+A hash code for this date-time. 
+
+
+
+    Returns: a suitable hash code 
+
+*java.time.chrono.ChronoZonedDateTime.isAfter(ChronoZonedDateTime<?>)*
+
+public boolean isAfter(java.time.chrono.ChronoZonedDateTime<?> other)
+
+Checks if the instant of this date-time is after that of the specified 
+date-time. 
+
+This method differs from the comparison in 
+(|java.time.chrono.ChronoZonedDateTime|) in that it only compares the instant 
+of the date-time. This is equivalent to 
+usingdateTime1.toInstant().isAfter(dateTime2.toInstant());. 
+
+This default implementation performs the comparison based on the epoch-second 
+and nano-of-second. 
+
+
+    other - the other date-time to compare to, not null 
+
+    Returns: true if this is after the specified date-time 
+
+*java.time.chrono.ChronoZonedDateTime.isBefore(ChronoZonedDateTime<?>)*
+
+public boolean isBefore(java.time.chrono.ChronoZonedDateTime<?> other)
+
+Checks if the instant of this date-time is before that of the specified 
+date-time. 
+
+This method differs from the comparison in 
+(|java.time.chrono.ChronoZonedDateTime|) in that it only compares the instant 
+of the date-time. This is equivalent to 
+usingdateTime1.toInstant().isBefore(dateTime2.toInstant());. 
+
+This default implementation performs the comparison based on the epoch-second 
+and nano-of-second. 
+
+
+    other - the other date-time to compare to, not null 
+
+    Returns: true if this point is before the specified date-time 
+
+*java.time.chrono.ChronoZonedDateTime.isEqual(ChronoZonedDateTime<?>)*
+
+public boolean isEqual(java.time.chrono.ChronoZonedDateTime<?> other)
+
+Checks if the instant of this date-time is equal to that of the specified 
+date-time. 
+
+This method differs from the comparison in 
+(|java.time.chrono.ChronoZonedDateTime|) and 
+(|java.time.chrono.ChronoZonedDateTime|) in that it only compares the instant 
+of the date-time. This is equivalent to 
+usingdateTime1.toInstant().equals(dateTime2.toInstant());. 
+
+This default implementation performs the comparison based on the epoch-second 
+and nano-of-second. 
+
+
+    other - the other date-time to compare to, not null 
+
+    Returns: true if the instant equals the instant of the specified date-time 
+
+*java.time.chrono.ChronoZonedDateTime.isSupported(TemporalField)*
+
+public boolean isSupported(java.time.temporal.TemporalField field)
+
+Checks if the specified field is supported. 
+
+This checks if the specified field can be queried on this date-time. If false, 
+then calling the range(|java.time.chrono.ChronoZonedDateTime|) , 
+get(|java.time.chrono.ChronoZonedDateTime|) and 
+(|java.time.chrono.ChronoZonedDateTime|) methods will throw an exception. 
+
+The set of supported fields is defined by the chronology and normally includes 
+allChronoFieldfields. 
+
+If the field is not aChronoField, then the result of this method is obtained by 
+invokingTemporalField.isSupportedBy(TemporalAccessor)passingthisas the 
+argument. Whether the field is supported is determined by the field. 
+
+
+    field - the field to check, null returns false 
+
+    Returns: true if the field can be queried, false if not 
+
+*java.time.chrono.ChronoZonedDateTime.isSupported(TemporalUnit)*
+
+public boolean isSupported(java.time.temporal.TemporalUnit unit)
+
+Checks if the specified unit is supported. 
+
+This checks if the specified unit can be added to or subtracted from this 
+date-time. If false, then calling the (|java.time.chrono.ChronoZonedDateTime|) 
+and minus(|java.time.chrono.ChronoZonedDateTime|) methods will throw an 
+exception. 
+
+The set of supported units is defined by the chronology and normally includes 
+allChronoUnitunits exceptFOREVER. 
+
+If the unit is not aChronoUnit, then the result of this method is obtained by 
+invokingTemporalUnit.isSupportedBy(Temporal)passingthisas the argument. Whether 
+the unit is supported is determined by the unit. 
+
+
+    unit - the unit to check, null returns false 
+
+    Returns: true if the unit can be added/subtracted, false if not 
+
+*java.time.chrono.ChronoZonedDateTime.minus(long,TemporalUnit)*
+
+public |java.time.chrono.ChronoZonedDateTime|<D extends java.time.chrono.ChronoLocalDate> minus(
+  long amountToSubtract,
+  java.time.temporal.TemporalUnit unit)
+
+
+
+
+
+*java.time.chrono.ChronoZonedDateTime.minus(TemporalAmount)*
+
+public |java.time.chrono.ChronoZonedDateTime|<D extends java.time.chrono.ChronoLocalDate> minus(java.time.temporal.TemporalAmount amount)
+
+
+
+
+
+*java.time.chrono.ChronoZonedDateTime.plus(long,TemporalUnit)*
+
+public |java.time.chrono.ChronoZonedDateTime|<D extends java.time.chrono.ChronoLocalDate> plus(
+  long amountToAdd,
+  java.time.temporal.TemporalUnit unit)
+
+
+
+
+
+*java.time.chrono.ChronoZonedDateTime.plus(TemporalAmount)*
+
+public |java.time.chrono.ChronoZonedDateTime|<D extends java.time.chrono.ChronoLocalDate> plus(java.time.temporal.TemporalAmount amount)
+
+
+
+
+
+*java.time.chrono.ChronoZonedDateTime.query(TemporalQuery<R>)*
+
+public |R| query(java.time.temporal.TemporalQuery<R> query)
+
+Queries this date-time using the specified query. 
+
+This queries this date-time using the specified query strategy object. 
+TheTemporalQueryobject defines the logic to be used to obtain the result. Read 
+the documentation of the query to understand what the result of this method 
+will be. 
+
+The result of this method is obtained by invoking the 
+(|java.time.temporal.TemporalQuery|) method on the specified query 
+passingthisas the argument. 
+
+
+    query - the query to invoke, not null 
+
+    Returns: the query result, null may be returned (defined by the query) 
+
+*java.time.chrono.ChronoZonedDateTime.range(TemporalField)*
+
+public |java.time.temporal.ValueRange| range(java.time.temporal.TemporalField field)
+
+
+
+
+
+*java.time.chrono.ChronoZonedDateTime.timeLineOrder()*
+
+public static |java.util.Comparator|<ChronoZonedDateTime<?>> timeLineOrder()
+
+Gets a comparator that comparesChronoZonedDateTimein time-line order ignoring 
+the chronology. 
+
+This comparator differs from the comparison in 
+(|java.time.chrono.ChronoZonedDateTime|) in that it only compares the 
+underlying instant and not the chronology. This allows dates in different 
+calendar systems to be compared based on the position of the date-time on the 
+instant time-line. The underlying comparison is equivalent to comparing the 
+epoch-second and nano-of-second. 
+
+
+
+    Returns: a comparator that compares in time-line order ignoring the chronology 
+
+*java.time.chrono.ChronoZonedDateTime.toEpochSecond()*
+
+public long toEpochSecond()
+
+Converts this date-time to the number of seconds from the epoch of 
+1970-01-01T00:00:00Z. 
+
+This uses the local date-time(|java.time.chrono.ChronoZonedDateTime|) and 
+offset(|java.time.chrono.ChronoZonedDateTime|) to calculate the epoch-second 
+value, which is the number of elapsed seconds from 1970-01-01T00:00:00Z. 
+Instants on the time-line after the epoch are positive, earlier are negative. 
+
+
+
+    Returns: the number of seconds from the epoch of 1970-01-01T00:00:00Z 
+
+*java.time.chrono.ChronoZonedDateTime.toInstant()*
+
+public |java.time.Instant| toInstant()
+
+Converts this date-time to anInstant. 
+
+This returns anInstantrepresenting the same point on the time-line as this 
+date-time. The calculation combines the local 
+date-time(|java.time.chrono.ChronoZonedDateTime|) and 
+offset(|java.time.chrono.ChronoZonedDateTime|) . 
+
+
+
+    Returns: an {@code Instant} representing the same instant, not null 
+
+*java.time.chrono.ChronoZonedDateTime.toLocalDate()*
+
+public |D| toLocalDate()
+
+Gets the local date part of this date-time. 
+
+This returns a local date with the same year, month and day as this date-time. 
+
+
+
+    Returns: the date part of this date-time, not null 
+
+*java.time.chrono.ChronoZonedDateTime.toLocalDateTime()*
+
+public |java.time.chrono.ChronoLocalDateTime|<D extends java.time.chrono.ChronoLocalDate> toLocalDateTime()
+
+Gets the local date-time part of this date-time. 
+
+This returns a local date with the same year, month and day as this date-time. 
+
+
+
+    Returns: the local date-time part of this date-time, not null 
+
+*java.time.chrono.ChronoZonedDateTime.toLocalTime()*
+
+public |java.time.LocalTime| toLocalTime()
+
+Gets the local time part of this date-time. 
+
+This returns a local time with the same hour, minute, second and nanosecond as 
+this date-time. 
+
+
+
+    Returns: the time part of this date-time, not null 
+
+*java.time.chrono.ChronoZonedDateTime.toString()*
+
+public |java.lang.String| toString()
+
+Outputs this date-time as aString. 
+
+The output will include the full zoned date-time. 
+
+
+
+    Returns: a string representation of this date-time, not null 
+
+*java.time.chrono.ChronoZonedDateTime.with(TemporalAdjuster)*
+
+public |java.time.chrono.ChronoZonedDateTime|<D extends java.time.chrono.ChronoLocalDate> with(java.time.temporal.TemporalAdjuster adjuster)
+
+
+
+
+
+*java.time.chrono.ChronoZonedDateTime.with(TemporalField,long)*
+
+public |java.time.chrono.ChronoZonedDateTime|<D extends java.time.chrono.ChronoLocalDate> with(
+  java.time.temporal.TemporalField field,
+  long newValue)
+
+
+
+
+
+*java.time.chrono.ChronoZonedDateTime.withEarlierOffsetAtOverlap()*
+
+public |java.time.chrono.ChronoZonedDateTime|<D extends java.time.chrono.ChronoLocalDate> withEarlierOffsetAtOverlap()
+
+Returns a copy of this date-time changing the zone offset to the earlier of the 
+two valid offsets at a local time-line overlap. 
+
+This method only has any effect when the local time-line overlaps, such as at 
+an autumn daylight savings cutover. In this scenario, there are two valid 
+offsets for the local date-time. Calling this method will return a zoned 
+date-time with the earlier of the two selected. 
+
+If this method is called when it is not an overlap,thisis returned. 
+
+This instance is immutable and unaffected by this method call. 
+
+
+
+    Returns: a {@code ZoneChronoDateTime} based on this date-time with the earlier offset, 
+             not null 
+
+*java.time.chrono.ChronoZonedDateTime.withLaterOffsetAtOverlap()*
+
+public |java.time.chrono.ChronoZonedDateTime|<D extends java.time.chrono.ChronoLocalDate> withLaterOffsetAtOverlap()
+
+Returns a copy of this date-time changing the zone offset to the later of the 
+two valid offsets at a local time-line overlap. 
+
+This method only has any effect when the local time-line overlaps, such as at 
+an autumn daylight savings cutover. In this scenario, there are two valid 
+offsets for the local date-time. Calling this method will return a zoned 
+date-time with the later of the two selected. 
+
+If this method is called when it is not an overlap,thisis returned. 
+
+This instance is immutable and unaffected by this method call. 
+
+
+
+    Returns: a {@code ChronoZonedDateTime} based on this date-time with the later offset, 
+             not null 
+
+*java.time.chrono.ChronoZonedDateTime.withZoneSameInstant(ZoneId)*
+
+public |java.time.chrono.ChronoZonedDateTime|<D extends java.time.chrono.ChronoLocalDate> withZoneSameInstant(java.time.ZoneId zone)
+
+Returns a copy of this date-time with a different time-zone, retaining the 
+instant. 
+
+This method changes the time-zone and retains the instant. This normally 
+results in a change to the local date-time. 
+
+This method is based on retaining the same instant, thus gaps and overlaps in 
+the local time-line have no effect on the result. 
+
+To change the offset while keeping the local time, use 
+(|java.time.chrono.ChronoZonedDateTime|) . 
+
+
+    zone - the time-zone to change to, not null 
+
+    Returns: a {@code ChronoZonedDateTime} based on this date-time with the requested zone, 
+             not null 
+
+*java.time.chrono.ChronoZonedDateTime.withZoneSameLocal(ZoneId)*
+
+public |java.time.chrono.ChronoZonedDateTime|<D extends java.time.chrono.ChronoLocalDate> withZoneSameLocal(java.time.ZoneId zone)
+
+Returns a copy of this ZonedDateTime with a different time-zone, retaining the 
+local date-time if possible. 
+
+This method changes the time-zone and retains the local date-time. The local 
+date-time is only changed if it is invalid for the new zone. 
+
+To change the zone and adjust the local date-time, use 
+(|java.time.chrono.ChronoZonedDateTime|) . 
+
+This instance is immutable and unaffected by this method call. 
+
+
+    zone - the time-zone to change to, not null 
+
+    Returns: a {@code ChronoZonedDateTime} based on this date-time with the requested zone, 
+             not null 
+
+

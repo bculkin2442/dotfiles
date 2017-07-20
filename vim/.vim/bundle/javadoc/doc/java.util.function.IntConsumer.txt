@@ -1,0 +1,53 @@
+*java.util.function.IntConsumer* *IntConsumer* Represents an operation that acce
+
+public interface interface IntConsumer
+
+
+|java.util.function.IntConsumer_Description|
+|java.util.function.IntConsumer_Fields|
+|java.util.function.IntConsumer_Constructors|
+|java.util.function.IntConsumer_Methods|
+
+================================================================================
+
+*java.util.function.IntConsumer_Methods*
+|java.util.function.IntConsumer.accept(int)|Performs this operation on the give
+|java.util.function.IntConsumer.andThen(IntConsumer)|Returns a composedIntConsu
+
+*java.util.function.IntConsumer_Description*
+
+Represents an operation that accepts a singleint-valued argument and returns no 
+result. This is the primitive type specialization of 
+(|java.util.function.Consumer|) forint. Unlike most other functional 
+interfaces,IntConsumeris expected to operate via side-effects. 
+
+This is a functional interface whose functional method is 
+(|java.util.function.IntConsumer|) . 
+
+
+
+*java.util.function.IntConsumer.accept(int)*
+
+public void accept(int value)
+
+Performs this operation on the given argument. 
+
+
+    value - the input argument 
+
+*java.util.function.IntConsumer.andThen(IntConsumer)*
+
+public |java.util.function.IntConsumer| andThen(java.util.function.IntConsumer after)
+
+Returns a composedIntConsumerthat performs, in sequence, this operation 
+followed by theafteroperation. If performing either operation throws an 
+exception, it is relayed to the caller of the composed operation. If performing 
+this operation throws an exception, theafteroperation will not be performed. 
+
+
+    after - the operation to perform after this operation 
+
+    Returns: a composed {@code IntConsumer} that performs in sequence this operation 
+             followed by the {@code after} operation 
+
+

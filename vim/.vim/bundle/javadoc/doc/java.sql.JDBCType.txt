@@ -1,0 +1,88 @@
+*java.sql.JDBCType* *JDBCType* Defines the constants that are used to identify g
+
+public final enumJDBCType
+  extends    |java.lang.Enum|
+  implements |java.sql.SQLType|
+
+|java.sql.JDBCType_Description|
+|java.sql.JDBCType_Fields|
+|java.sql.JDBCType_Constructors|
+|java.sql.JDBCType_Methods|
+
+================================================================================
+
+*java.sql.JDBCType_Methods*
+|java.sql.JDBCType.getName()|
+|java.sql.JDBCType.getVendor()|Returns the name of the vendor that supports thi
+|java.sql.JDBCType.getVendorTypeNumber()|Returns the vendor specific type numbe
+|java.sql.JDBCType.valueOf(int)|Returns theJDBCTypethat corresponds to the spec
+|java.sql.JDBCType.valueOf(String)|
+|java.sql.JDBCType.values()|
+
+*java.sql.JDBCType_Description*
+
+Defines the constants that are used to identify generic SQL types, called JDBC 
+types. 
+
+
+
+*java.sql.JDBCType.getName()*
+
+public |java.lang.String| getName()
+
+
+
+
+
+    Returns: The name of this {@code SQLType}. 
+
+*java.sql.JDBCType.getVendor()*
+
+public |java.lang.String| getVendor()
+
+Returns the name of the vendor that supports this data type. 
+
+
+
+    Returns: The name of the vendor for this data type which is {@literal java.sql} for 
+             JDBCType. 
+
+*java.sql.JDBCType.getVendorTypeNumber()*
+
+public |java.lang.Integer| getVendorTypeNumber()
+
+Returns the vendor specific type number for the data type. 
+
+
+
+    Returns: An Integer representing the data type. For {@code JDBCType}, the value will be 
+             the same value as in {@code Types} for the data type. 
+
+*java.sql.JDBCType.valueOf(int)*
+
+public static |java.sql.JDBCType| valueOf(int type)
+
+Returns theJDBCTypethat corresponds to the specifiedTypesvalue 
+
+
+    type - {@code Types} value 
+
+    Returns: The {@code JDBCType} constant 
+
+*java.sql.JDBCType.valueOf(String)*
+
+public static |java.sql.JDBCType| valueOf(java.lang.String name)
+
+
+
+
+
+*java.sql.JDBCType.values()*
+
+public static |java.sql.JDBCType|[] values()
+
+
+
+
+
+

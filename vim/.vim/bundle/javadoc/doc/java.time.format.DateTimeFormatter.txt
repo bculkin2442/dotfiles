@@ -1,0 +1,1470 @@
+*java.time.format.DateTimeFormatter* *DateTimeFormatter* Formatter for printing 
+
+public final class DateTimeFormatter
+  extends    |java.lang.Object|
+
+|java.time.format.DateTimeFormatter_Description|
+|java.time.format.DateTimeFormatter_Fields|
+|java.time.format.DateTimeFormatter_Constructors|
+|java.time.format.DateTimeFormatter_Methods|
+
+================================================================================
+
+*java.time.format.DateTimeFormatter_Fields*
+|java.time.format.DateTimeFormatter_java.time.format.DateTimeFormatter.BASIC_ISO_DATE|
+|java.time.format.DateTimeFormatter_java.time.format.DateTimeFormatter.ISO_DATE|
+|java.time.format.DateTimeFormatter_java.time.format.DateTimeFormatter.ISO_DATE_TIME|
+|java.time.format.DateTimeFormatter_java.time.format.DateTimeFormatter.ISO_INSTANT|
+|java.time.format.DateTimeFormatter_java.time.format.DateTimeFormatter.ISO_LOCAL_DATE|
+|java.time.format.DateTimeFormatter_java.time.format.DateTimeFormatter.ISO_LOCAL_DATE_TIME|
+|java.time.format.DateTimeFormatter_java.time.format.DateTimeFormatter.ISO_LOCAL_TIME|
+|java.time.format.DateTimeFormatter_java.time.format.DateTimeFormatter.ISO_OFFSET_DATE|
+|java.time.format.DateTimeFormatter_java.time.format.DateTimeFormatter.ISO_OFFSET_DATE_TIME|
+|java.time.format.DateTimeFormatter_java.time.format.DateTimeFormatter.ISO_OFFSET_TIME|
+|java.time.format.DateTimeFormatter_java.time.format.DateTimeFormatter.ISO_ORDINAL_DATE|
+|java.time.format.DateTimeFormatter_java.time.format.DateTimeFormatter.ISO_TIME|
+|java.time.format.DateTimeFormatter_java.time.format.DateTimeFormatter.ISO_WEEK_DATE|
+|java.time.format.DateTimeFormatter_java.time.format.DateTimeFormatter.ISO_ZONED_DATE_TIME|
+|java.time.format.DateTimeFormatter_java.time.format.DateTimeFormatter.RFC_1123_DATE_TIME|
+
+*java.time.format.DateTimeFormatter_Methods*
+|java.time.format.DateTimeFormatter.format(TemporalAccessor)|Formats a date-tim
+|java.time.format.DateTimeFormatter.formatTo(TemporalAccessor,Appendable)|Forma
+|java.time.format.DateTimeFormatter.getChronology()|Gets the overriding chronol
+|java.time.format.DateTimeFormatter.getDecimalStyle()|Gets the DecimalStyle to 
+|java.time.format.DateTimeFormatter.getLocale()|Gets the locale to be used duri
+|java.time.format.DateTimeFormatter.getResolverFields()|Gets the resolver field
+|java.time.format.DateTimeFormatter.getResolverStyle()|Gets the resolver style 
+|java.time.format.DateTimeFormatter.getZone()|Gets the overriding zone to be us
+|java.time.format.DateTimeFormatter.ofLocalizedDate(FormatStyle)|Returns a loca
+|java.time.format.DateTimeFormatter.ofLocalizedDateTime(FormatStyle)|Returns a 
+|java.time.format.DateTimeFormatter.ofLocalizedDateTime(FormatStyle,FormatStyle)|
+|java.time.format.DateTimeFormatter.ofLocalizedTime(FormatStyle)|Returns a loca
+|java.time.format.DateTimeFormatter.ofPattern(String)|Creates a formatter using
+|java.time.format.DateTimeFormatter.ofPattern(String,Locale)|Creates a formatte
+|java.time.format.DateTimeFormatter.parse(CharSequence)|Fully parses the text p
+|java.time.format.DateTimeFormatter.parse(CharSequence,ParsePosition)|Parses th
+|java.time.format.DateTimeFormatter.parse(CharSequence,TemporalQuery<T>)|Fully 
+|java.time.format.DateTimeFormatter.parseBest(CharSequence,TemporalQuery<?>...)|
+|java.time.format.DateTimeFormatter.parsedExcessDays()|A query that provides ac
+|java.time.format.DateTimeFormatter.parsedLeapSecond()|A query that provides ac
+|java.time.format.DateTimeFormatter.parseUnresolved(CharSequence,ParsePosition)|
+|java.time.format.DateTimeFormatter.toFormat()|Returns this formatter as ajava.
+|java.time.format.DateTimeFormatter.toFormat(TemporalQuery<?>)|Returns this for
+|java.time.format.DateTimeFormatter.toString()|Returns a description of the und
+|java.time.format.DateTimeFormatter.withChronology(Chronology)|Returns a copy o
+|java.time.format.DateTimeFormatter.withDecimalStyle(DecimalStyle)|Returns a co
+|java.time.format.DateTimeFormatter.withLocale(Locale)|Returns a copy of this f
+|java.time.format.DateTimeFormatter.withResolverFields(Set<TemporalField>)|Retu
+|java.time.format.DateTimeFormatter.withResolverFields(TemporalField...)|Return
+|java.time.format.DateTimeFormatter.withResolverStyle(ResolverStyle)|Returns a 
+|java.time.format.DateTimeFormatter.withZone(ZoneId)|Returns a copy of this for
+
+*java.time.format.DateTimeFormatter_Description*
+
+Formatter for printing and parsing date-time objects. 
+
+This class provides the main application entry point for printing and parsing 
+and provides common implementations ofDateTimeFormatter: 
+
+Using predefined constants, such as (|java.time.format.DateTimeFormatter|) 
+Using pattern letters, such asuuuu-MMM-dd Using localized styles, such 
+aslongormedium 
+
+More complex formatters are provided by 
+DateTimeFormatterBuilder(|java.time.format.DateTimeFormatterBuilder|) . 
+
+The main date-time classes provide two methods - one for 
+formatting,format(DateTimeFormatter formatter), and one for 
+parsing,parse(CharSequence text, DateTimeFormatter formatter). For example: 
+
+String text = date.toString(formatter); LocalDate date = LocalDate.parse(text, 
+formatter); 
+
+In addition to the format, formatters can be created with desired Locale, 
+Chronology, ZoneId, and DecimalStyle. 
+
+The withLocale(|java.time.format.DateTimeFormatter|) method returns a new 
+formatter that overrides the locale. The locale affects some aspects of 
+formatting and parsing. For example, the 
+ofLocalizedDate(|java.time.format.DateTimeFormatter|) provides a formatter that 
+uses the locale specific date format. 
+
+The withChronology(|java.time.format.DateTimeFormatter|) method returns a new 
+formatter that overrides the chronology. If overridden, the date-time value is 
+converted to the chronology before formatting. During parsing the date-time 
+value is converted to the chronology before it is returned. 
+
+The withZone(|java.time.format.DateTimeFormatter|) method returns a new 
+formatter that overrides the zone. If overridden, the date-time value is 
+converted to a ZonedDateTime with the requested ZoneId before formatting. 
+During parsing the ZoneId is applied before the value is returned. 
+
+The withDecimalStyle(|java.time.format.DateTimeFormatter|) method returns a new 
+formatter that overrides the (|java.time.format.DecimalStyle|) . The 
+DecimalStyle symbols are used for formatting and parsing. 
+
+Some applications may need to use the older 
+java.text.Format(|java.text.Format|) class for formatting. The 
+(|java.time.format.DateTimeFormatter|) method returns an implementation 
+ofjava.text.Format. 
+
+Predefined Formatters 
+
+
+
+Formatter Description Example 
+
+
+
+ofLocalizedDate(dateStyle)(|java.time.format.DateTimeFormatter|) Formatter with 
+date style from the locale '2011-12-03' 
+
+ofLocalizedTime(timeStyle)(|java.time.format.DateTimeFormatter|) Formatter with 
+time style from the locale '10:15:30' 
+
+ofLocalizedDateTime(dateTimeStyle)(|java.time.format.DateTimeFormatter|) 
+Formatter with a style for date and time from the locale '3 Jun 2008 11:05:30' 
+
+ofLocalizedDateTime(dateStyle,timeStyle)(|java.time.format.DateTimeFormatter|) 
+Formatter with date and time styles from the locale '3 Jun 2008 11:05' 
+
+(|java.time.format.DateTimeFormatter|) Basic ISO date '20111203' 
+
+(|java.time.format.DateTimeFormatter|) ISO Local Date '2011-12-03' 
+
+(|java.time.format.DateTimeFormatter|) ISO Date with offset '2011-12-03+01:00' 
+
+(|java.time.format.DateTimeFormatter|) ISO Date with or without offset 
+'2011-12-03+01:00'; '2011-12-03' 
+
+(|java.time.format.DateTimeFormatter|) Time without offset '10:15:30' 
+
+(|java.time.format.DateTimeFormatter|) Time with offset '10:15:30+01:00' 
+
+(|java.time.format.DateTimeFormatter|) Time with or without offset 
+'10:15:30+01:00'; '10:15:30' 
+
+(|java.time.format.DateTimeFormatter|) ISO Local Date and Time 
+'2011-12-03T10:15:30' 
+
+(|java.time.format.DateTimeFormatter|) Date Time with Offset 
+2011-12-03T10:15:30+01:00' 
+
+(|java.time.format.DateTimeFormatter|) Zoned Date Time 
+'2011-12-03T10:15:30+01:00[Europe/Paris]' 
+
+(|java.time.format.DateTimeFormatter|) Date and time with ZoneId 
+'2011-12-03T10:15:30+01:00[Europe/Paris]' 
+
+(|java.time.format.DateTimeFormatter|) Year and day of year '2012-337' 
+
+(|java.time.format.DateTimeFormatter|) Year and Week 2012-W48-6' 
+
+(|java.time.format.DateTimeFormatter|) Date and Time of an Instant 
+'2011-12-03T10:15:30Z' 
+
+(|java.time.format.DateTimeFormatter|) RFC 1123 / RFC 822 'Tue, 3 Jun 2008 
+11:05:30 GMT' 
+
+
+
+Patterns for Formatting and Parsing Patterns are based on a simple sequence of 
+letters and symbols. A pattern is used to create a Formatter using the 
+(|java.time.format.DateTimeFormatter|) and 
+(|java.time.format.DateTimeFormatter|) methods. For example,"d MMM uuuu"will 
+format 2011-12-03 as '3Dec2011'. A formatter created from a pattern can be used 
+as many times as necessary, it is immutable and is thread-safe. 
+
+For example: 
+
+DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy MM dd"); String 
+text = date.toString(formatter); LocalDate date = LocalDate.parse(text, 
+formatter); 
+
+All letters 'A' to 'Z' and 'a' to 'z' are reserved as pattern letters. The 
+following pattern letters are defined: 
+
+Symbol Meaning Presentation Examples ------ ------- ------------ ------- G era 
+text AD; Anno Domini; A u year year 2004; 04 y year-of-era year 2004; 04 D 
+day-of-year number 189 M/L month-of-year number/text 7; 07; Jul; July; J d 
+day-of-month number 10 
+
+Q/q quarter-of-year number/text 3; 03; Q3; 3rd quarter Y week-based-year year 
+1996; 96 w week-of-week-based-year number 27 W week-of-month number 4 E 
+day-of-week text Tue; Tuesday; T e/c localized day-of-week number/text 2; 02; 
+Tue; Tuesday; T F week-of-month number 3 
+
+a am-pm-of-day text PM h clock-hour-of-am-pm (1-12) number 12 K hour-of-am-pm 
+(0-11) number 0 k clock-hour-of-am-pm (1-24) number 0 
+
+H hour-of-day (0-23) number 0 m minute-of-hour number 30 s second-of-minute 
+number 55 S fraction-of-second fraction 978 A milli-of-day number 1234 n 
+nano-of-second number 987654321 N nano-of-day number 1234000000 
+
+V time-zone ID zone-id America/Los_Angeles; Z; -08:30 z time-zone name 
+zone-name Pacific Standard Time; PST O localized zone-offset offset-O GMT+8; 
+GMT+08:00; UTC-08:00; X zone-offset 'Z' for zero offset-X Z; -08; -0830; 
+-08:30; -083015; -08:30:15; x zone-offset offset-x +0000; -08; -0830; -08:30; 
+-083015; -08:30:15; Z zone-offset offset-Z +0000; -0800; -08:00; 
+
+p pad next pad modifier 1 
+
+' escape for text delimiter '' single quote literal ' [ optional section start 
+] optional section end # reserved for future use { reserved for future use } 
+reserved for future use 
+
+The count of pattern letters determines the format. 
+
+Text: The text style is determined based on the number of pattern letters used. 
+Less than 4 pattern letters will use the short 
+form(|java.time.format.TextStyle|) . Exactly 4 pattern letters will use the 
+full form(|java.time.format.TextStyle|) . Exactly 5 pattern letters will use 
+the narrow form(|java.time.format.TextStyle|) . Pattern letters 'L', 'c', and 
+'q' specify the stand-alone form of the text styles. 
+
+Number: If the count of letters is one, then the value is output using the 
+minimum number of digits and without padding. Otherwise, the count of digits is 
+used as the width of the output field, with the value zero-padded as necessary. 
+The following pattern letters have constraints on the count of letters. Only 
+one letter of 'c' and 'F' can be specified. Up to two letters of 'd', 'H', 'h', 
+'K', 'k', 'm', and 's' can be specified. Up to three letters of 'D' can be 
+specified. 
+
+Number/Text: If the count of pattern letters is 3 or greater, use the Text 
+rules above. Otherwise use the Number rules above. 
+
+Fraction: Outputs the nano-of-second field as a fraction-of-second. The 
+nano-of-second value has nine digits, thus the count of pattern letters is from 
+1 to 9. If it is less than 9, then the nano-of-second value is truncated, with 
+only the most significant digits being output. When parsing in strict mode, the 
+number of parsed digits must match the count of pattern letters. When parsing 
+in lenient mode, the number of parsed digits must be at least the count of 
+pattern letters, up to 9 digits. 
+
+Year: The count of letters determines the minimum field width below which 
+padding is used. If the count of letters is two, then a 
+reduced(|java.time.format.DateTimeFormatterBuilder|) two digit form is used. 
+For printing, this outputs the rightmost two digits. For parsing, this will 
+parse using the base value of 2000, resulting in a year within the range 2000 
+to 2099 inclusive. If the count of letters is less than four (but not two), 
+then the sign is only output for negative years as per 
+(|java.time.format.SignStyle|) . Otherwise, the sign is output if the pad width 
+is exceeded, as per (|java.time.format.SignStyle|) . 
+
+ZoneId: This outputs the time-zone ID, such as 'Europe/Paris'. If the count of 
+letters is two, then the time-zone ID is output. Any other count of letters 
+throwsIllegalArgumentException. 
+
+Zone names: This outputs the display name of the time-zone ID. If the count of 
+letters is one, two or three, then the short name is output. If the count of 
+letters is four, then the full name is output. Five or more letters 
+throwsIllegalArgumentException. 
+
+Offset X and x: This formats the offset based on the number of pattern letters. 
+One letter outputs just the hour, such as '+01', unless the minute is non-zero 
+in which case the minute is also output, such as '+0130'. Two letters outputs 
+the hour and minute, without a colon, such as '+0130'. Three letters outputs 
+the hour and minute, with a colon, such as '+01:30'. Four letters outputs the 
+hour and minute and optional second, without a colon, such as '+013015'. Five 
+letters outputs the hour and minute and optional second, with a colon, such as 
+'+01:30:15'. Six or more letters throwsIllegalArgumentException. Pattern letter 
+'X' (upper case) will output 'Z' when the offset to be output would be zero, 
+whereas pattern letter 'x' (lower case) will output '+00', '+0000', or 
+'+00:00'. 
+
+Offset O: This formats the localized offset based on the number of pattern 
+letters. One letter outputs the short(|java.time.format.TextStyle|) form of the 
+localized offset, which is localized offset text, such as 'GMT', with hour 
+without leading zero, optional 2-digit minute and second if non-zero, and 
+colon, for example 'GMT+8'. Four letters outputs the 
+full(|java.time.format.TextStyle|) form, which is localized offset text, such 
+as 'GMT, with 2-digit hour and minute field, optional second field if non-zero, 
+and colon, for example 'GMT+08:00'. Any other count of letters 
+throwsIllegalArgumentException. 
+
+Offset Z: This formats the offset based on the number of pattern letters. One, 
+two or three letters outputs the hour and minute, without a colon, such as 
+'+0130'. The output will be '+0000' when the offset is zero. Four letters 
+outputs the full(|java.time.format.TextStyle|) form of localized offset, 
+equivalent to four letters of Offset-O. The output will be the corresponding 
+localized offset text if the offset is zero. Five letters outputs the hour, 
+minute, with optional second if non-zero, with colon. It outputs 'Z' if the 
+offset is zero. Six or more letters throwsIllegalArgumentException. 
+
+Optional section: The optional section markers work exactly like calling 
+(|java.time.format.DateTimeFormatterBuilder|) and 
+(|java.time.format.DateTimeFormatterBuilder|) . 
+
+Pad modifier: Modifies the pattern that immediately follows to be padded with 
+spaces. The pad width is determined by the number of pattern letters. This is 
+the same as calling (|java.time.format.DateTimeFormatterBuilder|) . 
+
+For example, 'ppH' outputs the hour-of-day padded on the left with spaces to a 
+width of 2. 
+
+Any unrecognized letter is an error. Any non-letter character, other than '[', 
+']', '{', '}', '#' and the single quote will be output directly. Despite this, 
+it is recommended to use single quotes around all characters that you want to 
+output directly to ensure that future changes do not break your application. 
+
+Resolving Parsing is implemented as a two-phase operation. First, the text is 
+parsed using the layout defined by the formatter, producing aMapof field to 
+value, aZoneIdand aChronology. Second, the parsed data is resolved, by 
+validating, combining and simplifying the various fields into more useful ones. 
+
+Five parsing methods are supplied by this class. Four of these perform both the 
+parse and resolve phases. The fifth method, 
+(|java.time.format.DateTimeFormatter|) , only performs the first phase, leaving 
+the result unresolved. As such, it is essentially a low-level operation. 
+
+The resolve phase is controlled by two parameters, set on this class. 
+
+The (|java.time.format.ResolverStyle|) is an enum that offers three different 
+approaches, strict, smart and lenient. The smart option is the default. It can 
+be set using (|java.time.format.DateTimeFormatter|) . 
+
+The (|java.time.format.DateTimeFormatter|) parameter allows the set of fields 
+that will be resolved to be filtered before resolving starts. For example, if 
+the formatter has parsed a year, month, day-of-month and day-of-year, then 
+there are two approaches to resolve a date: (year + month + day-of-month) and 
+(year + day-of-year). The resolver fields allows one of the two approaches to 
+be selected. If no resolver fields are set then both approaches must result in 
+the same date. 
+
+Resolving separate fields to form a complete date and time is a complex process 
+with behaviour distributed across a number of classes. It follows these steps: 
+
+The chronology is determined. The chronology of the result is either the 
+chronology that was parsed, or if no chronology was parsed, it is the 
+chronology set on this class, or if that is null, it isIsoChronology. 
+TheChronoFielddate fields are resolved. This is achieved using 
+(|java.time.chrono.Chronology|) . Documentation about field resolution is 
+located in the implementation ofChronology. TheChronoFieldtime fields are 
+resolved. This is documented on (|java.time.temporal.ChronoField|) and is the 
+same for all chronologies. Any fields that are notChronoFieldare processed. 
+This is achieved using (|java.time.temporal.TemporalField|) . Documentation 
+about field resolution is located in the implementation ofTemporalField. 
+TheChronoFielddate and time fields are re-resolved. This allows fields in step 
+four to produceChronoFieldvalues and have them be processed into dates and 
+times. ALocalTimeis formed if there is at least an hour-of-day available. This 
+involves providing default values for minute, second and fraction of second. 
+Any remaining unresolved fields are cross-checked against any date and/or time 
+that was resolved. Thus, an earlier stage would resolve (year + month + 
+day-of-month) to a date, and this stage would check that day-of-week was valid 
+for the date. If an excess number of days(|java.time.format.DateTimeFormatter|) 
+was parsed then it is added to the date if a date is available. 
+
+
+
+*java.time.format.DateTimeFormatter_java.time.format.DateTimeFormatter.BASIC_ISO_DATE*
+
+The ISO date formatter that formats or parses a date without an offset, such as 
+'20111203'. 
+
+This returns an immutable formatter capable of formatting and parsing the 
+ISO-8601 basic local date format. The format consists of: 
+
+Four digits for the year(|java.time.temporal.ChronoField|) . Only years in the 
+range 0000 to 9999 are supported. Two digits for the 
+month-of-year(|java.time.temporal.ChronoField|) . This is pre-padded by zero to 
+ensure two digits. Two digits for the 
+day-of-month(|java.time.temporal.ChronoField|) . This is pre-padded by zero to 
+ensure two digits. If the offset is not available to format or parse then the 
+format is complete. The offset ID(|java.time.ZoneOffset|) without colons. If 
+the offset has seconds then they will be handled even though this is not part 
+of the ISO-8601 standard. Parsing is case insensitive. 
+
+As this formatter has an optional element, it may be necessary to parse using 
+(|java.time.format.DateTimeFormatter|) . 
+
+The returned formatter has a chronology of ISO set to ensure dates in other 
+calendar systems are correctly converted. It has no override zone and uses the 
+STRICT(|java.time.format.ResolverStyle|) resolver style. 
+
+
+*java.time.format.DateTimeFormatter_java.time.format.DateTimeFormatter.ISO_DATE*
+
+The ISO date formatter that formats or parses a date with the offset if 
+available, such as '2011-12-03' or '2011-12-03+01:00'. 
+
+This returns an immutable formatter capable of formatting and parsing the 
+ISO-8601 extended date format. The format consists of: 
+
+The (|java.time.format.DateTimeFormatter|) If the offset is not available then 
+the format is complete. The offset ID(|java.time.ZoneOffset|) . If the offset 
+has seconds then they will be handled even though this is not part of the 
+ISO-8601 standard. Parsing is case insensitive. 
+
+As this formatter has an optional element, it may be necessary to parse using 
+(|java.time.format.DateTimeFormatter|) . 
+
+The returned formatter has a chronology of ISO set to ensure dates in other 
+calendar systems are correctly converted. It has no override zone and uses the 
+STRICT(|java.time.format.ResolverStyle|) resolver style. 
+
+
+*java.time.format.DateTimeFormatter_java.time.format.DateTimeFormatter.ISO_DATE_TIME*
+
+The ISO-like date-time formatter that formats or parses a date-time with the 
+offset and zone if available, such as '2011-12-03T10:15:30', 
+'2011-12-03T10:15:30+01:00' or '2011-12-03T10:15:30+01:00[Europe/Paris]'. 
+
+This returns an immutable formatter capable of formatting and parsing the 
+ISO-8601 extended local or offset date-time format, as well as the extended 
+non-ISO form specifying the time-zone. The format consists of: 
+
+The (|java.time.format.DateTimeFormatter|) If the offset is not available to 
+format or parse then the format is complete. The offset 
+ID(|java.time.ZoneOffset|) . If the offset has seconds then they will be 
+handled even though this is not part of the ISO-8601 standard. If the zone ID 
+is not available or is aZoneOffsetthen the format is complete. An open square 
+bracket '['. The zone ID(|java.time.ZoneId|) . This is not part of the ISO-8601 
+standard. Parsing is case sensitive. A close square bracket ']'. 
+
+As this formatter has an optional element, it may be necessary to parse using 
+(|java.time.format.DateTimeFormatter|) . 
+
+The returned formatter has a chronology of ISO set to ensure dates in other 
+calendar systems are correctly converted. It has no override zone and uses the 
+STRICT(|java.time.format.ResolverStyle|) resolver style. 
+
+
+*java.time.format.DateTimeFormatter_java.time.format.DateTimeFormatter.ISO_INSTANT*
+
+The ISO instant formatter that formats or parses an instant in UTC, such as 
+'2011-12-03T10:15:30Z'. 
+
+This returns an immutable formatter capable of formatting and parsing the 
+ISO-8601 instant format. When formatting, the second-of-minute is always 
+output. The nano-of-second outputs zero, three, six or nine digits digits as 
+necessary. When parsing, time to at least the seconds field is required. 
+Fractional seconds from zero to nine are parsed. The localized decimal style is 
+not used. 
+
+This is a special case formatter intended to allow a human readable form of an 
+(|java.time.Instant|) . TheInstantclass is designed to only represent a point 
+in time and internally stores a value in nanoseconds from a fixed epoch of 
+1970-01-01Z. As such, anInstantcannot be formatted as a date or time without 
+providing some form of time-zone. This formatter allows theInstantto be 
+formatted, by providing a suitable conversion usingZoneOffset.UTC. 
+
+The format consists of: 
+
+The (|java.time.format.DateTimeFormatter|) where the instant is converted from 
+(|java.time.temporal.ChronoField|) and (|java.time.temporal.ChronoField|) using 
+theUTCoffset. Parsing is case insensitive. 
+
+The returned formatter has no override chronology or zone. It uses the 
+STRICT(|java.time.format.ResolverStyle|) resolver style. 
+
+
+*java.time.format.DateTimeFormatter_java.time.format.DateTimeFormatter.ISO_LOCAL_DATE*
+
+The ISO date formatter that formats or parses a date without an offset, such as 
+'2011-12-03'. 
+
+This returns an immutable formatter capable of formatting and parsing the 
+ISO-8601 extended local date format. The format consists of: 
+
+Four digits or more for the year(|java.time.temporal.ChronoField|) . Years in 
+the range 0000 to 9999 will be pre-padded by zero to ensure four digits. Years 
+outside that range will have a prefixed positive or negative symbol. A dash Two 
+digits for the month-of-year(|java.time.temporal.ChronoField|) . This is 
+pre-padded by zero to ensure two digits. A dash Two digits for the 
+day-of-month(|java.time.temporal.ChronoField|) . This is pre-padded by zero to 
+ensure two digits. 
+
+The returned formatter has a chronology of ISO set to ensure dates in other 
+calendar systems are correctly converted. It has no override zone and uses the 
+STRICT(|java.time.format.ResolverStyle|) resolver style. 
+
+
+*java.time.format.DateTimeFormatter_java.time.format.DateTimeFormatter.ISO_LOCAL_DATE_TIME*
+
+The ISO date-time formatter that formats or parses a date-time without an 
+offset, such as '2011-12-03T10:15:30'. 
+
+This returns an immutable formatter capable of formatting and parsing the 
+ISO-8601 extended offset date-time format. The format consists of: 
+
+The (|java.time.format.DateTimeFormatter|) The letter 'T'. Parsing is case 
+insensitive. The (|java.time.format.DateTimeFormatter|) 
+
+The returned formatter has a chronology of ISO set to ensure dates in other 
+calendar systems are correctly converted. It has no override zone and uses the 
+STRICT(|java.time.format.ResolverStyle|) resolver style. 
+
+
+*java.time.format.DateTimeFormatter_java.time.format.DateTimeFormatter.ISO_LOCAL_TIME*
+
+The ISO time formatter that formats or parses a time without an offset, such as 
+'10:15' or '10:15:30'. 
+
+This returns an immutable formatter capable of formatting and parsing the 
+ISO-8601 extended local time format. The format consists of: 
+
+Two digits for the hour-of-day(|java.time.temporal.ChronoField|) . This is 
+pre-padded by zero to ensure two digits. A colon Two digits for the 
+minute-of-hour(|java.time.temporal.ChronoField|) . This is pre-padded by zero 
+to ensure two digits. If the second-of-minute is not available then the format 
+is complete. A colon Two digits for the 
+second-of-minute(|java.time.temporal.ChronoField|) . This is pre-padded by zero 
+to ensure two digits. If the nano-of-second is zero or not available then the 
+format is complete. A decimal point One to nine digits for the 
+nano-of-second(|java.time.temporal.ChronoField|) . As many digits will be 
+output as required. 
+
+The returned formatter has no override chronology or zone. It uses the 
+STRICT(|java.time.format.ResolverStyle|) resolver style. 
+
+
+*java.time.format.DateTimeFormatter_java.time.format.DateTimeFormatter.ISO_OFFSET_DATE*
+
+The ISO date formatter that formats or parses a date with an offset, such as 
+'2011-12-03+01:00'. 
+
+This returns an immutable formatter capable of formatting and parsing the 
+ISO-8601 extended offset date format. The format consists of: 
+
+The (|java.time.format.DateTimeFormatter|) The offset 
+ID(|java.time.ZoneOffset|) . If the offset has seconds then they will be 
+handled even though this is not part of the ISO-8601 standard. Parsing is case 
+insensitive. 
+
+The returned formatter has a chronology of ISO set to ensure dates in other 
+calendar systems are correctly converted. It has no override zone and uses the 
+STRICT(|java.time.format.ResolverStyle|) resolver style. 
+
+
+*java.time.format.DateTimeFormatter_java.time.format.DateTimeFormatter.ISO_OFFSET_DATE_TIME*
+
+The ISO date-time formatter that formats or parses a date-time with an offset, 
+such as '2011-12-03T10:15:30+01:00'. 
+
+This returns an immutable formatter capable of formatting and parsing the 
+ISO-8601 extended offset date-time format. The format consists of: 
+
+The (|java.time.format.DateTimeFormatter|) The offset 
+ID(|java.time.ZoneOffset|) . If the offset has seconds then they will be 
+handled even though this is not part of the ISO-8601 standard. Parsing is case 
+insensitive. 
+
+The returned formatter has a chronology of ISO set to ensure dates in other 
+calendar systems are correctly converted. It has no override zone and uses the 
+STRICT(|java.time.format.ResolverStyle|) resolver style. 
+
+
+*java.time.format.DateTimeFormatter_java.time.format.DateTimeFormatter.ISO_OFFSET_TIME*
+
+The ISO time formatter that formats or parses a time with an offset, such as 
+'10:15+01:00' or '10:15:30+01:00'. 
+
+This returns an immutable formatter capable of formatting and parsing the 
+ISO-8601 extended offset time format. The format consists of: 
+
+The (|java.time.format.DateTimeFormatter|) The offset 
+ID(|java.time.ZoneOffset|) . If the offset has seconds then they will be 
+handled even though this is not part of the ISO-8601 standard. Parsing is case 
+insensitive. 
+
+The returned formatter has no override chronology or zone. It uses the 
+STRICT(|java.time.format.ResolverStyle|) resolver style. 
+
+
+*java.time.format.DateTimeFormatter_java.time.format.DateTimeFormatter.ISO_ORDINAL_DATE*
+
+The ISO date formatter that formats or parses the ordinal date without an 
+offset, such as '2012-337'. 
+
+This returns an immutable formatter capable of formatting and parsing the 
+ISO-8601 extended ordinal date format. The format consists of: 
+
+Four digits or more for the year(|java.time.temporal.ChronoField|) . Years in 
+the range 0000 to 9999 will be pre-padded by zero to ensure four digits. Years 
+outside that range will have a prefixed positive or negative symbol. A dash 
+Three digits for the day-of-year(|java.time.temporal.ChronoField|) . This is 
+pre-padded by zero to ensure three digits. If the offset is not available to 
+format or parse then the format is complete. The offset 
+ID(|java.time.ZoneOffset|) . If the offset has seconds then they will be 
+handled even though this is not part of the ISO-8601 standard. Parsing is case 
+insensitive. 
+
+As this formatter has an optional element, it may be necessary to parse using 
+(|java.time.format.DateTimeFormatter|) . 
+
+The returned formatter has a chronology of ISO set to ensure dates in other 
+calendar systems are correctly converted. It has no override zone and uses the 
+STRICT(|java.time.format.ResolverStyle|) resolver style. 
+
+
+*java.time.format.DateTimeFormatter_java.time.format.DateTimeFormatter.ISO_TIME*
+
+The ISO time formatter that formats or parses a time, with the offset if 
+available, such as '10:15', '10:15:30' or '10:15:30+01:00'. 
+
+This returns an immutable formatter capable of formatting and parsing the 
+ISO-8601 extended offset time format. The format consists of: 
+
+The (|java.time.format.DateTimeFormatter|) If the offset is not available then 
+the format is complete. The offset ID(|java.time.ZoneOffset|) . If the offset 
+has seconds then they will be handled even though this is not part of the 
+ISO-8601 standard. Parsing is case insensitive. 
+
+As this formatter has an optional element, it may be necessary to parse using 
+(|java.time.format.DateTimeFormatter|) . 
+
+The returned formatter has no override chronology or zone. It uses the 
+STRICT(|java.time.format.ResolverStyle|) resolver style. 
+
+
+*java.time.format.DateTimeFormatter_java.time.format.DateTimeFormatter.ISO_WEEK_DATE*
+
+The ISO date formatter that formats or parses the week-based date without an 
+offset, such as '2012-W48-6'. 
+
+This returns an immutable formatter capable of formatting and parsing the 
+ISO-8601 extended week-based date format. The format consists of: 
+
+Four digits or more for the week-based-year(|java.time.temporal.IsoFields|) . 
+Years in the range 0000 to 9999 will be pre-padded by zero to ensure four 
+digits. Years outside that range will have a prefixed positive or negative 
+symbol. A dash The letter 'W'. Parsing is case insensitive. Two digits for the 
+week-of-week-based-year(|java.time.temporal.IsoFields|) . This is pre-padded by 
+zero to ensure three digits. A dash One digit for the 
+day-of-week(|java.time.temporal.ChronoField|) . The value run from Monday (1) 
+to Sunday (7). If the offset is not available to format or parse then the 
+format is complete. The offset ID(|java.time.ZoneOffset|) . If the offset has 
+seconds then they will be handled even though this is not part of the ISO-8601 
+standard. Parsing is case insensitive. 
+
+As this formatter has an optional element, it may be necessary to parse using 
+(|java.time.format.DateTimeFormatter|) . 
+
+The returned formatter has a chronology of ISO set to ensure dates in other 
+calendar systems are correctly converted. It has no override zone and uses the 
+STRICT(|java.time.format.ResolverStyle|) resolver style. 
+
+
+*java.time.format.DateTimeFormatter_java.time.format.DateTimeFormatter.ISO_ZONED_DATE_TIME*
+
+The ISO-like date-time formatter that formats or parses a date-time with offset 
+and zone, such as '2011-12-03T10:15:30+01:00[Europe/Paris]'. 
+
+This returns an immutable formatter capable of formatting and parsing a format 
+that extends the ISO-8601 extended offset date-time format to add the 
+time-zone. The section in square brackets is not part of the ISO-8601 standard. 
+The format consists of: 
+
+The (|java.time.format.DateTimeFormatter|) If the zone ID is not available or 
+is aZoneOffsetthen the format is complete. An open square bracket '['. The zone 
+ID(|java.time.ZoneId|) . This is not part of the ISO-8601 standard. Parsing is 
+case sensitive. A close square bracket ']'. 
+
+The returned formatter has a chronology of ISO set to ensure dates in other 
+calendar systems are correctly converted. It has no override zone and uses the 
+STRICT(|java.time.format.ResolverStyle|) resolver style. 
+
+
+*java.time.format.DateTimeFormatter_java.time.format.DateTimeFormatter.RFC_1123_DATE_TIME*
+
+The RFC-1123 date-time formatter, such as 'Tue, 3 Jun 2008 11:05:30 GMT'. 
+
+This returns an immutable formatter capable of formatting and parsing most of 
+the RFC-1123 format. RFC-1123 updates RFC-822 changing the year from two digits 
+to four. This implementation requires a four digit year. This implementation 
+also does not handle North American or military zone names, only 'GMT' and 
+offset amounts. 
+
+The format consists of: 
+
+If the day-of-week is not available to format or parse then jump to 
+day-of-month. Three letter day-of-week(|java.time.temporal.ChronoField|) in 
+English. A comma A space One or two digits for the 
+day-of-month(|java.time.temporal.ChronoField|) . A space Three letter 
+month-of-year(|java.time.temporal.ChronoField|) in English. A space Four digits 
+for the year(|java.time.temporal.ChronoField|) . Only years in the range 0000 
+to 9999 are supported. A space Two digits for the 
+hour-of-day(|java.time.temporal.ChronoField|) . This is pre-padded by zero to 
+ensure two digits. A colon Two digits for the 
+minute-of-hour(|java.time.temporal.ChronoField|) . This is pre-padded by zero 
+to ensure two digits. If the second-of-minute is not available then jump to the 
+next space. A colon Two digits for the 
+second-of-minute(|java.time.temporal.ChronoField|) . This is pre-padded by zero 
+to ensure two digits. A space The offset ID(|java.time.ZoneOffset|) without 
+colons or seconds. An offset of zero uses "GMT". North American zone names and 
+military zone names are not handled. 
+
+Parsing is case insensitive. 
+
+The returned formatter has a chronology of ISO set to ensure dates in other 
+calendar systems are correctly converted. It has no override zone and uses the 
+SMART(|java.time.format.ResolverStyle|) resolver style. 
+
+
+
+*java.time.format.DateTimeFormatter.format(TemporalAccessor)*
+
+public |java.lang.String| format(java.time.temporal.TemporalAccessor temporal)
+
+Formats a date-time object using this formatter. 
+
+This formats the date-time to a String using the rules of the formatter. 
+
+
+    temporal - the temporal object to format, not null 
+
+    Returns: the formatted string, not null 
+
+*java.time.format.DateTimeFormatter.formatTo(TemporalAccessor,Appendable)*
+
+public void formatTo(
+  java.time.temporal.TemporalAccessor temporal,
+  java.lang.Appendable appendable)
+
+Formats a date-time object to anAppendableusing this formatter. 
+
+This outputs the formatted date-time to the specified destination. 
+(|java.lang.Appendable|) is a general purpose interface that is implemented by 
+all key character output classes 
+includingStringBuffer,StringBuilder,PrintStreamandWriter. 
+
+AlthoughAppendablemethods throw anIOException, this method does not. Instead, 
+anyIOExceptionis wrapped in a runtime exception. 
+
+
+    temporal - the temporal object to format, not null 
+    appendable - the appendable to format to, not null 
+
+*java.time.format.DateTimeFormatter.getChronology()*
+
+public |java.time.chrono.Chronology| getChronology()
+
+Gets the overriding chronology to be used during formatting. 
+
+This returns the override chronology, used to convert dates. By default, a 
+formatter has no override chronology, returning null. See 
+(|java.time.format.DateTimeFormatter|) for more details on overriding. 
+
+
+
+    Returns: the override chronology of this formatter, null if no override 
+
+*java.time.format.DateTimeFormatter.getDecimalStyle()*
+
+public |java.time.format.DecimalStyle| getDecimalStyle()
+
+Gets the DecimalStyle to be used during formatting. 
+
+
+
+    Returns: the locale of this formatter, not null 
+
+*java.time.format.DateTimeFormatter.getLocale()*
+
+public |java.util.Locale| getLocale()
+
+Gets the locale to be used during formatting. 
+
+This is used to lookup any part of the formatter needing specific localization, 
+such as the text or localized pattern. 
+
+
+
+    Returns: the locale of this formatter, not null 
+
+*java.time.format.DateTimeFormatter.getResolverFields()*
+
+public |java.util.Set|<TemporalField> getResolverFields()
+
+Gets the resolver fields to use during parsing. 
+
+This returns the resolver fields, used during the second phase of parsing when 
+fields are resolved into dates and times. By default, a formatter has no 
+resolver fields, and thus returns null. See 
+(|java.time.format.DateTimeFormatter|) for more details. 
+
+
+
+    Returns: the immutable set of resolver fields of this formatter, null if no fields 
+
+*java.time.format.DateTimeFormatter.getResolverStyle()*
+
+public |java.time.format.ResolverStyle| getResolverStyle()
+
+Gets the resolver style to use during parsing. 
+
+This returns the resolver style, used during the second phase of parsing when 
+fields are resolved into dates and times. By default, a formatter has the 
+SMART(|java.time.format.ResolverStyle|) resolver style. See 
+(|java.time.format.DateTimeFormatter|) for more details. 
+
+
+
+    Returns: the resolver style of this formatter, not null 
+
+*java.time.format.DateTimeFormatter.getZone()*
+
+public |java.time.ZoneId| getZone()
+
+Gets the overriding zone to be used during formatting. 
+
+This returns the override zone, used to convert instants. By default, a 
+formatter has no override zone, returning null. See 
+(|java.time.format.DateTimeFormatter|) for more details on overriding. 
+
+
+
+    Returns: the override zone of this formatter, null if no override 
+
+*java.time.format.DateTimeFormatter.ofLocalizedDate(FormatStyle)*
+
+public static |java.time.format.DateTimeFormatter| ofLocalizedDate(java.time.format.FormatStyle dateStyle)
+
+Returns a locale specific date format for the ISO chronology. 
+
+This returns a formatter that will format or parse a date. The exact format 
+pattern used varies by locale. 
+
+The locale is determined from the formatter. The formatter returned directly by 
+this method will use the default FORMAT locale(|java.util.Locale|) . The locale 
+can be controlled using 
+withLocale(Locale)(|java.time.format.DateTimeFormatter|) on the result of this 
+method. 
+
+Note that the localized pattern is looked up lazily. ThisDateTimeFormatterholds 
+the style required and the locale, looking up the pattern required on demand. 
+
+The returned formatter has a chronology of ISO set to ensure dates in other 
+calendar systems are correctly converted. It has no override zone and uses the 
+SMART(|java.time.format.ResolverStyle|) resolver style. 
+
+
+    dateStyle - the formatter style to obtain, not null 
+
+    Returns: the date formatter, not null 
+
+*java.time.format.DateTimeFormatter.ofLocalizedDateTime(FormatStyle)*
+
+public static |java.time.format.DateTimeFormatter| ofLocalizedDateTime(java.time.format.FormatStyle dateTimeStyle)
+
+Returns a locale specific date-time formatter for the ISO chronology. 
+
+This returns a formatter that will format or parse a date-time. The exact 
+format pattern used varies by locale. 
+
+The locale is determined from the formatter. The formatter returned directly by 
+this method will use the default FORMAT locale(|java.util.Locale|) . The locale 
+can be controlled using 
+withLocale(Locale)(|java.time.format.DateTimeFormatter|) on the result of this 
+method. 
+
+Note that the localized pattern is looked up lazily. ThisDateTimeFormatterholds 
+the style required and the locale, looking up the pattern required on demand. 
+
+The returned formatter has a chronology of ISO set to ensure dates in other 
+calendar systems are correctly converted. It has no override zone and uses the 
+SMART(|java.time.format.ResolverStyle|) resolver style. 
+
+
+    dateTimeStyle - the formatter style to obtain, not null 
+
+    Returns: the date-time formatter, not null 
+
+*java.time.format.DateTimeFormatter.ofLocalizedDateTime(FormatStyle,FormatStyle)*
+
+public static |java.time.format.DateTimeFormatter| ofLocalizedDateTime(
+  java.time.format.FormatStyle dateStyle,
+  java.time.format.FormatStyle timeStyle)
+
+Returns a locale specific date and time format for the ISO chronology. 
+
+This returns a formatter that will format or parse a date-time. The exact 
+format pattern used varies by locale. 
+
+The locale is determined from the formatter. The formatter returned directly by 
+this method will use the default FORMAT locale(|java.util.Locale|) . The locale 
+can be controlled using 
+withLocale(Locale)(|java.time.format.DateTimeFormatter|) on the result of this 
+method. 
+
+Note that the localized pattern is looked up lazily. ThisDateTimeFormatterholds 
+the style required and the locale, looking up the pattern required on demand. 
+
+The returned formatter has a chronology of ISO set to ensure dates in other 
+calendar systems are correctly converted. It has no override zone and uses the 
+SMART(|java.time.format.ResolverStyle|) resolver style. 
+
+
+    dateStyle - the date formatter style to obtain, not null 
+    timeStyle - the time formatter style to obtain, not null 
+
+    Returns: the date, time or date-time formatter, not null 
+
+*java.time.format.DateTimeFormatter.ofLocalizedTime(FormatStyle)*
+
+public static |java.time.format.DateTimeFormatter| ofLocalizedTime(java.time.format.FormatStyle timeStyle)
+
+Returns a locale specific time format for the ISO chronology. 
+
+This returns a formatter that will format or parse a time. The exact format 
+pattern used varies by locale. 
+
+The locale is determined from the formatter. The formatter returned directly by 
+this method will use the default FORMAT locale(|java.util.Locale|) . The locale 
+can be controlled using 
+withLocale(Locale)(|java.time.format.DateTimeFormatter|) on the result of this 
+method. 
+
+Note that the localized pattern is looked up lazily. ThisDateTimeFormatterholds 
+the style required and the locale, looking up the pattern required on demand. 
+
+The returned formatter has a chronology of ISO set to ensure dates in other 
+calendar systems are correctly converted. It has no override zone and uses the 
+SMART(|java.time.format.ResolverStyle|) resolver style. 
+
+
+    timeStyle - the formatter style to obtain, not null 
+
+    Returns: the time formatter, not null 
+
+*java.time.format.DateTimeFormatter.ofPattern(String)*
+
+public static |java.time.format.DateTimeFormatter| ofPattern(java.lang.String pattern)
+
+Creates a formatter using the specified pattern. 
+
+This method will create a formatter based on a simple pattern of letters and 
+symbols as described in the class documentation. For example,d MMM uuuuwill 
+format 2011-12-03 as '3 Dec 2011'. 
+
+The formatter will use the default FORMAT locale(|java.util.Locale|) . This can 
+be changed using (|java.time.format.DateTimeFormatter|) on the returned 
+formatter Alternatively use the (|java.time.format.DateTimeFormatter|) variant 
+of this method. 
+
+The returned formatter has no override chronology or zone. It uses 
+SMART(|java.time.format.ResolverStyle|) resolver style. 
+
+
+    pattern - the pattern to use, not null 
+
+    Returns: the formatter based on the pattern, not null 
+
+*java.time.format.DateTimeFormatter.ofPattern(String,Locale)*
+
+public static |java.time.format.DateTimeFormatter| ofPattern(
+  java.lang.String pattern,
+  java.util.Locale locale)
+
+Creates a formatter using the specified pattern and locale. 
+
+This method will create a formatter based on a simple pattern of letters and 
+symbols as described in the class documentation. For example,d MMM uuuuwill 
+format 2011-12-03 as '3 Dec 2011'. 
+
+The formatter will use the specified locale. This can be changed using 
+(|java.time.format.DateTimeFormatter|) on the returned formatter 
+
+The returned formatter has no override chronology or zone. It uses 
+SMART(|java.time.format.ResolverStyle|) resolver style. 
+
+
+    pattern - the pattern to use, not null 
+    locale - the locale to use, not null 
+
+    Returns: the formatter based on the pattern, not null 
+
+*java.time.format.DateTimeFormatter.parse(CharSequence)*
+
+public |java.time.temporal.TemporalAccessor| parse(java.lang.CharSequence text)
+
+Fully parses the text producing a temporal object. 
+
+This parses the entire text producing a temporal object. It is typically more 
+useful to use (|java.time.format.DateTimeFormatter|) . The result of this 
+method isTemporalAccessorwhich has been resolved, applying basic validation 
+checks to help ensure a valid date-time. 
+
+If the parse completes without reading the entire length of the text, or a 
+problem occurs during parsing or merging, then an exception is thrown. 
+
+
+    text - the text to parse, not null 
+
+    Returns: the parsed temporal object, not null 
+
+*java.time.format.DateTimeFormatter.parse(CharSequence,ParsePosition)*
+
+public |java.time.temporal.TemporalAccessor| parse(
+  java.lang.CharSequence text,
+  java.text.ParsePosition position)
+
+Parses the text using this formatter, providing control over the text position. 
+
+This parses the text without requiring the parse to start from the beginning of 
+the string or finish at the end. The result of this method 
+isTemporalAccessorwhich has been resolved, applying basic validation checks to 
+help ensure a valid date-time. 
+
+The text will be parsed from the specified startParsePosition. The entire 
+length of the text does not have to be parsed, theParsePositionwill be updated 
+with the index at the end of parsing. 
+
+The operation of this method is slightly different to similar methods 
+usingParsePositiononjava.text.Format. That class will return errors using the 
+error index on theParsePosition. By contrast, this method will throw a 
+(|java.time.format.DateTimeParseException|) if an error occurs, with the 
+exception containing the error index. This change in behavior is necessary due 
+to the increased complexity of parsing and resolving dates/times in this API. 
+
+If the formatter parses the same field more than once with different values, 
+the result will be an error. 
+
+
+    text - the text to parse, not null 
+    position - the position to parse from, updated with length parsed and the index of any 
+       error, not null 
+
+    Returns: the parsed temporal object, not null 
+
+*java.time.format.DateTimeFormatter.parse(CharSequence,TemporalQuery<T>)*
+
+public |T| parse(
+  java.lang.CharSequence text,
+  java.time.temporal.TemporalQuery<T> query)
+
+Fully parses the text producing an object of the specified type. 
+
+Most applications should use this method for parsing. It parses the entire text 
+to produce the required date-time. The query is typically a method reference to 
+afrom(TemporalAccessor)method. For example: 
+
+LocalDateTime dt = parser.parse(str, LocalDateTime::from); 
+
+If the parse completes without reading the entire length of the text, or a 
+problem occurs during parsing or merging, then an exception is thrown. 
+
+
+    text - the text to parse, not null 
+    query - the query defining the type to parse to, not null 
+
+    Returns: the parsed date-time, not null 
+
+*java.time.format.DateTimeFormatter.parseBest(CharSequence,TemporalQuery<?>...)*
+
+public |java.time.temporal.TemporalAccessor| parseBest(
+  java.lang.CharSequence text,
+  java.time.temporal.TemporalQuery[] queries)
+
+Fully parses the text producing an object of one of the specified types. 
+
+This parse method is convenient for use when the parser can handle optional 
+elements. For example, a pattern of 'uuuu-MM-dd HH.mm[ VV]' can be fully parsed 
+to aZonedDateTime, or partially parsed to aLocalDateTime. The queries must be 
+specified in order, starting from the best matching full-parse option and 
+ending with the worst matching minimal parse option. The query is typically a 
+method reference to afrom(TemporalAccessor)method. 
+
+The result is associated with the first type that successfully parses. 
+Normally, applications will useinstanceofto check the result. For example: 
+
+TemporalAccessor dt = parser.parseBest(str, ZonedDateTime::from, 
+LocalDateTime::from); if (dt instanceof ZonedDateTime) { ... } else { ... } 
+
+If the parse completes without reading the entire length of the text, or a 
+problem occurs during parsing or merging, then an exception is thrown. 
+
+
+    text - the text to parse, not null 
+    queries - the queries defining the types to attempt to parse to, must implement {@code 
+       TemporalAccessor}, not null 
+
+    Returns: the parsed date-time, not null 
+
+*java.time.format.DateTimeFormatter.parsedExcessDays()*
+
+public static final |java.time.temporal.TemporalQuery|<Period> parsedExcessDays()
+
+A query that provides access to the excess days that were parsed. 
+
+This returns a singleton query(|java.time.temporal.TemporalQuery|) that 
+provides access to additional information from the parse. The query always 
+returns a non-null period, with a zero period returned instead of null. 
+
+There are two situations where this query may return a non-zero period. 
+
+If theResolverStyleisLENIENTand a time is parsed without a date, then the 
+complete result of the parse consists of aLocalTimeand an excessPeriodin days. 
+
+If theResolverStyleisSMARTand a time is parsed without a date where the time is 
+24:00:00, then the complete result of the parse consists of aLocalTimeof 
+00:00:00 and an excessPeriodof one day. 
+
+In both cases, if a completeChronoLocalDateTimeorInstantis parsed, then the 
+excess days are added to the date part. As a result, this query will return a 
+zero period. 
+
+TheSMARTbehaviour handles the common "end of day" 24:00 value. Processing 
+inLENIENTmode also produces the same result: 
+
+Text to parse Parsed object Excess days "2012-12-03T00:00" 
+LocalDateTime.of(2012, 12, 3, 0, 0) ZERO "2012-12-03T24:00" 
+LocalDateTime.of(2012, 12, 4, 0, 0) ZERO "00:00" LocalTime.of(0, 0) ZERO 
+"24:00" LocalTime.of(0, 0) Period.ofDays(1) 
+
+The query can be used as follows: 
+
+TemporalAccessor parsed = formatter.parse(str); LocalTime time = 
+parsed.query(LocalTime::from); Period extraDays = 
+parsed.query(DateTimeFormatter.parsedExcessDays()); 
+
+
+
+    Returns: a query that provides access to the excess days that were parsed 
+
+*java.time.format.DateTimeFormatter.parsedLeapSecond()*
+
+public static final |java.time.temporal.TemporalQuery|<Boolean> parsedLeapSecond()
+
+A query that provides access to whether a leap-second was parsed. 
+
+This returns a singleton query(|java.time.temporal.TemporalQuery|) that 
+provides access to additional information from the parse. The query always 
+returns a non-null boolean, true if parsing saw a leap-second, false if not. 
+
+Instant parsing handles the special "leap second" time of '23:59:60'. Leap 
+seconds occur at '23:59:60' in the UTC time-zone, but at other local times in 
+different time-zones. To avoid this potential ambiguity, the handling of 
+leap-seconds is limited to (|java.time.format.DateTimeFormatterBuilder|) , as 
+that method always parses the instant with the UTC zone offset. 
+
+If the time '23:59:60' is received, then a simple conversion is applied, 
+replacing the second-of-minute of 60 with 59. This query can be used on the 
+parse result to determine if the leap-second adjustment was made. The query 
+will return one second of excess if it did adjust to remove the leap-second, 
+and zero if not. Note that applying a leap-second smoothing mechanism, such as 
+UTC-SLS, is the responsibility of the application, as follows: 
+
+TemporalAccessor parsed = formatter.parse(str); Instant instant = 
+parsed.query(Instant::from); if 
+(parsed.query(DateTimeFormatter.parsedLeapSecond())) { // validate leap-second 
+is correct and apply correct smoothing } 
+
+
+
+    Returns: a query that provides access to whether a leap-second was parsed 
+
+*java.time.format.DateTimeFormatter.parseUnresolved(CharSequence,ParsePosition)*
+
+public |java.time.temporal.TemporalAccessor| parseUnresolved(
+  java.lang.CharSequence text,
+  java.text.ParsePosition position)
+
+Parses the text using this formatter, without resolving the result, intended 
+for advanced use cases. 
+
+Parsing is implemented as a two-phase operation. First, the text is parsed 
+using the layout defined by the formatter, producing aMapof field to value, 
+aZoneIdand aChronology. Second, the parsed data is resolved, by validating, 
+combining and simplifying the various fields into more useful ones. This method 
+performs the parsing stage but not the resolving stage. 
+
+The result of this method isTemporalAccessorwhich represents the data as seen 
+in the input. Values are not validated, thus parsing a date string of 
+'2012-00-65' would result in a temporal with three fields - year of '2012', 
+month of '0' and day-of-month of '65'. 
+
+The text will be parsed from the specified startParsePosition. The entire 
+length of the text does not have to be parsed, theParsePositionwill be updated 
+with the index at the end of parsing. 
+
+Errors are returned using the error index field of theParsePositioninstead 
+ofDateTimeParseException. The returned error index will be set to an index 
+indicative of the error. Callers must check for errors before using the 
+context. 
+
+If the formatter parses the same field more than once with different values, 
+the result will be an error. 
+
+This method is intended for advanced use cases that need access to the internal 
+state during parsing. Typical application code should use 
+(|java.time.format.DateTimeFormatter|) or the parse method on the target type. 
+
+
+    text - the text to parse, not null 
+    position - the position to parse from, updated with length parsed and the index of any 
+       error, not null 
+
+    Returns: the parsed text, null if the parse results in an error 
+
+*java.time.format.DateTimeFormatter.toFormat()*
+
+public |java.text.Format| toFormat()
+
+Returns this formatter as ajava.text.Formatinstance. 
+
+The returned (|java.text.Format|) instance will format any 
+(|java.time.temporal.TemporalAccessor|) and parses to a resolved 
+(|java.time.temporal.TemporalAccessor|) . 
+
+Exceptions will follow the definitions ofFormat, see those methods for details 
+aboutIllegalArgumentExceptionduring formatting andParseExceptionor null during 
+parsing. The format does not support attributing of the returned format string. 
+
+
+
+    Returns: this formatter as a classic format instance, not null 
+
+*java.time.format.DateTimeFormatter.toFormat(TemporalQuery<?>)*
+
+public |java.text.Format| toFormat(java.time.temporal.TemporalQuery<?> parseQuery)
+
+Returns this formatter as ajava.text.Formatinstance that will parse using the 
+specified query. 
+
+The returned (|java.text.Format|) instance will format any 
+(|java.time.temporal.TemporalAccessor|) and parses to the type specified. The 
+type must be one that is supported by (|java.time.format.DateTimeFormatter|) . 
+
+Exceptions will follow the definitions ofFormat, see those methods for details 
+aboutIllegalArgumentExceptionduring formatting andParseExceptionor null during 
+parsing. The format does not support attributing of the returned format string. 
+
+
+    parseQuery - the query defining the type to parse to, not null 
+
+    Returns: this formatter as a classic format instance, not null 
+
+*java.time.format.DateTimeFormatter.toString()*
+
+public |java.lang.String| toString()
+
+Returns a description of the underlying formatters. 
+
+
+
+    Returns: a description of this formatter, not null 
+
+*java.time.format.DateTimeFormatter.withChronology(Chronology)*
+
+public |java.time.format.DateTimeFormatter| withChronology(java.time.chrono.Chronology chrono)
+
+Returns a copy of this formatter with a new override chronology. 
+
+This returns a formatter with similar state to this formatter but with the 
+override chronology set. By default, a formatter has no override chronology, 
+returning null. 
+
+If an override is added, then any date that is formatted or parsed will be 
+affected. 
+
+When formatting, if the temporal object contains a date, then it will be 
+converted to a date in the override chronology. Whether the temporal contains a 
+date is determined by querying the EPOCH_DAY(|java.time.temporal.ChronoField|) 
+field. Any time or zone will be retained unaltered unless overridden. 
+
+If the temporal object does not contain a date, but does contain one or 
+moreChronoFielddate fields, then aDateTimeExceptionis thrown. In all other 
+cases, the override chronology is added to the temporal, replacing any previous 
+chronology, but without changing the date/time. 
+
+When parsing, there are two distinct cases to consider. If a chronology has 
+been parsed directly from the text, perhaps because 
+(|java.time.format.DateTimeFormatterBuilder|) was used, then this override 
+chronology has no effect. If no zone has been parsed, then this override 
+chronology will be used to interpret theChronoFieldvalues into a date according 
+to the date resolving rules of the chronology. 
+
+This instance is immutable and unaffected by this method call. 
+
+
+    chrono - the new chronology, null if no override 
+
+    Returns: a formatter based on this formatter with the requested override chronology, not 
+             null 
+
+*java.time.format.DateTimeFormatter.withDecimalStyle(DecimalStyle)*
+
+public |java.time.format.DateTimeFormatter| withDecimalStyle(java.time.format.DecimalStyle decimalStyle)
+
+Returns a copy of this formatter with a new DecimalStyle. 
+
+This instance is immutable and unaffected by this method call. 
+
+
+    decimalStyle - the new DecimalStyle, not null 
+
+    Returns: a formatter based on this formatter with the requested DecimalStyle, not null 
+
+*java.time.format.DateTimeFormatter.withLocale(Locale)*
+
+public |java.time.format.DateTimeFormatter| withLocale(java.util.Locale locale)
+
+Returns a copy of this formatter with a new locale. 
+
+This is used to lookup any part of the formatter needing specific localization, 
+such as the text or localized pattern. 
+
+This instance is immutable and unaffected by this method call. 
+
+
+    locale - the new locale, not null 
+
+    Returns: a formatter based on this formatter with the requested locale, not null 
+
+*java.time.format.DateTimeFormatter.withResolverFields(Set<TemporalField>)*
+
+public |java.time.format.DateTimeFormatter| withResolverFields(java.util.Set<java.time.temporal.TemporalField> resolverFields)
+
+Returns a copy of this formatter with a new set of resolver fields. 
+
+This returns a formatter with similar state to this formatter but with the 
+resolver fields set. By default, a formatter has no resolver fields. 
+
+Changing the resolver fields only has an effect during parsing. Parsing a text 
+string occurs in two phases. Phase 1 is a basic text parse according to the 
+fields added to the builder. Phase 2 resolves the parsed field-value pairs into 
+date and/or time objects. The resolver fields are used to filter the 
+field-value pairs between phase 1 and 2. 
+
+This can be used to select between two or more ways that a date or time might 
+be resolved. For example, if the formatter consists of year, month, 
+day-of-month and day-of-year, then there are two ways to resolve a date. 
+Calling this method with the arguments YEAR(|java.time.temporal.ChronoField|) 
+and DAY_OF_YEAR(|java.time.temporal.ChronoField|) will ensure that the date is 
+resolved using the year and day-of-year, effectively meaning that the month and 
+day-of-month are ignored during the resolving phase. 
+
+In a similar manner, this method can be used to ignore secondary fields that 
+would otherwise be cross-checked. For example, if the formatter consists of 
+year, month, day-of-month and day-of-week, then there is only one way to 
+resolve a date, but the parsed value for day-of-week will be cross-checked 
+against the resolved date. Calling this method with the arguments 
+YEAR(|java.time.temporal.ChronoField|) , 
+MONTH_OF_YEAR(|java.time.temporal.ChronoField|) and 
+DAY_OF_MONTH(|java.time.temporal.ChronoField|) will ensure that the date is 
+resolved correctly, but without any cross-check for the day-of-week. 
+
+In implementation terms, this method behaves as follows. The result of the 
+parsing phase can be considered to be a map of field to value. The behavior of 
+this method is to cause that map to be filtered between phase 1 and 2, removing 
+all fields other than those specified as arguments to this method. 
+
+This instance is immutable and unaffected by this method call. 
+
+
+    resolverFields - the new set of resolver fields, null if no fields 
+
+    Returns: a formatter based on this formatter with the requested resolver style, not null 
+
+*java.time.format.DateTimeFormatter.withResolverFields(TemporalField...)*
+
+public |java.time.format.DateTimeFormatter| withResolverFields(java.time.temporal.TemporalField[] resolverFields)
+
+Returns a copy of this formatter with a new set of resolver fields. 
+
+This returns a formatter with similar state to this formatter but with the 
+resolver fields set. By default, a formatter has no resolver fields. 
+
+Changing the resolver fields only has an effect during parsing. Parsing a text 
+string occurs in two phases. Phase 1 is a basic text parse according to the 
+fields added to the builder. Phase 2 resolves the parsed field-value pairs into 
+date and/or time objects. The resolver fields are used to filter the 
+field-value pairs between phase 1 and 2. 
+
+This can be used to select between two or more ways that a date or time might 
+be resolved. For example, if the formatter consists of year, month, 
+day-of-month and day-of-year, then there are two ways to resolve a date. 
+Calling this method with the arguments YEAR(|java.time.temporal.ChronoField|) 
+and DAY_OF_YEAR(|java.time.temporal.ChronoField|) will ensure that the date is 
+resolved using the year and day-of-year, effectively meaning that the month and 
+day-of-month are ignored during the resolving phase. 
+
+In a similar manner, this method can be used to ignore secondary fields that 
+would otherwise be cross-checked. For example, if the formatter consists of 
+year, month, day-of-month and day-of-week, then there is only one way to 
+resolve a date, but the parsed value for day-of-week will be cross-checked 
+against the resolved date. Calling this method with the arguments 
+YEAR(|java.time.temporal.ChronoField|) , 
+MONTH_OF_YEAR(|java.time.temporal.ChronoField|) and 
+DAY_OF_MONTH(|java.time.temporal.ChronoField|) will ensure that the date is 
+resolved correctly, but without any cross-check for the day-of-week. 
+
+In implementation terms, this method behaves as follows. The result of the 
+parsing phase can be considered to be a map of field to value. The behavior of 
+this method is to cause that map to be filtered between phase 1 and 2, removing 
+all fields other than those specified as arguments to this method. 
+
+This instance is immutable and unaffected by this method call. 
+
+
+    resolverFields - the new set of resolver fields, null if no fields 
+
+    Returns: a formatter based on this formatter with the requested resolver style, not null 
+
+*java.time.format.DateTimeFormatter.withResolverStyle(ResolverStyle)*
+
+public |java.time.format.DateTimeFormatter| withResolverStyle(java.time.format.ResolverStyle resolverStyle)
+
+Returns a copy of this formatter with a new resolver style. 
+
+This returns a formatter with similar state to this formatter but with the 
+resolver style set. By default, a formatter has the 
+SMART(|java.time.format.ResolverStyle|) resolver style. 
+
+Changing the resolver style only has an effect during parsing. Parsing a text 
+string occurs in two phases. Phase 1 is a basic text parse according to the 
+fields added to the builder. Phase 2 resolves the parsed field-value pairs into 
+date and/or time objects. The resolver style is used to control how phase 2, 
+resolving, happens. SeeResolverStylefor more information on the options 
+available. 
+
+This instance is immutable and unaffected by this method call. 
+
+
+    resolverStyle - the new resolver style, not null 
+
+    Returns: a formatter based on this formatter with the requested resolver style, not null 
+
+*java.time.format.DateTimeFormatter.withZone(ZoneId)*
+
+public |java.time.format.DateTimeFormatter| withZone(java.time.ZoneId zone)
+
+Returns a copy of this formatter with a new override zone. 
+
+This returns a formatter with similar state to this formatter but with the 
+override zone set. By default, a formatter has no override zone, returning 
+null. 
+
+If an override is added, then any instant that is formatted or parsed will be 
+affected. 
+
+When formatting, if the temporal object contains an instant, then it will be 
+converted to a zoned date-time using the override zone. Whether the temporal is 
+an instant is determined by querying the 
+INSTANT_SECONDS(|java.time.temporal.ChronoField|) field. If the input has a 
+chronology then it will be retained unless overridden. If the input does not 
+have a chronology, such asInstant, then the ISO chronology will be used. 
+
+If the temporal object does not contain an instant, but does contain an offset 
+then an additional check is made. If the normalized override zone is an offset 
+that differs from the offset of the temporal, then aDateTimeExceptionis thrown. 
+In all other cases, the override zone is added to the temporal, replacing any 
+previous zone, but without changing the date/time. 
+
+When parsing, there are two distinct cases to consider. If a zone has been 
+parsed directly from the text, perhaps because 
+(|java.time.format.DateTimeFormatterBuilder|) was used, then this override zone 
+has no effect. If no zone has been parsed, then this override zone will be 
+included in the result of the parse where it can be used to build instants and 
+date-times. 
+
+This instance is immutable and unaffected by this method call. 
+
+
+    zone - the new override zone, null if no override 
+
+    Returns: a formatter based on this formatter with the requested override zone, not null 
+
+

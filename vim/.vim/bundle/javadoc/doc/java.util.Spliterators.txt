@@ -1,0 +1,606 @@
+*java.util.Spliterators* *Spliterators* Static classes and methods for operating
+
+public final class Spliterators
+  extends    |java.lang.Object|
+
+|java.util.Spliterators_Description|
+|java.util.Spliterators_Fields|
+|java.util.Spliterators_Constructors|
+|java.util.Spliterators_Methods|
+
+================================================================================
+
+*java.util.Spliterators_Methods*
+|java.util.Spliterators.emptyDoubleSpliterator()|Creates an emptySpliterator.Of
+|java.util.Spliterators.emptyIntSpliterator()|Creates an emptySpliterator.OfInt
+|java.util.Spliterators.emptyLongSpliterator()|Creates an emptySpliterator.OfLo
+|java.util.Spliterators.emptySpliterator()|Creates an emptySpliterator
+|java.util.Spliterators.iterator(Spliterator.OfDouble)|Creates anPrimitiveItera
+|java.util.Spliterators.iterator(Spliterator.OfInt)|Creates anPrimitiveIterator
+|java.util.Spliterators.iterator(Spliterator.OfLong)|Creates anPrimitiveIterato
+|java.util.Spliterators.iterator(Spliterator<?extendsT>)|Creates anIteratorfrom
+|java.util.Spliterators.spliterator(Collection<?extendsT>,int)|Creates aSpliter
+|java.util.Spliterators.spliterator(double[],int)|Creates aSpliterator.OfDouble
+|java.util.Spliterators.spliterator(double[],int,int,int)|Creates aSpliterator.
+|java.util.Spliterators.spliterator(int[],int)|Creates aSpliterator.OfIntcoveri
+|java.util.Spliterators.spliterator(int[],int,int,int)|Creates aSpliterator.OfI
+|java.util.Spliterators.spliterator(Iterator<?extendsT>,long,int)|Creates aSpli
+|java.util.Spliterators.spliterator(long[],int)|Creates aSpliterator.OfLongcove
+|java.util.Spliterators.spliterator(long[],int,int,int)|Creates aSpliterator.Of
+|java.util.Spliterators.spliterator(Object[],int)|Creates aSpliteratorcovering 
+|java.util.Spliterators.spliterator(Object[],int,int,int)|Creates aSpliteratorc
+|java.util.Spliterators.spliterator(PrimitiveIterator.OfDouble,long,int)|Create
+|java.util.Spliterators.spliterator(PrimitiveIterator.OfInt,long,int)|Creates a
+|java.util.Spliterators.spliterator(PrimitiveIterator.OfLong,long,int)|Creates 
+|java.util.Spliterators.spliteratorUnknownSize(Iterator<?extendsT>,int)|Creates
+|java.util.Spliterators.spliteratorUnknownSize(PrimitiveIterator.OfDouble,int)|
+|java.util.Spliterators.spliteratorUnknownSize(PrimitiveIterator.OfInt,int)|Cre
+|java.util.Spliterators.spliteratorUnknownSize(PrimitiveIterator.OfLong,int)|Cr
+
+*java.util.Spliterators_Description*
+
+Static classes and methods for operating on or creating instances of 
+(|java.util.Spliterator|) and its primitive specializations 
+(|java.util.Spliterator.OfInt|) , (|java.util.Spliterator.OfLong|) , and 
+(|java.util.Spliterator.OfDouble|) . 
+
+
+
+*java.util.Spliterators.emptyDoubleSpliterator()*
+
+public static |java.util.Spliterator.OfDouble| emptyDoubleSpliterator()
+
+Creates an emptySpliterator.OfDoubleThe empty spliterator reports 
+(|java.util.Spliterator|) and (|java.util.Spliterator|) . Calls to 
+(|java.util.Spliterator|) always returnnull. 
+
+
+
+    Returns: An empty spliterator 
+
+*java.util.Spliterators.emptyIntSpliterator()*
+
+public static |java.util.Spliterator.OfInt| emptyIntSpliterator()
+
+Creates an emptySpliterator.OfIntThe empty spliterator reports 
+(|java.util.Spliterator|) and (|java.util.Spliterator|) . Calls to 
+(|java.util.Spliterator|) always returnnull. 
+
+
+
+    Returns: An empty spliterator 
+
+*java.util.Spliterators.emptyLongSpliterator()*
+
+public static |java.util.Spliterator.OfLong| emptyLongSpliterator()
+
+Creates an emptySpliterator.OfLongThe empty spliterator reports 
+(|java.util.Spliterator|) and (|java.util.Spliterator|) . Calls to 
+(|java.util.Spliterator|) always returnnull. 
+
+
+
+    Returns: An empty spliterator 
+
+*java.util.Spliterators.emptySpliterator()*
+
+public static |java.util.Spliterator|<T> emptySpliterator()
+
+Creates an emptySpliteratorThe empty spliterator reports 
+(|java.util.Spliterator|) and (|java.util.Spliterator|) . Calls to 
+(|java.util.Spliterator|) always returnnull. 
+
+
+
+    Returns: An empty spliterator 
+
+*java.util.Spliterators.iterator(Spliterator.OfDouble)*
+
+public static |java.util.PrimitiveIterator.OfDouble| iterator(java.util.Spliterator.OfDouble spliterator)
+
+Creates anPrimitiveIterator.OfDoublefrom aSpliterator.OfDouble. 
+
+Traversal of elements should be accomplished through the iterator. The 
+behaviour of traversal is undefined if the spliterator is operated after the 
+iterator is returned. 
+
+
+    spliterator - The spliterator 
+
+    Returns: 
+
+*java.util.Spliterators.iterator(Spliterator.OfInt)*
+
+public static |java.util.PrimitiveIterator.OfInt| iterator(java.util.Spliterator.OfInt spliterator)
+
+Creates anPrimitiveIterator.OfIntfrom aSpliterator.OfInt. 
+
+Traversal of elements should be accomplished through the iterator. The 
+behaviour of traversal is undefined if the spliterator is operated after the 
+iterator is returned. 
+
+
+    spliterator - The spliterator 
+
+    Returns: 
+
+*java.util.Spliterators.iterator(Spliterator.OfLong)*
+
+public static |java.util.PrimitiveIterator.OfLong| iterator(java.util.Spliterator.OfLong spliterator)
+
+Creates anPrimitiveIterator.OfLongfrom aSpliterator.OfLong. 
+
+Traversal of elements should be accomplished through the iterator. The 
+behaviour of traversal is undefined if the spliterator is operated after the 
+iterator is returned. 
+
+
+    spliterator - The spliterator 
+
+    Returns: 
+
+*java.util.Spliterators.iterator(Spliterator<?extendsT>)*
+
+public static |java.util.Iterator|<T> iterator(java.util.Spliterator<? extends T> spliterator)
+
+Creates anIteratorfrom aSpliterator. 
+
+Traversal of elements should be accomplished through the iterator. The 
+behaviour of traversal is undefined if the spliterator is operated after the 
+iterator is returned. 
+
+
+    spliterator - The spliterator 
+
+    Returns: 
+
+*java.util.Spliterators.spliterator(Collection<?extendsT>,int)*
+
+public static |java.util.Spliterator|<T> spliterator(
+  java.util.Collection<? extends T> c,
+  int characteristics)
+
+Creates aSpliteratorusing the given collection's (|java.util.Collection|) as 
+the source of elements, and reporting its (|java.util.Collection|) as its 
+initial size. 
+
+The spliterator is late-binding, inherits the fail-fast properties of the 
+collection's iterator, and implementstrySplitto permit limited parallelism. 
+
+
+    c - The collection 
+    characteristics - Characteristics of this spliterator's source or elements. The characteristics 
+       {@code SIZED} and {@code SUBSIZED} are additionally reported unless 
+       {@code CONCURRENT} is supplied. 
+
+    Returns: A spliterator from an iterator 
+
+*java.util.Spliterators.spliterator(double[],int)*
+
+public static |java.util.Spliterator.OfDouble| spliterator(
+  double[] array,
+  int additionalCharacteristics)
+
+Creates aSpliterator.OfDoublecovering the elements of a given array, using a 
+customized set of spliterator characteristics. 
+
+This method is provided as an implementation convenience for Spliterators which 
+store portions of their elements in arrays, and need fine control over 
+Spliterator characteristics. Most other situations in which a Spliterator for 
+an array is needed should use (|java.util.Arrays|) . 
+
+The returned spliterator always reports the characteristicsSIZEDandSUBSIZED. 
+The caller may provide additional characteristics for the spliterator to 
+report; it is common to additionally specifyIMMUTABLEandORDERED. 
+
+
+    array - The array, assumed to be unmodified during use 
+    additionalCharacteristics - Additional spliterator characteristics of this spliterator's source or elements 
+       beyond {@code SIZED} and {@code SUBSIZED} which are are always reported 
+
+    Returns: A spliterator for an array 
+
+*java.util.Spliterators.spliterator(double[],int,int,int)*
+
+public static |java.util.Spliterator.OfDouble| spliterator(
+  double[] array,
+  int fromIndex,
+  int toIndex,
+  int additionalCharacteristics)
+
+Creates aSpliterator.OfDoublecovering a range of elements of a given array, 
+using a customized set of spliterator characteristics. 
+
+This method is provided as an implementation convenience for Spliterators which 
+store portions of their elements in arrays, and need fine control over 
+Spliterator characteristics. Most other situations in which a Spliterator for 
+an array is needed should use (|java.util.Arrays|) . 
+
+The returned spliterator always reports the characteristicsSIZEDandSUBSIZED. 
+The caller may provide additional characteristics for the spliterator to 
+report. (For example, if it is known the array will not be further modified, 
+specifyIMMUTABLE; if the array data is considered to have an an encounter 
+order, specifyORDERED). The method (|java.util.Arrays|) can often be used 
+instead, which returns a spliterator that reportsSIZED,SUBSIZED,IMMUTABLE, 
+andORDERED. 
+
+
+    array - The array, assumed to be unmodified during use 
+    fromIndex - The least index (inclusive) to cover 
+    toIndex - One past the greatest index to cover 
+    additionalCharacteristics - Additional spliterator characteristics of this spliterator's source or elements 
+       beyond {@code SIZED} and {@code SUBSIZED} which are are always reported 
+
+    Returns: A spliterator for an array 
+
+*java.util.Spliterators.spliterator(int[],int)*
+
+public static |java.util.Spliterator.OfInt| spliterator(
+  int[] array,
+  int additionalCharacteristics)
+
+Creates aSpliterator.OfIntcovering the elements of a given array, using a 
+customized set of spliterator characteristics. 
+
+This method is provided as an implementation convenience for Spliterators which 
+store portions of their elements in arrays, and need fine control over 
+Spliterator characteristics. Most other situations in which a Spliterator for 
+an array is needed should use (|java.util.Arrays|) . 
+
+The returned spliterator always reports the characteristicsSIZEDandSUBSIZED. 
+The caller may provide additional characteristics for the spliterator to 
+report; it is common to additionally specifyIMMUTABLEandORDERED. 
+
+
+    array - The array, assumed to be unmodified during use 
+    additionalCharacteristics - Additional spliterator characteristics of this spliterator's source or elements 
+       beyond {@code SIZED} and {@code SUBSIZED} which are are always reported 
+
+    Returns: A spliterator for an array 
+
+*java.util.Spliterators.spliterator(int[],int,int,int)*
+
+public static |java.util.Spliterator.OfInt| spliterator(
+  int[] array,
+  int fromIndex,
+  int toIndex,
+  int additionalCharacteristics)
+
+Creates aSpliterator.OfIntcovering a range of elements of a given array, using 
+a customized set of spliterator characteristics. 
+
+This method is provided as an implementation convenience for Spliterators which 
+store portions of their elements in arrays, and need fine control over 
+Spliterator characteristics. Most other situations in which a Spliterator for 
+an array is needed should use (|java.util.Arrays|) . 
+
+The returned spliterator always reports the characteristicsSIZEDandSUBSIZED. 
+The caller may provide additional characteristics for the spliterator to 
+report; it is common to additionally specifyIMMUTABLEandORDERED. 
+
+
+    array - The array, assumed to be unmodified during use 
+    fromIndex - The least index (inclusive) to cover 
+    toIndex - One past the greatest index to cover 
+    additionalCharacteristics - Additional spliterator characteristics of this spliterator's source or elements 
+       beyond {@code SIZED} and {@code SUBSIZED} which are are always reported 
+
+    Returns: A spliterator for an array 
+
+*java.util.Spliterators.spliterator(Iterator<?extendsT>,long,int)*
+
+public static |java.util.Spliterator|<T> spliterator(
+  java.util.Iterator<? extends T> iterator,
+  long size,
+  int characteristics)
+
+Creates aSpliteratorusing a givenIteratoras the source of elements, and with a 
+given initially reported size. 
+
+The spliterator is not late-binding, inherits the fail-fast properties of the 
+iterator, and implementstrySplitto permit limited parallelism. 
+
+Traversal of elements should be accomplished through the spliterator. The 
+behaviour of splitting and traversal is undefined if the iterator is operated 
+on after the spliterator is returned, or the initially reported size is not 
+equal to the actual number of elements in the source. 
+
+
+    iterator - The iterator for the source 
+    size - The number of elements in the source, to be reported as initial {@code 
+       estimateSize} 
+    characteristics - Characteristics of this spliterator's source or elements. The characteristics 
+       {@code SIZED} and {@code SUBSIZED} are additionally reported unless 
+       {@code CONCURRENT} is supplied. 
+
+    Returns: A spliterator from an iterator 
+
+*java.util.Spliterators.spliterator(long[],int)*
+
+public static |java.util.Spliterator.OfLong| spliterator(
+  long[] array,
+  int additionalCharacteristics)
+
+Creates aSpliterator.OfLongcovering the elements of a given array, using a 
+customized set of spliterator characteristics. 
+
+This method is provided as an implementation convenience for Spliterators which 
+store portions of their elements in arrays, and need fine control over 
+Spliterator characteristics. Most other situations in which a Spliterator for 
+an array is needed should use (|java.util.Arrays|) . 
+
+The returned spliterator always reports the characteristicsSIZEDandSUBSIZED. 
+The caller may provide additional characteristics for the spliterator to 
+report; it is common to additionally specifyIMMUTABLEandORDERED. 
+
+
+    array - The array, assumed to be unmodified during use 
+    additionalCharacteristics - Additional spliterator characteristics of this spliterator's source or elements 
+       beyond {@code SIZED} and {@code SUBSIZED} which are are always reported 
+
+    Returns: A spliterator for an array 
+
+*java.util.Spliterators.spliterator(long[],int,int,int)*
+
+public static |java.util.Spliterator.OfLong| spliterator(
+  long[] array,
+  int fromIndex,
+  int toIndex,
+  int additionalCharacteristics)
+
+Creates aSpliterator.OfLongcovering a range of elements of a given array, using 
+a customized set of spliterator characteristics. 
+
+This method is provided as an implementation convenience for Spliterators which 
+store portions of their elements in arrays, and need fine control over 
+Spliterator characteristics. Most other situations in which a Spliterator for 
+an array is needed should use (|java.util.Arrays|) . 
+
+The returned spliterator always reports the characteristicsSIZEDandSUBSIZED. 
+The caller may provide additional characteristics for the spliterator to 
+report. (For example, if it is known the array will not be further modified, 
+specifyIMMUTABLE; if the array data is considered to have an an encounter 
+order, specifyORDERED). The method (|java.util.Arrays|) can often be used 
+instead, which returns a spliterator that reportsSIZED,SUBSIZED,IMMUTABLE, 
+andORDERED. 
+
+
+    array - The array, assumed to be unmodified during use 
+    fromIndex - The least index (inclusive) to cover 
+    toIndex - One past the greatest index to cover 
+    additionalCharacteristics - Additional spliterator characteristics of this spliterator's source or elements 
+       beyond {@code SIZED} and {@code SUBSIZED} which are are always reported 
+
+    Returns: A spliterator for an array 
+
+*java.util.Spliterators.spliterator(Object[],int)*
+
+public static |java.util.Spliterator|<T> spliterator(
+  java.lang.Object[] array,
+  int additionalCharacteristics)
+
+Creates aSpliteratorcovering the elements of a given array, using a customized 
+set of spliterator characteristics. 
+
+This method is provided as an implementation convenience for Spliterators which 
+store portions of their elements in arrays, and need fine control over 
+Spliterator characteristics. Most other situations in which a Spliterator for 
+an array is needed should use (|java.util.Arrays|) . 
+
+The returned spliterator always reports the characteristicsSIZEDandSUBSIZED. 
+The caller may provide additional characteristics for the spliterator to 
+report; it is common to additionally specifyIMMUTABLEandORDERED. 
+
+
+    array - The array, assumed to be unmodified during use 
+    additionalCharacteristics - Additional spliterator characteristics of this spliterator's source or elements 
+       beyond {@code SIZED} and {@code SUBSIZED} which are are always reported 
+
+    Returns: A spliterator for an array 
+
+*java.util.Spliterators.spliterator(Object[],int,int,int)*
+
+public static |java.util.Spliterator|<T> spliterator(
+  java.lang.Object[] array,
+  int fromIndex,
+  int toIndex,
+  int additionalCharacteristics)
+
+Creates aSpliteratorcovering a range of elements of a given array, using a 
+customized set of spliterator characteristics. 
+
+This method is provided as an implementation convenience for Spliterators which 
+store portions of their elements in arrays, and need fine control over 
+Spliterator characteristics. Most other situations in which a Spliterator for 
+an array is needed should use (|java.util.Arrays|) . 
+
+The returned spliterator always reports the characteristicsSIZEDandSUBSIZED. 
+The caller may provide additional characteristics for the spliterator to 
+report; it is common to additionally specifyIMMUTABLEandORDERED. 
+
+
+    array - The array, assumed to be unmodified during use 
+    fromIndex - The least index (inclusive) to cover 
+    toIndex - One past the greatest index to cover 
+    additionalCharacteristics - Additional spliterator characteristics of this spliterator's source or elements 
+       beyond {@code SIZED} and {@code SUBSIZED} which are are always reported 
+
+    Returns: A spliterator for an array 
+
+*java.util.Spliterators.spliterator(PrimitiveIterator.OfDouble,long,int)*
+
+public static |java.util.Spliterator.OfDouble| spliterator(
+  java.util.PrimitiveIterator.OfDouble iterator,
+  long size,
+  int characteristics)
+
+Creates aSpliterator.OfDoubleusing a givenDoubleStream.DoubleIteratoras the 
+source of elements, and with a given initially reported size. 
+
+The spliterator is not late-binding, inherits the fail-fast properties of the 
+iterator, and implementstrySplitto permit limited parallelism. 
+
+Traversal of elements should be accomplished through the spliterator. The 
+behaviour of splitting and traversal is undefined if the iterator is operated 
+on after the spliterator is returned, or the initially reported size is not 
+equal to the actual number of elements in the source. 
+
+
+    iterator - The iterator for the source 
+    size - The number of elements in the source, to be reported as initial {@code 
+       estimateSize} 
+    characteristics - Characteristics of this spliterator's source or elements. The characteristics 
+       {@code SIZED} and {@code SUBSIZED} are additionally reported unless 
+       {@code CONCURRENT} is supplied. 
+
+    Returns: A spliterator from an iterator 
+
+*java.util.Spliterators.spliterator(PrimitiveIterator.OfInt,long,int)*
+
+public static |java.util.Spliterator.OfInt| spliterator(
+  java.util.PrimitiveIterator.OfInt iterator,
+  long size,
+  int characteristics)
+
+Creates aSpliterator.OfIntusing a givenIntStream.IntIteratoras the source of 
+elements, and with a given initially reported size. 
+
+The spliterator is not late-binding, inherits the fail-fast properties of the 
+iterator, and implementstrySplitto permit limited parallelism. 
+
+Traversal of elements should be accomplished through the spliterator. The 
+behaviour of splitting and traversal is undefined if the iterator is operated 
+on after the spliterator is returned, or the initially reported size is not 
+equal to the actual number of elements in the source. 
+
+
+    iterator - The iterator for the source 
+    size - The number of elements in the source, to be reported as initial {@code 
+       estimateSize}. 
+    characteristics - Characteristics of this spliterator's source or elements. The characteristics 
+       {@code SIZED} and {@code SUBSIZED} are additionally reported unless 
+       {@code CONCURRENT} is supplied. 
+
+    Returns: A spliterator from an iterator 
+
+*java.util.Spliterators.spliterator(PrimitiveIterator.OfLong,long,int)*
+
+public static |java.util.Spliterator.OfLong| spliterator(
+  java.util.PrimitiveIterator.OfLong iterator,
+  long size,
+  int characteristics)
+
+Creates aSpliterator.OfLongusing a givenLongStream.LongIteratoras the source of 
+elements, and with a given initially reported size. 
+
+The spliterator is not late-binding, inherits the fail-fast properties of the 
+iterator, and implementstrySplitto permit limited parallelism. 
+
+Traversal of elements should be accomplished through the spliterator. The 
+behaviour of splitting and traversal is undefined if the iterator is operated 
+on after the spliterator is returned, or the initially reported size is not 
+equal to the actual number of elements in the source. 
+
+
+    iterator - The iterator for the source 
+    size - The number of elements in the source, to be reported as initial {@code 
+       estimateSize}. 
+    characteristics - Characteristics of this spliterator's source or elements. The characteristics 
+       {@code SIZED} and {@code SUBSIZED} are additionally reported unless 
+       {@code CONCURRENT} is supplied. 
+
+    Returns: A spliterator from an iterator 
+
+*java.util.Spliterators.spliteratorUnknownSize(Iterator<?extendsT>,int)*
+
+public static |java.util.Spliterator|<T> spliteratorUnknownSize(
+  java.util.Iterator<? extends T> iterator,
+  int characteristics)
+
+Creates aSpliteratorusing a givenIteratoras the source of elements, with no 
+initial size estimate. 
+
+The spliterator is not late-binding, inherits the fail-fast properties of the 
+iterator, and implementstrySplitto permit limited parallelism. 
+
+Traversal of elements should be accomplished through the spliterator. The 
+behaviour of splitting and traversal is undefined if the iterator is operated 
+on after the spliterator is returned. 
+
+
+    iterator - The iterator for the source 
+    characteristics - Characteristics of this spliterator's source or elements ({@code SIZED} and 
+       {@code SUBSIZED}, if supplied, are ignored and are not reported.) 
+
+    Returns: A spliterator from an iterator 
+
+*java.util.Spliterators.spliteratorUnknownSize(PrimitiveIterator.OfDouble,int)*
+
+public static |java.util.Spliterator.OfDouble| spliteratorUnknownSize(
+  java.util.PrimitiveIterator.OfDouble iterator,
+  int characteristics)
+
+Creates aSpliterator.OfDoubleusing a givenDoubleStream.DoubleIteratoras the 
+source of elements, with no initial size estimate. 
+
+The spliterator is not late-binding, inherits the fail-fast properties of the 
+iterator, and implementstrySplitto permit limited parallelism. 
+
+Traversal of elements should be accomplished through the spliterator. The 
+behaviour of splitting and traversal is undefined if the iterator is operated 
+on after the spliterator is returned. 
+
+
+    iterator - The iterator for the source 
+    characteristics - Characteristics of this spliterator's source or elements ({@code SIZED} and 
+       {@code SUBSIZED}, if supplied, are ignored and are not reported.) 
+
+    Returns: A spliterator from an iterator 
+
+*java.util.Spliterators.spliteratorUnknownSize(PrimitiveIterator.OfInt,int)*
+
+public static |java.util.Spliterator.OfInt| spliteratorUnknownSize(
+  java.util.PrimitiveIterator.OfInt iterator,
+  int characteristics)
+
+Creates aSpliterator.OfIntusing a givenIntStream.IntIteratoras the source of 
+elements, with no initial size estimate. 
+
+The spliterator is not late-binding, inherits the fail-fast properties of the 
+iterator, and implementstrySplitto permit limited parallelism. 
+
+Traversal of elements should be accomplished through the spliterator. The 
+behaviour of splitting and traversal is undefined if the iterator is operated 
+on after the spliterator is returned. 
+
+
+    iterator - The iterator for the source 
+    characteristics - Characteristics of this spliterator's source or elements ({@code SIZED} and 
+       {@code SUBSIZED}, if supplied, are ignored and are not reported.) 
+
+    Returns: A spliterator from an iterator 
+
+*java.util.Spliterators.spliteratorUnknownSize(PrimitiveIterator.OfLong,int)*
+
+public static |java.util.Spliterator.OfLong| spliteratorUnknownSize(
+  java.util.PrimitiveIterator.OfLong iterator,
+  int characteristics)
+
+Creates aSpliterator.OfLongusing a givenLongStream.LongIteratoras the source of 
+elements, with no initial size estimate. 
+
+The spliterator is not late-binding, inherits the fail-fast properties of the 
+iterator, and implementstrySplitto permit limited parallelism. 
+
+Traversal of elements should be accomplished through the spliterator. The 
+behaviour of splitting and traversal is undefined if the iterator is operated 
+on after the spliterator is returned. 
+
+
+    iterator - The iterator for the source 
+    characteristics - Characteristics of this spliterator's source or elements ({@code SIZED} and 
+       {@code SUBSIZED}, if supplied, are ignored and are not reported.) 
+
+    Returns: A spliterator from an iterator 
+
+

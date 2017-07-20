@@ -1,0 +1,77 @@
+*org.omg.PortableInterceptor.ObjectReferenceFactoryHolder* *ObjectReferenceFactoryHolder* 
+
+public final class ObjectReferenceFactoryHolder
+  extends    |java.lang.Object|
+  implements |org.omg.CORBA.portable.Streamable|
+
+|org.omg.PortableInterceptor.ObjectReferenceFactoryHolder_Description|
+|org.omg.PortableInterceptor.ObjectReferenceFactoryHolder_Fields|
+|org.omg.PortableInterceptor.ObjectReferenceFactoryHolder_Constructors|
+|org.omg.PortableInterceptor.ObjectReferenceFactoryHolder_Methods|
+
+================================================================================
+
+*org.omg.PortableInterceptor.ObjectReferenceFactoryHolder_Fields*
+|org.omg.PortableInterceptor.ObjectReferenceFactory_org.omg.PortableInterceptor.ObjectReferenceFactoryHolder.value|
+
+*org.omg.PortableInterceptor.ObjectReferenceFactoryHolder_Constructors*
+|org.omg.PortableInterceptor.ObjectReferenceFactoryHolder()|
+|org.omg.PortableInterceptor.ObjectReferenceFactoryHolder(ObjectReferenceFactory)|
+
+*org.omg.PortableInterceptor.ObjectReferenceFactoryHolder_Methods*
+|org.omg.PortableInterceptor.ObjectReferenceFactoryHolder._read(InputStream)|
+|org.omg.PortableInterceptor.ObjectReferenceFactoryHolder._type()|
+|org.omg.PortableInterceptor.ObjectReferenceFactoryHolder._write(OutputStream)|
+
+*org.omg.PortableInterceptor.ObjectReferenceFactoryHolder_Description*
+
+The object reference factory. This provides the capability of creating an 
+object reference. 
+
+
+
+*org.omg.PortableInterceptor.ObjectReferenceFactory_org.omg.PortableInterceptor.ObjectReferenceFactoryHolder.value*
+
+
+
+
+
+*org.omg.PortableInterceptor.ObjectReferenceFactoryHolder()*
+
+public ObjectReferenceFactoryHolder()
+
+
+
+
+*org.omg.PortableInterceptor.ObjectReferenceFactoryHolder(ObjectReferenceFactory)*
+
+public ObjectReferenceFactoryHolder(org.omg.PortableInterceptor.ObjectReferenceFactory initialValue)
+
+
+
+
+*org.omg.PortableInterceptor.ObjectReferenceFactoryHolder._read(InputStream)*
+
+public void _read(org.omg.CORBA.portable.InputStream i)
+
+
+
+
+
+*org.omg.PortableInterceptor.ObjectReferenceFactoryHolder._type()*
+
+public |org.omg.CORBA.TypeCode| _type()
+
+
+
+
+
+*org.omg.PortableInterceptor.ObjectReferenceFactoryHolder._write(OutputStream)*
+
+public void _write(org.omg.CORBA.portable.OutputStream o)
+
+
+
+
+
+

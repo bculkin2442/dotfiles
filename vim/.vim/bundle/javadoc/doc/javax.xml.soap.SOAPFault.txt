@@ -1,0 +1,424 @@
+*javax.xml.soap.SOAPFault* *SOAPFault* An element in the SOAPBody object that co
+
+public interface interface SOAPFault
+
+  implements |javax.xml.soap.SOAPBodyElement|
+
+|javax.xml.soap.SOAPFault_Description|
+|javax.xml.soap.SOAPFault_Fields|
+|javax.xml.soap.SOAPFault_Constructors|
+|javax.xml.soap.SOAPFault_Methods|
+
+================================================================================
+
+*javax.xml.soap.SOAPFault_Methods*
+|javax.xml.soap.SOAPFault.addDetail()|Creates an optional Detail object and set
+|javax.xml.soap.SOAPFault.addFaultReasonText(String,Locale)|Appends or replaces
+|javax.xml.soap.SOAPFault.appendFaultSubcode(QName)|Adds a Subcode to the end o
+|javax.xml.soap.SOAPFault.getDetail()|Returns the optional detail element for t
+|javax.xml.soap.SOAPFault.getFaultActor()|Gets the fault actor for this SOAPFau
+|javax.xml.soap.SOAPFault.getFaultCode()|Gets the fault code for this SOAPFault
+|javax.xml.soap.SOAPFault.getFaultCodeAsName()|Gets the mandatory SOAP 1.1 faul
+|javax.xml.soap.SOAPFault.getFaultCodeAsQName()|Gets the fault code for this  S
+|javax.xml.soap.SOAPFault.getFaultNode()|Returns the optional Node element valu
+|javax.xml.soap.SOAPFault.getFaultReasonLocales()|Returns an Iterator over a di
+|javax.xml.soap.SOAPFault.getFaultReasonText(Locale)|Returns the Reason Text as
+|javax.xml.soap.SOAPFault.getFaultReasonTexts()|Returns an Iterator over a sequ
+|javax.xml.soap.SOAPFault.getFaultRole()|Returns the optional Role element valu
+|javax.xml.soap.SOAPFault.getFaultString()|Gets the fault string for this SOAPF
+|javax.xml.soap.SOAPFault.getFaultStringLocale()|Gets the locale of the fault s
+|javax.xml.soap.SOAPFault.getFaultSubcodes()|Gets the Subcodes for this SOAPFau
+|javax.xml.soap.SOAPFault.hasDetail()|Returns true if this SOAPFault has a Deta
+|javax.xml.soap.SOAPFault.removeAllFaultSubcodes()|Removes any Subcodes that ma
+|javax.xml.soap.SOAPFault.setFaultActor(String)|Sets this SOAPFault object with
+|javax.xml.soap.SOAPFault.setFaultCode(Name)|Sets this SOAPFault object with th
+|javax.xml.soap.SOAPFault.setFaultCode(QName)|Sets this SOAPFault object with t
+|javax.xml.soap.SOAPFault.setFaultCode(String)|Sets this SOAPFault object with 
+|javax.xml.soap.SOAPFault.setFaultNode(String)|Creates or replaces any existing
+|javax.xml.soap.SOAPFault.setFaultRole(String)|Creates or replaces any existing
+|javax.xml.soap.SOAPFault.setFaultString(String)|Sets the fault string for this
+|javax.xml.soap.SOAPFault.setFaultString(String,Locale)|Sets the fault string f
+
+*javax.xml.soap.SOAPFault_Description*
+
+An element in the SOAPBody object that contains error and/or status 
+information. This information may relate to errors in the SOAPMessage object or 
+to problems that are not related to the content in the message itself. Problems 
+not related to the message itself are generally errors in processing, such as 
+the inability to communicate with an upstream server. 
+
+Depending on the protocol specified while creating the MessageFactory instance, 
+a SOAPFault has sub-elements as defined in the SOAP 1.1/SOAP 1.2 specification. 
+
+
+
+*javax.xml.soap.SOAPFault.addDetail()*
+
+public |javax.xml.soap.Detail| addDetail()
+  throws |javax.xml.soap.SOAPException|
+         
+Creates an optional Detail object and sets it as the Detail object for this 
+SOAPFault object. 
+
+It is illegal to add a detail when the fault already contains a detail. 
+Therefore, this method should be called only after the existing detail has been 
+removed. 
+
+
+
+    Returns: the new Detail object 
+
+*javax.xml.soap.SOAPFault.addFaultReasonText(String,Locale)*
+
+public void addFaultReasonText(
+  java.lang.String text,
+  java.util.Locale locale)
+  throws |javax.xml.soap.SOAPException|
+         
+Appends or replaces a Reason Text item containing the specified text message 
+and an xml:lang derived from locale. If a Reason Text item with this xml:lang 
+already exists its text value will be replaced with text. The locale parameter 
+should not be null 
+
+Code sample: 
+
+
+
+SOAPFault fault = ...; fault.addFaultReasonText("Version Mismatch", 
+Locale.ENGLISH); 
+
+
+    text - -- reason message string 
+    locale - -- Locale object representing the locale of the message 
+
+*javax.xml.soap.SOAPFault.appendFaultSubcode(QName)*
+
+public void appendFaultSubcode(javax.xml.namespace.QName subcode)
+  throws |javax.xml.soap.SOAPException|
+         
+Adds a Subcode to the end of the sequence of Subcodes contained by this 
+SOAPFault. Subcodes, which were introduced in SOAP 1.2, are represented by a 
+recursive sequence of subelements rooted in the mandatory Code subelement of a 
+SOAP Fault. 
+
+
+    subcode - a QName containing the Value of the Subcode. 
+
+*javax.xml.soap.SOAPFault.getDetail()*
+
+public |javax.xml.soap.Detail| getDetail()
+
+Returns the optional detail element for this SOAPFault object. 
+
+A Detail object carries application-specific error information, the scope of 
+the error information is restricted to faults in the SOAPBodyElement objects if 
+this is a SOAP 1.1 Fault. 
+
+
+
+    Returns: a Detail object with application-specific error information if present, null 
+             otherwise 
+
+*javax.xml.soap.SOAPFault.getFaultActor()*
+
+public |java.lang.String| getFaultActor()
+
+Gets the fault actor for this SOAPFault object. 
+
+If this SOAPFault supports SOAP 1.2 then this call is equivalent to 
+(|javax.xml.soap.SOAPFault|) 
+
+
+
+    Returns: a String giving the actor in the message path that caused this SOAPFault object 
+
+*javax.xml.soap.SOAPFault.getFaultCode()*
+
+public |java.lang.String| getFaultCode()
+
+Gets the fault code for this SOAPFault object. 
+
+
+
+    Returns: a String with the fault code 
+
+*javax.xml.soap.SOAPFault.getFaultCodeAsName()*
+
+public |javax.xml.soap.Name| getFaultCodeAsName()
+
+Gets the mandatory SOAP 1.1 fault code for this SOAPFault object as a SAAJ Name 
+object. The SOAP 1.1 specification requires the value of the "faultcode" 
+element to be of type QName. This method returns the content of the element as 
+a QName in the form of a SAAJ Name object. This method should be used instead 
+of the getFaultCode method since it allows applications to easily access the 
+namespace name without additional parsing. 
+
+
+
+    Returns: a Name representing the faultcode 
+
+*javax.xml.soap.SOAPFault.getFaultCodeAsQName()*
+
+public |javax.xml.namespace.QName| getFaultCodeAsQName()
+
+Gets the fault code for this SOAPFault object as a QName object. 
+
+
+
+    Returns: a QName representing the faultcode 
+
+*javax.xml.soap.SOAPFault.getFaultNode()*
+
+public |java.lang.String| getFaultNode()
+
+Returns the optional Node element value for this SOAPFault object. The Node 
+element is optional in SOAP 1.2. 
+
+
+
+    Returns: Content of the env:Fault/env:Node element as a String or null if none 
+
+*javax.xml.soap.SOAPFault.getFaultReasonLocales()*
+
+public |java.util.Iterator| getFaultReasonLocales()
+  throws |javax.xml.soap.SOAPException|
+         
+Returns an Iterator over a distinct sequence of Locales for which there are 
+associated Reason Text items. Any of these Locales can be used in a call to 
+getFaultReasonText in order to obtain a localized version of the Reason Text 
+string. 
+
+
+
+    Returns: an Iterator over a sequence of Locale objects for which there are associated 
+             Reason Text items. 
+
+*javax.xml.soap.SOAPFault.getFaultReasonText(Locale)*
+
+public |java.lang.String| getFaultReasonText(java.util.Locale locale)
+  throws |javax.xml.soap.SOAPException|
+         
+Returns the Reason Text associated with the given Locale. If more than one such 
+Reason Text exists the first matching Text is returned 
+
+
+    locale - -- the Locale for which a localized Reason Text is desired 
+
+    Returns: the Reason Text associated with locale 
+
+*javax.xml.soap.SOAPFault.getFaultReasonTexts()*
+
+public |java.util.Iterator| getFaultReasonTexts()
+  throws |javax.xml.soap.SOAPException|
+         
+Returns an Iterator over a sequence of String objects containing all of the 
+Reason Text items for this SOAPFault. 
+
+
+
+    Returns: an Iterator over env:Fault/env:Reason/env:Text items. 
+
+*javax.xml.soap.SOAPFault.getFaultRole()*
+
+public |java.lang.String| getFaultRole()
+
+Returns the optional Role element value for this SOAPFault object. The Role 
+element is optional in SOAP 1.2. 
+
+
+
+    Returns: Content of the env:Fault/env:Role element as a String or null if none 
+
+*javax.xml.soap.SOAPFault.getFaultString()*
+
+public |java.lang.String| getFaultString()
+
+Gets the fault string for this SOAPFault object. 
+
+If this SOAPFault is part of a message that supports SOAP 1.2 then this call is 
+equivalent to: 
+
+String reason = null; try { reason = (String) getFaultReasonTexts().next(); } 
+catch (SOAPException e) {} return reason; 
+
+
+
+    Returns: a String giving an explanation of the fault 
+
+*javax.xml.soap.SOAPFault.getFaultStringLocale()*
+
+public |java.util.Locale| getFaultStringLocale()
+
+Gets the locale of the fault string for this SOAPFault object. 
+
+If this SOAPFault is part of a message that supports SOAP 1.2 then this call is 
+equivalent to: 
+
+Locale locale = null; try { locale = (Locale) getFaultReasonLocales().next(); } 
+catch (SOAPException e) {} return locale; 
+
+
+
+    Returns: a Locale object indicating the native language of the fault string or null if 
+             no locale was specified 
+
+*javax.xml.soap.SOAPFault.getFaultSubcodes()*
+
+public |java.util.Iterator| getFaultSubcodes()
+
+Gets the Subcodes for this SOAPFault as an iterator over QNames. 
+
+
+
+    Returns: an Iterator that accesses a sequence of QNames. This Iterator should not 
+             support the optional remove method. The order in which the 
+             Subcodes are returned reflects the hierarchy of Subcodes present 
+             in the fault from top to bottom. 
+
+*javax.xml.soap.SOAPFault.hasDetail()*
+
+public boolean hasDetail()
+
+Returns true if this SOAPFault has a Detail subelement and false otherwise. 
+Equivalent to (getDetail()!=null). 
+
+
+
+    Returns: true if this SOAPFault has a Detail subelement and false otherwise. 
+
+*javax.xml.soap.SOAPFault.removeAllFaultSubcodes()*
+
+public void removeAllFaultSubcodes()
+
+Removes any Subcodes that may be contained by this SOAPFault. Subsequent calls 
+to getFaultSubcodes will return an empty iterator until a call to 
+appendFaultSubcode is made. 
+
+
+
+*javax.xml.soap.SOAPFault.setFaultActor(String)*
+
+public void setFaultActor(java.lang.String faultActor)
+  throws |javax.xml.soap.SOAPException|
+         
+Sets this SOAPFault object with the given fault actor. 
+
+The fault actor is the recipient in the message path who caused the fault to 
+happen. 
+
+If this SOAPFault supports SOAP 1.2 then this call is equivalent to 
+(|javax.xml.soap.SOAPFault|) 
+
+
+    faultActor - a String identifying the actor that caused this SOAPFault object 
+
+*javax.xml.soap.SOAPFault.setFaultCode(Name)*
+
+public void setFaultCode(javax.xml.soap.Name faultCodeQName)
+  throws |javax.xml.soap.SOAPException|
+         
+Sets this SOAPFault object with the given fault code. 
+
+Fault codes, which give information about the fault, are defined in the SOAP 
+1.1 specification. A fault code is mandatory and must be of type Name. This 
+method provides a convenient way to set a fault code. For example, 
+
+
+
+SOAPEnvelope se = ...; // Create a qualified name in the SOAP namespace with a 
+localName // of "Client". Note that prefix parameter is optional and is null // 
+here which causes the implementation to use an appropriate prefix. Name qname = 
+se.createName("Client", null, SOAPConstants.URI_NS_SOAP_ENVELOPE); SOAPFault 
+fault = ...; fault.setFaultCode(qname); 
+
+It is preferable to use this method over (|javax.xml.soap.SOAPFault|) . 
+
+
+    faultCodeQName - a Name object giving the fault code to be set. It must be namespace qualified. 
+
+*javax.xml.soap.SOAPFault.setFaultCode(QName)*
+
+public void setFaultCode(javax.xml.namespace.QName faultCodeQName)
+  throws |javax.xml.soap.SOAPException|
+         
+Sets this SOAPFault object with the given fault code. 
+
+It is preferable to use this method over (|javax.xml.soap.SOAPFault|) . 
+
+
+    faultCodeQName - a QName object giving the fault code to be set. It must be namespace qualified. 
+
+*javax.xml.soap.SOAPFault.setFaultCode(String)*
+
+public void setFaultCode(java.lang.String faultCode)
+  throws |javax.xml.soap.SOAPException|
+         
+Sets this SOAPFault object with the give fault code. 
+
+Fault codes, which given information about the fault, are defined in the SOAP 
+1.1 specification. This element is mandatory in SOAP 1.1. Because the fault 
+code is required to be a QName it is preferable to use the 
+(|javax.xml.soap.SOAPFault|) form of this method. 
+
+
+    faultCode - a String giving the fault code to be set. It must be of the form 
+       "prefix:localName" where the prefix has been defined in a namespace 
+       declaration. 
+
+*javax.xml.soap.SOAPFault.setFaultNode(String)*
+
+public void setFaultNode(java.lang.String uri)
+  throws |javax.xml.soap.SOAPException|
+         
+Creates or replaces any existing Node element value for this SOAPFault object. 
+The Node element is optional in SOAP 1.2. 
+
+
+
+*javax.xml.soap.SOAPFault.setFaultRole(String)*
+
+public void setFaultRole(java.lang.String uri)
+  throws |javax.xml.soap.SOAPException|
+         
+Creates or replaces any existing Role element value for this SOAPFault object. 
+The Role element is optional in SOAP 1.2. 
+
+
+    uri - - the URI of the Role 
+
+*javax.xml.soap.SOAPFault.setFaultString(String)*
+
+public void setFaultString(java.lang.String faultString)
+  throws |javax.xml.soap.SOAPException|
+         
+Sets the fault string for this SOAPFault object to the given string. 
+
+If this SOAPFault is part of a message that supports SOAP 1.2 then this call is 
+equivalent to: 
+
+addFaultReasonText(faultString, Locale.getDefault()); 
+
+
+    faultString - a String giving an explanation of the fault 
+
+*javax.xml.soap.SOAPFault.setFaultString(String,Locale)*
+
+public void setFaultString(
+  java.lang.String faultString,
+  java.util.Locale locale)
+  throws |javax.xml.soap.SOAPException|
+         
+Sets the fault string for this SOAPFault object to the given string and 
+localized to the given locale. 
+
+If this SOAPFault is part of a message that supports SOAP 1.2 then this call is 
+equivalent to: 
+
+addFaultReasonText(faultString, locale); 
+
+
+    faultString - a String giving an explanation of the fault 
+    locale - a {@link java.util.Locale Locale} object indicating the native language of the 
+       faultString 
+
+

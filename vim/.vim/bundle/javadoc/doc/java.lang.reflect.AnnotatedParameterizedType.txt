@@ -1,0 +1,36 @@
+*java.lang.reflect.AnnotatedParameterizedType* *AnnotatedParameterizedType* Anno
+
+public interface interface AnnotatedParameterizedType
+
+  implements |java.lang.reflect.AnnotatedType|
+
+|java.lang.reflect.AnnotatedParameterizedType_Description|
+|java.lang.reflect.AnnotatedParameterizedType_Fields|
+|java.lang.reflect.AnnotatedParameterizedType_Constructors|
+|java.lang.reflect.AnnotatedParameterizedType_Methods|
+
+================================================================================
+
+*java.lang.reflect.AnnotatedParameterizedType_Methods*
+|java.lang.reflect.AnnotatedParameterizedType.getAnnotatedActualTypeArguments()|
+
+*java.lang.reflect.AnnotatedParameterizedType_Description*
+
+AnnotatedParameterizedTyperepresents the potentially annotated use of a 
+parameterized type, whose type arguments may themselves represent annotated 
+uses of types. 
+
+
+
+*java.lang.reflect.AnnotatedParameterizedType.getAnnotatedActualTypeArguments()*
+
+public |java.lang.reflect.AnnotatedType|[] getAnnotatedActualTypeArguments()
+
+Returns the potentially annotated actual type arguments of this parameterized 
+type. 
+
+
+
+    Returns: the potentially annotated actual type arguments of this parameterized type 
+
+

@@ -1,0 +1,92 @@
+*javax.xml.crypto.dsig.SignedInfo* *SignedInfo* An representation of the XML Sig
+
+public interface interface SignedInfo
+
+  implements |javax.xml.crypto.XMLStructure|
+
+|javax.xml.crypto.dsig.SignedInfo_Description|
+|javax.xml.crypto.dsig.SignedInfo_Fields|
+|javax.xml.crypto.dsig.SignedInfo_Constructors|
+|javax.xml.crypto.dsig.SignedInfo_Methods|
+
+================================================================================
+
+*javax.xml.crypto.dsig.SignedInfo_Methods*
+|javax.xml.crypto.dsig.SignedInfo.getCanonicalizationMethod()|Returns the canon
+|javax.xml.crypto.dsig.SignedInfo.getCanonicalizedData()|Returns the canonicali
+|javax.xml.crypto.dsig.SignedInfo.getId()|Returns the optional Id attribute of 
+|javax.xml.crypto.dsig.SignedInfo.getReferences()|Returns anjava.util.Collectio
+|javax.xml.crypto.dsig.SignedInfo.getSignatureMethod()|Returns the signature me
+
+*javax.xml.crypto.dsig.SignedInfo_Description*
+
+An representation of the XML SignedInfo element as defined in the W3C 
+Recommendation for XML-Signature Syntax and Processing. The XML Schema 
+Definition is defined as: 
+
+<element name="SignedInfo" type="ds:SignedInfoType"/> <complexType 
+name="SignedInfoType"> <sequence> <element ref="ds:CanonicalizationMethod"/> 
+<element ref="ds:SignatureMethod"/> <element ref="ds:Reference" 
+maxOccurs="unbounded"/> </sequence> <attribute name="Id" type="ID" 
+use="optional"/> </complexType> 
+
+A SignedInfo instance may be created by invoking one of the 
+newSignedInfo(|javax.xml.crypto.dsig.XMLSignatureFactory|) methods of the 
+(|javax.xml.crypto.dsig.XMLSignatureFactory|) class. 
+
+
+
+*javax.xml.crypto.dsig.SignedInfo.getCanonicalizationMethod()*
+
+public |javax.xml.crypto.dsig.CanonicalizationMethod| getCanonicalizationMethod()
+
+Returns the canonicalization method of this SignedInfo. 
+
+
+
+    Returns: the canonicalization method 
+
+*javax.xml.crypto.dsig.SignedInfo.getCanonicalizedData()*
+
+public |java.io.InputStream| getCanonicalizedData()
+
+Returns the canonicalized signed info bytes after a signing or validation 
+operation. This method is useful for debugging. 
+
+
+
+    Returns: an InputStream containing the canonicalized bytes, or null if this SignedInfo 
+             has not been signed or validated yet 
+
+*javax.xml.crypto.dsig.SignedInfo.getId()*
+
+public |java.lang.String| getId()
+
+Returns the optional Id attribute of this SignedInfo. 
+
+
+
+    Returns: the id (may be null if not specified) 
+
+*javax.xml.crypto.dsig.SignedInfo.getReferences()*
+
+public |java.util.List| getReferences()
+
+Returns an unmodifiable list(|java.util.Collections|) of one or more 
+(|javax.xml.crypto.dsig.Reference|) s. 
+
+
+
+    Returns: an unmodifiable list of one or more {@link Reference}s 
+
+*javax.xml.crypto.dsig.SignedInfo.getSignatureMethod()*
+
+public |javax.xml.crypto.dsig.SignatureMethod| getSignatureMethod()
+
+Returns the signature method of this SignedInfo. 
+
+
+
+    Returns: the signature method 
+
+

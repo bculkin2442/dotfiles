@@ -1,0 +1,54 @@
+*javax.xml.crypto.dsig.spec.XSLTTransformParameterSpec* *XSLTTransformParameterSpec* 
+
+public final class XSLTTransformParameterSpec
+  extends    |java.lang.Object|
+  implements |javax.xml.crypto.dsig.spec.TransformParameterSpec|
+
+|javax.xml.crypto.dsig.spec.XSLTTransformParameterSpec_Description|
+|javax.xml.crypto.dsig.spec.XSLTTransformParameterSpec_Fields|
+|javax.xml.crypto.dsig.spec.XSLTTransformParameterSpec_Constructors|
+|javax.xml.crypto.dsig.spec.XSLTTransformParameterSpec_Methods|
+
+================================================================================
+
+*javax.xml.crypto.dsig.spec.XSLTTransformParameterSpec_Constructors*
+|javax.xml.crypto.dsig.spec.XSLTTransformParameterSpec(XMLStructure)|Creates an
+
+*javax.xml.crypto.dsig.spec.XSLTTransformParameterSpec_Methods*
+|javax.xml.crypto.dsig.spec.XSLTTransformParameterSpec.getStylesheet()|Returns 
+
+*javax.xml.crypto.dsig.spec.XSLTTransformParameterSpec_Description*
+
+Parameters for the XSLT Transform Algorithm. The parameters include a 
+namespace-qualified stylesheet element. 
+
+An XSLTTransformParameterSpec is instantiated with a mechanism-dependent (ex: 
+DOM) stylesheet element. For example: 
+
+DOMStructure stylesheet = new DOMStructure(element) XSLTTransformParameterSpec 
+spec = new XSLTransformParameterSpec(stylesheet); 
+
+where element is an (|org.w3c.dom.Element|) containing the namespace-qualified 
+stylesheet element. 
+
+
+
+*javax.xml.crypto.dsig.spec.XSLTTransformParameterSpec(XMLStructure)*
+
+public XSLTTransformParameterSpec(javax.xml.crypto.XMLStructure stylesheet)
+
+Creates an XSLTTransformParameterSpec with the specified stylesheet. 
+
+    stylesheet - the XSLT stylesheet to be used 
+
+*javax.xml.crypto.dsig.spec.XSLTTransformParameterSpec.getStylesheet()*
+
+public |javax.xml.crypto.XMLStructure| getStylesheet()
+
+Returns the stylesheet. 
+
+
+
+    Returns: the stylesheet 
+
+

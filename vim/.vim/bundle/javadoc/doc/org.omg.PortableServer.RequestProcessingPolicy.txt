@@ -1,0 +1,22 @@
+*org.omg.PortableServer.RequestProcessingPolicy* *RequestProcessingPolicy* This 
+
+public interface interface RequestProcessingPolicy
+
+  implements |org.omg.PortableServer.RequestProcessingPolicyOperations|
+             |org.omg.CORBA.Policy|
+             |org.omg.CORBA.portable.IDLEntity|
+
+|org.omg.PortableServer.RequestProcessingPolicy_Description|
+|org.omg.PortableServer.RequestProcessingPolicy_Fields|
+|org.omg.PortableServer.RequestProcessingPolicy_Constructors|
+|org.omg.PortableServer.RequestProcessingPolicy_Methods|
+
+================================================================================
+
+*org.omg.PortableServer.RequestProcessingPolicy_Description*
+
+This policy specifies how requests are processed by the created POA. The 
+default is USE_ACTIVE_OBJECT_MAP_ONLY. 
+
+
+

@@ -1,0 +1,50 @@
+*org.omg.PortableInterceptor.IORInterceptorOperations* *IORInterceptorOperations* 
+
+public interface interface IORInterceptorOperations
+
+  implements |org.omg.PortableInterceptor.InterceptorOperations|
+
+|org.omg.PortableInterceptor.IORInterceptorOperations_Description|
+|org.omg.PortableInterceptor.IORInterceptorOperations_Fields|
+|org.omg.PortableInterceptor.IORInterceptorOperations_Constructors|
+|org.omg.PortableInterceptor.IORInterceptorOperations_Methods|
+
+================================================================================
+
+*org.omg.PortableInterceptor.IORInterceptorOperations_Methods*
+|org.omg.PortableInterceptor.IORInterceptorOperations.establish_components(IORInfo)|
+
+*org.omg.PortableInterceptor.IORInterceptorOperations_Description*
+
+Interceptor used to establish tagged components in the profiles within an IOR. 
+
+In some cases, a portable ORB service implementation may need to add 
+information describing the server's or object's ORB service related 
+capabilities to object references in order to enable the ORB service 
+implementation in the client to function properly. 
+
+This is supported through the IORInterceptor and IORInfo interfaces. 
+
+
+
+*org.omg.PortableInterceptor.IORInterceptorOperations.establish_components(IORInfo)*
+
+public void establish_components(org.omg.PortableInterceptor.IORInfo info)
+
+A server side ORB calls the establish_components operation on all registered 
+IORInterceptor instances when it is assembling the list of components that will 
+be included in the profile or profiles of an object reference. This operation 
+is not necessarily called for each individual object reference. In the case of 
+the POA, this operation is called each time POA::create_POA is called. In any 
+case, establish_components is guaranteed to be called at least once for each 
+distinct set of server policies. 
+
+An implementation of establish_components must not throw exceptions. If it 
+does, the ORB shall ignore the exception and proceed to call the next IOR 
+Interceptor's establish_components operation. 
+
+
+    info - The IORInfo instance used by the ORB service to query applicable policies and 
+       add components to be included in the generated IORs. 
+
+

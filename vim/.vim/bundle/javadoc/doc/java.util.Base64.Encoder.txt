@@ -1,0 +1,137 @@
+*java.util.Base64.Encoder* *Base64.Encoder* This class implements an encoder for
+
+public static class Base64.Encoder
+  extends    |java.lang.Object|
+
+|java.util.Base64.Encoder_Description|
+|java.util.Base64.Encoder_Fields|
+|java.util.Base64.Encoder_Constructors|
+|java.util.Base64.Encoder_Methods|
+
+================================================================================
+
+*java.util.Base64.Encoder_Methods*
+|java.util.Base64.Encoder.encode(byte[])|Encodes all bytes from the specified b
+|java.util.Base64.Encoder.encode(byte[],byte[])|Encodes all bytes from the spec
+|java.util.Base64.Encoder.encode(ByteBuffer)|Encodes all remaining bytes from t
+|java.util.Base64.Encoder.encodeToString(byte[])|Encodes the specified byte arr
+|java.util.Base64.Encoder.withoutPadding()|Returns an encoder instance that enc
+|java.util.Base64.Encoder.wrap(OutputStream)|Wraps an output stream for encodin
+
+*java.util.Base64.Encoder_Description*
+
+This class implements an encoder for encoding byte data using the Base64 
+encoding scheme as specified in RFC 4648 and RFC 2045. 
+
+Instances of (|java.util.Base64.Encoder|) class are safe for use by multiple 
+concurrent threads. 
+
+Unless otherwise noted, passing anullargument to a method of this class will 
+cause a NullPointerException(|java.lang.NullPointerException|) to be thrown. 
+
+
+
+*java.util.Base64.Encoder.encode(byte[])*
+
+public byte[] encode(byte[] src)
+
+Encodes all bytes from the specified byte array into a newly-allocated byte 
+array using the (|java.util.Base64|) encoding scheme. The returned byte array 
+is of the length of the resulting bytes. 
+
+
+    src - the byte array to encode 
+
+    Returns: A newly-allocated byte array containing the resulting encoded bytes. 
+
+*java.util.Base64.Encoder.encode(byte[],byte[])*
+
+public int encode(
+  byte[] src,
+  byte[] dst)
+
+Encodes all bytes from the specified byte array using the (|java.util.Base64|) 
+encoding scheme, writing the resulting bytes to the given output byte array, 
+starting at offset 0. 
+
+It is the responsibility of the invoker of this method to make sure the output 
+byte arraydsthas enough space for encoding all bytes from the input byte array. 
+No bytes will be written to the output byte array if the output byte array is 
+not big enough. 
+
+
+    src - the byte array to encode 
+    dst - the output byte array 
+
+    Returns: The number of bytes written to the output byte array 
+
+*java.util.Base64.Encoder.encode(ByteBuffer)*
+
+public |java.nio.ByteBuffer| encode(java.nio.ByteBuffer buffer)
+
+Encodes all remaining bytes from the specified byte buffer into a 
+newly-allocated ByteBuffer using the (|java.util.Base64|) encoding scheme. 
+
+Upon return, the source buffer's position will be updated to its limit; its 
+limit will not have been changed. The returned output buffer's position will be 
+zero and its limit will be the number of resulting encoded bytes. 
+
+
+    buffer - the source ByteBuffer to encode 
+
+    Returns: A newly-allocated byte buffer containing the encoded bytes. 
+
+*java.util.Base64.Encoder.encodeToString(byte[])*
+
+public |java.lang.String| encodeToString(byte[] src)
+
+Encodes the specified byte array into a String using the (|java.util.Base64|) 
+encoding scheme. 
+
+This method first encodes all input bytes into a base64 encoded byte array and 
+then constructs a new String by using the encoded byte array and the 
+ISO-8859-1(|java.nio.charset.StandardCharsets|) charset. 
+
+In other words, an invocation of this method has exactly the same effect as 
+invokingnew String(encode(src), StandardCharsets.ISO_8859_1). 
+
+
+    src - the byte array to encode 
+
+    Returns: A String containing the resulting Base64 encoded characters 
+
+*java.util.Base64.Encoder.withoutPadding()*
+
+public |java.util.Base64.Encoder| withoutPadding()
+
+Returns an encoder instance that encodes equivalently to this one, but without 
+adding any padding character at the end of the encoded byte data. 
+
+The encoding scheme of this encoder instance is unaffected by this invocation. 
+The returned encoder instance should be used for non-padding encoding 
+operation. 
+
+
+
+    Returns: an equivalent encoder that encodes without adding any padding character at the 
+             end 
+
+*java.util.Base64.Encoder.wrap(OutputStream)*
+
+public |java.io.OutputStream| wrap(java.io.OutputStream os)
+
+Wraps an output stream for encoding byte data using the (|java.util.Base64|) 
+encoding scheme. 
+
+It is recommended to promptly close the returned output stream after use, 
+during which it will flush all possible leftover bytes to the underlying output 
+stream. Closing the returned output stream will close the underlying output 
+stream. 
+
+
+    os - the output stream. 
+
+    Returns: the output stream for encoding the byte data into the specified Base64 encoded 
+             format 
+
+

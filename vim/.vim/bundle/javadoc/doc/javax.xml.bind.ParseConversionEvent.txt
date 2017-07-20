@@ -1,0 +1,20 @@
+*javax.xml.bind.ParseConversionEvent* *ParseConversionEvent* This event indicate
+
+public interface interface ParseConversionEvent
+
+  implements |javax.xml.bind.ValidationEvent|
+
+|javax.xml.bind.ParseConversionEvent_Description|
+|javax.xml.bind.ParseConversionEvent_Fields|
+|javax.xml.bind.ParseConversionEvent_Constructors|
+|javax.xml.bind.ParseConversionEvent_Methods|
+
+================================================================================
+
+*javax.xml.bind.ParseConversionEvent_Description*
+
+This event indicates that a problem was encountered while converting a string 
+from the XML data into a value of the target Java data type. 
+
+
+

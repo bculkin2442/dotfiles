@@ -1,0 +1,140 @@
+*org.omg.DynamicAny.DynUnionOperations* *DynUnionOperations* DynUnion objects su
+
+public interface interface DynUnionOperations
+
+  implements |org.omg.DynamicAny.DynAnyOperations|
+
+|org.omg.DynamicAny.DynUnionOperations_Description|
+|org.omg.DynamicAny.DynUnionOperations_Fields|
+|org.omg.DynamicAny.DynUnionOperations_Constructors|
+|org.omg.DynamicAny.DynUnionOperations_Methods|
+
+================================================================================
+
+*org.omg.DynamicAny.DynUnionOperations_Methods*
+|org.omg.DynamicAny.DynUnionOperations.discriminator_kind()|Returns the TCKind 
+|org.omg.DynamicAny.DynUnionOperations.get_discriminator()|Returns the current 
+|org.omg.DynamicAny.DynUnionOperations.has_no_active_member()|Returns true if t
+|org.omg.DynamicAny.DynUnionOperations.member_kind()|Returns the TCKind value o
+|org.omg.DynamicAny.DynUnionOperations.member_name()|Returns the name of the cu
+|org.omg.DynamicAny.DynUnionOperations.member()|Returns the currently active me
+|org.omg.DynamicAny.DynUnionOperations.set_discriminator(DynAny)|Sets the discr
+|org.omg.DynamicAny.DynUnionOperations.set_to_default_member()|Sets the discrim
+|org.omg.DynamicAny.DynUnionOperations.set_to_no_active_member()|Sets the discr
+
+*org.omg.DynamicAny.DynUnionOperations_Description*
+
+DynUnion objects support the manipulation of IDL unions. A union can have only 
+two valid current positions: 
+
+zero, which denotes the discriminator one, which denotes the active member 
+
+The component_count value for a union depends on the current discriminator: it 
+is 2 for a union whose discriminator indicates a named member, and 1 otherwise. 
+
+
+
+*org.omg.DynamicAny.DynUnionOperations.discriminator_kind()*
+
+public |org.omg.CORBA.TCKind| discriminator_kind()
+
+Returns the TCKind value of the discriminators TypeCode. 
+
+
+
+*org.omg.DynamicAny.DynUnionOperations.get_discriminator()*
+
+public |org.omg.DynamicAny.DynAny| get_discriminator()
+
+Returns the current discriminator value. 
+
+
+
+*org.omg.DynamicAny.DynUnionOperations.has_no_active_member()*
+
+public boolean has_no_active_member()
+
+Returns true if the union has no active member, that is, the unions value 
+consists solely of its discriminator because the discriminator has a value that 
+is not listed as an explicit case label. Calling this operation on a union that 
+has a default case returns false. Calling this operation on a union that uses 
+the entire range of discriminator values for explicit case labels returns 
+false. 
+
+
+
+*org.omg.DynamicAny.DynUnionOperations.member_kind()*
+
+public |org.omg.CORBA.TCKind| member_kind()
+  throws |org.omg.DynamicAny.DynAnyPackage.InvalidValue|
+         
+Returns the TCKind value of the currently active members TypeCode. 
+
+
+
+*org.omg.DynamicAny.DynUnionOperations.member_name()*
+
+public |java.lang.String| member_name()
+  throws |org.omg.DynamicAny.DynAnyPackage.InvalidValue|
+         
+Returns the name of the currently active member. If the unions TypeCode does 
+not contain a member name for the currently active member, the operation 
+returns an empty string. 
+
+
+
+*org.omg.DynamicAny.DynUnionOperations.member()*
+
+public |org.omg.DynamicAny.DynAny| member()
+  throws |org.omg.DynamicAny.DynAnyPackage.InvalidValue|
+         
+Returns the currently active member. Note that the returned reference remains 
+valid only for as long as the currently active member does not change. Using 
+the returned reference beyond the life time of the currently active member 
+raises OBJECT_NOT_EXIST. 
+
+
+
+*org.omg.DynamicAny.DynUnionOperations.set_discriminator(DynAny)*
+
+public void set_discriminator(org.omg.DynamicAny.DynAny d)
+  throws |org.omg.DynamicAny.DynAnyPackage.TypeMismatch|
+         
+Sets the discriminator of the DynUnion to the specified value. Setting the 
+discriminator to a value that is consistent with the currently active union 
+member does not affect the currently active member. Setting the discriminator 
+to a value that is inconsistent with the currently active member deactivates 
+the member and activates the member that is consistent with the new 
+discriminator value (if there is a member for that value) by initializing the 
+member to its default value. Setting the discriminator of a union sets the 
+current position to 0 if the discriminator value indicates a non-existent union 
+member (has_no_active_member returns true in this case). Otherwise, if the 
+discriminator value indicates a named union member, the current position is set 
+to 1 (has_no_active_member returns false and component_count returns 2 in this 
+case). 
+
+
+
+*org.omg.DynamicAny.DynUnionOperations.set_to_default_member()*
+
+public void set_to_default_member()
+  throws |org.omg.DynamicAny.DynAnyPackage.TypeMismatch|
+         
+Sets the discriminator to a value that is consistent with the value of the 
+default case of a union. It sets the current position to zero and causes 
+component_count to return 2. 
+
+
+
+*org.omg.DynamicAny.DynUnionOperations.set_to_no_active_member()*
+
+public void set_to_no_active_member()
+  throws |org.omg.DynamicAny.DynAnyPackage.TypeMismatch|
+         
+Sets the discriminator to a value that does not correspond to any of the unions 
+case labels. It sets the current position to zero and causes component_count to 
+return 1. 
+
+
+
+

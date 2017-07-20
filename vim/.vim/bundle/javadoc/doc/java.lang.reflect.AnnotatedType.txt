@@ -1,0 +1,36 @@
+*java.lang.reflect.AnnotatedType* *AnnotatedType* AnnotatedTyperepresents the po
+
+public interface interface AnnotatedType
+
+  implements |java.lang.reflect.AnnotatedElement|
+
+|java.lang.reflect.AnnotatedType_Description|
+|java.lang.reflect.AnnotatedType_Fields|
+|java.lang.reflect.AnnotatedType_Constructors|
+|java.lang.reflect.AnnotatedType_Methods|
+
+================================================================================
+
+*java.lang.reflect.AnnotatedType_Methods*
+|java.lang.reflect.AnnotatedType.getType()|Returns the underlying type that thi
+
+*java.lang.reflect.AnnotatedType_Description*
+
+AnnotatedTyperepresents the potentially annotated use of a type in the program 
+currently running in this VM. The use may be of any type in the Java 
+programming language, including an array type, a parameterized type, a type 
+variable, or a wildcard type. 
+
+
+
+*java.lang.reflect.AnnotatedType.getType()*
+
+public |java.lang.reflect.Type| getType()
+
+Returns the underlying type that this annotated type represents. 
+
+
+
+    Returns: the type this annotated type represents 
+
+

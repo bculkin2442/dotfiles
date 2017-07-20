@@ -1,0 +1,60 @@
+*javax.security.auth.callback.LanguageCallback* *LanguageCallback*  Underlying s
+
+public class LanguageCallback
+  extends    |java.lang.Object|
+  implements |javax.security.auth.callback.Callback|
+             |java.io.Serializable|
+
+|javax.security.auth.callback.LanguageCallback_Description|
+|javax.security.auth.callback.LanguageCallback_Fields|
+|javax.security.auth.callback.LanguageCallback_Constructors|
+|javax.security.auth.callback.LanguageCallback_Methods|
+
+================================================================================
+
+*javax.security.auth.callback.LanguageCallback_Constructors*
+|javax.security.auth.callback.LanguageCallback()|Construct aLanguageCallback.
+
+*javax.security.auth.callback.LanguageCallback_Methods*
+|javax.security.auth.callback.LanguageCallback.getLocale()|Get the retrievedLoc
+|javax.security.auth.callback.LanguageCallback.setLocale(Locale)|Set the retrie
+
+*javax.security.auth.callback.LanguageCallback_Description*
+
+Underlying security services instantiate and pass aLanguageCallbackto 
+thehandlemethod of aCallbackHandlerto retrieve theLocaleused for localizing 
+text. 
+
+
+
+*javax.security.auth.callback.LanguageCallback()*
+
+public LanguageCallback()
+
+Construct aLanguageCallback. 
+
+
+*javax.security.auth.callback.LanguageCallback.getLocale()*
+
+public |java.util.Locale| getLocale()
+
+Get the retrievedLocale. 
+
+
+
+
+
+    Returns: the retrieved {@code Locale}, or null if no {@code Locale} could be retrieved. 
+
+*javax.security.auth.callback.LanguageCallback.setLocale(Locale)*
+
+public void setLocale(java.util.Locale locale)
+
+Set the retrievedLocale. 
+
+
+
+
+    locale - the retrieved {@code Locale}. 
+
+

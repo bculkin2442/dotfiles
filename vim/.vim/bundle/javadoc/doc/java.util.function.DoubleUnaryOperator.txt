@@ -1,0 +1,79 @@
+*java.util.function.DoubleUnaryOperator* *DoubleUnaryOperator* Represents an ope
+
+public interface interface DoubleUnaryOperator
+
+
+|java.util.function.DoubleUnaryOperator_Description|
+|java.util.function.DoubleUnaryOperator_Fields|
+|java.util.function.DoubleUnaryOperator_Constructors|
+|java.util.function.DoubleUnaryOperator_Methods|
+
+================================================================================
+
+*java.util.function.DoubleUnaryOperator_Methods*
+|java.util.function.DoubleUnaryOperator.andThen(DoubleUnaryOperator)|Returns a 
+|java.util.function.DoubleUnaryOperator.applyAsDouble(double)|Applies this oper
+|java.util.function.DoubleUnaryOperator.compose(DoubleUnaryOperator)|Returns a 
+|java.util.function.DoubleUnaryOperator.identity()|Returns a unary operator tha
+
+*java.util.function.DoubleUnaryOperator_Description*
+
+Represents an operation on a singledouble-valued operand that produces 
+adouble-valued result. This is the primitive type specialization of 
+(|java.util.function.UnaryOperator|) fordouble. 
+
+This is a functional interface whose functional method is 
+(|java.util.function.DoubleUnaryOperator|) . 
+
+
+
+*java.util.function.DoubleUnaryOperator.andThen(DoubleUnaryOperator)*
+
+public |java.util.function.DoubleUnaryOperator| andThen(java.util.function.DoubleUnaryOperator after)
+
+Returns a composed operator that first applies this operator to its input, and 
+then applies theafteroperator to the result. If evaluation of either operator 
+throws an exception, it is relayed to the caller of the composed operator. 
+
+
+    after - the operator to apply after this operator is applied 
+
+    Returns: a composed operator that first applies this operator and then applies the 
+             {@code after} operator 
+
+*java.util.function.DoubleUnaryOperator.applyAsDouble(double)*
+
+public double applyAsDouble(double operand)
+
+Applies this operator to the given operand. 
+
+
+    operand - the operand 
+
+    Returns: the operator result 
+
+*java.util.function.DoubleUnaryOperator.compose(DoubleUnaryOperator)*
+
+public |java.util.function.DoubleUnaryOperator| compose(java.util.function.DoubleUnaryOperator before)
+
+Returns a composed operator that first applies thebeforeoperator to its input, 
+and then applies this operator to the result. If evaluation of either operator 
+throws an exception, it is relayed to the caller of the composed operator. 
+
+
+    before - the operator to apply before this operator is applied 
+
+    Returns: a composed operator that first applies the {@code before} operator and then 
+             applies this operator 
+
+*java.util.function.DoubleUnaryOperator.identity()*
+
+public static |java.util.function.DoubleUnaryOperator| identity()
+
+Returns a unary operator that always returns its input argument. 
+
+
+
+    Returns: a unary operator that always returns its input argument 
+
+

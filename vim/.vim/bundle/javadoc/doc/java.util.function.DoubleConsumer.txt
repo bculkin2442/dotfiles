@@ -1,0 +1,53 @@
+*java.util.function.DoubleConsumer* *DoubleConsumer* Represents an operation tha
+
+public interface interface DoubleConsumer
+
+
+|java.util.function.DoubleConsumer_Description|
+|java.util.function.DoubleConsumer_Fields|
+|java.util.function.DoubleConsumer_Constructors|
+|java.util.function.DoubleConsumer_Methods|
+
+================================================================================
+
+*java.util.function.DoubleConsumer_Methods*
+|java.util.function.DoubleConsumer.accept(double)|Performs this operation on th
+|java.util.function.DoubleConsumer.andThen(DoubleConsumer)|Returns a composedDo
+
+*java.util.function.DoubleConsumer_Description*
+
+Represents an operation that accepts a singledouble-valued argument and returns 
+no result. This is the primitive type specialization of 
+(|java.util.function.Consumer|) fordouble. Unlike most other functional 
+interfaces,DoubleConsumeris expected to operate via side-effects. 
+
+This is a functional interface whose functional method is 
+(|java.util.function.DoubleConsumer|) . 
+
+
+
+*java.util.function.DoubleConsumer.accept(double)*
+
+public void accept(double value)
+
+Performs this operation on the given argument. 
+
+
+    value - the input argument 
+
+*java.util.function.DoubleConsumer.andThen(DoubleConsumer)*
+
+public |java.util.function.DoubleConsumer| andThen(java.util.function.DoubleConsumer after)
+
+Returns a composedDoubleConsumerthat performs, in sequence, this operation 
+followed by theafteroperation. If performing either operation throws an 
+exception, it is relayed to the caller of the composed operation. If performing 
+this operation throws an exception, theafteroperation will not be performed. 
+
+
+    after - the operation to perform after this operation 
+
+    Returns: a composed {@code DoubleConsumer} that performs in sequence this operation 
+             followed by the {@code after} operation 
+
+

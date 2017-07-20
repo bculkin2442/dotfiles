@@ -1,0 +1,298 @@
+*javax.swing.plaf.synth.SynthTreeUI* *SynthTreeUI* Provides the Synth L and F UI
+
+public class SynthTreeUI
+  extends    |javax.swing.plaf.basic.BasicTreeUI|
+  implements |java.beans.PropertyChangeListener|
+             |javax.swing.plaf.synth.SynthUI|
+
+|javax.swing.plaf.synth.SynthTreeUI_Description|
+|javax.swing.plaf.synth.SynthTreeUI_Fields|
+|javax.swing.plaf.synth.SynthTreeUI_Constructors|
+|javax.swing.plaf.synth.SynthTreeUI_Methods|
+
+================================================================================
+
+*javax.swing.plaf.synth.SynthTreeUI_Constructors*
+|javax.swing.plaf.synth.SynthTreeUI()|
+
+*javax.swing.plaf.synth.SynthTreeUI_Methods*
+|javax.swing.plaf.synth.SynthTreeUI.createDefaultCellEditor()|
+|javax.swing.plaf.synth.SynthTreeUI.createDefaultCellRenderer()|
+|javax.swing.plaf.synth.SynthTreeUI.createUI(JComponent)|Creates a new UI objec
+|javax.swing.plaf.synth.SynthTreeUI.drawCentered(Component,Graphics,Icon,int,int)|
+|javax.swing.plaf.synth.SynthTreeUI.getContext(JComponent)|
+|javax.swing.plaf.synth.SynthTreeUI.getExpandedIcon()|
+|javax.swing.plaf.synth.SynthTreeUI.getRowX(int,int)|
+|javax.swing.plaf.synth.SynthTreeUI.installDefaults()|
+|javax.swing.plaf.synth.SynthTreeUI.installListeners()|
+|javax.swing.plaf.synth.SynthTreeUI.paint(Graphics,JComponent)|Paints the speci
+|javax.swing.plaf.synth.SynthTreeUI.paint(SynthContext,Graphics)|Paints the spe
+|javax.swing.plaf.synth.SynthTreeUI.paintBorder(SynthContext,Graphics,int,int,int,int)|
+|javax.swing.plaf.synth.SynthTreeUI.paintDropLine(Graphics)|
+|javax.swing.plaf.synth.SynthTreeUI.paintExpandControl(Graphics,Rectangle,Insets,Rectangle,TreePath,int,boolean,boolean,boolean)|
+|javax.swing.plaf.synth.SynthTreeUI.paintHorizontalLine(Graphics,JComponent,int,int,int)|
+|javax.swing.plaf.synth.SynthTreeUI.paintHorizontalPartOfLeg(Graphics,Rectangle,Insets,Rectangle,TreePath,int,boolean,boolean,boolean)|
+|javax.swing.plaf.synth.SynthTreeUI.paintVerticalLine(Graphics,JComponent,int,int,int)|
+|javax.swing.plaf.synth.SynthTreeUI.paintVerticalPartOfLeg(Graphics,Rectangle,Insets,TreePath)|
+|javax.swing.plaf.synth.SynthTreeUI.propertyChange(PropertyChangeEvent)|
+|javax.swing.plaf.synth.SynthTreeUI.uninstallDefaults()|
+|javax.swing.plaf.synth.SynthTreeUI.uninstallListeners()|
+|javax.swing.plaf.synth.SynthTreeUI.update(Graphics,JComponent)|Notifies this U
+
+*javax.swing.plaf.synth.SynthTreeUI_Description*
+
+Provides the Synth L and F UI delegate for (|javax.swing.JTree|) . 
+
+
+
+*javax.swing.plaf.synth.SynthTreeUI()*
+
+public SynthTreeUI()
+
+
+
+
+*javax.swing.plaf.synth.SynthTreeUI.createDefaultCellEditor()*
+
+protected |javax.swing.tree.TreeCellEditor| createDefaultCellEditor()
+
+
+
+
+
+*javax.swing.plaf.synth.SynthTreeUI.createDefaultCellRenderer()*
+
+protected |javax.swing.tree.TreeCellRenderer| createDefaultCellRenderer()
+
+
+
+
+
+*javax.swing.plaf.synth.SynthTreeUI.createUI(JComponent)*
+
+public static |javax.swing.plaf.ComponentUI| createUI(javax.swing.JComponent x)
+
+Creates a new UI object for the given component. 
+
+
+    x - component to create UI object for 
+
+    Returns: the UI object 
+
+*javax.swing.plaf.synth.SynthTreeUI.drawCentered(Component,Graphics,Icon,int,int)*
+
+protected void drawCentered(
+  java.awt.Component c,
+  java.awt.Graphics graphics,
+  javax.swing.Icon icon,
+  int x,
+  int y)
+
+
+
+
+
+*javax.swing.plaf.synth.SynthTreeUI.getContext(JComponent)*
+
+public |javax.swing.plaf.synth.SynthContext| getContext(javax.swing.JComponent c)
+
+
+
+
+
+*javax.swing.plaf.synth.SynthTreeUI.getExpandedIcon()*
+
+public |javax.swing.Icon| getExpandedIcon()
+
+
+
+
+
+*javax.swing.plaf.synth.SynthTreeUI.getRowX(int,int)*
+
+protected int getRowX(
+  int row,
+  int depth)
+
+
+
+
+
+*javax.swing.plaf.synth.SynthTreeUI.installDefaults()*
+
+protected void installDefaults()
+
+
+
+
+
+*javax.swing.plaf.synth.SynthTreeUI.installListeners()*
+
+protected void installListeners()
+
+
+
+
+
+*javax.swing.plaf.synth.SynthTreeUI.paint(Graphics,JComponent)*
+
+public void paint(
+  java.awt.Graphics g,
+  javax.swing.JComponent c)
+
+Paints the specified component according to the Look and Feel. This method is 
+not used by Synth Look and Feel. Painting is handled by the 
+(|javax.swing.plaf.synth.SynthTreeUI|) method. 
+
+
+    g - the {@code Graphics} object used for painting 
+    c - the component being painted 
+
+*javax.swing.plaf.synth.SynthTreeUI.paint(SynthContext,Graphics)*
+
+protected void paint(
+  javax.swing.plaf.synth.SynthContext context,
+  java.awt.Graphics g)
+
+Paints the specified component. 
+
+
+    context - context for the component being painted 
+    g - the {@code Graphics} object used for painting 
+
+*javax.swing.plaf.synth.SynthTreeUI.paintBorder(SynthContext,Graphics,int,int,int,int)*
+
+public void paintBorder(
+  javax.swing.plaf.synth.SynthContext context,
+  java.awt.Graphics g,
+  int x,
+  int y,
+  int w,
+  int h)
+
+
+
+
+
+*javax.swing.plaf.synth.SynthTreeUI.paintDropLine(Graphics)*
+
+protected void paintDropLine(java.awt.Graphics g)
+
+
+
+
+
+*javax.swing.plaf.synth.SynthTreeUI.paintExpandControl(Graphics,Rectangle,Insets,Rectangle,TreePath,int,boolean,boolean,boolean)*
+
+protected void paintExpandControl(
+  java.awt.Graphics g,
+  java.awt.Rectangle clipBounds,
+  java.awt.Insets insets,
+  java.awt.Rectangle bounds,
+  javax.swing.tree.TreePath path,
+  int row,
+  boolean isExpanded,
+  boolean hasBeenExpanded,
+  boolean isLeaf)
+
+
+
+
+
+*javax.swing.plaf.synth.SynthTreeUI.paintHorizontalLine(Graphics,JComponent,int,int,int)*
+
+protected void paintHorizontalLine(
+  java.awt.Graphics g,
+  javax.swing.JComponent c,
+  int y,
+  int left,
+  int right)
+
+
+
+
+
+*javax.swing.plaf.synth.SynthTreeUI.paintHorizontalPartOfLeg(Graphics,Rectangle,Insets,Rectangle,TreePath,int,boolean,boolean,boolean)*
+
+protected void paintHorizontalPartOfLeg(
+  java.awt.Graphics g,
+  java.awt.Rectangle clipBounds,
+  java.awt.Insets insets,
+  java.awt.Rectangle bounds,
+  javax.swing.tree.TreePath path,
+  int row,
+  boolean isExpanded,
+  boolean hasBeenExpanded,
+  boolean isLeaf)
+
+
+
+
+
+*javax.swing.plaf.synth.SynthTreeUI.paintVerticalLine(Graphics,JComponent,int,int,int)*
+
+protected void paintVerticalLine(
+  java.awt.Graphics g,
+  javax.swing.JComponent c,
+  int x,
+  int top,
+  int bottom)
+
+
+
+
+
+*javax.swing.plaf.synth.SynthTreeUI.paintVerticalPartOfLeg(Graphics,Rectangle,Insets,TreePath)*
+
+protected void paintVerticalPartOfLeg(
+  java.awt.Graphics g,
+  java.awt.Rectangle clipBounds,
+  java.awt.Insets insets,
+  javax.swing.tree.TreePath path)
+
+
+
+
+
+*javax.swing.plaf.synth.SynthTreeUI.propertyChange(PropertyChangeEvent)*
+
+public void propertyChange(java.beans.PropertyChangeEvent event)
+
+
+
+
+
+*javax.swing.plaf.synth.SynthTreeUI.uninstallDefaults()*
+
+protected void uninstallDefaults()
+
+
+
+
+
+*javax.swing.plaf.synth.SynthTreeUI.uninstallListeners()*
+
+protected void uninstallListeners()
+
+
+
+
+
+*javax.swing.plaf.synth.SynthTreeUI.update(Graphics,JComponent)*
+
+public void update(
+  java.awt.Graphics g,
+  javax.swing.JComponent c)
+
+Notifies this UI delegate to repaint the specified component. This method 
+paints the component background, then calls the 
+(|javax.swing.plaf.synth.SynthTreeUI|) method. 
+
+In general, this method does not need to be overridden by subclasses. All Look 
+and Feel rendering code should reside in thepaintmethod. 
+
+
+    g - the {@code Graphics} object used for painting 
+    c - the component being painted 
+
+

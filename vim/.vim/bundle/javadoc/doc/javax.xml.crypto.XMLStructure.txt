@@ -1,0 +1,35 @@
+*javax.xml.crypto.XMLStructure* *XMLStructure* A representation of an XML struct
+
+public interface interface XMLStructure
+
+
+|javax.xml.crypto.XMLStructure_Description|
+|javax.xml.crypto.XMLStructure_Fields|
+|javax.xml.crypto.XMLStructure_Constructors|
+|javax.xml.crypto.XMLStructure_Methods|
+
+================================================================================
+
+*javax.xml.crypto.XMLStructure_Methods*
+|javax.xml.crypto.XMLStructure.isFeatureSupported(String)|Indicates whether a s
+
+*javax.xml.crypto.XMLStructure_Description*
+
+A representation of an XML structure from any namespace. The purpose of this 
+interface is to group (and provide type safety for) all representations of XML 
+structures. 
+
+
+
+*javax.xml.crypto.XMLStructure.isFeatureSupported(String)*
+
+public boolean isFeatureSupported(java.lang.String feature)
+
+Indicates whether a specified feature is supported. 
+
+
+    feature - the feature name (as an absolute URI) 
+
+    Returns: true if the specified feature is supported, false otherwise 
+
+

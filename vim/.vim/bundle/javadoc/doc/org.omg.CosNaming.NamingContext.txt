@@ -1,0 +1,25 @@
+*org.omg.CosNaming.NamingContext* *NamingContext* A naming context is an object 
+
+public interface interface NamingContext
+
+  implements |org.omg.CosNaming.NamingContextOperations|
+             |org.omg.CORBA.Object|
+             |org.omg.CORBA.portable.IDLEntity|
+
+|org.omg.CosNaming.NamingContext_Description|
+|org.omg.CosNaming.NamingContext_Fields|
+|org.omg.CosNaming.NamingContext_Constructors|
+|org.omg.CosNaming.NamingContext_Methods|
+
+================================================================================
+
+*org.omg.CosNaming.NamingContext_Description*
+
+A naming context is an object that contains a set of name bindings in which 
+each name is unique. Different names can be bound to an object in the same or 
+different contexts at the same time. 
+
+See CORBA COS Naming Specification. 
+
+
+

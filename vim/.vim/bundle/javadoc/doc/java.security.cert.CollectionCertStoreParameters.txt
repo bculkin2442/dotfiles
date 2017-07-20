@@ -1,0 +1,102 @@
+*java.security.cert.CollectionCertStoreParameters* *CollectionCertStoreParameters* 
+
+public class CollectionCertStoreParameters
+  extends    |java.lang.Object|
+  implements |java.security.cert.CertStoreParameters|
+
+|java.security.cert.CollectionCertStoreParameters_Description|
+|java.security.cert.CollectionCertStoreParameters_Fields|
+|java.security.cert.CollectionCertStoreParameters_Constructors|
+|java.security.cert.CollectionCertStoreParameters_Methods|
+
+================================================================================
+
+*java.security.cert.CollectionCertStoreParameters_Constructors*
+|java.security.cert.CollectionCertStoreParameters()|Creates an instance ofColle
+|java.security.cert.CollectionCertStoreParameters(Collection<?>)|Creates an ins
+
+*java.security.cert.CollectionCertStoreParameters_Methods*
+|java.security.cert.CollectionCertStoreParameters.clone()|Returns a copy of thi
+|java.security.cert.CollectionCertStoreParameters.getCollection()|Returns theCo
+|java.security.cert.CollectionCertStoreParameters.toString()|Returns a formatte
+
+*java.security.cert.CollectionCertStoreParameters_Description*
+
+Parameters used as input for the CollectionCertStorealgorithm. 
+
+This class is used to provide necessary configuration parameters to 
+implementations of the CollectionCertStorealgorithm. The only parameter 
+included in this class is theCollectionfrom which theCertStorewill retrieve 
+certificates and CRLs. 
+
+Concurrent Access 
+
+Unless otherwise specified, the methods defined in this class are not 
+thread-safe. Multiple threads that need to access a single object concurrently 
+should synchronize amongst themselves and provide the necessary locking. 
+Multiple threads each manipulating separate objects need not synchronize. 
+
+
+
+*java.security.cert.CollectionCertStoreParameters()*
+
+public CollectionCertStoreParameters()
+
+Creates an instance ofCollectionCertStoreParameterswith the default parameter 
+values (an empty and immutableCollection). 
+
+
+*java.security.cert.CollectionCertStoreParameters(Collection<?>)*
+
+public CollectionCertStoreParameters(java.util.Collection<?> collection)
+
+Creates an instance ofCollectionCertStoreParameterswhich will allow 
+certificates and CRLs to be retrieved from the specifiedCollection. If the 
+specifiedCollectioncontains an object that is not aCertificateorCRL, that 
+object will be ignored by the CollectionCertStore. 
+
+TheCollectionis not copied. Instead, a reference is used. This allows the 
+caller to subsequently add or removeCertificatesorCRLs from theCollection, thus 
+changing the set ofCertificatesorCRLs available to the CollectionCertStore. The 
+CollectionCertStorewill not modify the contents of theCollection. 
+
+If theCollectionwill be modified by one thread while another thread is calling 
+a method of a CollectionCertStorethat has been initialized with thisCollection, 
+theCollectionmust have fail-fast iterators. 
+
+    collection - a {@code Collection} of {@code Certificate}s and {@code CRL}s 
+
+*java.security.cert.CollectionCertStoreParameters.clone()*
+
+public |java.lang.Object| clone()
+
+Returns a copy of this object. Note that only a reference to theCollectionis 
+copied, and not the contents. 
+
+
+
+    Returns: 
+
+*java.security.cert.CollectionCertStoreParameters.getCollection()*
+
+public |java.util.Collection|<?> getCollection()
+
+Returns theCollectionfrom whichCertificates andCRLs are retrieved. This is not 
+a copy of theCollection, it is a reference. This allows the caller to 
+subsequently add or removeCertificatesorCRLs from theCollection. 
+
+
+
+    Returns: the {@code Collection} (never null) 
+
+*java.security.cert.CollectionCertStoreParameters.toString()*
+
+public |java.lang.String| toString()
+
+Returns a formatted string describing the parameters. 
+
+
+
+    Returns: a formatted string describing the parameters 
+
+

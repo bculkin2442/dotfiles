@@ -1,0 +1,1314 @@
+*java.util.concurrent.ConcurrentHashMap* *ConcurrentHashMap* A hash table suppor
+
+public class ConcurrentHashMap<K,V>
+  extends    |java.util.AbstractMap|
+  implements |java.util.concurrent.ConcurrentMap|
+             |java.io.Serializable|
+
+|java.util.concurrent.ConcurrentHashMap_Description|
+|java.util.concurrent.ConcurrentHashMap_Fields|
+|java.util.concurrent.ConcurrentHashMap_Constructors|
+|java.util.concurrent.ConcurrentHashMap_Methods|
+
+================================================================================
+
+*java.util.concurrent.ConcurrentHashMap_Constructors*
+|java.util.concurrent.ConcurrentHashMap()|Creates a new, empty map with the def
+|java.util.concurrent.ConcurrentHashMap(int)|Creates a new, empty map with an i
+|java.util.concurrent.ConcurrentHashMap(int,float)|Creates a new, empty map wit
+|java.util.concurrent.ConcurrentHashMap(int,float,int)|Creates a new, empty map
+|java.util.concurrent.ConcurrentHashMap(Map<?extendsK,?extendsV>)|Creates a new
+
+*java.util.concurrent.ConcurrentHashMap_Methods*
+|java.util.concurrent.ConcurrentHashMap.clear()|Removes all of the mappings fro
+|java.util.concurrent.ConcurrentHashMap.compute(K,BiFunction<?superK,?superV,?extendsV>)|
+|java.util.concurrent.ConcurrentHashMap.computeIfAbsent(K,Function<?superK,?extendsV>)|
+|java.util.concurrent.ConcurrentHashMap.computeIfPresent(K,BiFunction<?superK,?superV,?extendsV>)|
+|java.util.concurrent.ConcurrentHashMap.contains(Object)|Legacy method testing 
+|java.util.concurrent.ConcurrentHashMap.containsKey(Object)|Tests if the specif
+|java.util.concurrent.ConcurrentHashMap.containsValue(Object)|Returnstrueif thi
+|java.util.concurrent.ConcurrentHashMap.elements()|Returns an enumeration of th
+|java.util.concurrent.ConcurrentHashMap.entrySet()|Returns aSetview of the mapp
+|java.util.concurrent.ConcurrentHashMap.equals(Object)|Compares the specified o
+|java.util.concurrent.ConcurrentHashMap.forEach(BiConsumer<?superK,?superV>)|
+|java.util.concurrent.ConcurrentHashMap.forEach(long,BiConsumer<?superK,?superV>)|
+|java.util.concurrent.ConcurrentHashMap.forEach(long,BiFunction<?superK,?superV,?extendsU>,Consumer<?superU>)|
+|java.util.concurrent.ConcurrentHashMap.forEachEntry(long,Consumer<?superMap.Entry<K,V>>)|
+|java.util.concurrent.ConcurrentHashMap.forEachEntry(long,Function<Map.Entry<K,V>,?extendsU>,Consumer<?superU>)|
+|java.util.concurrent.ConcurrentHashMap.forEachKey(long,Consumer<?superK>)|Perf
+|java.util.concurrent.ConcurrentHashMap.forEachKey(long,Function<?superK,?extendsU>,Consumer<?superU>)|
+|java.util.concurrent.ConcurrentHashMap.forEachValue(long,Consumer<?superV>)|Pe
+|java.util.concurrent.ConcurrentHashMap.forEachValue(long,Function<?superV,?extendsU>,Consumer<?superU>)|
+|java.util.concurrent.ConcurrentHashMap.get(Object)|Returns the value to which 
+|java.util.concurrent.ConcurrentHashMap.getOrDefault(Object,V)|Returns the valu
+|java.util.concurrent.ConcurrentHashMap.hashCode()|Returns the hash code value 
+|java.util.concurrent.ConcurrentHashMap.isEmpty()|
+|java.util.concurrent.ConcurrentHashMap.keys()|Returns an enumeration of the ke
+|java.util.concurrent.ConcurrentHashMap.keySet()|Returns aSetview of the keys c
+|java.util.concurrent.ConcurrentHashMap.keySet(V)|Returns aSetview of the keys 
+|java.util.concurrent.ConcurrentHashMap.mappingCount()|Returns the number of ma
+|java.util.concurrent.ConcurrentHashMap.merge(K,V,BiFunction<?superV,?superV,?extendsV>)|
+|java.util.concurrent.ConcurrentHashMap.newKeySet()|Creates a newSetbacked by a
+|java.util.concurrent.ConcurrentHashMap.newKeySet(int)|Creates a newSetbacked b
+|java.util.concurrent.ConcurrentHashMap.put(K,V)|Maps the specified key to the 
+|java.util.concurrent.ConcurrentHashMap.putAll(Map<?extendsK,?extendsV>)|Copies
+|java.util.concurrent.ConcurrentHashMap.putIfAbsent(K,V)|
+|java.util.concurrent.ConcurrentHashMap.reduce(long,BiFunction<?superK,?superV,?extendsU>,BiFunction<?superU,?superU,?extendsU>)|
+|java.util.concurrent.ConcurrentHashMap.reduceEntries(long,BiFunction<Map.Entry<K,V>,Map.Entry<K,V>,?extendsMap.Entry<K,V>>)|
+|java.util.concurrent.ConcurrentHashMap.reduceEntries(long,Function<Map.Entry<K,V>,?extendsU>,BiFunction<?superU,?superU,?extendsU>)|
+|java.util.concurrent.ConcurrentHashMap.reduceEntriesToDouble(long,ToDoubleFunction<Map.Entry<K,V>>,double,DoubleBinaryOperator)|
+|java.util.concurrent.ConcurrentHashMap.reduceEntriesToInt(long,ToIntFunction<Map.Entry<K,V>>,int,IntBinaryOperator)|
+|java.util.concurrent.ConcurrentHashMap.reduceEntriesToLong(long,ToLongFunction<Map.Entry<K,V>>,long,LongBinaryOperator)|
+|java.util.concurrent.ConcurrentHashMap.reduceKeys(long,BiFunction<?superK,?superK,?extendsK>)|
+|java.util.concurrent.ConcurrentHashMap.reduceKeys(long,Function<?superK,?extendsU>,BiFunction<?superU,?superU,?extendsU>)|
+|java.util.concurrent.ConcurrentHashMap.reduceKeysToDouble(long,ToDoubleFunction<?superK>,double,DoubleBinaryOperator)|
+|java.util.concurrent.ConcurrentHashMap.reduceKeysToInt(long,ToIntFunction<?superK>,int,IntBinaryOperator)|
+|java.util.concurrent.ConcurrentHashMap.reduceKeysToLong(long,ToLongFunction<?superK>,long,LongBinaryOperator)|
+|java.util.concurrent.ConcurrentHashMap.reduceToDouble(long,ToDoubleBiFunction<?superK,?superV>,double,DoubleBinaryOperator)|
+|java.util.concurrent.ConcurrentHashMap.reduceToInt(long,ToIntBiFunction<?superK,?superV>,int,IntBinaryOperator)|
+|java.util.concurrent.ConcurrentHashMap.reduceToLong(long,ToLongBiFunction<?superK,?superV>,long,LongBinaryOperator)|
+|java.util.concurrent.ConcurrentHashMap.reduceValues(long,BiFunction<?superV,?superV,?extendsV>)|
+|java.util.concurrent.ConcurrentHashMap.reduceValues(long,Function<?superV,?extendsU>,BiFunction<?superU,?superU,?extendsU>)|
+|java.util.concurrent.ConcurrentHashMap.reduceValuesToDouble(long,ToDoubleFunction<?superV>,double,DoubleBinaryOperator)|
+|java.util.concurrent.ConcurrentHashMap.reduceValuesToInt(long,ToIntFunction<?superV>,int,IntBinaryOperator)|
+|java.util.concurrent.ConcurrentHashMap.reduceValuesToLong(long,ToLongFunction<?superV>,long,LongBinaryOperator)|
+|java.util.concurrent.ConcurrentHashMap.remove(Object)|Removes the key (and its
+|java.util.concurrent.ConcurrentHashMap.remove(Object,Object)|
+|java.util.concurrent.ConcurrentHashMap.replace(K,V)|
+|java.util.concurrent.ConcurrentHashMap.replace(K,V,V)|
+|java.util.concurrent.ConcurrentHashMap.replaceAll(BiFunction<?superK,?superV,?extendsV>)|
+|java.util.concurrent.ConcurrentHashMap.search(long,BiFunction<?superK,?superV,?extendsU>)|
+|java.util.concurrent.ConcurrentHashMap.searchEntries(long,Function<Map.Entry<K,V>,?extendsU>)|
+|java.util.concurrent.ConcurrentHashMap.searchKeys(long,Function<?superK,?extendsU>)|
+|java.util.concurrent.ConcurrentHashMap.searchValues(long,Function<?superV,?extendsU>)|
+|java.util.concurrent.ConcurrentHashMap.size()|
+|java.util.concurrent.ConcurrentHashMap.toString()|Returns a string representat
+|java.util.concurrent.ConcurrentHashMap.values()|Returns aCollectionview of the
+
+*java.util.concurrent.ConcurrentHashMap_Description*
+
+A hash table supporting full concurrency of retrievals and high expected 
+concurrency for updates. This class obeys the same functional specification as 
+(|java.util.Hashtable|) , and includes versions of methods corresponding to 
+each method ofHashtable. However, even though all operations are thread-safe, 
+retrieval operations do not entail locking, and there is not any support for 
+locking the entire table in a way that prevents all access. This class is fully 
+interoperable withHashtablein programs that rely on its thread safety but not 
+on its synchronization details. 
+
+Retrieval operations (includingget) generally do not block, so may overlap with 
+update operations (includingputandremove). Retrievals reflect the results of 
+the most recently completed update operations holding upon their onset. (More 
+formally, an update operation for a given key bears a happens-before relation 
+with any (non-null) retrieval for that key reporting the updated value.) For 
+aggregate operations such asputAllandclear, concurrent retrievals may reflect 
+insertion or removal of only some entries. Similarly, Iterators, Spliterators 
+and Enumerations return elements reflecting the state of the hash table at some 
+point at or since the creation of the iterator/enumeration. They do not throw 
+ConcurrentModificationException(|java.util.ConcurrentModificationException|) . 
+However, iterators are designed to be used by only one thread at a time. Bear 
+in mind that the results of aggregate status methods includingsize,isEmpty, 
+andcontainsValueare typically useful only when a map is not undergoing 
+concurrent updates in other threads. Otherwise the results of these methods 
+reflect transient states that may be adequate for monitoring or estimation 
+purposes, but not for program control. 
+
+The table is dynamically expanded when there are too many collisions (i.e., 
+keys that have distinct hash codes but fall into the same slot modulo the table 
+size), with the expected average effect of maintaining roughly two bins per 
+mapping (corresponding to a 0.75 load factor threshold for resizing). There may 
+be much variance around this average as mappings are added and removed, but 
+overall, this maintains a commonly accepted time/space tradeoff for hash 
+tables. However, resizing this or any other kind of hash table may be a 
+relatively slow operation. When possible, it is a good idea to provide a size 
+estimate as an optionalinitialCapacityconstructor argument. An additional 
+optionalloadFactorconstructor argument provides a further means of customizing 
+initial table capacity by specifying the table density to be used in 
+calculating the amount of space to allocate for the given number of elements. 
+Also, for compatibility with previous versions of this class, constructors may 
+optionally specify an expectedconcurrencyLevelas an additional hint for 
+internal sizing. Note that using many keys with exactly the samehashCode()is a 
+sure way to slow down performance of any hash table. To ameliorate impact, when 
+keys are (|java.lang.Comparable|) , this class may use comparison order among 
+keys to help break ties. 
+
+A (|java.util.Set|) projection of a ConcurrentHashMap may be created (using 
+(|java.util.concurrent.ConcurrentHashMap|) or 
+(|java.util.concurrent.ConcurrentHashMap|) ), or viewed (using 
+(|java.util.concurrent.ConcurrentHashMap|) when only keys are of interest, and 
+the mapped values are (perhaps transiently) not used or all take the same 
+mapping value. 
+
+A ConcurrentHashMap can be used as scalable frequency map (a form of histogram 
+or multiset) by using (|java.util.concurrent.atomic.LongAdder|) values and 
+initializing via computeIfAbsent(|java.util.concurrent.ConcurrentHashMap|) . 
+For example, to add a count to aConcurrentHashMap freqs, you can 
+usefreqs.computeIfAbsent(k -> new LongAdder()).increment();This class and its 
+views and iterators implement all of the optional methods of the 
+(|java.util.Map|) and (|java.util.Iterator|) interfaces. 
+
+Like (|java.util.Hashtable|) but unlike (|java.util.HashMap|) , this class does 
+not allownullto be used as a key or value. 
+
+ConcurrentHashMaps support a set of sequential and parallel bulk operations 
+that, unlike most (|java.util.stream.Stream|) methods, are designed to be 
+safely, and often sensibly, applied even with maps that are being concurrently 
+updated by other threads; for example, when computing a snapshot summary of the 
+values in a shared registry. There are three kinds of operation, each with four 
+forms, accepting functions with Keys, Values, Entries, and (Key, Value) 
+arguments and/or return values. Because the elements of a ConcurrentHashMap are 
+not ordered in any particular way, and may be processed in different orders in 
+different parallel executions, the correctness of supplied functions should not 
+depend on any ordering, or on any other objects or values that may transiently 
+change while computation is in progress; and except for forEach actions, should 
+ideally be side-effect-free. Bulk operations on (|java.util.Map.Entry|) objects 
+do not support methodsetValue. 
+
+forEach: Perform a given action on each element. A variant form applies a given 
+transformation on each element before performing the action. 
+
+search: Return the first available non-null result of applying a given function 
+on each element; skipping further search when a result is found. 
+
+reduce: Accumulate each element. The supplied reduction function cannot rely on 
+ordering (more formally, it should be both associative and commutative). There 
+are five variants: 
+
+
+
+Plain reductions. (There is not a form of this method for (key, value) function 
+arguments since there is no corresponding return type.) 
+
+Mapped reductions that accumulate the results of a given function applied to 
+each element. 
+
+Reductions to scalar doubles, longs, and ints, using a given basis value. 
+
+
+
+
+
+These bulk operations accept aparallelismThresholdargument. Methods proceed 
+sequentially if the current map size is estimated to be less than the given 
+threshold. Using a value ofLong.MAX_VALUEsuppresses all parallelism. Using a 
+value of1results in maximal parallelism by partitioning into enough subtasks to 
+fully utilize the (|java.util.concurrent.ForkJoinPool|) that is used for all 
+parallel computations. Normally, you would initially choose one of these 
+extreme values, and then measure performance of using in-between values that 
+trade off overhead versus throughput. 
+
+The concurrency properties of bulk operations follow from those of 
+ConcurrentHashMap: Any non-null result returned fromget(key)and related access 
+methods bears a happens-before relation with the associated insertion or 
+update. The result of any bulk operation reflects the composition of these 
+per-element relations (but is not necessarily atomic with respect to the map as 
+a whole unless it is somehow known to be quiescent). Conversely, because keys 
+and values in the map are never null, null serves as a reliable atomic 
+indicator of the current lack of any result. To maintain this property, null 
+serves as an implicit basis for all non-scalar reduction operations. For the 
+double, long, and int versions, the basis should be one that, when combined 
+with any other value, returns that other value (more formally, it should be the 
+identity element for the reduction). Most common reductions have these 
+properties; for example, computing a sum with basis 0 or a minimum with basis 
+MAX_VALUE. 
+
+Search and transformation functions provided as arguments should similarly 
+return null to indicate the lack of any result (in which case it is not used). 
+In the case of mapped reductions, this also enables transformations to serve as 
+filters, returning null (or, in the case of primitive specializations, the 
+identity basis) if the element should not be combined. You can create compound 
+transformations and filterings by composing them yourself under this "null 
+means there is nothing there now" rule before using them in search or reduce 
+operations. 
+
+Methods accepting and/or returning Entry arguments maintain key-value 
+associations. They may be useful for example when finding the key for the 
+greatest value. Note that "plain" Entry arguments can be supplied usingnew 
+AbstractMap.SimpleEntry(k,v). 
+
+Bulk operations may complete abruptly, throwing an exception encountered in the 
+application of a supplied function. Bear in mind when handling such exceptions 
+that other concurrently executing functions could also have thrown exceptions, 
+or would have done so if the first exception had not occurred. 
+
+Speedups for parallel compared to sequential forms are common but not 
+guaranteed. Parallel operations involving brief functions on small maps may 
+execute more slowly than sequential forms if the underlying work to parallelize 
+the computation is more expensive than the computation itself. Similarly, 
+parallelization may not lead to much actual parallelism if all processors are 
+busy performing unrelated tasks. 
+
+All arguments to all task methods must be non-null. 
+
+This class is a member of the <a 
+href="/../technotes/guides/collections/index.html"> Java Collections Framework. 
+
+
+
+*java.util.concurrent.ConcurrentHashMap()*
+
+public ConcurrentHashMap()
+
+Creates a new, empty map with the default initial table size (16). 
+
+
+*java.util.concurrent.ConcurrentHashMap(int)*
+
+public ConcurrentHashMap(int initialCapacity)
+
+Creates a new, empty map with an initial table size accommodating the specified 
+number of elements without the need to dynamically resize. 
+
+    initialCapacity - The implementation performs internal sizing to accommodate this many elements. 
+
+*java.util.concurrent.ConcurrentHashMap(int,float)*
+
+public ConcurrentHashMap(
+  int initialCapacity,
+  float loadFactor)
+
+Creates a new, empty map with an initial table size based on the given number 
+of elements (initialCapacity) and initial table density (loadFactor). 
+
+    initialCapacity - the initial capacity. The implementation performs internal sizing to 
+       accommodate this many elements, given the specified load factor. 
+    loadFactor - the load factor (table density) for establishing the initial table size 
+
+*java.util.concurrent.ConcurrentHashMap(int,float,int)*
+
+public ConcurrentHashMap(
+  int initialCapacity,
+  float loadFactor,
+  int concurrencyLevel)
+
+Creates a new, empty map with an initial table size based on the given number 
+of elements (initialCapacity), table density (loadFactor), and number of 
+concurrently updating threads (concurrencyLevel). 
+
+    initialCapacity - the initial capacity. The implementation performs internal sizing to 
+       accommodate this many elements, given the specified load factor. 
+    loadFactor - the load factor (table density) for establishing the initial table size 
+    concurrencyLevel - the estimated number of concurrently updating threads. The implementation may 
+       use this value as a sizing hint. 
+
+*java.util.concurrent.ConcurrentHashMap(Map<?extendsK,?extendsV>)*
+
+public ConcurrentHashMap(java.util.Map<? extends K, ? extends V> m)
+
+Creates a new map with the same mappings as the given map. 
+
+    m - the map 
+
+*java.util.concurrent.ConcurrentHashMap.clear()*
+
+public void clear()
+
+Removes all of the mappings from this map. 
+
+
+
+*java.util.concurrent.ConcurrentHashMap.compute(K,BiFunction<?superK,?superV,?extendsV>)*
+
+public |V| compute(
+  K key,
+  java.util.function.BiFunction<? super K, ? super V, ? extends V> remappingFunction)
+
+Attempts to compute a mapping for the specified key and its current mapped 
+value (ornullif there is no current mapping). The entire method invocation is 
+performed atomically. Some attempted update operations on this map by other 
+threads may be blocked while computation is in progress, so the computation 
+should be short and simple, and must not attempt to update any other mappings 
+of this Map. 
+
+
+    key - key with which the specified value is to be associated 
+    remappingFunction - the function to compute a value 
+
+    Returns: the new value associated with the specified key, or null if none 
+
+*java.util.concurrent.ConcurrentHashMap.computeIfAbsent(K,Function<?superK,?extendsV>)*
+
+public |V| computeIfAbsent(
+  K key,
+  java.util.function.Function<? super K, ? extends V> mappingFunction)
+
+If the specified key is not already associated with a value, attempts to 
+compute its value using the given mapping function and enters it into this map 
+unlessnull. The entire method invocation is performed atomically, so the 
+function is applied at most once per key. Some attempted update operations on 
+this map by other threads may be blocked while computation is in progress, so 
+the computation should be short and simple, and must not attempt to update any 
+other mappings of this map. 
+
+
+    key - key with which the specified value is to be associated 
+    mappingFunction - the function to compute a value 
+
+    Returns: the current (existing or computed) value associated with the specified key, or 
+             null if the computed value is null 
+
+*java.util.concurrent.ConcurrentHashMap.computeIfPresent(K,BiFunction<?superK,?superV,?extendsV>)*
+
+public |V| computeIfPresent(
+  K key,
+  java.util.function.BiFunction<? super K, ? super V, ? extends V> remappingFunction)
+
+If the value for the specified key is present, attempts to compute a new 
+mapping given the key and its current mapped value. The entire method 
+invocation is performed atomically. Some attempted update operations on this 
+map by other threads may be blocked while computation is in progress, so the 
+computation should be short and simple, and must not attempt to update any 
+other mappings of this map. 
+
+
+    key - key with which a value may be associated 
+    remappingFunction - the function to compute a value 
+
+    Returns: the new value associated with the specified key, or null if none 
+
+*java.util.concurrent.ConcurrentHashMap.contains(Object)*
+
+public boolean contains(java.lang.Object value)
+
+Legacy method testing if some key maps into the specified value in this table. 
+This method is identical in functionality to 
+(|java.util.concurrent.ConcurrentHashMap|) , and exists solely to ensure full 
+compatibility with class (|java.util.Hashtable|) , which supported this method 
+prior to introduction of the Java Collections framework. 
+
+
+    value - a value to search for 
+
+    Returns: {@code true} if and only if some key maps to the {@code value} argument in this 
+             table as determined by the {@code equals} method; {@code false} 
+             otherwise 
+
+*java.util.concurrent.ConcurrentHashMap.containsKey(Object)*
+
+public boolean containsKey(java.lang.Object key)
+
+Tests if the specified object is a key in this table. 
+
+
+    key - possible key 
+
+    Returns: {@code true} if and only if the specified object is a key in this table, as 
+             determined by the {@code equals} method; {@code false} otherwise 
+
+*java.util.concurrent.ConcurrentHashMap.containsValue(Object)*
+
+public boolean containsValue(java.lang.Object value)
+
+Returnstrueif this map maps one or more keys to the specified value. Note: This 
+method may require a full traversal of the map, and is much slower than 
+methodcontainsKey. 
+
+
+    value - value whose presence in this map is to be tested 
+
+    Returns: {@code true} if this map maps one or more keys to the specified value 
+
+*java.util.concurrent.ConcurrentHashMap.elements()*
+
+public |java.util.Enumeration|<V> elements()
+
+Returns an enumeration of the values in this table. 
+
+
+
+    Returns: an enumeration of the values in this table 
+
+*java.util.concurrent.ConcurrentHashMap.entrySet()*
+
+public |java.util.Set|<Entry<K,V>> entrySet()
+
+Returns a (|java.util.Set|) view of the mappings contained in this map. The set 
+is backed by the map, so changes to the map are reflected in the set, and 
+vice-versa. The set supports element removal, which removes the corresponding 
+mapping from the map, via theIterator.remove,Set.remove,removeAll,retainAll, 
+andclearoperations. 
+
+The view's iterators and spliterators are weakly consistent. 
+
+The view'sspliteratorreports (|java.util.Spliterator|) , 
+(|java.util.Spliterator|) , and (|java.util.Spliterator|) . 
+
+
+
+    Returns: 
+
+*java.util.concurrent.ConcurrentHashMap.equals(Object)*
+
+public boolean equals(java.lang.Object o)
+
+Compares the specified object with this map for equality. Returnstrueif the 
+given object is a map with the same mappings as this map. This operation may 
+return misleading results if either map is concurrently modified during 
+execution of this method. 
+
+
+    o - object to be compared for equality with this map 
+
+    Returns: {@code true} if the specified object is equal to this map 
+
+*java.util.concurrent.ConcurrentHashMap.forEach(BiConsumer<?superK,?superV>)*
+
+public void forEach(java.util.function.BiConsumer<? super K, ? super V> action)
+
+
+
+
+
+*java.util.concurrent.ConcurrentHashMap.forEach(long,BiConsumer<?superK,?superV>)*
+
+public void forEach(
+  long parallelismThreshold,
+  java.util.function.BiConsumer<? super K, ? super V> action)
+
+Performs the given action for each (key, value). 
+
+
+    parallelismThreshold - the (estimated) number of elements needed for this operation to be executed in 
+       parallel 
+    action - the action 
+
+*java.util.concurrent.ConcurrentHashMap.forEach(long,BiFunction<?superK,?superV,?extendsU>,Consumer<?superU>)*
+
+public void forEach(
+  long parallelismThreshold,
+  java.util.function.BiFunction<? super K, ? super V, ? extends U> transformer,
+  java.util.function.Consumer<? super U> action)
+
+Performs the given action for each non-null transformation of each (key, 
+value). 
+
+
+    parallelismThreshold - the (estimated) number of elements needed for this operation to be executed in 
+       parallel 
+    transformer - a function returning the transformation for an element, or null if there is no 
+       transformation (in which case the action is not applied) 
+    action - the action 
+
+*java.util.concurrent.ConcurrentHashMap.forEachEntry(long,Consumer<?superMap.Entry<K,V>>)*
+
+public void forEachEntry(
+  long parallelismThreshold,
+  java.util.function.Consumer<? super java.util.Map.Entry<K, V>> action)
+
+Performs the given action for each entry. 
+
+
+    parallelismThreshold - the (estimated) number of elements needed for this operation to be executed in 
+       parallel 
+    action - the action 
+
+*java.util.concurrent.ConcurrentHashMap.forEachEntry(long,Function<Map.Entry<K,V>,?extendsU>,Consumer<?superU>)*
+
+public void forEachEntry(
+  long parallelismThreshold,
+  java.util.function.Function<java.util.Map.Entry<K, V>, ? extends U> transformer,
+  java.util.function.Consumer<? super U> action)
+
+Performs the given action for each non-null transformation of each entry. 
+
+
+    parallelismThreshold - the (estimated) number of elements needed for this operation to be executed in 
+       parallel 
+    transformer - a function returning the transformation for an element, or null if there is no 
+       transformation (in which case the action is not applied) 
+    action - the action 
+
+*java.util.concurrent.ConcurrentHashMap.forEachKey(long,Consumer<?superK>)*
+
+public void forEachKey(
+  long parallelismThreshold,
+  java.util.function.Consumer<? super K> action)
+
+Performs the given action for each key. 
+
+
+    parallelismThreshold - the (estimated) number of elements needed for this operation to be executed in 
+       parallel 
+    action - the action 
+
+*java.util.concurrent.ConcurrentHashMap.forEachKey(long,Function<?superK,?extendsU>,Consumer<?superU>)*
+
+public void forEachKey(
+  long parallelismThreshold,
+  java.util.function.Function<? super K, ? extends U> transformer,
+  java.util.function.Consumer<? super U> action)
+
+Performs the given action for each non-null transformation of each key. 
+
+
+    parallelismThreshold - the (estimated) number of elements needed for this operation to be executed in 
+       parallel 
+    transformer - a function returning the transformation for an element, or null if there is no 
+       transformation (in which case the action is not applied) 
+    action - the action 
+
+*java.util.concurrent.ConcurrentHashMap.forEachValue(long,Consumer<?superV>)*
+
+public void forEachValue(
+  long parallelismThreshold,
+  java.util.function.Consumer<? super V> action)
+
+Performs the given action for each value. 
+
+
+    parallelismThreshold - the (estimated) number of elements needed for this operation to be executed in 
+       parallel 
+    action - the action 
+
+*java.util.concurrent.ConcurrentHashMap.forEachValue(long,Function<?superV,?extendsU>,Consumer<?superU>)*
+
+public void forEachValue(
+  long parallelismThreshold,
+  java.util.function.Function<? super V, ? extends U> transformer,
+  java.util.function.Consumer<? super U> action)
+
+Performs the given action for each non-null transformation of each value. 
+
+
+    parallelismThreshold - the (estimated) number of elements needed for this operation to be executed in 
+       parallel 
+    transformer - a function returning the transformation for an element, or null if there is no 
+       transformation (in which case the action is not applied) 
+    action - the action 
+
+*java.util.concurrent.ConcurrentHashMap.get(Object)*
+
+public |V| get(java.lang.Object key)
+
+Returns the value to which the specified key is mapped, ornullif this map 
+contains no mapping for the key. 
+
+More formally, if this map contains a mapping from a keykto a valuevsuch 
+thatkey.equals(k), then this method returnsv; otherwise it returnsnull. (There 
+can be at most one such mapping.) 
+
+
+
+*java.util.concurrent.ConcurrentHashMap.getOrDefault(Object,V)*
+
+public |V| getOrDefault(
+  java.lang.Object key,
+  V defaultValue)
+
+Returns the value to which the specified key is mapped, or the given default 
+value if this map contains no mapping for the key. 
+
+
+    key - the key whose associated value is to be returned 
+    defaultValue - the value to return if this map contains no mapping for the given key 
+
+    Returns: the mapping for the key, if present; else the default value 
+
+*java.util.concurrent.ConcurrentHashMap.hashCode()*
+
+public int hashCode()
+
+Returns the hash code value for this (|java.util.Map|) , i.e., the sum of, for 
+each key-value pair in the map,key.hashCode() ^ value.hashCode(). 
+
+
+
+    Returns: the hash code value for this map 
+
+*java.util.concurrent.ConcurrentHashMap.isEmpty()*
+
+public boolean isEmpty()
+
+
+
+
+
+*java.util.concurrent.ConcurrentHashMap.keys()*
+
+public |java.util.Enumeration|<K> keys()
+
+Returns an enumeration of the keys in this table. 
+
+
+
+    Returns: an enumeration of the keys in this table 
+
+*java.util.concurrent.ConcurrentHashMap.keySet()*
+
+public |java.util.concurrent.ConcurrentHashMap.KeySetView|<K,V> keySet()
+
+Returns a (|java.util.Set|) view of the keys contained in this map. The set is 
+backed by the map, so changes to the map are reflected in the set, and 
+vice-versa. The set supports element removal, which removes the corresponding 
+mapping from this map, via theIterator.remove,Set.remove,removeAll,retainAll, 
+andclearoperations. It does not support theaddoraddAlloperations. 
+
+The view's iterators and spliterators are weakly consistent. 
+
+The view'sspliteratorreports (|java.util.Spliterator|) , 
+(|java.util.Spliterator|) , and (|java.util.Spliterator|) . 
+
+
+
+    Returns: 
+
+*java.util.concurrent.ConcurrentHashMap.keySet(V)*
+
+public |java.util.concurrent.ConcurrentHashMap.KeySetView|<K,V> keySet(V mappedValue)
+
+Returns a (|java.util.Set|) view of the keys in this map, using the given 
+common mapped value for any additions (i.e., (|java.util.Collection|) and 
+(|java.util.Collection|) ). This is of course only appropriate if it is 
+acceptable to use the same value for all additions from this view. 
+
+
+    mappedValue - the mapped value to use for any additions 
+
+    Returns: 
+
+*java.util.concurrent.ConcurrentHashMap.mappingCount()*
+
+public long mappingCount()
+
+Returns the number of mappings. This method should be used instead of 
+(|java.util.concurrent.ConcurrentHashMap|) because a ConcurrentHashMap may 
+contain more mappings than can be represented as an int. The value returned is 
+an estimate; the actual count may differ if there are concurrent insertions or 
+removals. 
+
+
+
+    Returns: the number of mappings 
+
+*java.util.concurrent.ConcurrentHashMap.merge(K,V,BiFunction<?superV,?superV,?extendsV>)*
+
+public |V| merge(
+  K key,
+  V value,
+  java.util.function.BiFunction<? super V, ? super V, ? extends V> remappingFunction)
+
+If the specified key is not already associated with a (non-null) value, 
+associates it with the given value. Otherwise, replaces the value with the 
+results of the given remapping function, or removes ifnull. The entire method 
+invocation is performed atomically. Some attempted update operations on this 
+map by other threads may be blocked while computation is in progress, so the 
+computation should be short and simple, and must not attempt to update any 
+other mappings of this Map. 
+
+
+    key - key with which the specified value is to be associated 
+    value - the value to use if absent 
+    remappingFunction - the function to recompute a value if present 
+
+    Returns: the new value associated with the specified key, or null if none 
+
+*java.util.concurrent.ConcurrentHashMap.newKeySet()*
+
+public static |java.util.concurrent.ConcurrentHashMap.KeySetView|<K,Boolean> newKeySet()
+
+Creates a new (|java.util.Set|) backed by a ConcurrentHashMap from the given 
+type toBoolean.TRUE. 
+
+
+
+    Returns: 
+
+*java.util.concurrent.ConcurrentHashMap.newKeySet(int)*
+
+public static |java.util.concurrent.ConcurrentHashMap.KeySetView|<K,Boolean> newKeySet(int initialCapacity)
+
+Creates a new (|java.util.Set|) backed by a ConcurrentHashMap from the given 
+type toBoolean.TRUE. 
+
+
+    initialCapacity - The implementation performs internal sizing to accommodate this many elements. 
+
+    Returns: 
+
+*java.util.concurrent.ConcurrentHashMap.put(K,V)*
+
+public |V| put(
+  K key,
+  V value)
+
+Maps the specified key to the specified value in this table. Neither the key 
+nor the value can be null. 
+
+The value can be retrieved by calling thegetmethod with a key that is equal to 
+the original key. 
+
+
+    key - key with which the specified value is to be associated 
+    value - value to be associated with the specified key 
+
+    Returns: the previous value associated with {@code key}, or {@code null} if there was no 
+             mapping for {@code key} 
+
+*java.util.concurrent.ConcurrentHashMap.putAll(Map<?extendsK,?extendsV>)*
+
+public void putAll(java.util.Map<? extends K, ? extends V> m)
+
+Copies all of the mappings from the specified map to this one. These mappings 
+replace any mappings that this map had for any of the keys currently in the 
+specified map. 
+
+
+    m - mappings to be stored in this map 
+
+*java.util.concurrent.ConcurrentHashMap.putIfAbsent(K,V)*
+
+public |V| putIfAbsent(
+  K key,
+  V value)
+
+
+
+
+
+    Returns: the previous value associated with the specified key, or {@code null} if there 
+             was no mapping for the key 
+
+*java.util.concurrent.ConcurrentHashMap.reduce(long,BiFunction<?superK,?superV,?extendsU>,BiFunction<?superU,?superU,?extendsU>)*
+
+public |U| reduce(
+  long parallelismThreshold,
+  java.util.function.BiFunction<? super K, ? super V, ? extends U> transformer,
+  java.util.function.BiFunction<? super U, ? super U, ? extends U> reducer)
+
+Returns the result of accumulating the given transformation of all (key, value) 
+pairs using the given reducer to combine values, or null if none. 
+
+
+    parallelismThreshold - the (estimated) number of elements needed for this operation to be executed in 
+       parallel 
+    transformer - a function returning the transformation for an element, or null if there is no 
+       transformation (in which case it is not combined) 
+    reducer - a commutative associative combining function 
+
+    Returns: the result of accumulating the given transformation of all (key, value) pairs 
+
+*java.util.concurrent.ConcurrentHashMap.reduceEntries(long,BiFunction<Map.Entry<K,V>,Map.Entry<K,V>,?extendsMap.Entry<K,V>>)*
+
+public |java.util.Map.Entry|<K,V> reduceEntries(
+  long parallelismThreshold,
+  java.util.function.BiFunction<java.util.Map.Entry<K, V>, java.util.Map.Entry<K, V>, ? extends java.util.Map.Entry<K, V>> reducer)
+
+Returns the result of accumulating all entries using the given reducer to 
+combine values, or null if none. 
+
+
+    parallelismThreshold - the (estimated) number of elements needed for this operation to be executed in 
+       parallel 
+    reducer - a commutative associative combining function 
+
+    Returns: the result of accumulating all entries 
+
+*java.util.concurrent.ConcurrentHashMap.reduceEntries(long,Function<Map.Entry<K,V>,?extendsU>,BiFunction<?superU,?superU,?extendsU>)*
+
+public |U| reduceEntries(
+  long parallelismThreshold,
+  java.util.function.Function<java.util.Map.Entry<K, V>, ? extends U> transformer,
+  java.util.function.BiFunction<? super U, ? super U, ? extends U> reducer)
+
+Returns the result of accumulating the given transformation of all entries 
+using the given reducer to combine values, or null if none. 
+
+
+    parallelismThreshold - the (estimated) number of elements needed for this operation to be executed in 
+       parallel 
+    transformer - a function returning the transformation for an element, or null if there is no 
+       transformation (in which case it is not combined) 
+    reducer - a commutative associative combining function 
+
+    Returns: the result of accumulating the given transformation of all entries 
+
+*java.util.concurrent.ConcurrentHashMap.reduceEntriesToDouble(long,ToDoubleFunction<Map.Entry<K,V>>,double,DoubleBinaryOperator)*
+
+public double reduceEntriesToDouble(
+  long parallelismThreshold,
+  java.util.function.ToDoubleFunction<java.util.Map.Entry<K, V>> transformer,
+  double basis,
+  java.util.function.DoubleBinaryOperator reducer)
+
+Returns the result of accumulating the given transformation of all entries 
+using the given reducer to combine values, and the given basis as an identity 
+value. 
+
+
+    parallelismThreshold - the (estimated) number of elements needed for this operation to be executed in 
+       parallel 
+    transformer - a function returning the transformation for an element 
+    basis - the identity (initial default value) for the reduction 
+    reducer - a commutative associative combining function 
+
+    Returns: the result of accumulating the given transformation of all entries 
+
+*java.util.concurrent.ConcurrentHashMap.reduceEntriesToInt(long,ToIntFunction<Map.Entry<K,V>>,int,IntBinaryOperator)*
+
+public int reduceEntriesToInt(
+  long parallelismThreshold,
+  java.util.function.ToIntFunction<java.util.Map.Entry<K, V>> transformer,
+  int basis,
+  java.util.function.IntBinaryOperator reducer)
+
+Returns the result of accumulating the given transformation of all entries 
+using the given reducer to combine values, and the given basis as an identity 
+value. 
+
+
+    parallelismThreshold - the (estimated) number of elements needed for this operation to be executed in 
+       parallel 
+    transformer - a function returning the transformation for an element 
+    basis - the identity (initial default value) for the reduction 
+    reducer - a commutative associative combining function 
+
+    Returns: the result of accumulating the given transformation of all entries 
+
+*java.util.concurrent.ConcurrentHashMap.reduceEntriesToLong(long,ToLongFunction<Map.Entry<K,V>>,long,LongBinaryOperator)*
+
+public long reduceEntriesToLong(
+  long parallelismThreshold,
+  java.util.function.ToLongFunction<java.util.Map.Entry<K, V>> transformer,
+  long basis,
+  java.util.function.LongBinaryOperator reducer)
+
+Returns the result of accumulating the given transformation of all entries 
+using the given reducer to combine values, and the given basis as an identity 
+value. 
+
+
+    parallelismThreshold - the (estimated) number of elements needed for this operation to be executed in 
+       parallel 
+    transformer - a function returning the transformation for an element 
+    basis - the identity (initial default value) for the reduction 
+    reducer - a commutative associative combining function 
+
+    Returns: the result of accumulating the given transformation of all entries 
+
+*java.util.concurrent.ConcurrentHashMap.reduceKeys(long,BiFunction<?superK,?superK,?extendsK>)*
+
+public |K| reduceKeys(
+  long parallelismThreshold,
+  java.util.function.BiFunction<? super K, ? super K, ? extends K> reducer)
+
+Returns the result of accumulating all keys using the given reducer to combine 
+values, or null if none. 
+
+
+    parallelismThreshold - the (estimated) number of elements needed for this operation to be executed in 
+       parallel 
+    reducer - a commutative associative combining function 
+
+    Returns: the result of accumulating all keys using the given reducer to combine values, 
+             or null if none 
+
+*java.util.concurrent.ConcurrentHashMap.reduceKeys(long,Function<?superK,?extendsU>,BiFunction<?superU,?superU,?extendsU>)*
+
+public |U| reduceKeys(
+  long parallelismThreshold,
+  java.util.function.Function<? super K, ? extends U> transformer,
+  java.util.function.BiFunction<? super U, ? super U, ? extends U> reducer)
+
+Returns the result of accumulating the given transformation of all keys using 
+the given reducer to combine values, or null if none. 
+
+
+    parallelismThreshold - the (estimated) number of elements needed for this operation to be executed in 
+       parallel 
+    transformer - a function returning the transformation for an element, or null if there is no 
+       transformation (in which case it is not combined) 
+    reducer - a commutative associative combining function 
+
+    Returns: the result of accumulating the given transformation of all keys 
+
+*java.util.concurrent.ConcurrentHashMap.reduceKeysToDouble(long,ToDoubleFunction<?superK>,double,DoubleBinaryOperator)*
+
+public double reduceKeysToDouble(
+  long parallelismThreshold,
+  java.util.function.ToDoubleFunction<? super K> transformer,
+  double basis,
+  java.util.function.DoubleBinaryOperator reducer)
+
+Returns the result of accumulating the given transformation of all keys using 
+the given reducer to combine values, and the given basis as an identity value. 
+
+
+    parallelismThreshold - the (estimated) number of elements needed for this operation to be executed in 
+       parallel 
+    transformer - a function returning the transformation for an element 
+    basis - the identity (initial default value) for the reduction 
+    reducer - a commutative associative combining function 
+
+    Returns: the result of accumulating the given transformation of all keys 
+
+*java.util.concurrent.ConcurrentHashMap.reduceKeysToInt(long,ToIntFunction<?superK>,int,IntBinaryOperator)*
+
+public int reduceKeysToInt(
+  long parallelismThreshold,
+  java.util.function.ToIntFunction<? super K> transformer,
+  int basis,
+  java.util.function.IntBinaryOperator reducer)
+
+Returns the result of accumulating the given transformation of all keys using 
+the given reducer to combine values, and the given basis as an identity value. 
+
+
+    parallelismThreshold - the (estimated) number of elements needed for this operation to be executed in 
+       parallel 
+    transformer - a function returning the transformation for an element 
+    basis - the identity (initial default value) for the reduction 
+    reducer - a commutative associative combining function 
+
+    Returns: the result of accumulating the given transformation of all keys 
+
+*java.util.concurrent.ConcurrentHashMap.reduceKeysToLong(long,ToLongFunction<?superK>,long,LongBinaryOperator)*
+
+public long reduceKeysToLong(
+  long parallelismThreshold,
+  java.util.function.ToLongFunction<? super K> transformer,
+  long basis,
+  java.util.function.LongBinaryOperator reducer)
+
+Returns the result of accumulating the given transformation of all keys using 
+the given reducer to combine values, and the given basis as an identity value. 
+
+
+    parallelismThreshold - the (estimated) number of elements needed for this operation to be executed in 
+       parallel 
+    transformer - a function returning the transformation for an element 
+    basis - the identity (initial default value) for the reduction 
+    reducer - a commutative associative combining function 
+
+    Returns: the result of accumulating the given transformation of all keys 
+
+*java.util.concurrent.ConcurrentHashMap.reduceToDouble(long,ToDoubleBiFunction<?superK,?superV>,double,DoubleBinaryOperator)*
+
+public double reduceToDouble(
+  long parallelismThreshold,
+  java.util.function.ToDoubleBiFunction<? super K, ? super V> transformer,
+  double basis,
+  java.util.function.DoubleBinaryOperator reducer)
+
+Returns the result of accumulating the given transformation of all (key, value) 
+pairs using the given reducer to combine values, and the given basis as an 
+identity value. 
+
+
+    parallelismThreshold - the (estimated) number of elements needed for this operation to be executed in 
+       parallel 
+    transformer - a function returning the transformation for an element 
+    basis - the identity (initial default value) for the reduction 
+    reducer - a commutative associative combining function 
+
+    Returns: the result of accumulating the given transformation of all (key, value) pairs 
+
+*java.util.concurrent.ConcurrentHashMap.reduceToInt(long,ToIntBiFunction<?superK,?superV>,int,IntBinaryOperator)*
+
+public int reduceToInt(
+  long parallelismThreshold,
+  java.util.function.ToIntBiFunction<? super K, ? super V> transformer,
+  int basis,
+  java.util.function.IntBinaryOperator reducer)
+
+Returns the result of accumulating the given transformation of all (key, value) 
+pairs using the given reducer to combine values, and the given basis as an 
+identity value. 
+
+
+    parallelismThreshold - the (estimated) number of elements needed for this operation to be executed in 
+       parallel 
+    transformer - a function returning the transformation for an element 
+    basis - the identity (initial default value) for the reduction 
+    reducer - a commutative associative combining function 
+
+    Returns: the result of accumulating the given transformation of all (key, value) pairs 
+
+*java.util.concurrent.ConcurrentHashMap.reduceToLong(long,ToLongBiFunction<?superK,?superV>,long,LongBinaryOperator)*
+
+public long reduceToLong(
+  long parallelismThreshold,
+  java.util.function.ToLongBiFunction<? super K, ? super V> transformer,
+  long basis,
+  java.util.function.LongBinaryOperator reducer)
+
+Returns the result of accumulating the given transformation of all (key, value) 
+pairs using the given reducer to combine values, and the given basis as an 
+identity value. 
+
+
+    parallelismThreshold - the (estimated) number of elements needed for this operation to be executed in 
+       parallel 
+    transformer - a function returning the transformation for an element 
+    basis - the identity (initial default value) for the reduction 
+    reducer - a commutative associative combining function 
+
+    Returns: the result of accumulating the given transformation of all (key, value) pairs 
+
+*java.util.concurrent.ConcurrentHashMap.reduceValues(long,BiFunction<?superV,?superV,?extendsV>)*
+
+public |V| reduceValues(
+  long parallelismThreshold,
+  java.util.function.BiFunction<? super V, ? super V, ? extends V> reducer)
+
+Returns the result of accumulating all values using the given reducer to 
+combine values, or null if none. 
+
+
+    parallelismThreshold - the (estimated) number of elements needed for this operation to be executed in 
+       parallel 
+    reducer - a commutative associative combining function 
+
+    Returns: the result of accumulating all values 
+
+*java.util.concurrent.ConcurrentHashMap.reduceValues(long,Function<?superV,?extendsU>,BiFunction<?superU,?superU,?extendsU>)*
+
+public |U| reduceValues(
+  long parallelismThreshold,
+  java.util.function.Function<? super V, ? extends U> transformer,
+  java.util.function.BiFunction<? super U, ? super U, ? extends U> reducer)
+
+Returns the result of accumulating the given transformation of all values using 
+the given reducer to combine values, or null if none. 
+
+
+    parallelismThreshold - the (estimated) number of elements needed for this operation to be executed in 
+       parallel 
+    transformer - a function returning the transformation for an element, or null if there is no 
+       transformation (in which case it is not combined) 
+    reducer - a commutative associative combining function 
+
+    Returns: the result of accumulating the given transformation of all values 
+
+*java.util.concurrent.ConcurrentHashMap.reduceValuesToDouble(long,ToDoubleFunction<?superV>,double,DoubleBinaryOperator)*
+
+public double reduceValuesToDouble(
+  long parallelismThreshold,
+  java.util.function.ToDoubleFunction<? super V> transformer,
+  double basis,
+  java.util.function.DoubleBinaryOperator reducer)
+
+Returns the result of accumulating the given transformation of all values using 
+the given reducer to combine values, and the given basis as an identity value. 
+
+
+    parallelismThreshold - the (estimated) number of elements needed for this operation to be executed in 
+       parallel 
+    transformer - a function returning the transformation for an element 
+    basis - the identity (initial default value) for the reduction 
+    reducer - a commutative associative combining function 
+
+    Returns: the result of accumulating the given transformation of all values 
+
+*java.util.concurrent.ConcurrentHashMap.reduceValuesToInt(long,ToIntFunction<?superV>,int,IntBinaryOperator)*
+
+public int reduceValuesToInt(
+  long parallelismThreshold,
+  java.util.function.ToIntFunction<? super V> transformer,
+  int basis,
+  java.util.function.IntBinaryOperator reducer)
+
+Returns the result of accumulating the given transformation of all values using 
+the given reducer to combine values, and the given basis as an identity value. 
+
+
+    parallelismThreshold - the (estimated) number of elements needed for this operation to be executed in 
+       parallel 
+    transformer - a function returning the transformation for an element 
+    basis - the identity (initial default value) for the reduction 
+    reducer - a commutative associative combining function 
+
+    Returns: the result of accumulating the given transformation of all values 
+
+*java.util.concurrent.ConcurrentHashMap.reduceValuesToLong(long,ToLongFunction<?superV>,long,LongBinaryOperator)*
+
+public long reduceValuesToLong(
+  long parallelismThreshold,
+  java.util.function.ToLongFunction<? super V> transformer,
+  long basis,
+  java.util.function.LongBinaryOperator reducer)
+
+Returns the result of accumulating the given transformation of all values using 
+the given reducer to combine values, and the given basis as an identity value. 
+
+
+    parallelismThreshold - the (estimated) number of elements needed for this operation to be executed in 
+       parallel 
+    transformer - a function returning the transformation for an element 
+    basis - the identity (initial default value) for the reduction 
+    reducer - a commutative associative combining function 
+
+    Returns: the result of accumulating the given transformation of all values 
+
+*java.util.concurrent.ConcurrentHashMap.remove(Object)*
+
+public |V| remove(java.lang.Object key)
+
+Removes the key (and its corresponding value) from this map. This method does 
+nothing if the key is not in the map. 
+
+
+    key - the key that needs to be removed 
+
+    Returns: the previous value associated with {@code key}, or {@code null} if there was no 
+             mapping for {@code key} 
+
+*java.util.concurrent.ConcurrentHashMap.remove(Object,Object)*
+
+public boolean remove(
+  java.lang.Object key,
+  java.lang.Object value)
+
+
+
+
+
+*java.util.concurrent.ConcurrentHashMap.replace(K,V)*
+
+public |V| replace(
+  K key,
+  V value)
+
+
+
+
+
+    Returns: the previous value associated with the specified key, or {@code null} if there 
+             was no mapping for the key 
+
+*java.util.concurrent.ConcurrentHashMap.replace(K,V,V)*
+
+public boolean replace(
+  K key,
+  V oldValue,
+  V newValue)
+
+
+
+
+
+*java.util.concurrent.ConcurrentHashMap.replaceAll(BiFunction<?superK,?superV,?extendsV>)*
+
+public void replaceAll(java.util.function.BiFunction<? super K, ? super V, ? extends V> function)
+
+
+
+
+
+*java.util.concurrent.ConcurrentHashMap.search(long,BiFunction<?superK,?superV,?extendsU>)*
+
+public |U| search(
+  long parallelismThreshold,
+  java.util.function.BiFunction<? super K, ? super V, ? extends U> searchFunction)
+
+Returns a non-null result from applying the given search function on each (key, 
+value), or null if none. Upon success, further element processing is suppressed 
+and the results of any other parallel invocations of the search function are 
+ignored. 
+
+
+    parallelismThreshold - the (estimated) number of elements needed for this operation to be executed in 
+       parallel 
+    searchFunction - a function returning a non-null result on success, else null 
+
+    Returns: a non-null result from applying the given search function on each (key, value), 
+             or null if none 
+
+*java.util.concurrent.ConcurrentHashMap.searchEntries(long,Function<Map.Entry<K,V>,?extendsU>)*
+
+public |U| searchEntries(
+  long parallelismThreshold,
+  java.util.function.Function<java.util.Map.Entry<K, V>, ? extends U> searchFunction)
+
+Returns a non-null result from applying the given search function on each 
+entry, or null if none. Upon success, further element processing is suppressed 
+and the results of any other parallel invocations of the search function are 
+ignored. 
+
+
+    parallelismThreshold - the (estimated) number of elements needed for this operation to be executed in 
+       parallel 
+    searchFunction - a function returning a non-null result on success, else null 
+
+    Returns: a non-null result from applying the given search function on each entry, or 
+             null if none 
+
+*java.util.concurrent.ConcurrentHashMap.searchKeys(long,Function<?superK,?extendsU>)*
+
+public |U| searchKeys(
+  long parallelismThreshold,
+  java.util.function.Function<? super K, ? extends U> searchFunction)
+
+Returns a non-null result from applying the given search function on each key, 
+or null if none. Upon success, further element processing is suppressed and the 
+results of any other parallel invocations of the search function are ignored. 
+
+
+    parallelismThreshold - the (estimated) number of elements needed for this operation to be executed in 
+       parallel 
+    searchFunction - a function returning a non-null result on success, else null 
+
+    Returns: a non-null result from applying the given search function on each key, or null 
+             if none 
+
+*java.util.concurrent.ConcurrentHashMap.searchValues(long,Function<?superV,?extendsU>)*
+
+public |U| searchValues(
+  long parallelismThreshold,
+  java.util.function.Function<? super V, ? extends U> searchFunction)
+
+Returns a non-null result from applying the given search function on each 
+value, or null if none. Upon success, further element processing is suppressed 
+and the results of any other parallel invocations of the search function are 
+ignored. 
+
+
+    parallelismThreshold - the (estimated) number of elements needed for this operation to be executed in 
+       parallel 
+    searchFunction - a function returning a non-null result on success, else null 
+
+    Returns: a non-null result from applying the given search function on each value, or 
+             null if none 
+
+*java.util.concurrent.ConcurrentHashMap.size()*
+
+public int size()
+
+
+
+
+
+*java.util.concurrent.ConcurrentHashMap.toString()*
+
+public |java.lang.String| toString()
+
+Returns a string representation of this map. The string representation consists 
+of a list of key-value mappings (in no particular order) enclosed in braces 
+("{}"). Adjacent mappings are separated by the characters", "(comma and space). 
+Each key-value mapping is rendered as the key followed by an equals sign ("=") 
+followed by the associated value. 
+
+
+
+    Returns: a string representation of this map 
+
+*java.util.concurrent.ConcurrentHashMap.values()*
+
+public |java.util.Collection|<V> values()
+
+Returns a (|java.util.Collection|) view of the values contained in this map. 
+The collection is backed by the map, so changes to the map are reflected in the 
+collection, and vice-versa. The collection supports element removal, which 
+removes the corresponding mapping from this map, via 
+theIterator.remove,Collection.remove,removeAll,retainAll, andclearoperations. 
+It does not support theaddoraddAlloperations. 
+
+The view's iterators and spliterators are weakly consistent. 
+
+The view'sspliteratorreports (|java.util.Spliterator|) and 
+(|java.util.Spliterator|) . 
+
+
+
+    Returns: the collection view 
+
+

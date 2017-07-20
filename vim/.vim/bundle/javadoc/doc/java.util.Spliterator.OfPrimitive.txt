@@ -1,0 +1,61 @@
+*java.util.Spliterator.OfPrimitive* *Spliterator.OfPrimitive* A Spliterator spec
+
+public static interface interface Spliterator.OfPrimitive<T,T_CONS,T_SPLITR extends java.util.Spliterator.OfPrimitive<T, T_CONS, T_SPLITR>>
+
+  implements |java.util.Spliterator|
+
+|java.util.Spliterator.OfPrimitive_Description|
+|java.util.Spliterator.OfPrimitive_Fields|
+|java.util.Spliterator.OfPrimitive_Constructors|
+|java.util.Spliterator.OfPrimitive_Methods|
+
+================================================================================
+
+*java.util.Spliterator.OfPrimitive_Methods*
+|java.util.Spliterator.OfPrimitive.forEachRemaining(T_CONS)|Performs the given 
+|java.util.Spliterator.OfPrimitive.tryAdvance(T_CONS)|If a remaining element ex
+|java.util.Spliterator.OfPrimitive.trySplit()|
+
+*java.util.Spliterator.OfPrimitive_Description*
+
+A Spliterator specialized for primitive values. 
+
+
+
+*java.util.Spliterator.OfPrimitive.forEachRemaining(T_CONS)*
+
+public void forEachRemaining(T_CONS action)
+
+Performs the given action for each remaining element, sequentially in the 
+current thread, until all elements have been processed or the action throws an 
+exception. If this Spliterator is (|java.util.Spliterator.OfPrimitive|) , 
+actions are performed in encounter order. Exceptions thrown by the action are 
+relayed to the caller. 
+
+
+    action - The action 
+
+*java.util.Spliterator.OfPrimitive.tryAdvance(T_CONS)*
+
+public boolean tryAdvance(T_CONS action)
+
+If a remaining element exists, performs the given action on it, returningtrue; 
+else returnsfalse. If this Spliterator is (|java.util.Spliterator.OfPrimitive|) 
+the action is performed on the next element in encounter order. Exceptions 
+thrown by the action are relayed to the caller. 
+
+
+    action - The action 
+
+    Returns: {@code false} if no remaining elements existed upon entry to this method, else 
+             {@code true}. 
+
+*java.util.Spliterator.OfPrimitive.trySplit()*
+
+public |T_SPLITR| trySplit()
+
+
+
+
+
+

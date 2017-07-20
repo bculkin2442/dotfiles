@@ -1,0 +1,77 @@
+*java.util.function.Function* *Function* Represents a function that accepts one 
+
+public interface interface Function<T,R>
+
+
+|java.util.function.Function_Description|
+|java.util.function.Function_Fields|
+|java.util.function.Function_Constructors|
+|java.util.function.Function_Methods|
+
+================================================================================
+
+*java.util.function.Function_Methods*
+|java.util.function.Function.andThen(Function<?superR,?extendsV>)|Returns a com
+|java.util.function.Function.apply(T)|Applies this function to the given argume
+|java.util.function.Function.compose(Function<?superV,?extendsT>)|Returns a com
+|java.util.function.Function.identity()|Returns a function that always returns 
+
+*java.util.function.Function_Description*
+
+Represents a function that accepts one argument and produces a result. 
+
+This is a functional interface whose functional method is 
+(|java.util.function.Function|) . 
+
+
+
+*java.util.function.Function.andThen(Function<?superR,?extendsV>)*
+
+public |java.util.function.Function|<T,V> andThen(java.util.function.Function<? super R, ? extends V> after)
+
+Returns a composed function that first applies this function to its input, and 
+then applies theafterfunction to the result. If evaluation of either function 
+throws an exception, it is relayed to the caller of the composed function. 
+
+
+    after - the function to apply after this function is applied 
+
+    Returns: a composed function that first applies this function and then applies the 
+             {@code after} function 
+
+*java.util.function.Function.apply(T)*
+
+public |R| apply(T t)
+
+Applies this function to the given argument. 
+
+
+    t - the function argument 
+
+    Returns: the function result 
+
+*java.util.function.Function.compose(Function<?superV,?extendsT>)*
+
+public |java.util.function.Function|<V,R> compose(java.util.function.Function<? super V, ? extends T> before)
+
+Returns a composed function that first applies thebeforefunction to its input, 
+and then applies this function to the result. If evaluation of either function 
+throws an exception, it is relayed to the caller of the composed function. 
+
+
+    before - the function to apply before this function is applied 
+
+    Returns: a composed function that first applies the {@code before} function and then 
+             applies this function 
+
+*java.util.function.Function.identity()*
+
+public static |java.util.function.Function|<T,T> identity()
+
+Returns a function that always returns its input argument. 
+
+
+
+    Returns: a function that always returns its input argument 
+
+

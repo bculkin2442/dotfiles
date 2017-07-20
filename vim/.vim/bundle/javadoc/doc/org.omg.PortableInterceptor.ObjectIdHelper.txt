@@ -1,0 +1,90 @@
+*org.omg.PortableInterceptor.ObjectIdHelper* *ObjectIdHelper* Type of an object 
+
+public abstract class ObjectIdHelper
+  extends    |java.lang.Object|
+
+|org.omg.PortableInterceptor.ObjectIdHelper_Description|
+|org.omg.PortableInterceptor.ObjectIdHelper_Fields|
+|org.omg.PortableInterceptor.ObjectIdHelper_Constructors|
+|org.omg.PortableInterceptor.ObjectIdHelper_Methods|
+
+================================================================================
+
+*org.omg.PortableInterceptor.ObjectIdHelper_Constructors*
+|org.omg.PortableInterceptor.ObjectIdHelper()|
+
+*org.omg.PortableInterceptor.ObjectIdHelper_Methods*
+|org.omg.PortableInterceptor.ObjectIdHelper.extract(Any)|
+|org.omg.PortableInterceptor.ObjectIdHelper.id()|
+|org.omg.PortableInterceptor.ObjectIdHelper.insert(Any,byte[])|
+|org.omg.PortableInterceptor.ObjectIdHelper.read(InputStream)|
+|org.omg.PortableInterceptor.ObjectIdHelper.type()|
+|org.omg.PortableInterceptor.ObjectIdHelper.write(OutputStream,byte[])|
+
+*org.omg.PortableInterceptor.ObjectIdHelper_Description*
+
+Type of an object id. This provides the identity of a particular object that 
+was created by an object adapter. 
+
+
+
+*org.omg.PortableInterceptor.ObjectIdHelper()*
+
+public ObjectIdHelper()
+
+
+
+
+*org.omg.PortableInterceptor.ObjectIdHelper.extract(Any)*
+
+public static byte[] extract(org.omg.CORBA.Any a)
+
+
+
+
+
+*org.omg.PortableInterceptor.ObjectIdHelper.id()*
+
+public static |java.lang.String| id()
+
+
+
+
+
+*org.omg.PortableInterceptor.ObjectIdHelper.insert(Any,byte[])*
+
+public static void insert(
+  org.omg.CORBA.Any a,
+  byte[] that)
+
+
+
+
+
+*org.omg.PortableInterceptor.ObjectIdHelper.read(InputStream)*
+
+public static byte[] read(org.omg.CORBA.portable.InputStream istream)
+
+
+
+
+
+*org.omg.PortableInterceptor.ObjectIdHelper.type()*
+
+public static synchronized |org.omg.CORBA.TypeCode| type()
+
+
+
+
+
+*org.omg.PortableInterceptor.ObjectIdHelper.write(OutputStream,byte[])*
+
+public static void write(
+  org.omg.CORBA.portable.OutputStream ostream,
+  byte[] value)
+
+
+
+
+
+

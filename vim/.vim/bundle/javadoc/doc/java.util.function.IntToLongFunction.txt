@@ -1,0 +1,38 @@
+*java.util.function.IntToLongFunction* *IntToLongFunction* Represents a function
+
+public interface interface IntToLongFunction
+
+
+|java.util.function.IntToLongFunction_Description|
+|java.util.function.IntToLongFunction_Fields|
+|java.util.function.IntToLongFunction_Constructors|
+|java.util.function.IntToLongFunction_Methods|
+
+================================================================================
+
+*java.util.function.IntToLongFunction_Methods*
+|java.util.function.IntToLongFunction.applyAsLong(int)|Applies this function to
+
+*java.util.function.IntToLongFunction_Description*
+
+Represents a function that accepts an int-valued argument and produces a 
+long-valued result. This is theint-to-longprimitive specialization for 
+(|java.util.function.Function|) . 
+
+This is a functional interface whose functional method is 
+(|java.util.function.IntToLongFunction|) . 
+
+
+
+*java.util.function.IntToLongFunction.applyAsLong(int)*
+
+public long applyAsLong(int value)
+
+Applies this function to the given argument. 
+
+
+    value - the function argument 
+
+    Returns: the function result 
+
+

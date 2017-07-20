@@ -1,0 +1,227 @@
+*javax.xml.soap.SOAPHeader* *SOAPHeader* A representation of the SOAP header
+ el
+
+public interface interface SOAPHeader
+
+  implements |javax.xml.soap.SOAPElement|
+
+|javax.xml.soap.SOAPHeader_Description|
+|javax.xml.soap.SOAPHeader_Fields|
+|javax.xml.soap.SOAPHeader_Constructors|
+|javax.xml.soap.SOAPHeader_Methods|
+
+================================================================================
+
+*javax.xml.soap.SOAPHeader_Methods*
+|javax.xml.soap.SOAPHeader.addHeaderElement(Name)|Creates a new SOAPHeaderEleme
+|javax.xml.soap.SOAPHeader.addHeaderElement(QName)|Creates a new SOAPHeaderElem
+|javax.xml.soap.SOAPHeader.addNotUnderstoodHeaderElement(QName)|Creates a new N
+|javax.xml.soap.SOAPHeader.addUpgradeHeaderElement(Iterator)|Creates a new Upgr
+|javax.xml.soap.SOAPHeader.addUpgradeHeaderElement(String)|Creates a new Upgrad
+|javax.xml.soap.SOAPHeader.addUpgradeHeaderElement(String[])|Creates a new Upgr
+|javax.xml.soap.SOAPHeader.examineAllHeaderElements()|Returns an Iterator over 
+|javax.xml.soap.SOAPHeader.examineHeaderElements(String)|Returns an Iterator ov
+|javax.xml.soap.SOAPHeader.examineMustUnderstandHeaderElements(String)|Returns 
+|javax.xml.soap.SOAPHeader.extractAllHeaderElements()|Returns an Iterator over 
+|javax.xml.soap.SOAPHeader.extractHeaderElements(String)|Returns an Iterator ov
+
+*javax.xml.soap.SOAPHeader_Description*
+
+A representation of the SOAP header element. A SOAP header element consists of 
+XML data that affects the way the application-specific content is processed by 
+the message provider. For example, transaction semantics, authentication 
+information, and so on, can be specified as the content of a SOAPHeader object. 
+
+A SOAPEnvelope object contains an empty SOAPHeader object by default. If the 
+SOAPHeader object, which is optional, is not needed, it can be retrieved and 
+deleted with the following line of code. The variable se is a SOAPEnvelope 
+object. 
+
+se.getHeader().detachNode(); 
+
+A SOAPHeader object is created with the SOAPEnvelope method addHeader. This 
+method, which creates a new header and adds it to the envelope, may be called 
+only after the existing header has been removed. 
+
+
+
+se.getHeader().detachNode(); SOAPHeader sh = se.addHeader(); 
+
+A SOAPHeader object can have only SOAPHeaderElement objects as its immediate 
+children. The method addHeaderElement creates a new HeaderElement object and 
+adds it to the SOAPHeader object. In the following line of code, the argument 
+to the method addHeaderElement is a Name object that is the name for the new 
+HeaderElement object. 
+
+SOAPHeaderElement shElement = sh.addHeaderElement(name); 
+
+
+
+*javax.xml.soap.SOAPHeader.addHeaderElement(Name)*
+
+public |javax.xml.soap.SOAPHeaderElement| addHeaderElement(javax.xml.soap.Name name)
+  throws |javax.xml.soap.SOAPException|
+         
+Creates a new SOAPHeaderElement object initialized with the specified name and 
+adds it to this SOAPHeader object. 
+
+
+    name - a Name object with the name of the new SOAPHeaderElement object 
+
+    Returns: the new SOAPHeaderElement object that was inserted into this SOAPHeader object 
+
+*javax.xml.soap.SOAPHeader.addHeaderElement(QName)*
+
+public |javax.xml.soap.SOAPHeaderElement| addHeaderElement(javax.xml.namespace.QName qname)
+  throws |javax.xml.soap.SOAPException|
+         
+Creates a new SOAPHeaderElement object initialized with the specified qname and 
+adds it to this SOAPHeader object. 
+
+
+    qname - a QName object with the qname of the new SOAPHeaderElement object 
+
+    Returns: the new SOAPHeaderElement object that was inserted into this SOAPHeader object 
+
+*javax.xml.soap.SOAPHeader.addNotUnderstoodHeaderElement(QName)*
+
+public |javax.xml.soap.SOAPHeaderElement| addNotUnderstoodHeaderElement(javax.xml.namespace.QName name)
+  throws |javax.xml.soap.SOAPException|
+         
+Creates a new NotUnderstood SOAPHeaderElement object initialized with the 
+specified name and adds it to this SOAPHeader object. This operation is 
+supported only by SOAP 1.2. 
+
+
+    name - a QName object with the name of the SOAPHeaderElement object that was not 
+       understood. 
+
+    Returns: the new SOAPHeaderElement object that was inserted into this SOAPHeader object 
+
+*javax.xml.soap.SOAPHeader.addUpgradeHeaderElement(Iterator)*
+
+public |javax.xml.soap.SOAPHeaderElement| addUpgradeHeaderElement(java.util.Iterator supportedSOAPURIs)
+  throws |javax.xml.soap.SOAPException|
+         
+Creates a new Upgrade SOAPHeaderElement object initialized with the specified 
+List of supported SOAP URIs and adds it to this SOAPHeader object. This 
+operation is supported on both SOAP 1.1 and SOAP 1.2 header. 
+
+
+    supportedSOAPURIs - an Iterator object with the URIs of SOAP versions supported. 
+
+    Returns: the new SOAPHeaderElement object that was inserted into this SOAPHeader object 
+
+*javax.xml.soap.SOAPHeader.addUpgradeHeaderElement(String)*
+
+public |javax.xml.soap.SOAPHeaderElement| addUpgradeHeaderElement(java.lang.String supportedSoapUri)
+  throws |javax.xml.soap.SOAPException|
+         
+Creates a new Upgrade SOAPHeaderElement object initialized with the specified 
+supported SOAP URI and adds it to this SOAPHeader object. This operation is 
+supported on both SOAP 1.1 and SOAP 1.2 header. 
+
+
+    supportedSoapUri - the URI of SOAP the version that is supported. 
+
+    Returns: the new SOAPHeaderElement object that was inserted into this SOAPHeader object 
+
+*javax.xml.soap.SOAPHeader.addUpgradeHeaderElement(String[])*
+
+public |javax.xml.soap.SOAPHeaderElement| addUpgradeHeaderElement(java.lang.String[] supportedSoapUris)
+  throws |javax.xml.soap.SOAPException|
+         
+Creates a new Upgrade SOAPHeaderElement object initialized with the specified 
+array of supported SOAP URIs and adds it to this SOAPHeader object. This 
+operation is supported on both SOAP 1.1 and SOAP 1.2 header. 
+
+
+    supportedSoapUris - an array of the URIs of SOAP versions supported. 
+
+    Returns: the new SOAPHeaderElement object that was inserted into this SOAPHeader object 
+
+*javax.xml.soap.SOAPHeader.examineAllHeaderElements()*
+
+public |java.util.Iterator| examineAllHeaderElements()
+
+Returns an Iterator over all the SOAPHeaderElement objects in this SOAPHeader 
+object. 
+
+
+
+    Returns: an Iterator object over all the SOAPHeaderElement objects contained by this 
+             SOAPHeader 
+
+*javax.xml.soap.SOAPHeader.examineHeaderElements(String)*
+
+public |java.util.Iterator| examineHeaderElements(java.lang.String actor)
+
+Returns an Iterator over all the SOAPHeaderElement objects in this SOAPHeader 
+object that have the specified actor. 
+
+An actor is a global attribute that indicates the intermediate parties that 
+should process a message before it reaches its ultimate receiver. An actor 
+receives the message and processes it before sending it on to the next actor. 
+The default actor is the ultimate intended recipient for the message, so if no 
+actor attribute is included in a SOAPHeader object, it is sent to the ultimate 
+receiver along with the message body. 
+
+In SOAP 1.2 the env:actor attribute is replaced by the env:role attribute, but 
+with essentially the same semantics. 
+
+
+    actor - a String giving the URI of the actor / role for which to search 
+
+    Returns: an Iterator object over all the SOAPHeaderElement objects that contain the 
+             specified actor / role 
+
+*javax.xml.soap.SOAPHeader.examineMustUnderstandHeaderElements(String)*
+
+public |java.util.Iterator| examineMustUnderstandHeaderElements(java.lang.String actor)
+
+Returns an Iterator over all the SOAPHeaderElement objects in this SOAPHeader 
+object that have the specified actor and that have a MustUnderstand attribute 
+whose value is equivalent to true. 
+
+In SOAP 1.2 the env:actor attribute is replaced by the env:role attribute, but 
+with essentially the same semantics. 
+
+
+    actor - a String giving the URI of the actor / role for which to search 
+
+    Returns: an Iterator object over all the SOAPHeaderElement objects that contain the 
+             specified actor / role and are marked as MustUnderstand 
+
+*javax.xml.soap.SOAPHeader.extractAllHeaderElements()*
+
+public |java.util.Iterator| extractAllHeaderElements()
+
+Returns an Iterator over all the SOAPHeaderElement objects in this SOAPHeader 
+object and detaches them from this SOAPHeader object. 
+
+
+
+    Returns: an Iterator object over all the SOAPHeaderElement objects contained by this 
+             SOAPHeader 
+
+*javax.xml.soap.SOAPHeader.extractHeaderElements(String)*
+
+public |java.util.Iterator| extractHeaderElements(java.lang.String actor)
+
+Returns an Iterator over all the SOAPHeaderElement objects in this SOAPHeader 
+object that have the specified actor and detaches them from this SOAPHeader 
+object. 
+
+This method allows an actor to process the parts of the SOAPHeader object that 
+apply to it and to remove them before passing the message on to the next actor. 
+
+In SOAP 1.2 the env:actor attribute is replaced by the env:role attribute, but 
+with essentially the same semantics. 
+
+
+    actor - a String giving the URI of the actor / role for which to search 
+
+    Returns: an Iterator object over all the SOAPHeaderElement objects that contain the 
+             specified actor / role 
+
+

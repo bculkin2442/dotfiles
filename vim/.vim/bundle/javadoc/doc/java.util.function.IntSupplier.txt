@@ -1,0 +1,39 @@
+*java.util.function.IntSupplier* *IntSupplier* Represents a supplier ofint-value
+
+public interface interface IntSupplier
+
+
+|java.util.function.IntSupplier_Description|
+|java.util.function.IntSupplier_Fields|
+|java.util.function.IntSupplier_Constructors|
+|java.util.function.IntSupplier_Methods|
+
+================================================================================
+
+*java.util.function.IntSupplier_Methods*
+|java.util.function.IntSupplier.getAsInt()|Gets a result.
+
+*java.util.function.IntSupplier_Description*
+
+Represents a supplier ofint-valued results. This is theint-producing primitive 
+specialization of (|java.util.function.Supplier|) . 
+
+There is no requirement that a distinct result be returned each time the 
+supplier is invoked. 
+
+This is a functional interface whose functional method is 
+(|java.util.function.IntSupplier|) . 
+
+
+
+*java.util.function.IntSupplier.getAsInt()*
+
+public int getAsInt()
+
+Gets a result. 
+
+
+
+    Returns: 
+
+

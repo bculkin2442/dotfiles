@@ -1,0 +1,137 @@
+*java.util.concurrent.ConcurrentHashMap.KeySetView* *ConcurrentHashMap.KeySetView* 
+
+public static class ConcurrentHashMap.KeySetView<K,V>
+  extends    |java.util.concurrent.ConcurrentHashMap.CollectionView|
+  implements |java.util.Set|
+             |java.io.Serializable|
+
+|java.util.concurrent.ConcurrentHashMap.KeySetView_Description|
+|java.util.concurrent.ConcurrentHashMap.KeySetView_Fields|
+|java.util.concurrent.ConcurrentHashMap.KeySetView_Constructors|
+|java.util.concurrent.ConcurrentHashMap.KeySetView_Methods|
+
+================================================================================
+
+*java.util.concurrent.ConcurrentHashMap.KeySetView_Methods*
+|java.util.concurrent.ConcurrentHashMap.KeySetView.add(K)|Adds the specified ke
+|java.util.concurrent.ConcurrentHashMap.KeySetView.addAll(Collection<?extendsK>)|
+|java.util.concurrent.ConcurrentHashMap.KeySetView.contains(Object)|
+|java.util.concurrent.ConcurrentHashMap.KeySetView.equals(Object)|
+|java.util.concurrent.ConcurrentHashMap.KeySetView.forEach(Consumer<?superK>)|
+|java.util.concurrent.ConcurrentHashMap.KeySetView.getMappedValue()|Returns the
+|java.util.concurrent.ConcurrentHashMap.KeySetView.hashCode()|
+|java.util.concurrent.ConcurrentHashMap.KeySetView.iterator()|
+|java.util.concurrent.ConcurrentHashMap.KeySetView.remove(Object)|Removes the k
+|java.util.concurrent.ConcurrentHashMap.KeySetView.spliterator()|
+
+*java.util.concurrent.ConcurrentHashMap.KeySetView_Description*
+
+A view of a ConcurrentHashMap as a (|java.util.Set|) of keys, in which 
+additions may optionally be enabled by mapping to a common value. This class 
+cannot be directly instantiated. See 
+keySet()(|java.util.concurrent.ConcurrentHashMap.KeySetView|) , 
+keySet(V)(|java.util.concurrent.ConcurrentHashMap.KeySetView|) , 
+newKeySet()(|java.util.concurrent.ConcurrentHashMap.KeySetView|) , 
+newKeySet(int)(|java.util.concurrent.ConcurrentHashMap.KeySetView|) . 
+
+
+
+*java.util.concurrent.ConcurrentHashMap.KeySetView.add(K)*
+
+public boolean add(K e)
+
+Adds the specified key to this set view by mapping the key to the default 
+mapped value in the backing map, if defined. 
+
+
+    e - key to be added 
+
+    Returns: {@code true} if this set changed as a result of the call 
+
+*java.util.concurrent.ConcurrentHashMap.KeySetView.addAll(Collection<?extendsK>)*
+
+public boolean addAll(java.util.Collection<? extends K> c)
+
+Adds all of the elements in the specified collection to this set, as if by 
+calling (|java.util.concurrent.ConcurrentHashMap.KeySetView|) on each one. 
+
+
+    c - the elements to be inserted into this set 
+
+    Returns: {@code true} if this set changed as a result of the call 
+
+*java.util.concurrent.ConcurrentHashMap.KeySetView.contains(Object)*
+
+public boolean contains(java.lang.Object o)
+
+
+
+
+
+*java.util.concurrent.ConcurrentHashMap.KeySetView.equals(Object)*
+
+public boolean equals(java.lang.Object o)
+
+
+
+
+
+*java.util.concurrent.ConcurrentHashMap.KeySetView.forEach(Consumer<?superK>)*
+
+public void forEach(java.util.function.Consumer<? super K> action)
+
+
+
+
+
+*java.util.concurrent.ConcurrentHashMap.KeySetView.getMappedValue()*
+
+public |V| getMappedValue()
+
+Returns the default mapped value for additions, ornullif additions are not 
+supported. 
+
+
+
+    Returns: the default mapped value for additions, or {@code null} if not supported 
+
+*java.util.concurrent.ConcurrentHashMap.KeySetView.hashCode()*
+
+public int hashCode()
+
+
+
+
+
+*java.util.concurrent.ConcurrentHashMap.KeySetView.iterator()*
+
+public |java.util.Iterator|<K> iterator()
+
+
+
+
+
+    Returns: an iterator over the keys of the backing map 
+
+*java.util.concurrent.ConcurrentHashMap.KeySetView.remove(Object)*
+
+public boolean remove(java.lang.Object o)
+
+Removes the key from this map view, by removing the key (and its corresponding 
+value) from the backing map. This method does nothing if the key is not in the 
+map. 
+
+
+    o - the key to be removed from the backing map 
+
+    Returns: {@code true} if the backing map contained the specified key 
+
+*java.util.concurrent.ConcurrentHashMap.KeySetView.spliterator()*
+
+public |java.util.Spliterator|<K> spliterator()
+
+
+
+
+
+

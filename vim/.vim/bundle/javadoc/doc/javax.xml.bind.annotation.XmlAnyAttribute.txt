@@ -1,0 +1,41 @@
+*javax.xml.bind.annotation.XmlAnyAttribute* *XmlAnyAttribute* 
+ Maps a JavaBean 
+
+public interface class XmlAnyAttribute
+
+  implements |java.lang.annotation.Annotation|
+
+|javax.xml.bind.annotation.XmlAnyAttribute_Description|
+|javax.xml.bind.annotation.XmlAnyAttribute_Fields|
+|javax.xml.bind.annotation.XmlAnyAttribute_Constructors|
+|javax.xml.bind.annotation.XmlAnyAttribute_Methods|
+
+================================================================================
+
+*javax.xml.bind.annotation.XmlAnyAttribute_Description*
+
+Maps a JavaBean property to a map of wildcard attributes. 
+
+Usage 
+
+The XmlAnyAttribute annotation can be used with the following program elements: 
+
+JavaBean property non static, non transient field 
+
+See "Package Specification" in javax.xml.bind.package javadoc for additional 
+common information. 
+
+The usage is subject to the following constraints: 
+
+At most one field or property in a class can be annotated with XmlAnyAttribute. 
+The type of the property or the field must java.util.Map 
+
+While processing attributes to be unmarshalled into a value class, each 
+attribute that is not statically associated with another JavaBean property, via 
+(|javax.xml.bind.annotation.XmlAttribute|) , is entered into the wildcard 
+attribute map represented by (|java.util.Map|) < (|javax.xml.namespace.QName|) 
+, (|java.lang.Object|) >. The attribute QName is the map's key. The key's value 
+is the String value of the attribute. 
+
+
+

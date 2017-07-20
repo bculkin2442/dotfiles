@@ -1,0 +1,233 @@
+*javax.swing.plaf.synth.SynthButtonUI* *SynthButtonUI* Provides the Synth L and 
+
+public class SynthButtonUI
+  extends    |javax.swing.plaf.basic.BasicButtonUI|
+  implements |java.beans.PropertyChangeListener|
+             |javax.swing.plaf.synth.SynthUI|
+
+|javax.swing.plaf.synth.SynthButtonUI_Description|
+|javax.swing.plaf.synth.SynthButtonUI_Fields|
+|javax.swing.plaf.synth.SynthButtonUI_Constructors|
+|javax.swing.plaf.synth.SynthButtonUI_Methods|
+
+================================================================================
+
+*javax.swing.plaf.synth.SynthButtonUI_Constructors*
+|javax.swing.plaf.synth.SynthButtonUI()|
+
+*javax.swing.plaf.synth.SynthButtonUI_Methods*
+|javax.swing.plaf.synth.SynthButtonUI.createUI(JComponent)|Creates a new UI obj
+|javax.swing.plaf.synth.SynthButtonUI.getBaseline(JComponent,int,int)|
+|javax.swing.plaf.synth.SynthButtonUI.getContext(JComponent)|
+|javax.swing.plaf.synth.SynthButtonUI.getDefaultIcon(AbstractButton)|Returns th
+|javax.swing.plaf.synth.SynthButtonUI.getIcon(AbstractButton)|Returns the Icon 
+|javax.swing.plaf.synth.SynthButtonUI.getMaximumSize(JComponent)|
+|javax.swing.plaf.synth.SynthButtonUI.getMinimumSize(JComponent)|
+|javax.swing.plaf.synth.SynthButtonUI.getPreferredSize(JComponent)|
+|javax.swing.plaf.synth.SynthButtonUI.getSizingIcon(AbstractButton)|Returns the
+|javax.swing.plaf.synth.SynthButtonUI.installDefaults(AbstractButton)|
+|javax.swing.plaf.synth.SynthButtonUI.installListeners(AbstractButton)|
+|javax.swing.plaf.synth.SynthButtonUI.paint(Graphics,JComponent)|Paints the spe
+|javax.swing.plaf.synth.SynthButtonUI.paint(SynthContext,Graphics)|Paints the s
+|javax.swing.plaf.synth.SynthButtonUI.paintBorder(SynthContext,Graphics,int,int,int,int)|
+|javax.swing.plaf.synth.SynthButtonUI.propertyChange(PropertyChangeEvent)|
+|javax.swing.plaf.synth.SynthButtonUI.uninstallDefaults(AbstractButton)|
+|javax.swing.plaf.synth.SynthButtonUI.uninstallListeners(AbstractButton)|
+|javax.swing.plaf.synth.SynthButtonUI.update(Graphics,JComponent)|Notifies this
+
+*javax.swing.plaf.synth.SynthButtonUI_Description*
+
+Provides the Synth L and F UI delegate for (|javax.swing.JButton|) . 
+
+
+
+*javax.swing.plaf.synth.SynthButtonUI()*
+
+public SynthButtonUI()
+
+
+
+
+*javax.swing.plaf.synth.SynthButtonUI.createUI(JComponent)*
+
+public static |javax.swing.plaf.ComponentUI| createUI(javax.swing.JComponent c)
+
+Creates a new UI object for the given component. 
+
+
+    c - component to create UI object for 
+
+    Returns: the UI object 
+
+*javax.swing.plaf.synth.SynthButtonUI.getBaseline(JComponent,int,int)*
+
+public int getBaseline(
+  javax.swing.JComponent c,
+  int width,
+  int height)
+
+
+
+
+
+*javax.swing.plaf.synth.SynthButtonUI.getContext(JComponent)*
+
+public |javax.swing.plaf.synth.SynthContext| getContext(javax.swing.JComponent c)
+
+
+
+
+
+*javax.swing.plaf.synth.SynthButtonUI.getDefaultIcon(AbstractButton)*
+
+protected |javax.swing.Icon| getDefaultIcon(javax.swing.AbstractButton b)
+
+Returns the default icon. This should not callback to the JComponent. 
+
+
+    b - button the icon is associated with 
+
+    Returns: 
+
+*javax.swing.plaf.synth.SynthButtonUI.getIcon(AbstractButton)*
+
+protected |javax.swing.Icon| getIcon(javax.swing.AbstractButton b)
+
+Returns the Icon to use for painting the button. The icon is chosen with 
+respect to the current state of the button. 
+
+
+    b - button the icon is associated with 
+
+    Returns: 
+
+*javax.swing.plaf.synth.SynthButtonUI.getMaximumSize(JComponent)*
+
+public |java.awt.Dimension| getMaximumSize(javax.swing.JComponent c)
+
+
+
+
+
+*javax.swing.plaf.synth.SynthButtonUI.getMinimumSize(JComponent)*
+
+public |java.awt.Dimension| getMinimumSize(javax.swing.JComponent c)
+
+
+
+
+
+*javax.swing.plaf.synth.SynthButtonUI.getPreferredSize(JComponent)*
+
+public |java.awt.Dimension| getPreferredSize(javax.swing.JComponent c)
+
+
+
+
+
+*javax.swing.plaf.synth.SynthButtonUI.getSizingIcon(AbstractButton)*
+
+protected |javax.swing.Icon| getSizingIcon(javax.swing.AbstractButton b)
+
+Returns the Icon used in calculating the preferred/minimum/maximum size. 
+
+
+
+*javax.swing.plaf.synth.SynthButtonUI.installDefaults(AbstractButton)*
+
+protected void installDefaults(javax.swing.AbstractButton b)
+
+
+
+
+
+*javax.swing.plaf.synth.SynthButtonUI.installListeners(AbstractButton)*
+
+protected void installListeners(javax.swing.AbstractButton b)
+
+
+
+
+
+*javax.swing.plaf.synth.SynthButtonUI.paint(Graphics,JComponent)*
+
+public void paint(
+  java.awt.Graphics g,
+  javax.swing.JComponent c)
+
+Paints the specified component according to the Look and Feel. This method is 
+not used by Synth Look and Feel. Painting is handled by the 
+(|javax.swing.plaf.synth.SynthButtonUI|) method. 
+
+
+    g - the {@code Graphics} object used for painting 
+    c - the component being painted 
+
+*javax.swing.plaf.synth.SynthButtonUI.paint(SynthContext,Graphics)*
+
+protected void paint(
+  javax.swing.plaf.synth.SynthContext context,
+  java.awt.Graphics g)
+
+Paints the specified component. 
+
+
+    context - context for the component being painted 
+    g - the {@code Graphics} object used for painting 
+
+*javax.swing.plaf.synth.SynthButtonUI.paintBorder(SynthContext,Graphics,int,int,int,int)*
+
+public void paintBorder(
+  javax.swing.plaf.synth.SynthContext context,
+  java.awt.Graphics g,
+  int x,
+  int y,
+  int w,
+  int h)
+
+
+
+
+
+*javax.swing.plaf.synth.SynthButtonUI.propertyChange(PropertyChangeEvent)*
+
+public void propertyChange(java.beans.PropertyChangeEvent e)
+
+
+
+
+
+*javax.swing.plaf.synth.SynthButtonUI.uninstallDefaults(AbstractButton)*
+
+protected void uninstallDefaults(javax.swing.AbstractButton b)
+
+
+
+
+
+*javax.swing.plaf.synth.SynthButtonUI.uninstallListeners(AbstractButton)*
+
+protected void uninstallListeners(javax.swing.AbstractButton b)
+
+
+
+
+
+*javax.swing.plaf.synth.SynthButtonUI.update(Graphics,JComponent)*
+
+public void update(
+  java.awt.Graphics g,
+  javax.swing.JComponent c)
+
+Notifies this UI delegate to repaint the specified component. This method 
+paints the component background, then calls the 
+(|javax.swing.plaf.synth.SynthButtonUI|) method. 
+
+In general, this method does not need to be overridden by subclasses. All Look 
+and Feel rendering code should reside in thepaintmethod. 
+
+
+    g - the {@code Graphics} object used for painting 
+    c - the component being painted 
+
+

@@ -1,0 +1,788 @@
+*java.util.stream.Collectors* *Collectors* Implementations ofCollectorthat imple
+
+public final class Collectors
+  extends    |java.lang.Object|
+
+|java.util.stream.Collectors_Description|
+|java.util.stream.Collectors_Fields|
+|java.util.stream.Collectors_Constructors|
+|java.util.stream.Collectors_Methods|
+
+================================================================================
+
+*java.util.stream.Collectors_Methods*
+|java.util.stream.Collectors.averagingDouble(ToDoubleFunction<?superT>)|Returns
+|java.util.stream.Collectors.averagingInt(ToIntFunction<?superT>)|Returns aColl
+|java.util.stream.Collectors.averagingLong(ToLongFunction<?superT>)|Returns aCo
+|java.util.stream.Collectors.collectingAndThen(Collector<T,A,R>,Function<R,RR>)|
+|java.util.stream.Collectors.counting()|Returns aCollectoraccepting elements of
+|java.util.stream.Collectors.groupingBy(Function<?superT,?extendsK>)|Returns aC
+|java.util.stream.Collectors.groupingBy(Function<?superT,?extendsK>,Collector<?superT,A,D>)|
+|java.util.stream.Collectors.groupingBy(Function<?superT,?extendsK>,Supplier<M>,Collector<?superT,A,D>)|
+|java.util.stream.Collectors.groupingByConcurrent(Function<?superT,?extendsK>)|
+|java.util.stream.Collectors.groupingByConcurrent(Function<?superT,?extendsK>,Collector<?superT,A,D>)|
+|java.util.stream.Collectors.groupingByConcurrent(Function<?superT,?extendsK>,Supplier<M>,Collector<?superT,A,D>)|
+|java.util.stream.Collectors.joining()|Returns aCollectorthat concatenates the 
+|java.util.stream.Collectors.joining(CharSequence)|Returns aCollectorthat conca
+|java.util.stream.Collectors.joining(CharSequence,CharSequence,CharSequence)|Re
+|java.util.stream.Collectors.mapping(Function<?superT,?extendsU>,Collector<?superU,A,R>)|
+|java.util.stream.Collectors.maxBy(Comparator<?superT>)|Returns aCollectorthat 
+|java.util.stream.Collectors.minBy(Comparator<?superT>)|Returns aCollectorthat 
+|java.util.stream.Collectors.partitioningBy(Predicate<?superT>)|Returns aCollec
+|java.util.stream.Collectors.partitioningBy(Predicate<?superT>,Collector<?superT,A,D>)|
+|java.util.stream.Collectors.reducing(BinaryOperator<T>)|Returns aCollectorwhic
+|java.util.stream.Collectors.reducing(T,BinaryOperator<T>)|Returns aCollectorwh
+|java.util.stream.Collectors.reducing(U,Function<?superT,?extendsU>,BinaryOperator<U>)|
+|java.util.stream.Collectors.summarizingDouble(ToDoubleFunction<?superT>)|Retur
+|java.util.stream.Collectors.summarizingInt(ToIntFunction<?superT>)|Returns aCo
+|java.util.stream.Collectors.summarizingLong(ToLongFunction<?superT>)|Returns a
+|java.util.stream.Collectors.summingDouble(ToDoubleFunction<?superT>)|Returns a
+|java.util.stream.Collectors.summingInt(ToIntFunction<?superT>)|Returns aCollec
+|java.util.stream.Collectors.summingLong(ToLongFunction<?superT>)|Returns aColl
+|java.util.stream.Collectors.toCollection(Supplier<C>)|Returns aCollectorthat a
+|java.util.stream.Collectors.toConcurrentMap(Function<?superT,?extendsK>,Function<?superT,?extendsU>)|
+|java.util.stream.Collectors.toConcurrentMap(Function<?superT,?extendsK>,Function<?superT,?extendsU>,BinaryOperator<U>)|
+|java.util.stream.Collectors.toConcurrentMap(Function<?superT,?extendsK>,Function<?superT,?extendsU>,BinaryOperator<U>,Supplier<M>)|
+|java.util.stream.Collectors.toList()|Returns aCollectorthat accumulates the in
+|java.util.stream.Collectors.toMap(Function<?superT,?extendsK>,Function<?superT,?extendsU>)|
+|java.util.stream.Collectors.toMap(Function<?superT,?extendsK>,Function<?superT,?extendsU>,BinaryOperator<U>)|
+|java.util.stream.Collectors.toMap(Function<?superT,?extendsK>,Function<?superT,?extendsU>,BinaryOperator<U>,Supplier<M>)|
+|java.util.stream.Collectors.toSet()|Returns aCollectorthat accumulates the inp
+
+*java.util.stream.Collectors_Description*
+
+Implementations of (|java.util.stream.Collector|) that implement various useful 
+reduction operations, such as accumulating elements into collections, 
+summarizing elements according to various criteria, etc. 
+
+The following are examples of using the predefined collectors to perform common 
+mutable reduction tasks: 
+
+// Accumulate names into a List List list = 
+people.stream().map(Person::getName).collect(Collectors.toList()); 
+
+// Accumulate names into a TreeSet Set set = 
+people.stream().map(Person::getName).collect(Collectors.toCollection(TreeSet::new));
+
+
+// Convert elements to strings and concatenate them, separated by commas String 
+joined = things.stream() .map(Object::toString) .collect(Collectors.joining(", 
+")); 
+
+// Compute sum of salaries of employee int total = employees.stream() 
+.collect(Collectors.summingInt(Employee::getSalary))); 
+
+// Group employees by department Map> byDept = employees.stream() 
+.collect(Collectors.groupingBy(Employee::getDepartment)); 
+
+// Compute sum of salaries by department Map totalByDept = employees.stream() 
+.collect(Collectors.groupingBy(Employee::getDepartment, 
+Collectors.summingInt(Employee::getSalary))); 
+
+// Partition students into passing and failing Map> passingFailing = 
+students.stream() .collect(Collectors.partitioningBy(s -> s.getGrade() >= 
+PASS_THRESHOLD)); 
+
+
+
+*java.util.stream.Collectors.averagingDouble(ToDoubleFunction<?superT>)*
+
+public static |java.util.stream.Collector|<T,?,Double> averagingDouble(java.util.function.ToDoubleFunction<? super T> mapper)
+
+Returns aCollectorthat produces the arithmetic mean of a double-valued function 
+applied to the input elements. If no elements are present, the result is 0. 
+
+The average returned can vary depending upon the order in which values are 
+recorded, due to accumulated rounding error in addition of values of differing 
+magnitudes. Values sorted by increasing absolute magnitude tend to yield more 
+accurate results. If any recorded value is aNaNor the sum is at any point 
+aNaNthen the average will beNaN. 
+
+
+    mapper - a function extracting the property to be summed 
+
+    Returns: a {@code Collector} that produces the sum of a derived property 
+
+*java.util.stream.Collectors.averagingInt(ToIntFunction<?superT>)*
+
+public static |java.util.stream.Collector|<T,?,Double> averagingInt(java.util.function.ToIntFunction<? super T> mapper)
+
+Returns aCollectorthat produces the arithmetic mean of an integer-valued 
+function applied to the input elements. If no elements are present, the result 
+is 0. 
+
+
+    mapper - a function extracting the property to be summed 
+
+    Returns: a {@code Collector} that produces the sum of a derived property 
+
+*java.util.stream.Collectors.averagingLong(ToLongFunction<?superT>)*
+
+public static |java.util.stream.Collector|<T,?,Double> averagingLong(java.util.function.ToLongFunction<? super T> mapper)
+
+Returns aCollectorthat produces the arithmetic mean of a long-valued function 
+applied to the input elements. If no elements are present, the result is 0. 
+
+
+    mapper - a function extracting the property to be summed 
+
+    Returns: a {@code Collector} that produces the sum of a derived property 
+
+*java.util.stream.Collectors.collectingAndThen(Collector<T,A,R>,Function<R,RR>)*
+
+public static |java.util.stream.Collector|<T,A,RR> collectingAndThen(
+  java.util.stream.Collector<T, A, R> downstream,
+  java.util.function.Function<R, RR> finisher)
+
+Adapts aCollectorto perform an additional finishing transformation. For 
+example, one could adapt the (|java.util.stream.Collectors|) collector to 
+always produce an immutable list with: 
+
+List people = people.stream().collect(collectingAndThen(toList(), 
+Collections::unmodifiableList)); 
+
+
+    downstream - a collector 
+    finisher - a function to be applied to the final result of the downstream collector 
+
+    Returns: a collector which performs the action of the downstream collector, followed by 
+             an additional finishing step 
+
+*java.util.stream.Collectors.counting()*
+
+public static |java.util.stream.Collector|<T,?,Long> counting()
+
+Returns aCollectoraccepting elements of typeTthat counts the number of input 
+elements. If no elements are present, the result is 0. 
+
+
+
+    Returns: a {@code Collector} that counts the input elements 
+
+*java.util.stream.Collectors.groupingBy(Function<?superT,?extendsK>)*
+
+public static |java.util.stream.Collector|<T,?,Map<K,List<T>>> groupingBy(java.util.function.Function<? super T, ? extends K> classifier)
+
+Returns aCollectorimplementing a "group by" operation on input elements of 
+typeT, grouping elements according to a classification function, and returning 
+the results in aMap. 
+
+The classification function maps elements to some key typeK. The collector 
+produces aMap>whose keys are the values resulting from applying the 
+classification function to the input elements, and whose corresponding values 
+areLists containing the input elements which map to the associated key under 
+the classification function. 
+
+There are no guarantees on the type, mutability, serializability, or 
+thread-safety of theMaporListobjects returned. 
+
+
+    classifier - the classifier function mapping input elements to keys 
+
+    Returns: a {@code Collector} implementing the group-by operation 
+
+*java.util.stream.Collectors.groupingBy(Function<?superT,?extendsK>,Collector<?superT,A,D>)*
+
+public static |java.util.stream.Collector|<T,?,Map<K,D>> groupingBy(
+  java.util.function.Function<? super T, ? extends K> classifier,
+  java.util.stream.Collector<? super T, A, D> downstream)
+
+Returns aCollectorimplementing a cascaded "group by" operation on input 
+elements of typeT, grouping elements according to a classification function, 
+and then performing a reduction operation on the values associated with a given 
+key using the specified downstreamCollector. 
+
+The classification function maps elements to some key typeK. The downstream 
+collector operates on elements of typeTand produces a result of typeD. The 
+resulting collector produces aMap. 
+
+There are no guarantees on the type, mutability, serializability, or 
+thread-safety of theMapreturned. 
+
+For example, to compute the set of last names of people in each city: 
+
+Map> namesByCity = people.stream().collect(groupingBy(Person::getCity, 
+mapping(Person::getLastName, toSet()))); 
+
+
+    classifier - a classifier function mapping input elements to keys 
+    downstream - a {@code Collector} implementing the downstream reduction 
+
+    Returns: a {@code Collector} implementing the cascaded group-by operation 
+
+*java.util.stream.Collectors.groupingBy(Function<?superT,?extendsK>,Supplier<M>,Collector<?superT,A,D>)*
+
+public static |java.util.stream.Collector|<T,?,M extends java.util.Map<K, D>> groupingBy(
+  java.util.function.Function<? super T, ? extends K> classifier,
+  java.util.function.Supplier<M> mapFactory,
+  java.util.stream.Collector<? super T, A, D> downstream)
+
+Returns aCollectorimplementing a cascaded "group by" operation on input 
+elements of typeT, grouping elements according to a classification function, 
+and then performing a reduction operation on the values associated with a given 
+key using the specified downstreamCollector. TheMapproduced by the Collector is 
+created with the supplied factory function. 
+
+The classification function maps elements to some key typeK. The downstream 
+collector operates on elements of typeTand produces a result of typeD. The 
+resulting collector produces aMap. 
+
+For example, to compute the set of last names of people in each city, where the 
+city names are sorted: 
+
+Map> namesByCity = people.stream().collect(groupingBy(Person::getCity, 
+TreeMap::new, mapping(Person::getLastName, toSet()))); 
+
+
+    classifier - a classifier function mapping input elements to keys 
+    downstream - a {@code Collector} implementing the downstream reduction 
+    mapFactory - a function which, when called, produces a new empty {@code Map} of the desired 
+       type 
+
+    Returns: a {@code Collector} implementing the cascaded group-by operation 
+
+*java.util.stream.Collectors.groupingByConcurrent(Function<?superT,?extendsK>)*
+
+public static |java.util.stream.Collector|<T,?,ConcurrentMap<K,List<T>>> groupingByConcurrent(java.util.function.Function<? super T, ? extends K> classifier)
+
+Returns a concurrentCollectorimplementing a "group by" operation on input 
+elements of typeT, grouping elements according to a classification function. 
+
+This is a concurrent(|java.util.stream.Collector.Characteristics|) and 
+unordered(|java.util.stream.Collector.Characteristics|) Collector. 
+
+The classification function maps elements to some key typeK. The collector 
+produces aConcurrentMap>whose keys are the values resulting from applying the 
+classification function to the input elements, and whose corresponding values 
+areLists containing the input elements which map to the associated key under 
+the classification function. 
+
+There are no guarantees on the type, mutability, or serializability of 
+theMaporListobjects returned, or of the thread-safety of theListobjects 
+returned. 
+
+
+    classifier - a classifier function mapping input elements to keys 
+
+    Returns: a concurrent, unordered {@code Collector} implementing the group-by operation 
+
+*java.util.stream.Collectors.groupingByConcurrent(Function<?superT,?extendsK>,Collector<?superT,A,D>)*
+
+public static |java.util.stream.Collector|<T,?,ConcurrentMap<K,D>> groupingByConcurrent(
+  java.util.function.Function<? super T, ? extends K> classifier,
+  java.util.stream.Collector<? super T, A, D> downstream)
+
+Returns a concurrentCollectorimplementing a cascaded "group by" operation on 
+input elements of typeT, grouping elements according to a classification 
+function, and then performing a reduction operation on the values associated 
+with a given key using the specified downstreamCollector. 
+
+This is a concurrent(|java.util.stream.Collector.Characteristics|) and 
+unordered(|java.util.stream.Collector.Characteristics|) Collector. 
+
+The classification function maps elements to some key typeK. The downstream 
+collector operates on elements of typeTand produces a result of typeD. The 
+resulting collector produces aMap. 
+
+For example, to compute the set of last names of people in each city, where the 
+city names are sorted: 
+
+ConcurrentMap> namesByCity = 
+people.stream().collect(groupingByConcurrent(Person::getCity, 
+mapping(Person::getLastName, toSet()))); 
+
+
+    classifier - a classifier function mapping input elements to keys 
+    downstream - a {@code Collector} implementing the downstream reduction 
+
+    Returns: a concurrent, unordered {@code Collector} implementing the cascaded group-by 
+             operation 
+
+*java.util.stream.Collectors.groupingByConcurrent(Function<?superT,?extendsK>,Supplier<M>,Collector<?superT,A,D>)*
+
+public static |java.util.stream.Collector|<T,?,M extends java.util.concurrent.ConcurrentMap<K, D>> groupingByConcurrent(
+  java.util.function.Function<? super T, ? extends K> classifier,
+  java.util.function.Supplier<M> mapFactory,
+  java.util.stream.Collector<? super T, A, D> downstream)
+
+Returns a concurrentCollectorimplementing a cascaded "group by" operation on 
+input elements of typeT, grouping elements according to a classification 
+function, and then performing a reduction operation on the values associated 
+with a given key using the specified downstreamCollector. 
+TheConcurrentMapproduced by the Collector is created with the supplied factory 
+function. 
+
+This is a concurrent(|java.util.stream.Collector.Characteristics|) and 
+unordered(|java.util.stream.Collector.Characteristics|) Collector. 
+
+The classification function maps elements to some key typeK. The downstream 
+collector operates on elements of typeTand produces a result of typeD. The 
+resulting collector produces aMap. 
+
+For example, to compute the set of last names of people in each city, where the 
+city names are sorted: 
+
+ConcurrentMap> namesByCity = 
+people.stream().collect(groupingBy(Person::getCity, ConcurrentSkipListMap::new, 
+mapping(Person::getLastName, toSet()))); 
+
+
+    classifier - a classifier function mapping input elements to keys 
+    downstream - a {@code Collector} implementing the downstream reduction 
+    mapFactory - a function which, when called, produces a new empty {@code ConcurrentMap} of 
+       the desired type 
+
+    Returns: a concurrent, unordered {@code Collector} implementing the cascaded group-by 
+             operation 
+
+*java.util.stream.Collectors.joining()*
+
+public static |java.util.stream.Collector|<CharSequence,?,String> joining()
+
+Returns aCollectorthat concatenates the input elements into aString, in 
+encounter order. 
+
+
+
+    Returns: a {@code Collector} that concatenates the input elements into a {@code String}, 
+             in encounter order 
+
+*java.util.stream.Collectors.joining(CharSequence)*
+
+public static |java.util.stream.Collector|<CharSequence,?,String> joining(java.lang.CharSequence delimiter)
+
+Returns aCollectorthat concatenates the input elements, separated by the 
+specified delimiter, in encounter order. 
+
+
+    delimiter - the delimiter to be used between each element 
+
+    Returns: A {@code Collector} which concatenates CharSequence elements, separated by the 
+             specified delimiter, in encounter order 
+
+*java.util.stream.Collectors.joining(CharSequence,CharSequence,CharSequence)*
+
+public static |java.util.stream.Collector|<CharSequence,?,String> joining(
+  java.lang.CharSequence delimiter,
+  java.lang.CharSequence prefix,
+  java.lang.CharSequence suffix)
+
+Returns aCollectorthat concatenates the input elements, separated by the 
+specified delimiter, with the specified prefix and suffix, in encounter order. 
+
+
+    delimiter - the delimiter to be used between each element 
+    prefix - the sequence of characters to be used at the beginning of the joined result 
+    suffix - the sequence of characters to be used at the end of the joined result 
+
+    Returns: A {@code Collector} which concatenates CharSequence elements, separated by the 
+             specified delimiter, in encounter order 
+
+*java.util.stream.Collectors.mapping(Function<?superT,?extendsU>,Collector<?superU,A,R>)*
+
+public static |java.util.stream.Collector|<T,?,R> mapping(
+  java.util.function.Function<? super T, ? extends U> mapper,
+  java.util.stream.Collector<? super U, A, R> downstream)
+
+Adapts aCollectoraccepting elements of typeUto one accepting elements of 
+typeTby applying a mapping function to each input element before accumulation. 
+
+
+    mapper - a function to be applied to the input elements 
+    downstream - a collector which will accept mapped values 
+
+    Returns: a collector which applies the mapping function to the input elements and 
+             provides the mapped results to the downstream collector 
+
+*java.util.stream.Collectors.maxBy(Comparator<?superT>)*
+
+public static |java.util.stream.Collector|<T,?,Optional<T>> maxBy(java.util.Comparator<? super T> comparator)
+
+Returns aCollectorthat produces the maximal element according to a 
+givenComparator, described as anOptional. 
+
+
+    comparator - a {@code Comparator} for comparing elements 
+
+    Returns: a {@code Collector} that produces the maximal value 
+
+*java.util.stream.Collectors.minBy(Comparator<?superT>)*
+
+public static |java.util.stream.Collector|<T,?,Optional<T>> minBy(java.util.Comparator<? super T> comparator)
+
+Returns aCollectorthat produces the minimal element according to a 
+givenComparator, described as anOptional. 
+
+
+    comparator - a {@code Comparator} for comparing elements 
+
+    Returns: a {@code Collector} that produces the minimal value 
+
+*java.util.stream.Collectors.partitioningBy(Predicate<?superT>)*
+
+public static |java.util.stream.Collector|<T,?,Map<Boolean,List<T>>> partitioningBy(java.util.function.Predicate<? super T> predicate)
+
+Returns aCollectorwhich partitions the input elements according to aPredicate, 
+and organizes them into aMap>. 
+
+There are no guarantees on the type, mutability, serializability, or 
+thread-safety of theMapreturned. 
+
+
+    predicate - a predicate used for classifying input elements 
+
+    Returns: a {@code Collector} implementing the partitioning operation 
+
+*java.util.stream.Collectors.partitioningBy(Predicate<?superT>,Collector<?superT,A,D>)*
+
+public static |java.util.stream.Collector|<T,?,Map<Boolean,D>> partitioningBy(
+  java.util.function.Predicate<? super T> predicate,
+  java.util.stream.Collector<? super T, A, D> downstream)
+
+Returns aCollectorwhich partitions the input elements according to aPredicate, 
+reduces the values in each partition according to anotherCollector, and 
+organizes them into aMapwhose values are the result of the downstream 
+reduction. 
+
+There are no guarantees on the type, mutability, serializability, or 
+thread-safety of theMapreturned. 
+
+
+    predicate - a predicate used for classifying input elements 
+    downstream - a {@code Collector} implementing the downstream reduction 
+
+    Returns: a {@code Collector} implementing the cascaded partitioning operation 
+
+*java.util.stream.Collectors.reducing(BinaryOperator<T>)*
+
+public static |java.util.stream.Collector|<T,?,Optional<T>> reducing(java.util.function.BinaryOperator<T> op)
+
+Returns aCollectorwhich performs a reduction of its input elements under a 
+specifiedBinaryOperator. The result is described as anOptional. 
+
+
+    op - a {@code BinaryOperator} used to reduce the input elements 
+
+    Returns: a {@code Collector} which implements the reduction operation 
+
+*java.util.stream.Collectors.reducing(T,BinaryOperator<T>)*
+
+public static |java.util.stream.Collector|<T,?,T> reducing(
+  T identity,
+  java.util.function.BinaryOperator<T> op)
+
+Returns aCollectorwhich performs a reduction of its input elements under a 
+specifiedBinaryOperatorusing the provided identity. 
+
+
+    identity - the identity value for the reduction (also, the value that is returned when 
+       there are no input elements) 
+    op - a {@code BinaryOperator} used to reduce the input elements 
+
+    Returns: a {@code Collector} which implements the reduction operation 
+
+*java.util.stream.Collectors.reducing(U,Function<?superT,?extendsU>,BinaryOperator<U>)*
+
+public static |java.util.stream.Collector|<T,?,U> reducing(
+  U identity,
+  java.util.function.Function<? super T, ? extends U> mapper,
+  java.util.function.BinaryOperator<U> op)
+
+Returns aCollectorwhich performs a reduction of its input elements under a 
+specified mapping function andBinaryOperator. This is a generalization of 
+(|java.util.stream.Collectors|) which allows a transformation of the elements 
+before reduction. 
+
+
+    identity - the identity value for the reduction (also, the value that is returned when 
+       there are no input elements) 
+    mapper - a mapping function to apply to each input value 
+    op - a {@code BinaryOperator} used to reduce the mapped values 
+
+    Returns: a {@code Collector} implementing the map-reduce operation 
+
+*java.util.stream.Collectors.summarizingDouble(ToDoubleFunction<?superT>)*
+
+public static |java.util.stream.Collector|<T,?,DoubleSummaryStatistics> summarizingDouble(java.util.function.ToDoubleFunction<? super T> mapper)
+
+Returns aCollectorwhich applies andouble-producing mapping function to each 
+input element, and returns summary statistics for the resulting values. 
+
+
+    mapper - a mapping function to apply to each element 
+
+    Returns: a {@code Collector} implementing the summary-statistics reduction 
+
+*java.util.stream.Collectors.summarizingInt(ToIntFunction<?superT>)*
+
+public static |java.util.stream.Collector|<T,?,IntSummaryStatistics> summarizingInt(java.util.function.ToIntFunction<? super T> mapper)
+
+Returns aCollectorwhich applies anint-producing mapping function to each input 
+element, and returns summary statistics for the resulting values. 
+
+
+    mapper - a mapping function to apply to each element 
+
+    Returns: a {@code Collector} implementing the summary-statistics reduction 
+
+*java.util.stream.Collectors.summarizingLong(ToLongFunction<?superT>)*
+
+public static |java.util.stream.Collector|<T,?,LongSummaryStatistics> summarizingLong(java.util.function.ToLongFunction<? super T> mapper)
+
+Returns aCollectorwhich applies anlong-producing mapping function to each input 
+element, and returns summary statistics for the resulting values. 
+
+
+    mapper - the mapping function to apply to each element 
+
+    Returns: a {@code Collector} implementing the summary-statistics reduction 
+
+*java.util.stream.Collectors.summingDouble(ToDoubleFunction<?superT>)*
+
+public static |java.util.stream.Collector|<T,?,Double> summingDouble(java.util.function.ToDoubleFunction<? super T> mapper)
+
+Returns aCollectorthat produces the sum of a double-valued function applied to 
+the input elements. If no elements are present, the result is 0. 
+
+The sum returned can vary depending upon the order in which values are 
+recorded, due to accumulated rounding error in addition of values of differing 
+magnitudes. Values sorted by increasing absolute magnitude tend to yield more 
+accurate results. If any recorded value is aNaNor the sum is at any point 
+aNaNthen the sum will beNaN. 
+
+
+    mapper - a function extracting the property to be summed 
+
+    Returns: a {@code Collector} that produces the sum of a derived property 
+
+*java.util.stream.Collectors.summingInt(ToIntFunction<?superT>)*
+
+public static |java.util.stream.Collector|<T,?,Integer> summingInt(java.util.function.ToIntFunction<? super T> mapper)
+
+Returns aCollectorthat produces the sum of a integer-valued function applied to 
+the input elements. If no elements are present, the result is 0. 
+
+
+    mapper - a function extracting the property to be summed 
+
+    Returns: a {@code Collector} that produces the sum of a derived property 
+
+*java.util.stream.Collectors.summingLong(ToLongFunction<?superT>)*
+
+public static |java.util.stream.Collector|<T,?,Long> summingLong(java.util.function.ToLongFunction<? super T> mapper)
+
+Returns aCollectorthat produces the sum of a long-valued function applied to 
+the input elements. If no elements are present, the result is 0. 
+
+
+    mapper - a function extracting the property to be summed 
+
+    Returns: a {@code Collector} that produces the sum of a derived property 
+
+*java.util.stream.Collectors.toCollection(Supplier<C>)*
+
+public static |java.util.stream.Collector|<T,?,C extends java.util.Collection<T>> toCollection(java.util.function.Supplier<C> collectionFactory)
+
+Returns aCollectorthat accumulates the input elements into a newCollection, in 
+encounter order. TheCollectionis created by the provided factory. 
+
+
+    collectionFactory - a {@code Supplier} which returns a new, empty {@code Collection} of the 
+       appropriate type 
+
+    Returns: a {@code Collector} which collects all the input elements into a {@code 
+             Collection}, in encounter order 
+
+*java.util.stream.Collectors.toConcurrentMap(Function<?superT,?extendsK>,Function<?superT,?extendsU>)*
+
+public static |java.util.stream.Collector|<T,?,ConcurrentMap<K,U>> toConcurrentMap(
+  java.util.function.Function<? super T, ? extends K> keyMapper,
+  java.util.function.Function<? super T, ? extends U> valueMapper)
+
+Returns a concurrentCollectorthat accumulates elements into aConcurrentMapwhose 
+keys and values are the result of applying the provided mapping functions to 
+the input elements. 
+
+If the mapped keys contains duplicates (according to (|java.lang.Object|) ), 
+anIllegalStateExceptionis thrown when the collection operation is performed. If 
+the mapped keys may have duplicates, use (|java.util.stream.Collectors|) 
+instead. 
+
+
+    keyMapper - the mapping function to produce keys 
+    valueMapper - the mapping function to produce values 
+
+    Returns: a concurrent, unordered {@code Collector} which collects elements into a {@code 
+             ConcurrentMap} whose keys are the result of applying a key mapping 
+             function to the input elements, and whose values are the result of 
+             applying a value mapping function to the input elements 
+
+*java.util.stream.Collectors.toConcurrentMap(Function<?superT,?extendsK>,Function<?superT,?extendsU>,BinaryOperator<U>)*
+
+public static |java.util.stream.Collector|<T,?,ConcurrentMap<K,U>> toConcurrentMap(
+  java.util.function.Function<? super T, ? extends K> keyMapper,
+  java.util.function.Function<? super T, ? extends U> valueMapper,
+  java.util.function.BinaryOperator<U> mergeFunction)
+
+Returns a concurrentCollectorthat accumulates elements into aConcurrentMapwhose 
+keys and values are the result of applying the provided mapping functions to 
+the input elements. 
+
+If the mapped keys contains duplicates (according to (|java.lang.Object|) ), 
+the value mapping function is applied to each equal element, and the results 
+are merged using the provided merging function. 
+
+
+    keyMapper - a mapping function to produce keys 
+    valueMapper - a mapping function to produce values 
+    mergeFunction - a merge function, used to resolve collisions between values associated with the 
+       same key, as supplied to {@link Map#merge(Object, Object, BiFunction)} 
+
+    Returns: a concurrent, unordered {@code Collector} which collects elements into a {@code 
+             ConcurrentMap} whose keys are the result of applying a key mapping 
+             function to the input elements, and whose values are the result of 
+             applying a value mapping function to all input elements equal to 
+             the key and combining them using the merge function 
+
+*java.util.stream.Collectors.toConcurrentMap(Function<?superT,?extendsK>,Function<?superT,?extendsU>,BinaryOperator<U>,Supplier<M>)*
+
+public static |java.util.stream.Collector|<T,?,M extends java.util.concurrent.ConcurrentMap<K, U>> toConcurrentMap(
+  java.util.function.Function<? super T, ? extends K> keyMapper,
+  java.util.function.Function<? super T, ? extends U> valueMapper,
+  java.util.function.BinaryOperator<U> mergeFunction,
+  java.util.function.Supplier<M> mapSupplier)
+
+Returns a concurrentCollectorthat accumulates elements into aConcurrentMapwhose 
+keys and values are the result of applying the provided mapping functions to 
+the input elements. 
+
+If the mapped keys contains duplicates (according to (|java.lang.Object|) ), 
+the value mapping function is applied to each equal element, and the results 
+are merged using the provided merging function. TheConcurrentMapis created by a 
+provided supplier function. 
+
+This is a concurrent(|java.util.stream.Collector.Characteristics|) and 
+unordered(|java.util.stream.Collector.Characteristics|) Collector. 
+
+
+    keyMapper - a mapping function to produce keys 
+    valueMapper - a mapping function to produce values 
+    mergeFunction - a merge function, used to resolve collisions between values associated with the 
+       same key, as supplied to {@link Map#merge(Object, Object, BiFunction)} 
+    mapSupplier - a function which returns a new, empty {@code Map} into which the results will 
+       be inserted 
+
+    Returns: a concurrent, unordered {@code Collector} which collects elements into a {@code 
+             ConcurrentMap} whose keys are the result of applying a key mapping 
+             function to the input elements, and whose values are the result of 
+             applying a value mapping function to all input elements equal to 
+             the key and combining them using the merge function 
+
+*java.util.stream.Collectors.toList()*
+
+public static |java.util.stream.Collector|<T,?,List<T>> toList()
+
+Returns aCollectorthat accumulates the input elements into a newList. There are 
+no guarantees on the type, mutability, serializability, or thread-safety of 
+theListreturned; if more control over the returnedListis required, use 
+(|java.util.stream.Collectors|) . 
+
+
+
+    Returns: a {@code Collector} which collects all the input elements into a {@code List}, 
+             in encounter order 
+
+*java.util.stream.Collectors.toMap(Function<?superT,?extendsK>,Function<?superT,?extendsU>)*
+
+public static |java.util.stream.Collector|<T,?,Map<K,U>> toMap(
+  java.util.function.Function<? super T, ? extends K> keyMapper,
+  java.util.function.Function<? super T, ? extends U> valueMapper)
+
+Returns aCollectorthat accumulates elements into aMapwhose keys and values are 
+the result of applying the provided mapping functions to the input elements. 
+
+If the mapped keys contains duplicates (according to (|java.lang.Object|) ), 
+anIllegalStateExceptionis thrown when the collection operation is performed. If 
+the mapped keys may have duplicates, use (|java.util.stream.Collectors|) 
+instead. 
+
+
+    keyMapper - a mapping function to produce keys 
+    valueMapper - a mapping function to produce values 
+
+    Returns: a {@code Collector} which collects elements into a {@code Map} whose keys and 
+             values are the result of applying mapping functions to the input 
+             elements 
+
+*java.util.stream.Collectors.toMap(Function<?superT,?extendsK>,Function<?superT,?extendsU>,BinaryOperator<U>)*
+
+public static |java.util.stream.Collector|<T,?,Map<K,U>> toMap(
+  java.util.function.Function<? super T, ? extends K> keyMapper,
+  java.util.function.Function<? super T, ? extends U> valueMapper,
+  java.util.function.BinaryOperator<U> mergeFunction)
+
+Returns aCollectorthat accumulates elements into aMapwhose keys and values are 
+the result of applying the provided mapping functions to the input elements. 
+
+If the mapped keys contains duplicates (according to (|java.lang.Object|) ), 
+the value mapping function is applied to each equal element, and the results 
+are merged using the provided merging function. 
+
+
+    keyMapper - a mapping function to produce keys 
+    valueMapper - a mapping function to produce values 
+    mergeFunction - a merge function, used to resolve collisions between values associated with the 
+       same key, as supplied to {@link Map#merge(Object, Object, BiFunction)} 
+
+    Returns: a {@code Collector} which collects elements into a {@code Map} whose keys are 
+             the result of applying a key mapping function to the input 
+             elements, and whose values are the result of applying a value 
+             mapping function to all input elements equal to the key and 
+             combining them using the merge function 
+
+*java.util.stream.Collectors.toMap(Function<?superT,?extendsK>,Function<?superT,?extendsU>,BinaryOperator<U>,Supplier<M>)*
+
+public static |java.util.stream.Collector|<T,?,M extends java.util.Map<K, U>> toMap(
+  java.util.function.Function<? super T, ? extends K> keyMapper,
+  java.util.function.Function<? super T, ? extends U> valueMapper,
+  java.util.function.BinaryOperator<U> mergeFunction,
+  java.util.function.Supplier<M> mapSupplier)
+
+Returns aCollectorthat accumulates elements into aMapwhose keys and values are 
+the result of applying the provided mapping functions to the input elements. 
+
+If the mapped keys contains duplicates (according to (|java.lang.Object|) ), 
+the value mapping function is applied to each equal element, and the results 
+are merged using the provided merging function. TheMapis created by a provided 
+supplier function. 
+
+
+    keyMapper - a mapping function to produce keys 
+    valueMapper - a mapping function to produce values 
+    mergeFunction - a merge function, used to resolve collisions between values associated with the 
+       same key, as supplied to {@link Map#merge(Object, Object, BiFunction)} 
+    mapSupplier - a function which returns a new, empty {@code Map} into which the results will 
+       be inserted 
+
+    Returns: a {@code Collector} which collects elements into a {@code Map} whose keys are 
+             the result of applying a key mapping function to the input 
+             elements, and whose values are the result of applying a value 
+             mapping function to all input elements equal to the key and 
+             combining them using the merge function 
+
+*java.util.stream.Collectors.toSet()*
+
+public static |java.util.stream.Collector|<T,?,Set<T>> toSet()
+
+Returns aCollectorthat accumulates the input elements into a newSet. There are 
+no guarantees on the type, mutability, serializability, or thread-safety of 
+theSetreturned; if more control over the returnedSetis required, use 
+(|java.util.stream.Collectors|) . 
+
+This is an unordered(|java.util.stream.Collector.Characteristics|) Collector. 
+
+
+
+    Returns: a {@code Collector} which collects all the input elements into a {@code Set} 
+
+

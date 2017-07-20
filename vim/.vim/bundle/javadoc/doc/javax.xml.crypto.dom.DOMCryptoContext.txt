@@ -1,0 +1,226 @@
+*javax.xml.crypto.dom.DOMCryptoContext* *DOMCryptoContext* This class provides a
+
+public class DOMCryptoContext
+  extends    |java.lang.Object|
+  implements |javax.xml.crypto.XMLCryptoContext|
+
+|javax.xml.crypto.dom.DOMCryptoContext_Description|
+|javax.xml.crypto.dom.DOMCryptoContext_Fields|
+|javax.xml.crypto.dom.DOMCryptoContext_Constructors|
+|javax.xml.crypto.dom.DOMCryptoContext_Methods|
+
+================================================================================
+
+*javax.xml.crypto.dom.DOMCryptoContext_Constructors*
+|javax.xml.crypto.dom.DOMCryptoContext()|Default constructor.
+
+*javax.xml.crypto.dom.DOMCryptoContext_Methods*
+|javax.xml.crypto.dom.DOMCryptoContext.get(Object)|This implementation uses an 
+|javax.xml.crypto.dom.DOMCryptoContext.getBaseURI()|
+|javax.xml.crypto.dom.DOMCryptoContext.getDefaultNamespacePrefix()|
+|javax.xml.crypto.dom.DOMCryptoContext.getElementById(String)|Returns the Eleme
+|javax.xml.crypto.dom.DOMCryptoContext.getKeySelector()|
+|javax.xml.crypto.dom.DOMCryptoContext.getNamespacePrefix(String,String)|This i
+|javax.xml.crypto.dom.DOMCryptoContext.getProperty(String)|This implementation 
+|javax.xml.crypto.dom.DOMCryptoContext.getURIDereferencer()|
+|javax.xml.crypto.dom.DOMCryptoContext.iterator()|Returns a read-only iterator 
+|javax.xml.crypto.dom.DOMCryptoContext.put(Object,Object)|This implementation u
+|javax.xml.crypto.dom.DOMCryptoContext.putNamespacePrefix(String,String)|This i
+|javax.xml.crypto.dom.DOMCryptoContext.setBaseURI(String)|
+|javax.xml.crypto.dom.DOMCryptoContext.setDefaultNamespacePrefix(String)|
+|javax.xml.crypto.dom.DOMCryptoContext.setIdAttributeNS(Element,String,String)|
+|javax.xml.crypto.dom.DOMCryptoContext.setKeySelector(KeySelector)|
+|javax.xml.crypto.dom.DOMCryptoContext.setProperty(String,Object)|This implemen
+|javax.xml.crypto.dom.DOMCryptoContext.setURIDereferencer(URIDereferencer)|
+
+*javax.xml.crypto.dom.DOMCryptoContext_Description*
+
+This class provides a DOM-specific implementation of the 
+(|javax.xml.crypto.XMLCryptoContext|) interface. It also includes additional 
+methods that are specific to a DOM-based implementation for registering and 
+retrieving elements that contain attributes of type ID. 
+
+
+
+*javax.xml.crypto.dom.DOMCryptoContext()*
+
+protected DOMCryptoContext()
+
+Default constructor. (For invocation by subclass constructors). 
+
+
+*javax.xml.crypto.dom.DOMCryptoContext.get(Object)*
+
+public |java.lang.Object| get(java.lang.Object key)
+
+This implementation uses an internal (|java.util.HashMap|) to get the object 
+that the specified key maps to. 
+
+
+
+*javax.xml.crypto.dom.DOMCryptoContext.getBaseURI()*
+
+public |java.lang.String| getBaseURI()
+
+
+
+
+
+*javax.xml.crypto.dom.DOMCryptoContext.getDefaultNamespacePrefix()*
+
+public |java.lang.String| getDefaultNamespacePrefix()
+
+
+
+
+
+*javax.xml.crypto.dom.DOMCryptoContext.getElementById(String)*
+
+public |org.w3c.dom.Element| getElementById(java.lang.String idValue)
+
+Returns the Element with the specified ID attribute value. 
+
+This implementation uses an internal (|java.util.HashMap|) to get the element 
+that the specified attribute value maps to. 
+
+
+    idValue - the value of the ID 
+
+    Returns: the Element with the specified ID attribute value, or null if none. 
+
+*javax.xml.crypto.dom.DOMCryptoContext.getKeySelector()*
+
+public |javax.xml.crypto.KeySelector| getKeySelector()
+
+
+
+
+
+*javax.xml.crypto.dom.DOMCryptoContext.getNamespacePrefix(String,String)*
+
+public |java.lang.String| getNamespacePrefix(
+  java.lang.String namespaceURI,
+  java.lang.String defaultPrefix)
+
+This implementation uses an internal (|java.util.HashMap|) to get the prefix 
+that the specified URI maps to. It returns the defaultPrefix if it maps to 
+null. 
+
+
+
+*javax.xml.crypto.dom.DOMCryptoContext.getProperty(String)*
+
+public |java.lang.Object| getProperty(java.lang.String name)
+
+This implementation uses an internal (|java.util.HashMap|) to get the object 
+that the specified name maps to. 
+
+
+
+*javax.xml.crypto.dom.DOMCryptoContext.getURIDereferencer()*
+
+public |javax.xml.crypto.URIDereferencer| getURIDereferencer()
+
+
+
+
+
+*javax.xml.crypto.dom.DOMCryptoContext.iterator()*
+
+public |java.util.Iterator| iterator()
+
+Returns a read-only iterator over the set of Id/Element mappings of this 
+DOMCryptoContext. Attempts to modify the set via the (|java.util.Iterator|) 
+method throw an UnsupportedOperationException. The mappings are returned in no 
+particular order. Each element in the iteration is represented as a 
+(|java.util.Map.Entry|) . If the DOMCryptoContext is modified while an 
+iteration is in progress, the results of the iteration are undefined. 
+
+
+
+    Returns: a read-only iterator over the set of mappings 
+
+*javax.xml.crypto.dom.DOMCryptoContext.put(Object,Object)*
+
+public |java.lang.Object| put(
+  java.lang.Object key,
+  java.lang.Object value)
+
+This implementation uses an internal (|java.util.HashMap|) to map the key to 
+the specified object. 
+
+
+
+*javax.xml.crypto.dom.DOMCryptoContext.putNamespacePrefix(String,String)*
+
+public |java.lang.String| putNamespacePrefix(
+  java.lang.String namespaceURI,
+  java.lang.String prefix)
+
+This implementation uses an internal (|java.util.HashMap|) to map the URI to 
+the specified prefix. 
+
+
+
+*javax.xml.crypto.dom.DOMCryptoContext.setBaseURI(String)*
+
+public void setBaseURI(java.lang.String baseURI)
+
+
+
+
+
+*javax.xml.crypto.dom.DOMCryptoContext.setDefaultNamespacePrefix(String)*
+
+public void setDefaultNamespacePrefix(java.lang.String defaultPrefix)
+
+
+
+
+
+*javax.xml.crypto.dom.DOMCryptoContext.setIdAttributeNS(Element,String,String)*
+
+public void setIdAttributeNS(
+  org.w3c.dom.Element element,
+  java.lang.String namespaceURI,
+  java.lang.String localName)
+
+Registers the element's attribute specified by the namespace URI and local name 
+to be of type ID. The attribute must have a non-empty value. 
+
+This implementation uses an internal (|java.util.HashMap|) to map the 
+attribute's value to the specified element. 
+
+
+    element - the element 
+    namespaceURI - the namespace URI of the attribute (specify null if not applicable) 
+    localName - the local name of the attribute 
+
+*javax.xml.crypto.dom.DOMCryptoContext.setKeySelector(KeySelector)*
+
+public void setKeySelector(javax.xml.crypto.KeySelector ks)
+
+
+
+
+
+*javax.xml.crypto.dom.DOMCryptoContext.setProperty(String,Object)*
+
+public |java.lang.Object| setProperty(
+  java.lang.String name,
+  java.lang.Object value)
+
+This implementation uses an internal (|java.util.HashMap|) to map the name to 
+the specified object. 
+
+
+
+*javax.xml.crypto.dom.DOMCryptoContext.setURIDereferencer(URIDereferencer)*
+
+public void setURIDereferencer(javax.xml.crypto.URIDereferencer dereferencer)
+
+
+
+
+
+

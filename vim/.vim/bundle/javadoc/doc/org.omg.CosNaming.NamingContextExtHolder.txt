@@ -1,0 +1,82 @@
+*org.omg.CosNaming.NamingContextExtHolder* *NamingContextExtHolder* NamingContex
+
+public final class NamingContextExtHolder
+  extends    |java.lang.Object|
+  implements |org.omg.CORBA.portable.Streamable|
+
+|org.omg.CosNaming.NamingContextExtHolder_Description|
+|org.omg.CosNaming.NamingContextExtHolder_Fields|
+|org.omg.CosNaming.NamingContextExtHolder_Constructors|
+|org.omg.CosNaming.NamingContextExtHolder_Methods|
+
+================================================================================
+
+*org.omg.CosNaming.NamingContextExtHolder_Fields*
+|org.omg.CosNaming.NamingContextExt_org.omg.CosNaming.NamingContextExtHolder.value|
+
+*org.omg.CosNaming.NamingContextExtHolder_Constructors*
+|org.omg.CosNaming.NamingContextExtHolder()|
+|org.omg.CosNaming.NamingContextExtHolder(NamingContextExt)|
+
+*org.omg.CosNaming.NamingContextExtHolder_Methods*
+|org.omg.CosNaming.NamingContextExtHolder._read(InputStream)|
+|org.omg.CosNaming.NamingContextExtHolder._type()|
+|org.omg.CosNaming.NamingContextExtHolder._write(OutputStream)|
+
+*org.omg.CosNaming.NamingContextExtHolder_Description*
+
+NamingContextExt is the extension of NamingContext which contains a set of name 
+bindings in which each name is unique and is part of Interoperable Naming 
+Service. Different names can be bound to an object in the same or different 
+contexts at the same time. Using NamingContextExt, you can use URL-based names 
+to bind and resolve. 
+
+See CORBA COS Naming Specification. 
+
+
+
+*org.omg.CosNaming.NamingContextExt_org.omg.CosNaming.NamingContextExtHolder.value*
+
+
+
+
+
+*org.omg.CosNaming.NamingContextExtHolder()*
+
+public NamingContextExtHolder()
+
+
+
+
+*org.omg.CosNaming.NamingContextExtHolder(NamingContextExt)*
+
+public NamingContextExtHolder(org.omg.CosNaming.NamingContextExt initialValue)
+
+
+
+
+*org.omg.CosNaming.NamingContextExtHolder._read(InputStream)*
+
+public void _read(org.omg.CORBA.portable.InputStream i)
+
+
+
+
+
+*org.omg.CosNaming.NamingContextExtHolder._type()*
+
+public |org.omg.CORBA.TypeCode| _type()
+
+
+
+
+
+*org.omg.CosNaming.NamingContextExtHolder._write(OutputStream)*
+
+public void _write(org.omg.CORBA.portable.OutputStream o)
+
+
+
+
+
+

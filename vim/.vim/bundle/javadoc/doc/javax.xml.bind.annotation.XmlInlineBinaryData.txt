@@ -1,0 +1,30 @@
+*javax.xml.bind.annotation.XmlInlineBinaryData* *XmlInlineBinaryData* Disable co
+
+public interface class XmlInlineBinaryData
+
+  implements |java.lang.annotation.Annotation|
+
+|javax.xml.bind.annotation.XmlInlineBinaryData_Description|
+|javax.xml.bind.annotation.XmlInlineBinaryData_Fields|
+|javax.xml.bind.annotation.XmlInlineBinaryData_Constructors|
+|javax.xml.bind.annotation.XmlInlineBinaryData_Methods|
+
+================================================================================
+
+*javax.xml.bind.annotation.XmlInlineBinaryData_Description*
+
+Disable consideration of XOP encoding for datatypes that are bound to 
+base64-encoded binary data in XML. 
+
+When XOP encoding is enabled as described in 
+(|javax.xml.bind.attachment.AttachmentMarshaller|) , this annotation disables 
+datatypes such as (|java.awt.Image|) or (|javax.xml.transform.Source|) or 
+byte[] that are bound to base64-encoded binary from being considered for XOP 
+encoding. If a JAXB property is annotated with this annotation or if the JAXB 
+property's base type is annotated with this annotation, neither 
+(|javax.xml.bind.attachment.AttachmentMarshaller|) nor 
+(|javax.xml.bind.attachment.AttachmentMarshaller|) is ever called for the 
+property. The binary data will always be inlined. 
+
+
+

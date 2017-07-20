@@ -1,0 +1,245 @@
+*javax.xml.soap.SOAPBody* *SOAPBody* An object that represents the contents of t
+
+public interface interface SOAPBody
+
+  implements |javax.xml.soap.SOAPElement|
+
+|javax.xml.soap.SOAPBody_Description|
+|javax.xml.soap.SOAPBody_Fields|
+|javax.xml.soap.SOAPBody_Constructors|
+|javax.xml.soap.SOAPBody_Methods|
+
+================================================================================
+
+*javax.xml.soap.SOAPBody_Methods*
+|javax.xml.soap.SOAPBody.addBodyElement(Name)|Creates a new SOAPBodyElement obj
+|javax.xml.soap.SOAPBody.addBodyElement(QName)|Creates a new SOAPBodyElement ob
+|javax.xml.soap.SOAPBody.addDocument(Document)|Adds the root node of the DOM or
+|javax.xml.soap.SOAPBody.addFault()|Creates a new SOAPFault object and adds it 
+|javax.xml.soap.SOAPBody.addFault(Name,String)|Creates a new  SOAPFault object 
+|javax.xml.soap.SOAPBody.addFault(Name,String,Locale)|Creates a new SOAPFault o
+|javax.xml.soap.SOAPBody.addFault(QName,String)|Creates a new SOAPFault object 
+|javax.xml.soap.SOAPBody.addFault(QName,String,Locale)|Creates a new SOAPFault 
+|javax.xml.soap.SOAPBody.extractContentAsDocument()|Creates a new DOM org.w3c.d
+|javax.xml.soap.SOAPBody.getFault()|Returns the SOAPFault object in this SOAPBo
+|javax.xml.soap.SOAPBody.hasFault()|Indicates whether a SOAPFault object exists
+
+*javax.xml.soap.SOAPBody_Description*
+
+An object that represents the contents of the SOAP body element in a SOAP 
+message. A SOAP body element consists of XML data that affects the way the 
+application-specific content is processed. 
+
+A SOAPBody object contains SOAPBodyElement objects, which have the content for 
+the SOAP body. A SOAPFault object, which carries status and/or error 
+information, is an example of a SOAPBodyElement object. 
+
+
+
+*javax.xml.soap.SOAPBody.addBodyElement(Name)*
+
+public |javax.xml.soap.SOAPBodyElement| addBodyElement(javax.xml.soap.Name name)
+  throws |javax.xml.soap.SOAPException|
+         
+Creates a new SOAPBodyElement object with the specified name and adds it to 
+this SOAPBody object. 
+
+
+    name - a Name object with the name for the new SOAPBodyElement object 
+
+    Returns: the new SOAPBodyElement object 
+
+*javax.xml.soap.SOAPBody.addBodyElement(QName)*
+
+public |javax.xml.soap.SOAPBodyElement| addBodyElement(javax.xml.namespace.QName qname)
+  throws |javax.xml.soap.SOAPException|
+         
+Creates a new SOAPBodyElement object with the specified QName and adds it to 
+this SOAPBody object. 
+
+
+    qname - a QName object with the qname for the new SOAPBodyElement object 
+
+    Returns: the new SOAPBodyElement object 
+
+*javax.xml.soap.SOAPBody.addDocument(Document)*
+
+public |javax.xml.soap.SOAPBodyElement| addDocument(org.w3c.dom.Document document)
+  throws |javax.xml.soap.SOAPException|
+         
+Adds the root node of the DOM (|org.w3c.dom.Document|) to this SOAPBody object. 
+
+Calling this method invalidates the document parameter. The client application 
+should discard all references to this Document and its contents upon calling 
+addDocument. The behavior of an application that continues to use such 
+references is undefined. 
+
+
+    document - the Document object whose root node will be added to this SOAPBody. 
+
+    Returns: the SOAPBodyElement that represents the root node that was added. 
+
+*javax.xml.soap.SOAPBody.addFault()*
+
+public |javax.xml.soap.SOAPFault| addFault()
+  throws |javax.xml.soap.SOAPException|
+         
+Creates a new SOAPFault object and adds it to this SOAPBody object. The new 
+SOAPFault will have default values set for the mandatory child elements. The 
+type of the SOAPFault will be a SOAP 1.1 or a SOAP 1.2 SOAPFault depending on 
+the protocol specified while creating the MessageFactory instance. 
+
+A SOAPBody may contain at most one SOAPFault child element. 
+
+
+
+    Returns: the new SOAPFault object 
+
+*javax.xml.soap.SOAPBody.addFault(Name,String)*
+
+public |javax.xml.soap.SOAPFault| addFault(
+  javax.xml.soap.Name faultCode,
+  java.lang.String faultString)
+  throws |javax.xml.soap.SOAPException|
+         
+Creates a new SOAPFault object and adds it to this SOAPBody object. The type of 
+the SOAPFault will be a SOAP 1.1 or a SOAP 1.2 SOAPFault depending on the 
+protocol specified while creating the MessageFactory instance. 
+
+For SOAP 1.2 the faultCode parameter is the value of the Fault/Code/Value 
+element and the faultString parameter is the value of the Fault/Reason/Text 
+element. For SOAP 1.1 the faultCode parameter is the value of the faultcode 
+element and the faultString parameter is the value of the faultstring element. 
+
+In case of a SOAP 1.2 fault, the default value for the mandatory xml:lang 
+attribute on the Fault/Reason/Text element will be set to 
+java.util.Locale.getDefault() 
+
+A SOAPBody may contain at most one SOAPFault child element. 
+
+
+    faultCode - a Name object giving the fault code to be set; must be one of the fault codes 
+       defined in the version of SOAP specification in use 
+    faultString - a String giving an explanation of the fault 
+
+    Returns: the new SOAPFault object 
+
+*javax.xml.soap.SOAPBody.addFault(Name,String,Locale)*
+
+public |javax.xml.soap.SOAPFault| addFault(
+  javax.xml.soap.Name faultCode,
+  java.lang.String faultString,
+  java.util.Locale locale)
+  throws |javax.xml.soap.SOAPException|
+         
+Creates a new SOAPFault object and adds it to this SOAPBody object. The type of 
+the SOAPFault will be a SOAP 1.1 or a SOAP 1.2 SOAPFault depending on the 
+protocol specified while creating the MessageFactory instance. 
+
+For SOAP 1.2 the faultCode parameter is the value of the Fault/Code/Value 
+element and the faultString parameter is the value of the Fault/Reason/Text 
+element. For SOAP 1.1 the faultCode parameter is the value of the faultcode 
+element and the faultString parameter is the value of the faultstring element. 
+
+A SOAPBody may contain at most one SOAPFault child element. 
+
+
+    faultCode - a Name object giving the fault code to be set; must be one of the fault codes 
+       defined in the Version of SOAP specification in use 
+    faultString - a String giving an explanation of the fault 
+    locale - a {@link java.util.Locale} object indicating the native language of the 
+       faultString 
+
+    Returns: the new SOAPFault object 
+
+*javax.xml.soap.SOAPBody.addFault(QName,String)*
+
+public |javax.xml.soap.SOAPFault| addFault(
+  javax.xml.namespace.QName faultCode,
+  java.lang.String faultString)
+  throws |javax.xml.soap.SOAPException|
+         
+Creates a new SOAPFault object and adds it to this SOAPBody object. The type of 
+the SOAPFault will be a SOAP 1.1 or a SOAP 1.2 SOAPFault depending on the 
+protocol specified while creating the MessageFactory instance. 
+
+For SOAP 1.2 the faultCode parameter is the value of the Fault/Code/Value 
+element and the faultString parameter is the value of the Fault/Reason/Text 
+element. For SOAP 1.1 the faultCode parameter is the value of the faultcode 
+element and the faultString parameter is the value of the faultstring element. 
+
+In case of a SOAP 1.2 fault, the default value for the mandatory xml:lang 
+attribute on the Fault/Reason/Text element will be set to 
+java.util.Locale.getDefault() 
+
+A SOAPBody may contain at most one SOAPFault child element 
+
+
+    faultCode - a QName object giving the fault code to be set; must be one of the fault codes 
+       defined in the version of SOAP specification in use 
+    faultString - a String giving an explanation of the fault 
+
+    Returns: the new SOAPFault object 
+
+*javax.xml.soap.SOAPBody.addFault(QName,String,Locale)*
+
+public |javax.xml.soap.SOAPFault| addFault(
+  javax.xml.namespace.QName faultCode,
+  java.lang.String faultString,
+  java.util.Locale locale)
+  throws |javax.xml.soap.SOAPException|
+         
+Creates a new SOAPFault object and adds it to this SOAPBody object. The type of 
+the SOAPFault will be a SOAP 1.1 or a SOAP 1.2 SOAPFault depending on the 
+protocol specified while creating the MessageFactory instance. 
+
+For SOAP 1.2 the faultCode parameter is the value of the Fault/Code/Value 
+element and the faultString parameter is the value of the Fault/Reason/Text 
+element. For SOAP 1.1 the faultCode parameter is the value of the faultcode 
+element and the faultString parameter is the value of the faultstring element. 
+
+A SOAPBody may contain at most one SOAPFault child element. 
+
+
+    faultCode - a QName object giving the fault code to be set; must be one of the fault codes 
+       defined in the version of SOAP specification in use. 
+    faultString - a String giving an explanation of the fault 
+    locale - a {@link java.util.Locale Locale} object indicating the native language of the 
+       faultString 
+
+    Returns: the new SOAPFault object 
+
+*javax.xml.soap.SOAPBody.extractContentAsDocument()*
+
+public |org.w3c.dom.Document| extractContentAsDocument()
+  throws |javax.xml.soap.SOAPException|
+         
+Creates a new DOM (|org.w3c.dom.Document|) and sets the first child of this 
+SOAPBody as it's document element. The child SOAPElement is removed as part of 
+the process. 
+
+
+
+    Returns: the {@link org.w3c.dom.Document} representation of the SOAPBody content. 
+
+*javax.xml.soap.SOAPBody.getFault()*
+
+public |javax.xml.soap.SOAPFault| getFault()
+
+Returns the SOAPFault object in this SOAPBody object. 
+
+
+
+    Returns: the SOAPFault object in this SOAPBody object if present, null otherwise. 
+
+*javax.xml.soap.SOAPBody.hasFault()*
+
+public boolean hasFault()
+
+Indicates whether a SOAPFault object exists in this SOAPBody object. 
+
+
+
+    Returns: true if a SOAPFault object exists in this SOAPBody object; false otherwise 
+
+

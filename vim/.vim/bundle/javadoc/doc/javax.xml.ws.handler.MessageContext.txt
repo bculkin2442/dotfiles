@@ -1,0 +1,176 @@
+*javax.xml.ws.handler.MessageContext* *MessageContext* The interface MessageCont
+
+public interface interface MessageContext
+
+  implements |java.util.Map|
+
+|javax.xml.ws.handler.MessageContext_Description|
+|javax.xml.ws.handler.MessageContext_Fields|
+|javax.xml.ws.handler.MessageContext_Constructors|
+|javax.xml.ws.handler.MessageContext_Methods|
+
+================================================================================
+
+*javax.xml.ws.handler.MessageContext_Fields*
+|java.lang.String_javax.xml.ws.handler.MessageContext.HTTP_REQUEST_HEADERS|
+|java.lang.String_javax.xml.ws.handler.MessageContext.HTTP_REQUEST_METHOD|
+|java.lang.String_javax.xml.ws.handler.MessageContext.HTTP_RESPONSE_CODE|
+|java.lang.String_javax.xml.ws.handler.MessageContext.HTTP_RESPONSE_HEADERS|
+|java.lang.String_javax.xml.ws.handler.MessageContext.INBOUND_MESSAGE_ATTACHMENTS|
+|java.lang.String_javax.xml.ws.handler.MessageContext.MESSAGE_OUTBOUND_PROPERTY|
+|java.lang.String_javax.xml.ws.handler.MessageContext.OUTBOUND_MESSAGE_ATTACHMENTS|
+|java.lang.String_javax.xml.ws.handler.MessageContext.PATH_INFO|
+|java.lang.String_javax.xml.ws.handler.MessageContext.QUERY_STRING|
+|java.lang.String_javax.xml.ws.handler.MessageContext.REFERENCE_PARAMETERS|
+|java.lang.String_javax.xml.ws.handler.MessageContext.SERVLET_CONTEXT|
+|java.lang.String_javax.xml.ws.handler.MessageContext.SERVLET_REQUEST|
+|java.lang.String_javax.xml.ws.handler.MessageContext.SERVLET_RESPONSE|
+|java.lang.String_javax.xml.ws.handler.MessageContext.WSDL_DESCRIPTION|
+|java.lang.String_javax.xml.ws.handler.MessageContext.WSDL_INTERFACE|
+|java.lang.String_javax.xml.ws.handler.MessageContext.WSDL_OPERATION|
+|java.lang.String_javax.xml.ws.handler.MessageContext.WSDL_PORT|
+|java.lang.String_javax.xml.ws.handler.MessageContext.WSDL_SERVICE|
+
+*javax.xml.ws.handler.MessageContext_Methods*
+|javax.xml.ws.handler.MessageContext.getScope(String)|Gets the scope of a prope
+|javax.xml.ws.handler.MessageContext.setScope(String,MessageContext.Scope)|Sets
+
+*javax.xml.ws.handler.MessageContext_Description*
+
+The interface MessageContext abstracts the message context that is processed by 
+a handler in the handle method. 
+
+The MessageContext interface provides methods to manage a property set. 
+MessageContext properties enable handlers in a handler chain to share 
+processing related state. 
+
+
+
+*java.lang.String_javax.xml.ws.handler.MessageContext.HTTP_REQUEST_HEADERS*
+
+Standard property: HTTP request headers. Type: java.util.Map<java.lang.String, 
+java.util.List<java.lang.String>> 
+
+
+*java.lang.String_javax.xml.ws.handler.MessageContext.HTTP_REQUEST_METHOD*
+
+Standard property: HTTP request method. Type: java.lang.String 
+
+
+*java.lang.String_javax.xml.ws.handler.MessageContext.HTTP_RESPONSE_CODE*
+
+Standard property: HTTP response status code. Type: java.lang.Integer 
+
+
+*java.lang.String_javax.xml.ws.handler.MessageContext.HTTP_RESPONSE_HEADERS*
+
+Standard property: HTTP response headers. Type: java.util.Map<java.lang.String, 
+java.util.List<java.lang.String>> 
+
+
+*java.lang.String_javax.xml.ws.handler.MessageContext.INBOUND_MESSAGE_ATTACHMENTS*
+
+Standard property: Map of attachments to a message for the inbound message, key 
+is the MIME Content-ID, value is a DataHandler. Type: 
+java.util.Map<String,DataHandler> 
+
+
+*java.lang.String_javax.xml.ws.handler.MessageContext.MESSAGE_OUTBOUND_PROPERTY*
+
+Standard property: message direction, true for outbound messages, false for 
+inbound. Type: boolean 
+
+
+*java.lang.String_javax.xml.ws.handler.MessageContext.OUTBOUND_MESSAGE_ATTACHMENTS*
+
+Standard property: Map of attachments to a message for the outbound message, 
+key is the MIME Content-ID, value is a DataHandler. Type: 
+java.util.Map<String,DataHandler> 
+
+
+*java.lang.String_javax.xml.ws.handler.MessageContext.PATH_INFO*
+
+Standard property: Request Path Info Type: String 
+
+
+*java.lang.String_javax.xml.ws.handler.MessageContext.QUERY_STRING*
+
+Standard property: Query string for request. Type: String 
+
+
+*java.lang.String_javax.xml.ws.handler.MessageContext.REFERENCE_PARAMETERS*
+
+Standard property: WS Addressing Reference Parameters. The list MUST include 
+all SOAP headers marked with the wsa:IsReferenceParameter="true" attribute. 
+Type: List<Element> 
+
+
+*java.lang.String_javax.xml.ws.handler.MessageContext.SERVLET_CONTEXT*
+
+Standard property: servlet context object. Type: javax.servlet.ServletContext 
+
+
+*java.lang.String_javax.xml.ws.handler.MessageContext.SERVLET_REQUEST*
+
+Standard property: servlet request object. Type: 
+javax.servlet.http.HttpServletRequest 
+
+
+*java.lang.String_javax.xml.ws.handler.MessageContext.SERVLET_RESPONSE*
+
+Standard property: servlet response object. Type: 
+javax.servlet.http.HttpServletResponse 
+
+
+*java.lang.String_javax.xml.ws.handler.MessageContext.WSDL_DESCRIPTION*
+
+Standard property: input source for WSDL document. Type: 
+org.xml.sax.InputSource 
+
+
+*java.lang.String_javax.xml.ws.handler.MessageContext.WSDL_INTERFACE*
+
+Standard property: name of wsdl interface (2.0) or port type (1.1). Type: 
+javax.xml.namespace.QName 
+
+
+*java.lang.String_javax.xml.ws.handler.MessageContext.WSDL_OPERATION*
+
+Standard property: name of WSDL operation. Type: javax.xml.namespace.QName 
+
+
+*java.lang.String_javax.xml.ws.handler.MessageContext.WSDL_PORT*
+
+Standard property: name of WSDL port. Type: javax.xml.namespace.QName 
+
+
+*java.lang.String_javax.xml.ws.handler.MessageContext.WSDL_SERVICE*
+
+Standard property: name of WSDL service. Type: javax.xml.namespace.QName 
+
+
+
+*javax.xml.ws.handler.MessageContext.getScope(String)*
+
+public |javax.xml.ws.handler.MessageContext.Scope| getScope(java.lang.String name)
+
+Gets the scope of a property. 
+
+
+    name - Name of the property 
+
+    Returns: Scope of the property 
+
+*javax.xml.ws.handler.MessageContext.setScope(String,MessageContext.Scope)*
+
+public void setScope(
+  java.lang.String name,
+  javax.xml.ws.handler.MessageContext.Scope scope)
+
+Sets the scope of a property. 
+
+
+    name - Name of the property associated with the MessageContext 
+    scope - Desired scope of the property 
+
+

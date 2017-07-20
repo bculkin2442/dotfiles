@@ -1,0 +1,199 @@
+*javax.security.auth.spi.LoginModule* *LoginModule* LoginModuledescribes the int
+
+public interface interface LoginModule
+
+
+|javax.security.auth.spi.LoginModule_Description|
+|javax.security.auth.spi.LoginModule_Fields|
+|javax.security.auth.spi.LoginModule_Constructors|
+|javax.security.auth.spi.LoginModule_Methods|
+
+================================================================================
+
+*javax.security.auth.spi.LoginModule_Methods*
+|javax.security.auth.spi.LoginModule.abort()|Method to abort the authentication
+|javax.security.auth.spi.LoginModule.commit()|Method to commit the authenticati
+|javax.security.auth.spi.LoginModule.initialize(Subject,CallbackHandler,Map<String,?>,Map<String,?>)|
+|javax.security.auth.spi.LoginModule.login()|Method to authenticate aSubject(ph
+|javax.security.auth.spi.LoginModule.logout()|Method which logs out aSubject.
+
+*javax.security.auth.spi.LoginModule_Description*
+
+LoginModuledescribes the interface implemented by authentication technology 
+providers. LoginModules are plugged in under applications to provide a 
+particular type of authentication. 
+
+While applications write to theLoginContextAPI, authentication technology 
+providers implement theLoginModuleinterface. AConfigurationspecifies the 
+LoginModule(s) to be used with a particular login application. Therefore 
+different LoginModules can be plugged in under the application without 
+requiring any modifications to the application itself. 
+
+TheLoginContextis responsible for reading theConfigurationand instantiating the 
+appropriate LoginModules. EachLoginModuleis initialized with aSubject, 
+aCallbackHandler, sharedLoginModulestate, and LoginModule-specific options. 
+
+TheSubjectrepresents theSubjectcurrently being authenticated and is updated 
+with relevant Credentials if authentication succeeds. LoginModules use 
+theCallbackHandlerto communicate with users. TheCallbackHandlermay be used to 
+prompt for usernames and passwords, for example. Note that 
+theCallbackHandlermay be null. LoginModules which absolutely require 
+aCallbackHandlerto authenticate theSubjectmay throw aLoginException. 
+LoginModules optionally use the shared state to share information or data among 
+themselves. 
+
+The LoginModule-specific options represent the options configured for 
+thisLoginModuleby an administrator or user in the loginConfiguration. The 
+options are defined by theLoginModuleitself and control the behavior within it. 
+For example, aLoginModulemay define options to support debugging/testing 
+capabilities. Options are defined using a key-value syntax, such as debug=true. 
+TheLoginModulestores the options as aMapso that the values may be retrieved 
+using the key. Note that there is no limit to the number of options 
+aLoginModulechooses to define. 
+
+The calling application sees the authentication process as a single operation. 
+However, the authentication process within theLoginModuleproceeds in two 
+distinct phases. In the first phase, the LoginModule'sloginmethod gets invoked 
+by the LoginContext'sloginmethod. Theloginmethod for theLoginModulethen 
+performs the actual authentication (prompt for and verify a password for 
+example) and saves its authentication status as private state information. Once 
+finished, the LoginModule'sloginmethod either returnstrue(if it succeeded) 
+orfalse(if it should be ignored), or throws aLoginExceptionto specify a 
+failure. In the failure case, theLoginModulemust not retry the authentication 
+or introduce delays. The responsibility of such tasks belongs to the 
+application. If the application attempts to retry the authentication, the 
+LoginModule'sloginmethod will be called again. 
+
+In the second phase, if the LoginContext's overall authentication succeeded 
+(the relevant REQUIRED, REQUISITE, SUFFICIENT and OPTIONAL LoginModules 
+succeeded), then thecommitmethod for theLoginModulegets invoked. 
+Thecommitmethod for aLoginModulechecks its privately saved state to see if its 
+own authentication succeeded. If the overallLoginContextauthentication 
+succeeded and the LoginModule's own authentication succeeded, then 
+thecommitmethod associates the relevant Principals (authenticated identities) 
+and Credentials (authentication data such as cryptographic keys) with 
+theSubjectlocated within theLoginModule. 
+
+If the LoginContext's overall authentication failed (the relevant REQUIRED, 
+REQUISITE, SUFFICIENT and OPTIONAL LoginModules did not succeed), then 
+theabortmethod for eachLoginModulegets invoked. In this case, 
+theLoginModuleremoves/destroys any authentication state originally saved. 
+
+Logging out aSubjectinvolves only one phase. TheLoginContextinvokes the 
+LoginModule'slogoutmethod. Thelogoutmethod for theLoginModulethen performs the 
+logout procedures, such as removing Principals or Credentials from theSubjector 
+logging session information. 
+
+ALoginModuleimplementation must have a constructor with no arguments. This 
+allows classes which load theLoginModuleto instantiate it. 
+
+
+
+*javax.security.auth.spi.LoginModule.abort()*
+
+public boolean abort()
+  throws |javax.security.auth.login.LoginException|
+         
+Method to abort the authentication process (phase 2). 
+
+This method is called if the LoginContext's overall authentication failed. (the 
+relevant REQUIRED, REQUISITE, SUFFICIENT and OPTIONAL LoginModules did not 
+succeed). 
+
+If this LoginModule's own authentication attempt succeeded (checked by 
+retrieving the private state saved by theloginmethod), then this method cleans 
+up any state that was originally saved. 
+
+
+
+
+
+    Returns: true if this method succeeded, or false if this {@code LoginModule} should be 
+             ignored. 
+
+*javax.security.auth.spi.LoginModule.commit()*
+
+public boolean commit()
+  throws |javax.security.auth.login.LoginException|
+         
+Method to commit the authentication process (phase 2). 
+
+This method is called if the LoginContext's overall authentication succeeded 
+(the relevant REQUIRED, REQUISITE, SUFFICIENT and OPTIONAL LoginModules 
+succeeded). 
+
+If this LoginModule's own authentication attempt succeeded (checked by 
+retrieving the private state saved by theloginmethod), then this method 
+associates relevant Principals and Credentials with theSubjectlocated in 
+theLoginModule. If this LoginModule's own authentication attempted failed, then 
+this method removes/destroys any state that was originally saved. 
+
+
+
+
+
+    Returns: true if this method succeeded, or false if this {@code LoginModule} should be 
+             ignored. 
+
+*javax.security.auth.spi.LoginModule.initialize(Subject,CallbackHandler,Map<String,?>,Map<String,?>)*
+
+public void initialize(
+  javax.security.auth.Subject subject,
+  javax.security.auth.callback.CallbackHandler callbackHandler,
+  java.util.Map<java.lang.String, ?> sharedState,
+  java.util.Map<java.lang.String, ?> options)
+
+Initialize this LoginModule. 
+
+This method is called by theLoginContextafter thisLoginModulehas been 
+instantiated. The purpose of this method is to initialize thisLoginModulewith 
+the relevant information. If thisLoginModuledoes not understand any of the data 
+stored insharedStateoroptionsparameters, they can be ignored. 
+
+
+
+
+    subject - the {@code Subject} to be authenticated. 
+    callbackHandler - a {@code CallbackHandler} for communicating with the end user (prompting for 
+       usernames and passwords, for example). 
+    sharedState - state shared with other configured LoginModules. 
+    options - options specified in the login {@code Configuration} for this particular {@code 
+       LoginModule}. 
+
+*javax.security.auth.spi.LoginModule.login()*
+
+public boolean login()
+  throws |javax.security.auth.login.LoginException|
+         
+Method to authenticate aSubject(phase 1). 
+
+The implementation of this method authenticates aSubject. For example, it may 
+prompt forSubjectinformation such as a username and password and then attempt 
+to verify the password. This method saves the result of the authentication 
+attempt as private state within the LoginModule. 
+
+
+
+
+
+    Returns: true if the authentication succeeded, or false if this {@code LoginModule} 
+             should be ignored. 
+
+*javax.security.auth.spi.LoginModule.logout()*
+
+public boolean logout()
+  throws |javax.security.auth.login.LoginException|
+         
+Method which logs out aSubject. 
+
+An implementation of this method might remove/destroy a Subject's Principals 
+and Credentials. 
+
+
+
+
+
+    Returns: true if this method succeeded, or false if this {@code LoginModule} should be 
+             ignored. 
+
+

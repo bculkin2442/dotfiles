@@ -1,0 +1,119 @@
+*javax.swing.border.StrokeBorder* *StrokeBorder* A class which implements a bord
+
+public class StrokeBorder
+  extends    |javax.swing.border.AbstractBorder|
+
+|javax.swing.border.StrokeBorder_Description|
+|javax.swing.border.StrokeBorder_Fields|
+|javax.swing.border.StrokeBorder_Constructors|
+|javax.swing.border.StrokeBorder_Methods|
+
+================================================================================
+
+*javax.swing.border.StrokeBorder_Constructors*
+|javax.swing.border.StrokeBorder(BasicStroke)|Creates a border of the specified
+|javax.swing.border.StrokeBorder(BasicStroke,Paint)|Creates a border of the spe
+
+*javax.swing.border.StrokeBorder_Methods*
+|javax.swing.border.StrokeBorder.getBorderInsets(Component,Insets)|Reinitialize
+|javax.swing.border.StrokeBorder.getPaint()|Returns thePaintobject used to gene
+|javax.swing.border.StrokeBorder.getStroke()|Returns theBasicStrokeobject used 
+|javax.swing.border.StrokeBorder.paintBorder(Component,Graphics,int,int,int,int)|
+
+*javax.swing.border.StrokeBorder_Description*
+
+A class which implements a border of an arbitrary stroke. 
+
+Warning: Serialized objects of this class will not be compatible with future 
+Swing releases. The current serialization support is appropriate for short term 
+storage or RMI between applications running the same version of Swing. As of 
+1.4, support for long term storage of all JavaBeans has been added to the 
+java.beans package. Please see (|java.beans.XMLEncoder|) . 
+
+
+
+*javax.swing.border.StrokeBorder(BasicStroke)*
+
+public StrokeBorder(java.awt.BasicStroke stroke)
+
+Creates a border of the specifiedstroke. The component's foreground color will 
+be used to render the border. 
+
+    stroke - the {@link BasicStroke} object used to stroke a shape 
+
+*javax.swing.border.StrokeBorder(BasicStroke,Paint)*
+
+public StrokeBorder(
+  java.awt.BasicStroke stroke,
+  java.awt.Paint paint)
+
+Creates a border of the specifiedstrokeandpaint. If the specifiedpaintisnull, 
+the component's foreground color will be used to render the border. 
+
+    stroke - the {@link BasicStroke} object used to stroke a shape 
+    paint - the {@link Paint} object used to generate a color 
+
+*javax.swing.border.StrokeBorder.getBorderInsets(Component,Insets)*
+
+public |java.awt.Insets| getBorderInsets(
+  java.awt.Component c,
+  java.awt.Insets insets)
+
+Reinitializes theinsetsparameter with this border's current insets. Every inset 
+is the smallest (closest to negative infinity) integer value that is greater 
+than or equal to the line width of the stroke that is used to paint the border. 
+
+
+    c - the component for which this border insets value applies 
+    insets - the {@code Insets} object to be reinitialized 
+
+    Returns: the reinitialized {@code insets} parameter 
+
+*javax.swing.border.StrokeBorder.getPaint()*
+
+public |java.awt.Paint| getPaint()
+
+Returns the (|java.awt.Paint|) object used to generate a color during the 
+border rendering. 
+
+
+
+    Returns: the {@link Paint} object or {@code null} if the {@code paint} parameter is not 
+             set 
+
+*javax.swing.border.StrokeBorder.getStroke()*
+
+public |java.awt.BasicStroke| getStroke()
+
+Returns the (|java.awt.BasicStroke|) object used to stroke a shape during the 
+border rendering. 
+
+
+
+    Returns: the {@link BasicStroke} object 
+
+*javax.swing.border.StrokeBorder.paintBorder(Component,Graphics,int,int,int,int)*
+
+public void paintBorder(
+  java.awt.Component c,
+  java.awt.Graphics g,
+  int x,
+  int y,
+  int width,
+  int height)
+
+Paints the border for the specified component with the specified position and 
+size. If the border was not specified with a (|java.awt.Paint|) object, the 
+component's foreground color will be used to render the border. If the 
+component's foreground color is not available, the default color of the 
+(|java.awt.Graphics|) object will be used. 
+
+
+    c - the component for which this border is being painted 
+    g - the paint graphics 
+    x - the x position of the painted border 
+    y - the y position of the painted border 
+    width - the width of the painted border 
+    height - the height of the painted border 
+
+

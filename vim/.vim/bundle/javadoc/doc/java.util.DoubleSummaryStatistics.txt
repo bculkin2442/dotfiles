@@ -1,0 +1,168 @@
+*java.util.DoubleSummaryStatistics* *DoubleSummaryStatistics* A state object for
+
+public class DoubleSummaryStatistics
+  extends    |java.lang.Object|
+  implements |java.util.function.DoubleConsumer|
+
+|java.util.DoubleSummaryStatistics_Description|
+|java.util.DoubleSummaryStatistics_Fields|
+|java.util.DoubleSummaryStatistics_Constructors|
+|java.util.DoubleSummaryStatistics_Methods|
+
+================================================================================
+
+*java.util.DoubleSummaryStatistics_Constructors*
+|java.util.DoubleSummaryStatistics()|Construct an empty instance with zero coun
+
+*java.util.DoubleSummaryStatistics_Methods*
+|java.util.DoubleSummaryStatistics.accept(double)|Records another value into th
+|java.util.DoubleSummaryStatistics.combine(DoubleSummaryStatistics)|Combines th
+|java.util.DoubleSummaryStatistics.getAverage()|Returns the arithmetic mean of 
+|java.util.DoubleSummaryStatistics.getCount()|Return the count of values record
+|java.util.DoubleSummaryStatistics.getMax()|Returns the maximum recorded value,
+|java.util.DoubleSummaryStatistics.getMin()|Returns the minimum recorded value,
+|java.util.DoubleSummaryStatistics.getSum()|Returns the sum of values recorded,
+|java.util.DoubleSummaryStatistics.toString()|Returns a non-empty string repres
+
+*java.util.DoubleSummaryStatistics_Description*
+
+A state object for collecting statistics such as count, min, max, sum, and 
+average. 
+
+This class is designed to work with (though does not require) 
+streams(|java.util.stream|) . For example, you can compute summary statistics 
+on a stream of doubles with: 
+
+DoubleSummaryStatistics stats = 
+doubleStream.collect(DoubleSummaryStatistics::new, 
+DoubleSummaryStatistics::accept, DoubleSummaryStatistics::combine); 
+
+DoubleSummaryStatisticscan be used as a reduction(|java.util.stream.Stream|) 
+target for a stream(|java.util.stream.Stream|) . For example: 
+
+DoubleSummaryStatistics stats = people.stream() 
+.collect(Collectors.summarizingDouble(Person::getWeight)); 
+
+This computes, in a single pass, the count of people, as well as the minimum, 
+maximum, sum, and average of their weights. 
+
+
+
+*java.util.DoubleSummaryStatistics()*
+
+public DoubleSummaryStatistics()
+
+Construct an empty instance with zero count, zero 
+sum,Double.POSITIVE_INFINITYmin,Double.NEGATIVE_INFINITYmax and zero average. 
+
+
+*java.util.DoubleSummaryStatistics.accept(double)*
+
+public void accept(double value)
+
+Records another value into the summary information. 
+
+
+    value - the input value 
+
+*java.util.DoubleSummaryStatistics.combine(DoubleSummaryStatistics)*
+
+public void combine(java.util.DoubleSummaryStatistics other)
+
+Combines the state of anotherDoubleSummaryStatisticsinto this one. 
+
+
+    other - another {@code DoubleSummaryStatistics} 
+
+*java.util.DoubleSummaryStatistics.getAverage()*
+
+public final double getAverage()
+
+Returns the arithmetic mean of values recorded, or zero if no values have been 
+recorded. 
+
+If any recorded value is a NaN or the sum is at any point a NaN then the 
+average will be code NaN. 
+
+The average returned can vary depending upon the order in which values are 
+recorded. 
+
+This method may be implemented using compensated summation or other technique 
+to reduce the error bound in the numerical 
+sum(|java.util.DoubleSummaryStatistics|) used to compute the average. 
+
+
+
+    Returns: the arithmetic mean of values, or zero if none 
+
+*java.util.DoubleSummaryStatistics.getCount()*
+
+public final long getCount()
+
+Return the count of values recorded. 
+
+
+
+    Returns: the count of values 
+
+*java.util.DoubleSummaryStatistics.getMax()*
+
+public final double getMax()
+
+Returns the maximum recorded value,Double.NaNif any recorded value was NaN 
+orDouble.NEGATIVE_INFINITYif no values were recorded. Unlike the numerical 
+comparison operators, this method considers negative zero to be strictly 
+smaller than positive zero. 
+
+
+
+    Returns: the maximum recorded value, {@code Double.NaN} if any recorded value was NaN or 
+             {@code Double.NEGATIVE_INFINITY} if no values were recorded 
+
+*java.util.DoubleSummaryStatistics.getMin()*
+
+public final double getMin()
+
+Returns the minimum recorded value,Double.NaNif any recorded value was NaN 
+orDouble.POSITIVE_INFINITYif no values were recorded. Unlike the numerical 
+comparison operators, this method considers negative zero to be strictly 
+smaller than positive zero. 
+
+
+
+    Returns: the minimum recorded value, {@code Double.NaN} if any recorded value was NaN or 
+             {@code Double.POSITIVE_INFINITY} if no values were recorded 
+
+*java.util.DoubleSummaryStatistics.getSum()*
+
+public final double getSum()
+
+Returns the sum of values recorded, or zero if no values have been recorded. 
+
+If any recorded value is a NaN or the sum is at any point a NaN then the sum 
+will be NaN. 
+
+The value of a floating-point sum is a function both of the input values as 
+well as the order of addition operations. The order of addition operations of 
+this method is intentionally not defined to allow for implementation 
+flexibility to improve the speed and accuracy of the computed result. 
+
+In particular, this method may be implemented using compensated summation or 
+other technique to reduce the error bound in the numerical sum compared to a 
+simple summation ofdoublevalues. 
+
+
+
+    Returns: the sum of values, or zero if none 
+
+*java.util.DoubleSummaryStatistics.toString()*
+
+public |java.lang.String| toString()
+
+Returns a non-empty string representation of this object suitable for 
+debugging. The exact presentation format is unspecified and may vary between 
+implementations and versions. 
+
+
+
+

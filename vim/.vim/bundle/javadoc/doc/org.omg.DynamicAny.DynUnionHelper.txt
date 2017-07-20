@@ -1,0 +1,113 @@
+*org.omg.DynamicAny.DynUnionHelper* *DynUnionHelper* DynUnion objects support th
+
+public abstract class DynUnionHelper
+  extends    |java.lang.Object|
+
+|org.omg.DynamicAny.DynUnionHelper_Description|
+|org.omg.DynamicAny.DynUnionHelper_Fields|
+|org.omg.DynamicAny.DynUnionHelper_Constructors|
+|org.omg.DynamicAny.DynUnionHelper_Methods|
+
+================================================================================
+
+*org.omg.DynamicAny.DynUnionHelper_Constructors*
+|org.omg.DynamicAny.DynUnionHelper()|
+
+*org.omg.DynamicAny.DynUnionHelper_Methods*
+|org.omg.DynamicAny.DynUnionHelper.extract(Any)|
+|org.omg.DynamicAny.DynUnionHelper.id()|
+|org.omg.DynamicAny.DynUnionHelper.insert(Any,DynUnion)|
+|org.omg.DynamicAny.DynUnionHelper.narrow(Object)|
+|org.omg.DynamicAny.DynUnionHelper.read(InputStream)|
+|org.omg.DynamicAny.DynUnionHelper.type()|
+|org.omg.DynamicAny.DynUnionHelper.unchecked_narrow(Object)|
+|org.omg.DynamicAny.DynUnionHelper.write(OutputStream,DynUnion)|
+
+*org.omg.DynamicAny.DynUnionHelper_Description*
+
+DynUnion objects support the manipulation of IDL unions. A union can have only 
+two valid current positions: 
+
+zero, which denotes the discriminator one, which denotes the active member 
+
+The component_count value for a union depends on the current discriminator: it 
+is 2 for a union whose discriminator indicates a named member, and 1 otherwise. 
+
+
+
+*org.omg.DynamicAny.DynUnionHelper()*
+
+public DynUnionHelper()
+
+
+
+
+*org.omg.DynamicAny.DynUnionHelper.extract(Any)*
+
+public static |org.omg.DynamicAny.DynUnion| extract(org.omg.CORBA.Any a)
+
+
+
+
+
+*org.omg.DynamicAny.DynUnionHelper.id()*
+
+public static |java.lang.String| id()
+
+
+
+
+
+*org.omg.DynamicAny.DynUnionHelper.insert(Any,DynUnion)*
+
+public static void insert(
+  org.omg.CORBA.Any a,
+  org.omg.DynamicAny.DynUnion that)
+
+
+
+
+
+*org.omg.DynamicAny.DynUnionHelper.narrow(Object)*
+
+public static |org.omg.DynamicAny.DynUnion| narrow(org.omg.CORBA.Object obj)
+
+
+
+
+
+*org.omg.DynamicAny.DynUnionHelper.read(InputStream)*
+
+public static |org.omg.DynamicAny.DynUnion| read(org.omg.CORBA.portable.InputStream istream)
+
+
+
+
+
+*org.omg.DynamicAny.DynUnionHelper.type()*
+
+public static synchronized |org.omg.CORBA.TypeCode| type()
+
+
+
+
+
+*org.omg.DynamicAny.DynUnionHelper.unchecked_narrow(Object)*
+
+public static |org.omg.DynamicAny.DynUnion| unchecked_narrow(org.omg.CORBA.Object obj)
+
+
+
+
+
+*org.omg.DynamicAny.DynUnionHelper.write(OutputStream,DynUnion)*
+
+public static void write(
+  org.omg.CORBA.portable.OutputStream ostream,
+  org.omg.DynamicAny.DynUnion value)
+
+
+
+
+
+

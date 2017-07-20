@@ -1,0 +1,38 @@
+*java.util.function.LongToDoubleFunction* *LongToDoubleFunction* Represents a fu
+
+public interface interface LongToDoubleFunction
+
+
+|java.util.function.LongToDoubleFunction_Description|
+|java.util.function.LongToDoubleFunction_Fields|
+|java.util.function.LongToDoubleFunction_Constructors|
+|java.util.function.LongToDoubleFunction_Methods|
+
+================================================================================
+
+*java.util.function.LongToDoubleFunction_Methods*
+|java.util.function.LongToDoubleFunction.applyAsDouble(long)|Applies this funct
+
+*java.util.function.LongToDoubleFunction_Description*
+
+Represents a function that accepts a long-valued argument and produces a 
+double-valued result. This is thelong-to-doubleprimitive specialization for 
+(|java.util.function.Function|) . 
+
+This is a functional interface whose functional method is 
+(|java.util.function.LongToDoubleFunction|) . 
+
+
+
+*java.util.function.LongToDoubleFunction.applyAsDouble(long)*
+
+public double applyAsDouble(long value)
+
+Applies this function to the given argument. 
+
+
+    value - the function argument 
+
+    Returns: the function result 
+
+

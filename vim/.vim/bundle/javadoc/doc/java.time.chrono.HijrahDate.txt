@@ -1,0 +1,359 @@
+*java.time.chrono.HijrahDate* *HijrahDate* A date in the Hijrah calendar system.
+
+public final class HijrahDate
+  extends    |java.time.chrono.ChronoLocalDateImpl|
+  implements |java.time.chrono.ChronoLocalDate|
+             |java.io.Serializable|
+
+|java.time.chrono.HijrahDate_Description|
+|java.time.chrono.HijrahDate_Fields|
+|java.time.chrono.HijrahDate_Constructors|
+|java.time.chrono.HijrahDate_Methods|
+
+================================================================================
+
+*java.time.chrono.HijrahDate_Methods*
+|java.time.chrono.HijrahDate.atTime(LocalTime)|
+|java.time.chrono.HijrahDate.equals(Object)|Compares this date to another date,
+|java.time.chrono.HijrahDate.from(TemporalAccessor)|Obtains aHijrahDateof the I
+|java.time.chrono.HijrahDate.getChronology()|Gets the chronology of this date, 
+|java.time.chrono.HijrahDate.getEra()|Gets the era applicable at this date.
+|java.time.chrono.HijrahDate.getLong(TemporalField)|
+|java.time.chrono.HijrahDate.hashCode()|A hash code for this date.
+|java.time.chrono.HijrahDate.isLeapYear()|Checks if the year is a leap year, ac
+|java.time.chrono.HijrahDate.lengthOfMonth()|Returns the length of the month re
+|java.time.chrono.HijrahDate.lengthOfYear()|Returns the length of the year repr
+|java.time.chrono.HijrahDate.minus(long,TemporalUnit)|
+|java.time.chrono.HijrahDate.minus(TemporalAmount)|
+|java.time.chrono.HijrahDate.now()|Obtains the currentHijrahDateof the Islamic 
+|java.time.chrono.HijrahDate.now(Clock)|Obtains the currentHijrahDateof the Isl
+|java.time.chrono.HijrahDate.now(ZoneId)|Obtains the currentHijrahDateof the Is
+|java.time.chrono.HijrahDate.of(int,int,int)|Obtains aHijrahDateof the Islamic 
+|java.time.chrono.HijrahDate.plus(long,TemporalUnit)|
+|java.time.chrono.HijrahDate.plus(TemporalAmount)|
+|java.time.chrono.HijrahDate.range(TemporalField)|
+|java.time.chrono.HijrahDate.toEpochDay()|
+|java.time.chrono.HijrahDate.until(ChronoLocalDate)|
+|java.time.chrono.HijrahDate.with(TemporalAdjuster)|
+|java.time.chrono.HijrahDate.with(TemporalField,long)|
+|java.time.chrono.HijrahDate.withVariant(HijrahChronology)|Returns aHijrahDatew
+
+*java.time.chrono.HijrahDate_Description*
+
+A date in the Hijrah calendar system. 
+
+This date operates using one of several variants of the Hijrah 
+calendar(|java.time.chrono.HijrahChronology|) . 
+
+The Hijrah calendar has a different total of days in a year than Gregorian 
+calendar, and the length of each month is based on the period of a complete 
+revolution of the moon around the earth (as between successive new moons). 
+Refer to the (|java.time.chrono.HijrahChronology|) for details of supported 
+variants. 
+
+Each HijrahDate is created bound to a particular HijrahChronology, The same 
+chronology is propagated to each HijrahDate computed from the date. To use a 
+different Hijrah variant, its HijrahChronology can be used to create new 
+HijrahDate instances. Alternatively, the (|java.time.chrono.HijrahDate|) method 
+can be used to convert to a new HijrahChronology. 
+
+This is a <a href="/java/lang/doc-files/ValueBased.html">value-based class; use 
+of identity-sensitive operations (including reference equality (==), identity 
+hash code, or synchronization) on instances ofHijrahDatemay have unpredictable 
+results and should be avoided. Theequalsmethod should be used for comparisons. 
+
+
+
+*java.time.chrono.HijrahDate.atTime(LocalTime)*
+
+public final |java.time.chrono.ChronoLocalDateTime|<HijrahDate> atTime(java.time.LocalTime localTime)
+
+
+
+
+
+*java.time.chrono.HijrahDate.equals(Object)*
+
+public boolean equals(java.lang.Object obj)
+
+Compares this date to another date, including the chronology. 
+
+Compares thisHijrahDatewith another ensuring that the date is the same. 
+
+Only objects of typeHijrahDateare compared, other types return false. To 
+compare the dates of twoTemporalAccessorinstances, including dates in two 
+different chronologies, use (|java.time.temporal.ChronoField|) as a comparator. 
+
+
+    obj - the object to check, null returns false 
+
+    Returns: true if this is equal to the other date and the Chronologies are equal 
+
+*java.time.chrono.HijrahDate.from(TemporalAccessor)*
+
+public static |java.time.chrono.HijrahDate| from(java.time.temporal.TemporalAccessor temporal)
+
+Obtains aHijrahDateof the Islamic Umm Al-Qura calendar from a temporal object. 
+
+This obtains a date in the Hijrah calendar system based on the specified 
+temporal. ATemporalAccessorrepresents an arbitrary set of date and time 
+information, which this factory converts to an instance ofHijrahDate. 
+
+The conversion typically uses the EPOCH_DAY(|java.time.temporal.ChronoField|) 
+field, which is standardized across calendar systems. 
+
+This method matches the signature of the functional interface 
+(|java.time.temporal.TemporalQuery|) allowing it to be used as a query via 
+method reference,HijrahDate::from. 
+
+
+    temporal - the temporal object to convert, not null 
+
+    Returns: the date in Hijrah calendar system, not null 
+
+*java.time.chrono.HijrahDate.getChronology()*
+
+public |java.time.chrono.HijrahChronology| getChronology()
+
+Gets the chronology of this date, which is the Hijrah calendar system. 
+
+TheChronologyrepresents the calendar system in use. The era and other fields in 
+(|java.time.temporal.ChronoField|) are defined by the chronology. 
+
+
+
+    Returns: the Hijrah chronology, not null 
+
+*java.time.chrono.HijrahDate.getEra()*
+
+public |java.time.chrono.HijrahEra| getEra()
+
+Gets the era applicable at this date. 
+
+The Hijrah calendar system has one era, 'AH', defined by 
+(|java.time.chrono.HijrahEra|) . 
+
+
+
+    Returns: the era applicable at this date, not null 
+
+*java.time.chrono.HijrahDate.getLong(TemporalField)*
+
+public long getLong(java.time.temporal.TemporalField field)
+
+
+
+
+
+*java.time.chrono.HijrahDate.hashCode()*
+
+public int hashCode()
+
+A hash code for this date. 
+
+
+
+    Returns: a suitable hash code based only on the Chronology and the date 
+
+*java.time.chrono.HijrahDate.isLeapYear()*
+
+public boolean isLeapYear()
+
+Checks if the year is a leap year, according to the Hijrah calendar system 
+rules. 
+
+
+
+    Returns: true if this date is in a leap year 
+
+*java.time.chrono.HijrahDate.lengthOfMonth()*
+
+public int lengthOfMonth()
+
+Returns the length of the month represented by this date. 
+
+This returns the length of the month in days. Month lengths in the Hijrah 
+calendar system vary between 29 and 30 days. 
+
+
+
+    Returns: the length of the month in days 
+
+*java.time.chrono.HijrahDate.lengthOfYear()*
+
+public int lengthOfYear()
+
+Returns the length of the year represented by this date. 
+
+This returns the length of the year in days. A Hijrah calendar system year is 
+typically shorter than that of the ISO calendar system. 
+
+
+
+    Returns: the length of the year in days 
+
+*java.time.chrono.HijrahDate.minus(long,TemporalUnit)*
+
+public |java.time.chrono.HijrahDate| minus(
+  long amountToSubtract,
+  java.time.temporal.TemporalUnit unit)
+
+
+
+
+
+*java.time.chrono.HijrahDate.minus(TemporalAmount)*
+
+public |java.time.chrono.HijrahDate| minus(java.time.temporal.TemporalAmount amount)
+
+
+
+
+
+*java.time.chrono.HijrahDate.now()*
+
+public static |java.time.chrono.HijrahDate| now()
+
+Obtains the currentHijrahDateof the Islamic Umm Al-Qura calendar in the default 
+time-zone. 
+
+This will query the system clock(|java.time.Clock|) in the default time-zone to 
+obtain the current date. 
+
+Using this method will prevent the ability to use an alternate clock for 
+testing because the clock is hard-coded. 
+
+
+
+    Returns: the current date using the system clock and default time-zone, not null 
+
+*java.time.chrono.HijrahDate.now(Clock)*
+
+public static |java.time.chrono.HijrahDate| now(java.time.Clock clock)
+
+Obtains the currentHijrahDateof the Islamic Umm Al-Qura calendar from the 
+specified clock. 
+
+This will query the specified clock to obtain the current date - today. Using 
+this method allows the use of an alternate clock for testing. The alternate 
+clock may be introduced using dependency injection(|java.time.Clock|) . 
+
+
+    clock - the clock to use, not null 
+
+    Returns: the current date, not null 
+
+*java.time.chrono.HijrahDate.now(ZoneId)*
+
+public static |java.time.chrono.HijrahDate| now(java.time.ZoneId zone)
+
+Obtains the currentHijrahDateof the Islamic Umm Al-Qura calendar in the 
+specified time-zone. 
+
+This will query the system clock(|java.time.Clock|) to obtain the current date. 
+Specifying the time-zone avoids dependence on the default time-zone. 
+
+Using this method will prevent the ability to use an alternate clock for 
+testing because the clock is hard-coded. 
+
+
+    zone - the zone ID to use, not null 
+
+    Returns: the current date using the system clock, not null 
+
+*java.time.chrono.HijrahDate.of(int,int,int)*
+
+public static |java.time.chrono.HijrahDate| of(
+  int prolepticYear,
+  int month,
+  int dayOfMonth)
+
+Obtains aHijrahDateof the Islamic Umm Al-Qura calendar from the proleptic-year, 
+month-of-year and day-of-month fields. 
+
+This returns aHijrahDatewith the specified fields. The day must be valid for 
+the year and month, otherwise an exception will be thrown. 
+
+
+    prolepticYear - the Hijrah proleptic-year 
+    month - the Hijrah month-of-year, from 1 to 12 
+    dayOfMonth - the Hijrah day-of-month, from 1 to 30 
+
+    Returns: the date in Hijrah calendar system, not null 
+
+*java.time.chrono.HijrahDate.plus(long,TemporalUnit)*
+
+public |java.time.chrono.HijrahDate| plus(
+  long amountToAdd,
+  java.time.temporal.TemporalUnit unit)
+
+
+
+
+
+*java.time.chrono.HijrahDate.plus(TemporalAmount)*
+
+public |java.time.chrono.HijrahDate| plus(java.time.temporal.TemporalAmount amount)
+
+
+
+
+
+*java.time.chrono.HijrahDate.range(TemporalField)*
+
+public |java.time.temporal.ValueRange| range(java.time.temporal.TemporalField field)
+
+
+
+
+
+*java.time.chrono.HijrahDate.toEpochDay()*
+
+public long toEpochDay()
+
+
+
+
+
+*java.time.chrono.HijrahDate.until(ChronoLocalDate)*
+
+public |java.time.chrono.ChronoPeriod| until(java.time.chrono.ChronoLocalDate endDate)
+
+
+
+
+
+*java.time.chrono.HijrahDate.with(TemporalAdjuster)*
+
+public |java.time.chrono.HijrahDate| with(java.time.temporal.TemporalAdjuster adjuster)
+
+
+
+
+
+*java.time.chrono.HijrahDate.with(TemporalField,long)*
+
+public |java.time.chrono.HijrahDate| with(
+  java.time.temporal.TemporalField field,
+  long newValue)
+
+
+
+
+
+*java.time.chrono.HijrahDate.withVariant(HijrahChronology)*
+
+public |java.time.chrono.HijrahDate| withVariant(java.time.chrono.HijrahChronology chronology)
+
+Returns aHijrahDatewith the Chronology requested. 
+
+The year, month, and day are checked against the new requested 
+HijrahChronology. If the chronology has a shorter month length for the month, 
+the day is reduced to be the last day of the month. 
+
+
+    chronology - the new HijrahChonology, non-null 
+
+    Returns: a HijrahDate with the requested HijrahChronology, non-null 
+
+

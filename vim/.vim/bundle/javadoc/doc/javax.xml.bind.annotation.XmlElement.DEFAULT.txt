@@ -1,0 +1,29 @@
+*javax.xml.bind.annotation.XmlElement.DEFAULT* *XmlElement.DEFAULT* Used inXmlEl
+
+public static final class XmlElement.DEFAULT
+  extends    |java.lang.Object|
+
+|javax.xml.bind.annotation.XmlElement.DEFAULT_Description|
+|javax.xml.bind.annotation.XmlElement.DEFAULT_Fields|
+|javax.xml.bind.annotation.XmlElement.DEFAULT_Constructors|
+|javax.xml.bind.annotation.XmlElement.DEFAULT_Methods|
+
+================================================================================
+
+*javax.xml.bind.annotation.XmlElement.DEFAULT_Constructors*
+|javax.xml.bind.annotation.XmlElement.DEFAULT()|
+
+*javax.xml.bind.annotation.XmlElement.DEFAULT_Description*
+
+Used in (|javax.xml.bind.annotation.XmlElement|) to signal that the type be 
+inferred from the signature of the property. 
+
+
+
+*javax.xml.bind.annotation.XmlElement.DEFAULT()*
+
+public DEFAULT()
+
+
+
+

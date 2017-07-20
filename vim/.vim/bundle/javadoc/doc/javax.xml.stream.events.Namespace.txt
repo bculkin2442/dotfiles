@@ -1,0 +1,50 @@
+*javax.xml.stream.events.Namespace* *Namespace* An interface that contains infor
+
+public interface interface Namespace
+
+  implements |javax.xml.stream.events.Attribute|
+
+|javax.xml.stream.events.Namespace_Description|
+|javax.xml.stream.events.Namespace_Fields|
+|javax.xml.stream.events.Namespace_Constructors|
+|javax.xml.stream.events.Namespace_Methods|
+
+================================================================================
+
+*javax.xml.stream.events.Namespace_Methods*
+|javax.xml.stream.events.Namespace.getNamespaceURI()|Gets the uri bound to the 
+|javax.xml.stream.events.Namespace.getPrefix()|Gets the prefix, returns "" if t
+|javax.xml.stream.events.Namespace.isDefaultNamespaceDeclaration()|returns true
+
+*javax.xml.stream.events.Namespace_Description*
+
+An interface that contains information about a namespace. Namespaces are 
+accessed from a StartElement. 
+
+
+
+*javax.xml.stream.events.Namespace.getNamespaceURI()*
+
+public |java.lang.String| getNamespaceURI()
+
+Gets the uri bound to the prefix of this namespace 
+
+
+
+*javax.xml.stream.events.Namespace.getPrefix()*
+
+public |java.lang.String| getPrefix()
+
+Gets the prefix, returns "" if this is a default namespace declaration. 
+
+
+
+*javax.xml.stream.events.Namespace.isDefaultNamespaceDeclaration()*
+
+public boolean isDefaultNamespaceDeclaration()
+
+returns true if this attribute declares the default namespace 
+
+
+
+

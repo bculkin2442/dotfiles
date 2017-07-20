@@ -1,0 +1,87 @@
+*javax.xml.crypto.dsig.keyinfo.RetrievalMethod* *RetrievalMethod* A representati
+
+public interface interface RetrievalMethod
+
+  implements |javax.xml.crypto.URIReference|
+             |javax.xml.crypto.XMLStructure|
+
+|javax.xml.crypto.dsig.keyinfo.RetrievalMethod_Description|
+|javax.xml.crypto.dsig.keyinfo.RetrievalMethod_Fields|
+|javax.xml.crypto.dsig.keyinfo.RetrievalMethod_Constructors|
+|javax.xml.crypto.dsig.keyinfo.RetrievalMethod_Methods|
+
+================================================================================
+
+*javax.xml.crypto.dsig.keyinfo.RetrievalMethod_Methods*
+|javax.xml.crypto.dsig.keyinfo.RetrievalMethod.dereference(XMLCryptoContext)|De
+|javax.xml.crypto.dsig.keyinfo.RetrievalMethod.getTransforms()|Returns anjava.u
+|javax.xml.crypto.dsig.keyinfo.RetrievalMethod.getURI()|Returns the URI of the 
+
+*javax.xml.crypto.dsig.keyinfo.RetrievalMethod_Description*
+
+A representation of the XML RetrievalMethod element as defined in the W3C 
+Recommendation for XML-Signature Syntax and Processing. A RetrievalMethod 
+object is used to convey a reference to KeyInfo information that is stored at 
+another location. The XML schema definition is defined as: 
+
+
+
+<element name="RetrievalMethod" type="ds:RetrievalMethodType"/> <complexType 
+name="RetrievalMethodType"> <sequence> <element name="Transforms" 
+type="ds:TransformsType" minOccurs="0"/> </sequence> <attribute name="URI" 
+type="anyURI"/> <attribute name="Type" type="anyURI" use="optional"/> 
+</complexType> 
+
+A RetrievalMethod instance may be created by invoking one of the 
+newRetrievalMethod(|javax.xml.crypto.dsig.keyinfo.KeyInfoFactory|) methods of 
+the (|javax.xml.crypto.dsig.keyinfo.KeyInfoFactory|) class, and passing it the 
+URI identifying the location of the KeyInfo, an optional type URI identifying 
+the type of KeyInfo, and an optional list of 
+(|javax.xml.crypto.dsig.Transform|) s; for example: 
+
+KeyInfoFactory factory = KeyInfoFactory.getInstance("DOM"); RetrievalMethod rm 
+= factory.newRetrievalMethod ("#KeyValue-1", KeyValue.DSA_TYPE, 
+Collections.singletonList(Transform.BASE64)); 
+
+
+
+*javax.xml.crypto.dsig.keyinfo.RetrievalMethod.dereference(XMLCryptoContext)*
+
+public |javax.xml.crypto.Data| dereference(javax.xml.crypto.XMLCryptoContext context)
+  throws |javax.xml.crypto.URIReferenceException|
+         
+Dereferences the KeyInfo information referenced by this RetrievalMethod and 
+applies the specified Transforms. 
+
+
+    context - an XMLCryptoContext that may contain additional useful information for 
+       dereferencing the URI. The context's baseURI and dereferencer parameters 
+       (if specified) are used to resolve and dereference this RetrievalMethod 
+
+    Returns: a Data object representing the raw contents of the KeyInfo information 
+             referenced by this RetrievalMethod. It is the caller's 
+             responsibility to convert the returned data to an appropriate 
+             KeyInfo object. 
+
+*javax.xml.crypto.dsig.keyinfo.RetrievalMethod.getTransforms()*
+
+public |java.util.List| getTransforms()
+
+Returns an unmodifiable list(|java.util.Collections|) of 
+(|javax.xml.crypto.dsig.Transform|) s of this RetrievalMethod. 
+
+
+
+    Returns: an unmodifiable list of Transform objects (may be empty but never null). 
+
+*javax.xml.crypto.dsig.keyinfo.RetrievalMethod.getURI()*
+
+public |java.lang.String| getURI()
+
+Returns the URI of the referenced KeyInfo information. 
+
+
+
+    Returns: the URI of the referenced KeyInfo information in RFC 2396 format (never null) 
+
+

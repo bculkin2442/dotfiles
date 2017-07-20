@@ -1,0 +1,53 @@
+*javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter* *XmlJavaTypeAdapter* Use
+
+public interface class XmlJavaTypeAdapter
+
+  implements |java.lang.annotation.Annotation|
+
+|javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter_Description|
+|javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter_Fields|
+|javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter_Constructors|
+|javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter_Methods|
+
+================================================================================
+
+*javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter_Description*
+
+Use an adapter that implements 
+(|javax.xml.bind.annotation.adapters.XmlAdapter|) for custom marshaling. 
+
+Usage: 
+
+The @XmlJavaTypeAdapter annotation can be used with the following program 
+elements: 
+
+a JavaBean property field parameter package from within 
+(|javax.xml.bind.annotation.adapters.XmlJavaTypeAdapters|) 
+
+When @XmlJavaTypeAdapter annotation is defined on a class, it applies to all 
+references to the class. When @XmlJavaTypeAdapter annotation is defined at the 
+package level it applies to all references from within the package to 
+@XmlJavaTypeAdapter.type(). When @XmlJavaTypeAdapter annotation is defined on 
+the field, property or parameter, then the annotation applies to the field, 
+property or the parameter only. A @XmlJavaTypeAdapter annotation on a field, 
+property or parameter overrides the @XmlJavaTypeAdapter annotation associated 
+with the class being referenced by the field, property or parameter. A 
+@XmlJavaTypeAdapter annotation on a class overrides the @XmlJavaTypeAdapter 
+annotation specified at the package level for that class. 
+
+This annotation can be used with the following other annotations: 
+(|javax.xml.bind.annotation.XmlElement|) , 
+(|javax.xml.bind.annotation.XmlAttribute|) , 
+(|javax.xml.bind.annotation.XmlElementRef|) , 
+(|javax.xml.bind.annotation.XmlElementRefs|) , 
+(|javax.xml.bind.annotation.XmlAnyElement|) . This can also be used at the 
+package level with the following annotations: 
+(|javax.xml.bind.annotation.XmlAccessorType|) , 
+(|javax.xml.bind.annotation.XmlSchema|) , 
+(|javax.xml.bind.annotation.XmlSchemaType|) , 
+(|javax.xml.bind.annotation.XmlSchemaTypes|) . 
+
+Example: See example in (|javax.xml.bind.annotation.adapters.XmlAdapter|) 
+
+
+

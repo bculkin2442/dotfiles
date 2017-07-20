@@ -1,0 +1,72 @@
+*javax.lang.model.element.VariableElement* *VariableElement* Represents a field,
+
+public interface interface VariableElement
+
+  implements |javax.lang.model.element.Element|
+
+|javax.lang.model.element.VariableElement_Description|
+|javax.lang.model.element.VariableElement_Fields|
+|javax.lang.model.element.VariableElement_Constructors|
+|javax.lang.model.element.VariableElement_Methods|
+
+================================================================================
+
+*javax.lang.model.element.VariableElement_Methods*
+|javax.lang.model.element.VariableElement.getConstantValue()|Returns the value 
+|javax.lang.model.element.VariableElement.getEnclosingElement()|Returns the enc
+|javax.lang.model.element.VariableElement.getSimpleName()|Returns the simple na
+
+*javax.lang.model.element.VariableElement_Description*
+
+Represents a field,enumconstant, method or constructor parameter, local 
+variable, resource variable, or exception parameter. 
+
+
+
+*javax.lang.model.element.VariableElement.getConstantValue()*
+
+public |java.lang.Object| getConstantValue()
+
+Returns the value of this variable if this is afinalfield initialized to a 
+compile-time constant. Returnsnullotherwise. The value will be of a primitive 
+type or aString. If the value is of a primitive type, it is wrapped in the 
+appropriate wrapper class (such as (|java.lang.Integer|) ). 
+
+Note that not allfinalfields will have constant values. In 
+particular,enumconstants are not considered to be compile-time constants. To 
+have a constant value, a field's type must be either a primitive type orString. 
+
+
+
+    Returns: the value of this variable if this is a {@code final} field initialized to a 
+             compile-time constant, or {@code null} otherwise 
+
+*javax.lang.model.element.VariableElement.getEnclosingElement()*
+
+public |javax.lang.model.element.Element| getEnclosingElement()
+
+Returns the enclosing element of this variable. 
+
+The enclosing element of a method or constructor parameter is the executable 
+declaring the parameter. 
+
+
+
+    Returns: the enclosing element of this variable 
+
+*javax.lang.model.element.VariableElement.getSimpleName()*
+
+public |javax.lang.model.element.Name| getSimpleName()
+
+Returns the simple name of this variable element. 
+
+For method and constructor parameters, the name of each parameter must be 
+distinct from the names of all other parameters of the same executable. If the 
+original source names are not available, an implementation may synthesize names 
+subject to the distinctness requirement above. 
+
+
+
+    Returns: the simple name of this variable element 
+
+

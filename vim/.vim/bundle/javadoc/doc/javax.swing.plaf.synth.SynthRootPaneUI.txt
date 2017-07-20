@@ -1,0 +1,142 @@
+*javax.swing.plaf.synth.SynthRootPaneUI* *SynthRootPaneUI* Provides the Synth L 
+
+public class SynthRootPaneUI
+  extends    |javax.swing.plaf.basic.BasicRootPaneUI|
+  implements |javax.swing.plaf.synth.SynthUI|
+
+|javax.swing.plaf.synth.SynthRootPaneUI_Description|
+|javax.swing.plaf.synth.SynthRootPaneUI_Fields|
+|javax.swing.plaf.synth.SynthRootPaneUI_Constructors|
+|javax.swing.plaf.synth.SynthRootPaneUI_Methods|
+
+================================================================================
+
+*javax.swing.plaf.synth.SynthRootPaneUI_Constructors*
+|javax.swing.plaf.synth.SynthRootPaneUI()|
+
+*javax.swing.plaf.synth.SynthRootPaneUI_Methods*
+|javax.swing.plaf.synth.SynthRootPaneUI.createUI(JComponent)|Creates a new UI o
+|javax.swing.plaf.synth.SynthRootPaneUI.getContext(JComponent)|
+|javax.swing.plaf.synth.SynthRootPaneUI.installDefaults(JRootPane)|
+|javax.swing.plaf.synth.SynthRootPaneUI.paint(Graphics,JComponent)|Paints the s
+|javax.swing.plaf.synth.SynthRootPaneUI.paint(SynthContext,Graphics)|Paints the
+|javax.swing.plaf.synth.SynthRootPaneUI.paintBorder(SynthContext,Graphics,int,int,int,int)|
+|javax.swing.plaf.synth.SynthRootPaneUI.propertyChange(PropertyChangeEvent)|Inv
+|javax.swing.plaf.synth.SynthRootPaneUI.uninstallDefaults(JRootPane)|
+|javax.swing.plaf.synth.SynthRootPaneUI.update(Graphics,JComponent)|Notifies th
+
+*javax.swing.plaf.synth.SynthRootPaneUI_Description*
+
+Provides the Synth L and F UI delegate for (|javax.swing.JRootPane|) . 
+
+
+
+*javax.swing.plaf.synth.SynthRootPaneUI()*
+
+public SynthRootPaneUI()
+
+
+
+
+*javax.swing.plaf.synth.SynthRootPaneUI.createUI(JComponent)*
+
+public static |javax.swing.plaf.ComponentUI| createUI(javax.swing.JComponent c)
+
+Creates a new UI object for the given component. 
+
+
+    c - component to create UI object for 
+
+    Returns: the UI object 
+
+*javax.swing.plaf.synth.SynthRootPaneUI.getContext(JComponent)*
+
+public |javax.swing.plaf.synth.SynthContext| getContext(javax.swing.JComponent c)
+
+
+
+
+
+*javax.swing.plaf.synth.SynthRootPaneUI.installDefaults(JRootPane)*
+
+protected void installDefaults(javax.swing.JRootPane c)
+
+
+
+
+
+*javax.swing.plaf.synth.SynthRootPaneUI.paint(Graphics,JComponent)*
+
+public void paint(
+  java.awt.Graphics g,
+  javax.swing.JComponent c)
+
+Paints the specified component according to the Look and Feel. This method is 
+not used by Synth Look and Feel. Painting is handled by the 
+(|javax.swing.plaf.synth.SynthRootPaneUI|) method. 
+
+
+    g - the {@code Graphics} object used for painting 
+    c - the component being painted 
+
+*javax.swing.plaf.synth.SynthRootPaneUI.paint(SynthContext,Graphics)*
+
+protected void paint(
+  javax.swing.plaf.synth.SynthContext context,
+  java.awt.Graphics g)
+
+Paints the specified component. This implementation does nothing. 
+
+
+    context - context for the component being painted 
+    g - the {@code Graphics} object used for painting 
+
+*javax.swing.plaf.synth.SynthRootPaneUI.paintBorder(SynthContext,Graphics,int,int,int,int)*
+
+public void paintBorder(
+  javax.swing.plaf.synth.SynthContext context,
+  java.awt.Graphics g,
+  int x,
+  int y,
+  int w,
+  int h)
+
+
+
+
+
+*javax.swing.plaf.synth.SynthRootPaneUI.propertyChange(PropertyChangeEvent)*
+
+public void propertyChange(java.beans.PropertyChangeEvent e)
+
+Invoked when a property changes on the root pane. If the event indicates the 
+defaultButton has changed, this will reinstall the keyboard actions. 
+
+
+
+*javax.swing.plaf.synth.SynthRootPaneUI.uninstallDefaults(JRootPane)*
+
+protected void uninstallDefaults(javax.swing.JRootPane root)
+
+
+
+
+
+*javax.swing.plaf.synth.SynthRootPaneUI.update(Graphics,JComponent)*
+
+public void update(
+  java.awt.Graphics g,
+  javax.swing.JComponent c)
+
+Notifies this UI delegate to repaint the specified component. This method 
+paints the component background, then calls the 
+(|javax.swing.plaf.synth.SynthRootPaneUI|) method. 
+
+In general, this method does not need to be overridden by subclasses. All Look 
+and Feel rendering code should reside in thepaintmethod. 
+
+
+    g - the {@code Graphics} object used for painting 
+    c - the component being painted 
+
+

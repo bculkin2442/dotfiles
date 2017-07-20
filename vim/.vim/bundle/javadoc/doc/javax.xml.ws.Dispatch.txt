@@ -1,0 +1,102 @@
+*javax.xml.ws.Dispatch* *Dispatch* The Dispatch interface provides support
+  for
+
+public interface interface Dispatch<T>
+
+  implements |javax.xml.ws.BindingProvider|
+
+|javax.xml.ws.Dispatch_Description|
+|javax.xml.ws.Dispatch_Fields|
+|javax.xml.ws.Dispatch_Constructors|
+|javax.xml.ws.Dispatch_Methods|
+
+================================================================================
+
+*javax.xml.ws.Dispatch_Methods*
+|javax.xml.ws.Dispatch.invoke(T)|Invoke a service operation synchronously.
+|javax.xml.ws.Dispatch.invokeAsync(T)|Invoke a service operation asynchronously
+|javax.xml.ws.Dispatch.invokeAsync(T,AsyncHandler<T>)|Invoke a service operatio
+|javax.xml.ws.Dispatch.invokeOneWay(T)|Invokes a service operation using the on
+
+*javax.xml.ws.Dispatch_Description*
+
+The Dispatch interface provides support for the dynamic invocation of a service 
+endpoint operations. The javax.xml.ws.Service class acts as a factory for the 
+creation of Dispatch instances. 
+
+
+
+*javax.xml.ws.Dispatch.invoke(T)*
+
+public |T| invoke(T msg)
+
+Invoke a service operation synchronously. 
+
+The client is responsible for ensuring that the msg object when marshalled is 
+formed according to the requirements of the protocol binding in use. 
+
+
+    msg - An object that will form the message or payload of the message used to invoke 
+       the operation. 
+
+    Returns: The response message or message payload to the operation invocation. 
+
+*javax.xml.ws.Dispatch.invokeAsync(T)*
+
+public |javax.xml.ws.Response|<T> invokeAsync(T msg)
+
+Invoke a service operation asynchronously. The method returns without waiting 
+for the response to the operation invocation, the results of the operation are 
+obtained by polling the returned Response. 
+
+The client is responsible for ensuring that the msg object when marshalled is 
+formed according to the requirements of the protocol binding in use. 
+
+
+    msg - An object that will form the message or payload of the message used to invoke 
+       the operation. 
+
+    Returns: The response message or message payload to the operation invocation. 
+
+*javax.xml.ws.Dispatch.invokeAsync(T,AsyncHandler<T>)*
+
+public |java.util.concurrent.Future|<?> invokeAsync(
+  T msg,
+  javax.xml.ws.AsyncHandler<T> handler)
+
+Invoke a service operation asynchronously. The method returns without waiting 
+for the response to the operation invocation, the results of the operation are 
+communicated to the client via the passed in handler. 
+
+The client is responsible for ensuring that the msg object when marshalled is 
+formed according to the requirements of the protocol binding in use. 
+
+
+    msg - An object that will form the message or payload of the message used to invoke 
+       the operation. 
+    handler - The handler object that will receive the response to the operation invocation. 
+
+    Returns: A Future object that may be used to check the status of the operation 
+             invocation. This object MUST NOT be used to try to obtain the 
+             results of the operation - the object returned from 
+             Future<?>.get() is implementation dependent and any use of it will 
+             result in non-portable behaviour. 
+
+*javax.xml.ws.Dispatch.invokeOneWay(T)*
+
+public void invokeOneWay(T msg)
+
+Invokes a service operation using the one-way interaction mode. The operation 
+invocation is logically non-blocking, subject to the capabilities of the 
+underlying protocol, no results are returned. When the protocol in use is 
+SOAP/HTTP, this method MUST block until an HTTP response code has been received 
+or an error occurs. 
+
+The client is responsible for ensuring that the msg object when marshalled is 
+formed according to the requirements of the protocol binding in use. 
+
+
+    msg - An object that will form the message or payload of the message used to invoke 
+       the operation. 
+
+

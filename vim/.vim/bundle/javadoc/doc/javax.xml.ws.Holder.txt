@@ -1,0 +1,47 @@
+*javax.xml.ws.Holder* *Holder* Holds a value of type T.
+
+public final class Holder<T>
+  extends    |java.lang.Object|
+  implements |java.io.Serializable|
+
+|javax.xml.ws.Holder_Description|
+|javax.xml.ws.Holder_Fields|
+|javax.xml.ws.Holder_Constructors|
+|javax.xml.ws.Holder_Methods|
+
+================================================================================
+
+*javax.xml.ws.Holder_Fields*
+|T_javax.xml.ws.Holder.value|
+
+*javax.xml.ws.Holder_Constructors*
+|javax.xml.ws.Holder()|Creates a new holder with a null value.
+|javax.xml.ws.Holder(T)|Create a new holder with the specified value.
+
+*javax.xml.ws.Holder_Description*
+
+Holds a value of type T. 
+
+
+
+*T_javax.xml.ws.Holder.value*
+
+The value contained in the holder. 
+
+
+
+*javax.xml.ws.Holder()*
+
+public Holder()
+
+Creates a new holder with a null value. 
+
+
+*javax.xml.ws.Holder(T)*
+
+public Holder(T value)
+
+Create a new holder with the specified value. 
+
+    value - The value to be stored in the holder. 
+

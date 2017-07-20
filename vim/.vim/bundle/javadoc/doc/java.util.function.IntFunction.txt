@@ -1,0 +1,38 @@
+*java.util.function.IntFunction* *IntFunction* Represents a function that accept
+
+public interface interface IntFunction<R>
+
+
+|java.util.function.IntFunction_Description|
+|java.util.function.IntFunction_Fields|
+|java.util.function.IntFunction_Constructors|
+|java.util.function.IntFunction_Methods|
+
+================================================================================
+
+*java.util.function.IntFunction_Methods*
+|java.util.function.IntFunction.apply(int)|Applies this function to the given a
+
+*java.util.function.IntFunction_Description*
+
+Represents a function that accepts an int-valued argument and produces a 
+result. This is theint-consuming primitive specialization for 
+(|java.util.function.Function|) . 
+
+This is a functional interface whose functional method is 
+(|java.util.function.IntFunction|) . 
+
+
+
+*java.util.function.IntFunction.apply(int)*
+
+public |R| apply(int value)
+
+Applies this function to the given argument. 
+
+
+    value - the function argument 
+
+    Returns: the function result 
+
+

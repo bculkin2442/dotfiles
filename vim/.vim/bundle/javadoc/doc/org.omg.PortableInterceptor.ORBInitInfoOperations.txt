@@ -1,0 +1,156 @@
+*org.omg.PortableInterceptor.ORBInitInfoOperations* *ORBInitInfoOperations* Pass
+
+public interface interface ORBInitInfoOperations
+
+
+|org.omg.PortableInterceptor.ORBInitInfoOperations_Description|
+|org.omg.PortableInterceptor.ORBInitInfoOperations_Fields|
+|org.omg.PortableInterceptor.ORBInitInfoOperations_Constructors|
+|org.omg.PortableInterceptor.ORBInitInfoOperations_Methods|
+
+================================================================================
+
+*org.omg.PortableInterceptor.ORBInitInfoOperations_Methods*
+|org.omg.PortableInterceptor.ORBInitInfoOperations.add_client_request_interceptor(ClientRequestInterceptor)|
+|org.omg.PortableInterceptor.ORBInitInfoOperations.add_ior_interceptor(IORInterceptor)|
+|org.omg.PortableInterceptor.ORBInitInfoOperations.add_server_request_interceptor(ServerRequestInterceptor)|
+|org.omg.PortableInterceptor.ORBInitInfoOperations.allocate_slot_id()|Called to
+|org.omg.PortableInterceptor.ORBInitInfoOperations.arguments()|Returns the argu
+|org.omg.PortableInterceptor.ORBInitInfoOperations.codec_factory()|Returns the 
+|org.omg.PortableInterceptor.ORBInitInfoOperations.orb_id()|Returns the ID of t
+|org.omg.PortableInterceptor.ORBInitInfoOperations.register_initial_reference(String,Object)|
+|org.omg.PortableInterceptor.ORBInitInfoOperations.register_policy_factory(int,PolicyFactory)|
+|org.omg.PortableInterceptor.ORBInitInfoOperations.resolve_initial_references(String)|
+
+*org.omg.PortableInterceptor.ORBInitInfoOperations_Description*
+
+Passed to each ORBInitializer, allowing it to to register interceptors and 
+perform other duties while the ORB is initializing. 
+
+The ORBInitInfo object is only valid during ORB.init. If a service keeps a 
+reference to its ORBInitInfo object and tries to use it after ORB.init returns, 
+the object no longer exists and an OBJECT_NOT_EXIST exception shall be thrown. 
+
+
+
+*org.omg.PortableInterceptor.ORBInitInfoOperations.add_client_request_interceptor(ClientRequestInterceptor)*
+
+public void add_client_request_interceptor(org.omg.PortableInterceptor.ClientRequestInterceptor interceptor)
+  throws |org.omg.PortableInterceptor.ORBInitInfoPackage.DuplicateName|
+         
+Used to add a client-side request Interceptor to the list of client-side 
+request Interceptors. 
+
+
+    interceptor - The ClientRequestInterceptor to be added. 
+
+*org.omg.PortableInterceptor.ORBInitInfoOperations.add_ior_interceptor(IORInterceptor)*
+
+public void add_ior_interceptor(org.omg.PortableInterceptor.IORInterceptor interceptor)
+  throws |org.omg.PortableInterceptor.ORBInitInfoPackage.DuplicateName|
+         
+Used to add an IOR Interceptor to the list of IOR Interceptors. 
+
+
+    interceptor - The IORInterceptor to be added. 
+
+*org.omg.PortableInterceptor.ORBInitInfoOperations.add_server_request_interceptor(ServerRequestInterceptor)*
+
+public void add_server_request_interceptor(org.omg.PortableInterceptor.ServerRequestInterceptor interceptor)
+  throws |org.omg.PortableInterceptor.ORBInitInfoPackage.DuplicateName|
+         
+Used to add a server-side request Interceptor to the list of server-side 
+request Interceptors. 
+
+
+    interceptor - The ServerRequestInterceptor to be added. 
+
+*org.omg.PortableInterceptor.ORBInitInfoOperations.allocate_slot_id()*
+
+public int allocate_slot_id()
+
+Called to allocate a slot on PortableInterceptor.Current. 
+
+Note that while slot id's can be allocated within an ORB initializer, the slots 
+themselves cannot be initialized. 
+
+
+
+    Returns: The index to the slot which has been allocated. 
+
+*org.omg.PortableInterceptor.ORBInitInfoOperations.arguments()*
+
+public |java.lang.String|[] arguments()
+
+Returns the arguments passed to ORB.init. They may or may not contain the ORB's 
+arguments. 
+
+
+
+*org.omg.PortableInterceptor.ORBInitInfoOperations.codec_factory()*
+
+public |org.omg.IOP.CodecFactory| codec_factory()
+
+Returns the IOP.CodecFactory. The CodecFactory is normally obtained via a call 
+to ORB.resolve_initial_references( "CodecFactory" ), but since the ORB is not 
+yet available and Interceptors, particularly when processing service contexts, 
+will require a Codec, a means of obtaining a Codec is necessary during ORB 
+initialization. 
+
+
+
+*org.omg.PortableInterceptor.ORBInitInfoOperations.orb_id()*
+
+public |java.lang.String| orb_id()
+
+Returns the ID of the ORB being initialized. 
+
+
+
+*org.omg.PortableInterceptor.ORBInitInfoOperations.register_initial_reference(String,Object)*
+
+public void register_initial_reference(
+  java.lang.String id,
+  org.omg.CORBA.Object obj)
+  throws |org.omg.PortableInterceptor.ORBInitInfoPackage.InvalidName|
+         
+Identical to ORB.register_initial_reference. This same functionality exists 
+here because the ORB, not yet fully initialized, is not yet available but 
+initial references may need to be registered as part of Interceptor 
+registration. The only difference is that the version of this operation on the 
+ORB uses PIDL (CORBA.ORB.ObjectId) and (CORBA.ORB.InvalidName) whereas the 
+version in this interface uses IDL defined in this interface; the semantics are 
+identical. 
+
+
+
+*org.omg.PortableInterceptor.ORBInitInfoOperations.register_policy_factory(int,PolicyFactory)*
+
+public void register_policy_factory(
+  int type,
+  org.omg.PortableInterceptor.PolicyFactory policy_factory)
+
+Registers a PolicyFactory for the given PolicyType. 
+
+
+    type - The policy type that the given PolicyFactory serves. 
+    policy_factory - The factory for the given policy type. 
+
+*org.omg.PortableInterceptor.ORBInitInfoOperations.resolve_initial_references(String)*
+
+public |org.omg.CORBA.Object| resolve_initial_references(java.lang.String id)
+  throws |org.omg.PortableInterceptor.ORBInitInfoPackage.InvalidName|
+         
+Identical to ORB.resolve_initial_references. This same functionality exists 
+here because the ORB, not yet fully initialized, is not yet available but 
+initial references may be required from the ORB as part of Interceptor 
+registration. The only difference is that the version of this operation on the 
+ORB uses PIDL (CORBA::ORB::ObjectId and CORBA::ORB::InvalidName) whereas the 
+version in this interface uses IDL defined in this interface; the semantics are 
+identical. 
+
+This operation is only valid during post_init. 
+
+
+
+

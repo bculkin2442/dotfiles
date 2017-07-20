@@ -1,0 +1,557 @@
+*javax.xml.stream.XMLEventFactory* *XMLEventFactory* This interface defines a ut
+
+public abstract class XMLEventFactory
+  extends    |java.lang.Object|
+
+|javax.xml.stream.XMLEventFactory_Description|
+|javax.xml.stream.XMLEventFactory_Fields|
+|javax.xml.stream.XMLEventFactory_Constructors|
+|javax.xml.stream.XMLEventFactory_Methods|
+
+================================================================================
+
+*javax.xml.stream.XMLEventFactory_Constructors*
+|javax.xml.stream.XMLEventFactory()|
+
+*javax.xml.stream.XMLEventFactory_Methods*
+|javax.xml.stream.XMLEventFactory.createAttribute(QName,String)|Create a new At
+|javax.xml.stream.XMLEventFactory.createAttribute(String,String)|Create a new A
+|javax.xml.stream.XMLEventFactory.createAttribute(String,String,String,String)|
+|javax.xml.stream.XMLEventFactory.createCData(String)|Create a Characters event
+|javax.xml.stream.XMLEventFactory.createCharacters(String)|Create a Characters 
+|javax.xml.stream.XMLEventFactory.createComment(String)|Create a comment
+|javax.xml.stream.XMLEventFactory.createDTD(String)|Create a document type defi
+|javax.xml.stream.XMLEventFactory.createEndDocument()|Creates a new instance of
+|javax.xml.stream.XMLEventFactory.createEndElement(QName,Iterator)|Create a new
+|javax.xml.stream.XMLEventFactory.createEndElement(String,String,String)|Create
+|javax.xml.stream.XMLEventFactory.createEndElement(String,String,String,Iterator)|
+|javax.xml.stream.XMLEventFactory.createEntityReference(String,EntityDeclaration)|
+|javax.xml.stream.XMLEventFactory.createIgnorableSpace(String)|Create an ignora
+|javax.xml.stream.XMLEventFactory.createNamespace(String)|Create a new default 
+|javax.xml.stream.XMLEventFactory.createNamespace(String,String)|Create a new N
+|javax.xml.stream.XMLEventFactory.createProcessingInstruction(String,String)|Cr
+|javax.xml.stream.XMLEventFactory.createSpace(String)|Create a Characters event
+|javax.xml.stream.XMLEventFactory.createStartDocument()|Creates a new instance 
+|javax.xml.stream.XMLEventFactory.createStartDocument(String)|Creates a new ins
+|javax.xml.stream.XMLEventFactory.createStartDocument(String,String)|Creates a 
+|javax.xml.stream.XMLEventFactory.createStartDocument(String,String,boolean)|Cr
+|javax.xml.stream.XMLEventFactory.createStartElement(QName,Iterator,Iterator)|C
+|javax.xml.stream.XMLEventFactory.createStartElement(String,String,String)|Crea
+|javax.xml.stream.XMLEventFactory.createStartElement(String,String,String,Iterator,Iterator)|
+|javax.xml.stream.XMLEventFactory.createStartElement(String,String,String,Iterator,Iterator,NamespaceContext)|
+|javax.xml.stream.XMLEventFactory.newFactory()|Create a new instance of the fac
+|javax.xml.stream.XMLEventFactory.newFactory(String,ClassLoader)|Create a new i
+|javax.xml.stream.XMLEventFactory.newInstance()|Creates a new instance of the f
+|javax.xml.stream.XMLEventFactory.newInstance(String,ClassLoader)|Create a new 
+|javax.xml.stream.XMLEventFactory.setLocation(Location)|This method allows sett
+
+*javax.xml.stream.XMLEventFactory_Description*
+
+This interface defines a utility class for creating instances of XMLEvents 
+
+
+
+*javax.xml.stream.XMLEventFactory()*
+
+protected XMLEventFactory()
+
+
+
+
+*javax.xml.stream.XMLEventFactory.createAttribute(QName,String)*
+
+public abstract |javax.xml.stream.events.Attribute| createAttribute(
+  javax.xml.namespace.QName name,
+  java.lang.String value)
+
+Create a new Attribute 
+
+
+    name - the qualified name of the attribute, may not be null 
+    value - the attribute value to set, may not be null 
+
+    Returns: the Attribute with specified values 
+
+*javax.xml.stream.XMLEventFactory.createAttribute(String,String)*
+
+public abstract |javax.xml.stream.events.Attribute| createAttribute(
+  java.lang.String localName,
+  java.lang.String value)
+
+Create a new Attribute 
+
+
+    localName - the local name of the XML name of the attribute, localName cannot be null 
+    value - the attribute value to set, may not be null 
+
+    Returns: the Attribute with specified values 
+
+*javax.xml.stream.XMLEventFactory.createAttribute(String,String,String,String)*
+
+public abstract |javax.xml.stream.events.Attribute| createAttribute(
+  java.lang.String prefix,
+  java.lang.String namespaceURI,
+  java.lang.String localName,
+  java.lang.String value)
+
+Create a new Attribute 
+
+
+    prefix - the prefix of this attribute, may not be null 
+    namespaceURI - the attribute value is set to this value, may not be null 
+    localName - the local name of the XML name of the attribute, localName cannot be null 
+    value - the attribute value to set, may not be null 
+
+    Returns: the Attribute with specified values 
+
+*javax.xml.stream.XMLEventFactory.createCData(String)*
+
+public abstract |javax.xml.stream.events.Characters| createCData(java.lang.String content)
+
+Create a Characters event with the CData flag set to true 
+
+
+    content - the string to create 
+
+    Returns: a Characters event 
+
+*javax.xml.stream.XMLEventFactory.createCharacters(String)*
+
+public abstract |javax.xml.stream.events.Characters| createCharacters(java.lang.String content)
+
+Create a Characters event, this method does not check if the content is all 
+whitespace. To create a space event use #createSpace(String) 
+
+
+    content - the string to create 
+
+    Returns: a Characters event 
+
+*javax.xml.stream.XMLEventFactory.createComment(String)*
+
+public abstract |javax.xml.stream.events.Comment| createComment(java.lang.String text)
+
+Create a comment 
+
+
+    text - The text of the comment a Comment event 
+
+*javax.xml.stream.XMLEventFactory.createDTD(String)*
+
+public abstract |javax.xml.stream.events.DTD| createDTD(java.lang.String dtd)
+
+Create a document type definition event This string contains the entire 
+document type declaration that matches the doctypedecl in the XML 1.0 
+specification 
+
+
+    dtd - the text of the document type definition 
+
+    Returns: 
+
+*javax.xml.stream.XMLEventFactory.createEndDocument()*
+
+public abstract |javax.xml.stream.events.EndDocument| createEndDocument()
+
+Creates a new instance of an EndDocument event 
+
+
+
+    Returns: an EndDocument event 
+
+*javax.xml.stream.XMLEventFactory.createEndElement(QName,Iterator)*
+
+public abstract |javax.xml.stream.events.EndElement| createEndElement(
+  javax.xml.namespace.QName name,
+  java.util.Iterator namespaces)
+
+Create a new EndElement 
+
+
+    name - the qualified name of the EndElement 
+    namespaces - an optional unordered set of objects that implement Namespace that have gone 
+       out of scope, may be null 
+
+    Returns: an instance of the requested EndElement 
+
+*javax.xml.stream.XMLEventFactory.createEndElement(String,String,String)*
+
+public abstract |javax.xml.stream.events.EndElement| createEndElement(
+  java.lang.String prefix,
+  java.lang.String namespaceUri,
+  java.lang.String localName)
+
+Create a new EndElement 
+
+
+    namespaceUri - the uri of the QName of the new StartElement 
+    localName - the local name of the QName of the new StartElement 
+    prefix - the prefix of the QName of the new StartElement 
+
+    Returns: an instance of the requested EndElement 
+
+*javax.xml.stream.XMLEventFactory.createEndElement(String,String,String,Iterator)*
+
+public abstract |javax.xml.stream.events.EndElement| createEndElement(
+  java.lang.String prefix,
+  java.lang.String namespaceUri,
+  java.lang.String localName,
+  java.util.Iterator namespaces)
+
+Create a new EndElement 
+
+
+    namespaceUri - the uri of the QName of the new StartElement 
+    localName - the local name of the QName of the new StartElement 
+    prefix - the prefix of the QName of the new StartElement 
+    namespaces - an unordered set of objects that implement Namespace that have gone out of 
+       scope, may be null 
+
+    Returns: an instance of the requested EndElement 
+
+*javax.xml.stream.XMLEventFactory.createEntityReference(String,EntityDeclaration)*
+
+public abstract |javax.xml.stream.events.EntityReference| createEntityReference(
+  java.lang.String name,
+  javax.xml.stream.events.EntityDeclaration declaration)
+
+Creates a new instance of a EntityReference event 
+
+
+    name - The name of the reference 
+    declaration - the declaration for the event 
+
+    Returns: an EntityReference event 
+
+*javax.xml.stream.XMLEventFactory.createIgnorableSpace(String)*
+
+public abstract |javax.xml.stream.events.Characters| createIgnorableSpace(java.lang.String content)
+
+Create an ignorable space 
+
+
+    content - the space to create 
+
+    Returns: a Characters event 
+
+*javax.xml.stream.XMLEventFactory.createNamespace(String)*
+
+public abstract |javax.xml.stream.events.Namespace| createNamespace(java.lang.String namespaceURI)
+
+Create a new default Namespace 
+
+
+    namespaceURI - the default namespace uri 
+
+    Returns: the Namespace with the specified value 
+
+*javax.xml.stream.XMLEventFactory.createNamespace(String,String)*
+
+public abstract |javax.xml.stream.events.Namespace| createNamespace(
+  java.lang.String prefix,
+  java.lang.String namespaceUri)
+
+Create a new Namespace 
+
+
+    prefix - the prefix of this namespace, may not be null 
+    namespaceUri - the attribute value is set to this value, may not be null 
+
+    Returns: the Namespace with the specified values 
+
+*javax.xml.stream.XMLEventFactory.createProcessingInstruction(String,String)*
+
+public abstract |javax.xml.stream.events.ProcessingInstruction| createProcessingInstruction(
+  java.lang.String target,
+  java.lang.String data)
+
+Create a processing instruction 
+
+
+    target - The target of the processing instruction 
+    data - The text of the processing instruction 
+
+    Returns: a ProcessingInstruction event 
+
+*javax.xml.stream.XMLEventFactory.createSpace(String)*
+
+public abstract |javax.xml.stream.events.Characters| createSpace(java.lang.String content)
+
+Create a Characters event with the isSpace flag set to true 
+
+
+    content - the content of the space to create 
+
+    Returns: a Characters event 
+
+*javax.xml.stream.XMLEventFactory.createStartDocument()*
+
+public abstract |javax.xml.stream.events.StartDocument| createStartDocument()
+
+Creates a new instance of a StartDocument event 
+
+
+
+    Returns: a StartDocument event 
+
+*javax.xml.stream.XMLEventFactory.createStartDocument(String)*
+
+public abstract |javax.xml.stream.events.StartDocument| createStartDocument(java.lang.String encoding)
+
+Creates a new instance of a StartDocument event 
+
+
+    encoding - the encoding style 
+
+    Returns: a StartDocument event 
+
+*javax.xml.stream.XMLEventFactory.createStartDocument(String,String)*
+
+public abstract |javax.xml.stream.events.StartDocument| createStartDocument(
+  java.lang.String encoding,
+  java.lang.String version)
+
+Creates a new instance of a StartDocument event 
+
+
+    encoding - the encoding style 
+    version - the XML version 
+
+    Returns: a StartDocument event 
+
+*javax.xml.stream.XMLEventFactory.createStartDocument(String,String,boolean)*
+
+public abstract |javax.xml.stream.events.StartDocument| createStartDocument(
+  java.lang.String encoding,
+  java.lang.String version,
+  boolean standalone)
+
+Creates a new instance of a StartDocument event 
+
+
+    encoding - the encoding style 
+    version - the XML version 
+    standalone - the status of standalone may be set to "true" or "false" 
+
+    Returns: a StartDocument event 
+
+*javax.xml.stream.XMLEventFactory.createStartElement(QName,Iterator,Iterator)*
+
+public abstract |javax.xml.stream.events.StartElement| createStartElement(
+  javax.xml.namespace.QName name,
+  java.util.Iterator attributes,
+  java.util.Iterator namespaces)
+
+Create a new StartElement. Namespaces can be added to this StartElement by 
+passing in an Iterator that walks over a set of Namespace interfaces. 
+Attributes can be added to this StartElement by passing an iterator that walks 
+over a set of Attribute interfaces. 
+
+
+    name - the qualified name of the attribute, may not be null 
+    attributes - an optional unordered set of objects that implement Attribute to add to the new 
+       StartElement, may be null 
+    namespaces - an optional unordered set of objects that implement Namespace to add to the new 
+       StartElement, may be null 
+
+    Returns: an instance of the requested StartElement 
+
+*javax.xml.stream.XMLEventFactory.createStartElement(String,String,String)*
+
+public abstract |javax.xml.stream.events.StartElement| createStartElement(
+  java.lang.String prefix,
+  java.lang.String namespaceUri,
+  java.lang.String localName)
+
+Create a new StartElement. This defaults the NamespaceContext to an empty 
+NamespaceContext. Querying this event for its namespaces or attributes will 
+result in an empty iterator being returned. 
+
+
+    namespaceUri - the uri of the QName of the new StartElement 
+    localName - the local name of the QName of the new StartElement 
+    prefix - the prefix of the QName of the new StartElement 
+
+    Returns: an instance of the requested StartElement 
+
+*javax.xml.stream.XMLEventFactory.createStartElement(String,String,String,Iterator,Iterator)*
+
+public abstract |javax.xml.stream.events.StartElement| createStartElement(
+  java.lang.String prefix,
+  java.lang.String namespaceUri,
+  java.lang.String localName,
+  java.util.Iterator attributes,
+  java.util.Iterator namespaces)
+
+Create a new StartElement. Namespaces can be added to this StartElement by 
+passing in an Iterator that walks over a set of Namespace interfaces. 
+Attributes can be added to this StartElement by passing an iterator that walks 
+over a set of Attribute interfaces. 
+
+
+    namespaceUri - the uri of the QName of the new StartElement 
+    localName - the local name of the QName of the new StartElement 
+    prefix - the prefix of the QName of the new StartElement 
+    attributes - an unordered set of objects that implement Attribute to add to the new 
+       StartElement 
+    namespaces - an unordered set of objects that implement Namespace to add to the new 
+       StartElement 
+
+    Returns: an instance of the requested StartElement 
+
+*javax.xml.stream.XMLEventFactory.createStartElement(String,String,String,Iterator,Iterator,NamespaceContext)*
+
+public abstract |javax.xml.stream.events.StartElement| createStartElement(
+  java.lang.String prefix,
+  java.lang.String namespaceUri,
+  java.lang.String localName,
+  java.util.Iterator attributes,
+  java.util.Iterator namespaces,
+  javax.xml.namespace.NamespaceContext context)
+
+Create a new StartElement. Namespaces can be added to this StartElement by 
+passing in an Iterator that walks over a set of Namespace interfaces. 
+Attributes can be added to this StartElement by passing an iterator that walks 
+over a set of Attribute interfaces. 
+
+
+    namespaceUri - the uri of the QName of the new StartElement 
+    localName - the local name of the QName of the new StartElement 
+    prefix - the prefix of the QName of the new StartElement 
+    attributes - an unordered set of objects that implement Attribute to add to the new 
+       StartElement, may be null 
+    namespaces - an unordered set of objects that implement Namespace to add to the new 
+       StartElement, may be null 
+    context - the namespace context of this element 
+
+    Returns: an instance of the requested StartElement 
+
+*javax.xml.stream.XMLEventFactory.newFactory()*
+
+public static |javax.xml.stream.XMLEventFactory| newFactory()
+  throws |javax.xml.stream.FactoryConfigurationError|
+         
+Create a new instance of the factory. 
+
+This static method creates a new factory instance. This method uses the 
+following ordered lookup procedure to determine the XMLEventFactory 
+implementation class to load: 
+
+
+
+Use the javax.xml.stream.XMLEventFactory system property. 
+
+Use the properties file "lib/stax.properties" in the JRE directory. This 
+configuration file is in standard java.util.Properties format and contains the 
+fully qualified name of the implementation class with the key being the system 
+property defined above. 
+
+Use the service-provider loading facilities, defined by the 
+(|java.util.ServiceLoader|) class, to attempt to locate and load an 
+implementation of the service using the default loading 
+mechanism(|java.util.ServiceLoader|) : the service-provider loading facility 
+will use the current thread's context class loader(|java.lang.Thread|) to 
+attempt to load the service. If the context class loader is null, the system 
+class loader(|java.lang.ClassLoader|) will be used. 
+
+Otherwise, the system-default implementation is returned. 
+
+
+
+Once an application has obtained a reference to a XMLEventFactory it can use 
+the factory to configure and obtain stream instances. 
+
+Note that this is a new method that replaces the deprecated newInstance() 
+method. No changes in behavior are defined by this replacement method relative 
+to the deprecated method. 
+
+
+
+*javax.xml.stream.XMLEventFactory.newFactory(String,ClassLoader)*
+
+public static |javax.xml.stream.XMLEventFactory| newFactory(
+  java.lang.String factoryId,
+  java.lang.ClassLoader classLoader)
+  throws |javax.xml.stream.FactoryConfigurationError|
+         
+Create a new instance of the factory. If the classLoader argument is null, then 
+the ContextClassLoader is used. 
+
+This method uses the following ordered lookup procedure to determine the 
+XMLEventFactory implementation class to load: 
+
+
+
+Use the value of the system property identified byfactoryId. 
+
+Use the properties file "lib/stax.properties" in the JRE directory. This 
+configuration file is in standard java.util.Properties format and contains the 
+fully qualified name of the implementation class with the key being the 
+givenfactoryId. 
+
+IffactoryIdis "javax.xml.stream.XMLEventFactory", use the service-provider 
+loading facilities, defined by the (|java.util.ServiceLoader|) class, to 
+attempt to locate and load an implementation of the service using the 
+specifiedClassLoader. IfclassLoaderis null, the default loading 
+mechanism(|java.util.ServiceLoader|) will apply: That is, the service-provider 
+loading facility will use the current thread's context class 
+loader(|java.lang.Thread|) to attempt to load the service. If the context class 
+loader is null, the system class loader(|java.lang.ClassLoader|) will be used. 
+
+Otherwise, throws a (|javax.xml.stream.FactoryConfigurationError|) . 
+
+
+
+Note that this is a new method that replaces the deprecated newInstance(String 
+factoryId, ClassLoader classLoader)(|javax.xml.stream.XMLEventFactory|) method. 
+No changes in behavior are defined by this replacement method relative to the 
+deprecated method. 
+
+
+    factoryId - Name of the factory to find, same as a property name 
+    classLoader - classLoader to use 
+
+    Returns: the factory implementation 
+
+*javax.xml.stream.XMLEventFactory.newInstance()*
+
+public static |javax.xml.stream.XMLEventFactory| newInstance()
+  throws |javax.xml.stream.FactoryConfigurationError|
+         
+Creates a new instance of the factory in exactly the same manner as the 
+(|javax.xml.stream.XMLEventFactory|) method. 
+
+
+
+*javax.xml.stream.XMLEventFactory.newInstance(String,ClassLoader)*
+
+public static |javax.xml.stream.XMLEventFactory| newInstance(
+  java.lang.String factoryId,
+  java.lang.ClassLoader classLoader)
+  throws |javax.xml.stream.FactoryConfigurationError|
+         
+Create a new instance of the factory 
+
+    Deprecated: This method has been deprecated to maintain API consistency.
+              All newInstance methods have been replaced with corresponding
+              newFactory methods. The replacement {@link
+              #newFactory(java.lang.String, java.lang.ClassLoader)}
+              method defines no changes in behavior.
+
+    factoryId - Name of the factory to find, same as a property name 
+    classLoader - classLoader to use 
+
+    Returns: the factory implementation 
+
+*javax.xml.stream.XMLEventFactory.setLocation(Location)*
+
+public abstract void setLocation(javax.xml.stream.Location location)
+
+This method allows setting of the Location on each event that is created by 
+this factory. The values are copied by value into the events created by this 
+factory. To reset the location information set the location to null. 
+
+
+    location - the location to set on each event created 
+
+

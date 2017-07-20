@@ -1,0 +1,22 @@
+*org.omg.DynamicAny.DynStruct* *DynStruct* DynStruct objects support the manipul
+
+public interface interface DynStruct
+
+  implements |org.omg.DynamicAny.DynStructOperations|
+             |org.omg.DynamicAny.DynAny|
+             |org.omg.CORBA.portable.IDLEntity|
+
+|org.omg.DynamicAny.DynStruct_Description|
+|org.omg.DynamicAny.DynStruct_Fields|
+|org.omg.DynamicAny.DynStruct_Constructors|
+|org.omg.DynamicAny.DynStruct_Methods|
+
+================================================================================
+
+*org.omg.DynamicAny.DynStruct_Description*
+
+DynStruct objects support the manipulation of IDL struct and exception values. 
+Members of the exceptions are handled in the same way as members of a struct. 
+
+
+

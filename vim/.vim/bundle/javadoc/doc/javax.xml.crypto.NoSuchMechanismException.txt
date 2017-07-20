@@ -1,0 +1,117 @@
+*javax.xml.crypto.NoSuchMechanismException* *NoSuchMechanismException* This exce
+
+public class NoSuchMechanismException
+  extends    |java.lang.RuntimeException|
+
+|javax.xml.crypto.NoSuchMechanismException_Description|
+|javax.xml.crypto.NoSuchMechanismException_Fields|
+|javax.xml.crypto.NoSuchMechanismException_Constructors|
+|javax.xml.crypto.NoSuchMechanismException_Methods|
+
+================================================================================
+
+*javax.xml.crypto.NoSuchMechanismException_Constructors*
+|javax.xml.crypto.NoSuchMechanismException()|Constructs a new NoSuchMechanismEx
+|javax.xml.crypto.NoSuchMechanismException(String)|Constructs a new NoSuchMecha
+|javax.xml.crypto.NoSuchMechanismException(String,Throwable)|Constructs a new N
+|javax.xml.crypto.NoSuchMechanismException(Throwable)|Constructs a new NoSuchMe
+
+*javax.xml.crypto.NoSuchMechanismException_Methods*
+|javax.xml.crypto.NoSuchMechanismException.getCause()|Returns the cause of this
+|javax.xml.crypto.NoSuchMechanismException.printStackTrace()|Prints this NoSuch
+|javax.xml.crypto.NoSuchMechanismException.printStackTrace(PrintStream)|Prints 
+|javax.xml.crypto.NoSuchMechanismException.printStackTrace(PrintWriter)|Prints 
+
+*javax.xml.crypto.NoSuchMechanismException_Description*
+
+This exception is thrown when a particular XML mechanism is requested but is 
+not available in the environment. 
+
+A NoSuchMechanismException can contain a cause: another throwable that caused 
+this NoSuchMechanismException to get thrown. 
+
+
+
+*javax.xml.crypto.NoSuchMechanismException()*
+
+public NoSuchMechanismException()
+
+Constructs a new NoSuchMechanismException with null as its detail message. 
+
+
+*javax.xml.crypto.NoSuchMechanismException(String)*
+
+public NoSuchMechanismException(java.lang.String message)
+
+Constructs a new NoSuchMechanismException with the specified detail message. 
+
+    message - the detail message 
+
+*javax.xml.crypto.NoSuchMechanismException(String,Throwable)*
+
+public NoSuchMechanismException(
+  java.lang.String message,
+  java.lang.Throwable cause)
+
+Constructs a new NoSuchMechanismException with the specified detail message and 
+cause. Note that the detail message associated with cause is not automatically 
+incorporated in this exception's detail message. 
+
+    message - the detail message 
+    cause - the cause (A null value is permitted, and indicates that the cause is 
+       nonexistent or unknown.) 
+
+*javax.xml.crypto.NoSuchMechanismException(Throwable)*
+
+public NoSuchMechanismException(java.lang.Throwable cause)
+
+Constructs a new NoSuchMechanismException with the specified cause and a detail 
+message of (cause==null ? null : cause.toString()) (which typically contains 
+the class and detail message of cause). 
+
+    cause - the cause (A null value is permitted, and indicates that the cause is 
+       nonexistent or unknown.) 
+
+*javax.xml.crypto.NoSuchMechanismException.getCause()*
+
+public |java.lang.Throwable| getCause()
+
+Returns the cause of this NoSuchMechanismException or null if the cause is 
+nonexistent or unknown. (The cause is the throwable that caused this 
+NoSuchMechanismException to get thrown.) 
+
+
+
+    Returns: the cause of this NoSuchMechanismException or null if the cause is nonexistent 
+             or unknown. 
+
+*javax.xml.crypto.NoSuchMechanismException.printStackTrace()*
+
+public void printStackTrace()
+
+Prints this NoSuchMechanismException, its backtrace and the cause's backtrace 
+to the standard error stream. 
+
+
+
+*javax.xml.crypto.NoSuchMechanismException.printStackTrace(PrintStream)*
+
+public void printStackTrace(java.io.PrintStream s)
+
+Prints this NoSuchMechanismException, its backtrace and the cause's backtrace 
+to the specified print stream. 
+
+
+    s - PrintStream to use for output 
+
+*javax.xml.crypto.NoSuchMechanismException.printStackTrace(PrintWriter)*
+
+public void printStackTrace(java.io.PrintWriter s)
+
+Prints this NoSuchMechanismException, its backtrace and the cause's backtrace 
+to the specified print writer. 
+
+
+    s - PrintWriter to use for output 
+
+

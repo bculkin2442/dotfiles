@@ -1,0 +1,31 @@
+*javax.xml.bind.annotation.XmlElementRefs* *XmlElementRefs* Marks a property tha
+
+public interface class XmlElementRefs
+
+  implements |java.lang.annotation.Annotation|
+
+|javax.xml.bind.annotation.XmlElementRefs_Description|
+|javax.xml.bind.annotation.XmlElementRefs_Fields|
+|javax.xml.bind.annotation.XmlElementRefs_Constructors|
+|javax.xml.bind.annotation.XmlElementRefs_Methods|
+
+================================================================================
+
+*javax.xml.bind.annotation.XmlElementRefs_Description*
+
+Marks a property that refers to classes with 
+(|javax.xml.bind.annotation.XmlElement|) or JAXBElement. 
+
+Compared to an element property (property with 
+(|javax.xml.bind.annotation.XmlElement|) annotation), a reference property has 
+a different substitution semantics. When a sub-class is assigned to a property, 
+an element property produces the same tag name with @xsi:type, whereas a 
+reference property produces a different tag name (the tag name that's on the 
+the sub-class.) 
+
+This annotation can be used with the following annotations: 
+(|javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter|) , 
+(|javax.xml.bind.annotation.XmlElementWrapper|) . 
+
+
+

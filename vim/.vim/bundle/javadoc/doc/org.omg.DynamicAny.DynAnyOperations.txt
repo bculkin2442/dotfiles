@@ -1,0 +1,707 @@
+*org.omg.DynamicAny.DynAnyOperations* *DynAnyOperations* Any values can be dynam
+
+public interface interface DynAnyOperations
+
+
+|org.omg.DynamicAny.DynAnyOperations_Description|
+|org.omg.DynamicAny.DynAnyOperations_Fields|
+|org.omg.DynamicAny.DynAnyOperations_Constructors|
+|org.omg.DynamicAny.DynAnyOperations_Methods|
+
+================================================================================
+
+*org.omg.DynamicAny.DynAnyOperations_Methods*
+|org.omg.DynamicAny.DynAnyOperations.assign(DynAny)|Initializes the value assoc
+|org.omg.DynamicAny.DynAnyOperations.component_count()|Returns the number of co
+|org.omg.DynamicAny.DynAnyOperations.copy()|Creates a new DynAny object whose v
+|org.omg.DynamicAny.DynAnyOperations.current_component()|Returns the DynAny for
+|org.omg.DynamicAny.DynAnyOperations.destroy()|Destroys a DynAny object.
+|org.omg.DynamicAny.DynAnyOperations.equal(DynAny)|Compares two DynAny values f
+|org.omg.DynamicAny.DynAnyOperations.from_any(Any)|Initializes the value associ
+|org.omg.DynamicAny.DynAnyOperations.get_any()|Extracts an Any value contained 
+|org.omg.DynamicAny.DynAnyOperations.get_boolean()|Extracts the boolean value f
+|org.omg.DynamicAny.DynAnyOperations.get_char()|Extracts the char value from th
+|org.omg.DynamicAny.DynAnyOperations.get_double()|Extracts the double value fro
+|org.omg.DynamicAny.DynAnyOperations.get_dyn_any()|Extracts the Any value conta
+|org.omg.DynamicAny.DynAnyOperations.get_float()|Extracts the float value from 
+|org.omg.DynamicAny.DynAnyOperations.get_long()|Extracts the integer value from
+|org.omg.DynamicAny.DynAnyOperations.get_longlong()|Extracts the long value fro
+|org.omg.DynamicAny.DynAnyOperations.get_octet()|Extracts the byte value from t
+|org.omg.DynamicAny.DynAnyOperations.get_reference()|Extracts the reference to 
+|org.omg.DynamicAny.DynAnyOperations.get_short()|Extracts the short value from 
+|org.omg.DynamicAny.DynAnyOperations.get_string()|Extracts the string value fro
+|org.omg.DynamicAny.DynAnyOperations.get_typecode()|Extracts the TypeCode objec
+|org.omg.DynamicAny.DynAnyOperations.get_ulong()|Extracts the integer value fro
+|org.omg.DynamicAny.DynAnyOperations.get_ulonglong()|Extracts the long value fr
+|org.omg.DynamicAny.DynAnyOperations.get_ushort()|Extracts the short value from
+|org.omg.DynamicAny.DynAnyOperations.get_val()|Extracts a Serializable object f
+|org.omg.DynamicAny.DynAnyOperations.get_wchar()|Extracts the long value from t
+|org.omg.DynamicAny.DynAnyOperations.get_wstring()|Extracts the string value fr
+|org.omg.DynamicAny.DynAnyOperations.insert_any(Any)|Inserts an Any value into 
+|org.omg.DynamicAny.DynAnyOperations.insert_boolean(boolean)|Inserts a boolean 
+|org.omg.DynamicAny.DynAnyOperations.insert_char(char)|Inserts a char value int
+|org.omg.DynamicAny.DynAnyOperations.insert_double(double)|Inserts a double val
+|org.omg.DynamicAny.DynAnyOperations.insert_dyn_any(DynAny)|Inserts the Any val
+|org.omg.DynamicAny.DynAnyOperations.insert_float(float)|Inserts a float value 
+|org.omg.DynamicAny.DynAnyOperations.insert_long(int)|Inserts an integer value 
+|org.omg.DynamicAny.DynAnyOperations.insert_longlong(long)|Inserts a long value
+|org.omg.DynamicAny.DynAnyOperations.insert_octet(byte)|Inserts a byte value in
+|org.omg.DynamicAny.DynAnyOperations.insert_reference(Object)|Inserts a referen
+|org.omg.DynamicAny.DynAnyOperations.insert_short(short)|Inserts a short value 
+|org.omg.DynamicAny.DynAnyOperations.insert_string(String)|Inserts a string val
+|org.omg.DynamicAny.DynAnyOperations.insert_typecode(TypeCode)|Inserts a TypeCo
+|org.omg.DynamicAny.DynAnyOperations.insert_ulong(int)|Inserts an integer value
+|org.omg.DynamicAny.DynAnyOperations.insert_ulonglong(long)|Inserts a long valu
+|org.omg.DynamicAny.DynAnyOperations.insert_ushort(short)|Inserts a short value
+|org.omg.DynamicAny.DynAnyOperations.insert_val(Serializable)|Inserts a referen
+|org.omg.DynamicAny.DynAnyOperations.insert_wchar(char)|Inserts a char value in
+|org.omg.DynamicAny.DynAnyOperations.insert_wstring(String)|Inserts a string va
+|org.omg.DynamicAny.DynAnyOperations.next()|Advances the current position to th
+|org.omg.DynamicAny.DynAnyOperations.rewind()|Is equivalent to seek(0).
+|org.omg.DynamicAny.DynAnyOperations.seek(int)|Sets the current position to ind
+|org.omg.DynamicAny.DynAnyOperations.to_any()|Creates an any value from a DynAn
+|org.omg.DynamicAny.DynAnyOperations.type()|Returns the TypeCode associated wit
+
+*org.omg.DynamicAny.DynAnyOperations_Description*
+
+Any values can be dynamically interpreted (traversed) and constructed through 
+DynAny objects. A DynAny object is associated with a data value which 
+corresponds to a copy of the value inserted into an any. A DynAny object may be 
+viewed as an ordered collection of component DynAnys. For DynAnys representing 
+a basic type, such as long, or a type without components, such as an empty 
+exception, the ordered collection of components is empty. Each DynAny object 
+maintains the notion of a current position into its collection of component 
+DynAnys. The current position is identified by an index value that runs from 0 
+to n-1, where n is the number of components. The special index value -1 
+indicates a current position that points nowhere. For values that cannot have a 
+current position (such as an empty exception), the index value is fixed at -1. 
+If a DynAny is initialized with a value that has components, the index is 
+initialized to 0. After creation of an uninitialized DynAny (that is, a DynAny 
+that has no value but a TypeCode that permits components), the current position 
+depends on the type of value represented by the DynAny. (The current position 
+is set to 0 or -1, depending on whether the new DynAny gets default values for 
+its components.) The iteration operations rewind, seek, and next can be used to 
+change the current position and the current_component operation returns the 
+component at the current position. The component_count operation returns the 
+number of components of a DynAny. Collectively, these operations enable 
+iteration over the components of a DynAny, for example, to (recursively) 
+examine its contents. A constructed DynAny object is a DynAny object associated 
+with a constructed type. There is a different interface, inheriting from the 
+DynAny interface, associated with each kind of constructed type in IDL (fixed, 
+enum, struct, sequence, union, array, exception, and value type). A constructed 
+DynAny object exports operations that enable the creation of new DynAny 
+objects, each of them associated with a component of the constructed data 
+value. As an example, a DynStruct is associated with a struct value. This means 
+that the DynStruct may be seen as owning an ordered collection of components, 
+one for each structure member. The DynStruct object exports operations that 
+enable the creation of new DynAny objects, each of them associated with a 
+member of the struct. If a DynAny object has been obtained from another 
+(constructed) DynAny object, such as a DynAny representing a structure member 
+that was created from a DynStruct, the member DynAny is logically contained in 
+the DynStruct. Calling an insert or get operation leaves the current position 
+unchanged. Destroying a top-level DynAny object (one that was not obtained as a 
+component of another DynAny) also destroys any component DynAny objects 
+obtained from it. Destroying a non-top level DynAny object does nothing. 
+Invoking operations on a destroyed top-level DynAny or any of its descendants 
+raises OBJECT_NOT_EXIST. If the programmer wants to destroy a DynAny object but 
+still wants to manipulate some component of the data value associated with it, 
+then he or she should first create a DynAny for the component and, after that, 
+make a copy of the created DynAny object. The behavior of DynAny objects has 
+been defined in order to enable efficient implementations in terms of allocated 
+memory space and speed of access. DynAny objects are intended to be used for 
+traversing values extracted from anys or constructing values of anys at 
+runtime. Their use for other purposes is not recommended. Insert and get 
+operations are necessary to handle basic DynAny objects but are also helpful to 
+handle constructed DynAny objects. Inserting a basic data type value into a 
+constructed DynAny object implies initializing the current component of the 
+constructed data value associated with the DynAny object. For example, invoking 
+insert_boolean on a DynStruct implies inserting a boolean data value at the 
+current position of the associated struct data value. A type is consistent for 
+inserting or extracting a value if its TypeCode is equivalent to the TypeCode 
+contained in the DynAny or, if the DynAny has components, is equivalent to the 
+TypeCode of the DynAny at the current position. DynAny and DynAnyFactory 
+objects are intended to be local to the process in which they are created and 
+used. This means that references to DynAny and DynAnyFactory objects cannot be 
+exported to other processes, or externalized with ORB.object_to_string(). If 
+any attempt is made to do so, the offending operation will raise a MARSHAL 
+system exception. Since their interfaces are specified in IDL, DynAny objects 
+export operations defined in the standard org.omg.CORBA.Object interface. 
+However, any attempt to invoke operations exported through the Object interface 
+may raise the standard NO_IMPLEMENT exception. An attempt to use a DynAny 
+object with the DII may raise the NO_IMPLEMENT exception. 
+
+
+
+*org.omg.DynamicAny.DynAnyOperations.assign(DynAny)*
+
+public void assign(org.omg.DynamicAny.DynAny dyn_any)
+  throws |org.omg.DynamicAny.DynAnyPackage.TypeMismatch|
+         
+Initializes the value associated with a DynAny object with the value associated 
+with another DynAny object. The current position of the target DynAny is set to 
+zero for values that have components and to -1 for values that do not have 
+components. 
+
+
+    dyn_any - 
+
+*org.omg.DynamicAny.DynAnyOperations.component_count()*
+
+public int component_count()
+
+Returns the number of components of a DynAny. For a DynAny without components, 
+it returns zero. The operation only counts the components at the top level. For 
+example, if component_count is invoked on a DynStruct with a single member, the 
+return value is 1, irrespective of the type of the member. 
+
+For sequences, the operation returns the current number of elements. For 
+structures, exceptions, and value types, the operation returns the number of 
+members. For arrays, the operation returns the number of elements. For unions, 
+the operation returns 2 if the discriminator indicates that a named member is 
+active, otherwise, it returns 1. For DynFixed and DynEnum, the operation 
+returns zero. 
+
+
+
+*org.omg.DynamicAny.DynAnyOperations.copy()*
+
+public |org.omg.DynamicAny.DynAny| copy()
+
+Creates a new DynAny object whose value is a deep copy of the DynAny on which 
+it is invoked. The operation is polymorphic, that is, invoking it on one of the 
+types derived from DynAny, such as DynStruct, creates the derived type but 
+returns its reference as the DynAny base type. 
+
+
+
+    Returns: a deep copy of the DynAny object 
+
+*org.omg.DynamicAny.DynAnyOperations.current_component()*
+
+public |org.omg.DynamicAny.DynAny| current_component()
+  throws |org.omg.DynamicAny.DynAnyPackage.TypeMismatch|
+         
+Returns the DynAny for the component at the current position. It does not 
+advance the current position, so repeated calls to current_component without an 
+intervening call to rewind, next, or seek return the same component. The 
+returned DynAny object reference can be used to get/set the value of the 
+current component. If the current component represents a complex type, the 
+returned reference can be narrowed based on the TypeCode to get the interface 
+corresponding to the to the complex type. Calling current_component on a DynAny 
+that cannot have components, such as a DynEnum or an empty exception, raises 
+TypeMismatch. Calling current_component on a DynAny whose current position is 
+-1 returns a nil reference. The iteration operations, together with 
+current_component, can be used to dynamically compose an any value. After 
+creating a dynamic any, such as a DynStruct, current_component and next can be 
+used to initialize all the components of the value. Once the dynamic value is 
+completely initialized, to_any creates the corresponding any value. 
+
+
+
+*org.omg.DynamicAny.DynAnyOperations.destroy()*
+
+public void destroy()
+
+Destroys a DynAny object. This operation frees any resources used to represent 
+the data value associated with a DynAny object. It must be invoked on 
+references obtained from one of the creation operations on the ORB interface or 
+on a reference returned by DynAny.copy() to avoid resource leaks. Invoking 
+destroy on component DynAny objects (for example, on objects returned by the 
+current_component operation) does nothing. Destruction of a DynAny object 
+implies destruction of all DynAny objects obtained from it. That is, references 
+to components of a destroyed DynAny become invalid. Invocations on such 
+references raise OBJECT_NOT_EXIST. It is possible to manipulate a component of 
+a DynAny beyond the life time of the DynAny from which the component was 
+obtained by making a copy of the component with the copy operation before 
+destroying the DynAny from which the component was obtained. 
+
+
+
+*org.omg.DynamicAny.DynAnyOperations.equal(DynAny)*
+
+public boolean equal(org.omg.DynamicAny.DynAny dyn_any)
+
+Compares two DynAny values for equality. Two DynAny values are equal if their 
+TypeCodes are equivalent and, recursively, all component DynAnys have equal 
+values. The current position of the two DynAnys being compared has no effect on 
+the result of equal. 
+
+
+
+    Returns: true of the DynAnys are equal, false otherwise 
+
+*org.omg.DynamicAny.DynAnyOperations.from_any(Any)*
+
+public void from_any(org.omg.CORBA.Any value)
+  throws |org.omg.DynamicAny.DynAnyPackage.InvalidValue|
+         |org.omg.DynamicAny.DynAnyPackage.TypeMismatch|
+         
+Initializes the value associated with a DynAny object with the value contained 
+in an any. The current position of the target DynAny is set to zero for values 
+that have components and to -1 for values that do not have components. 
+
+
+
+*org.omg.DynamicAny.DynAnyOperations.get_any()*
+
+public |org.omg.CORBA.Any| get_any()
+  throws |org.omg.DynamicAny.DynAnyPackage.InvalidValue|
+         |org.omg.DynamicAny.DynAnyPackage.TypeMismatch|
+         
+Extracts an Any value contained in the Any represented by this DynAny. 
+
+
+
+*org.omg.DynamicAny.DynAnyOperations.get_boolean()*
+
+public boolean get_boolean()
+  throws |org.omg.DynamicAny.DynAnyPackage.InvalidValue|
+         |org.omg.DynamicAny.DynAnyPackage.TypeMismatch|
+         
+Extracts the boolean value from this DynAny. 
+
+
+
+*org.omg.DynamicAny.DynAnyOperations.get_char()*
+
+public char get_char()
+  throws |org.omg.DynamicAny.DynAnyPackage.InvalidValue|
+         |org.omg.DynamicAny.DynAnyPackage.TypeMismatch|
+         
+Extracts the char value from this DynAny. 
+
+
+
+*org.omg.DynamicAny.DynAnyOperations.get_double()*
+
+public double get_double()
+  throws |org.omg.DynamicAny.DynAnyPackage.InvalidValue|
+         |org.omg.DynamicAny.DynAnyPackage.TypeMismatch|
+         
+Extracts the double value from this DynAny. 
+
+
+
+*org.omg.DynamicAny.DynAnyOperations.get_dyn_any()*
+
+public |org.omg.DynamicAny.DynAny| get_dyn_any()
+  throws |org.omg.DynamicAny.DynAnyPackage.InvalidValue|
+         |org.omg.DynamicAny.DynAnyPackage.TypeMismatch|
+         
+Extracts the Any value contained in the Any represented by this DynAny and 
+returns it wrapped into a new DynAny. 
+
+
+
+*org.omg.DynamicAny.DynAnyOperations.get_float()*
+
+public float get_float()
+  throws |org.omg.DynamicAny.DynAnyPackage.InvalidValue|
+         |org.omg.DynamicAny.DynAnyPackage.TypeMismatch|
+         
+Extracts the float value from this DynAny. 
+
+
+
+*org.omg.DynamicAny.DynAnyOperations.get_long()*
+
+public int get_long()
+  throws |org.omg.DynamicAny.DynAnyPackage.InvalidValue|
+         |org.omg.DynamicAny.DynAnyPackage.TypeMismatch|
+         
+Extracts the integer value from this DynAny. The IDL long data type is mapped 
+to the Java int data type. 
+
+
+
+*org.omg.DynamicAny.DynAnyOperations.get_longlong()*
+
+public long get_longlong()
+  throws |org.omg.DynamicAny.DynAnyPackage.InvalidValue|
+         |org.omg.DynamicAny.DynAnyPackage.TypeMismatch|
+         
+Extracts the long value from this DynAny. The IDL long long data type is mapped 
+to the Java long data type. 
+
+
+
+*org.omg.DynamicAny.DynAnyOperations.get_octet()*
+
+public byte get_octet()
+  throws |org.omg.DynamicAny.DynAnyPackage.InvalidValue|
+         |org.omg.DynamicAny.DynAnyPackage.TypeMismatch|
+         
+Extracts the byte value from this DynAny. The IDL octet data type is mapped to 
+the Java byte data type. 
+
+
+
+*org.omg.DynamicAny.DynAnyOperations.get_reference()*
+
+public |org.omg.CORBA.Object| get_reference()
+  throws |org.omg.DynamicAny.DynAnyPackage.InvalidValue|
+         |org.omg.DynamicAny.DynAnyPackage.TypeMismatch|
+         
+Extracts the reference to a CORBA Object from this DynAny. 
+
+
+
+*org.omg.DynamicAny.DynAnyOperations.get_short()*
+
+public short get_short()
+  throws |org.omg.DynamicAny.DynAnyPackage.InvalidValue|
+         |org.omg.DynamicAny.DynAnyPackage.TypeMismatch|
+         
+Extracts the short value from this DynAny. 
+
+
+
+*org.omg.DynamicAny.DynAnyOperations.get_string()*
+
+public |java.lang.String| get_string()
+  throws |org.omg.DynamicAny.DynAnyPackage.InvalidValue|
+         |org.omg.DynamicAny.DynAnyPackage.TypeMismatch|
+         
+Extracts the string value from this DynAny. Both bounded and unbounded strings 
+are extracted using this method. 
+
+
+
+*org.omg.DynamicAny.DynAnyOperations.get_typecode()*
+
+public |org.omg.CORBA.TypeCode| get_typecode()
+  throws |org.omg.DynamicAny.DynAnyPackage.InvalidValue|
+         |org.omg.DynamicAny.DynAnyPackage.TypeMismatch|
+         
+Extracts the TypeCode object from this DynAny. 
+
+
+
+*org.omg.DynamicAny.DynAnyOperations.get_ulong()*
+
+public int get_ulong()
+  throws |org.omg.DynamicAny.DynAnyPackage.InvalidValue|
+         |org.omg.DynamicAny.DynAnyPackage.TypeMismatch|
+         
+Extracts the integer value from this DynAny. The IDL ulong data type is mapped 
+to the Java int data type. 
+
+
+
+*org.omg.DynamicAny.DynAnyOperations.get_ulonglong()*
+
+public long get_ulonglong()
+  throws |org.omg.DynamicAny.DynAnyPackage.InvalidValue|
+         |org.omg.DynamicAny.DynAnyPackage.TypeMismatch|
+         
+Extracts the long value from this DynAny. The IDL unsigned long long data type 
+is mapped to the Java long data type. 
+
+
+
+*org.omg.DynamicAny.DynAnyOperations.get_ushort()*
+
+public short get_ushort()
+  throws |org.omg.DynamicAny.DynAnyPackage.InvalidValue|
+         |org.omg.DynamicAny.DynAnyPackage.TypeMismatch|
+         
+Extracts the short value from this DynAny. The IDL ushort data type is mapped 
+to the Java short data type. 
+
+
+
+*org.omg.DynamicAny.DynAnyOperations.get_val()*
+
+public |java.io.Serializable| get_val()
+  throws |org.omg.DynamicAny.DynAnyPackage.InvalidValue|
+         |org.omg.DynamicAny.DynAnyPackage.TypeMismatch|
+         
+Extracts a Serializable object from this DynAny. The IDL ValueBase type is 
+mapped to the Java Serializable type. 
+
+
+
+*org.omg.DynamicAny.DynAnyOperations.get_wchar()*
+
+public char get_wchar()
+  throws |org.omg.DynamicAny.DynAnyPackage.InvalidValue|
+         |org.omg.DynamicAny.DynAnyPackage.TypeMismatch|
+         
+Extracts the long value from this DynAny. The IDL wchar data type is mapped to 
+the Java char data type. 
+
+
+
+*org.omg.DynamicAny.DynAnyOperations.get_wstring()*
+
+public |java.lang.String| get_wstring()
+  throws |org.omg.DynamicAny.DynAnyPackage.InvalidValue|
+         |org.omg.DynamicAny.DynAnyPackage.TypeMismatch|
+         
+Extracts the string value from this DynAny. Both bounded and unbounded strings 
+are extracted using this method. 
+
+
+
+*org.omg.DynamicAny.DynAnyOperations.insert_any(Any)*
+
+public void insert_any(org.omg.CORBA.Any value)
+  throws |org.omg.DynamicAny.DynAnyPackage.InvalidValue|
+         |org.omg.DynamicAny.DynAnyPackage.TypeMismatch|
+         
+Inserts an Any value into the Any represented by this DynAny. 
+
+
+
+*org.omg.DynamicAny.DynAnyOperations.insert_boolean(boolean)*
+
+public void insert_boolean(boolean value)
+  throws |org.omg.DynamicAny.DynAnyPackage.InvalidValue|
+         |org.omg.DynamicAny.DynAnyPackage.TypeMismatch|
+         
+Inserts a boolean value into the DynAny. 
+
+
+
+*org.omg.DynamicAny.DynAnyOperations.insert_char(char)*
+
+public void insert_char(char value)
+  throws |org.omg.DynamicAny.DynAnyPackage.InvalidValue|
+         |org.omg.DynamicAny.DynAnyPackage.TypeMismatch|
+         
+Inserts a char value into the DynAny. 
+
+
+
+*org.omg.DynamicAny.DynAnyOperations.insert_double(double)*
+
+public void insert_double(double value)
+  throws |org.omg.DynamicAny.DynAnyPackage.InvalidValue|
+         |org.omg.DynamicAny.DynAnyPackage.TypeMismatch|
+         
+Inserts a double value into the DynAny. 
+
+
+
+*org.omg.DynamicAny.DynAnyOperations.insert_dyn_any(DynAny)*
+
+public void insert_dyn_any(org.omg.DynamicAny.DynAny value)
+  throws |org.omg.DynamicAny.DynAnyPackage.InvalidValue|
+         |org.omg.DynamicAny.DynAnyPackage.TypeMismatch|
+         
+Inserts the Any value contained in the parameter DynAny into the Any 
+represented by this DynAny. 
+
+
+
+*org.omg.DynamicAny.DynAnyOperations.insert_float(float)*
+
+public void insert_float(float value)
+  throws |org.omg.DynamicAny.DynAnyPackage.InvalidValue|
+         |org.omg.DynamicAny.DynAnyPackage.TypeMismatch|
+         
+Inserts a float value into the DynAny. 
+
+
+
+*org.omg.DynamicAny.DynAnyOperations.insert_long(int)*
+
+public void insert_long(int value)
+  throws |org.omg.DynamicAny.DynAnyPackage.InvalidValue|
+         |org.omg.DynamicAny.DynAnyPackage.TypeMismatch|
+         
+Inserts an integer value into the DynAny. The IDL long data type is mapped to 
+the Java int data type. 
+
+
+
+*org.omg.DynamicAny.DynAnyOperations.insert_longlong(long)*
+
+public void insert_longlong(long value)
+  throws |org.omg.DynamicAny.DynAnyPackage.InvalidValue|
+         |org.omg.DynamicAny.DynAnyPackage.TypeMismatch|
+         
+Inserts a long value into the DynAny. The IDL long long data type is mapped to 
+the Java long data type. 
+
+
+
+*org.omg.DynamicAny.DynAnyOperations.insert_octet(byte)*
+
+public void insert_octet(byte value)
+  throws |org.omg.DynamicAny.DynAnyPackage.InvalidValue|
+         |org.omg.DynamicAny.DynAnyPackage.TypeMismatch|
+         
+Inserts a byte value into the DynAny. The IDL octet data type is mapped to the 
+Java byte data type. 
+
+
+
+*org.omg.DynamicAny.DynAnyOperations.insert_reference(Object)*
+
+public void insert_reference(org.omg.CORBA.Object value)
+  throws |org.omg.DynamicAny.DynAnyPackage.InvalidValue|
+         |org.omg.DynamicAny.DynAnyPackage.TypeMismatch|
+         
+Inserts a reference to a CORBA object into the DynAny. 
+
+
+
+*org.omg.DynamicAny.DynAnyOperations.insert_short(short)*
+
+public void insert_short(short value)
+  throws |org.omg.DynamicAny.DynAnyPackage.InvalidValue|
+         |org.omg.DynamicAny.DynAnyPackage.TypeMismatch|
+         
+Inserts a short value into the DynAny. 
+
+
+
+*org.omg.DynamicAny.DynAnyOperations.insert_string(String)*
+
+public void insert_string(java.lang.String value)
+  throws |org.omg.DynamicAny.DynAnyPackage.InvalidValue|
+         |org.omg.DynamicAny.DynAnyPackage.TypeMismatch|
+         
+Inserts a string value into the DynAny. Both bounded and unbounded strings are 
+inserted using this method. 
+
+
+
+*org.omg.DynamicAny.DynAnyOperations.insert_typecode(TypeCode)*
+
+public void insert_typecode(org.omg.CORBA.TypeCode value)
+  throws |org.omg.DynamicAny.DynAnyPackage.InvalidValue|
+         |org.omg.DynamicAny.DynAnyPackage.TypeMismatch|
+         
+Inserts a TypeCode object into the DynAny. 
+
+
+
+*org.omg.DynamicAny.DynAnyOperations.insert_ulong(int)*
+
+public void insert_ulong(int value)
+  throws |org.omg.DynamicAny.DynAnyPackage.InvalidValue|
+         |org.omg.DynamicAny.DynAnyPackage.TypeMismatch|
+         
+Inserts an integer value into the DynAny. The IDL ulong data type is mapped to 
+the Java int data type. 
+
+
+
+*org.omg.DynamicAny.DynAnyOperations.insert_ulonglong(long)*
+
+public void insert_ulonglong(long value)
+  throws |org.omg.DynamicAny.DynAnyPackage.InvalidValue|
+         |org.omg.DynamicAny.DynAnyPackage.TypeMismatch|
+         
+Inserts a long value into the DynAny. The IDL unsigned long long data type is 
+mapped to the Java long data type. 
+
+
+
+*org.omg.DynamicAny.DynAnyOperations.insert_ushort(short)*
+
+public void insert_ushort(short value)
+  throws |org.omg.DynamicAny.DynAnyPackage.InvalidValue|
+         |org.omg.DynamicAny.DynAnyPackage.TypeMismatch|
+         
+Inserts a short value into the DynAny. The IDL ushort data type is mapped to 
+the Java short data type. 
+
+
+
+*org.omg.DynamicAny.DynAnyOperations.insert_val(Serializable)*
+
+public void insert_val(java.io.Serializable value)
+  throws |org.omg.DynamicAny.DynAnyPackage.InvalidValue|
+         |org.omg.DynamicAny.DynAnyPackage.TypeMismatch|
+         
+Inserts a reference to a Serializable object into this DynAny. The IDL 
+ValueBase type is mapped to the Java Serializable type. 
+
+
+
+*org.omg.DynamicAny.DynAnyOperations.insert_wchar(char)*
+
+public void insert_wchar(char value)
+  throws |org.omg.DynamicAny.DynAnyPackage.InvalidValue|
+         |org.omg.DynamicAny.DynAnyPackage.TypeMismatch|
+         
+Inserts a char value into the DynAny. The IDL wchar data type is mapped to the 
+Java char data type. 
+
+
+
+*org.omg.DynamicAny.DynAnyOperations.insert_wstring(String)*
+
+public void insert_wstring(java.lang.String value)
+  throws |org.omg.DynamicAny.DynAnyPackage.InvalidValue|
+         |org.omg.DynamicAny.DynAnyPackage.TypeMismatch|
+         
+Inserts a string value into the DynAny. Both bounded and unbounded strings are 
+inserted using this method. 
+
+
+
+*org.omg.DynamicAny.DynAnyOperations.next()*
+
+public boolean next()
+
+Advances the current position to the next component. The operation returns true 
+while the resulting current position indicates a component, false otherwise. A 
+false return value leaves the current position at -1. Invoking next on a DynAny 
+without components leaves the current position at -1 and returns false. 
+
+
+
+*org.omg.DynamicAny.DynAnyOperations.rewind()*
+
+public void rewind()
+
+Is equivalent to seek(0). 
+
+
+
+*org.omg.DynamicAny.DynAnyOperations.seek(int)*
+
+public boolean seek(int index)
+
+Sets the current position to index. The current position is indexed 0 to n-1, 
+that is, index zero corresponds to the first component. The operation returns 
+true if the resulting current position indicates a component of the DynAny and 
+false if index indicates a position that does not correspond to a component. 
+Calling seek with a negative index is legal. It sets the current position to -1 
+to indicate no component and returns false. Passing a non-negative index value 
+for a DynAny that does not have a component at the corresponding position sets 
+the current position to -1 and returns false. 
+
+
+
+*org.omg.DynamicAny.DynAnyOperations.to_any()*
+
+public |org.omg.CORBA.Any| to_any()
+
+Creates an any value from a DynAny object. A copy of the TypeCode associated 
+with the DynAny object is assigned to the resulting any. The value associated 
+with the DynAny object is copied into the any. 
+
+
+
+    Returns: a new Any object with the same value and TypeCode 
+
+*org.omg.DynamicAny.DynAnyOperations.type()*
+
+public |org.omg.CORBA.TypeCode| type()
+
+Returns the TypeCode associated with this DynAny object. A DynAny object is 
+created with a TypeCode value assigned to it. This TypeCode value determines 
+the type of the value handled through the DynAny object. Note that the TypeCode 
+associated with a DynAny object is initialized at the time the DynAny is 
+created and cannot be changed during lifetime of the DynAny object. 
+
+
+
+    Returns: The TypeCode associated with this DynAny object 
+
+

@@ -1,0 +1,92 @@
+*org.omg.CORBA.ParameterModeHelper* *ParameterModeHelper* Enumeration of paramet
+
+public abstract class ParameterModeHelper
+  extends    |java.lang.Object|
+
+|org.omg.CORBA.ParameterModeHelper_Description|
+|org.omg.CORBA.ParameterModeHelper_Fields|
+|org.omg.CORBA.ParameterModeHelper_Constructors|
+|org.omg.CORBA.ParameterModeHelper_Methods|
+
+================================================================================
+
+*org.omg.CORBA.ParameterModeHelper_Constructors*
+|org.omg.CORBA.ParameterModeHelper()|
+
+*org.omg.CORBA.ParameterModeHelper_Methods*
+|org.omg.CORBA.ParameterModeHelper.extract(Any)|
+|org.omg.CORBA.ParameterModeHelper.id()|
+|org.omg.CORBA.ParameterModeHelper.insert(Any,ParameterMode)|
+|org.omg.CORBA.ParameterModeHelper.read(InputStream)|
+|org.omg.CORBA.ParameterModeHelper.type()|
+|org.omg.CORBA.ParameterModeHelper.write(OutputStream,ParameterMode)|
+
+*org.omg.CORBA.ParameterModeHelper_Description*
+
+Enumeration of parameter modes for Parameter. Possible vaues: 
+
+PARAM_IN - Represents an "in" parameter. PARAM_OUT - Represents an "out" 
+parameter. PARAM_INOUT - Represents an "inout" parameter. 
+
+
+
+*org.omg.CORBA.ParameterModeHelper()*
+
+public ParameterModeHelper()
+
+
+
+
+*org.omg.CORBA.ParameterModeHelper.extract(Any)*
+
+public static |org.omg.CORBA.ParameterMode| extract(org.omg.CORBA.Any a)
+
+
+
+
+
+*org.omg.CORBA.ParameterModeHelper.id()*
+
+public static |java.lang.String| id()
+
+
+
+
+
+*org.omg.CORBA.ParameterModeHelper.insert(Any,ParameterMode)*
+
+public static void insert(
+  org.omg.CORBA.Any a,
+  org.omg.CORBA.ParameterMode that)
+
+
+
+
+
+*org.omg.CORBA.ParameterModeHelper.read(InputStream)*
+
+public static |org.omg.CORBA.ParameterMode| read(org.omg.CORBA.portable.InputStream istream)
+
+
+
+
+
+*org.omg.CORBA.ParameterModeHelper.type()*
+
+public static synchronized |org.omg.CORBA.TypeCode| type()
+
+
+
+
+
+*org.omg.CORBA.ParameterModeHelper.write(OutputStream,ParameterMode)*
+
+public static void write(
+  org.omg.CORBA.portable.OutputStream ostream,
+  org.omg.CORBA.ParameterMode value)
+
+
+
+
+
+

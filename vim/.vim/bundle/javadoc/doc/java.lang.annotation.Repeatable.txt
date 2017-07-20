@@ -1,0 +1,22 @@
+*java.lang.annotation.Repeatable* *Repeatable* The annotation typejava.lang.anno
+
+public interface class Repeatable
+
+  implements |java.lang.annotation.Annotation|
+
+|java.lang.annotation.Repeatable_Description|
+|java.lang.annotation.Repeatable_Fields|
+|java.lang.annotation.Repeatable_Constructors|
+|java.lang.annotation.Repeatable_Methods|
+
+================================================================================
+
+*java.lang.annotation.Repeatable_Description*
+
+The annotation typejava.lang.annotation.Repeatableis used to indicate that the 
+annotation type whose declaration it (meta-)annotates is repeatable. The value 
+of@Repeatableindicates the containing annotation type for the repeatable 
+annotation type. 
+
+
+

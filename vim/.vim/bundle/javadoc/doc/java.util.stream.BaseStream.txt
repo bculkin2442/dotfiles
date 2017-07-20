@@ -1,0 +1,149 @@
+*java.util.stream.BaseStream* *BaseStream* Base interface for streams, which are
+
+public interface interface BaseStream<T,S extends java.util.stream.BaseStream<T, S>>
+
+  implements |java.lang.AutoCloseable|
+
+|java.util.stream.BaseStream_Description|
+|java.util.stream.BaseStream_Fields|
+|java.util.stream.BaseStream_Constructors|
+|java.util.stream.BaseStream_Methods|
+
+================================================================================
+
+*java.util.stream.BaseStream_Methods*
+|java.util.stream.BaseStream.close()|Closes this stream, causing all close hand
+|java.util.stream.BaseStream.isParallel()|Returns whether this stream, if a ter
+|java.util.stream.BaseStream.iterator()|Returns an iterator for the elements of
+|java.util.stream.BaseStream.onClose(Runnable)|Returns an equivalent stream wit
+|java.util.stream.BaseStream.parallel()|Returns an equivalent stream that is pa
+|java.util.stream.BaseStream.sequential()|Returns an equivalent stream that is 
+|java.util.stream.BaseStream.spliterator()|Returns a spliterator for the elemen
+|java.util.stream.BaseStream.unordered()|Returns an equivalent stream that is  
+
+*java.util.stream.BaseStream_Description*
+
+Base interface for streams, which are sequences of elements supporting 
+sequential and parallel aggregate operations. The following example illustrates 
+an aggregate operation using the stream types (|java.util.stream.Stream|) and 
+(|java.util.stream.IntStream|) , computing the sum of the weights of the red 
+widgets: 
+
+int sum = widgets.stream() .filter(w -> w.getColor() == RED) .mapToInt(w -> 
+w.getWeight()) .sum(); 
+
+See the class documentation for (|java.util.stream.Stream|) and the package 
+documentation for java.util.stream for additional specification of streams, 
+stream operations, stream pipelines, and parallelism, which governs the 
+behavior of all stream types. 
+
+
+
+*java.util.stream.BaseStream.close()*
+
+public void close()
+
+Closes this stream, causing all close handlers for this stream pipeline to be 
+called. 
+
+
+
+*java.util.stream.BaseStream.isParallel()*
+
+public boolean isParallel()
+
+Returns whether this stream, if a terminal operation were to be executed, would 
+execute in parallel. Calling this method after invoking an terminal stream 
+operation method may yield unpredictable results. 
+
+
+
+    Returns: {@code true} if this stream would execute in parallel if executed 
+
+*java.util.stream.BaseStream.iterator()*
+
+public |java.util.Iterator|<T> iterator()
+
+Returns an iterator for the elements of this stream. 
+
+This is a terminal operation. 
+
+
+
+    Returns: the element iterator for this stream 
+
+*java.util.stream.BaseStream.onClose(Runnable)*
+
+public |S| onClose(java.lang.Runnable closeHandler)
+
+Returns an equivalent stream with an additional close handler. Close handlers 
+are run when the (|java.util.stream.BaseStream|) method is called on the 
+stream, and are executed in the order they were added. All close handlers are 
+run, even if earlier close handlers throw exceptions. If any close handler 
+throws an exception, the first exception thrown will be relayed to the caller 
+ofclose(), with any remaining exceptions added to that exception as suppressed 
+exceptions (unless one of the remaining exceptions is the same exception as the 
+first exception, since an exception cannot suppress itself.) May return itself. 
+
+This is an intermediate operation. 
+
+
+    closeHandler - A task to execute when the stream is closed 
+
+    Returns: a stream with a handler that is run if the stream is closed 
+
+*java.util.stream.BaseStream.parallel()*
+
+public |S| parallel()
+
+Returns an equivalent stream that is parallel. May return itself, either 
+because the stream was already parallel, or because the underlying stream state 
+was modified to be parallel. 
+
+This is an intermediate operation. 
+
+
+
+    Returns: a parallel stream 
+
+*java.util.stream.BaseStream.sequential()*
+
+public |S| sequential()
+
+Returns an equivalent stream that is sequential. May return itself, either 
+because the stream was already sequential, or because the underlying stream 
+state was modified to be sequential. 
+
+This is an intermediate operation. 
+
+
+
+    Returns: a sequential stream 
+
+*java.util.stream.BaseStream.spliterator()*
+
+public |java.util.Spliterator|<T> spliterator()
+
+Returns a spliterator for the elements of this stream. 
+
+This is a terminal operation. 
+
+
+
+    Returns: the element spliterator for this stream 
+
+*java.util.stream.BaseStream.unordered()*
+
+public |S| unordered()
+
+Returns an equivalent stream that is unordered. May return itself, either 
+because the stream was already unordered, or because the underlying stream 
+state was modified to be unordered. 
+
+This is an intermediate operation. 
+
+
+
+    Returns: an unordered stream 
+
+

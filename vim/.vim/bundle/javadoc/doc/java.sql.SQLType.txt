@@ -1,0 +1,56 @@
+*java.sql.SQLType* *SQLType* An object that is used to identify a generic SQL ty
+
+public interface interface SQLType
+
+
+|java.sql.SQLType_Description|
+|java.sql.SQLType_Fields|
+|java.sql.SQLType_Constructors|
+|java.sql.SQLType_Methods|
+
+================================================================================
+
+*java.sql.SQLType_Methods*
+|java.sql.SQLType.getName()|Returns theSQLTypename that represents a SQL data t
+|java.sql.SQLType.getVendor()|Returns the name of the vendor that supports this
+|java.sql.SQLType.getVendorTypeNumber()|Returns the vendor specific type number
+
+*java.sql.SQLType_Description*
+
+An object that is used to identify a generic SQL type, called a JDBC type or a 
+vendor specific data type. 
+
+
+
+*java.sql.SQLType.getName()*
+
+public |java.lang.String| getName()
+
+Returns theSQLTypename that represents a SQL data type. 
+
+
+
+    Returns: The name of this {@code SQLType}. 
+
+*java.sql.SQLType.getVendor()*
+
+public |java.lang.String| getVendor()
+
+Returns the name of the vendor that supports this data type. The value returned 
+typically is the package name for this vendor. 
+
+
+
+    Returns: The name of the vendor for this data type 
+
+*java.sql.SQLType.getVendorTypeNumber()*
+
+public |java.lang.Integer| getVendorTypeNumber()
+
+Returns the vendor specific type number for the data type. 
+
+
+
+    Returns: An Integer representing the vendor specific data type 
+
+

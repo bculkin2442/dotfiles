@@ -1,0 +1,104 @@
+*javax.xml.crypto.dsig.spec.XPathType* *XPathType* The XML Schema Definition of 
+
+public class XPathType
+  extends    |java.lang.Object|
+
+|javax.xml.crypto.dsig.spec.XPathType_Description|
+|javax.xml.crypto.dsig.spec.XPathType_Fields|
+|javax.xml.crypto.dsig.spec.XPathType_Constructors|
+|javax.xml.crypto.dsig.spec.XPathType_Methods|
+
+================================================================================
+
+*javax.xml.crypto.dsig.spec.XPathType_Constructors*
+|javax.xml.crypto.dsig.spec.XPathType(String,XPathType.Filter)|Creates an XPath
+|javax.xml.crypto.dsig.spec.XPathType(String,XPathType.Filter,Map)|Creates an X
+
+*javax.xml.crypto.dsig.spec.XPathType_Methods*
+|javax.xml.crypto.dsig.spec.XPathType.getExpression()|Returns the XPath express
+|javax.xml.crypto.dsig.spec.XPathType.getFilter()|Returns the filter operation.
+|javax.xml.crypto.dsig.spec.XPathType.getNamespaceMap()|Returns a map of namesp
+
+*javax.xml.crypto.dsig.spec.XPathType_Description*
+
+The XML Schema Definition of the XPath element as defined in the 
+
+W3C Recommendation for XML-Signature XPath Filter 2.0: 
+
+<schema xmlns="http://www.w3.org/2001/XMLSchema" 
+xmlns:xf="http://www.w3.org/2002/06/xmldsig-filter2" 
+targetNamespace="http://www.w3.org/2002/06/xmldsig-filter2" version="0.1" 
+elementFormDefault="qualified"> 
+
+<element name="XPath" type="xf:XPathType"/> 
+
+<complexType name="XPathType"> <simpleContent> <extension base="string"> 
+<attribute name="Filter"> <simpleType> <restriction base="string"> <enumeration 
+value="intersect"/> <enumeration value="subtract"/> <enumeration 
+value="union"/> </restriction> </simpleType> </attribute> </extension> 
+</simpleContent> </complexType> 
+
+
+
+*javax.xml.crypto.dsig.spec.XPathType(String,XPathType.Filter)*
+
+public XPathType(
+  java.lang.String expression,
+  javax.xml.crypto.dsig.spec.XPathType.Filter filter)
+
+Creates an XPathType instance with the specified XPath expression and filter. 
+
+    expression - the XPath expression to be evaluated 
+    filter - the filter operation ({@link Filter#INTERSECT}, {@link Filter#SUBTRACT}, or 
+       {@link Filter#UNION}) 
+
+*javax.xml.crypto.dsig.spec.XPathType(String,XPathType.Filter,Map)*
+
+public XPathType(
+  java.lang.String expression,
+  javax.xml.crypto.dsig.spec.XPathType.Filter filter,
+  java.util.Map namespaceMap)
+
+Creates an XPathType instance with the specified XPath expression, filter, and 
+namespace map. The map is copied to protect against subsequent modification. 
+
+    expression - the XPath expression to be evaluated 
+    filter - the filter operation ({@link Filter#INTERSECT}, {@link Filter#SUBTRACT}, or 
+       {@link Filter#UNION}) 
+    namespaceMap - the map of namespace prefixes. Each key is a namespace prefix String that maps 
+       to a corresponding namespace URI String. 
+
+*javax.xml.crypto.dsig.spec.XPathType.getExpression()*
+
+public |java.lang.String| getExpression()
+
+Returns the XPath expression to be evaluated. 
+
+
+
+    Returns: the XPath expression to be evaluated 
+
+*javax.xml.crypto.dsig.spec.XPathType.getFilter()*
+
+public |javax.xml.crypto.dsig.spec.XPathType.Filter| getFilter()
+
+Returns the filter operation. 
+
+
+
+    Returns: the filter operation 
+
+*javax.xml.crypto.dsig.spec.XPathType.getNamespaceMap()*
+
+public |java.util.Map| getNamespaceMap()
+
+Returns a map of namespace prefixes. Each key is a namespace prefix String that 
+maps to a corresponding namespace URI String. 
+
+This implementation returns an unmodifiable map(|java.util.Collections|) . 
+
+
+
+    Returns: a Map of namespace prefixes to namespace URIs (may be empty, but never null) 
+
+

@@ -1,0 +1,61 @@
+*org.w3c.dom.xpath.XPathNamespace* *XPathNamespace* The XPathNamespace interface
+
+public interface interface XPathNamespace
+
+  implements |org.w3c.dom.Node|
+
+|org.w3c.dom.xpath.XPathNamespace_Description|
+|org.w3c.dom.xpath.XPathNamespace_Fields|
+|org.w3c.dom.xpath.XPathNamespace_Constructors|
+|org.w3c.dom.xpath.XPathNamespace_Methods|
+
+================================================================================
+
+*org.w3c.dom.xpath.XPathNamespace_Fields*
+|short_org.w3c.dom.xpath.XPathNamespace.XPATH_NAMESPACE_NODE|
+
+*org.w3c.dom.xpath.XPathNamespace_Methods*
+|org.w3c.dom.xpath.XPathNamespace.getOwnerElement()|The Element on which the na
+
+*org.w3c.dom.xpath.XPathNamespace_Description*
+
+The XPathNamespace interface is returned by XPathResult interfaces to represent 
+the XPath namespace node type that DOM lacks. There is no public constructor 
+for this node type. Attempts to place it into a hierarchy or a NamedNodeMap 
+result in a DOMException with the code HIERARCHY_REQUEST_ERR . This node is 
+read only, so methods or setting of attributes that would mutate the node 
+result in a DOMException with the code NO_MODIFICATION_ALLOWED_ERR. The core 
+specification describes attributes of the Node interface that are different for 
+different node node types but does not describe XPATH_NAMESPACE_NODE, so here 
+is a description of those attributes for this node type. All attributes of Node 
+not described in this section have a null or false value. ownerDocument matches 
+the ownerDocument of the ownerElement even if the element is later adopted. 
+prefix is the prefix of the namespace represented by the node. nodeName is the 
+same as prefix. nodeType is equal to XPATH_NAMESPACE_NODE. namespaceURI is the 
+namespace URI of the namespace represented by the node. adoptNode, cloneNode, 
+and importNode fail on this node type by raising a DOMException with the code 
+NOT_SUPPORTED_ERR.In future versions of the XPath specification, the definition 
+of a namespace node may be changed incomatibly, in which case incompatible 
+changes to field values may be required to implement versions beyond XPath 1.0. 
+See also the Document Object Model (DOM) Level 3 XPath Specification. 
+
+
+
+*short_org.w3c.dom.xpath.XPathNamespace.XPATH_NAMESPACE_NODE*
+
+The node is a Namespace. 
+
+
+
+*org.w3c.dom.xpath.XPathNamespace.getOwnerElement()*
+
+public |org.w3c.dom.Element| getOwnerElement()
+
+The Element on which the namespace was in scope when it was requested. This 
+does not change on a returned namespace node even if the document changes such 
+that the namespace goes out of scope on that element and this node is no longer 
+found there by XPath. 
+
+
+
+

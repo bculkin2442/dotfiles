@@ -1,0 +1,383 @@
+*java.security.cert.X509CRLSelector* *X509CRLSelector* ACRLSelectorthat selectsX
+
+public class X509CRLSelector
+  extends    |java.lang.Object|
+  implements |java.security.cert.CRLSelector|
+
+|java.security.cert.X509CRLSelector_Description|
+|java.security.cert.X509CRLSelector_Fields|
+|java.security.cert.X509CRLSelector_Constructors|
+|java.security.cert.X509CRLSelector_Methods|
+
+================================================================================
+
+*java.security.cert.X509CRLSelector_Constructors*
+|java.security.cert.X509CRLSelector()|Creates anX509CRLSelector.
+
+*java.security.cert.X509CRLSelector_Methods*
+|java.security.cert.X509CRLSelector.addIssuer(X500Principal)|Adds a name to the
+|java.security.cert.X509CRLSelector.addIssuerName(byte[])|Adds a name to the is
+|java.security.cert.X509CRLSelector.addIssuerName(String)|Denigrated, use#addIs
+|java.security.cert.X509CRLSelector.clone()|Returns a copy of this object.
+|java.security.cert.X509CRLSelector.getCertificateChecking()|Returns the certif
+|java.security.cert.X509CRLSelector.getDateAndTime()|Returns the dateAndTime cr
+|java.security.cert.X509CRLSelector.getIssuerNames()|Returns a copy of the issu
+|java.security.cert.X509CRLSelector.getIssuers()|Returns the issuerNames criter
+|java.security.cert.X509CRLSelector.getMaxCRL()|Returns the maxCRLNumber criter
+|java.security.cert.X509CRLSelector.getMinCRL()|Returns the minCRLNumber criter
+|java.security.cert.X509CRLSelector.match(CRL)|Decides whether aCRLshould be se
+|java.security.cert.X509CRLSelector.setCertificateChecking(X509Certificate)|Set
+|java.security.cert.X509CRLSelector.setDateAndTime(Date)|Sets the dateAndTime c
+|java.security.cert.X509CRLSelector.setIssuerNames(Collection<?>)|Note: use#set
+|java.security.cert.X509CRLSelector.setIssuers(Collection<X500Principal>)|Sets 
+|java.security.cert.X509CRLSelector.setMaxCRLNumber(BigInteger)|Sets the maxCRL
+|java.security.cert.X509CRLSelector.setMinCRLNumber(BigInteger)|Sets the minCRL
+|java.security.cert.X509CRLSelector.toString()|Returns a printable representati
+
+*java.security.cert.X509CRLSelector_Description*
+
+ACRLSelectorthat selectsX509CRLsthat match all specified criteria. This class 
+is particularly useful when selecting CRLs from aCertStoreto check revocation 
+status of a particular certificate. 
+
+When first constructed, anX509CRLSelectorhas no criteria enabled and each of 
+thegetmethods return a default value (null). Therefore, the 
+match(|java.security.cert.X509CRLSelector|) method would returntruefor 
+anyX509CRL. Typically, several criteria are enabled (by calling 
+setIssuers(|java.security.cert.X509CRLSelector|) or 
+setDateAndTime(|java.security.cert.X509CRLSelector|) , for instance) and then 
+theX509CRLSelectoris passed to 
+CertStore.getCRLs(|java.security.cert.CertStore|) or some similar method. 
+
+Please refer to RFC 3280: Internet X.509 Public Key Infrastructure Certificate 
+and CRL Profile for definitions of the X.509 CRL fields and extensions 
+mentioned below. 
+
+Concurrent Access 
+
+Unless otherwise specified, the methods defined in this class are not 
+thread-safe. Multiple threads that need to access a single object concurrently 
+should synchronize amongst themselves and provide the necessary locking. 
+Multiple threads each manipulating separate objects need not synchronize. 
+
+
+
+*java.security.cert.X509CRLSelector()*
+
+public X509CRLSelector()
+
+Creates anX509CRLSelector. Initially, no criteria are set so anyX509CRLwill 
+match. 
+
+
+*java.security.cert.X509CRLSelector.addIssuer(X500Principal)*
+
+public void addIssuer(javax.security.auth.x500.X500Principal issuer)
+
+Adds a name to the issuerNames criterion. The issuer distinguished name in 
+theX509CRLmust match at least one of the specified distinguished names. 
+
+This method allows the caller to add a name to the set of issuer names 
+whichX509CRLsmay contain. The specified name is added to any previous value for 
+the issuerNames criterion. If the specified name is a duplicate, it may be 
+ignored. 
+
+
+    issuer - the issuer as X500Principal 
+
+*java.security.cert.X509CRLSelector.addIssuerName(byte[])*
+
+public void addIssuerName(byte[] name)
+  throws |java.io.IOException|
+         
+Adds a name to the issuerNames criterion. The issuer distinguished name in 
+theX509CRLmust match at least one of the specified distinguished names. 
+
+This method allows the caller to add a name to the set of issuer names 
+whichX509CRLsmay contain. The specified name is added to any previous value for 
+the issuerNames criterion. If the specified name is a duplicate, it may be 
+ignored. If a name is specified as a byte array, it should contain a single DER 
+encoded distinguished name, as defined in X.501. The ASN.1 notation for this 
+structure is as follows. 
+
+The name is provided as a byte array. This byte array should contain a single 
+DER encoded distinguished name, as defined in X.501. The ASN.1 notation for 
+this structure appears in the documentation for setIssuerNames(Collection 
+names)(|java.security.cert.X509CRLSelector|) . 
+
+Note that the byte array supplied here is cloned to protect against subsequent 
+modifications. 
+
+
+    name - a byte array containing the name in ASN.1 DER encoded form 
+
+*java.security.cert.X509CRLSelector.addIssuerName(String)*
+
+public void addIssuerName(java.lang.String name)
+  throws |java.io.IOException|
+         
+Denigrated, use (|java.security.cert.X509CRLSelector|) or 
+(|java.security.cert.X509CRLSelector|) instead. This method should not be 
+relied on as it can fail to match some CRLs because of a loss of encoding 
+information in the RFC 2253 String form of some distinguished names. 
+
+Adds a name to the issuerNames criterion. The issuer distinguished name in 
+theX509CRLmust match at least one of the specified distinguished names. 
+
+This method allows the caller to add a name to the set of issuer names 
+whichX509CRLsmay contain. The specified name is added to any previous value for 
+the issuerNames criterion. If the specified name is a duplicate, it may be 
+ignored. 
+
+
+    name - the name in RFC 2253 form 
+
+*java.security.cert.X509CRLSelector.clone()*
+
+public |java.lang.Object| clone()
+
+Returns a copy of this object. 
+
+
+
+    Returns: 
+
+*java.security.cert.X509CRLSelector.getCertificateChecking()*
+
+public |java.security.cert.X509Certificate| getCertificateChecking()
+
+Returns the certificate being checked. This is not a criterion. Rather, it is 
+optional information that may help aCertStorefind CRLs that would be relevant 
+when checking revocation for the specified certificate. If the value returned 
+isnull, then no such optional information is provided. 
+
+
+
+    Returns: the certificate being checked (or {@code null}) 
+
+*java.security.cert.X509CRLSelector.getDateAndTime()*
+
+public |java.util.Date| getDateAndTime()
+
+Returns the dateAndTime criterion. The specified date must be equal to or later 
+than the value of the thisUpdate component of theX509CRLand earlier than the 
+value of the nextUpdate component. There is no match if theX509CRLdoes not 
+contain a nextUpdate component. Ifnull, no dateAndTime check will be done. 
+
+Note that theDatereturned is cloned to protect against subsequent 
+modifications. 
+
+
+
+    Returns: the {@code Date} to match against (or {@code null}) 
+
+*java.security.cert.X509CRLSelector.getIssuerNames()*
+
+public |java.util.Collection|<Object> getIssuerNames()
+
+Returns a copy of the issuerNames criterion. The issuer distinguished name in 
+theX509CRLmust match at least one of the specified distinguished names. If the 
+value returned isnull, any issuer distinguished name will do. 
+
+If the value returned is notnull, it is aCollectionof names. Each name is 
+aStringor a byte array representing a distinguished name (in RFC 2253 or ASN.1 
+DER encoded form, respectively). Note that theCollectionreturned may contain 
+duplicate names. 
+
+If a name is specified as a byte array, it should contain a single DER encoded 
+distinguished name, as defined in X.501. The ASN.1 notation for this structure 
+is given in the documentation for setIssuerNames(Collection 
+names)(|java.security.cert.X509CRLSelector|) . 
+
+Note that a deep copy is performed on theCollectionto protect against 
+subsequent modifications. 
+
+
+
+    Returns: a {@code Collection} of names (or {@code null}) 
+
+*java.security.cert.X509CRLSelector.getIssuers()*
+
+public |java.util.Collection|<X500Principal> getIssuers()
+
+Returns the issuerNames criterion. The issuer distinguished name in 
+theX509CRLmust match at least one of the specified distinguished names. If the 
+value returned isnull, any issuer distinguished name will do. 
+
+If the value returned is notnull, it is a 
+unmodifiableCollectionofX500Principals. 
+
+
+
+    Returns: an unmodifiable {@code Collection} of names (or {@code null}) 
+
+*java.security.cert.X509CRLSelector.getMaxCRL()*
+
+public |java.math.BigInteger| getMaxCRL()
+
+Returns the maxCRLNumber criterion. TheX509CRLmust have a CRL number extension 
+whose value is less than or equal to the specified value. Ifnull, no 
+maxCRLNumber check will be done. 
+
+
+
+    Returns: the maximum CRL number accepted (or {@code null}) 
+
+*java.security.cert.X509CRLSelector.getMinCRL()*
+
+public |java.math.BigInteger| getMinCRL()
+
+Returns the minCRLNumber criterion. TheX509CRLmust have a CRL number extension 
+whose value is greater than or equal to the specified value. Ifnull, no 
+minCRLNumber check will be done. 
+
+
+
+    Returns: the minimum CRL number accepted (or {@code null}) 
+
+*java.security.cert.X509CRLSelector.match(CRL)*
+
+public boolean match(java.security.cert.CRL crl)
+
+Decides whether aCRLshould be selected. 
+
+
+    crl - the {@code CRL} to be checked 
+
+    Returns: {@code true} if the {@code CRL} should be selected, {@code false} otherwise 
+
+*java.security.cert.X509CRLSelector.setCertificateChecking(X509Certificate)*
+
+public void setCertificateChecking(java.security.cert.X509Certificate cert)
+
+Sets the certificate being checked. This is not a criterion. Rather, it is 
+optional information that may help aCertStorefind CRLs that would be relevant 
+when checking revocation for the specified certificate. Ifnullis specified, 
+then no such optional information is provided. 
+
+
+    cert - the {@code X509Certificate} being checked (or {@code null}) 
+
+*java.security.cert.X509CRLSelector.setDateAndTime(Date)*
+
+public void setDateAndTime(java.util.Date dateAndTime)
+
+Sets the dateAndTime criterion. The specified date must be equal to or later 
+than the value of the thisUpdate component of theX509CRLand earlier than the 
+value of the nextUpdate component. There is no match if theX509CRLdoes not 
+contain a nextUpdate component. Ifnull, no dateAndTime check will be done. 
+
+Note that theDatesupplied here is cloned to protect against subsequent 
+modifications. 
+
+
+    dateAndTime - the {@code Date} to match against (or {@code null}) 
+
+*java.security.cert.X509CRLSelector.setIssuerNames(Collection<?>)*
+
+public void setIssuerNames(java.util.Collection<?> names)
+  throws |java.io.IOException|
+         
+Note: use (|java.security.cert.X509CRLSelector|) instead or only specify the 
+byte array form of distinguished names when using this method. See 
+(|java.security.cert.X509CRLSelector|) for more information. 
+
+Sets the issuerNames criterion. The issuer distinguished name in theX509CRLmust 
+match at least one of the specified distinguished names. Ifnull, any issuer 
+distinguished name will do. 
+
+This method allows the caller to specify, with a single method call, the 
+complete set of issuer names whichX509CRLsmay contain. The specified value 
+replaces the previous value for the issuerNames criterion. 
+
+Thenamesparameter (if notnull) is aCollectionof names. Each name is aStringor a 
+byte array representing a distinguished name (in RFC 2253 or ASN.1 DER encoded 
+form, respectively). Ifnullis supplied as the value for this argument, no 
+issuerNames check will be performed. 
+
+Note that thenamesparameter can contain duplicate distinguished names, but they 
+may be removed from theCollectionof names returned by the 
+getIssuerNames(|java.security.cert.X509CRLSelector|) method. 
+
+If a name is specified as a byte array, it should contain a single DER encoded 
+distinguished name, as defined in X.501. The ASN.1 notation for this structure 
+is as follows. 
+
+Name ::= CHOICE { RDNSequence } 
+
+RDNSequence ::= SEQUENCE OF RelativeDistinguishedName 
+
+RelativeDistinguishedName ::= SET SIZE (1 .. MAX) OF AttributeTypeAndValue 
+
+AttributeTypeAndValue ::= SEQUENCE { type AttributeType, value AttributeValue } 
+
+AttributeType ::= OBJECT IDENTIFIER 
+
+AttributeValue ::= ANY DEFINED BY AttributeType .... DirectoryString ::= CHOICE 
+{ teletexString TeletexString (SIZE (1..MAX)), printableString PrintableString 
+(SIZE (1..MAX)), universalString UniversalString (SIZE (1..MAX)), utf8String 
+UTF8String (SIZE (1.. MAX)), bmpString BMPString (SIZE (1..MAX)) } 
+
+Note that a deep copy is performed on theCollectionto protect against 
+subsequent modifications. 
+
+
+    names - a {@code Collection} of names (or {@code null}) 
+
+*java.security.cert.X509CRLSelector.setIssuers(Collection<X500Principal>)*
+
+public void setIssuers(java.util.Collection<javax.security.auth.x500.X500Principal> issuers)
+
+Sets the issuerNames criterion. The issuer distinguished name in theX509CRLmust 
+match at least one of the specified distinguished names. Ifnull, any issuer 
+distinguished name will do. 
+
+This method allows the caller to specify, with a single method call, the 
+complete set of issuer names whichX509CRLsmay contain. The specified value 
+replaces the previous value for the issuerNames criterion. 
+
+Thenamesparameter (if notnull) is aCollectionofX500Principals. 
+
+Note that thenamesparameter can contain duplicate distinguished names, but they 
+may be removed from theCollectionof names returned by the 
+getIssuers(|java.security.cert.X509CRLSelector|) method. 
+
+Note that a copy is performed on theCollectionto protect against subsequent 
+modifications. 
+
+
+    issuers - a {@code Collection} of X500Principals (or {@code null}) 
+
+*java.security.cert.X509CRLSelector.setMaxCRLNumber(BigInteger)*
+
+public void setMaxCRLNumber(java.math.BigInteger maxCRL)
+
+Sets the maxCRLNumber criterion. TheX509CRLmust have a CRL number extension 
+whose value is less than or equal to the specified value. Ifnull, no 
+maxCRLNumber check will be done. 
+
+
+    maxCRL - the maximum CRL number accepted (or {@code null}) 
+
+*java.security.cert.X509CRLSelector.setMinCRLNumber(BigInteger)*
+
+public void setMinCRLNumber(java.math.BigInteger minCRL)
+
+Sets the minCRLNumber criterion. TheX509CRLmust have a CRL number extension 
+whose value is greater than or equal to the specified value. Ifnull, no 
+minCRLNumber check will be done. 
+
+
+    minCRL - the minimum CRL number accepted (or {@code null}) 
+
+*java.security.cert.X509CRLSelector.toString()*
+
+public |java.lang.String| toString()
+
+Returns a printable representation of theX509CRLSelector. 
+
+
+
+    Returns: a {@code String} describing the contents of the {@code X509CRLSelector}. 
+
+

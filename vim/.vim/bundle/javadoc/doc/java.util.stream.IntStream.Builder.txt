@@ -1,0 +1,63 @@
+*java.util.stream.IntStream.Builder* *IntStream.Builder* A mutable builder for a
+
+public static interface interface IntStream.Builder
+
+  implements |java.util.function.IntConsumer|
+
+|java.util.stream.IntStream.Builder_Description|
+|java.util.stream.IntStream.Builder_Fields|
+|java.util.stream.IntStream.Builder_Constructors|
+|java.util.stream.IntStream.Builder_Methods|
+
+================================================================================
+
+*java.util.stream.IntStream.Builder_Methods*
+|java.util.stream.IntStream.Builder.accept(int)|Adds an element to the stream b
+|java.util.stream.IntStream.Builder.add(int)|Adds an element to the stream bein
+|java.util.stream.IntStream.Builder.build()|Builds the stream, transitioning th
+
+*java.util.stream.IntStream.Builder_Description*
+
+A mutable builder for anIntStream. 
+
+A stream builder has a lifecycle, which starts in a building phase, during 
+which elements can be added, and then transitions to a built phase, after which 
+elements may not be added. The built phase begins when the 
+(|java.util.stream.IntStream.Builder|) method is called, which creates an 
+ordered stream whose elements are the elements that were added to the stream 
+builder, in the order they were added. 
+
+
+
+*java.util.stream.IntStream.Builder.accept(int)*
+
+public void accept(int t)
+
+Adds an element to the stream being built. 
+
+
+
+*java.util.stream.IntStream.Builder.add(int)*
+
+public |java.util.stream.IntStream.Builder| add(int t)
+
+Adds an element to the stream being built. 
+
+
+    t - the element to add 
+
+    Returns: {@code this} builder 
+
+*java.util.stream.IntStream.Builder.build()*
+
+public |java.util.stream.IntStream| build()
+
+Builds the stream, transitioning this builder to the built state. 
+AnIllegalStateExceptionis thrown if there are further attempts to operate on 
+the builder after it has entered the built state. 
+
+
+
+    Returns: the built stream 
+
+

@@ -1,0 +1,304 @@
+*java.time.chrono.MinguoDate* *MinguoDate* A date in the Minguo calendar system.
+
+public final class MinguoDate
+  extends    |java.time.chrono.ChronoLocalDateImpl|
+  implements |java.time.chrono.ChronoLocalDate|
+             |java.io.Serializable|
+
+|java.time.chrono.MinguoDate_Description|
+|java.time.chrono.MinguoDate_Fields|
+|java.time.chrono.MinguoDate_Constructors|
+|java.time.chrono.MinguoDate_Methods|
+
+================================================================================
+
+*java.time.chrono.MinguoDate_Methods*
+|java.time.chrono.MinguoDate.atTime(LocalTime)|
+|java.time.chrono.MinguoDate.equals(Object)|Compares this date to another date,
+|java.time.chrono.MinguoDate.from(TemporalAccessor)|Obtains aMinguoDatefrom a t
+|java.time.chrono.MinguoDate.getChronology()|Gets the chronology of this date, 
+|java.time.chrono.MinguoDate.getEra()|Gets the era applicable at this date.
+|java.time.chrono.MinguoDate.getLong(TemporalField)|
+|java.time.chrono.MinguoDate.hashCode()|A hash code for this date.
+|java.time.chrono.MinguoDate.lengthOfMonth()|Returns the length of the month re
+|java.time.chrono.MinguoDate.minus(long,TemporalUnit)|
+|java.time.chrono.MinguoDate.minus(TemporalAmount)|
+|java.time.chrono.MinguoDate.now()|Obtains the currentMinguoDatefrom the system
+|java.time.chrono.MinguoDate.now(Clock)|Obtains the currentMinguoDatefrom the s
+|java.time.chrono.MinguoDate.now(ZoneId)|Obtains the currentMinguoDatefrom the 
+|java.time.chrono.MinguoDate.of(int,int,int)|Obtains aMinguoDaterepresenting a 
+|java.time.chrono.MinguoDate.plus(long,TemporalUnit)|
+|java.time.chrono.MinguoDate.plus(TemporalAmount)|
+|java.time.chrono.MinguoDate.range(TemporalField)|
+|java.time.chrono.MinguoDate.toEpochDay()|
+|java.time.chrono.MinguoDate.until(ChronoLocalDate)|
+|java.time.chrono.MinguoDate.with(TemporalAdjuster)|
+|java.time.chrono.MinguoDate.with(TemporalField,long)|
+
+*java.time.chrono.MinguoDate_Description*
+
+A date in the Minguo calendar system. 
+
+This date operates using the Minguo 
+calendar(|java.time.chrono.MinguoChronology|) . This calendar system is 
+primarily used in the Republic of China, often known as Taiwan. Dates are 
+aligned such that0001-01-01 (Minguo)is1912-01-01 (ISO). 
+
+This is a <a href="/java/lang/doc-files/ValueBased.html">value-based class; use 
+of identity-sensitive operations (including reference equality (==), identity 
+hash code, or synchronization) on instances ofMinguoDatemay have unpredictable 
+results and should be avoided. Theequalsmethod should be used for comparisons. 
+
+
+
+*java.time.chrono.MinguoDate.atTime(LocalTime)*
+
+public final |java.time.chrono.ChronoLocalDateTime|<MinguoDate> atTime(java.time.LocalTime localTime)
+
+
+
+
+
+*java.time.chrono.MinguoDate.equals(Object)*
+
+public boolean equals(java.lang.Object obj)
+
+Compares this date to another date, including the chronology. 
+
+Compares thisMinguoDatewith another ensuring that the date is the same. 
+
+Only objects of typeMinguoDateare compared, other types return false. To 
+compare the dates of twoTemporalAccessorinstances, including dates in two 
+different chronologies, use (|java.time.temporal.ChronoField|) as a comparator. 
+
+
+    obj - the object to check, null returns false 
+
+    Returns: true if this is equal to the other date 
+
+*java.time.chrono.MinguoDate.from(TemporalAccessor)*
+
+public static |java.time.chrono.MinguoDate| from(java.time.temporal.TemporalAccessor temporal)
+
+Obtains aMinguoDatefrom a temporal object. 
+
+This obtains a date in the Minguo calendar system based on the specified 
+temporal. ATemporalAccessorrepresents an arbitrary set of date and time 
+information, which this factory converts to an instance ofMinguoDate. 
+
+The conversion typically uses the EPOCH_DAY(|java.time.temporal.ChronoField|) 
+field, which is standardized across calendar systems. 
+
+This method matches the signature of the functional interface 
+(|java.time.temporal.TemporalQuery|) allowing it to be used as a query via 
+method reference,MinguoDate::from. 
+
+
+    temporal - the temporal object to convert, not null 
+
+    Returns: the date in Minguo calendar system, not null 
+
+*java.time.chrono.MinguoDate.getChronology()*
+
+public |java.time.chrono.MinguoChronology| getChronology()
+
+Gets the chronology of this date, which is the Minguo calendar system. 
+
+TheChronologyrepresents the calendar system in use. The era and other fields in 
+(|java.time.temporal.ChronoField|) are defined by the chronology. 
+
+
+
+    Returns: the Minguo chronology, not null 
+
+*java.time.chrono.MinguoDate.getEra()*
+
+public |java.time.chrono.MinguoEra| getEra()
+
+Gets the era applicable at this date. 
+
+The Minguo calendar system has two eras, 'ROC' and 'BEFORE_ROC', defined by 
+(|java.time.chrono.MinguoEra|) . 
+
+
+
+    Returns: the era applicable at this date, not null 
+
+*java.time.chrono.MinguoDate.getLong(TemporalField)*
+
+public long getLong(java.time.temporal.TemporalField field)
+
+
+
+
+
+*java.time.chrono.MinguoDate.hashCode()*
+
+public int hashCode()
+
+A hash code for this date. 
+
+
+
+    Returns: a suitable hash code based only on the Chronology and the date 
+
+*java.time.chrono.MinguoDate.lengthOfMonth()*
+
+public int lengthOfMonth()
+
+Returns the length of the month represented by this date. 
+
+This returns the length of the month in days. Month lengths match those of the 
+ISO calendar system. 
+
+
+
+    Returns: the length of the month in days 
+
+*java.time.chrono.MinguoDate.minus(long,TemporalUnit)*
+
+public |java.time.chrono.MinguoDate| minus(
+  long amountToAdd,
+  java.time.temporal.TemporalUnit unit)
+
+
+
+
+
+*java.time.chrono.MinguoDate.minus(TemporalAmount)*
+
+public |java.time.chrono.MinguoDate| minus(java.time.temporal.TemporalAmount amount)
+
+
+
+
+
+*java.time.chrono.MinguoDate.now()*
+
+public static |java.time.chrono.MinguoDate| now()
+
+Obtains the currentMinguoDatefrom the system clock in the default time-zone. 
+
+This will query the system clock(|java.time.Clock|) in the default time-zone to 
+obtain the current date. 
+
+Using this method will prevent the ability to use an alternate clock for 
+testing because the clock is hard-coded. 
+
+
+
+    Returns: the current date using the system clock and default time-zone, not null 
+
+*java.time.chrono.MinguoDate.now(Clock)*
+
+public static |java.time.chrono.MinguoDate| now(java.time.Clock clock)
+
+Obtains the currentMinguoDatefrom the specified clock. 
+
+This will query the specified clock to obtain the current date - today. Using 
+this method allows the use of an alternate clock for testing. The alternate 
+clock may be introduced using dependency injection(|java.time.Clock|) . 
+
+
+    clock - the clock to use, not null 
+
+    Returns: the current date, not null 
+
+*java.time.chrono.MinguoDate.now(ZoneId)*
+
+public static |java.time.chrono.MinguoDate| now(java.time.ZoneId zone)
+
+Obtains the currentMinguoDatefrom the system clock in the specified time-zone. 
+
+This will query the system clock(|java.time.Clock|) to obtain the current date. 
+Specifying the time-zone avoids dependence on the default time-zone. 
+
+Using this method will prevent the ability to use an alternate clock for 
+testing because the clock is hard-coded. 
+
+
+    zone - the zone ID to use, not null 
+
+    Returns: the current date using the system clock, not null 
+
+*java.time.chrono.MinguoDate.of(int,int,int)*
+
+public static |java.time.chrono.MinguoDate| of(
+  int prolepticYear,
+  int month,
+  int dayOfMonth)
+
+Obtains aMinguoDaterepresenting a date in the Minguo calendar system from the 
+proleptic-year, month-of-year and day-of-month fields. 
+
+This returns aMinguoDatewith the specified fields. The day must be valid for 
+the year and month, otherwise an exception will be thrown. 
+
+
+    prolepticYear - the Minguo proleptic-year 
+    month - the Minguo month-of-year, from 1 to 12 
+    dayOfMonth - the Minguo day-of-month, from 1 to 31 
+
+    Returns: the date in Minguo calendar system, not null 
+
+*java.time.chrono.MinguoDate.plus(long,TemporalUnit)*
+
+public |java.time.chrono.MinguoDate| plus(
+  long amountToAdd,
+  java.time.temporal.TemporalUnit unit)
+
+
+
+
+
+*java.time.chrono.MinguoDate.plus(TemporalAmount)*
+
+public |java.time.chrono.MinguoDate| plus(java.time.temporal.TemporalAmount amount)
+
+
+
+
+
+*java.time.chrono.MinguoDate.range(TemporalField)*
+
+public |java.time.temporal.ValueRange| range(java.time.temporal.TemporalField field)
+
+
+
+
+
+*java.time.chrono.MinguoDate.toEpochDay()*
+
+public long toEpochDay()
+
+
+
+
+
+*java.time.chrono.MinguoDate.until(ChronoLocalDate)*
+
+public |java.time.chrono.ChronoPeriod| until(java.time.chrono.ChronoLocalDate endDate)
+
+
+
+
+
+*java.time.chrono.MinguoDate.with(TemporalAdjuster)*
+
+public |java.time.chrono.MinguoDate| with(java.time.temporal.TemporalAdjuster adjuster)
+
+
+
+
+
+*java.time.chrono.MinguoDate.with(TemporalField,long)*
+
+public |java.time.chrono.MinguoDate| with(
+  java.time.temporal.TemporalField field,
+  long newValue)
+
+
+
+
+
+

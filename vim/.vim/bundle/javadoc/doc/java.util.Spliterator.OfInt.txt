@@ -1,0 +1,67 @@
+*java.util.Spliterator.OfInt* *Spliterator.OfInt* A Spliterator specialized fori
+
+public static interface interface Spliterator.OfInt
+
+  implements |java.util.Spliterator.OfPrimitive|
+
+|java.util.Spliterator.OfInt_Description|
+|java.util.Spliterator.OfInt_Fields|
+|java.util.Spliterator.OfInt_Constructors|
+|java.util.Spliterator.OfInt_Methods|
+
+================================================================================
+
+*java.util.Spliterator.OfInt_Methods*
+|java.util.Spliterator.OfInt.forEachRemaining(Consumer<?superInteger>)|
+|java.util.Spliterator.OfInt.forEachRemaining(IntConsumer)|
+|java.util.Spliterator.OfInt.tryAdvance(Consumer<?superInteger>)|
+|java.util.Spliterator.OfInt.tryAdvance(IntConsumer)|
+|java.util.Spliterator.OfInt.trySplit()|
+
+*java.util.Spliterator.OfInt_Description*
+
+A Spliterator specialized forintvalues. 
+
+
+
+*java.util.Spliterator.OfInt.forEachRemaining(Consumer<?superInteger>)*
+
+public void forEachRemaining(java.util.function.Consumer<? super java.lang.Integer> action)
+
+
+
+
+
+*java.util.Spliterator.OfInt.forEachRemaining(IntConsumer)*
+
+public void forEachRemaining(java.util.function.IntConsumer action)
+
+
+
+
+
+*java.util.Spliterator.OfInt.tryAdvance(Consumer<?superInteger>)*
+
+public boolean tryAdvance(java.util.function.Consumer<? super java.lang.Integer> action)
+
+
+
+
+
+*java.util.Spliterator.OfInt.tryAdvance(IntConsumer)*
+
+public boolean tryAdvance(java.util.function.IntConsumer action)
+
+
+
+
+
+*java.util.Spliterator.OfInt.trySplit()*
+
+public |java.util.Spliterator.OfInt| trySplit()
+
+
+
+
+
+

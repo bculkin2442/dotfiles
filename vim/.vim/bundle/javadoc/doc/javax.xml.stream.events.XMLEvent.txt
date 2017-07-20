@@ -1,0 +1,183 @@
+*javax.xml.stream.events.XMLEvent* *XMLEvent* This is the base event interface f
+
+public interface interface XMLEvent
+
+  implements |javax.xml.stream.XMLStreamConstants|
+
+|javax.xml.stream.events.XMLEvent_Description|
+|javax.xml.stream.events.XMLEvent_Fields|
+|javax.xml.stream.events.XMLEvent_Constructors|
+|javax.xml.stream.events.XMLEvent_Methods|
+
+================================================================================
+
+*javax.xml.stream.events.XMLEvent_Methods*
+|javax.xml.stream.events.XMLEvent.asCharacters()|Returns this event as Characte
+|javax.xml.stream.events.XMLEvent.asEndElement()|Returns this event as an end  
+|javax.xml.stream.events.XMLEvent.asStartElement()|Returns this event as a star
+|javax.xml.stream.events.XMLEvent.getEventType()|Returns an integer code for th
+|javax.xml.stream.events.XMLEvent.getLocation()|Return the location of this eve
+|javax.xml.stream.events.XMLEvent.getSchemaType()|This method is provided for i
+|javax.xml.stream.events.XMLEvent.isAttribute()|A utility function to check if 
+|javax.xml.stream.events.XMLEvent.isCharacters()|A utility function to check if
+|javax.xml.stream.events.XMLEvent.isEndDocument()|A utility function to check i
+|javax.xml.stream.events.XMLEvent.isEndElement()|A utility function to check if
+|javax.xml.stream.events.XMLEvent.isEntityReference()|A utility function to che
+|javax.xml.stream.events.XMLEvent.isNamespace()|A utility function to check if 
+|javax.xml.stream.events.XMLEvent.isProcessingInstruction()|A utility function 
+|javax.xml.stream.events.XMLEvent.isStartDocument()|A utility function to check
+|javax.xml.stream.events.XMLEvent.isStartElement()|A utility function to check 
+|javax.xml.stream.events.XMLEvent.writeAsEncodedUnicode(Writer)|This method wil
+
+*javax.xml.stream.events.XMLEvent_Description*
+
+This is the base event interface for handling markup events. Events are value 
+objects that are used to communicate the XML 1.0 InfoSet to the Application. 
+Events may be cached and referenced after the parse has completed. 
+
+
+
+*javax.xml.stream.events.XMLEvent.asCharacters()*
+
+public |javax.xml.stream.events.Characters| asCharacters()
+
+Returns this event as Characters, may result in a class cast exception if this 
+event is not Characters. 
+
+
+
+*javax.xml.stream.events.XMLEvent.asEndElement()*
+
+public |javax.xml.stream.events.EndElement| asEndElement()
+
+Returns this event as an end element event, may result in a class cast 
+exception if this event is not a end element. 
+
+
+
+*javax.xml.stream.events.XMLEvent.asStartElement()*
+
+public |javax.xml.stream.events.StartElement| asStartElement()
+
+Returns this event as a start element event, may result in a class cast 
+exception if this event is not a start element. 
+
+
+
+*javax.xml.stream.events.XMLEvent.getEventType()*
+
+public int getEventType()
+
+Returns an integer code for this event. 
+
+
+
+*javax.xml.stream.events.XMLEvent.getLocation()*
+
+public |javax.xml.stream.Location| getLocation()
+
+Return the location of this event. The Location returned from this method is 
+non-volatile and will retain its information. 
+
+
+
+*javax.xml.stream.events.XMLEvent.getSchemaType()*
+
+public |javax.xml.namespace.QName| getSchemaType()
+
+This method is provided for implementations to provide optional type 
+information about the associated event. It is optional and will return null if 
+no information is available. 
+
+
+
+*javax.xml.stream.events.XMLEvent.isAttribute()*
+
+public boolean isAttribute()
+
+A utility function to check if this event is an Attribute. 
+
+
+
+*javax.xml.stream.events.XMLEvent.isCharacters()*
+
+public boolean isCharacters()
+
+A utility function to check if this event is Characters. 
+
+
+
+*javax.xml.stream.events.XMLEvent.isEndDocument()*
+
+public boolean isEndDocument()
+
+A utility function to check if this event is an EndDocument. 
+
+
+
+*javax.xml.stream.events.XMLEvent.isEndElement()*
+
+public boolean isEndElement()
+
+A utility function to check if this event is a EndElement. 
+
+
+
+*javax.xml.stream.events.XMLEvent.isEntityReference()*
+
+public boolean isEntityReference()
+
+A utility function to check if this event is an EntityReference. 
+
+
+
+*javax.xml.stream.events.XMLEvent.isNamespace()*
+
+public boolean isNamespace()
+
+A utility function to check if this event is a Namespace. 
+
+
+
+*javax.xml.stream.events.XMLEvent.isProcessingInstruction()*
+
+public boolean isProcessingInstruction()
+
+A utility function to check if this event is a ProcessingInstruction. 
+
+
+
+*javax.xml.stream.events.XMLEvent.isStartDocument()*
+
+public boolean isStartDocument()
+
+A utility function to check if this event is a StartDocument. 
+
+
+
+*javax.xml.stream.events.XMLEvent.isStartElement()*
+
+public boolean isStartElement()
+
+A utility function to check if this event is a StartElement. 
+
+
+
+*javax.xml.stream.events.XMLEvent.writeAsEncodedUnicode(Writer)*
+
+public void writeAsEncodedUnicode(java.io.Writer writer)
+  throws |javax.xml.stream.XMLStreamException|
+         
+This method will write the XMLEvent as per the XML 1.0 specification as Unicode 
+characters. No indentation or whitespace should be outputted. 
+
+Any user defined event type SHALL have this method called when being written to 
+on an output stream. Built in Event types MUST implement this method, but 
+implementations MAY choose not call these methods for optimizations reasons 
+when writing out built in Events to an output stream. The output generated MUST 
+be equivalent in terms of the infoset expressed. 
+
+
+    writer - The writer that will output the data 
+
+

@@ -1,0 +1,53 @@
+*javax.xml.crypto.dsig.spec.XPathType.Filter* *XPathType.Filter* Represents the 
+
+public static class XPathType.Filter
+  extends    |java.lang.Object|
+
+|javax.xml.crypto.dsig.spec.XPathType.Filter_Description|
+|javax.xml.crypto.dsig.spec.XPathType.Filter_Fields|
+|javax.xml.crypto.dsig.spec.XPathType.Filter_Constructors|
+|javax.xml.crypto.dsig.spec.XPathType.Filter_Methods|
+
+================================================================================
+
+*javax.xml.crypto.dsig.spec.XPathType.Filter_Fields*
+|javax.xml.crypto.dsig.spec.XPathType.Filter_javax.xml.crypto.dsig.spec.XPathType.Filter.INTERSECT|
+|javax.xml.crypto.dsig.spec.XPathType.Filter_javax.xml.crypto.dsig.spec.XPathType.Filter.SUBTRACT|
+|javax.xml.crypto.dsig.spec.XPathType.Filter_javax.xml.crypto.dsig.spec.XPathType.Filter.UNION|
+
+*javax.xml.crypto.dsig.spec.XPathType.Filter_Methods*
+|javax.xml.crypto.dsig.spec.XPathType.Filter.toString()|Returns the string form
+
+*javax.xml.crypto.dsig.spec.XPathType.Filter_Description*
+
+Represents the filter set operation. 
+
+
+
+*javax.xml.crypto.dsig.spec.XPathType.Filter_javax.xml.crypto.dsig.spec.XPathType.Filter.INTERSECT*
+
+The intersect filter operation. 
+
+
+*javax.xml.crypto.dsig.spec.XPathType.Filter_javax.xml.crypto.dsig.spec.XPathType.Filter.SUBTRACT*
+
+The subtract filter operation. 
+
+
+*javax.xml.crypto.dsig.spec.XPathType.Filter_javax.xml.crypto.dsig.spec.XPathType.Filter.UNION*
+
+The union filter operation. 
+
+
+
+*javax.xml.crypto.dsig.spec.XPathType.Filter.toString()*
+
+public |java.lang.String| toString()
+
+Returns the string form of the operation. 
+
+
+
+    Returns: the string form of the operation 
+
+

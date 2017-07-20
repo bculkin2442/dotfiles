@@ -1,0 +1,53 @@
+*javax.xml.crypto.dsig.spec.HMACParameterSpec* *HMACParameterSpec* Parameters fo
+
+public final class HMACParameterSpec
+  extends    |java.lang.Object|
+  implements |javax.xml.crypto.dsig.spec.SignatureMethodParameterSpec|
+
+|javax.xml.crypto.dsig.spec.HMACParameterSpec_Description|
+|javax.xml.crypto.dsig.spec.HMACParameterSpec_Fields|
+|javax.xml.crypto.dsig.spec.HMACParameterSpec_Constructors|
+|javax.xml.crypto.dsig.spec.HMACParameterSpec_Methods|
+
+================================================================================
+
+*javax.xml.crypto.dsig.spec.HMACParameterSpec_Constructors*
+|javax.xml.crypto.dsig.spec.HMACParameterSpec(int)|Creates an HMACParameterSpec
+
+*javax.xml.crypto.dsig.spec.HMACParameterSpec_Methods*
+|javax.xml.crypto.dsig.spec.HMACParameterSpec.getOutputLength()|Returns the tru
+
+*javax.xml.crypto.dsig.spec.HMACParameterSpec_Description*
+
+Parameters for the XML Signature HMAC Algorithm. The parameters include an 
+optional output length which specifies the MAC truncation length in bits. The 
+resulting HMAC will be truncated to the specified number of bits. If the 
+parameter is not specified, then this implies that all the bits of the hash are 
+to be output. The XML Schema Definition of the HMACOutputLength element is 
+defined as: 
+
+<element name="HMACOutputLength" minOccurs="0" type="ds:HMACOutputLengthType"/> 
+<simpleType name="HMACOutputLengthType"> <restriction base="integer"/> 
+</simpleType> 
+
+
+
+*javax.xml.crypto.dsig.spec.HMACParameterSpec(int)*
+
+public HMACParameterSpec(int outputLength)
+
+Creates an HMACParameterSpec with the specified truncation length. 
+
+    outputLength - the truncation length in number of bits 
+
+*javax.xml.crypto.dsig.spec.HMACParameterSpec.getOutputLength()*
+
+public int getOutputLength()
+
+Returns the truncation length. 
+
+
+
+    Returns: the truncation length in number of bits 
+
+

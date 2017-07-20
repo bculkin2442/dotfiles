@@ -1,0 +1,33 @@
+*javax.xml.ws.soap.Addressing* *Addressing* This annotation represents the use o
+
+public interface class Addressing
+
+  implements |java.lang.annotation.Annotation|
+
+|javax.xml.ws.soap.Addressing_Description|
+|javax.xml.ws.soap.Addressing_Fields|
+|javax.xml.ws.soap.Addressing_Constructors|
+|javax.xml.ws.soap.Addressing_Methods|
+
+================================================================================
+
+*javax.xml.ws.soap.Addressing_Description*
+
+This annotation represents the use of WS-Addressing with either the SOAP 
+1.1/HTTP or SOAP 1.2/HTTP binding. Using this annotation with any other binding 
+is undefined. 
+
+This annotation MUST only be used in conjunction with the 
+(|javax.jws.WebService|) , (|javax.xml.ws.WebServiceProvider|) , and 
+(|javax.xml.ws.WebServiceRef|) annotations. When used with a 
+javax.jws.WebService annotation, this annotation MUST only be used on the 
+service endpoint implementation class. When used with a WebServiceRef 
+annotation, this annotation MUST only be used when a proxy instance is created. 
+The injected SEI proxy, and endpoint MUST honor the values of the Addressing 
+annotation. 
+
+This annotation's behaviour is defined by the corresponding feature 
+(|javax.xml.ws.soap.AddressingFeature|) . 
+
+
+

@@ -1,0 +1,187 @@
+*javax.swing.plaf.synth.SynthInternalFrameUI* *SynthInternalFrameUI* Provides th
+
+public class SynthInternalFrameUI
+  extends    |javax.swing.plaf.basic.BasicInternalFrameUI|
+  implements |javax.swing.plaf.synth.SynthUI|
+             |java.beans.PropertyChangeListener|
+
+|javax.swing.plaf.synth.SynthInternalFrameUI_Description|
+|javax.swing.plaf.synth.SynthInternalFrameUI_Fields|
+|javax.swing.plaf.synth.SynthInternalFrameUI_Constructors|
+|javax.swing.plaf.synth.SynthInternalFrameUI_Methods|
+
+================================================================================
+
+*javax.swing.plaf.synth.SynthInternalFrameUI_Constructors*
+|javax.swing.plaf.synth.SynthInternalFrameUI(JInternalFrame)|
+
+*javax.swing.plaf.synth.SynthInternalFrameUI_Methods*
+|javax.swing.plaf.synth.SynthInternalFrameUI.createComponentListener()|
+|javax.swing.plaf.synth.SynthInternalFrameUI.createNorthPane(JInternalFrame)|
+|javax.swing.plaf.synth.SynthInternalFrameUI.createUI(JComponent)|Creates a new
+|javax.swing.plaf.synth.SynthInternalFrameUI.getContext(JComponent)|
+|javax.swing.plaf.synth.SynthInternalFrameUI.installDefaults()|
+|javax.swing.plaf.synth.SynthInternalFrameUI.installListeners()|
+|javax.swing.plaf.synth.SynthInternalFrameUI.paint(Graphics,JComponent)|Paints 
+|javax.swing.plaf.synth.SynthInternalFrameUI.paint(SynthContext,Graphics)|Paint
+|javax.swing.plaf.synth.SynthInternalFrameUI.paintBorder(SynthContext,Graphics,int,int,int,int)|
+|javax.swing.plaf.synth.SynthInternalFrameUI.propertyChange(PropertyChangeEvent)|
+|javax.swing.plaf.synth.SynthInternalFrameUI.uninstallComponents()|
+|javax.swing.plaf.synth.SynthInternalFrameUI.uninstallDefaults()|
+|javax.swing.plaf.synth.SynthInternalFrameUI.uninstallListeners()|
+|javax.swing.plaf.synth.SynthInternalFrameUI.update(Graphics,JComponent)|Notifi
+
+*javax.swing.plaf.synth.SynthInternalFrameUI_Description*
+
+Provides the Synth L and F UI delegate for (|javax.swing.JInternalFrame|) . 
+
+
+
+*javax.swing.plaf.synth.SynthInternalFrameUI(JInternalFrame)*
+
+protected SynthInternalFrameUI(javax.swing.JInternalFrame b)
+
+
+
+
+*javax.swing.plaf.synth.SynthInternalFrameUI.createComponentListener()*
+
+protected |java.awt.event.ComponentListener| createComponentListener()
+
+
+
+
+
+*javax.swing.plaf.synth.SynthInternalFrameUI.createNorthPane(JInternalFrame)*
+
+protected |javax.swing.JComponent| createNorthPane(javax.swing.JInternalFrame w)
+
+
+
+
+
+*javax.swing.plaf.synth.SynthInternalFrameUI.createUI(JComponent)*
+
+public static |javax.swing.plaf.ComponentUI| createUI(javax.swing.JComponent b)
+
+Creates a new UI object for the given component. 
+
+
+    b - component to create UI object for 
+
+    Returns: the UI object 
+
+*javax.swing.plaf.synth.SynthInternalFrameUI.getContext(JComponent)*
+
+public |javax.swing.plaf.synth.SynthContext| getContext(javax.swing.JComponent c)
+
+
+
+
+
+*javax.swing.plaf.synth.SynthInternalFrameUI.installDefaults()*
+
+public void installDefaults()
+
+
+
+
+
+*javax.swing.plaf.synth.SynthInternalFrameUI.installListeners()*
+
+protected void installListeners()
+
+
+
+
+
+*javax.swing.plaf.synth.SynthInternalFrameUI.paint(Graphics,JComponent)*
+
+public void paint(
+  java.awt.Graphics g,
+  javax.swing.JComponent c)
+
+Paints the specified component according to the Look and Feel. This method is 
+not used by Synth Look and Feel. Painting is handled by the 
+(|javax.swing.plaf.synth.SynthInternalFrameUI|) method. 
+
+
+    g - the {@code Graphics} object used for painting 
+    c - the component being painted 
+
+*javax.swing.plaf.synth.SynthInternalFrameUI.paint(SynthContext,Graphics)*
+
+protected void paint(
+  javax.swing.plaf.synth.SynthContext context,
+  java.awt.Graphics g)
+
+Paints the specified component. This implementation does nothing. 
+
+
+    context - context for the component being painted 
+    g - the {@code Graphics} object used for painting 
+
+*javax.swing.plaf.synth.SynthInternalFrameUI.paintBorder(SynthContext,Graphics,int,int,int,int)*
+
+public void paintBorder(
+  javax.swing.plaf.synth.SynthContext context,
+  java.awt.Graphics g,
+  int x,
+  int y,
+  int w,
+  int h)
+
+
+
+
+
+*javax.swing.plaf.synth.SynthInternalFrameUI.propertyChange(PropertyChangeEvent)*
+
+public void propertyChange(java.beans.PropertyChangeEvent evt)
+
+
+
+
+
+*javax.swing.plaf.synth.SynthInternalFrameUI.uninstallComponents()*
+
+protected void uninstallComponents()
+
+
+
+
+
+*javax.swing.plaf.synth.SynthInternalFrameUI.uninstallDefaults()*
+
+protected void uninstallDefaults()
+
+
+
+
+
+*javax.swing.plaf.synth.SynthInternalFrameUI.uninstallListeners()*
+
+protected void uninstallListeners()
+
+
+
+
+
+*javax.swing.plaf.synth.SynthInternalFrameUI.update(Graphics,JComponent)*
+
+public void update(
+  java.awt.Graphics g,
+  javax.swing.JComponent c)
+
+Notifies this UI delegate to repaint the specified component. This method 
+paints the component background, then calls the 
+(|javax.swing.plaf.synth.SynthInternalFrameUI|) method. 
+
+In general, this method does not need to be overridden by subclasses. All Look 
+and Feel rendering code should reside in thepaintmethod. 
+
+
+    g - the {@code Graphics} object used for painting 
+    c - the component being painted 
+
+

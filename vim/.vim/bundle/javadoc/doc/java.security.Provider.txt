@@ -1,0 +1,498 @@
+*java.security.Provider* *Provider* This class represents a "provider" for the
+ 
+
+public abstract class Provider
+  extends    |java.util.Properties|
+
+|java.security.Provider_Description|
+|java.security.Provider_Fields|
+|java.security.Provider_Constructors|
+|java.security.Provider_Methods|
+
+================================================================================
+
+*java.security.Provider_Constructors*
+|java.security.Provider(String,double,String)|Constructs a provider with the sp
+
+*java.security.Provider_Methods*
+|java.security.Provider.clear()|Clears this provider so that it no longer conta
+|java.security.Provider.compute(Object,BiFunction<?superObject,?superObject,?extendsObject>)|
+|java.security.Provider.computeIfAbsent(Object,Function<?superObject,?extendsObject>)|
+|java.security.Provider.computeIfPresent(Object,BiFunction<?superObject,?superObject,?extendsObject>)|
+|java.security.Provider.elements()|
+|java.security.Provider.entrySet()|Returns an unmodifiable Set view of the prop
+|java.security.Provider.forEach(BiConsumer<?superObject,?superObject>)|
+|java.security.Provider.get(Object)|
+|java.security.Provider.getInfo()|Returns a human-readable description of the p
+|java.security.Provider.getName()|Returns the name of this provider.
+|java.security.Provider.getOrDefault(Object,Object)|
+|java.security.Provider.getProperty(String)|
+|java.security.Provider.getService(String,String)|Get the service describing th
+|java.security.Provider.getServices()|Get an unmodifiable Set of all services s
+|java.security.Provider.getVersion()|Returns the version number for this provid
+|java.security.Provider.keys()|
+|java.security.Provider.keySet()|Returns an unmodifiable Set view of the proper
+|java.security.Provider.load(InputStream)|Reads a property list (key and elemen
+|java.security.Provider.merge(Object,Object,BiFunction<?superObject,?superObject,?extendsObject>)|
+|java.security.Provider.put(Object,Object)|Sets thekeyproperty to have the spec
+|java.security.Provider.putAll(Map<?,?>)|Copies all of the mappings from the sp
+|java.security.Provider.putIfAbsent(Object,Object)|If the specified key is not 
+|java.security.Provider.putService(Provider.Service)|Add a service.
+|java.security.Provider.remove(Object)|Removes thekeyproperty (and its correspo
+|java.security.Provider.remove(Object,Object)|Removes the entry for the specifi
+|java.security.Provider.removeService(Provider.Service)|Remove a service previo
+|java.security.Provider.replace(Object,Object)|Replaces the entry for the speci
+|java.security.Provider.replace(Object,Object,Object)|Replaces the entry for th
+|java.security.Provider.replaceAll(BiFunction<?superObject,?superObject,?extendsObject>)|
+|java.security.Provider.toString()|Returns a string with the name and the versi
+|java.security.Provider.values()|Returns an unmodifiable Collection view of the
+
+*java.security.Provider_Description*
+
+This class represents a "provider" for the Java Security API, where a provider 
+implements some or all parts of Java Security. Services that a provider may 
+implement include: 
+
+
+
+Algorithms (such as DSA, RSA, MD5 or SHA-1). 
+
+Key generation, conversion, and management facilities (such as for 
+algorithm-specific keys). 
+
+Each provider has a name and a version number, and is configured in each 
+runtime it is installed in. 
+
+See The Provider Class in the "Java Cryptography Architecture API Specification 
+and Reference" for information about how a particular type of provider, the 
+cryptographic service provider, works and is installed. However, please note 
+that a provider can be used to implement any security service in Java that uses 
+a pluggable architecture with a choice of implementations that fit underneath. 
+
+Some provider implementations may encounter unrecoverable internal errors 
+during their operation, for example a failure to communicate with a security 
+token. A (|java.security.ProviderException|) should be used to indicate such 
+errors. 
+
+The service typeProvideris reserved for use by the security framework. Services 
+of this type cannot be added, removed, or modified by applications. The 
+following attributes are automatically placed in each Provider object: 
+
+Attributes Automatically Placed in a Provider Object NameValue Provider.id name 
+String.valueOf(provider.getName()) Provider.id version 
+String.valueOf(provider.getVersion()) Provider.id info 
+String.valueOf(provider.getInfo()) Provider.id className 
+provider.getClass().getName() 
+
+
+
+*java.security.Provider(String,double,String)*
+
+protected Provider(
+  java.lang.String name,
+  double version,
+  java.lang.String info)
+
+Constructs a provider with the specified name, version number, and information. 
+
+    name - the provider name. 
+    version - the provider version number. 
+    info - a description of the provider and its services. 
+
+*java.security.Provider.clear()*
+
+public synchronized void clear()
+
+Clears this provider so that it no longer contains the properties used to look 
+up facilities implemented by the provider. 
+
+If a security manager is enabled, itscheckSecurityAccessmethod is called with 
+the string"clearProviderProperties."+name(wherenameis the provider name) to see 
+if it's ok to clear this provider. 
+
+
+
+*java.security.Provider.compute(Object,BiFunction<?superObject,?superObject,?extendsObject>)*
+
+public synchronized |java.lang.Object| compute(
+  java.lang.Object key,
+  java.util.function.BiFunction<? super java.lang.Object, ? super java.lang.Object, ? extends java.lang.Object> remappingFunction)
+
+Attempts to compute a mapping for the specified key and its current mapped 
+value (ornullif there is no current mapping). 
+
+If a security manager is enabled, itscheckSecurityAccessmethod is called with 
+the strings"putProviderProperty."+nameand"removeProviderProperty."+name, 
+wherenameis the provider name, to see if it's ok to set this provider's 
+property values and remove this provider's properties. 
+
+
+
+*java.security.Provider.computeIfAbsent(Object,Function<?superObject,?extendsObject>)*
+
+public synchronized |java.lang.Object| computeIfAbsent(
+  java.lang.Object key,
+  java.util.function.Function<? super java.lang.Object, ? extends java.lang.Object> mappingFunction)
+
+If the specified key is not already associated with a value (or is mapped 
+tonull), attempts to compute its value using the given mapping function and 
+enters it into this map unlessnull. 
+
+If a security manager is enabled, itscheckSecurityAccessmethod is called with 
+the strings"putProviderProperty."+nameand"removeProviderProperty."+name, 
+wherenameis the provider name, to see if it's ok to set this provider's 
+property values and remove this provider's properties. 
+
+
+
+*java.security.Provider.computeIfPresent(Object,BiFunction<?superObject,?superObject,?extendsObject>)*
+
+public synchronized |java.lang.Object| computeIfPresent(
+  java.lang.Object key,
+  java.util.function.BiFunction<? super java.lang.Object, ? super java.lang.Object, ? extends java.lang.Object> remappingFunction)
+
+If the value for the specified key is present and non-null, attempts to compute 
+a new mapping given the key and its current mapped value. 
+
+If a security manager is enabled, itscheckSecurityAccessmethod is called with 
+the strings"putProviderProperty."+nameand"removeProviderProperty."+name, 
+wherenameis the provider name, to see if it's ok to set this provider's 
+property values and remove this provider's properties. 
+
+
+
+*java.security.Provider.elements()*
+
+public |java.util.Enumeration|<Object> elements()
+
+
+
+
+
+*java.security.Provider.entrySet()*
+
+public synchronized |java.util.Set|<Entry<Object,Object>> entrySet()
+
+Returns an unmodifiable Set view of the property entries contained in this 
+Provider. 
+
+
+
+*java.security.Provider.forEach(BiConsumer<?superObject,?superObject>)*
+
+public synchronized void forEach(java.util.function.BiConsumer<? super java.lang.Object, ? super java.lang.Object> action)
+
+
+
+
+
+*java.security.Provider.get(Object)*
+
+public |java.lang.Object| get(java.lang.Object key)
+
+
+
+
+
+*java.security.Provider.getInfo()*
+
+public |java.lang.String| getInfo()
+
+Returns a human-readable description of the provider and its services. This may 
+return an HTML page, with relevant links. 
+
+
+
+    Returns: a description of the provider and its services. 
+
+*java.security.Provider.getName()*
+
+public |java.lang.String| getName()
+
+Returns the name of this provider. 
+
+
+
+    Returns: the name of this provider. 
+
+*java.security.Provider.getOrDefault(Object,Object)*
+
+public synchronized |java.lang.Object| getOrDefault(
+  java.lang.Object key,
+  java.lang.Object defaultValue)
+
+
+
+
+
+*java.security.Provider.getProperty(String)*
+
+public |java.lang.String| getProperty(java.lang.String key)
+
+
+
+
+
+*java.security.Provider.getService(String,String)*
+
+public synchronized |java.security.Provider.Service| getService(
+  java.lang.String type,
+  java.lang.String algorithm)
+
+Get the service describing this Provider's implementation of the specified type 
+of this algorithm or alias. If no such implementation exists, this method 
+returns null. If there are two matching services, one added to this provider 
+using putService()(|java.security.Provider|) and one added via 
+put()(|java.security.Provider|) , the service added via 
+putService()(|java.security.Provider|) is returned. 
+
+
+    type - the type of {@link Service service} requested (for example, {@code 
+       MessageDigest}) 
+    algorithm - the case insensitive algorithm name (or alternate alias) of the service 
+       requested (for example, {@code SHA-1}) 
+
+    Returns: the service describing this Provider's matching service or null if no such 
+             service exists 
+
+*java.security.Provider.getServices()*
+
+public synchronized |java.util.Set|<Service> getServices()
+
+Get an unmodifiable Set of all services supported by this Provider. 
+
+
+
+    Returns: an unmodifiable Set of all services supported by this Provider 
+
+*java.security.Provider.getVersion()*
+
+public double getVersion()
+
+Returns the version number for this provider. 
+
+
+
+    Returns: the version number for this provider. 
+
+*java.security.Provider.keys()*
+
+public |java.util.Enumeration|<Object> keys()
+
+
+
+
+
+*java.security.Provider.keySet()*
+
+public |java.util.Set|<Object> keySet()
+
+Returns an unmodifiable Set view of the property keys contained in this 
+provider. 
+
+
+
+*java.security.Provider.load(InputStream)*
+
+public synchronized void load(java.io.InputStream inStream)
+  throws |java.io.IOException|
+         
+Reads a property list (key and element pairs) from the input stream. 
+
+
+    inStream - the input stream. 
+
+*java.security.Provider.merge(Object,Object,BiFunction<?superObject,?superObject,?extendsObject>)*
+
+public synchronized |java.lang.Object| merge(
+  java.lang.Object key,
+  java.lang.Object value,
+  java.util.function.BiFunction<? super java.lang.Object, ? super java.lang.Object, ? extends java.lang.Object> remappingFunction)
+
+If the specified key is not already associated with a value or is associated 
+with null, associates it with the given value. Otherwise, replaces the value 
+with the results of the given remapping function, or removes if the result is 
+null. This method may be of use when combining multiple mapped values for a 
+key. 
+
+If a security manager is enabled, itscheckSecurityAccessmethod is called with 
+the strings"putProviderProperty."+nameand"removeProviderProperty."+name, 
+wherenameis the provider name, to see if it's ok to set this provider's 
+property values and remove this provider's properties. 
+
+
+
+*java.security.Provider.put(Object,Object)*
+
+public synchronized |java.lang.Object| put(
+  java.lang.Object key,
+  java.lang.Object value)
+
+Sets thekeyproperty to have the specifiedvalue. 
+
+If a security manager is enabled, itscheckSecurityAccessmethod is called with 
+the string"putProviderProperty."+name, wherenameis the provider name, to see if 
+it's ok to set this provider's property values. 
+
+
+
+*java.security.Provider.putAll(Map<?,?>)*
+
+public synchronized void putAll(java.util.Map<?, ?> t)
+
+Copies all of the mappings from the specified Map to this provider. These 
+mappings will replace any properties that this provider had for any of the keys 
+currently in the specified Map. 
+
+
+
+*java.security.Provider.putIfAbsent(Object,Object)*
+
+public synchronized |java.lang.Object| putIfAbsent(
+  java.lang.Object key,
+  java.lang.Object value)
+
+If the specified key is not already associated with a value (or is mapped 
+tonull) associates it with the given value and returnsnull, else returns the 
+current value. 
+
+If a security manager is enabled, itscheckSecurityAccessmethod is called with 
+the string"putProviderProperty."+name, wherenameis the provider name, to see if 
+it's ok to set this provider's property values. 
+
+
+
+*java.security.Provider.putService(Provider.Service)*
+
+protected synchronized void putService(java.security.Provider.Service s)
+
+Add a service. If a service of the same type with the same algorithm name 
+exists and it was added using putService()(|java.security.Provider|) , it is 
+replaced by the new service. This method also places information about this 
+service in the provider's Hashtable values in the format described in the 
+
+Java Cryptography Architecture API Specification and Reference . 
+
+Also, if there is a security manager, itscheckSecurityAccessmethod is called 
+with the string"putProviderProperty."+name, wherenameis the provider name, to 
+see if it's ok to set this provider's property values. If the default 
+implementation ofcheckSecurityAccessis used (that is, that method is not 
+overriden), then this results in a call to the security 
+manager'scheckPermissionmethod with 
+aSecurityPermission("putProviderProperty."+name)permission. 
+
+
+    s - the Service to add 
+
+*java.security.Provider.remove(Object)*
+
+public synchronized |java.lang.Object| remove(java.lang.Object key)
+
+Removes thekeyproperty (and its correspondingvalue). 
+
+If a security manager is enabled, itscheckSecurityAccessmethod is called with 
+the string"removeProviderProperty."+name, wherenameis the provider name, to see 
+if it's ok to remove this provider's properties. 
+
+
+
+*java.security.Provider.remove(Object,Object)*
+
+public synchronized boolean remove(
+  java.lang.Object key,
+  java.lang.Object value)
+
+Removes the entry for the specified key only if it is currently mapped to the 
+specified value. 
+
+If a security manager is enabled, itscheckSecurityAccessmethod is called with 
+the string"removeProviderProperty."+name, wherenameis the provider name, to see 
+if it's ok to remove this provider's properties. 
+
+
+
+*java.security.Provider.removeService(Provider.Service)*
+
+protected synchronized void removeService(java.security.Provider.Service s)
+
+Remove a service previously added using putService()(|java.security.Provider|) 
+. The specified service is removed from this provider. It will no longer be 
+returned by getService()(|java.security.Provider|) and its information will be 
+removed from this provider's Hashtable. 
+
+Also, if there is a security manager, itscheckSecurityAccessmethod is called 
+with the string"removeProviderProperty."+name, wherenameis the provider name, 
+to see if it's ok to remove this provider's properties. If the default 
+implementation ofcheckSecurityAccessis used (that is, that method is not 
+overriden), then this results in a call to the security 
+manager'scheckPermissionmethod with 
+aSecurityPermission("removeProviderProperty."+name)permission. 
+
+
+    s - the Service to be removed 
+
+*java.security.Provider.replace(Object,Object)*
+
+public synchronized |java.lang.Object| replace(
+  java.lang.Object key,
+  java.lang.Object value)
+
+Replaces the entry for the specified key only if it is currently mapped to some 
+value. 
+
+If a security manager is enabled, itscheckSecurityAccessmethod is called with 
+the string"putProviderProperty."+name, wherenameis the provider name, to see if 
+it's ok to set this provider's property values. 
+
+
+
+*java.security.Provider.replace(Object,Object,Object)*
+
+public synchronized boolean replace(
+  java.lang.Object key,
+  java.lang.Object oldValue,
+  java.lang.Object newValue)
+
+Replaces the entry for the specified key only if currently mapped to the 
+specified value. 
+
+If a security manager is enabled, itscheckSecurityAccessmethod is called with 
+the string"putProviderProperty."+name, wherenameis the provider name, to see if 
+it's ok to set this provider's property values. 
+
+
+
+*java.security.Provider.replaceAll(BiFunction<?superObject,?superObject,?extendsObject>)*
+
+public synchronized void replaceAll(java.util.function.BiFunction<? super java.lang.Object, ? super java.lang.Object, ? extends java.lang.Object> function)
+
+Replaces each entry's value with the result of invoking the given function on 
+that entry, in the order entries are returned by an entry set iterator, until 
+all entries have been processed or the function throws an exception. 
+
+If a security manager is enabled, itscheckSecurityAccessmethod is called with 
+the string"putProviderProperty."+name, wherenameis the provider name, to see if 
+it's ok to set this provider's property values. 
+
+
+
+*java.security.Provider.toString()*
+
+public |java.lang.String| toString()
+
+Returns a string with the name and the version number of this provider. 
+
+
+
+    Returns: the string with the name and the version number for this provider. 
+
+*java.security.Provider.values()*
+
+public |java.util.Collection|<Object> values()
+
+Returns an unmodifiable Collection view of the property values contained in 
+this provider. 
+
+
+
+

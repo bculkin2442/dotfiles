@@ -1,0 +1,40 @@
+*javax.xml.ws.Response* *Response* The Response interface provides methods used 
+
+public interface interface Response<T>
+
+  implements |java.util.concurrent.Future|
+
+|javax.xml.ws.Response_Description|
+|javax.xml.ws.Response_Fields|
+|javax.xml.ws.Response_Constructors|
+|javax.xml.ws.Response_Methods|
+
+================================================================================
+
+*javax.xml.ws.Response_Methods*
+|javax.xml.ws.Response.getContext()|Gets the contained response context.
+
+*javax.xml.ws.Response_Description*
+
+The Response interface provides methods used to obtain the payload and context 
+of a message sent in response to an operation invocation. 
+
+For asynchronous operation invocations it provides additional methods to check 
+the status of the request. The get(...) methods may throw the standard set of 
+exceptions and their cause may be a RemoteException or a 
+(|javax.xml.ws.WebServiceException|) that represents the error that occured 
+during the asynchronous method invocation. 
+
+
+
+*javax.xml.ws.Response.getContext()*
+
+public |java.util.Map|<String,Object> getContext()
+
+Gets the contained response context. 
+
+
+
+    Returns: The contained response context. May be null if a response is not yet available. 
+
+

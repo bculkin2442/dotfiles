@@ -1,0 +1,35 @@
+*javax.xml.stream.EventFilter* *EventFilter* This interface declares a simple fi
+
+public interface interface EventFilter
+
+
+|javax.xml.stream.EventFilter_Description|
+|javax.xml.stream.EventFilter_Fields|
+|javax.xml.stream.EventFilter_Constructors|
+|javax.xml.stream.EventFilter_Methods|
+
+================================================================================
+
+*javax.xml.stream.EventFilter_Methods*
+|javax.xml.stream.EventFilter.accept(XMLEvent)|Tests whether this event is part
+
+*javax.xml.stream.EventFilter_Description*
+
+This interface declares a simple filter interface that one can create to filter 
+XMLEventReaders 
+
+
+
+*javax.xml.stream.EventFilter.accept(XMLEvent)*
+
+public boolean accept(javax.xml.stream.events.XMLEvent event)
+
+Tests whether this event is part of this stream. This method will return true 
+if this filter accepts this event and false otherwise. 
+
+
+    event - the event to test 
+
+    Returns: true if this filter accepts this event, false otherwise 
+
+

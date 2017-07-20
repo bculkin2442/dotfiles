@@ -1,0 +1,293 @@
+*java.time.chrono.MinguoChronology* *MinguoChronology* The Minguo calendar syste
+
+public final class MinguoChronology
+  extends    |java.time.chrono.AbstractChronology|
+  implements |java.io.Serializable|
+
+|java.time.chrono.MinguoChronology_Description|
+|java.time.chrono.MinguoChronology_Fields|
+|java.time.chrono.MinguoChronology_Constructors|
+|java.time.chrono.MinguoChronology_Methods|
+
+================================================================================
+
+*java.time.chrono.MinguoChronology_Fields*
+|java.time.chrono.MinguoChronology_java.time.chrono.MinguoChronology.INSTANCE|
+
+*java.time.chrono.MinguoChronology_Methods*
+|java.time.chrono.MinguoChronology.date(Era,int,int,int)|Obtains a local date i
+|java.time.chrono.MinguoChronology.date(int,int,int)|Obtains a local date in Mi
+|java.time.chrono.MinguoChronology.date(TemporalAccessor)|
+|java.time.chrono.MinguoChronology.dateEpochDay(long)|Obtains a local date in t
+|java.time.chrono.MinguoChronology.dateNow()|
+|java.time.chrono.MinguoChronology.dateNow(Clock)|
+|java.time.chrono.MinguoChronology.dateNow(ZoneId)|
+|java.time.chrono.MinguoChronology.dateYearDay(Era,int,int)|Obtains a local dat
+|java.time.chrono.MinguoChronology.dateYearDay(int,int)|Obtains a local date in
+|java.time.chrono.MinguoChronology.eraOf(int)|
+|java.time.chrono.MinguoChronology.eras()|
+|java.time.chrono.MinguoChronology.getCalendarType()|Gets the calendar type of 
+|java.time.chrono.MinguoChronology.getId()|Gets the ID of the chronology - 'Min
+|java.time.chrono.MinguoChronology.isLeapYear(long)|Checks if the specified yea
+|java.time.chrono.MinguoChronology.localDateTime(TemporalAccessor)|
+|java.time.chrono.MinguoChronology.prolepticYear(Era,int)|
+|java.time.chrono.MinguoChronology.range(ChronoField)|
+|java.time.chrono.MinguoChronology.resolveDate(Map<TemporalField,Long>,ResolverStyle)|
+|java.time.chrono.MinguoChronology.zonedDateTime(Instant,ZoneId)|
+|java.time.chrono.MinguoChronology.zonedDateTime(TemporalAccessor)|
+
+*java.time.chrono.MinguoChronology_Description*
+
+The Minguo calendar system. 
+
+This chronology defines the rules of the Minguo calendar system. This calendar 
+system is primarily used in the Republic of China, often known as Taiwan. Dates 
+are aligned such that0001-01-01 (Minguo)is1912-01-01 (ISO). 
+
+The fields are defined as follows: 
+
+era - There are two eras, the current 'Republic' (ERA_ROC) and the previous era 
+(ERA_BEFORE_ROC). year-of-era - The year-of-era for the current era increases 
+uniformly from the epoch at year one. For the previous era the year increases 
+from one as time goes backwards. The value for the current era is equal to the 
+ISO proleptic-year minus 1911. proleptic-year - The proleptic year is the same 
+as the year-of-era for the current era. For the previous era, years have zero, 
+then negative values. The value is equal to the ISO proleptic-year minus 1911. 
+month-of-year - The Minguo month-of-year exactly matches ISO. day-of-month - 
+The Minguo day-of-month exactly matches ISO. day-of-year - The Minguo 
+day-of-year exactly matches ISO. leap-year - The Minguo leap-year pattern 
+exactly matches ISO, such that the two calendars are never out of step. 
+
+
+
+*java.time.chrono.MinguoChronology_java.time.chrono.MinguoChronology.INSTANCE*
+
+Singleton instance for the Minguo chronology. 
+
+
+
+*java.time.chrono.MinguoChronology.date(Era,int,int,int)*
+
+public |java.time.chrono.MinguoDate| date(
+  java.time.chrono.Era era,
+  int yearOfEra,
+  int month,
+  int dayOfMonth)
+
+Obtains a local date in Minguo calendar system from the era, year-of-era, 
+month-of-year and day-of-month fields. 
+
+
+    era - the Minguo era, not null 
+    yearOfEra - the year-of-era 
+    month - the month-of-year 
+    dayOfMonth - the day-of-month 
+
+    Returns: the Minguo local date, not null 
+
+*java.time.chrono.MinguoChronology.date(int,int,int)*
+
+public |java.time.chrono.MinguoDate| date(
+  int prolepticYear,
+  int month,
+  int dayOfMonth)
+
+Obtains a local date in Minguo calendar system from the proleptic-year, 
+month-of-year and day-of-month fields. 
+
+
+    prolepticYear - the proleptic-year 
+    month - the month-of-year 
+    dayOfMonth - the day-of-month 
+
+    Returns: the Minguo local date, not null 
+
+*java.time.chrono.MinguoChronology.date(TemporalAccessor)*
+
+public |java.time.chrono.MinguoDate| date(java.time.temporal.TemporalAccessor temporal)
+
+
+
+
+
+*java.time.chrono.MinguoChronology.dateEpochDay(long)*
+
+public |java.time.chrono.MinguoDate| dateEpochDay(long epochDay)
+
+Obtains a local date in the Minguo calendar system from the epoch-day. 
+
+
+    epochDay - the epoch day 
+
+    Returns: the Minguo local date, not null 
+
+*java.time.chrono.MinguoChronology.dateNow()*
+
+public |java.time.chrono.MinguoDate| dateNow()
+
+
+
+
+
+*java.time.chrono.MinguoChronology.dateNow(Clock)*
+
+public |java.time.chrono.MinguoDate| dateNow(java.time.Clock clock)
+
+
+
+
+
+*java.time.chrono.MinguoChronology.dateNow(ZoneId)*
+
+public |java.time.chrono.MinguoDate| dateNow(java.time.ZoneId zone)
+
+
+
+
+
+*java.time.chrono.MinguoChronology.dateYearDay(Era,int,int)*
+
+public |java.time.chrono.MinguoDate| dateYearDay(
+  java.time.chrono.Era era,
+  int yearOfEra,
+  int dayOfYear)
+
+Obtains a local date in Minguo calendar system from the era, year-of-era and 
+day-of-year fields. 
+
+
+    era - the Minguo era, not null 
+    yearOfEra - the year-of-era 
+    dayOfYear - the day-of-year 
+
+    Returns: the Minguo local date, not null 
+
+*java.time.chrono.MinguoChronology.dateYearDay(int,int)*
+
+public |java.time.chrono.MinguoDate| dateYearDay(
+  int prolepticYear,
+  int dayOfYear)
+
+Obtains a local date in Minguo calendar system from the proleptic-year and 
+day-of-year fields. 
+
+
+    prolepticYear - the proleptic-year 
+    dayOfYear - the day-of-year 
+
+    Returns: the Minguo local date, not null 
+
+*java.time.chrono.MinguoChronology.eraOf(int)*
+
+public |java.time.chrono.MinguoEra| eraOf(int eraValue)
+
+
+
+
+
+*java.time.chrono.MinguoChronology.eras()*
+
+public |java.util.List|<Era> eras()
+
+
+
+
+
+*java.time.chrono.MinguoChronology.getCalendarType()*
+
+public |java.lang.String| getCalendarType()
+
+Gets the calendar type of the underlying calendar system - 'roc'. 
+
+The calendar type is an identifier defined by the Unicode Locale Data Markup 
+Language (LDML) specification. It can be used to lookup theChronologyusing 
+(|java.time.chrono.MinguoChronology|) . It can also be used as part of a 
+locale, accessible via (|java.util.Locale|) with the key 'ca'. 
+
+
+
+    Returns: the calendar system type - 'roc' 
+
+*java.time.chrono.MinguoChronology.getId()*
+
+public |java.lang.String| getId()
+
+Gets the ID of the chronology - 'Minguo'. 
+
+The ID uniquely identifies theChronology. It can be used to lookup 
+theChronologyusing (|java.time.chrono.MinguoChronology|) . 
+
+
+
+    Returns: the chronology ID - 'Minguo' 
+
+*java.time.chrono.MinguoChronology.isLeapYear(long)*
+
+public boolean isLeapYear(long prolepticYear)
+
+Checks if the specified year is a leap year. 
+
+Minguo leap years occur exactly in line with ISO leap years. This method does 
+not validate the year passed in, and only has a well-defined result for years 
+in the supported range. 
+
+
+    prolepticYear - the proleptic-year to check, not validated for range 
+
+    Returns: true if the year is a leap year 
+
+*java.time.chrono.MinguoChronology.localDateTime(TemporalAccessor)*
+
+public |java.time.chrono.ChronoLocalDateTime|<MinguoDate> localDateTime(java.time.temporal.TemporalAccessor temporal)
+
+
+
+
+
+*java.time.chrono.MinguoChronology.prolepticYear(Era,int)*
+
+public int prolepticYear(
+  java.time.chrono.Era era,
+  int yearOfEra)
+
+
+
+
+
+*java.time.chrono.MinguoChronology.range(ChronoField)*
+
+public |java.time.temporal.ValueRange| range(java.time.temporal.ChronoField field)
+
+
+
+
+
+*java.time.chrono.MinguoChronology.resolveDate(Map<TemporalField,Long>,ResolverStyle)*
+
+public |java.time.chrono.MinguoDate| resolveDate(
+  java.util.Map<java.time.temporal.TemporalField, java.lang.Long> fieldValues,
+  java.time.format.ResolverStyle resolverStyle)
+
+
+
+
+
+*java.time.chrono.MinguoChronology.zonedDateTime(Instant,ZoneId)*
+
+public |java.time.chrono.ChronoZonedDateTime|<MinguoDate> zonedDateTime(
+  java.time.Instant instant,
+  java.time.ZoneId zone)
+
+
+
+
+
+*java.time.chrono.MinguoChronology.zonedDateTime(TemporalAccessor)*
+
+public |java.time.chrono.ChronoZonedDateTime|<MinguoDate> zonedDateTime(java.time.temporal.TemporalAccessor temporal)
+
+
+
+
+
+

@@ -1,0 +1,108 @@
+*org.omg.PortableServer.ServantActivatorHelper* *ServantActivatorHelper* When th
+
+public abstract class ServantActivatorHelper
+  extends    |java.lang.Object|
+
+|org.omg.PortableServer.ServantActivatorHelper_Description|
+|org.omg.PortableServer.ServantActivatorHelper_Fields|
+|org.omg.PortableServer.ServantActivatorHelper_Constructors|
+|org.omg.PortableServer.ServantActivatorHelper_Methods|
+
+================================================================================
+
+*org.omg.PortableServer.ServantActivatorHelper_Constructors*
+|org.omg.PortableServer.ServantActivatorHelper()|
+
+*org.omg.PortableServer.ServantActivatorHelper_Methods*
+|org.omg.PortableServer.ServantActivatorHelper.extract(Any)|
+|org.omg.PortableServer.ServantActivatorHelper.id()|
+|org.omg.PortableServer.ServantActivatorHelper.insert(Any,ServantActivator)|
+|org.omg.PortableServer.ServantActivatorHelper.narrow(Object)|
+|org.omg.PortableServer.ServantActivatorHelper.read(InputStream)|
+|org.omg.PortableServer.ServantActivatorHelper.type()|
+|org.omg.PortableServer.ServantActivatorHelper.unchecked_narrow(Object)|
+|org.omg.PortableServer.ServantActivatorHelper.write(OutputStream,ServantActivator)|
+
+*org.omg.PortableServer.ServantActivatorHelper_Description*
+
+When the POA has the RETAIN policy it uses servant managers that are 
+ServantActivators. 
+
+
+
+*org.omg.PortableServer.ServantActivatorHelper()*
+
+public ServantActivatorHelper()
+
+
+
+
+*org.omg.PortableServer.ServantActivatorHelper.extract(Any)*
+
+public static |org.omg.PortableServer.ServantActivator| extract(org.omg.CORBA.Any a)
+
+
+
+
+
+*org.omg.PortableServer.ServantActivatorHelper.id()*
+
+public static |java.lang.String| id()
+
+
+
+
+
+*org.omg.PortableServer.ServantActivatorHelper.insert(Any,ServantActivator)*
+
+public static void insert(
+  org.omg.CORBA.Any a,
+  org.omg.PortableServer.ServantActivator that)
+
+
+
+
+
+*org.omg.PortableServer.ServantActivatorHelper.narrow(Object)*
+
+public static |org.omg.PortableServer.ServantActivator| narrow(org.omg.CORBA.Object obj)
+
+
+
+
+
+*org.omg.PortableServer.ServantActivatorHelper.read(InputStream)*
+
+public static |org.omg.PortableServer.ServantActivator| read(org.omg.CORBA.portable.InputStream istream)
+
+
+
+
+
+*org.omg.PortableServer.ServantActivatorHelper.type()*
+
+public static synchronized |org.omg.CORBA.TypeCode| type()
+
+
+
+
+
+*org.omg.PortableServer.ServantActivatorHelper.unchecked_narrow(Object)*
+
+public static |org.omg.PortableServer.ServantActivator| unchecked_narrow(org.omg.CORBA.Object obj)
+
+
+
+
+
+*org.omg.PortableServer.ServantActivatorHelper.write(OutputStream,ServantActivator)*
+
+public static void write(
+  org.omg.CORBA.portable.OutputStream ostream,
+  org.omg.PortableServer.ServantActivator value)
+
+
+
+
+
+

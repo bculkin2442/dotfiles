@@ -1,0 +1,35 @@
+*javax.xml.soap.Text* *Text* A representation of a node whose value is text.
+
+public interface interface Text
+
+  implements |javax.xml.soap.Node|
+             |org.w3c.dom.Text|
+
+|javax.xml.soap.Text_Description|
+|javax.xml.soap.Text_Fields|
+|javax.xml.soap.Text_Constructors|
+|javax.xml.soap.Text_Methods|
+
+================================================================================
+
+*javax.xml.soap.Text_Methods*
+|javax.xml.soap.Text.isComment()|Retrieves whether this Text object represents 
+
+*javax.xml.soap.Text_Description*
+
+A representation of a node whose value is text. A Text object may represent 
+text that is content or text that is a comment. 
+
+
+
+*javax.xml.soap.Text.isComment()*
+
+public boolean isComment()
+
+Retrieves whether this Text object represents a comment. 
+
+
+
+    Returns: true if this Text object is a comment; false otherwise 
+
+

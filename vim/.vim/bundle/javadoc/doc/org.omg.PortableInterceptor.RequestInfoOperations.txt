@@ -1,0 +1,268 @@
+*org.omg.PortableInterceptor.RequestInfoOperations* *RequestInfoOperations* Requ
+
+public interface interface RequestInfoOperations
+
+
+|org.omg.PortableInterceptor.RequestInfoOperations_Description|
+|org.omg.PortableInterceptor.RequestInfoOperations_Fields|
+|org.omg.PortableInterceptor.RequestInfoOperations_Constructors|
+|org.omg.PortableInterceptor.RequestInfoOperations_Methods|
+
+================================================================================
+
+*org.omg.PortableInterceptor.RequestInfoOperations_Methods*
+|org.omg.PortableInterceptor.RequestInfoOperations.arguments()|Returns an array
+|org.omg.PortableInterceptor.RequestInfoOperations.contexts()|Returns an array 
+|org.omg.PortableInterceptor.RequestInfoOperations.exceptions()|Returns an arra
+|org.omg.PortableInterceptor.RequestInfoOperations.forward_reference()|Contains
+|org.omg.PortableInterceptor.RequestInfoOperations.get_reply_service_context(int)|
+|org.omg.PortableInterceptor.RequestInfoOperations.get_request_service_context(int)|
+|org.omg.PortableInterceptor.RequestInfoOperations.get_slot(int)|Returns the da
+|org.omg.PortableInterceptor.RequestInfoOperations.operation_context()|Returns 
+|org.omg.PortableInterceptor.RequestInfoOperations.operation()|Returns the name
+|org.omg.PortableInterceptor.RequestInfoOperations.reply_status()|Describes the
+|org.omg.PortableInterceptor.RequestInfoOperations.request_id()|Returns an id t
+|org.omg.PortableInterceptor.RequestInfoOperations.response_expected()|Indicate
+|org.omg.PortableInterceptor.RequestInfoOperations.result()|Returns an any cont
+|org.omg.PortableInterceptor.RequestInfoOperations.sync_scope()|Defines how far
+
+*org.omg.PortableInterceptor.RequestInfoOperations_Description*
+
+Request Information, accessible to Interceptors. 
+
+Each interception point is given an object through which the Interceptor can 
+access request information. Client-side and server-side interception points are 
+concerned with different information, so there are two information objects: 
+ClientRequestInfo is passed to the client-side interception points and 
+ServerRequestInfo is passed to the server-side interception points. But there 
+is information that is common to both, so they both inherit from a common 
+interface: RequestInfo. 
+
+
+
+*org.omg.PortableInterceptor.RequestInfoOperations.arguments()*
+
+public |org.omg.Dynamic.Parameter|[] arguments()
+
+Returns an array of Parameter objects, containing the arguments on the 
+operation being invoked. If there are no arguments, this attribute will be a 
+zero length array. 
+
+Not all environments provide access to the arguments. With the Java portable 
+bindings, for example, the arguments are not available. In these environments, 
+when this attribute is accessed, NO_RESOURCES will be thrown with a standard 
+minor code of 1. 
+
+Note: Arguments are available for DSI/DII calls. 
+
+
+
+*org.omg.PortableInterceptor.RequestInfoOperations.contexts()*
+
+public |java.lang.String|[] contexts()
+
+Returns an array of String objects describing the contexts that may be passed 
+on this operation invocation. If there are no contexts, this will return a zero 
+length array. 
+
+Not all environments provide access to the context list. With the Java portable 
+bindings, for example, the context list is not available. In these 
+environments, when this attribute is accessed, NO_RESOURCES will be thrown with 
+a standard minor code of 1. 
+
+Note: Contexts are available for DSI/DII calls. 
+
+
+
+*org.omg.PortableInterceptor.RequestInfoOperations.exceptions()*
+
+public |org.omg.CORBA.TypeCode|[] exceptions()
+
+Returns an array of TypeCode objects describing the TypeCodes of the user 
+exceptions that this operation invocation may throw. If there are no user 
+exceptions, this will return a zero length array. 
+
+Not all environments provide access to the exception list. With the Java 
+portable bindings, for example, the exception list is not available. In these 
+environments, when this attribute is accessed, NO_RESOURCES will be thrown with 
+a standard minor code of 1. 
+
+Note: Exceptions are available for DSI/DII calls. 
+
+
+
+*org.omg.PortableInterceptor.RequestInfoOperations.forward_reference()*
+
+public |org.omg.CORBA.Object| forward_reference()
+
+Contains the object to which the request will be forwarded, if the reply_status 
+attribute is LOCATION_FORWARD. It is indeterminate whether a forwarded request 
+will actually occur. 
+
+
+
+*org.omg.PortableInterceptor.RequestInfoOperations.get_reply_service_context(int)*
+
+public |org.omg.IOP.ServiceContext| get_reply_service_context(int id)
+
+Returns a copy of the service context with the given ID that is associated with 
+the reply. 
+
+
+    id - The IOP.ServiceId of the service context which is to be returned. 
+
+    Returns: The IOP.ServiceContext obtained with the given identifier. 
+
+*org.omg.PortableInterceptor.RequestInfoOperations.get_request_service_context(int)*
+
+public |org.omg.IOP.ServiceContext| get_request_service_context(int id)
+
+Returns a copy of the service context with the given ID that is associated with 
+the request. 
+
+
+    id - The IOP.ServiceId of the service context which is to be returned. 
+
+    Returns: The IOP.ServiceContext obtained with the given identifier. 
+
+*org.omg.PortableInterceptor.RequestInfoOperations.get_slot(int)*
+
+public |org.omg.CORBA.Any| get_slot(int id)
+  throws |org.omg.PortableInterceptor.InvalidSlot|
+         
+Returns the data from the given slot of the PortableInterceptor.Current that is 
+in the scope of the request. 
+
+If the given slot has not been set, then an any containing a type code with a 
+TCKind value of tk_null is returned. 
+
+
+    id - The SlotId of the slot which is to be returned. 
+
+    Returns: The slot data, in the form of an any, obtained with the given identifier. 
+
+*org.omg.PortableInterceptor.RequestInfoOperations.operation_context()*
+
+public |java.lang.String|[] operation_context()
+
+Returns an array of String objects containing the contexts being sent on the 
+request. 
+
+Not all environments provide access to the context. With the Java portable 
+bindings, for example, the context is not available. In these environments, 
+when this attribute is accessed, NO_RESOURCES will be thrown with standard 
+minor code of 1. 
+
+Note: operation_context is available for DSI/DII calls. 
+
+
+
+*org.omg.PortableInterceptor.RequestInfoOperations.operation()*
+
+public |java.lang.String| operation()
+
+Returns the name of the operation being invoked. 
+
+
+
+*org.omg.PortableInterceptor.RequestInfoOperations.reply_status()*
+
+public short reply_status()
+
+Describes the state of the result of the operation invocation. The return value 
+can be one of the following: 
+
+PortableInterceptor.SUCCESSFUL PortableInterceptor.SYSTEM_EXCEPTION 
+PortableInterceptor.USER_EXCEPTION PortableInterceptor.LOCATION_FORWARD 
+PortableInterceptor.TRANSPORT_RETRY 
+
+On the client: 
+
+Within the receive_reply interception point, this will only return SUCCESSFUL. 
+Within the receive_exception interception point, this will be either 
+SYSTEM_EXCEPTION or USER_EXCEPTION. Within the receive_other interception 
+point, this will be any of: SUCCESSFUL, LOCATION_FORWARD, or TRANSPORT_RETRY. 
+SUCCESSFUL means an asynchronous request returned successfully. 
+LOCATION_FORWARD means that a reply came back with LOCATION_FORWARD as its 
+status. TRANSPORT_RETRY means that the transport mechanism indicated a retry - 
+a GIOP reply with a status of NEEDS_ADDRESSING_MODE, for instance. 
+
+On the server: 
+
+Within the send_reply interception point, this will only be SUCCESSFUL. Within 
+the send_exception interception point, this will be either SYSTEM_EXCEPTION or 
+USER_EXCEPTION. Within the send_other interception point, this attribute will 
+be any of: SUCCESSFUL, or LOCATION_FORWARD. SUCCESSFUL means an asynchronous 
+request returned successfully. LOCATION_FORWARD means that a reply came back 
+with LOCATION_FORWARD as its status. 
+
+
+
+*org.omg.PortableInterceptor.RequestInfoOperations.request_id()*
+
+public int request_id()
+
+Returns an id that uniquely identifies an active request/reply sequence. Once a 
+request/reply sequence is concluded this ID may be reused. Note that this id is 
+not the same as the GIOP request_id. If GIOP is the transport mechanism used, 
+then these IDs may very well be the same, but this is not guaranteed nor 
+required. 
+
+
+
+*org.omg.PortableInterceptor.RequestInfoOperations.response_expected()*
+
+public boolean response_expected()
+
+Indicates whether a response is expected. 
+
+On the client, a reply is not returned when response_expected is false, so 
+receive_reply cannot be called. receive_other is called unless an exception 
+occurs, in which case receive_exception is called. 
+
+On the client, within send_poll, this attribute is true. 
+
+
+
+*org.omg.PortableInterceptor.RequestInfoOperations.result()*
+
+public |org.omg.CORBA.Any| result()
+
+Returns an any containing the result of the operation invocation. If the 
+operation return type is void, this attribute will be an any containing a type 
+code with a TCKind value of tk_void and no value. 
+
+Not all environments provide access to the result. With the Java portable 
+bindings, for example, the result is not available. In these environments, when 
+this attribute is accessed, NO_RESOURCES will be thrown with a standard minor 
+code of 1. 
+
+Note: Result is available for DSI/DII calls. 
+
+
+
+*org.omg.PortableInterceptor.RequestInfoOperations.sync_scope()*
+
+public short sync_scope()
+
+Defines how far the request shall progress before control is returned to the 
+client. This is defined in the Messaging specification, and is pertinent only 
+when response_expected is false. If response_expected is true, the value of 
+sync_scope is undefined. This attribute may have one of the following values: 
+
+Messaging.SYNC_NONE Messaging.SYNC_WITH_TRANSPORT Messaging.SYNC_WITH_SERVER 
+Messaging.SYNC_WITH_TARGET 
+
+On the server, for all scopes, a reply will be created from the return of the 
+target operation call, but the reply will not return to the client. Although it 
+does not return to the client, it does occur, so the normal server-side 
+interception points are followed (i.e., receive_request_service_contexts, 
+receive_request, send_reply or send_exception). 
+
+For SYNC_WITH_SERVER and SYNC_WITH_TARGET, the server does send an empty reply 
+back to the client before the target is invoked. This reply is not intercepted 
+by server-side Interceptors. 
+
+
+
+

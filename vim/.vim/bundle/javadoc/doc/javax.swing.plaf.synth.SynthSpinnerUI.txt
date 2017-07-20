@@ -1,0 +1,232 @@
+*javax.swing.plaf.synth.SynthSpinnerUI* *SynthSpinnerUI* Provides the Synth L an
+
+public class SynthSpinnerUI
+  extends    |javax.swing.plaf.basic.BasicSpinnerUI|
+  implements |java.beans.PropertyChangeListener|
+             |javax.swing.plaf.synth.SynthUI|
+
+|javax.swing.plaf.synth.SynthSpinnerUI_Description|
+|javax.swing.plaf.synth.SynthSpinnerUI_Fields|
+|javax.swing.plaf.synth.SynthSpinnerUI_Constructors|
+|javax.swing.plaf.synth.SynthSpinnerUI_Methods|
+
+================================================================================
+
+*javax.swing.plaf.synth.SynthSpinnerUI_Constructors*
+|javax.swing.plaf.synth.SynthSpinnerUI()|
+
+*javax.swing.plaf.synth.SynthSpinnerUI_Methods*
+|javax.swing.plaf.synth.SynthSpinnerUI.createEditor()|This method is called by 
+|javax.swing.plaf.synth.SynthSpinnerUI.createLayout()|
+|javax.swing.plaf.synth.SynthSpinnerUI.createNextButton()|
+|javax.swing.plaf.synth.SynthSpinnerUI.createPreviousButton()|
+|javax.swing.plaf.synth.SynthSpinnerUI.createUI(JComponent)|Returns a new insta
+|javax.swing.plaf.synth.SynthSpinnerUI.getContext(JComponent)|
+|javax.swing.plaf.synth.SynthSpinnerUI.installDefaults()|Initializes the JSpinn
+|javax.swing.plaf.synth.SynthSpinnerUI.installListeners()|
+|javax.swing.plaf.synth.SynthSpinnerUI.paint(Graphics,JComponent)|Paints the sp
+|javax.swing.plaf.synth.SynthSpinnerUI.paint(SynthContext,Graphics)|Paints the 
+|javax.swing.plaf.synth.SynthSpinnerUI.paintBorder(SynthContext,Graphics,int,int,int,int)|
+|javax.swing.plaf.synth.SynthSpinnerUI.propertyChange(PropertyChangeEvent)|
+|javax.swing.plaf.synth.SynthSpinnerUI.replaceEditor(JComponent,JComponent)|Cal
+|javax.swing.plaf.synth.SynthSpinnerUI.uninstallDefaults()|Sets the JSpinner's 
+|javax.swing.plaf.synth.SynthSpinnerUI.uninstallListeners()|
+|javax.swing.plaf.synth.SynthSpinnerUI.update(Graphics,JComponent)|Notifies thi
+
+*javax.swing.plaf.synth.SynthSpinnerUI_Description*
+
+Provides the Synth L and F UI delegate for (|javax.swing.JSpinner|) . 
+
+
+
+*javax.swing.plaf.synth.SynthSpinnerUI()*
+
+public SynthSpinnerUI()
+
+
+
+
+*javax.swing.plaf.synth.SynthSpinnerUI.createEditor()*
+
+protected |javax.swing.JComponent| createEditor()
+
+This method is called by installUI to get the editor component of the JSpinner. 
+By default it just returns JSpinner.getEditor(). Subclasses can override 
+createEditor to return a component that contains the spinner's editor or null, 
+if they're going to handle adding the editor to the JSpinner in an installUI 
+override. 
+
+Typically this method would be overridden to wrap the editor with a container 
+with a custom border, since one can't assume that the editors border can be set 
+directly. 
+
+The replaceEditor method is called when the spinners editor is changed with 
+JSpinner.setEditor. If you've overriden this method, then you'll probably want 
+to override replaceEditor as well. 
+
+
+
+    Returns: the JSpinners editor JComponent, spinner.getEditor() by default 
+
+*javax.swing.plaf.synth.SynthSpinnerUI.createLayout()*
+
+protected |java.awt.LayoutManager| createLayout()
+
+
+
+
+
+*javax.swing.plaf.synth.SynthSpinnerUI.createNextButton()*
+
+protected |java.awt.Component| createNextButton()
+
+
+
+
+
+*javax.swing.plaf.synth.SynthSpinnerUI.createPreviousButton()*
+
+protected |java.awt.Component| createPreviousButton()
+
+
+
+
+
+*javax.swing.plaf.synth.SynthSpinnerUI.createUI(JComponent)*
+
+public static |javax.swing.plaf.ComponentUI| createUI(javax.swing.JComponent c)
+
+Returns a new instance of SynthSpinnerUI. 
+
+
+    c - the JSpinner (not used) 
+
+    Returns: a new SynthSpinnerUI object 
+
+*javax.swing.plaf.synth.SynthSpinnerUI.getContext(JComponent)*
+
+public |javax.swing.plaf.synth.SynthContext| getContext(javax.swing.JComponent c)
+
+
+
+
+
+*javax.swing.plaf.synth.SynthSpinnerUI.installDefaults()*
+
+protected void installDefaults()
+
+Initializes the JSpinner border, foreground, and background, properties based 
+on the corresponding "Spinner.*" properties from defaults table. The JSpinners 
+layout is set to the value returned by createLayout. This method is called by 
+installUI. 
+
+
+
+*javax.swing.plaf.synth.SynthSpinnerUI.installListeners()*
+
+protected void installListeners()
+
+
+
+
+
+*javax.swing.plaf.synth.SynthSpinnerUI.paint(Graphics,JComponent)*
+
+public void paint(
+  java.awt.Graphics g,
+  javax.swing.JComponent c)
+
+Paints the specified component according to the Look and Feel. This method is 
+not used by Synth Look and Feel. Painting is handled by the 
+(|javax.swing.plaf.synth.SynthSpinnerUI|) method. 
+
+
+    g - the {@code Graphics} object used for painting 
+    c - the component being painted 
+
+*javax.swing.plaf.synth.SynthSpinnerUI.paint(SynthContext,Graphics)*
+
+protected void paint(
+  javax.swing.plaf.synth.SynthContext context,
+  java.awt.Graphics g)
+
+Paints the specified component. This implementation does nothing. 
+
+
+    context - context for the component being painted 
+    g - the {@code Graphics} object used for painting 
+
+*javax.swing.plaf.synth.SynthSpinnerUI.paintBorder(SynthContext,Graphics,int,int,int,int)*
+
+public void paintBorder(
+  javax.swing.plaf.synth.SynthContext context,
+  java.awt.Graphics g,
+  int x,
+  int y,
+  int w,
+  int h)
+
+
+
+
+
+*javax.swing.plaf.synth.SynthSpinnerUI.propertyChange(PropertyChangeEvent)*
+
+public void propertyChange(java.beans.PropertyChangeEvent e)
+
+
+
+
+
+*javax.swing.plaf.synth.SynthSpinnerUI.replaceEditor(JComponent,JComponent)*
+
+protected void replaceEditor(
+  javax.swing.JComponent oldEditor,
+  javax.swing.JComponent newEditor)
+
+Called by the PropertyChangeListener when the JSpinner editor property changes. 
+It's the responsibility of this method to remove the old editor and add the new 
+one. By default this operation is just: 
+
+spinner.remove(oldEditor); spinner.add(newEditor, "Editor"); 
+
+The implementation of replaceEditor should be coordinated with the createEditor 
+method. 
+
+
+
+*javax.swing.plaf.synth.SynthSpinnerUI.uninstallDefaults()*
+
+protected void uninstallDefaults()
+
+Sets the JSpinner's layout manager to null. This method is called by 
+uninstallUI. 
+
+
+
+*javax.swing.plaf.synth.SynthSpinnerUI.uninstallListeners()*
+
+protected void uninstallListeners()
+
+
+
+
+
+*javax.swing.plaf.synth.SynthSpinnerUI.update(Graphics,JComponent)*
+
+public void update(
+  java.awt.Graphics g,
+  javax.swing.JComponent c)
+
+Notifies this UI delegate to repaint the specified component. This method 
+paints the component background, then calls the 
+(|javax.swing.plaf.synth.SynthSpinnerUI|) method. 
+
+In general, this method does not need to be overridden by subclasses. All Look 
+and Feel rendering code should reside in thepaintmethod. 
+
+
+    g - the {@code Graphics} object used for painting 
+    c - the component being painted 
+
+

@@ -1,0 +1,24 @@
+*org.omg.PortableInterceptor.IORInfo* *IORInfo* Provides the server-side ORB ser
+
+public interface interface IORInfo
+
+  implements |org.omg.PortableInterceptor.IORInfoOperations|
+             |org.omg.CORBA.Object|
+             |org.omg.CORBA.portable.IDLEntity|
+
+|org.omg.PortableInterceptor.IORInfo_Description|
+|org.omg.PortableInterceptor.IORInfo_Fields|
+|org.omg.PortableInterceptor.IORInfo_Constructors|
+|org.omg.PortableInterceptor.IORInfo_Methods|
+
+================================================================================
+
+*org.omg.PortableInterceptor.IORInfo_Description*
+
+Provides the server-side ORB service with access to the applicable policies 
+during IOR construction and the ability to add components. The ORB passes an 
+instance of its implementation of this interface as a parameter to 
+IORInterceptor.establish_components. 
+
+
+

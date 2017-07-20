@@ -1,0 +1,29 @@
+*javax.xml.bind.annotation.XmlElementRef.DEFAULT* *XmlElementRef.DEFAULT* Used i
+
+public static final class XmlElementRef.DEFAULT
+  extends    |java.lang.Object|
+
+|javax.xml.bind.annotation.XmlElementRef.DEFAULT_Description|
+|javax.xml.bind.annotation.XmlElementRef.DEFAULT_Fields|
+|javax.xml.bind.annotation.XmlElementRef.DEFAULT_Constructors|
+|javax.xml.bind.annotation.XmlElementRef.DEFAULT_Methods|
+
+================================================================================
+
+*javax.xml.bind.annotation.XmlElementRef.DEFAULT_Constructors*
+|javax.xml.bind.annotation.XmlElementRef.DEFAULT()|
+
+*javax.xml.bind.annotation.XmlElementRef.DEFAULT_Description*
+
+Used in (|javax.xml.bind.annotation.XmlElementRef|) to signal that the type be 
+inferred from the signature of the property. 
+
+
+
+*javax.xml.bind.annotation.XmlElementRef.DEFAULT()*
+
+public DEFAULT()
+
+
+
+

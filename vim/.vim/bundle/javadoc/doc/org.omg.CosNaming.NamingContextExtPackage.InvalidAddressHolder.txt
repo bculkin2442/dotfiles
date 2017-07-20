@@ -1,0 +1,79 @@
+*org.omg.CosNaming.NamingContextExtPackage.InvalidAddressHolder* *InvalidAddressHolder* 
+
+public final class InvalidAddressHolder
+  extends    |java.lang.Object|
+  implements |org.omg.CORBA.portable.Streamable|
+
+|org.omg.CosNaming.NamingContextExtPackage.InvalidAddressHolder_Description|
+|org.omg.CosNaming.NamingContextExtPackage.InvalidAddressHolder_Fields|
+|org.omg.CosNaming.NamingContextExtPackage.InvalidAddressHolder_Constructors|
+|org.omg.CosNaming.NamingContextExtPackage.InvalidAddressHolder_Methods|
+
+================================================================================
+
+*org.omg.CosNaming.NamingContextExtPackage.InvalidAddressHolder_Fields*
+|org.omg.CosNaming.NamingContextExtPackage.InvalidAddress_org.omg.CosNaming.NamingContextExtPackage.InvalidAddressHolder.value|
+
+*org.omg.CosNaming.NamingContextExtPackage.InvalidAddressHolder_Constructors*
+|org.omg.CosNaming.NamingContextExtPackage.InvalidAddressHolder()|
+|org.omg.CosNaming.NamingContextExtPackage.InvalidAddressHolder(InvalidAddress)|
+
+*org.omg.CosNaming.NamingContextExtPackage.InvalidAddressHolder_Methods*
+|org.omg.CosNaming.NamingContextExtPackage.InvalidAddressHolder._read(InputStream)|
+|org.omg.CosNaming.NamingContextExtPackage.InvalidAddressHolder._type()|
+|org.omg.CosNaming.NamingContextExtPackage.InvalidAddressHolder._write(OutputStream)|
+
+*org.omg.CosNaming.NamingContextExtPackage.InvalidAddressHolder_Description*
+
+org/omg/CosNaming/NamingContextExtPackage/InvalidAddressHolder.java . Generated 
+by the IDL-to-Java compiler (portable), version "3.2" from 
+/HUDSON/workspace/8-2-build-macosx-x86_64/jdk8u5/2488/corba/src/share/classes/org/omg/CosNaming/nameservice.idl
+Tuesday, March 18, 2014 12:37:21 AM PDT 
+
+
+
+*org.omg.CosNaming.NamingContextExtPackage.InvalidAddress_org.omg.CosNaming.NamingContextExtPackage.InvalidAddressHolder.value*
+
+
+
+
+
+*org.omg.CosNaming.NamingContextExtPackage.InvalidAddressHolder()*
+
+public InvalidAddressHolder()
+
+
+
+
+*org.omg.CosNaming.NamingContextExtPackage.InvalidAddressHolder(InvalidAddress)*
+
+public InvalidAddressHolder(org.omg.CosNaming.NamingContextExtPackage.InvalidAddress initialValue)
+
+
+
+
+*org.omg.CosNaming.NamingContextExtPackage.InvalidAddressHolder._read(InputStream)*
+
+public void _read(org.omg.CORBA.portable.InputStream i)
+
+
+
+
+
+*org.omg.CosNaming.NamingContextExtPackage.InvalidAddressHolder._type()*
+
+public |org.omg.CORBA.TypeCode| _type()
+
+
+
+
+
+*org.omg.CosNaming.NamingContextExtPackage.InvalidAddressHolder._write(OutputStream)*
+
+public void _write(org.omg.CORBA.portable.OutputStream o)
+
+
+
+
+
+
