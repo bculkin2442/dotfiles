@@ -4,3 +4,6 @@
 [submodule "vim/.vim/bundle/vim-vinegar"]
 	path = vim/.vim/bundle/vim-vinegar
 	url = https://github.com/tpope/vim-vinegar.git
+[submodule "vim/.vim/bundle/rainbow"]
+	path = vim/.vim/bundle/rainbow
+	url = https://github.com/luochen1990/rainbow.git
