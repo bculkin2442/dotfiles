@@ -1,0 +1,7 @@
+style=java
+indent=tab=8
+break-blocks
+pad-oper
+pad-header
+convert-tabs
+max-code-length=90

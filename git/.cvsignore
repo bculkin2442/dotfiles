@@ -39,6 +39,7 @@ GTAGS
 GRTAGS
 GPATH
 GSYMS
+ID
 cscope.files
 cscope.out
 cscope.in.out
@@ -58,7 +59,6 @@ Session.vim
 tags
 
 # Eclipse ignores
-
 
 .metadata
 bin/
@@ -110,3 +110,7 @@ local.properties
 
 # Code Recommenders
 .recommenders/
+
+# astyle ignores
+# Original formatted files
+*.orig

@@ -17,7 +17,7 @@ backtick 1 30 30 /home/ben/batstatus.sh
 backtick 2 30 30 pwd
 
 # Actual status line
-caption always "Window: %t %= Time: %C %A, %M %d %Y%= Battery: %1`"
+caption always "Window #%n: %t %= Time: %C %A, %M %d %Y%= Battery: %1`"
 
 # Enable hard-status
 hardstatus on
