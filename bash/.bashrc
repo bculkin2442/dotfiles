@@ -26,11 +26,9 @@ shopt -s globstar
 
 # Aliases
 alias stow=xstow
+alias gitaddsub='git submodule add'
 
 # Completion
 # Complete based off of existing commands
 complete -c man
 complete -c which
-
-# Enable generic man-based completion
-source ~/generic-complete.sh

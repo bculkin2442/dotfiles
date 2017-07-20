@@ -10,3 +10,36 @@
 [submodule "vim/.vim/bundle/setcolors.vim"]
 	path = vim/.vim/bundle/setcolors.vim
 	url = https://github.com/felixhummel/setcolors.vim.git
+[submodule "vim/.vim/bundle/vim-abolish"]
+	path = vim/.vim/bundle/vim-abolish
+	url = https://github.com/tpope/vim-abolish.git
+[submodule "vim/.vim/bundle/vim-colorschemes"]
+	path = vim/.vim/bundle/vim-colorschemes
+	url = https://github.com/flazz/vim-colorschemes.git
+[submodule "vim/.vim/bundle/vim-commentary"]
+	path = vim/.vim/bundle/vim-commentary
+	url = https://github.com/tpope/vim-commentary.git
+[submodule "vim/.vim/bundle/vim-custom"]
+	path = vim/.vim/bundle/vim-custom
+	url = https://github.com/bculkin2442/vim-custom.git
+[submodule "vim/.vim/bundle/vim-easy-align"]
+	path = vim/.vim/bundle/vim-easy-align
+	url = https://github.com/junegunn/vim-easy-align.git
+[submodule "vim/.vim/bundle/vim-focus"]
+	path = vim/.vim/bundle/vim-focus
+	url = https://github.com/bculkin2442/vim-focus.git
+[submodule "vim/.vim/bundle/vim-multiple-cursors"]
+	path = vim/.vim/bundle/vim-multiple-cursors
+	url = https://github.com/terryma/vim-multiple-cursors.git
+[submodule "vim/.vim/bundle/vim-repeat"]
+	path = vim/.vim/bundle/vim-repeat
+	url = https://github.com/tpope/vim-repeat.git
+[submodule "vim/.vim/bundle/vim-scriptease"]
+	path = vim/.vim/bundle/vim-scriptease
+	url = https://github.com/tpope/vim-scriptease.git
+[submodule "vim/.vim/bundle/vim-sneak"]
+	path = vim/.vim/bundle/vim-sneak
+	url = https://github.com/justinmk/vim-sneak.git
+[submodule "vim/.vim/bundle/vim-surround"]
+	path = vim/.vim/bundle/vim-surround
+	url = https://github.com/tpope/vim-surround.git
