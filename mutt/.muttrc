@@ -6,7 +6,7 @@ set send_charset="utf-8"
 set assumed_charset="iso-8859-1"
 
 # Tell vim that mutt is a mail client, sending UTF-8 messages.
-set editor="vim -c 'set syntax=mail ft=mail enc=utf-8"
+set editor="vim -c 'set syntax=mail ft=mail enc=utf-8'"
 
 # Scroll line-at-a--time
 set menu_scroll=yes
@@ -45,7 +45,6 @@ color bold brightyellow default
 
 # Personality settings
 set realname =  "Benjamin J. Culkin"
-set from = "bjculkin@mix.wvu.edu"
 
 # Aliases (Address book)
 source ~/.aliases
@@ -54,29 +53,25 @@ source ~/.aliases
 set mail_check=60
 set imap_keepalive=30
 
-# IMAP Account settings
-set imap_user = "bjculkin@mix.wvu.edu"
-
-set folder = imaps://imap.gmail.com
-set spoolfile = +INBOX
-set record = "+[Gmail]/Sent Mail"
-set postponed = "+[Gmail]/Drafts"
-
 # Cache IMAP headers
 set header_cache=/var/tmp/.mutt
 
-# Prompt to archive read messages
-set mbox="imaps://imap.gmail.com/[Gmail]/All Mail"
-
-# SMTP settings
-set smtp_url = "smtps://bjculkin@smtp.gmail.com"
-set record=""
-
 # Show certain types of attachments inline
 # Use the format "auto_view <mime-type>"
-
+auto_view text/html
+# However, only show HTML with no other options
+alternative_order text/plain text/enriched text/html
 
 # Keybindings
 
+# Swap accounts
+# macro index <f2> '<sync-mailbox><enter-command>source ~/.mutt/account.mix<enter><change-folder>!<enter>'
+
+# Archive message
+macro index A '<save-message>+[Gmail]/All Mail<enter>' 'Archive message'
+
 # Accept folders w/ spaces in their names
 bind editor <space> noop
+
+# Use default account on startup
+source ~/.mutt/account.mix

@@ -1,0 +1,28 @@
+# Use audible bell
+vbell on
+vbell_msg "  -- Bell, Bell! --  "
+
+# Use nethack messages
+nethack on
+
+# Multi-usermode
+multiuser on
+
+# Turn on alternate screen support
+altscreen on
+
+# Status line
+# Included utilities
+backtick 1 30 30 upower --dump | grep percentage | head -1
+
+# Actual status line
+caption always "%3n %t %1`"
+
+# Enable hard-status
+hardstatus on
+# Use the first line of the screen for non-status aware terminals
+hardstatus firstline 
+
+# Keybindings
+#
+#bindkey ^K digraph
