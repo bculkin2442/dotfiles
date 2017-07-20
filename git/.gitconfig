@@ -3,3 +3,5 @@
 	name = Benjamin J. Culkin
 [pass]
 	signcommits = true
+[credential "https://github.com"]
+	username = bculkin2442

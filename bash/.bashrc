@@ -21,3 +21,6 @@ fi
 export EDITOR=vim
 export PAGER=less
 export BROWSER=links
+
+# Aliases
+alias stow=xstow
