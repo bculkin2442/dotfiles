@@ -20,6 +20,6 @@ set imap_user="bjculkin@mix.wvu.edu"
 set imap_pass=$my_pw_mix
 
 # SMTP info
-set smtp_url="smtp://bjculkin@smtp.gmail.com"
+set smtp_url="smtp://bjculkin@mix.wvu.edu@smtp.gmail.com"
 set smtp_pass=$my_pw_mix
 
