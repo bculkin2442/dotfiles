@@ -5,6 +5,8 @@
 	signcommits = true
 [credential "https://github.com"]
 	username = bculkin2442
+[credential "https://bitbucket.org"]
+	username = bculkin2442
 [core]
 	excludesfile = ~/.cvsignore
 [push]
