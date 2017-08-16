@@ -32,3 +32,6 @@ alias gitaddsub='git submodule add'
 # Complete based off of existing commands
 complete -c man
 complete -c which
+
+# Source bash functions
+source ~/.bash/functions.sh
