@@ -1,0 +1,6 @@
+table Icon
+	Caption: Suspend Computer
+	ToolTip.Caption: Low power mode
+	Icon <FILLMEOUT>
+	Command[0]: pm-suspend
+end
