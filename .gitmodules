@@ -49,3 +49,9 @@
 [submodule "vim/.vim/bundle/tagbar"]
 	path = vim/.vim/bundle/tagbar
 	url = https://github.com/majutsushi/tagbar.git
+[submodule "vim/.vim/bundle/vim-exchange"]
+	path = vim/.vim/bundle/vim-exchange
+	url = https://github.com/tommcdo/vim-exchange
+[submodule "vim/.vim/bundle/vim-counterpoint"]
+	path = vim/.vim/bundle/vim-counterpoint
+	url = https://github.com/jpetrie/vim-counterpoint.git

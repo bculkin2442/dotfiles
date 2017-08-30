@@ -7,8 +7,10 @@ xdockserver &
 wmsystray &
 
 # Start dock apps
-xdmemory &
+xdclock -c12 &
 
+# Start notification server
+dunst &
 # Start up a terminal
 st &
 
