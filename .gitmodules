@@ -56,3 +56,6 @@
 [submodule "vim/.vim/bundle/vim-counterpoint"]
 	path = vim/.vim/bundle/vim-counterpoint
 	url = https://github.com/jpetrie/vim-counterpoint.git
+[submodule "vim/.vim/bundle/CCTree"]
+	path = vim/.vim/bundle/CCTree
+	url = https://github.com/vim-scripts/CCTree
