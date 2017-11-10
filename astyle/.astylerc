@@ -1,7 +1,8 @@
 style=java
 indent=tab=8
+indent-cases
 break-blocks
 pad-oper
 pad-header
-convert-tabs
+add-braces
 max-code-length=90

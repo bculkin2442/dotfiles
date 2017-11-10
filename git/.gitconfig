@@ -11,3 +11,5 @@
 	excludesfile = ~/.cvsignore
 [push]
 	default = matching
+[credential]
+	helper = cache

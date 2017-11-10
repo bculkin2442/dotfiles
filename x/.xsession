@@ -2,6 +2,9 @@
 
 xsetroot -bitmap ~/wvguess.XBM -fg gold2 -bg blue
 
+# Start the ssh agent
+ssh-agent &
+
 # Start system dock and system tray
 xdockserver &
 wmsystray &

@@ -18,14 +18,21 @@ export EDITOR=vim
 export PAGER=most
 export BROWSER=lynx
 
+# Make options
+export MAKEOPTS=-j3
 # Shell options
 # 	Make ** in a pathname expansion context to match all files and zero or more
 #	directories or subdirectories
 shopt -s globstar
 
 # Aliases
-alias stow=xstow
+alias stow='xstow'
 alias gitaddsub='git submodule add'
+alias vpdf='mupdf-gl'
+alias make='make -j3'
+
+# Enviroment variables
+export CC=colorgcc
 
 # Completion
 # Complete based off of existing commands
