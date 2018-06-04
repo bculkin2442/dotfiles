@@ -28,7 +28,7 @@ function fontlist {
 
 # Count unique lines of input
 function uniqcount {
-	sort | uniq | sort -n
+	sort | uniq -c | sort -k 2n
 }
 
 # Run a command for each argument
@@ -79,4 +79,9 @@ function lprduplex {
 # Create a maven project
 function mvncreate {
 	mvn archetype:generate -DartifactId="$1" -DgroupId="$2"
+}
+
+# Convert a jpg to an eps file
+function jpg2eps {
+	convert "$1" "${1%.jpg}.eps"
 }

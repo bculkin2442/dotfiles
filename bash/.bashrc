@@ -38,6 +38,7 @@ export CC=colorgcc
 # Complete based off of existing commands
 complete -c man
 complete -c which
+complete -c foreach
 
 # Source bash functions
 source ~/.bash/functions.sh

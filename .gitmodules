@@ -62,3 +62,6 @@
 [submodule "vim/.vim/bundle/vim-unimpaired"]
 	path = vim/.vim/bundle/vim-unimpaired
 	url = https://github.com/tpope/vim-unimpaired
+[submodule "vim/.vim/bundle/vim-gram"]
+	path = vim/.vim/bundle/vim-gram
+	url = /home/ben/projects/vim-gram/
