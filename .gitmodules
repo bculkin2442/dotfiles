@@ -65,3 +65,6 @@
 [submodule "vim/.vim/bundle/vim-gram"]
 	path = vim/.vim/bundle/vim-gram
 	url = /home/ben/projects/vim-gram/
+[submodule "vim/.vim/bundle/CurtineIncSw.vim"]
+	path = vim/.vim/bundle/CurtineIncSw.vim
+	url = https://github.com/ericcurtin/CurtineIncSw.vim

@@ -13,6 +13,11 @@ if [[ $- != *i* ]] ; then
 	return
 fi
 
+if [ ! -z "$DVTM" ] ; then
+	# Set the right terminal type
+	export TERM=dvtm-256color;
+fi
+
 # Configure programs
 export EDITOR=vim
 export PAGER=most
@@ -30,6 +35,7 @@ alias stow='xstow'
 alias gitaddsub='git submodule add'
 alias vpdf='mupdf-gl'
 alias make='make -j3'
+alias wm='dtach -A /tmp/dvtm -r winch dvtm'
 
 # Enviroment variables
 export CC=colorgcc
@@ -42,3 +48,9 @@ complete -c foreach
 
 # Source bash functions
 source ~/.bash/functions.sh
+
+PATH="/home/ben/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="/home/ben/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/home/ben/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/home/ben/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/home/ben/perl5"; export PERL_MM_OPT;

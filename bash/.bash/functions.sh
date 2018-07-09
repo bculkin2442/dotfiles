@@ -85,3 +85,16 @@ function mvncreate {
 function jpg2eps {
 	convert "$1" "${1%.jpg}.eps"
 }
+
+# Execute a command expecting a piped file on a normal file
+function ffunc {
+	cat "$2" | "$1"
+}
+
+function intersperse {
+	intertext="$1"
+	shift 1
+	for arg in "$@"; do
+		echo "$arg" "$intertext";
+	done;
+}
